@@ -74,35 +74,43 @@
 
 	<!-- Insert your content here below! -->
 
-      <div class="jumbotron">
-        <h1>Saverio Silli</h1>
-		  <h3>Architect, Maker, Gourmand.</h3>
+      
+     
+    <h1>CONCEPT</h1>
+		  <h2>Rotational casting machine</h2>
+		
         <br><p>
-       I graduated from Roma Tre University and became an Architect and Interior Designer. During my studies and activities in Italy and abroad, I have gathered a great number of experiences in many fields: woodworking, propmaking, graphic design, product design and when I first heard that word, I knew I was a "maker". I developed an attitude toward creativity and originality, learning how to translate my ideas into effective designs.<br>
-		  <p>And I love to cook, eat delicious food and drink a nice glass of wine!</p>
-        </p>
+		Everything starts within one of my activities as a maker: <strong>Propmaking</strong><br>
+		A prop (abbreviative for property) is an object used on a movie set. A gun, a mobile phone, a book, a lightsaber, anything that an actor might have to use or touch is considered a prop and it has to be found and colected by the Prop Master or made from scratch by the Prop Maker. In my spare time I run a small propmaking lab with its own small webcomunity called <a href=http://www.spaghettiprop.it>Spaghetti Prop</a></p>
+		<p><iframe width="420" height="315" src="https://www.youtube.com/embed/ofzg_Hjukzg" frameborder="0" allowfullscreen></iframe></p>
+		<p>One thing i usually do are hollow cast made with silicone mold and cast with polyurethane resin. A Rotocasting Machine rotates a mold in every direction so the resin keeps moving while it covers the inside walls of the mold. In a lapse of 10 minutes the resin hardens and at the end you have a perfect, durable and lightweight cast.</p><BR>
 		
-      </div>
-      
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>About</h2>
-          <p>Click on the button if you want to know something more about me and why I moved to Milan to take part in the Fab Academy. There is even a fancy picture of me!</p>
-          <p><a class="btn btn-primary" href="about.html" role="button">View more &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>My lab</h2>
-          <p>This is the page about the Fab Lab where I will built my final project on the Fab Academy website. It is called Opendot ant it is in Milan, Italy.</p>
-          <p><a class="btn btn-primary" href="http://fabacademy.org/archives/2015/eu/labs/milan_od/index.html" role="button">View more &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Final Project</h2>
-          <p>In this page you can check out weekly update on my final project for Fab Academy 2015</p>
-          <p><a class="btn btn-primary" href="project-menu.html" role="button">View more &raquo;</a></p>
-        </div>
-      </div>
+		<p class="pic">
+        <img src="image/02rotocast02.jpeg">
+		</p>
 		
-      
+			<p>I built a prototype two years ago with bicycle part and wood, and I could make a lot of tests on how polyurethane resin reacts inside the mold while spinning at different speeds.</p>
+		
+		<h3>My goal would be to built a Rotocasting Machine that is fully programmable on its spinning speed and periods</h3>
+		
+	<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','image/rotocastit.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script>	
+		
     
     <!-- End of your content -->
 
@@ -145,3 +153,4 @@
 
   </body>
 </html>
+

@@ -74,34 +74,42 @@
 
 	<!-- Insert your content here below! -->
 
-      <div class="jumbotron">
-        <h1>Saverio Silli</h1>
-		  <h3>Architect, Maker, Gourmand.</h3>
-        <br><p>
-       I graduated from Roma Tre University and became an Architect and Interior Designer. During my studies and activities in Italy and abroad, I have gathered a great number of experiences in many fields: woodworking, propmaking, graphic design, product design and when I first heard that word, I knew I was a "maker". I developed an attitude toward creativity and originality, learning how to translate my ideas into effective designs.<br>
-		  <p>And I love to cook, eat delicious food and drink a nice glass of wine!</p>
-        </p>
-		
-      </div>
       
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>About</h2>
-          <p>Click on the button if you want to know something more about me and why I moved to Milan to take part in the Fab Academy. There is even a fancy picture of me!</p>
-          <p><a class="btn btn-primary" href="about.html" role="button">View more &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>My lab</h2>
-          <p>This is the page about the Fab Lab where I will built my final project on the Fab Academy website. It is called Opendot ant it is in Milan, Italy.</p>
-          <p><a class="btn btn-primary" href="http://fabacademy.org/archives/2015/eu/labs/milan_od/index.html" role="button">View more &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Final Project</h2>
-          <p>In this page you can check out weekly update on my final project for Fab Academy 2015</p>
-          <p><a class="btn btn-primary" href="project-menu.html" role="button">View more &raquo;</a></p>
-        </div>
-      </div>
+     
+    <h1>WEEK 1</h1>
+		  <h2>01. Principles and Practices, Project Management</h2>
+		<h3>Design a personal website for Fab Academy 2015</h3>
+        <br><p>
+       I already had some basic notions about html and css, but designing the website from scratch would have been to difficult and time consuming, so I started from <a href="https://github.com/openp2pdesign/FabAcademy_Template/releases">Massimo Menichinelli's Fab Academy Template</a>. It is built on <a href="http://getbootstrap.com/2.3.2/">Bootstrap</a> and I used it to make some modifications to the template.<br>
 		
+		<p>First I downloaded a very powerful editor called <a href="http://brackets.io/">Brackets</a>  and I used it to compile the website. One thing I did to edit the template was to change the color of the navbar and the footer. <br>
+			Since I didn't know exactly which class I had to modify in the main css file, I first opened the index.html page on Safari, where I had installed the developer tools (similar tools are available for Firefox); when you move your mouse cursor over the page with the developer tools active, Safari enlight on another window the corespondent line in the html file.</p>
+			 <p class="pic">
+        <img src="image/01screenshot01.png">
+		</p>
+			<br>
+			<p>This way I could see that in order to change the navbar background color I had to add the following code to the template's specific css: </p><br>
+		<br>
+		
+		<pre class="prettyprint linenums">
+.navbar {
+background-color: #37b
+}
+
+
+.navbar-default .navbar-nav>li>a {
+color: #fff
+}
+	
+.navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
+color: #000
+}
+	</pre>
+		
+		
+		<p>Other edit I made were changing the font family to a Monospace family, adding a <a href="http://www.google.com/fonts/">Google Fonts</a> collection and modifying the weight and size of the h1, h2, h3 classes.
+        </p>
+		<p>I had some problems making the menu work with multiple selection, so for the moment I disabled the functionality and opted for a single choice menu that sends you to a static page with a list of links (now there is only one link in every list).</p>
       
     
     <!-- End of your content -->
