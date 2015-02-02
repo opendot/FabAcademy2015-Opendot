@@ -1,0 +1,49 @@
+body {font-family: 'Press Start 2P', cursive;}
+<!--body {
+    font-family: 'Slabo 27px', serif; 
+    font-family: 'Press Start 2P', serif;
+    width: 80%;
+    margin: auto;
+    
+} -->
+h1{font-family: 'Electrolize',sans-serif; font-size: 60px}
+h2{font-family: 'Electrolize',sans-serif;font-size: 50px;font-weight: 800}
+h3{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 600}
+h4{font-family: 'Electrolize',sans-serif;font-size: 35px;font-weight: 700; text-align: left; color:#2a5ade}
+h5{font-family: 'Electrolize',sans-serif;font-size: 20px;font-weight: 600}
+li {font-family: 'Electrolize',sans-serif;
+    list-style-type: none;
+    background: #e23448;
+    font-size: 20px;
+    width: 65%;
+    height: 40p;
+    }
+
+ul, ol {
+padding-left: 25%
+}
+
+p {
+    text-align: justify;
+}
+
+li a:hover {
+    background: #34e271;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+}
+
+li a {
+    background: #37ff3f;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+}
+
+a{ color: #ad2222;
+    font-weight: 600}
+
+figcaption{
+    font-family: 'Electrolize',sans-serif;font-size: 14px;font-weight: 600; text-align: center;
+}
