@@ -38,7 +38,6 @@
 					  $('#exercises').load("exercises-menu.html");
 					  $('#project').load("project-menu.html");
 					  $('#cclicense').load("license.html");
-					  $('#cclicense').load("license.html");
 					  }
 	</script>
 
@@ -81,40 +80,145 @@
 
 	<!-- Insert your content here below! -->
 
-      <div class="jumbotron">
-        <h1>Enrico Bassi</h1>
-        <p>
-        Product and concepr designer. 
-        <br>I'm interested in sustainability, DIY and everything involving bikes :)
-            
-        </p>
-		
-      </div>
+
+     <h2>14. Mechanical Design, Machine Design</h1>
+    
+        
+    <img src="/images/progress.png" alt="work in progress" height="50" width="650">    
+        
+    <!--    
+    
+    <h3>Menu</h3>
+	<p>
+	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+	</p>
+    
+    <h3>Text</h3>
+	<p>
+	You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltp&gt;
+	Your text here
+	&lt/p&gt;</pre>
+	</p>
+	Result:
+	<p>
+	Your text here
+	</p>
+	
+	<h3>Images</h3>
+	<p>
+	You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
+	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
+	&lt/p&gt;</pre>
+	</p>
+	Result:
+	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
+	<legend>Here's the legend of the picture.</legend>
+	</p>
+     
+	<h3>Code</h3>
+	<p>
+	You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltpre class="prettyprint linenums"&gt;
+	Your code here
+	&lt/pre&gt;</pre>
+	
+	Result:
+	<pre class="prettyprint linenums">
+	for i in members:
+		print ""
+		print "USER:",members[i]
+		print "Loading connections..."
+		followers = load_connections([i], "followers")
+		friends = load_connections([i], "friends")
+
+		# Add edges...
+		print "Building the graph..."
+
+		for f in followers:
+			for k in followers[f]:
+				graph.add_edge(k,f)
+	
+		for f in friends:
+			for k in friends[f]:
+				graph.add_edge(f,k)</pre>
+	</p>
+	
+	<h3>3D Model</h3>
+	<p>	
+	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltcanvas id="cv" width=640 height=480&gt;
+	It seems you are using an outdated browser that does not support canvas :-(
+	&lt/canvas&gt;
+	&ltscript type="text/javascript"&gt;
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/monkey.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	&lt/script&gt;</pre>
+	
+	You can set up the path to the 3D model (.stl/.obj) within this line:
+	<pre class="prettyprint linenums">
+	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
+	
+	Result:
+	<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/monkey.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script> 
+    </p> 
+    
+    <h3>Download</h3>
+	<p>
+	You can set up a button for files to be downloaded with:
+	<pre class="prettyprint linenums">
+	&lta href="#"&gt;
+	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
+	&lt/a&gt;</pre>
+	</p>
+	
+	<p>
+	Result:
+	</p>
+	<p>
+	<a href="#">
+	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+	</a>
+	</p>
       
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>About</h2>
-          <p>I managed the first Italian Fablab in 2011 (<a href="http://>www.fablabitalia.it">www.fablabitalia.it</a>), then Fablab Torino until 2014 (<a href="http://>www.fablabtorino.org">www.fablabtorino.org</a>) and now I'm working in fablab Opendot (<a href="http://>www.opendotlab.it">www.opendotlab.it</a>) </p>
-          <p><a class="btn btn-primary" href="#" role="button">View more &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2><a href="http://>www.opendotlab.it">Opendot</a></h2>
-          <p>Opendot is a brand new fablab, that opened in September 2014, funded by a group of professionals in diferent fields, mainly architecture, interaction design and exhibit design </p>
-          <p><a class="btn btn-primary" href="#" role="button">View more &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Final Project</h2>
-          <p>The project Mill-O is a CNC router that can be dismounted when it's not in use. The objective is to develope a tool for small fablabs with budget limitation.</p>
-          <p><a class="btn btn-primary" href="#" role="button">View more &raquo;</a></p>
-        </div>
-      </div>
-		
-    <!--  
     <h3>Would you like to insert more style/elements?</h3>
       <p>
       Check the documentation of Bootstrap <a href="">here</a>.
       </p>
+
     -->
+
     <!-- End of your content -->
 
     </div> <!-- /container -->
