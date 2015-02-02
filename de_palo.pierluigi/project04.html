@@ -8,7 +8,7 @@
     <meta name="author" content="Name Surname">
     <link rel="icon" href="media/favicon.ico">
 
-    <title>Fab Academy 2015 - Pierluigi De Palo</title>
+    <title>Fab Academy 2015 - Name Surname</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,6 @@
 					  $('#exercises').load("exercises-menu.html");
 					  $('#project').load("project-menu.html");
 					  $('#cclicense').load("license.html");
-					  $('#cclicense').load("license.html");
 					  }
 	</script>
 
@@ -56,18 +55,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Home</a>
+          <a class="navbar-brand" href="index.html">Name Surname</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="about.html">About</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises -Coming Soon- <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
               <ul id="exercises" class="dropdown-menu" role="menu">
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project -Coming Soon- <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
             </li>
@@ -81,40 +80,138 @@
 
 	<!-- Insert your content here below! -->
 
-      <div class="jumbotron">
-        <h1>Pierluigi De Palo</h1>
-        <p>
-        Fab Academy 2015 -
-            Project : Photogrammetric 3D Fab Scanner
-        </p>
-		
-      </div>
+
+    <h2>Final Project...</h1>
+    
+    <h3>Menu</h3>
+	<p>
+	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+	</p>
+    
+    
+    <h3>Text</h3>
+	<p>
+	You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltp&gt;
+	Your text here
+	&lt/p&gt;</pre>
+	</p>
+	Result:
+	<p>
+	Your text here
+	</p>
+	
+	<h3>Images</h3>
+	<p>
+	You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
+	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
+	&lt/p&gt;</pre>
+	</p>
+	Result:
+	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
+	<legend>Here's the legend of the picture.</legend>
+	</p>
+     
+	<h3>Code</h3>
+	<p>
+	You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltpre class="prettyprint linenums"&gt;
+	Your code here
+	&lt/pre&gt;</pre>
+	
+	Result:
+	<pre class="prettyprint linenums">
+	for i in members:
+		print ""
+		print "USER:",members[i]
+		print "Loading connections..."
+		followers = load_connections([i], "followers")
+		friends = load_connections([i], "friends")
+
+		# Add edges...
+		print "Building the graph..."
+
+		for f in followers:
+			for k in followers[f]:
+				graph.add_edge(k,f)
+	
+		for f in friends:
+			for k in friends[f]:
+				graph.add_edge(f,k)</pre>
+	</p>
+	
+	<h3>3D Model</h3>
+	<p>	
+	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
+	<pre class="prettyprint linenums">
+	&ltcanvas id="cv" width=640 height=480&gt;
+	It seems you are using an outdated browser that does not support canvas :-(
+	&lt/canvas&gt;
+	&ltscript type="text/javascript"&gt;
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/monkey.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	&lt/script&gt;</pre>
+	
+	You can set up the path to the 3D model (.stl/.obj) within this line:
+	<pre class="prettyprint linenums">
+	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
+	
+	Result:
+	<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/monkey.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script> 
+    </p> 
+    
+    <h3>Download</h3>
+	<p>
+	You can set up a button for files to be downloaded with:
+	<pre class="prettyprint linenums">
+	&lta href="#"&gt;
+	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
+	&lt/a&gt;</pre>
+	</p>
+	
+	<p>
+	Result:
+	</p>
+	<p>
+	<a href="#">
+	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+	</a>
+	</p>
       
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>Hello World</h2>
-          <p>Hi to everybody.</p>
-            <p>I'm really happy to share with you the development of the activities and the personal project that I will try to develop during the carrying out of the Fab Academy 2015</p>
-            <p>Thank you world !!! </p>
-          <p><a class="btn btn-primary" href="about.html" role="button">View more about me &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>My lab</h2>
-          <p>I'm really happy to collaborate whit Open Dot Lab !!!</p>
-            <p>Here I have found a dynamic and collaborative environment, many science-fiction machines and pertinents skills, that promise the physical and tangible realisation of ideas. It's fantastic!</p> 
-            <p>Now it's my turn to roll up my sleeves ! </p>
-          <p><a class="btn btn-primary" href="http://www.opendotlab.it/" role="button">Open Dot Lab web site &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Final Project</h2>
-          <p>Photogrammetric 3D Fab Scanner</p>
-            <p>The idea is to build a 3D scanner that use a traditional photographic camera. The object to scan, will be set on a rotating dish: every time that the dish will rotate of an established angle, the photographic camera will take a picture. With the help of a specific  photogrammetric software 
-                <a href="http://meshlab.sourceforge.net">(MeshLab)</a> it will be possible to create and edit 3D models, that will be subsequently printed.</p> 
-            <p>A feasibility study is in progress</p>
-          <p><a class="btn btn-primary" href="#" role="button">View more - Coming Soon - &raquo;</a></p>
-        </div>
-      </div>
-		
+    <h3>Would you like to insert more style/elements?</h3>
+      <p>
+      Check the documentation of Bootstrap <a href="">here</a>.
+      </p>
     <!-- End of your content -->
 
     </div> <!-- /container -->
@@ -123,7 +220,7 @@
     
     <footer id="footer">
         <p id="cclicense">
-        </p>
+                </p>
         <p class="license">
         Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
         Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
