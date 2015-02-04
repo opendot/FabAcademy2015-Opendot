@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <link rel="icon" href="media/favicon.ico">
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'>
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      
+     
+    <!-- FORCED COLOR LINK TBD -->   
+      
+      <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+      
+      
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese  @FabAcademy2k15</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact           </a></li>
+              
+             
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+    <h1>Final Project CONCEPT</h1>
+    
+    <h3><strong>OPEN</strong><span><strong><mark>STAGE</mark></strong></span></h3>
+	<p>A modular open source frame.</p>
+<p>Built like a tray and based on a 2axis Cartesian movement, it allows you doing many things in different places.
+	
+	</p>
+    
+    
+    <h3>Multi Tool</h3>
+	<p>With a particular snap fit it is possible to connect many types of tools like laser diode, pen, inkjet cartridge, syringe ecc.
+	
+	</p>
+        
+     <h3>Modular</h3>
+	<p>It is possible to combine 2 OPENstages to obtain a 4-axis machine, or add a single axis module to work in 3 dimensions, or add more axis, as you like.
+	
+	</p>    
+	
+        
+          <h3>Mechanics</h3>
+	<p>The movimentation of OPENstage will be based on H-bot or maybe coreXY, and I will try to use only mechanical component that everyone can simply buy locally or on line.
+	
+	</p>    
+        
+    <h3>Electronic</h3>
+	<p>I have been working a lot with 3d printing lately and I know that it is very common to use a 5axis electronic board to move a simple 3 axis machine (plus one more for the extruder) I have also seen that many simple 2/3 axis plotters use this kind of electronic just because of its low price and because it is easy, but I think it is better, when in a lab, to choose the exact number of the axis and the controller that we need and then make the other ones with OPENstage!
+So I would like to create a modular controller, making 2 kinds of motor controllers: one for the basic 2 axis and one for the single axis module.
+In this way you can add and control as many axis as you want with the correct number of motor driver.
+	
+	</p>        
+        
+    <h3>Software</h3>
+	<p>At the moment I'm considering using GRBL; it is a simple Gcode interpreter, which is possible to load on an ATMEGA chip, and it basically allows you to control 4 axis plus some more tools.
+
+<p>Read more about <a href="http://bengler.no/grbl">GRBL</a> </p></p>
+
+	
+	     
+        
+        
+   <h3>What can OPENstage do?</h3>
+	<p>At the moment I find myself in the “concept step” but thinking about this project made me realize how many things it can actually do!
+        <p>OPENstage is standalone and so is possible to use it everywhere also on the wall or on a car  </p> 
+<p>I will tell more during this journey.    </p>       
+        
+        
+     </p>    
+        
+        
+	<h3>Images</h3>
+	
+	<p class="pic"><img src="media/flat.jpg">
+	<legend>three possible application with just the main frame.</legend>
+	</p>
+     
+<p class="pic"><img src="media/2stage.jpg">
+	<legend>Using 2 stage you can double the axis.</legend>
+	</p>
+
+<p class="pic"><img src="media/2stage.jpg">
+	<legend>Basic stage with two singoular module.</legend>
+	</p>
+
+	
+	<h3>3D Model</h3>
+	
+	<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/concept.stl');
+		viewer.setParameter('ModelColor','#ca4f18');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script> 
+    </p> 
+    
+   
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+                </p>
+        <p class="license">
+       
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
