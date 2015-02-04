@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
 
+    <title>Fab Academy 2015 - Pierluigi De Palo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises -Coming Soon- <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project -Coming Soon- <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+      <div class="jumbotron">
+        <h1>Pierluigi De Palo</h1>
+        <p>
+        Fab Academy 2015 -
+            Project : Photogrammetric 3D Fab Scanner
+        </p>
+		
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Hello World</h2>
+          <p>Hi to everybody.</p>
+            <p>I'm really happy to share with you the development of the activities and the personal project that I will try to develop during the carrying out of the Fab Academy 2015</p>
+            <p>Thank you world !!! </p>
+          <p><a class="btn btn-primary" href="about.html" role="button">View more about me &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>My lab</h2>
+          <p>I'm really happy to collaborate whit Open Dot Lab !!!</p>
+            <p>Here I have found a dynamic and collaborative environment, many science-fiction machines and pertinents skills, that promise the physical and tangible realisation of ideas. It's fantastic!</p> 
+            <p>Now it's my turn to roll up my sleeves ! </p>
+          <p><a class="btn btn-primary" href="http://www.opendotlab.it/" role="button">Open Dot Lab web site &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Final Project</h2>
+          <p>Photogrammetric 3D Fab Scanner</p>
+            <p>The idea is to build a 3D scanner that use a traditional photographic camera. The object to scan, will be set on a rotating dish: every time that the dish will rotate of an established angle, the photographic camera will take a picture. With the help of a specific  photogrammetric software 
+                <a href="http://meshlab.sourceforge.net">(MeshLab)</a> it will be possible to create and edit 3D models, that will be subsequently printed.</p> 
+            <p>A feasibility study is in progress</p>
+          <p><a class="btn btn-primary" href="#" role="button">View more - Coming Soon - &raquo;</a></p>
+        </div>
+      </div>
+		
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
