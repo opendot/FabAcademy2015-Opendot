@@ -60,10 +60,17 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">home</a></li>
-            
-			  <li><a href="exercises-menu.html">assignments</a></li>
-			  <li><a href="project-menu.html">project</a></li>
-			  <li><a href="about.html">about me</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
             <li><a href="contact.html">contact me</a></li>
         </ul>
         </div><!--/.nav-collapse -->
@@ -106,10 +113,19 @@ color: #000
 }
 	</pre>
 		
+		<P>Another way to find the right place where you need to write your modifications is to use a simple search: all you have to do is to use a keyword in an intelligent way. For example, as I said, I wanted to modify the background color in the navbar, so after I found the right lines in the .html file using Safari developer tools I had to find the correspondant lines in the .css file. I clicked cmd+F (on a Mac) but instead of using "navbar" as a keyword for the search I used #333 (the color code correspondent to the one I wanted to modified). I got some ten results and I was able to find the ones belonging to the navbar and modify it</P>
 		
+		<p>A very helpful instrument when dealing with color codes is a little freeware application for Mac called <a href="https://itunes.apple.com/us/app/huego-lite/id468963923?mt=12">HueGo Lite</a>.</P> 
+	  
+	  <p class="pic">
+        <img src="image/01huegolite02.png">
+		  <legend>HueGo's visor</legend>
+		</p>
+	  
+	  <p> You can use it to find the number or code of the color of any pixel on your screen, so if you like a specific color, like, say, the blue from the chat ballons in facebook, you can put HueGo visor on top of a chat window already open on you screen and click "go" to have all the info about that color, not only webcolor code, but also RGB, CMYK, Pantone etc.</p>
 		<p>Other edit I made were changing the font family to a Monospace family, adding a <a href="http://www.google.com/fonts/">Google Fonts</a> collection and modifying the weight and size of the h1, h2, h3 classes.
         </p>
-		<p>I had some problems making the menu work with multiple selection, so for the moment I disabled the functionality and opted for a single choice menu that sends you to a static page with a list of links (now there is only one link in every list).</p>
+		<p>At first I had some problems making the menu work with multiple selection, so at the beginning I disabled the functionality and opted for a single choice menu with static pages with a list of links. After that our Instructor warned us that the template he designed had the javascript for the multiple choiche menu disabled when you were not connected to the internet, but you could see it working when connected and using Firefox as a browser; so I followed his instruction and see that the menu was working well and put it back on my site because it really is a good feature, especially thinking at the next months when there will be many more pages on the website.</p>
       
     
     <!-- End of your content -->
