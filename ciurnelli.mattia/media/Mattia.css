@@ -4,12 +4,12 @@ background-image: url(../Image/background.jpg)
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
-    border-color: yellow;
+    border-color: #facd11;
 }
 
 .jumbotron {
  background-color: grey;
- border-color: yellow;
+ border-color: #facd11;
  border: 5px outset;
  padding: 10px 5px;
 }
@@ -38,30 +38,30 @@ padding-right: 25px;
 .thumbnail {
  background-color: grey;
  border: 2px outset;
- border-color: yellow;
+ border-color: #facd11;
  padding: 10px 10px;
  width: auto;
  height: auto;
 }
 
 .navbar {
-    background-color: #337ab7;
-    color: black;
-    border-color: yellow;
+    background-color: black;
+    color: #facd11;
+    border-color: black;
     font-size: 18px;
 }
 
 .collapse navbar-collapse {
-    color:black;
+    color: #facd11;
 }
 
 .navbar .nav > li > a {
-    color: black;
+    color: #facd11;
 }
 
 .navbar-default .navbar-brand {
-    color: yellow;
-    background-color: #337ab7;
+    color: #facd11;
+    background-color: black;
     font-size: 22px;
 }
 
@@ -74,11 +74,13 @@ padding-right: 25px;
 }
 
 .btn-primary {
-    color: yellow;
+    color: #facd11;
+    background-color: black;
+    border-color: #facd11;
 }
 
 .progress {
-    background-color: rgba(255, 255, 0, 0.71);
+    background-color: #facd11;
 }
 
 .dropdown-menu {
@@ -86,15 +88,15 @@ padding-right: 25px;
 }
 
 a {
-    color: yellow;
+    color: #facd11;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
     color: black;
-    background-color: yellow;
+    background-color: #facd11;
 }
 
 .dropdown-menu {
     color: black;
-    background-color: yellow;
+    background-color: #facd11;
 }
