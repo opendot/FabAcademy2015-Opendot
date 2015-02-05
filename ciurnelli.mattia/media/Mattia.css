@@ -1,13 +1,79 @@
 body {
 font-family: 'Maven Pro', sans-serif; color: black;
-background-color: #fff;
+background-color: rgb(57, 57, 57);
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+    border-color: yellow;
 }
 
 .jumbotron {
+ background-color: grey;
+ border-color: yellow;
+ border: 5px outset;
+}
 
+.jumbotron h1 {
+    font-size: 32px;
+}
+
+.jumbotron h2 {
+    font-size: 27px;
+}
+
+.jumbotron h3 {
+    font-size: 22px;
+}
+
+.jumbotron p {
+    font-size: 17px;
 }
 
 .thumbnail {
- background-color: #eee;   
+ background-color: grey;
+ border: 2px outset;
+ border-color: yellow;
 }
 
+.navbar {
+    background-color: #337ab7;
+    font: color: black;
+    border-color: yellow;
+}
+
+.collapse navbar-collapse {
+    color:black;
+}
+
+.navbar .nav > li > a {
+    color: black;
+}
+
+.navbar-default .navbar-brand {
+    color: yellow;
+    background-color: #337ab7;
+}
+
+#footer {
+    background-color: grey;
+}
+
+.container p img {
+    border-color: grey;
+}
+
+.btn-primary {
+    color: yellow;
+}
+
+.progress {
+    background-color: rgba(255, 255, 0, 0.71);
+}
+
+.dropdown-menu {
+    background-color: #e7e7e7;
+}
+
+a {
+    color: #3366b7;
+}
