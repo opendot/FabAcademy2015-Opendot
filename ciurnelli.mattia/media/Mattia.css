@@ -1,6 +1,6 @@
 body {
 font-family: 'Maven Pro', sans-serif; color: black;
-background-color: rgb(57, 57, 57);
+background-image: url(../Image/background.jpg)
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
@@ -11,34 +11,44 @@ background-color: rgb(57, 57, 57);
  background-color: grey;
  border-color: yellow;
  border: 5px outset;
+ padding: 10px 5px;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+padding-left: 25px;
+padding-right: 25px;
 }
 
 .jumbotron h1 {
-    font-size: 32px;
+    font-size: 35px;
 }
 
 .jumbotron h2 {
-    font-size: 27px;
+    font-size: 30px;
 }
 
 .jumbotron h3 {
-    font-size: 22px;
+    font-size: 25px;
 }
 
 .jumbotron p {
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .thumbnail {
  background-color: grey;
  border: 2px outset;
  border-color: yellow;
+ padding: 10px 10px;
+ width: auto;
+ height: auto;
 }
 
 .navbar {
     background-color: #337ab7;
-    font: color: black;
+    color: black;
     border-color: yellow;
+    font-size: 18px;
 }
 
 .collapse navbar-collapse {
@@ -52,6 +62,7 @@ background-color: rgb(57, 57, 57);
 .navbar-default .navbar-brand {
     color: yellow;
     background-color: #337ab7;
+    font-size: 22px;
 }
 
 #footer {
@@ -75,5 +86,15 @@ background-color: rgb(57, 57, 57);
 }
 
 a {
-    color: #3366b7;
+    color: yellow;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: black;
+    background-color: yellow;
+}
+
+.dropdown-menu {
+    color: black;
+    background-color: yellow;
 }
