@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+  
     <link rel="icon" href="media/favicon.ico">
-
-    <title>Fab Academy 2015 - Name Surname</title>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'>
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+      
+     
+    <!-- FORCED COLOR LINK TBD -->   
+      
+      <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+      
+      
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -55,7 +62,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese  @FabAcademy2k15</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -70,7 +77,9 @@
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact           </a></li>
+              
+             
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,137 +90,69 @@
 	<!-- Insert your content here below! -->
 
 
-    <h2>Final Project...</h1>
+    <h1><strong>PROJECT NOTE</strong></h1> 
     
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
+   
     
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
+    <h2>Kinematics</h2>
+	<p>The kinematics usefull for my project are: Classical Cartesian, H-Bot and Core XY</p>
+        <p>In the Cartesian stage every axis have own motor, H-bot and CoreXY use both motor to move in XY 
+	The big choice is between H-Bot and CoreXY</p>
+       <p> Reading about these kinematics I discovered some strengths and weaknesses for both.</p>
+        
+         <h3>Classical Cartesian </h3>
+        
+         <p>
+<p class="pic"><img src="http://www.newmarksystems.com/images/ETL-XY-Gantry-1.png">
+	<legend>XY cartesian stage</legend>
 	</p>
-	Result:
-	<p>
-	Your text here
 	</p>
+        
+	<p>
+      <p>This stage have one motor for Y and another one for X, but the X motor is directly linked to the axis and this increase the weight on Y axis.</p>
+      <p>More weight means less movement speed</p>
+          
+        
+       <h3>H-BOT </h3>
+        
+         <p>
+<p class="pic"><img src="http://joshuavasquez.com/docs/assets/img/Projects/coreXY/hbot.svg">
+	<legend>Force rapresentation on H-Bot stage</legend>
+	</p>
+	</p>
+        
+	<p>
+      <p>H-Bot have a clean and lightweight design.</p>
+      <p>The big problem of H-bot you can see in the image above:to move in X directio I have to spin motors counterclockwise, but this produce an hard net torque on the X axis. </p>
+        <p>One way to solve this problem is to create a strong structure, but my project will be made by wood or 3D printed parts that not guarantee this rigidity .</p>
+   
 	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
+    <h3>Core XY </h3>
+        
+         <p>
+<p class="pic"><img src="http://joshuavasquez.com/docs/assets/img/Projects/coreXY/coreXY.svg">
+	<legend>Force rapresentation on CoreXY stage</legend>
 	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
 	</p>
-     
-	<h3>Code</h3>
+        
 	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
+      <p>CoreXY have the same clean and lightweight design of H-Bot.</p>
+      <p>The crossing belt solves the net torque problem as shown in the figure above. </p>
+        <p>One problem of CoreXY is the crossing belt that maybe cause a misalignment of the belt route. I'm planning to use fishing line instead the classical belt.</p>
+    
+    
 	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
 
-		# Add edges...
-		print "Building the graph..."
+   <h3>Useful links</h3>
+        <p>
+	<ul type=”disc”>
+  <li><a href="http://www.newmarksystems.com/linear-positioners/">Newmark linear stages</a></li>
+  <li><a href="http://corexy.com/">CoreXY</a></li>
+   <li><a href="http://joshuavasquez.com/docs/jVasquez/Projects/coreXY.html">Joshua Vasquez Blog</a></li>
+  
+</ul>
+	</p>
 
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
     <!-- End of your content -->
 
     </div> <!-- /container -->
