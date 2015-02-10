@@ -15,7 +15,9 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500' rel='stylesheet' type='text/css'>
+    <link href="media/Mattia.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -56,7 +58,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Mattia Ciurnelli</a>
+          <strong><a class="navbar-brand" href="index.html">Mattia Ciurnelli</a></strong>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -80,139 +82,93 @@
     <div class="container">
 
 	<!-- Insert your content here below! -->
+        <div class="jumbotron">
+        <h1> <u> <strong> Lesson n. 2:</strong> </u> </h1>
+        <h2>Computer-aided Design</h2>
+	<p>
+	This week we had to model (draw, render, animate, simulate, ...) a possible final project, and post it on your class page.
+    The recommended programs have been many, in the end I chose Inkscape for the part of design in 2D, and Rhino for the part of 3D drawing and rendering.</p>
+        
+    <h3>Inkscape</h3>
+	<p>
+    <a href url="https://inkscape.org/it/">Inkscape</a> is a vector graphics editor, cross-platform, open source and free. <br>
 
+ My experience of drawing (both 2D and 3D) was limited to Autocad, so to begin to become familiar with the program I decided to realize a sample logo for my project. <br>
 
-     <h2>Exercise...</h1>
+Simply using an image taken from the internet, then turned into a vector, I got a decent result.</p>
+    <p align="center"><img src= "Image/screenshot_Ink_logo.jpg"> 
+        <legend>First steps of the creation of the logo.</legend> <br> <br>
+        
+    <p>    
+    Then I added a font taken from the internet, which can be associated with the basketball, and changed the colors of the text in order to make the idea of the color scale.</p>
+        <p align="center"><img src= "Image/logo-dunkmeter.png">
+        <legend>Final Result of the logo</legend><br> 
+    <p>
+    The realization of this simple logo has allowed me to become familiar with the main controls of Inkscape.<br>
+To explore more the various aspects of the program I decided to make a sketch to represent my final project.
+I found an image to use as a background, I've adapted to my drawing and I added parts designed by me.        
+            <p align="center"><img src= "Image/screenshot_ink_sketch.jpg">
+                <legend>Frist steps of the creation of the sketch</legend></p>
+    <p>
+    Using the same font of the logo and entering some pictures I tried to explain in general the idea of my project.
+The final result, although very general, it was still good.
+            <p align="center"><img src= "Image/dunkmeter-sketch.jpg">
+                <legend>Final Result of the sketch</legend></p>
+            
     
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
+    <h3>Rhino</h3>
+    <p>
+        I already had some experience with CAD software as Autocad and Inventor and now I choose <a href url="https://www.rhino3d.com/it/">Rhinoceros</a>, because I have seen that is very powerful and works very well with the Fablab Machines.<br><br>
+        
+        First thing to consider when working with Rhino: it's a commercial software, so it will cost some amount of investement to hold a license.
+But beeing a Mac user i got lucky because is COMPLETELY FREE! (note: there are some features missing, but every week or two there is a new build, so it's always improving)</p>
+      <p>
+        I started drawing a 3D model of my basket and I found very useful the command line that is located on the top left: just enter the name of the operation that you need and immediately find the corresponding command.<br><br>
+        
+          After some hours of work, the most of these dedicated to the study of the various functions, I created a very basic 3D model.</p>
+        <p align="center"><img src= "Image/screenshot_rhino.jpg">
+        <legend>Different points of view of the 3D model in Rhino</legend></p>
     
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+    <p>
+        As already mentioned, the Mac version of Rhino has some limitations: one of these is the management of the materials during rendering.
 
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
+To have a more realistic rendering I decided to export the .dwg file from Rhino and import it into AutoCAD.    
+            </p>
+            
+            <p align="center"><img src= "Image/screenshot_autocad.jpg">
+        <legend>Realistic view of the basket in Autocad</legend></p>
+            
+        <p>
+        In addition to version .dwg, I also exported the file .stl to import it in the web page and then have a preview of the 3D model.
+            </p>  
+            
+            <canvas id="cv" width=640 height=480>
 	It seems you are using an outdated browser that does not support canvas :-(
 	</canvas>
 	<script type="text/javascript">
 		var canvas = document.getElementById('cv');
 		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('SceneUrl','media/rendercanestro.stl');
+        viewer.setParameter('InitRotationX', -90);
+        viewer.setParameter('InitRotationY', -20);
+        viewer.setParameter('InitRotationZ', 0);
+		viewer.setParameter('ModelColor','##898484');
 		viewer.setParameter('BackgroundColor1','#E5D7BA');
 		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('RenderMode','texture');
 		viewer.setParameter('MipMapping','on');
 		viewer.setParameter('Definition','high');
 		viewer.setParameter('Renderer','webgl');
 		viewer.init();
 		viewer.update();
-	</script> 
-    </p> 
+	</script>
+            
+       
+            
     
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+    
+  
+        </div>
     <!-- End of your content -->
 
     </div> <!-- /container -->
@@ -221,7 +177,7 @@
     
     <footer id="footer">
         <p id="cclicense">
-                </p>
+        </p>
         <p class="license">
         Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
         Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.

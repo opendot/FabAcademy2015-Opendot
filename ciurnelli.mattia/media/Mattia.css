@@ -1,0 +1,102 @@
+body {
+font-family: 'Maven Pro', sans-serif; color: black;
+background-image: url(../Image/background.jpg)
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+    border-color: #facd11;
+}
+
+.jumbotron {
+ background-color: grey;
+ border-color: #facd11;
+ border: 5px outset;
+ padding: 10px 5px;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+padding-left: 25px;
+padding-right: 25px;
+}
+
+.jumbotron h1 {
+    font-size: 35px;
+}
+
+.jumbotron h2 {
+    font-size: 30px;
+}
+
+.jumbotron h3 {
+    font-size: 25px;
+}
+
+.jumbotron p {
+    font-size: 15px;
+}
+
+.thumbnail {
+ background-color: grey;
+ border: 2px outset;
+ border-color: #facd11;
+ padding: 10px 10px;
+ width: auto;
+ height: auto;
+}
+
+.navbar {
+    background-color: black;
+    color: #facd11;
+    border-color: black;
+    font-size: 18px;
+}
+
+.collapse navbar-collapse {
+    color: #facd11;
+}
+
+.navbar .nav > li > a {
+    color: #facd11;
+}
+
+.navbar-default .navbar-brand {
+    color: #facd11;
+    background-color: black;
+    font-size: 22px;
+}
+
+#footer {
+    background-color: grey;
+}
+
+.container p img {
+    border-color: grey;
+}
+
+.btn-primary {
+    color: #facd11;
+    background-color: black;
+    border-color: #facd11;
+}
+
+.progress {
+    background-color: #facd11;
+}
+
+.dropdown-menu {
+    background-color: #e7e7e7;
+}
+
+a {
+    color: #facd11;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: black;
+    background-color: #facd11;
+}
+
+.dropdown-menu {
+    color: black;
+    background-color: #facd11;
+}
