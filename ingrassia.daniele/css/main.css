@@ -7,7 +7,7 @@ b, i,
 dl, dt, dd, ol,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -26,8 +26,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
   display: block;
 }
 
-audio, canvas, video {
-  display: inline-block;
+audio, video {
+  display: block;
 }
 
 audio:not([controls]) {
@@ -82,9 +82,17 @@ pre, code, kbd, samp {
   font-family: monospace, serif;
   _font-family: 'courier new', monospace;
   font-size: 1em;
+  background-color: white;
+}
+
+pre.prettyprint{
+    display: inline;
+    width: auto;
+    overflow: auto;
 }
 
 pre {
+  display:block;
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -493,6 +501,13 @@ color: white;
 .redones {
   color: #e85151;
 }
+
+.weeks {
+
+  text-align: justify;
+
+}
+
 #week1 {
   border: none;
   display: none;
@@ -501,7 +516,7 @@ color: white;
 #week2 {
   border: none;
   display: none;
-  text-align: justify;
+  
 }
 #week3 {
   border: none;
@@ -643,6 +658,9 @@ list-style: none;
   margin-left: auto;
   margin-right: auto;
 }
+td,tr{
+    border: 1px solid;
+  }
 .images1{
   width: 50%;
   height: 90%;
@@ -652,6 +670,7 @@ list-style: none;
   margin-left: auto;
   margin-right: auto;
 }
+
 #content section.row .col, #content section.row .col-full {
   float: left;
   display: block;
