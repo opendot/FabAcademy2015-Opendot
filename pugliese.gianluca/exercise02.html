@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+  
     <link rel="icon" href="media/favicon.ico">
-
-    <title>Fab Academy 2015 - Name Surname</title>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'>
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+      
+     
+    <!-- FORCED COLOR LINK TBD -->   
+      
+      <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+      
+      
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -55,7 +62,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese  @FabAcademy2k15</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -70,7 +77,9 @@
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact           </a></li>
+              
+             
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,137 +90,83 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>Exercise...</h1>
+    <h1><strong>Exercise 2</strong></h1> <p>04.02.2015</p>
     
-    <h3>Menu</h3>
+    <h3>Assignment</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+	<ul type=”disc”>
+        <li>Pratice with CAD software</li>
+  <li>Draw, model and simulate the final project</li>
+ 
+</ul>
 	</p>
     
-    
-    <h3>Text</h3>
+    <h2>Software</h2>
 	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+	To design my final project I decidetd to use Rhinoceros, is a CAD software with a clean and easy layaut.</p>
+       <p> With Rhino is simple to draw a 2D design and then extrude it to make a 3D file.</p>
+      <p> Rhino is not Open Source, and there isn't a Linux version, but actually the Mac beta version is for free downlad.</p>
+        
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+       
+   
+	
+	<h2>Final Project</h2>
+    
+   
+	<p>
+	<strong>OPEN</strong><span><strong><mark>STAGE</mark></strong></span> is a modular open source frame.
+Built like a tray and based on a 2axis Cartesian movement, it allows you doing many things in different places. </p>
+
+     <h3>Sub-division </h3>
+        <p>
+	<ul type=”disc”>
+  <li>Motion</li>
+  <li>Snap tools</li>    
+  <li>Case</li>
+  
+</ul>
+	</p>
+    
+    <p><strong>MOTION</strong></p>
+<p>I started thinking about how to move axis, basically I had 3 kind of motion: </p>
+  <p>
+	<ul type=”disc”>
+  <li>Cartesian where every axis have a motor, so X ASIS = 1 belt + 1 Motor Y ASIS = 1 belt + 1 Motor</li>
+  <li>H-Bot: With a particular kinematic is possible to use a single belt that do a H loop </li>    
+  <li>CoreXY: the same kinematics of the H-Bot but using 2 belts to improve the X backslash</li>
+</ul>
+	</p>
+<p>I decided to use CoreXY kinematics, you can learn more over this choice in the <a href="project02.html">Project Note page</a></li>.</p>
+	
+
+<p><strong>SNAP TOOLS</strong></p>
+<p>During this week I focused my time to develop a standard Tools mount for my project, I wanted to create a basic snap because in this way everyone can design and make a perfect support for every kinds of tools. </p>
+  <p>
+<p class="pic"><img src="img/snap_tool.jpg">
+	<legend>Left: basic snap - Right: snap with tool.</legend>
+	</p>
+	</p>
+
+
+<p><strong>CASE</strong></p>
+<p>To design case of the basic XY stage I'm ispired on HANDIBOT and I designed a case like a tray, in this way you can collocate OPENstage wherever you want and is possible to engrave/mill/write in place that aren't accesible to the other machines</p>
+
+<p class="pic"><img src="img/table.jpg">
+	<legend>engraving on a large table.</legend>
+	</p>
+  <p>    
+
+   <h3>Useful links</h3>
+        <p>
+	<ul type=”disc”>
+  <li><a href="https://www.rhino3d.com/">McNeel Rhinoceros</a></li>
+  <li><a href="http://corexy.com/">CoreXY</a></li>
+   <li><a href="https://handibot.com/">Handibot</a></li>
+  
+</ul>
+	</p>
+
     <!-- End of your content -->
 
     </div> <!-- /container -->
