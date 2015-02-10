@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="2245.631px" height="1371.444px" viewBox="0 0 2245.631 1371.444" enable-background="new 0 0 2245.631 1371.444"
+	 xml:space="preserve">
+<rect x="1068.197" y="309.792" fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" width="23.617" height="70.877"/>
+<rect x="1420.688" y="653.031" fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" width="70.877" height="23.426"/>
+<rect x="711.909" y="651.904" fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" width="28.351" height="24.553"/>
+<rect x="1068.197" y="947.692" fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" width="24.553" height="28.351"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1477.389" y1="1146.15" x2="683.558" y2="1146.15"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1477.389" y1="1146.15" x2="683.558" y2="1146.15"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1137.176" y1="238.914" x2="1135.244" y2="238.914"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1135.244" y1="238.914" x2="1137.176" y2="238.914"/>
+<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="201.637" y1="1146.15" x2="1941.549" y2="1146.15"/>
+<text transform="matrix(1 0 0 1 951.5986 704.2749)" font-family="'MyriadPro-Regular'" font-size="101.9999">MOLD</text>
+<text transform="matrix(1 0 0 1 1578.5674 634.7607)" font-family="'MyriadPro-Regular'" font-size="32.9793">MOTOR 1</text>
+<text transform="matrix(1 0 0 1 1149.5889 261.2793)" font-family="'MyriadPro-Regular'" font-size="32.9793">MOTOR 2</text>
+<text transform="matrix(1 0 0 1 1491.5645 1099.7378)" font-family="'MyriadPro-Regular'" font-size="32.9793">SUPPORT FRAME</text>
+<text transform="matrix(1 0 0 1 740.2598 1036.7407)" font-family="'MyriadPro-Regular'" font-size="32.9793">OUTER FRAME</text>
+<text transform="matrix(1 0 0 1 840.1553 907.7476)" font-family="'MyriadPro-Regular'" font-size="32.9793">INNER FRAME</text>
+<rect x="917.101" y="592.539" fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" width="328.483" height="145.493"/>
+<path fill="#66F2CC" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M796.962,380.669v567.022h567.022V380.669
+	H796.962z M1335.633,919.34h-510.32v-510.32h510.32V919.34z"/>
+<path fill="#66D2CC" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M740.26,323.967v680.427h680.428V323.967H740.26z
+	 M1392.336,976.042H768.611V352.318h623.725V976.042z"/>
+<polygon fill="#35B1CC" stroke="#000000" stroke-width="3" stroke-miterlimit="10" points="1449.038,607.478 1449.038,1117.798 
+	711.909,1117.798 711.909,607.478 683.558,607.478 683.558,1146.15 1477.389,1146.15 1477.389,607.478 "/>
+<rect x="1023.771" y="238.914" fill="#66F2CC" stroke="#000000" stroke-width="3" stroke-miterlimit="10" width="111.473" height="70.878"/>
+<rect x="1491.564" y="607.478" fill="#66F2CC" stroke="#000000" stroke-width="3" stroke-miterlimit="10" width="70.878" height="111.473"/>
+</svg>

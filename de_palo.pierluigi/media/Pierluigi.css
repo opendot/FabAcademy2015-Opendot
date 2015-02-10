@@ -1,0 +1,66 @@
+body {
+    font-family: 'Source Code Pro';
+    color: green;
+    font-size: 20;
+}
+jumbotron p, {
+    font-family: 'Source Code Pro';
+    color: red;
+    font-size: 20;
+}
+
+.p {
+    font-family: serif;
+    
+}
+
+.col-lg-4, .container {text-align: justify }
+
+.jumbotron {
+    background-color: rgb(0, 0, 0);
+    color: green;
+    border-color: red;
+    
+}
+.btn-primary {
+    background-color: rgb(0, 0, 0);
+    border-color:green;
+    color: green
+}
+
+.btn-primary:hover {
+    background-color: green;
+    border-color:green;
+    color: black
+}
+
+.navbar {
+    background-color: black;
+}
+
+#navbar ul a {
+    color: green;
+    
+}
+
+.navbar-default { border-color: green;}
+
+.navbar-brand {
+    color: green !important;
+    
+}
+body {
+    background-color: black;
+}
+a {
+    color: red;
+}
+ footer id="footer"{
+  background-color: black
+}
+
+h3 small { 
+    color: green;
+    text-align: left;
+}
+img { border-radius: 14px;}
