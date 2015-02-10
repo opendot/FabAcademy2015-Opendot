@@ -83,32 +83,43 @@
 
       
      
-    <h1>CONCEPT</h1>
-		  <h2>Rotational casting machine</h2>
-		
+    <h1>WEEK 2</h1>
+		  <h2>02. Computer-aided Design</h2>
+		<h3>Draw sketches, vector/CAD drawings and 3D models</h3>
         <br><p>
-		Everything starts within one of my activities as a maker: <strong>Propmaking</strong><br>
-		A prop (abbreviative for property) is an object used on a movie set. A gun, a mobile phone, a book, a lightsaber, anything that an actor might have to use or touch is considered a prop and it has to be found and colected by the Prop Master or made from scratch by the Prop Maker. In my spare time I run a small propmaking lab with its own small webcomunity called <a href=http://www.spaghettiprop.it>Spaghetti Prop</a></p>
-		<p><iframe width="420" height="315" src="https://www.youtube.com/embed/ofzg_Hjukzg" frameborder="0" allowfullscreen></iframe></p>
-		<p>One thing i usually make, are hollow casts made with silicone mold and cast with polyurethane resin. You can check details about Industrial Rotational Moulding or Casting <a href="http://en.wikipedia.org/wiki/Rotational_molding">here</a>. Industrial production uses various types of plastic that melts inside a mold that rotatets for a long time in a owen. What I will be doing is a machine that can work with silicon rubber molds and polyurethane resin for the cast. <br>
-			
-			The Rotocasting Machine is loaded with closed silicon rubber mold containing a certain amount of premixed two component polyurethane resin and rotates in every direction so that the liquid resin inside keeps moving while it covers the inside walls of the mold. In a lapse of 10 minutes the resin hardens and at the end you have a perfect, durable and lightweight cast.</p><BR>
+       <p>As an Architect, I had no great problem with this exercise. First of all I drew a sketch freehand. Then I used an architectural design software I know very well called Vectorworks to make technical drawings with quotes.<br>
+		   I used Sketch-up to make a quick 3D model which I exported in jpg, svg and stl. The svg file was put in illustrator where I added text, the jpg views where embellished with Photoshop.<br>
+		   At the end of the page you can navigate the stl model.</p><br>
 		
-			<p class="pic">
-        <img src="https://davidneat.files.wordpress.com/2012/03/dsc01180.jpg">
-		<legend>A silicon rubber mold with a polyurethane cast</legend>
+			 <p class="pic">
+        <img src="image/02rotocast04.jpg">
 		</p>
-	
-		<p class="pic">
-        <img src="image/02rotocast02.jpeg">
-			
+			<br>
+		
+		 <p class="pic">
+        <img src="image/02rotocast01.svg">
 		</p>
+			<br>
 		
-			<p>I built a prototype two years ago with bicycle part and wood, and I could make a lot of tests on how polyurethane resin reacts inside the mold while spinning at different speeds.</p>
+			 <p class="pic">
+        <img src="image/02rotocast04.jpg">
+		</p>
+			<br>
 		
-		<h3>My goal would be to built a Rotocasting Machine that is fully programmable on its spinning speed and periods</h3>
+			 <p class="pic">
+        <img src="image/02rotocast03.jpg">
+		</p>
+			<br>
 		
-	<canvas id="cv" width=640 height=480>
+		
+		
+			 <p class="pic">
+        <img src="image/02rotocast05.jpg">
+		</p>
+			<br>
+		
+			 	
+		<canvas id="cv" width=640 height=480>
 	It seems you are using an outdated browser that does not support canvas :-(
 	</canvas>
 	<script type="text/javascript">
@@ -126,6 +137,47 @@
 		viewer.update();
 	</script>	
 		
+		
+		I already had some basic notions about html and css, but designing the website from scratch would have been to difficult and time consuming, so I started from <a href="https://github.com/openp2pdesign/FabAcademy_Template/releases">Massimo Menichinelli's Fab Academy Template</a>. It is built on <a href="http://getbootstrap.com/2.3.2/">Bootstrap</a> and I used it to make some modifications to the template.<br>
+		
+		<p>First I downloaded a very powerful editor called <a href="http://brackets.io/">Brackets</a>  and I used it to compile the website. One thing I did to edit the template was to change the color of the navbar and the footer. <br>
+			Since I didn't know exactly which class I had to modify in the main css file, I first opened the index.html page on Safari, where I had installed the developer tools (similar tools are available for Firefox); when you move your mouse cursor over the page with the developer tools active, Safari enlight on another window the corespondent line in the html file.</p>
+			 <p class="pic">
+        <img src="image/01screenshot01.png">
+		</p>
+			<br>
+			<p>This way I could see that in order to change the navbar background color I had to add the following code to the template's specific css: </p><br>
+		<br>
+		
+		<pre class="prettyprint linenums">
+.navbar {
+background-color: #37b
+}
+
+
+.navbar-default .navbar-nav>li>a {
+color: #fff
+}
+	
+.navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
+color: #000
+}
+	</pre>
+		
+		<P>Another way to find the right place where you need to write your modifications is to use a simple search: all you have to do is to use a keyword in an intelligent way. For example, as I said, I wanted to modify the background color in the navbar, so after I found the right lines in the .html file using Safari developer tools I had to find the correspondant lines in the .css file. I clicked cmd+F (on a Mac) but instead of using "navbar" as a keyword for the search I used #333 (the color code correspondent to the one I wanted to modified). I got some ten results and I was able to find the ones belonging to the navbar and modify it</P>
+		
+		<p>A very helpful instrument when dealing with color codes is a little freeware application for Mac called <a href="https://itunes.apple.com/us/app/huego-lite/id468963923?mt=12">HueGo Lite</a>.</P> 
+	  
+	  <p class="pic">
+        <img src="image/01huegolite02.png">
+		  <legend>HueGo's visor</legend>
+		</p>
+	  
+	  <p> You can use it to find the number or code of the color of any pixel on your screen, so if you like a specific color, like, say, the blue from the chat ballons in facebook, you can put HueGo visor on top of a chat window already open on you screen and click "go" to have all the info about that color, not only webcolor code, but also RGB, CMYK, Pantone etc.</p>
+		<p>Other edit I made were changing the font family to a Monospace family, adding a <a href="http://www.google.com/fonts/">Google Fonts</a> collection and modifying the weight and size of the h1, h2, h3 classes.
+        </p>
+		<p>At first I had some problems making the menu work with multiple selection, so at the beginning I disabled the functionality and opted for a single choice menu with static pages with a list of links. After that our Instructor warned us that the template he designed had the javascript for the multiple choiche menu disabled when you were not connected to the internet, but you could see it working when connected and using Firefox as a browser; so I followed his instruction and see that the menu was working well and put it back on my site because it really is a good feature, especially thinking at the next months when there will be many more pages on the website.</p>
+      
     
     <!-- End of your content -->
 
@@ -168,4 +220,3 @@
 
   </body>
 </html>
-
