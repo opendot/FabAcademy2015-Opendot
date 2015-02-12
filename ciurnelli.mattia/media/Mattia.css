@@ -1,6 +1,7 @@
 body {
 font-family: 'Maven Pro', sans-serif; color: black;
-background-image: url(../Image/background.jpg)
+background-image: url(../Image/background.jpg);
+background-attachment: fixed;
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
@@ -99,4 +100,10 @@ a {
 .dropdown-menu {
     color: black;
     background-color: #facd11;
+}
+
+.container p img, iframe,  .html5-video-player, .ytp-thumbnail, .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
 }
