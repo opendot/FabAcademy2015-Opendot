@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="css/vendor/fluidbox.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
+	<script type="text/javascript" src="js/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="js/jsc3d.min.js"></script>
+    <script type="text/javascript" src="js/jsc3d.webgl.js"></script>
+
 	<title>FabAcademy 2015</title>
 
 </head>
@@ -249,18 +253,18 @@
   				 <p>After some use of Inkscape I thought that it wasn't the right choice for designing something precise, like the drone I want to build or a part of it. If I need to 3D print parts, or to measure distance between points, the best is to use a 2D/3D CAD software. Accordingly to this I  decided to try <span class="redones">FreeCad</span>. FreedCad was very good, and also relatively easy to me. The problem was that FreeCad is a beta, and I experienced some errors and chrashes in the middle of the work that made me consider this software not a reliable choice. I also briefly tried <span class="redones">QCad</span>, but after FreedCad it seemed to be too simple for the scope I had. The lastest software in the Massimo's list that is specialized in 2D CAD is <span class="redones">DraftSight</span>. Since it's a clone of the famous Autocad, and therefore inherits its commands, I felt comfortable with DraftSight both at the beginning and then when I tried to use more advanced commands. I decided to use DraftSight for <span class="redones">2D technical drawing</span>.</p>
 				
   				 <p>Here is the design of the drone's <span class="redones">frame</span> and its dimensions, made with DraftSight(<a href="drawings/frame2D.dwg"><span class="redones" style="font-weight: bold;">download</span></a>):<br></p>
-  				 <p><img src="img/frame2D_web.jpg"></p>
+  				 <p><img src="img/frame2D_web.gif"></p>
   				 <p><br>Furthermore, because of the special <span class="redones">assembly</span>  feature the drones have, I also tried to design the <span class="redones">cubic frame</span>(<a href="drawings/cubic_frame2D.dwg"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
-				 <p><img src="img/cage2D_web.jpg"></p>
+				 <p><img src="img/cage2D_web.gif"></p>
 				 <p><br>When I saw these drawings clompleted, I could not wait to see them <span class="redones">rendered in 3D</span>! As a strategy I was thinking about exporting the 2D technical drawings I made to svg format, and then doing an import in  <span class="redones">Blender</span>. At the first usages of Blender I was advantaged by the little experiences of the past. But then it was a nightmare: I get lost in countless commands that Blender has and also I encountered some bugs of the boolean modifier. So, as a last chance for 3D I tried <span class="redones">Rhino</span> three months trial in the Windows virtual machine. Despite a non easy start, and after some difficulties, I really appreciated Rhino. So taken further by the desire to render the 2D technical drawings I managed to correctly import the svg files, extruded the surfaces, and reached the goal to decently render them, with the compliance of the dimensions!</p>
-				 <p>So, here is the 3D rendering of the frame(<a href="https://www.dropbox.com/s/2eyes78as08ntxm/frame3D.3dm?dl=0"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
+				 <p>So, here is the 3D rendering of the frame(<a href="drawings/frame3D.rar"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
 				 <p><img stile="size:70%" src="img/frame3D_web.jpg"></p>
-				 <p><br>And here is the 3D rendering of the cubic frame(<a href="https://www.dropbox.com/s/bcioh3oid880zvu/cubic_frame3D.3dm?dl=0"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
+				 <p><br>And here is the 3D rendering of the cubic frame(<a href="drawings/cubic_frame3D.rar"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
 				 <p><img src="img/cage3D_web.jpg"></p>
+				 <p><br> Finally you can <span class="redones">play</span> with last one:</p>
 			</div>
 		</section>
 
-	
 		<section id= "week3" class="row">
 			<div class="photo-grid">
 				<p>week3 computer-controlled cutting</p>
@@ -415,6 +419,11 @@
 		</section>
 
 		<section class="row">
+			
+			<canvas id="cv" width=640 height=480>
+				It seems you are using an outdated browser that does not support canvas :-(
+			</canvas>
+			<p></p>
 			<div class="col-full">
 				<p>
 					This work is licensed under the terms of the GNU Lesser General Public License v2.1 (<a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" style="font-weight: bold;">LGPL</a>)
@@ -441,18 +450,9 @@
 
 		window.onload = function () { 
 
-				//var canvas = document.getElementById('cubic_frame');
-			    //var viewer = new JSC3D.Viewer(canvas);
-			    //viewer.setParameter('SceneUrl','stl/cubic_frame.stl');
-			    //viewer.setParameter('ModelColor','#CAA618');
-			    //viewer.setParameter('BackgroundColor1','#E5D7BA');
-			    //viewer.setParameter('BackgroundColor2','#383840');
-			    //viewer.setParameter('RenderMode','flat');
-			    //viewer.setParameter('MipMapping','on');
-			    //viewer.setParameter('Definition','high');
-			    //viewer.setParameter('Renderer','webgl');
-			    //viewer.init();
-			    //viewer.update();
+					
+					var canvas = document.getElementById('cv');
+					canvas.style.display="none";
 
 
 					ReplaceContentInContainer('middle',document.getElementById('about').innerHTML)
@@ -462,6 +462,11 @@
 
 
 		function ReplaceContentInContainer(id,content,endId) {
+
+			$("#week2").insertBefore("#cv1");
+
+			var canvas = document.getElementById('cv');
+			canvas.style.display="none";
 
 			var container = document.getElementById(id);
 			container.innerHTML = content;
@@ -473,15 +478,35 @@
 
 			if(endId=='exercises'){
 				document.getElementById('ex').style.color = '#ced9e0';
-			}
+			}else
 			if(endId=='about'){
 				document.getElementById('ab').style.color = '#ced9e0';
-			}
+			}else
 			if(endId=='contact'){
 				document.getElementById('co').style.color = '#ced9e0';
-			}
+			}else
 			if(endId=='final_project'){
 				document.getElementById('fp').style.color = '#ced9e0';
+			}else
+			if(endId=='week2'){
+				
+				var canvas = document.getElementById('cv');
+			    var viewer = new JSC3D.Viewer(canvas);
+			    viewer.setParameter('SceneUrl','drawings/cubic_frame.obj');
+			    viewer.setParameter('ModelColor','#FFFFFF');
+			    viewer.setParameter('BackgroundColor1','##CCCCA3');
+			    viewer.setParameter('BackgroundColor2','##CCCCA3');
+			    viewer.setParameter('RenderMode','flat');
+			    viewer.setParameter('MipMapping','on');
+			    viewer.setParameter('Definition','high');
+			    viewer.setParameter('Renderer','webgl');
+			    viewer.init();
+			    viewer.update();
+
+			    canvas.style.display="block";
+			    
+				//canvas.style.float = "bottom";
+
 			}
 
 		}
