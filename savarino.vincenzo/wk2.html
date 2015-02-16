@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Week 1</title>
+		<title>Fab Academy 2015 - Week 2</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -15,6 +15,22 @@
 		<script src="js/jquery.scrolly.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+		
+		<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -43,7 +59,7 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Week 1</h2>
+						<h2>About Week 2</h2>
 						
 					</header>
 					<div class="container">
@@ -51,27 +67,46 @@
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>My Web Pages</h3>
-									<p><img align="center" height="264" hspace="12" src="images/wk1.jpg" width="383" /></p>
+									<h3>My Computer Aided Design Exercise...</h3>
+									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
+									<p>Starting from Sketchup sketch table from week 1, I designed a more detailed one, in particular the table structure and the pin system. The structure will contain the mechanical equipment (i.e. the step motors) and overal electronics. </p>
 									<p></p>
 								</section>
 							</div>
 							<div class="12u">
 								<section class="box style1">
 									
-                                    <p>To document myself, my final project and my class assignement I started by a responsive website template.</p>
-
-<p>I've modified the layout css and page structure, while maintaining the same licence (CCv2 licence).</p>
-
-<p>The website template will be the container of each content I'll put inside it.</p>
-
-<p>For the home page and first week page I have used:</p>
-
-<ul>
-	<li>Notepadd ++ for text editing</li>
-	<li>MS Powerpoint to collect ideas</li>
-	<li>Sketchup and Gimp&nbsp;to create images&nbsp;</li>
-</ul>
+                                    <p>
+									Below the final result.
+									
+									
+									
+									<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/free_cad_table_v2.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script> 
+    </p> 
+    
+    <h3>Download</h3>
+	
+	<p>
+	<a href="#">
+	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+	</a>
+	</p>
 
 <p>&nbsp;</p>
 								</section>
