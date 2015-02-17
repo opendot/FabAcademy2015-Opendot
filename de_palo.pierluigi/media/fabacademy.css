@@ -54,7 +54,7 @@ legend {
   padding: 4px;
   width: 940px;
   line-height: 1;
- /*  border: 1px solid #ddd;
+ /*  border: 1px solid #red;
   -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
   border-radius: 14px;
@@ -89,7 +89,7 @@ body {
   bottom: 0;
   height: 140px;
   width: 100%;
-  background-color: #eee;
+  background-color: Black;
   padding: 20px;
 }
 
