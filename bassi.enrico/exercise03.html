@@ -82,142 +82,53 @@
 
 
      <h2>03. Computer-controlled Cutting</h1>
-    
-        
-    <img src="/images/progress.png" alt="work in progress" height="50" width="650">    
-        
-    <!--    
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+      <br>
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-
-    -->
+       <h3>Lasercut project: the fab-Molecules</h3>
+	<p>
+	This is just an educational project: play with cartboard "atoms" to learn how they react to create molecules. The idea started based on the weekly exercise: "design a modular system, out of cardboard, with a parametric tool".
+    The fab-molecules are simple disks with a snap for each <a href="http://en.wikipedia.org/wiki/Valence_electron">valence electron</a>. To simulate the 3-dimensional structure that the molecule get after the reaction, the disc is divided into sectors, one each electron.
+        <br> 
+        This is not always precise, but it helps to understand better the process.
+    <br>
+        The atoms are defined by a Grasshopper sketch, that allows to set kerf, thikness of the material, lenght of the joint, and dimension of the chamfer.
+        <img src="images/molecules1.gif" alt="parameters" height="386" width="800">   
+       <br> 
+        Here the Grasshopper sketch. By default, only Hydrogen, Carbon and Oxygen are defined, but to add extra atoms, it's enough to change the number of valence electrons and the dimension.
+        <img src="images/molecules2.gif" alt="sketch" height="375" width="800">   
+       <br> 	
+	<a href="media/molecules.gh">
+	<button type="button" class="btn btn-primary btn-lg">Download "Molecules.gh"</button>
+	</a>
+   <br><br> 
+        Here some pictures of modules. 
+    
+        <img src="images/all_r.jpg" alt="sketch" height="500" width="800">  
+        <img src="images/atoms.jpg" alt="sketch" height="400" width="800">
+    <br>     
+        
+        Here the Metane, if rappresented 2-dimensional
+        <img src="images/met_2d.jpg" alt="sketch" height="500" width="800">
+        
+        <br>
+  Here the Metane, if rappresented 3-dimensional
+        <img src="images/met_3d.jpg" alt="sketch" height="500" width="800">
+        <br>
+        Here a more complex hydrocarbon (the pentane)
+        <img src="images/penta.jpg" alt="sketch" height="400" width="800">
+  <br>       
+        
+        
+	</p>           
+      
+   <h3>Extra content</h3>
+	<p>
+	During our last user group "Visual Making" in the fablab Opendot we tested lasercut matrix for traditional printing process. Here three different ways to engrave the same picture and the different results.
+      <img src=https://pbs.twimg.com/media/B9_aDzgCIAAIF2K.jpg:large alt="prints" height="425" width="641">  
+        
+ </p>
+        
+  
 
     <!-- End of your content -->
 
