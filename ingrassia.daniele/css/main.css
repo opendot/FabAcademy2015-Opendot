@@ -646,9 +646,10 @@ color: white;
 .lists li:first-child{
 
   text-decoration: none;
-margin-bottom: 15px;
-list-style: none;
+  margin-bottom: 15px;
+ list-style: none;
 }
+
 .images{
   width: 35%;
   height: 90%;
