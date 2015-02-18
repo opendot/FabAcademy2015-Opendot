@@ -108,6 +108,6 @@ a {
   max-width: 100%;
 }
 
-.container p img, .pic {
+.container p img, .pic, #cv {
   background-color: white;
 }
