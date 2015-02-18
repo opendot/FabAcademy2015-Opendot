@@ -43,14 +43,14 @@ legend {
 	margin:3px; 
 	text-align:center;
 	width:100%; 
-	font-size: 14px; 
+	font-size: 10px; 
 	border: 0px;   
-	line-height: 18px;
+	line-height: 14px;
 	}
 
 .pic {
   margin:3px; text-align:center;width:100%
-  display: block;
+  display: ;
   padding: 4px;
   width: 940px;
   line-height: 1;
