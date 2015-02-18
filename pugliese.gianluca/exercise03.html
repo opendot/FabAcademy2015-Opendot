@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+  
     <link rel="icon" href="media/favicon.ico">
-
-    <title>Fab Academy 2015 - Name Surname</title>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'>
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+      
+     
+    <!-- FORCED COLOR LINK TBD -->   
+      
+      <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+      
+      
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -55,7 +62,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese  @FabAcademy2k15</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -70,7 +77,9 @@
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact           </a></li>
+              
+             
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,137 +90,106 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>Exercise...</h1>
+    <h1><strong>Exercise 3</strong></h1> <p>11.02.2015</p>
     
-    <h3>Menu</h3>
+    <h2>Computer-Controlled cutting</h2>    
+        
+    <h3>Assignment</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+	<ul type=”disc”>
+        <li>Design, make, and document a press-fit construction kit</li>
+  
+ 
+</ul>
 	</p>
     
-    
-    <h3>Text</h3>
+    <h2>Project</h2>
 	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
+	Thinking about the possibility of my final project, I decided to explore the SLS world </p>
+      <p> I designed in Rhino all the mechanics, to do this week assignment I designed a system based on 2 chambers that move in the opposite direction.</p>
+       <p>I used a simple joint to assemble all the parts excluding almost completely the use of screws.</p>
+      <p> To design the mechanics I used Rhinoceros and Inkscape to create the gear box.</p>
+        
 	
-	<h3>Images</h3>
+	<h2>SLS</h2>
+    
+   
 	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+	Selective Laser Sintering (SLS) is an additive manufacturing technique that uses a laser as the power source to sinter powdered material. </p>
 
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
+     <h3>Sub-division </h3>
+        <p>
+	<ul type=”disc”>
+   <li>Goal</li>      
+  <li>Motion</li>
+  <li>Laser cutting</li>    
+  <li>Assembling</li>
+  
+</ul>
 	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
     
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
+    <p><strong>Goal</strong></p>
+<p> </p>
+  <p>
+<p class="pic"><img src="http://www.uni.edu/~rao/rt/3dp.gif">
+	<legend>2 chambers SLS structure.</legend>
 	</p>
-	
-	<p>
-	Result:
 	</p>
-	<p>
-	<a href="#">
+
+    
+    <p><strong>MOTION</strong></p>
+
+<p>Many solution discovered on internet, uses one motor for each chamber, my intent was to use a single motor, so I've created gears using Inkscape following this tutorial:</p>
+ <li><a href="http://nicubunu.blogspot.it/2008/04/f10-gears-drawing-gears.html">Gear with Inkscape</a></li>
+<p>Then I've imported the gear in Rhinoceros to create the simulation ov motion. With this configuration I can use a single motor; when the motor turn CW, the gear n°2 turns CCW and the n°1 turns CW, this allows the ascent and descent of the 2 platform </p>
+	<p class="pic"><img src="img/gear.jpg">
+	<legend>Simulation of motion.</legend>
+	</p>
+	</p>
+
+<p><strong>Laser cutting</strong></p>
+<p>To make all the parts of my project I used a WORKLINE laser cutter.</p>
+<p>This machine has a work area of 1200x900mm and a 150W CO2 laser tube.</p>
+  <p>
+<p class="pic"><img src="img/laser.jpg">
+	<legend>Laser cutting</legend>
+	</p>
+	</p>
+
+
+<p><strong>ASSEMBLING</strong></p>
+<p>Assembling the project it was raelly easy, I coloured some parts to evidences the most important pieces ant their movement; all the parts are linked with simple finger joint in order to use less screws possible </p>
+
+<p class="pic"><img src="img/makingSLS.jpg">
+	<legend>1-GearBox, 2-Sliding platform, 3-Stage completed.</legend>
+	</p>
+  <p>    
+      
+      
+      <p>
+	<a href="https://github.com/owenlab/SLS">
 	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
 	</a>
 	</p>
+
+<p><strong>Video</strong></p>
+<p>This is a short video of the first movement test </p>  
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/y1BkjRQjhGE" frameborder="0" allowfullscreen></iframe></p>
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+
+
+
+      
+   <h3>Useful links</h3>
+        <p>
+	<ul type=”disc”>
+  <li><a href="http://en.wikipedia.org/wiki/Selective_laser_sintering">SLS Wikipedia</a></li>
+  <li><a href="http://www.ricami.piemonte.it/product.asp?idpro=1889">Workline laser machine</a></li>
+   
+  
+</ul>
+	</p>
+
     <!-- End of your content -->
 
     </div> <!-- /container -->

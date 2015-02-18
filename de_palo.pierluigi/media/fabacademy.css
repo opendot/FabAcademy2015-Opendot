@@ -43,18 +43,18 @@ legend {
 	margin:3px; 
 	text-align:center;
 	width:100%; 
-	font-size: 14px; 
+	font-size: 10px; 
 	border: 0px;   
-	line-height: 18px;
+	line-height: 14px;
 	}
 
 .pic {
   margin:3px; text-align:center;width:100%
-  display: block;
+  display: ;
   padding: 4px;
   width: 940px;
   line-height: 1;
- /*  border: 1px solid #ddd;
+ /*  border: 1px solid #red;
   -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
   border-radius: 14px;
@@ -89,7 +89,7 @@ body {
   bottom: 0;
   height: 140px;
   width: 100%;
-  background-color: #eee;
+  background-color: Black;
   padding: 20px;
 }
 

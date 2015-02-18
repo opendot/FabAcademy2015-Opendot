@@ -1,0 +1,85 @@
+body {
+    font-family: 'Source Code Pro';
+    color: green;
+    font-size: 20;
+}
+jumbotron p, {
+    font-family: 'Source Code Pro';
+    color: red;
+    font-size: 20;
+}
+
+.p {
+    font-family: serif;
+    
+}
+    
+}
+
+.col-lg-4,.col-lg-6,.col-lg-12 .container {text-align: justify }
+
+.jumbotron {
+    background-color: rgb(0, 0, 0);
+    color: green;
+    border-color: red;
+    
+}
+.btn-primary {
+    background-color: rgb(0, 0, 0);
+    border-color:green;
+    color: green
+}
+
+.btn-primary:hover {
+    background-color: green;
+    border-color:green;
+    color: black
+}
+
+.navbar {
+    background-color: black;
+}
+
+#navbar ul a {
+    color: green;
+    
+}
+
+.navbar-default { border-color: green;}
+
+.navbar-brand {
+    color: green !important;
+    
+}
+body {
+    background-color: black;
+}
+a {
+    color: red;
+}
+ footer id="footer"{
+  background-color: black
+}
+
+h3 small { 
+    color: green;
+    text-align: left;
+}
+img { border-radius: 40px;border:3px solid green;}
+
+legend {
+    color: green;
+}
+.img-responsive {max-width: 50%;
+}
+.container img {
+
+max-width:100%;
+}
+.portfolio-item p {
+    margin: 5px;
+text-align: center;
+width: 100%;
+font-size: 15px;
+border: 0px;
+}

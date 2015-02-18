@@ -94,133 +94,99 @@
 
 
 	</p>
-
-    <!--
-
-    <h3>Text</h3>
+      <br>
+        
+             <h2>3D model</h1>
+      <br>
+      
+       <h3>Components and parts</h3>
 	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
+	This machine is moving in a different way from other CNC routers. in particular the working piece is standing still, supported by two stands on the sides. The <strong>Y axis</strong> is parallel to the ground, the <strong>X axis</strong> is (almost) perpendicular, and <strong>Z axis</strong> is perpendicular to the piece.  
+	</p>           
+      
+<img src="media/components.svg" alt="components" height="600" width="800">   
+  
+      <p>
+	<strong>
+        A - Y movement <br>
+        B - Spindle <br>
+        C - X movement <br>
+        D - Y rail <br>
+        E - Stand <br>
+        F - Working piece <br>
+          
+          </strong>  
+    <br>
+	
+	<a href="media/components.svg">
+	<button type="button" class="btn btn-primary btn-lg">Download "Components.svg"</button>
+	</a>
 	</p>
-	Result:
+      <br>
+
+<h3>Details</h3>
 	<p>
-	Your text here
+	The most tricky part is probably how to move the machine along Y. I started following <a href="http://www.bg-cnc.com/wordpress/?p=542" target="_blank"> this</a> solution
+  <img src="http://www.bg-cnc.com/wordpress/wp-content/uploads/2009/07/realistic-x-sect.jpg" alt="components" height="600" width="800">
+        
+        <br>
+    The first solution to test is to use a circular belt moved by a stepper that use a secont linear belt glued to the rail as a rack. 
 	</p>
-
-	<h3>Images</h3>
+      
+        <img src="media/detail_y.svg" alt="Detail Y axis" height="600" width="800">   
+  
+      <p>
+	<strong>
+        A - Circular belt <br>
+        B - Pulley <br>
+        C - Y motor <br>
+        D - Linear belt (rack) <br>   
+          </strong>  
+    <br>
+	
+	<a href="media/detail_y.svg">
+	<button type="button" class="btn btn-primary btn-lg">Download "Detail_Y.svg"</button>
+	</a>
+	</p>
+        
+        
+        
+    <h3>3D overview</h3>
 	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
+	In the box below you can see an overview od the project. Everything but the two main rails are attached to the "O" frame. The traslations along Z axis are possible moving the entire structure perpendicular to the panel.
 	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
+    
+	
 
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-
-	<h3>3D Model</h3>
-	<p>
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-
-	Result:
 	<canvas id="cv" width=640 height=480>
 	It seems you are using an outdated browser that does not support canvas :-(
 	</canvas>
 	<script type="text/javascript">
 		var canvas = document.getElementById('cv');
 		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
+		viewer.setParameter('SceneUrl','media/millo_v1.stl');
 		viewer.setParameter('ModelColor','#CAA618');
 		viewer.setParameter('BackgroundColor1','#E5D7BA');
 		viewer.setParameter('BackgroundColor2','#383840');
+        viewer.setParameter('InitRotationX', 85);
+        viewer.setParameter('InitRotationY', 35);
+        viewer.setParameter('InitRotationZ', 175);
 		viewer.setParameter('RenderMode','flat');
 		viewer.setParameter('MipMapping','on');
 		viewer.setParameter('Definition','high');
 		viewer.setParameter('Renderer','webgl');
 		viewer.init();
 		viewer.update();
-	</script>
-    </p>
-
-    <h3>Download</h3>
+	</script> 
+    </p> 
+    
 	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+	<a href="media/millo_v1.stl">
+	<button type="button" class="btn btn-primary btn-lg">Download "3D overview.stl"</button>
 	</a>
 	</p>
 
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-    -->
+    
 
     <!-- End of your content -->
 
