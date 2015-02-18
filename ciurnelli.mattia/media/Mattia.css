@@ -102,7 +102,7 @@ a {
     background-color: #facd11;
 }
 
-.container p img, iframe,  .html5-video-player, .ytp-thumbnail, .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
+.container p img, iframe,  .html5-video-player, .ytp-thumbnail, .img-responsive, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
   display: inline-block;
   height: auto;
   max-width: 100%;

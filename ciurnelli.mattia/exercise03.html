@@ -15,7 +15,9 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500' rel='stylesheet' type='text/css'>
+    <link href="media/Mattia.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -43,7 +45,7 @@
 	</script>
 
   </head>
-    
+
   <body onload="menu()">
 
     <!-- Static navbar -->
@@ -56,7 +58,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Mattia Ciurnelli</a>
+          <strong><a class="navbar-brand" href="index.html">Mattia Ciurnelli</a></strong>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -80,139 +82,55 @@
     <div class="container">
 
 	<!-- Insert your content here below! -->
+        <div class="jumbotron">
+        <h1> <u> <strong> Lesson n. 3:</strong> </u> </h1>
+        <h2>Computer-controlled cutting</h2>
+	<p>
+	This week we had to design, make, and document a press-fit construction kit.
+    </p>
+        
+    <h3>Laser Cutter</h3>
+	<p>
+    This was the first time I used a laser cutting, and for assignement of this week I decided to make a portable version of chess. <br>
+        My initial idea was to create a "book" of wood in which the cover served as a chessboard, while inside there are the pieces in their own space.<br> <br>
+        Considering it was my first experience with this machine, it seemed more reasonable to use the cardboard: it is less expensive than other materials and for all the tests that I should have done it seemed like the best choice.<br> <br>
 
+Morehover the use of cardboard, in my opinion, will let you understand immediately how the cut changes according to the type of settings that you set.<br>
+        
+    In fact, the first step was to find the right settings for the operations I needed (cutting, engraving,...).<br><br>
 
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+I finally got the following values:<br>
+        - to cut the cardboard I set <strong>power 100%</strong> - <strong>speed 7%</strong>;<br>
+        - to engrave the cardboard I set <strong>power 30%</strong> - <strong>speed 100%</strong>;<br>
+        - to remove the frist layer of the cardboard (leaving intact the other) <strong>power 95%</strong> - <strong>speed 100%</strong>;<br></p>
+             <p align="center"><img src= "Image/Lesson03/test-iniziali.jpg">
+                <legend>Some of the initial test</legend></p>
+    <p>
+    After making tests on the cardboard I started drawing the design on Rhino, using a different layer for each operation (cutting, engraving,...).
+        First of all I designed the main structure of the "book" in which I then inserted the board:</p>
+        <p align="center"><img src= "Image/Lesson03/screenshot-scacchiera-rhino.jpg"></p>
+    <p>Using Inkscape, I got a vector image of chess pieces that I later imported into Rhino to create the pieces and the spaces for them.</p>
+             <p align="center"><img src= "Image/Lesson03/screenshot-inkscape-pezzi.jpg"></p>
+             <p align="center"><img src= "Image/Lesson03/screeenshot-importazione-pezzi.jpg"></p>
+   <p> Once imported pieces in Rhino I've modified them by adding a lower range to make sure that you can fit on the board when you use it.
+    To differentiate the white pieces from those blacks I engraved the cutting area, front and back, of the blacks pieces.<br>
+    Once sure of the project (layer, positions, ...) I ran the last test to make sure everything is ok, after which I started cutting.</p>
+        <p align="center"><img src= "Image/Lesson03/taglio-scacchiera.jpg"></p>
+        <p align="center"><img src= "Image/Lesson03/taglio-pezzi.jpg"></p>
+            
+    <p>
+    Cutting accuracy is impressive, even on cardboard that is a material of variable thickness and not regular.</p>
+        <p align="center"><img src= "Image/Lesson03/risultato-pezzi.jpg"></p>
+            
+            <strong> <p>At the end the final result is this:</p> </strong>
+        <p align="center"><img src= "Image/Lesson03/risultato-finale-esterno.jpg"></p> 
+        <p align="center"><img src= "Image/Lesson03/risultato-finale-interno.jpg"></p>
+            
+ <h4>Final Consideration:</h4>
+     <p>As a first attempt I can be satisfied of my work.<br>
+I'd try to make it in wood, in order to solve all the structural problems that I encountered using the cardboard. I must also admit that the use of cardboard for the realization of my first project was the right choice in fact, if I had chosen another one, given the numerous trials and tests, I only wasted material certainly more expensive.</p>
+        
+        </div>
     <!-- End of your content -->
 
     </div> <!-- /container -->
@@ -221,7 +139,7 @@
     
     <footer id="footer">
         <p id="cclicense">
-                </p>
+        </p>
         <p class="license">
         Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
         Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
