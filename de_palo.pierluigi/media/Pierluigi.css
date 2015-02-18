@@ -13,8 +13,10 @@ jumbotron p, {
     font-family: serif;
     
 }
+    
+}
 
-.col-lg-4, .container {text-align: justify }
+.col-lg-4,.col-lg-6,.col-lg-12 .container {text-align: justify }
 
 .jumbotron {
     background-color: rgb(0, 0, 0);
@@ -63,4 +65,21 @@ h3 small {
     color: green;
     text-align: left;
 }
-img { border-radius: 14px;}
+img { border-radius: 40px;border:3px solid green;}
+
+legend {
+    color: green;
+}
+.img-responsive {max-width: 50%;
+}
+.container img {
+
+max-width:100%;
+}
+.portfolio-item p {
+    margin: 5px;
+text-align: center;
+width: 100%;
+font-size: 15px;
+border: 0px;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Week 3: Computer-Controlled Cutting</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      <h2>Module 3: Computer-Controlled Cutting</h2>
+      
+        <h3>Module contents:</h3>
+      <p> The assignment for this week was to build a model composed of parts that could be cut in a laser-cut machine or vinyl cutter. As usual, the requirements are to document all the process of the design, preparation and cutting of the whole model.</p><br>
+      
+      
+        <h3>My work:</h3>
+      
+      <p> In my case, I started with looking in internet for inspiration but also to find something that is not difficult but at the same time makes me learn all the aspects of computer-controlled cutting. After several research and ideas, I decided to design and build a small tool box for homemade tooling for my wife. Here at this moment, I designed by hand then on the computer the toolbox, I developed it on Inkskape taking in consideration all the aspects of the laser cutter available in Opendot Fablab (Kerf, power, etc). This week because of some urgent deadlines for my company, I couldn’t got to the Fablab and laser cut my model, but I’m planning to do it this coming week. <br><br>
+<u><b>Step 1:</b></u> Here is the initial hand sketch of the idea I had in mind that I produced:
+    </p>
+      
+      <p class="pic"><img
+src="media/W3_hand_sketch.jpg">
+        <legend>First hand sketch of the toolbox to be designed.</legend> </p>
+        
+        
+        <p><br><br><u><b>Step 2:</b></u> After that, before going to the computer and start designing, I did some calculation work in order to have all the dimensions of the building blocks of my tool box (all the dimensions are in millimeters):<br><br>
+            
+Material width 4 mm<br>
+Kerf: 0,18<br>            
+Base Box external dimensions: 200 X 100 X 60<br>
+ - Base: 200,36 * 100,36<br>
+ - Long lateral: 200,36 * 60,36<br>
+ - Short lateral: 100,36 * 60,36<br>            
+Box middle external measures: 100 X 100 X 60<br>
+ - Base: 100,36 * 100,36<br>
+ - Lateral side: 100,36 * 60,36<br>            
+Box Top external measures: 100 X 100 X 60<br>
+ - Base: 100,36 * 100,36<br>
+ - Lateral side: 100,36 * 60,36<br>
+ - Top side: 100,36 * 100,36 (No NOTCHES)<br>
+Holes positions<br>
+- Vertical position: Middle from top and down borders<br>
+- Horizontal position: 15 mm from side border and equal distance between horizontal holes<br>
+
+    </p>
+        
+        <p> <u><b>Step 3:</b></u> I tried to translate and design my toolbox idea on the computer using Inkscape. This work took me a lot as it is the first time for me to design parts to be laser cut. I learnt a lot dealing with and taking in considerations everytime the Kerf and the size of notches. But I think it is a learning by doing and for sure I will make other mistakes in order to learn it very well. Here are what I designed:
+    </p>
+        
+    <p class="pic"><img
+src="media/W3_My_toolbox_part1.jpg">
+        <legend>Design of base box and connecting objects - Part 1</legend> </p>
+    
+        <p class="pic"><img
+src="media/W3_My_toolbox_part2.jpg">
+        <legend>Design of middle and upper boxes - Part 2</legend> </p>
+    
+        <p> <u><b>Step 4:</b></u> Next week I will lasercut my toolbox and share here the final ooutcome:
+    </p>
+    
+      <h3>Download Zone</h3>
+      <p> The Inkscape file is available for downloand here: </p>
+      <p> <a href="media/W3_My_toolbox_V2.svg"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+      
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
