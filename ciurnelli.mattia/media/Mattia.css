@@ -107,3 +107,7 @@ a {
   height: auto;
   max-width: 100%;
 }
+
+.container p img, .pic {
+  background-color: white;
+}
