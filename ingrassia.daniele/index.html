@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="css/vendor/fluidbox.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
+	<script type="text/javascript" src="js/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="js/jsc3d.min.js"></script>
+    <script type="text/javascript" src="js/jsc3d.webgl.js"></script>
+
 	<title>FabAcademy 2015</title>
 
 </head>
@@ -103,7 +107,7 @@
 		
 		<section id= "contact" class="row">
 			<div class="photo-grid">
-				<p>Gmail and Google+: <a style="font-weight: bold;" href="https://plus.google.com/115164644362254413966/posts"><span class="redones">ingrassiada@gmail.com</span></a>
+				<p>Gmail and Google+: <a style="font-weight: bold;" href="https://plus.google.com/115164644362254413966/posts"><span class="redones">ingrassiada@gmail.com</span></a><br>
 				Linkedin: <a style="font-weight: bold;" href="http://it.linkedin.com/in/danieleingrassia"><span class="redones">Daniele Ingrassia</span></a>
 				</p>
 			</div>
@@ -162,9 +166,9 @@
 				<p><pre class="prettyprint lang-bash">git add -A .</pre></p>
 				<p>With the modifications inside virtual index, I can now <span class="redones">commit</span> to my local repository:</p>
 				<p><pre class="prettyprint lang-bash">git commit -m "first commit of daniele ingrassia's website"</pre></p>
-				<p>Just before pushing I <span class="redones">pull</span>ed, so I'm sure that if anybody in the meanwhile made any push I get his modifications:</p><p><pre class="prettyprint lang-bash">git pull origing master</pre></p>
+				<p>Just before pushing I <span class="redones">pull</span>ed, so I'm sure that if anybody in the meanwhile made any push I get his modifications:</p><p><pre class="prettyprint lang-bash">git pull origin master</pre></p>
 				<p>Finally I pushed my modifications on the remote repository:</p>
-				<pre class="prettyprint lang-bash">git push origing master</pre></p>
+				<pre class="prettyprint lang-bash">git push origin master</pre></p>
 
 			</div>
 		</section>
@@ -249,21 +253,107 @@
   				 <p>After some use of Inkscape I thought that it wasn't the right choice for designing something precise, like the drone I want to build or a part of it. If I need to 3D print parts, or to measure distance between points, the best is to use a 2D/3D CAD software. Accordingly to this I  decided to try <span class="redones">FreeCad</span>. FreedCad was very good, and also relatively easy to me. The problem was that FreeCad is a beta, and I experienced some errors and chrashes in the middle of the work that made me consider this software not a reliable choice. I also briefly tried <span class="redones">QCad</span>, but after FreedCad it seemed to be too simple for the scope I had. The lastest software in the Massimo's list that is specialized in 2D CAD is <span class="redones">DraftSight</span>. Since it's a clone of the famous Autocad, and therefore inherits its commands, I felt comfortable with DraftSight both at the beginning and then when I tried to use more advanced commands. I decided to use DraftSight for <span class="redones">2D technical drawing</span>.</p>
 				
   				 <p>Here is the design of the drone's <span class="redones">frame</span> and its dimensions, made with DraftSight(<a href="drawings/frame2D.dwg"><span class="redones" style="font-weight: bold;">download</span></a>):<br></p>
-  				 <p><img src="img/frame2D_web.jpg"></p>
+  				 <p><img src="img/frame2D_web.gif"></p>
   				 <p><br>Furthermore, because of the special <span class="redones">assembly</span>  feature the drones have, I also tried to design the <span class="redones">cubic frame</span>(<a href="drawings/cubic_frame2D.dwg"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
-				 <p><img src="img/cage2D_web.jpg"></p>
+				 <p><img src="img/cage2D_web.gif"></p>
 				 <p><br>When I saw these drawings clompleted, I could not wait to see them <span class="redones">rendered in 3D</span>! As a strategy I was thinking about exporting the 2D technical drawings I made to svg format, and then doing an import in  <span class="redones">Blender</span>. At the first usages of Blender I was advantaged by the little experiences of the past. But then it was a nightmare: I get lost in countless commands that Blender has and also I encountered some bugs of the boolean modifier. So, as a last chance for 3D I tried <span class="redones">Rhino</span> three months trial in the Windows virtual machine. Despite a non easy start, and after some difficulties, I really appreciated Rhino. So taken further by the desire to render the 2D technical drawings I managed to correctly import the svg files, extruded the surfaces, and reached the goal to decently render them, with the compliance of the dimensions!</p>
-				 <p>So, here is the 3D rendering of the frame(<a href="https://www.dropbox.com/s/2eyes78as08ntxm/frame3D.3dm?dl=0"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
+				 <p>So, here is the 3D rendering of the frame(<a href="drawings/frame3D.rar"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
 				 <p><img stile="size:70%" src="img/frame3D_web.jpg"></p>
-				 <p><br>And here is the 3D rendering of the cubic frame(<a href="https://www.dropbox.com/s/bcioh3oid880zvu/cubic_frame3D.3dm?dl=0"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
+				 <p><br>And here is the 3D rendering of the cubic frame(<a href="drawings/cubic_frame3D.rar"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
 				 <p><img src="img/cage3D_web.jpg"></p>
+				 <p><br> Finally you can <span class="redones">play</span> with last one:</p>
 			</div>
 		</section>
 
-	
 		<section id= "week3" class="row">
 			<div class="photo-grid">
-				<p>week3 computer-controlled cutting</p>
+				<p>In this week we've talked about <span class="redones">computer-controlled cutting.</span></p>
+				<ul class="lists">
+				<li>There are different <span class="redones">cutting techniques</span>, of which the main ones are:</li>
+				<li><span class="redones">Vinyl cutting</span>, cheap and simple cutting technology, can cut soft materials like paper and vinyl</li>
+				<li><span class="redones">Laser cutting</span>, one of the most spread technologies, can cut materials like wood, PMMA and engrave metals</li>
+				<li><span class="redones">Water jet cutting</span>, expensive technology that can cut hard materials like marbles and metals</li>
+				</ul>
+
+				<p>Some <span class="redones">principal facts</span> that are needed to know about cutting techniques are relative on how they work. One of these regards the cut: because it have a non zero width, it will destroy thin strips of material around itself. So if we need to cut something in a very precise way, we have to estimate this value to obtain the exact dimensions we want. The width of a cut is called <span class="redones">kerf</span>. Another one is that, even if we get a two dimensional cut, we can combine several cuts to assembly 3D objects and shapes. This can be done, for example, with <span class="redones">joints</span> in order to make a box, or cutting several <span class="redones">layers</span> of different dimensions and stacking them up. An important thing to know about laser is that the shape of a laser cut is not perfectly straight but tends to be a <span class="redones">cone</span>. This effect is more evident by cutting thicker materials.</p> 
+
+				<p>After Wednesday's lecture and Thursday's theory lesson we had the opportunity to see our <span class="redones">laser cutter</span> (a GCC Laser Pro) in action. As first experiment we made some simple cuts on a 3mm scrap piece of plywood. There were alot of details to memorize on how to use this (or in general a) laser cutter, so I decided to write here a brief <span class="redones">step by step guide</span>:</p>				
+				<p><span class="redones">1.</span> remove any material already present on the cutting grid
+				<br><span class="redones">2.</span> remove any leavings remaining in the cutting grid, or below it
+				<br><span class="redones">3.</span> place new material on the cutting grid
+				<br><span class="redones">4.</span> check if the material is bent (for example wood) and attempt to lock it in order to minimize bending
+				<br><span class="redones">5.</span> turn on the laser cutter
+				<br><span class="redones">6.</span> calibrate Z axis (height of laser lens) if the previous cut was made with different material
+				<br><span class="redones">7.</span> manually place the lens in a desired point, if you want to use a custom starting point
+				<br><span class="redones">8.</span> close the protective lid
+				<br><span class="redones">9.</span> turn on the filtering system for the material you want to work with
+				<br><span class="redones">10.</span> go to PC and open the file you want to print
+				<br><span class="redones">11.</span> if necessary assign different layers to different parts of the drawing
+				<br><span class="redones">12.</span> put settings for each layer (mainly power, speed values and check vector, raster and air) if needed
+				<br><span class="redones">13.</span> put other settings like print area and home position
+				<br><span class="redones">14.</span> optionally do a test on a small square of material to check if settings are ok
+				<br><span class="redones">15.</span> hit print button
+				<br><span class="redones">16.</span> go to the machine's display and select the file to print
+				<br><span class="redones">17.</span> start cutting by pressing start button
+				<br><span class="redones">18.</span> turn off the laser cutter and filtering system at the end of the cut </p>
+
+				<p>After this first experiment, together with Simone Boasso and Mattia Ciurnelli, we tried to <span class="redones">measure the kerf</span> of our laser cutter. To do this we cutted another 3mm scrap piece of plywood as follows:</p>
+				<p><img src="img/week3/kerf_test.jpg"></p>
+				<p>Then we obtained the kerf with the formula shown in the following picture:</p>
+				<p><img src="img/week3/kerf.jpg"></p>
+				<p>Settings of the driver were: power 100% and speed 10%. The resulting kerf is <span class="redones">0.12mm</span>. Kerf depends on speed and power of the laser beam and by thickness and type of material. In fact, these values are only a starting point useful to estimate future kerfs for the same or similar conditions.</p>
+				<p>Another interesting test made by me and Simone Boasso, was about trying to find the best combination of sizes in order to obtain <span class="redones">wood joints</span>, that will firmly block each other when fitted together. To do this test we made the following drawing(<a href="drawings/week3/joints_test.rar"><span class="redones" style="font-weight: bold;">download</span></a>):</p> 
+
+				<p><img src="img/week3/joints_file.jpg"></p>
+
+				<p>Where the numbers identify the exact <span class="redones">size of the holes or of the fillings</span>, accordingly with the piece on which they are printed on. We decided to use the kerf measured before, as the single step to increase or decrease the sizes. The first attempt to cut this drawing onto a 6mm plywood has <span class="redones">failed to cut</span> all with settings of power 100% and speed 5%:</p>
+				<p><img src="img/week3/first_joints_cut.jpg"></p>
+				<p><img src="img/week3/second_joints_cut.jpg"></p>
+
+				<p>The second try was successful as we lowered speed to 3.4%. Here is the video of our successful cut:</p>
+
+				<iframe  src="//player.vimeo.com/video/119747304" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>
+
+				<p><br>You can also notice, as you already seen in the drawing, that with that cut we also tried to <span class="redones">engrave some raster and vector</span> numbers, for these we used the settings of power 100% and speed 80%. Furthermore, to improve precision, we made these engravings before the cuts, to be sure that wood was not moved before. The last part of the test was about to try every <span class="redones">permutation of joints</span> with the pieces we've made:</p>
+				<iframe  src="//player.vimeo.com/video/119747305" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>
+				
+				<p><br>We also tried to test the wood joints with one of the pieces flipped. This because we want to test how much the cuts made by the laser tend to be a cone. Finally the best permutation for a wood joint was the <span class="redones">filling of 10.12mm with the hole of 9.64mm</span>.</p>
+
+				<p>For my personal experimentations with laser cutting I was thinking about to make an <span class="redones">adjustable notebook stand</span>. I wanted to make this because my notebook often warm up very quickly, forcing me to put something below it to help cooling. The main idea is to realize a rectangular top, perforated for the most to help notebook breathing and supported by two lateral pieces, specially shaped to hold the rectangular top and allow some inclination.</p>
+
+				<ul class="lists">
+				<li>Starting from this idea, I made the following <span class="redones">considerations</span>:</li>
+				<li>rectangular top must be capable to <span class="redones">support different sizes</span>, so I measured different notebooks from 10" to 17"</li>
+				<li>to avoid any future warping I preferred to use 8mm plywood</li>
+				<li>lateral pieces must allow breathing to the air intakes on all sides, as well allow to use all sides' connections</li>
+				<li>this notebook stand can be used also as <span class="redones">reading desk</span>, so I can use an higher inclination for the last regulation</li>
+				<li>plywood offer good sliding friction to the notebook</li>
+				<li>one of the joints must be capable of <span class="redones">rotation</span>, so I need to cut a little cylinder around it to help rotation</li>
+				<li>as a reinforcement I need to put another piece below the rectangular top, this piece must not bother spaces</li>
+				<li>I want the possibility to pass the cables through the rectangular top</li>
+				<li>the rectangular top is most stressed longitudinally, so I designed it more resistant on that (irregular circumference)</li>
+				<li>to avoid falling of smaller notebook I can fill the central part of rectangular top with two X shaped wood strips</li>
+				<li>to reinforce all I can cut some little wood indentations and put there some <span class="redones">o-rings</span></li>
+				<li>I want to change inclination of the rectangular top without disassembling all</li>
+				<li>the space below the rectangular top can be used to place a power supply, an external hard disk etc.</li>
+				</ul>
+
+				<p>Here is the original <span class="redones">drawing</span> of the notebook stand(<a href="drawings/week3/notebook_stand_quote.rar"><span class="redones" style="font-weight: bold;">download</span></a>):</p>
+				<p><img src="img/week3/notebook_stand_quote.gif"></p>
+				<p>And here is the drawing just before print to <span class="redones">optimize spaces</span> and the quantity of wood used:</p>
+				<p><img src="img/week3/notebook_stand.gif"></p>
+				<p>The settings for my cut were: power 100% and speed 1.4%. This is our laser cutter while <span class="redones">cutting</span> the notebook stand:</p>
+				<p><img src="img/week3/during.jpg"></p>
+				<p>And finally here are the <span class="redones">results</span>, all the pieces that constitute the notebook stand:</p>
+				<p><img src="img/week3/disassembled.jpg"></p>
+				
+				<p>The notebook stand is <span class="redones">solid</span>, easy to assemble/disassemble, it doesn't require complete disassemble to <span class="redones">change inclination</span> and can be safely used also without o-rings. The following pictures show the item assembled, used in different <span class="redones">configurations</span> with and without o-rings:</p>
+				<p><img src="img/week3/front_empty.jpg"></p>
+				<p><img src="img/week3/front.jpg"></p>
+				<p><img src="img/week3/side.jpg"></p>
+				<p><img src="img/week3/back.jpg"></p>
+				
+				
 			</div>
 		</section>
 
@@ -359,8 +449,7 @@
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week2').innerHTML,'week2')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">2. computer-aided design</span></a>
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week3').innerHTML,'week3')" rel="lightbox" rel="lightbox" class="col-2">computer-controlled cutting</a>-->
-				<a class="col-2">3. computer-controlled cutting</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week3').innerHTML,'week3')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. computer-controlled cutting</span></a>
 
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week3')" rel="lightbox" rel="lightbox" class="col-2">electronics production</a>-->
 				<a class="col-2">4. electronics production</a>
@@ -415,6 +504,11 @@
 		</section>
 
 		<section class="row">
+			
+			<canvas id="cv" width=640 height=480>
+				It seems you are using an outdated browser that does not support canvas :-(
+			</canvas>
+			<p></p>
 			<div class="col-full">
 				<p>
 					This work is licensed under the terms of the GNU Lesser General Public License v2.1 (<a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" style="font-weight: bold;">LGPL</a>)
@@ -441,18 +535,9 @@
 
 		window.onload = function () { 
 
-				//var canvas = document.getElementById('cubic_frame');
-			    //var viewer = new JSC3D.Viewer(canvas);
-			    //viewer.setParameter('SceneUrl','stl/cubic_frame.stl');
-			    //viewer.setParameter('ModelColor','#CAA618');
-			    //viewer.setParameter('BackgroundColor1','#E5D7BA');
-			    //viewer.setParameter('BackgroundColor2','#383840');
-			    //viewer.setParameter('RenderMode','flat');
-			    //viewer.setParameter('MipMapping','on');
-			    //viewer.setParameter('Definition','high');
-			    //viewer.setParameter('Renderer','webgl');
-			    //viewer.init();
-			    //viewer.update();
+					
+					var canvas = document.getElementById('cv');
+					canvas.style.display="none";
 
 
 					ReplaceContentInContainer('middle',document.getElementById('about').innerHTML)
@@ -462,6 +547,11 @@
 
 
 		function ReplaceContentInContainer(id,content,endId) {
+
+			$("#week2").insertBefore("#cv1");
+
+			var canvas = document.getElementById('cv');
+			canvas.style.display="none";
 
 			var container = document.getElementById(id);
 			container.innerHTML = content;
@@ -473,15 +563,35 @@
 
 			if(endId=='exercises'){
 				document.getElementById('ex').style.color = '#ced9e0';
-			}
+			}else
 			if(endId=='about'){
 				document.getElementById('ab').style.color = '#ced9e0';
-			}
+			}else
 			if(endId=='contact'){
 				document.getElementById('co').style.color = '#ced9e0';
-			}
+			}else
 			if(endId=='final_project'){
 				document.getElementById('fp').style.color = '#ced9e0';
+			}else
+			if(endId=='week2'){
+				
+				var canvas = document.getElementById('cv');
+			    var viewer = new JSC3D.Viewer(canvas);
+			    viewer.setParameter('SceneUrl','drawings/cubic_frame.obj');
+			    viewer.setParameter('ModelColor','#FFFFFF');
+			    viewer.setParameter('BackgroundColor1','##CCCCA3');
+			    viewer.setParameter('BackgroundColor2','##CCCCA3');
+			    viewer.setParameter('RenderMode','flat');
+			    viewer.setParameter('MipMapping','on');
+			    viewer.setParameter('Definition','high');
+			    viewer.setParameter('Renderer','webgl');
+			    viewer.init();
+			    viewer.update();
+
+			    canvas.style.display="block";
+			    
+				//canvas.style.float = "bottom";
+
 			}
 
 		}
