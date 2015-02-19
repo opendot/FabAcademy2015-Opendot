@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Saverio Silli</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+	  
+
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
+            <li><a href="contact.html">contact me</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+      
+     
+    <h1>WEEK 3</h1>
+		  <h2>03. Computer-Controlled Cutting</h2>
+		<h3>Design, make, and document a press-fit construction kit</h3>
+        <br>
+       <p>The first thing I did was to design a modular system. I first tried to build a dodecaedron, but then decided to use triangular faces. I dsigned the solid with sketchup and I found the right angle to which the anchor indents have to be set.</p>
+		
+		 <p class="pic">
+			 <a href="image/03/03lasercut20.jpg"></a>
+        <img src="image/03/03lasercut20.jpg"width="600" >
+			<legend>Sketch Up model</legend>
+				 
+				 
+		</p>
+		
+		<p>After I was sure everything would be ok in the 3D visualization I moved to Vectorworks to draw the cutting plans and decided to add two bumps inside the anchor indents to make the fix stronger. I wanted to use a 4,00 mm cardboard (I couldn't find high quality cardboard though) and I had to consider the kerf of my machine which is about 0,20 mm. So I made the indents 3,80 mm large. </p>
+		
+		 <p class="pic">
+			 <a href="image/03/03lasercut19.jpg"></a>
+        <img src="image/03/03lasercut19.jpg"width="600" >
+			<legend>Double Bumps to increase strenght in the fit</legend> 
+		</p> 
+	
+		<p>Then I drew the cutting plan with speed in mind: the triangles are actually cut by one long polyline and the indents are separeted from the triangles. This way I could later set pryority of the cuts in the machine software. </p>
+		
+		 <p class="pic">
+			 <a href="image/03/03lasercut18.jpg">
+				 <img src="image/03/03lasercut18.jpg"width="600" ></a>
+			 <legend>Cutting plans</legend> 
+			 
+		</p>
+		
+		
+		<p>I did many operations on the machine: First of all I set the focus on the material by acting over the Z axis. Then I gave different colors to different parts of the cutting plans, the inner cuts had to be cut first and the outer cuts where set to be cut last. The cut on cardboard had a speed of 100 and a power of 20 (the machine had a 100watt laser lamp)</p>
+		
+	 <p class="pic">
+			 <a href="image/03/03lasercut15.jpg">
+        <img src="image/03/03lasercut15.jpg"width="600" ></a>
+			 <legend>Laser out of focus: you can se two dots</legend> 
+		</p>
+		  <p class="pic">
+			 <a href="image/03/03lasercut14.jpg">
+        <img src="image/03/03lasercut14.jpg"width="600" ></a>
+			 <legend>Z axis control</legend> 
+		</p>
+			   <p class="pic">
+			 <a href="image/03/03lasercut12.jpg">
+        <img src="image/03/03lasercut12.jpg"width="600" ></a>
+			 <legend>Laser on focus: one dot visible</legend> 
+		</p>
+				    <p class="pic">
+			 <a href="image/03/03lasercut04.jpg">
+        <img src="image/03/03lasercut04.jpg"width="600" ></a>
+			 <legend>Machine control software</legend> 
+		</p>
+						 <p class="pic">
+			 <a href="image/03/03lasercut10.jpg">
+        <img src="image/03/03lasercut10.jpg"width="600" ></a>
+			 <legend>Laser settings</legend> 
+		</p>
+		
+		<p>The modular system was a success, it was easy to fit and strong. I used it to make a bowl for my small cactus. </p>		
+		
+							  <p class="pic">
+			 <a href="image/03/03lasercut09.jpg">
+        <img src="image/03/03lasercut09.jpg"width="600" ></a>
+			 
+		</p>
+								   <p class="pic">
+			 <a href="image/03/03lasercut03.jpg">
+        <img src="image/03/03lasercut03.jpg"width="600" ></a>
+			 
+		</p>
+									    <p class="pic">
+			 <a href="image/03/03lasercut07.jpg">
+        <img src="image/03/03lasercut07.jpg"width="600" ></a>
+			 
+		</p>
+											 <p class="pic">
+			 <a href="image/03/03lasercut01.jpg">
+        <img src="image/03/03lasercut01.jpg"width="600" ></a>
+			 
+		</p>
+		
+			    <p class="pic">
+			 <a href="image/03/03lasercut05.jpg">
+        <img src="image/03/03lasercut05.jpg"width="600" ></a>
+			 
+		</p>
+											 <p class="pic">
+			 <a href="image/03/03lasercut21.jpg">
+        <img src="image/03/03lasercut21.jpg"width="600" ></a>
+			 
+		</p>
+		
+		
+	<p>I also had an idea about a removable snug fit. As me and my classmate Mattia moved in Milan from Rome and Perugia, we are now living in a small apartments, We always lost our keys when we come back home, so I designed this Key holder that has a plate made of three layers of 4,00mm wood with two holes and a plug that act as a keyring. When you are at home you plug the key on the plate (which will be attached to the door) and when you go out you can remove the plug and take it with you. I designed the snug fit to be strong, elastic and nice to see.<br>
+	As with the cardboard I first measured the wood, then I used a kerf meter to see the right measure the design should have to ensure a nice fit. First I made the plate without any fit system and the trhee layers were too lose, so I added two indents. As before I planned the inner cuts to be cut first. At the end the result is very good and the plug is pretty strong but easy to remove.</p>	
+	
+		
+					  <p class="pic">
+			 <a href="image/03/03lasercut16.jpg">
+        <img src="image/03/03lasercut16.jpg"width="600" ></a>
+			 <legend>Measuring the wood, you have + or - errors all over the board</legend> 
+		</p>
+								   <p class="pic">
+			 <a href="image/03/03lasercut17.jpg">
+        <img src="image/03/03lasercut17.jpg"width="600" ></a>
+			 <legend>kerf measure tool: must be cut on the same material and with the same settings you are going to use</legend> 
+		</p>
+									    <p class="pic">
+			 <a href="image/03/03lasercut11.jpg">
+        <img src="image/03/03lasercut11.jpg"width="600" ></a>
+			 <legend>Laser is cutting inner shapes first</legend> 
+		</p>
+											 <p class="pic">
+			 <a href="image/03/03lasercut06.jpg">
+        <img src="image/03/03lasercut06.jpg"width="600" ></a>
+			 <legend>Right: first shape. Left: improved shape with press fit</legend> 
+		</p>
+		
+			    <p class="pic">
+			 <a href="image/03/03lasercut08.jpg">
+        <img src="image/03/03lasercut08.jpg"width="600" ></a>
+			 <legend>Components of the keyholder</legend> 
+		</p>
+											 <p class="pic">
+			 <a href="image/03/03lasercut02.jpg">
+        <img src="image/03/03lasercut02.jpg"width="600" ></a>
+			 
+		</p>	
+
+<p>Both file are available as dxf files:</p>
+		<p><li><a href="storage/03/modularsystem.zip">Modular System</a>  </li>
+		<li><a href="storage/03/keyholder.zip">Key Holder</a>  </li></p>
+
+		
+		
+		
+<!-- End of your content -->
+
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> edited by <a href="http://www.facebook.com/saverio.silli">Saverio Silli</a><br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
