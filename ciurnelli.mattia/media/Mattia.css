@@ -9,15 +9,18 @@ background-attachment: fixed;
 }
 
 .jumbotron {
- background-color: grey;
- border-color: #facd11;
- border: 5px outset;
- padding: 10px 5px;
+    background-color: grey;
+    border-color: #facd11;
+    border: 5px outset;
+    padding: 10px 5px;
+    margin-left:30px;
+    margin-right:30px;
+
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
-padding-left: 25px;
-padding-right: 25px;
+padding-left: 15px;
+padding-right: 15px;
 }
 
 .jumbotron h1 {
@@ -43,6 +46,8 @@ padding-right: 25px;
  padding: 10px 10px;
  width: auto;
  height: auto;
+ margin-left:30px;
+ margin-right:30px;
 }
 
 .navbar {
@@ -102,12 +107,19 @@ a {
     background-color: #facd11;
 }
 
-.container p img, iframe,  .html5-video-player, .ytp-thumbnail, .img-responsive, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
-  display: inline-block;
+.container p img, .pic, .html5-video-player, .ytp-thumbnail, .img-responsive, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  display: block;
   height: auto;
   max-width: 100%;
+  margin:auto;
 }
 
 .container p img, .pic, #cv {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+iframe, canvas {
+    max-width: 100%;
+    display: block;
+    margin: auto;
 }
