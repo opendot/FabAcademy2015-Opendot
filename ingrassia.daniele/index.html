@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="css/vendor/fluidbox.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
+	<link href='http://fonts.googleapis.com/css?family=Averia+Serif+Libre' rel='stylesheet' type='text/css'>
+
 	<script type="text/javascript" src="js/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="js/jsc3d.min.js"></script>
     <script type="text/javascript" src="js/jsc3d.webgl.js"></script>
@@ -77,30 +79,10 @@
 
 		<section id= "final_project" class="row">
 			<div class="photo-grid">
-				<p>
-				We are by now invaded by <span class="redones">Unmanned Aerial Vehicles</span>. They spread everywhere and for whatever kind of use, from taking an aerial video of a party to flying over a raging forest fire alerting firefighters, from hovering over a construction site conducting a building inspection to exploring dangerous places like war sites.</p>
-				
-				<img class="images" src="img/drone_fire.jpeg">
-				<img class="images" src="img/drone_inspect.jpeg">
-			
-				<p>The use of such flying robotics in the form of small UAVs, also known as <span class="redones">drones</span>, is pervasive now but not only: its <span class="redones">commercial growth</span> is predicted to <span class="redones">significantly increase</span> and reach several tens billions of dollars worldwide over the next years.</p>
-				<img class="images1" src="img/drones_market.jpeg">
-				
-				<p>However, in order to achieve this market increase, a multitude of <span class="redones">issues</span> needs to be addressed and several <span class="redones">improvements</span> need to be done. For example, talking about security, the drones on the market today don’t have anything that complain with obstacle avoidance, so they easily get crashed on people and things by inexperienced pilots. Furthermore, they don’t present any kind of mechanism to cooperate each other, or to obtain smarter behaviours.</p>
-				<img class="images" src="img/drone_crash.jpg">
-
-				
-				<ul class="lists">
-				<li>Accordingly to above examples, and due to my interest on <span class="redones">A.I.</span>, what I want to do is to make a drone with such capabilities. So my goal is to acquire all the know-how on the today’s drones to build a <span class="redones">smart quadcopter</span> that offers the following extras:</li>
-				<li><span class="redones">obstacle avoidance</span></li>
-				<li><span class="redones">cooperation capabilities</span></li>
-				</ul>
-				<p>The concept of cooperation I want to realize is intended as another use of the drones:  <span class="redones">the drones as building block material</span> that can be modularly and autonomously assembled.
-				In this direction I think at this quadcopter like a normal one, but equipped with <span class="redones">advanced</span> hardware and software <span class="redones">components</span>, and surrounded by a cage, in order to apply more sensors and to enable an autonomous assembly behaviour. I think about the cage as a <span class="redones">light cubic frame</span> for simplicity of drones assembling.</p>
-				<ul class="lists">
-				<li> The acronym I have chosen for this drone is <span class="redones"> AAVOID</span>: </li>
-				<li><span class="redones"> A</span>utonomous <span class="redones"> A</span>ssembly a<span class="redones">VOI</span>ding <span class="redones">D</span>rone</li>
-				</ul>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project1').innerHTML,'project1')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">1. Concept</span></a>
+				<a rel="lightbox" class="col-2">2. Process</a>
+				<a rel="lightbox" class="col-2">3. System</a>
+				<a rel="lightbox" class="col-2">4. Project v0.1</a>
 			</div>
 		</section>	
 
@@ -116,7 +98,7 @@
 		<section id= "week1" >
 			<div class="weeks">
 				<p>
-				During this week I've learned about <span class="redones">"principles and practices, project management"</span>.
+				During this week I've learned about <span class="redones">principles and practices, project management</span>.
 				<br>
 				<br>
 				Digital fabrication is not new to me as I've already watched some videos about it and the Neil's speeches, but I'm really excited about the course that is starting. Digital fabrication, as a lot of other things that we then discover, is inspired by nature. But, what here is making the difference, is the fact that we are talking about one of the best feature that nature has built-in: <span class="redones">self-reproduction</span>. I was thinking about computer's CPU and memory as organizers of electrons via small quantified amounts of electricity, and due to this I was imagining a program as an ordered bunch of electrons groups. When I learned about digital fabrication this point of view became obsolete as we are now at the next step:  <span class="redones">a piece of code does not just describe a thing, it's a thing itself. </span>
@@ -257,7 +239,9 @@
   				 <p><br>Furthermore, because of the special <span class="redones">assembly</span>  feature the drones have, I also tried to design the <span class="redones">cubic frame</span>(<a href="drawings/cubic_frame2D.dwg"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
 				 <p><img src="img/cage2D_web.gif"></p>
 				 <p><br>When I saw these drawings clompleted, I could not wait to see them <span class="redones">rendered in 3D</span>! As a strategy I was thinking about exporting the 2D technical drawings I made to svg format, and then doing an import in  <span class="redones">Blender</span>. At the first usages of Blender I was advantaged by the little experiences of the past. But then it was a nightmare: I get lost in countless commands that Blender has and also I encountered some bugs of the boolean modifier. So, as a last chance for 3D I tried <span class="redones">Rhino</span> three months trial in the Windows virtual machine. Despite a non easy start, and after some difficulties, I really appreciated Rhino. So taken further by the desire to render the 2D technical drawings I managed to correctly import the svg files, extruded the surfaces, and reached the goal to decently render them, with the compliance of the dimensions!</p>
-				 <p>So, here is the 3D rendering of the frame(<a href="drawings/frame3D.rar"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
+				 <p>So, here you can see the surfaces just before <span class="redones">extrusion</span>:<br><br></p>
+				 <p><img src="img/planar_surfaces.png"></p>
+				 <p>Here is the final 3D rendering of the frame(<a href="drawings/frame3D.rar"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
 				 <p><img stile="size:70%" src="img/frame3D_web.jpg"></p>
 				 <p><br>And here is the 3D rendering of the cubic frame(<a href="drawings/cubic_frame3D.rar"><span class="redones" style="font-weight: bold;">download</span></a>):<br><br></p>
 				 <p><img src="img/cage3D_web.jpg"></p>
@@ -267,7 +251,7 @@
 
 		<section id= "week3" class="row">
 			<div class="photo-grid">
-				<p>In this week we've talked about <span class="redones">computer-controlled cutting.</span></p>
+				<p>In this week we've talked about <span class="redones">computer-controlled cutting</span>.</p>
 				<ul class="lists">
 				<li>There are different <span class="redones">cutting techniques</span>, of which the main ones are:</li>
 				<li><span class="redones">Vinyl cutting</span>, cheap and simple cutting technology, can cut soft materials like paper and vinyl</li>
@@ -279,7 +263,7 @@
 
 				<p>After Wednesday's lecture and Thursday's theory lesson we had the opportunity to see our <span class="redones">laser cutter</span> (a GCC Laser Pro) in action. As first experiment we made some simple cuts on a 3mm scrap piece of plywood. There were alot of details to memorize on how to use this (or in general a) laser cutter, so I decided to write here a brief <span class="redones">step by step guide</span>:</p>				
 				<p><span class="redones">1.</span> remove any material already present on the cutting grid
-				<br><span class="redones">2.</span> remove any leavings remaining in the cutting grid, or below it
+				<br><span class="redones">2.</span> remove any leavings remained in the cutting grid, or below it
 				<br><span class="redones">3.</span> place new material on the cutting grid
 				<br><span class="redones">4.</span> check if the material is bent (for example wood) and attempt to lock it in order to minimize bending
 				<br><span class="redones">5.</span> turn on the laser cutter
@@ -319,7 +303,7 @@
 				
 				<p><br>We also tried to test the wood joints with one of the pieces flipped. This because we want to test how much the cuts made by the laser tend to be a cone. Finally the best permutation for a wood joint was the <span class="redones">filling of 10.12mm with the hole of 9.64mm</span>.</p>
 
-				<p>For my personal experimentations with laser cutting I was thinking about to make an <span class="redones">adjustable notebook stand</span>. I wanted to make this because my notebook often warm up very quickly, forcing me to put something below it to help cooling. The main idea is to realize a rectangular top, perforated for the most to help notebook breathing and supported by two lateral pieces, specially shaped to hold the rectangular top and allow some inclination.</p>
+				<p>For my personal experimentations with laser cutting I was thinking about to make an <span class="redones">adjustable notebook stand</span>. I wanted to make this because my notebook often warms up very quickly, forcing me to put something below it to help cooling. The main idea is to realize a rectangular top, perforated for the most to help notebook breathing and supported by two lateral pieces, specially shaped to hold the rectangular top and allow some inclination.</p>
 
 				<ul class="lists">
 				<li>Starting from this idea, I made the following <span class="redones">considerations</span>:</li>
@@ -327,7 +311,8 @@
 				<li>to avoid any future warping I preferred to use 8mm plywood</li>
 				<li>lateral pieces must allow breathing to the air intakes on all sides, as well allow to use all sides' connections</li>
 				<li>this notebook stand can be used also as <span class="redones">reading desk</span>, so I can use an higher inclination for the last regulation</li>
-				<li>plywood offer good sliding friction to the notebook</li>
+				<li>plywood offers good sliding friction to the notebook</li>
+				<li>I don't take kerf in consideration because of with 8mm plywood and fillings of centimeters the joints will be solid</li>
 				<li>one of the joints must be capable of <span class="redones">rotation</span>, so I need to cut a little cylinder around it to help rotation</li>
 				<li>as a reinforcement I need to put another piece below the rectangular top, this piece must not bother spaces</li>
 				<li>I want the possibility to pass the cables through the rectangular top</li>
@@ -347,13 +332,20 @@
 				<p>And finally here are the <span class="redones">results</span>, all the pieces that constitute the notebook stand:</p>
 				<p><img src="img/week3/disassembled.jpg"></p>
 				
-				<p>The notebook stand is <span class="redones">solid</span>, easy to assemble/disassemble, it doesn't require complete disassemble to <span class="redones">change inclination</span> and can be safely used also without o-rings. The following pictures show the item assembled, used in different <span class="redones">configurations</span> with and without o-rings:</p>
+				<p>The notebook stand is <span class="redones">solid</span>, easy to assemble/disassemble, it doesn't require complete disassemble to <span class="redones">change inclination</span> and can be safely used also without o-rings. The following pictures show the item assembled, used in different <span class="redones">configurations with and without o-rings.</span>.</p>
+
 				<p><img src="img/week3/front_empty.jpg"></p>
-				<p><img src="img/week3/front.jpg"></p>
+				<p><img src="img/week3/side_all.jpg"></p>
+				<p><img src="img/week3/side_front.jpg"></p>
+				<p><img src="img/week3/side_back.jpg"></p>
 				<p><img src="img/week3/side.jpg"></p>
+				<p><img src="img/week3/front.jpg"></p>
 				<p><img src="img/week3/back.jpg"></p>
 				
-				
+				<p>Finally, here is a video about <span class="redones">inclination change</span> without disassembling:</p>
+				<iframe  src="//player.vimeo.com/video/120469898" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>
+
+
 			</div>
 		</section>
 
@@ -438,6 +430,55 @@
 				<p>week19 project presentation</p>
 			</div>
 		</section>
+
+		<section id= "project1" class="row">
+			<div class="photo-grid">
+				<p>Final Project: <span class="redones">concept</span></p>
+
+				<p>
+				We are by now invaded by <span class="redones">Unmanned Aerial Vehicles</span>. They spread everywhere and for whatever kind of use, from taking an aerial video of a party to flying over a raging forest fire alerting firefighters, from hovering over a construction site conducting a building inspection to exploring dangerous places like war sites.</p>
+
+				<img class="images" src="img/drone_fire.jpeg">
+				<img class="images" src="img/drone_inspect.jpeg">
+			
+				<p>The use of such flying robotics in the form of small UAVs, also known as <span class="redones">drones</span>, is pervasive now but not only: its <span class="redones">commercial growth</span> is predicted to <span class="redones">significantly increase</span> and reach several tens billions of dollars worldwide over the next years.</p>
+				<img class="images1" src="img/drones_market.jpeg">
+				
+				<p>However, in order to achieve this market increase, a multitude of <span class="redones">issues</span> needs to be addressed and several <span class="redones">improvements</span> need to be done. For example, talking about security, the drones on the market today don’t have anything that complain with obstacle avoidance, so they easily get crashed on people and things by inexperienced pilots. Furthermore, they don’t present any kind of mechanism to cooperate each other, or to obtain smarter behaviours.</p>
+				<img class="images" src="img/drone_crash.jpg">
+
+				
+				<ul class="lists">
+				<li>Accordingly to above examples, and due to my interest on <span class="redones">A.I.</span>, what I want to do is to make a drone with such capabilities. So my goal is to acquire all the know-how on the today’s drones to build a <span class="redones">smart quadcopter</span> that offers the following extras:</li>
+				<li><span class="redones">obstacle avoidance</span></li>
+				<li><span class="redones">cooperation capabilities</span></li>
+				</ul>
+				<p>The concept of cooperation I want to realize is intended as another use of the drones:  <span class="redones">the drones as building block material</span> that can be modularly and autonomously assembled.
+				In this direction I think at this quadcopter like a normal one, but equipped with <span class="redones">advanced</span> hardware and software <span class="redones">components</span>, and surrounded by a cage, in order to apply more sensors and to enable an autonomous assembly behaviour. I think about the cage as a <span class="redones">light cubic frame</span> for simplicity of drones assembling.</p>
+				
+				<p> The acronym I have chosen for this drone is <span class="redones"> AAVOID</span>:<span class="redones"> A</span>utonomous <span class="redones"> A</span>ssembly a<span class="redones">VOI</span>ding <span class="redones">D</span>rone</p>
+				
+				<p>Here is a draft schema of the <span class="redones">Control Unit</span>'s hardware architecture:</p>
+				<p><img src="img/final_project/AAVOID_CU.png" style="background-color:white;width: 65%;"></p>
+
+			</div>
+		</section>
+		<section id= "project2" class="row">
+			<div class="photo-grid">
+				<p>project2: process</p>
+			</div>
+		</section>
+		<section id= "project3" class="row">
+			<div class="photo-grid">
+				<p>project3: system</p>
+			</div>
+		</section>
+		<section id= "project4" class="row">
+			<div class="photo-grid">
+				<p>project4: v0.1</p>
+			</div>
+		</section>
+
 		<section id= "middle" class="row">
 			<div class="col-full">
 			</div>
@@ -451,8 +492,7 @@
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week3').innerHTML,'week3')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. computer-controlled cutting</span></a>
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week3')" rel="lightbox" rel="lightbox" class="col-2">electronics production</a>-->
-				<a class="col-2">4. electronics production</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week4')" rel="lightbox" rel="lightbox" class="col-2"><span class="col-2" style="color: orange;font-weight: bold;color: orange;">4. electronics production</span></a>
 
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week5').innerHTML,'week5')" rel="lightbox" rel="lightbox" class="col-2">3D scanning and printing</a>-->
 				<a class="col-2">5. 3D scanning and printing</a>
