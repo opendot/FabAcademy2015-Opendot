@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+  
     <link rel="icon" href="media/favicon.ico">
-
-    <title>Fab Academy 2015 - Name Surname</title>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'>
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+      
+     
+    <!-- FORCED COLOR LINK TBD -->   
+      
+      <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+      
+      
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -55,7 +62,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese  @FabAcademy2k15</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -70,7 +77,9 @@
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact           </a></li>
+              
+             
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,17 +90,85 @@
 	<!-- Insert your content here below! -->
 
 
-    <h2>Final Project Process</h1>
+    <h2>Research and Inspiration for final project</h1>
     
     <p>
-    Edit your <em>gantt.js</em> file in order to edit the following Gantt Chart...
-    </p>
+   In this page I will collect and describe useful links that possibly help me to my target.
+        </p>
+        
+         <h3>Sub-division </h3>
+        <p>
+	<ul type=”disc”>
+   <li><a href="#mechanic">Mechanics</a></li>      
+ <li><a href="#motion">Motions</a></li>  
+ <li><a href="#electronic">Electronics</a></li>     
+ <li><a href="#programming">Programming</a></li>  
+        </p>
+
+        <div>    </div>
+        <h3>Mechanics </h3>
+        <a name="mechanic"></a>
+         <p>
+    Using fishing line to move the asis, refer to:  <a href="http://www.thingiverse.com/thing:368902">PrintBQ</a>
+     </p>
+         <p>
+    Theme: <a href="http://www.fishing.net.nz/how-to/fishing-lines-pros-and-cons-of-braided-lines/">some about fishing braid</a>
+     </p>
+         <p>
+    Theme: <a href="https://github.com/wolfmanjm/wolfhbot/blob/master/README.md">Wolf Bot</a>
+     </p>
+         <p>
+    Theme: <a href="http://www.3ders.org/articles/20141107-richrap-shares-sli3dr-3d-printer-design-files.html">RichRap awsome printer</a>
+     </p>
     
-    <div class="fluidMedia">
-    <iframe id="ganttframe" onLoad="calcHeight();" width="100%" src="gantt.html" scrolling="no" style="border: 0px;">
-	This is the Gantt.
-	</iframe> 
-	</div>
+        
+        <div>    </div>
+        <h3>Motions </h3>
+        
+         <a name="motion"></a>
+         <p>
+    As eplained in the Project Note page I will use<a href="http://corexy.com/">CoreXY</a> as kinematics
+     </p>
+        <p>
+    Theme: <a href="https://groups.google.com/forum/#!topic/h-bot-and-corexy-3d-printers/GAFgSyKyGWo">new corexy twist</a>
+     </p> 
+        
+        
+        <div>    </div>
+        <h3>Electronics </h3>
+         <a name="electronic"></a>
+         <p>
+     <a href="http://www.pighixxx.com/test/pinoutspg/boards/">Pighixxx</a>Pinout of most used atmega board and chips
+     </p>
+         <p>Starting form the beautiful <a href="http://mtm.cba.mit.edu/machines/science/">MTM </a>project, I want to make a similar circuit board that possible to drive by Inkscape. To do this I need to make 2 modules, one for the basic configuration with 2 stepper driver and 2 RC servos, and another one like a modular stepper board with one stepper driver and one RC servo.
+             <p>I'm thinking about using a scheme like this:</p>
+        <p class="pic"><img src="img/board.jpg"></p>
+        
+        <p>The boards will be like
+    <a href="https://github.com/imoyer/086-005">Gestalt Node</a> but the communication with arduino will be via ISP or I2C
+     </p>
+         <p>
+   
+         <p>
+   
+     </p>
+        
+        
+        <div>    </div>
+        <h3>Programming </h3>
+        <p></p>
+         <a name="programming"></a>
+        
+        <p>The big gap is the software, Gestalt Node uses own software writed in python, but my things is to use Inkscape to drive the machine. In order to do this I decided to study around Inkscape plugins developing.</p>
+         <p>Searching about plugins i discovered a plugin used for the Eggbot machine, is a beautiful plugin that allow to drive a simple cartesian bot with a tool like a pen. One problem about this plugin is that the eggbot board have a PIC microprocessor instead Atmega that I want, so I will take inspiration on this plugin and I will rewrite to send a normal GCode.</p>
+   <p> The Eggbot project fortunatly is well documented <a href="https://github.com/evil-mad/EggBot">Eggbot on Github</a> </p>
+        <p>and: <a href="http://www.inkscapeforum.com/viewtopic.php?f=31&t=16747">Eggbot plugin description</a> </p>
+         <p>Inskape have already other nice plugins to convert SVG to gcode like: <a href="http://www.cnc-club.ru/forum/viewtopic.php?f=33&t=35">Gcode Tools</a> </p>
+         <p> Another ispirational maybe is this  <a href="http://www.thingiverse.com/thing:65753/#instructions">Spherebot project</a>  </p>
+         <p>To write a new inkscape plugins i will follow these links <a href="http://www.inkscapeforum.com/viewtopic.php?f=34&t=11359">Inkscape forum</a> </p>
+         <p> and <a href="http://wiki.inkscape.org/wiki/index.php/Script_extensions">Inkscape wiki</a> </p>
+         <p>Using these library <a href="https://pypi.python.org/pypi/pycam/0.5.1">pycam</a> </p>
+         <p> and <a href="https://pypi.python.org/pypi/pygrbl/0.2.2">pygrbl</a> </p>
     
     <!-- End of your content -->
 
