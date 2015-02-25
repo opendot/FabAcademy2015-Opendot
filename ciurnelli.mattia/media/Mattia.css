@@ -1,7 +1,7 @@
 body {
-font-family: 'Maven Pro', sans-serif; color: black;
-background-image: url(../Image/background.jpg);
-background-attachment: fixed;
+    font-family: 'Maven Pro', sans-serif; color: black;
+    background-image: url(../Image/background.jpg);
+    background-attachment: fixed;
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
@@ -15,24 +15,39 @@ background-attachment: fixed;
     padding: 10px 5px;
     margin-left:30px;
     margin-right:30px;
-
 }
-
-.container .jumbotron, .container-fluid .jumbotron {
-padding-left: 15px;
-padding-right: 15px;
+.container {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.jumbotron, .container-fluid .jumbotron {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .jumbotron h1 {
     font-size: 35px;
+    font-family: 'Megrim', cursive;
+    font-weight: 900;
 }
 
 .jumbotron h2 {
     font-size: 30px;
+    font-family: 'Rationale', sans-serif;
 }
 
 .jumbotron h3 {
     font-size: 25px;
+    font-family: 'Rationale', sans-serif;
+}
+
+.thumbnail h3 {
+    font-size: 25px;
+    font-family: 'Megrim', cursive;
+}
+.jumbotron h4 {
+    font-size: 20px;
+    font-family: 'Rationale', sans-serif;
 }
 
 .jumbotron p {
@@ -40,23 +55,26 @@ padding-right: 15px;
 }
 
 .thumbnail {
- background-color: grey;
- border: 2px outset;
- border-color: #facd11;
- padding: 10px 10px;
- width: auto;
- height: auto;
- margin-left:30px;
- margin-right:30px;
+    background-color: grey;
+    border: 2px outset;
+    border-color: #facd11;
+    padding: 10px 10px;
+    width: auto;
+    height: auto;
+    margin-left:30px;
+    margin-right:30px;
 }
 
 .navbar {
     background-color: black;
     color: #facd11;
     border-color: black;
-    font-size: 18px;
+    font-size: 20px;
+    font-family: 'Rationale', sans-serif;
 }
-
+.dropdown-menu>li>a {
+    font-size: 17px;
+}
 .collapse navbar-collapse {
     color: #facd11;
 }
@@ -83,6 +101,8 @@ padding-right: 15px;
     color: #facd11;
     background-color: black;
     border-color: #facd11;
+    font-family: 'Rationale', sans-serif;
+    font-size: 17px;
 }
 
 .progress {
@@ -108,10 +128,10 @@ a {
 }
 
 .container p img, .pic, .html5-video-player, .ytp-thumbnail, .img-responsive, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  margin:auto;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin:auto;
 }
 
 .img-responsive, #cv {
