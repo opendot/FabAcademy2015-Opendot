@@ -27,22 +27,27 @@ p {
     text-align: justify;
 }
 
-li a:hover {
-    background: #34e271;
+li :hover {
+    background: #065d1d;
     width: 100%;
     display: block;
     text-decoration: none;
 }
 
-li a {
+li  a{
+    font-weight: 700;
     background: #37ff3f;
     width: 100%;
     display: block;
     text-decoration: none;
 }
 
-a{ color: #ad2222;
-    font-weight: 600}
+a{ color: #db0c34;
+    font-size:20px;
+}
+a:hover{ color: #37adeb;
+    font-size:20px;
+}
 
 figcaption{
     font-family: 'Electrolize',sans-serif;font-size: 14px;font-weight: 600; text-align: center;

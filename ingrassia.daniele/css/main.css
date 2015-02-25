@@ -228,7 +228,8 @@ body {
   text-rendering: optimizeLegibility;
   background-color: #22272a;
   color: #ced9e0;
-  font-family: "font-family: " Helvetica Neue ",Helvetica,Arial,sans-serif";
+  font-family: 'Averia Serif Libre', cursive;
+  
   font-size: 1em;
   line-height: 1.5;
 }
@@ -508,6 +509,28 @@ color: white;
 
 }
 
+#project1{
+  border: none;
+  display: none;
+  text-align: justify;
+}
+#project2{
+  border: none;
+  display: none;
+  text-align: justify;
+}
+#project3{
+  border: none;
+  display: none;
+  text-align: justify;
+}
+
+#project4{
+  border: none;
+  display: none;
+  text-align: justify;
+}
+
 #week1 {
   border: none;
   display: none;
@@ -516,7 +539,6 @@ color: white;
 #week2 {
   border: none;
   display: none;
-  
 }
 #week3 {
   border: none;

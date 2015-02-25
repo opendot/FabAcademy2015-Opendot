@@ -85,14 +85,14 @@
     <h2>Concept</h2><br>
         <em><h4>/// The Photogrammetric Fab Scanner ///</h4></em>
    <br>
-       <p>The fab-scanner is conic box, whit 1 meter of diameter.<br>
+       <p>The fab-scanner is a cylindrical box, whit 1 meter of diameter.<br>
            
 It's composed from 2 different parts, that work in direct relationship :
         <br>
 
-<br><bold>- A - The Light Box :</bold> composed of 1 motorized stepper dish + 1 system of illumination led.
+<br><bold>- A - The Light Box :</bold> composed of 1 motorized stepper dish + 1 system of LED light.
         <br> 
-        <br>- B - The Camera Curved Rail: for the radial move of the photographic instrument.<br>
+        <br>- B - The Camera Curved Rail: for the radial movement of the photographic camera.<br>
                             <br>
         </p><br>
         <br>
@@ -107,7 +107,7 @@ It's composed from 2 different parts, that work in direct relationship :
           
         <div class="col-lg-6">  
 	<img src="Images/Scanner_Draw_Concept_2.jpg">
-	<legend>1st sketch of conic form</legend>
+	<legend>1st sketch of cylindrical form</legend>
             </div>
         </div>
         <br>
@@ -115,8 +115,13 @@ It's composed from 2 different parts, that work in direct relationship :
           <br>
           <br>
           
-                The object to scan, will be set on the rotating dish: every time that the dish will rotate of an established angle, the photographic camera will take a picture
-	  
+                The object to scan will be set on the rotating dish.
+          <br> Whit the lock down of the back doors of the scanner, the process start : the leds light on, and the photographic camera will take a picture each established angle of the rotation support.
+          <br>Once the 360°rotation completed, the camera moves in the 2nd positon, and the process rotation/shooting start again.<br>
+         <br> The complete process it's composed from 4 differents positions in the camera rail : 0° / +45° / +90° / -45° .
+          <br>  Each of it, corresponds to a 360° rotation dish and a set of photos.
+
+
           <br>
           <br>
           <br>
@@ -142,13 +147,47 @@ It's composed from 2 different parts, that work in direct relationship :
       <br>
           <br>
           <br>
-	
-      <h3>Resurces</h3>
+        
+	<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+        
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','download/Fab_Photo_Scanner_V0.1.stl');
+        viewer.setParameter('InitRotationX', 0);
+        viewer.setParameter('InitRotationY', -45);
+        viewer.setParameter('InitRotationZ', -90);
+		viewer.setParameter('ModelColor','#fff');
+		viewer.setParameter('BackgroundColor1','#E5D7BA')
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+        
+    </script> 
+        <br>
+        <br>
+        
+      <h3>Post Production Of Images</h3>
       
-      <p>  <br>With the help of a specific  photogrammetric software<a href="http://meshlab.sourceforge.net"><strong><em> MeshLab </em></strong></a>it will be possible to create and edit 3D models, that will be subsequently printed. </p>
+      <p>  <br>With the help of a specific  photogrammetric software like <a href="http://ccwu.me/vsfm/"><strong><em> VSFM </em></strong></a> for creating the dense cloud and <a href="http://meshlab.sourceforge.net"><strong><em> MeshLab </em></strong></a> for develop the masch, it will be possible to create and edit 3D models, that will be subsequently printed. </p>
       
-    <!-- End of your content -->
-
+        <br>
+        <h3>Resurces</h3>
+        <br>
+       <p> For the camera Curved Rail I will make reference to the project of <a href="http://fabacademy.org/archives/2014/students/begle.moritz/"><strong><em> Begle Moritz </em></strong></a> a 2014 Fab Academy Projects.</p>
+  <br>
+        <br>
+<p>
+	<a href="download/Fab_Photo_Scanner_V0.1.stl">
+	<button type="button" class="btn btn-primary btn-lg">Download the .stl file</button>
+	</a>
+	</p>
     </div> <!-- /container -->
 
 	<!-- footer -->
