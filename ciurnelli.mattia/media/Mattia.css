@@ -114,8 +114,10 @@ a {
   margin:auto;
 }
 
-.container p img, .pic, #cv {
-  background-color: rgba(255, 255, 255, 0);
+.img-responsive, #cv {
+    background-color: #facd11;
+    border: 2px solid #393939 !important;
+  
 }
 
 iframe, canvas {
