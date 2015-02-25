@@ -30,7 +30,7 @@ h3 small { color: green;text-align: left;}
 
 img { border-radius: 40px;border:3px solid green;}
 
-legend {color: green;}
+legend {color: green;font-size: 13px;}
 
 .img-responsive {max-width: 50%;}
 
@@ -38,4 +38,6 @@ legend {color: green;}
 
 .portfolio-item p {margin: 5px;text-align: center;width: 100%;font-size: 15px;border: 0px;}
 
-.container p img {display: block;padding: 4px;line-height: 1px;max-width: 920px;border: 3px  solid green;}
+.container p img {display: block;padding: 4px;line-height: 1px;max-width: 100%; border: 3px  solid green;}
+
+.pic { width:100%}
