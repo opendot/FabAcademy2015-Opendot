@@ -15,7 +15,9 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <link href='http://fonts.googleapis.com/css?family=Rationale|Megrim|Maven+Pro' rel='stylesheet' type='text/css'>
+    <link href="media/Mattia.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -56,7 +58,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Mattia Ciurnelli</a>
+          <strong><a class="navbar-brand" href="index.html">Mattia Ciurnelli</a></strong>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -80,139 +82,110 @@
     <div class="container">
 
 	<!-- Insert your content here below! -->
-
-
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
+        <div class="jumbotron">
+        <h1> <u> <strong> Lesson n. 5:</strong> </u> </h1>
+        <h2>3D Scanning and Printing</h2>
+            <p>This week we had two assignements:
+        <ol type="1">
+    <li><strong>Design and 3D print</strong> an object (small, few cm) that could not be made subtractively;</li>
+    <li>3D scan an object (and optionally print it);</li>
+           </ol></p>
+<h3>Design and 3D print</h3>
+        
+    <p>As a first exercise of the module of this week i decided to make a ball-bearing, to realize the actual mechanical quality of the print material, the PLA.<br>
+The process for the production of a 3D object can be divided into 3 major categories: 
+    <ol type ="1">
+    <li>Modeling;</li>
+    <li>Slicing;</li>
+    <li>Printing.</li>
+    </ol></p>
+    <h4>1. Modeling</h4>
+<p>I made a drawing fairly basic, but paying attention to the dimensions to make it possible to use after printing.</p>
+<p>I designed a sphere and then i made the polar series to develop along a circumference. Then i designed 4 toroids, 2 internal and 2 external, which i have subsequently joined to create the support structure.</p>
+        <p class="pic"><img src= "Image/Lesson05/cuscinetto_rhino.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>Here you can see a cross-section of the ball-bearing:</p>
+        <p class="pic"><img src= "Image/Lesson05/cuscinetto_rhinosez.jpg" class="img-responsive" alt="Responsive image"></p>
+        <canvas id="cv" width=600 height=450>
 	It seems you are using an outdated browser that does not support canvas :-(
 	</canvas>
 	<script type="text/javascript">
 		var canvas = document.getElementById('cv');
 		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('SceneUrl','media/cuscinetto_3d.stl');
+        viewer.setParameter('InitRotationX', 0);
+        viewer.setParameter('InitRotationY', 0);
+        viewer.setParameter('InitRotationZ', 0);
+		viewer.setParameter('ModelColor','##898484');
 		viewer.setParameter('BackgroundColor1','#E5D7BA');
 		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('RenderMode','texture');
 		viewer.setParameter('MipMapping','on');
 		viewer.setParameter('Definition','high');
 		viewer.setParameter('Renderer','webgl');
 		viewer.init();
 		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+	</script>
+
+<p>After having finished the drawing, i exported the model as .stl file and then import into an other software for the slicing phase.<br></p>
+      <h4>2. Slicing</h4>
+      <p>After you have created our 3D object using a modeling programs, we need to convert the drawing into a language that is understandable by the 3D printer: this operation is defined as "slicing".<br>
+
+With the slicing, thanks to a series of parameters set by the user, the software in practice, converts a solid .stl in motion instructions to the printer 3D.</p>
+<p>There are many software that do this kind of operations, one of this is Cura. <br>
+I have choose Cura because it's very simple and is very intuitive, and allows you to obtain excellent results by acting on a number of essential parameters.<br>
+It is also open source: <a href="http://software.ultimaker.com/">Cura</a> can be downloaded from the website of the Ultimaker and is available for all OS including Windows, Mac OS and Linux.</p>
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
+<p>The main screen of Cura is divided into 4 main parts:
+    <ol type="1">
+        <li><strong>Basic:</strong></li> In this section there are the basic configurations for the printing of an object that usually vary according to the object that we must print;
+        
+        <li><strong>Advanced:</strong></li> In this section instead of that there are advanced configurations for the creation of the machine code, which after you have set are more rarely change them;
+        
+        <li><strong>Plugins:</strong></li> This space is dedicated to plugin for Cura, for example to change extrusion temperature after a tot is the number of layer;
+        
+        <li><strong>Start/End-GCode:</strong></li> In this section you can configure to our liking the header and the end of the GCode that will be generated.
+        </ol>
       </p>
+    <p>So in my case, after importing the file in .stl care, I only changed some parameters of the Basic tab:
+    <p class="pic"><img src= "Image/Lesson05/cuscinetto_cura.jpg" class="img-responsive" alt="Responsive image"></p>
+    </p>
+<p>Cure is able to estimate the time spent and the amount of material used for printing, and update it in real time based on the settings that you set.
+</p>
+
+<h4>3. Printing</h4>
+<p>Once finished setting the parameters, you export the g-code and via an SD card you import it into the printer 3d. After imported the g-code into the 3d printer, you have to wait that the temperature of the "nozzle" and of the "bed" reach the levels you set on the g-code, after that the printer start working.
+<p class="pic"><img src= "Image/Lesson05/cuscinetto_printing.jpg" class="img-responsive" alt="Responsive image"></p></p>
+
+<p>After 1 hour and 16 minutes the final result is this:
+<p class="pic"><img src= "Image/Lesson05/cuscinetto_final2.jpg" class="img-responsive" alt="Responsive image"></p></p>
+  <a href="media/cuscinetto_3d.stl">
+    <button type="button" class="btn btn-primary">Download .stl file of the ball-bearing</button></a>
+
+<h3>3D Scanning</h3>
+<p>During the lecture we saw many techniques and software for the 3D scanning. After analyzing all the possibilities I have focused on the use of Kinect, the camera for the Xbox, which mounts inside an RGB camera, double depth sensor infrared composed of a laser scanner and an infrared sensitive camera to the same band.</p>
+<p>These features make it an excellent alternative to expensive 3d scanner that is available commercially.</p>
+<p>As software for control and data acquisition from Kinect, instead, I chose <a href="http://skanect.occipital.com/">Skanect.</a></p>
+<p>Skanect turned out to be a good program and easy to use (we used the Pro version, as the Free version allows you to export a maximum of 5,000 faces).</p>
+<p>My goal was to create a scan of my face. After the first tests with my mates, we understand that for best results when scanning is better to hold the Kinect and to move the object, so we set the Kinect to a tripod and use a swivel stool to allow us to turn.</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_kinect.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>The method we used was effective, and the result obtained with Skanect was more than satisfactory.</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_skanect.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>Be noted that the result would not have been possible with the Free version: the number of faces obtained whit the Pro version are approximately 344000, with the Free version would be reduced to 5000 (85% less).</p>
+<p>Since the mesh obtained by scanning from Skanect was rather complex and heavy I imported into Blender to simplify it, remove some imperfections and eliminate the excess points.</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_blender.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>After re-exported the mesh from Blender, I imported in Netfabb Basic to simplify it further and for cut the lower part in excess.</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_netfabbasic_Cut.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>As the last step, I imported the mesh in Rhino, I used the command "Reduce Mesh" and I added a solid base to face the bust.</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_rhino.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>After finishing process the mesh, I imported into care, I added the printing supports and I exported the g-code.</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_cura.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>Then I import them into the 3D printer and lunch it.</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_printing1.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>When the printing process is finished i spend some time to remove the support material</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_final_wsupp.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>and after remove it, thi is the final result:</p>
+<p class="pic"><img src= "Image/Lesson05/scansione_final.jpg" class="img-responsive" alt="Responsive image"></p>
+        </div>
     <!-- End of your content -->
 
     </div> <!-- /container -->
@@ -221,7 +194,7 @@
     
     <footer id="footer">
         <p id="cclicense">
-                </p>
+        </p>
         <p class="license">
         Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
         Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.

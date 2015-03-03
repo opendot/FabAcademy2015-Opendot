@@ -35,26 +35,30 @@ body {
 .jumbotron h2 {
     font-size: 30px;
     font-family: 'Rationale', sans-serif;
+    text-shadow: -1px 0 #facd11, 0 1px #facd11, 1px 0 #facd11, 0 -1px #facd11;
+    text-align: center
 }
 
 .jumbotron h3 {
     font-size: 25px;
     font-family: 'Rationale', sans-serif;
+    text-shadow: -1px 0 #facd11, 0 1px #facd11, 1px 0 #facd11, 0 -1px #facd11;
 }
 
-.thumbnail h3 {
-    font-size: 25px;
-    font-family: 'Megrim', cursive;
-}
 .jumbotron h4 {
     font-size: 20px;
     font-family: 'Rationale', sans-serif;
+    text-shadow: -1px 0 #facd11, 0 1px #facd11, 1px 0 #facd11, 0 -1px #facd11;
 }
 
 .jumbotron p {
     font-size: 15px;
 }
 
+.thumbnail h3 {
+    font-size: 25px;
+    font-family: 'Megrim', cursive;
+}
 .thumbnail {
     background-color: grey;
     border: 2px outset;
@@ -135,6 +139,7 @@ iframe, canvas {
     max-width: 100%;
     display: block;
     margin: auto;
+  
 }
 
 /* navbar */
