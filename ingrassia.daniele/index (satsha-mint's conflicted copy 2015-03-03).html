@@ -369,7 +369,7 @@
 			<div class="photo-grid">
 				<p>This week we've learned about <span class="redones">3D scanning and printing</span>.</p>
 
-				<p>As first try about printing a <span class="redones">non-subtractive</span> made piece, I thought about three <span class="redones">concentric spheres</span>. This because the spheres inside the external one cannot be placed after it's printed. Therefore it will be very difficult, if not impossible, to make this with a 2D production technique, like laser cutting. I designed the spheres with Rhino (<a href="drawings/week5/spheres.rar"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>):</p>
+				<p>As first try about printing a <span class="redones">non-subtractive</span> made piece I thought about three <span class="redones">concentric spheres</span>. This because the spheres inside an external one cannot be placed after it's printed. Therefore it will be very difficult, if not impossible, to make this with a 2D production technique, like laser cutting. I designed the spheres with Rhino (<a href="drawings/week5/spheres.rar"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>):</p>
 
 				<p><img src="img/week5/spheres_drawing.jpg" alt=""></p>
 				<p><img src="img/week5/spheres_drawing_touch.jpg" alt=""></p>
@@ -380,21 +380,21 @@
 				<p><img src="img/week5/spheres_start.jpg" alt=""></p>
 				<p><iframe src="//player.vimeo.com/video/121041241" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
 
-				<p>As you can see in the previous picture, there were some <span class="redones">problems</span> about the smallest sphere, located at the center. The irregularities shown are due to the fact that the <span class="redones">below surface</span> was not enough to firmly block the sphere with the <span class="redones"> brim</span>. In fact the video shows central sphere moving while extrusor passes on it. I discovered that lateral pillars of the spheres were too <span class="redones">weak</span>, as some of them <span class="redones">broke</span> at the end of printing and when I tried to take spheres with hands. So my first try was unsuccessful, the following picture demonstrates effects of the above problems:</p>
+				<p>As you can see in the picture, there were some <span class="redones">problems</span> about the smallest sphere located at the center. The irregularities shown are due the fact that the <span class="redones">below surface</span> was not enough to firmly block the sphere with the <span class="redones"> brim</span>. In fact the video shows central sphere moving while extrusor passes on it. I discovered that lateral pillars of the spheres were too <span class="redones">weak</span>, as some of them <span class="redones">broke</span> at the end of printing and the rest when I tried to take spheres with hands. So my first try was unsuccessful, the following picture demonstrates effects of the above problems:</p>
 
 				<p><img src="img/week5/complete_spheres.jpg" alt=""></p>
 				<p><img src="img/week5/little_spheres_down.jpg" alt=""></p>
 
-				<p>As second attempt, I tried to print again the same piece. But this time, in order to try to resolve problems related to the first try, I increased the <span class="redones">scale</span> of the spheres. This time the print seemed successful:</p>
+				<p>As second attempt, I tried to print again the same piece. But this time, in order to try to resolve problems that affected the first try, I increased the <span class="redones">scale</span> of the spheres. This time the print seemed successful:</p>
 				<p><img src="img/week5/spheres_during.jpg" alt=""></p>
-				<p>But, near the end of printing piece detached from the brim, so I was forced to stop the printer. As a result, the external sphere remained without roof:</p>
+				<p>But, near end of printing the piece detached from the brim, so I was forced to stop the printer. As a result, the external sphere remained without roof:</p>
 				<p><img src="img/week5/spheres_no_roof.jpg" alt=""></p>
 
-				<p>Another side effect was about <span class="redones">heat</span>, that slowly modified the printed spheres until they become a little elliptic. In fact they results larger than spheres measured in the drawing. After these attempts, and suggestion from a colleague about the difficulties to make these kind of pieces with this printer, I decided to design something else. To experiment a bit more, I implemented an easy <span class="redones">recursive algorithm</span> that generates one of the simplest fractals: <span class="redones">Koch Snowflake</span>. The algorithm (<a href="other/fractal.py"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>) was implemented as a <span class="redones">Python Rhinoscript</span> and it was used to draw fractals out of a set of lines. Here is a video that shows the algorithm in action:</p>
+				<p>Another side effect was about <span class="redones">heat</span>, that modified the printed spheres until they become a little elliptic horizontally. In fact printed spheres results larger than spheres in the drawing. After these attempts, and a suggestion from a colleague about the difficulties to make this kind of pieces with this 3D printer, I decided to design something else. To experiment a bit more, I implemented an easy <span class="redones"> recursive algorithm</span> that generates one the simplest 2D fractals: a <span class="redones">koch snowflake</span>. The algorithm (<a href="other/fractal.py"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>) was implemented as a <span class="redones">Python Rhinoscript</span> and it was used to draw fractals out of a set of lines. Here is a video that shows the algorithm in action:</p>
 
 				<p><iframe src="//player.vimeo.com/video/121136314" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
 
-				<p>Combining this algorithm with a cylinder what comes out is a strange piece that I called: <span class="redones">fractal tube</span>(<a href="drawings/week5/fractal_tube.rar"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>):</p>
+				<p>Combining this algorithm with a cylinder I designed a strange piece that I called: <span class="redones">fractal tube</span>(<a href="drawings/week5/fractal_tube.rar"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>):</p>
 
 				<p><img src="img/week5/fractal_pen_holder_render.jpg" alt=""></p>
 
@@ -404,7 +404,7 @@
 				<p><img src="img/week5/fractal_pen_holder_up.jpg" alt=""></p>
 				<p><img src="img/week5/pen_holder_real.jpg" alt=""></p>
 
-				<p>For 3D scanning, we had the opportunity to use Xbox 360's <span class="redones">Kinect</span>. Kinect sensors and camera, mixed with the proper software, can act as a low cost but low resolution <span class="redones">3D scanner</span>. Using <span class="redones">Skanect</span> as software for capturing and mixing Kinect's data, I had decent results. The picture on the left shows the raw model obtained from Skanet and imported in <span class="redones">Blender</span>. There were some minor imperfections (on the nose) and some flying objects (bottom left). I manually corrected these, as shown in the picture on the right. Here you can download the final model:<a href="drawings/week5/scan_hq.rar"><span class="redones" style="font-weight: bold;"> scan<span class="redones"></a>.</p>
+				<p>For 3D scanning, we had the opportunity to use Xbox 360's <span class="redones">Kinect</span>. Kinect sensors and camera, mixed with the proper software, can act as a low cost but low resolution <span class="redones">3D scanner</span>. Using <span class="redones">Skanect</span> as the software for capturing and mixing Kinect's data, I had decent results. The picture on the left shows the raw model obtained from Skanet and imported in <span class="redones">Blender</span>. There are some minor imperfections (on the nose) and some flying objects (bottom left), both manually corrected in the right picture. Here you can download the final model:<a href="drawings/week5/scan_hq.rar"><span class="redones" style="font-weight: bold;"> scan<span class="redones"></a>.</p>
 
 				<p><img src="img/week5/scan_raw.jpeg" alt=""></p>
 				<p><img src="img/week5/scan_final.jpeg" alt=""></p>
