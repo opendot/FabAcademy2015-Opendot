@@ -259,7 +259,7 @@
 				<li><span class="redones">Water jet cutting</span>, expensive technology that can cut hard materials like marbles and metals</li>
 				</ul>
 
-				<p>Some <span class="redones">principal facts</span> that are needed to know about cutting techniques are relative on how they work. One of these regards the cut: because it have a non zero width, it will destroy thin strips of material around itself. So if we need to cut something in a very precise way, we have to estimate this value to obtain the exact dimensions we want. The width of a cut is called <span class="redones">kerf</span>. Another one is that, even if we get a two dimensional cut, we can combine several cuts to assembly 3D objects and shapes. This can be done, for example, with <span class="redones">joints</span> in order to make a box, or cutting several <span class="redones">layers</span> of different dimensions and stacking them up. An important thing to know about laser is that the shape of a laser cut is not perfectly straight but tends to be a <span class="redones">cone</span>. This effect is more evident by cutting thicker materials.</p> 
+				<p>Some <span class="redones">principal facts</span> that are needed to know about cutting techniques are relative on how they work. One of these regards the cut: because it has a non zero width, it will destroy thin strips of material around itself. So if we need to cut something in a very precise way, we have to estimate this value to obtain the exact dimensions we want. The width of a cut is called <span class="redones">kerf</span>. Another one is that, even if we get a two dimensional cut, we can combine several cuts to assembly 3D objects and shapes. This can be done, for example, with <span class="redones">joints</span> in order to make a box, or cutting several <span class="redones">layers</span> of different dimensions and stacking them up. An important thing to know about laser is that the shape of a laser cut is not perfectly straight but tends to be a <span class="redones">cone</span>. This effect is more evident by cutting thicker materials.</p> 
 
 				<p>After Wednesday's lecture and Thursday's theory lesson we had the opportunity to see our <span class="redones">laser cutter</span> (a GCC Laser Pro) in action. As first experiment we made some simple cuts on a 3mm scrap piece of plywood. There were alot of details to memorize on how to use this (or in general a) laser cutter, so I decided to write here a brief <span class="redones">step by step guide</span>:</p>				
 				<p><span class="redones">1.</span> remove any material already present on the cutting grid
@@ -355,7 +355,8 @@
 				<p>Unfortunately we hadn't the opportunity to accomplish with our weekly assignment because of the lacking of <span class="redones">CNC mill</span>. We'll try to complete the assignment as soon as the shipment of the CNC mill arrives.</p>
 				<p>By the way Massimo used meanwhile time to teach us <span class="redones">Python</span>. Even if I'm a IT engineer, I didn't know anything about this language except the Monty Python's name. As an experiment and to practice a bit of Python, I made a simple Python framework called <span class="redones">Internet of Arduinos</span>. From readme on my <a href="https://github.com/satshas/InternetOfArduinos"><span class="redones" style="font-weight: bold;">GitHub repo<span class="redones"></a>:</p>
 				<p>"Internet of Arduinos (<span class="redones">IoA</span> for friends :) is an Internet of Things Python framework where Things are Arduinos, or other MCU controlled devices. It's in a very early development stage, for now it supports basically HTTP(S) REST to Serial communication."</p>
-				<p>Maybe this framework will be useful to us in order to simplify the communication between internet connected devices and our MCUs. Here is a video with an <span class="redones">example of use</span>: <a href="https://www.youtube.com/watch?v=UISNnQExkLo"><span class="redones" style="font-weight: bold;">Internet of Arduinos</span></a></p>
+				<p>Maybe this framework will be useful to us in order to simplify the communication between internet connected devices and our MCUs. Here is a video with an <span class="redones">example of use:</p>
+				<p><iframe src="//player.vimeo.com/video/120672822" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </p>
 				<p>Other than this I made some experiment about assembling an <a href="http://arduino.cc/en/Main/Standalone"><span class="redones" style="font-weight: bold;">Arduino UNO on a breadboard</span></a> and flashing it with an <a href="http://arduino.cc/en/Tutorial/ArduinoISP"><span class="redones" style="font-weight: bold;">Arduino as ISP</span></a>. As you can already see in the video about InternetOfArduinos, the experiments were successful. So here are some pictures about this:</p>
 				<p><img src="img/week4/before.jpeg"></p>
 				<p><img src="img/week4/flashing.jpeg"></p>
@@ -366,7 +367,50 @@
 
 		<section id= "week5" class="row">
 			<div class="photo-grid">
-				<p>week5 3D scanning and printing</p>
+				<p>This week we've learned about <span class="redones">3D scanning and printing</span>.</p>
+
+				<p>As first try about printing a <span class="redones">non-subtractive</span> made piece, I thought about three <span class="redones">concentric spheres</span>. This because the spheres inside the external one cannot be placed after it's printed. Therefore it will be very difficult, if not impossible, to make this with a 2D production technique, like laser cutting. I designed the spheres with Rhino (<a href="drawings/week5/spheres.rar"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>):</p>
+
+				<p><img src="img/week5/spheres_drawing.jpg" alt=""></p>
+				<p><img src="img/week5/spheres_drawing_touch.jpg" alt=""></p>
+				
+
+				<p>To allow inside spheres to be printed without any <span class="redones">support</span> below, I placed them on a plane. I measured the diameter to be sure that they cannot exit, but also checked that if placed on the plane, they don't touch each other. After drawing was ready, I exported it as <span class="redones">STL</span> to be able to use <span class="redones">Cura</span> in order to obtain <span class="redones">G-code</span>. Our 3D printer is a <a href="http://reprap.org/wiki/Prusa_i3"><span class="redones" style="font-weight: bold;">Prusa Mendel i3</span></a>. Here is a picture and a video about the first part of the printing process:</p>
+				
+				<p><img src="img/week5/spheres_start.jpg" alt=""></p>
+				<p><iframe src="//player.vimeo.com/video/121041241" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+
+				<p>As you can see in the previous picture, there were some <span class="redones">problems</span> about the smallest sphere, located at the center. The irregularities shown are due to the fact that the <span class="redones">below surface</span> was not enough to firmly block the sphere with the <span class="redones"> brim</span>. In fact the video shows central sphere moving while extrusor passes on it. I discovered that lateral pillars of the spheres were too <span class="redones">weak</span>, as some of them <span class="redones">broke</span> at the end of printing and when I tried to take spheres with hands. So my first try was unsuccessful, the following picture demonstrates effects of the above problems:</p>
+
+				<p><img src="img/week5/complete_spheres.jpg" alt=""></p>
+				<p><img src="img/week5/little_spheres_down.jpg" alt=""></p>
+
+				<p>As second attempt, I tried to print again the same piece. But this time, in order to try to resolve problems related to the first try, I increased the <span class="redones">scale</span> of the spheres. This time the print seemed successful:</p>
+				<p><img src="img/week5/spheres_during.jpg" alt=""></p>
+				<p>But, near the end of printing piece detached from the brim, so I was forced to stop the printer. As a result, the external sphere remained without roof:</p>
+				<p><img src="img/week5/spheres_no_roof.jpg" alt=""></p>
+
+				<p>Another side effect was about <span class="redones">heat</span>, that slowly modified the printed spheres until they become a little elliptic. In fact they results larger than spheres measured in the drawing. After these attempts, and suggestion from a colleague about the difficulties to make these kind of pieces with this printer, I decided to design something else. To experiment a bit more, I implemented an easy <span class="redones">recursive algorithm</span> that generates one of the simplest fractals: <span class="redones">Koch Snowflake</span>. The algorithm (<a href="other/fractal.py"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>) was implemented as a <span class="redones">Python Rhinoscript</span> and it was used to draw fractals out of a set of lines. Here is a video that shows the algorithm in action:</p>
+
+				<p><iframe src="//player.vimeo.com/video/121136314" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+
+				<p>Combining this algorithm with a cylinder what comes out is a strange piece that I called: <span class="redones">fractal tube</span>(<a href="drawings/week5/fractal_tube.rar"><span class="redones" style="font-weight: bold;">download<span class="redones"></a>):</p>
+
+				<p><img src="img/week5/fractal_pen_holder_render.jpg" alt=""></p>
+
+				<p>This time the print was  <span class="redones">successful</span>, there are only some minor imperfections due to retraction. You can see the results in the following pictures:</p>
+				
+				<p><img src="img/week5/fractal_pen_holder_side.jpg" alt=""></p>
+				<p><img src="img/week5/fractal_pen_holder_up.jpg" alt=""></p>
+				<p><img src="img/week5/pen_holder_real.jpg" alt=""></p>
+
+				<p>For 3D scanning, we had the opportunity to use Xbox 360's <span class="redones">Kinect</span>. Kinect sensors and camera, mixed with the proper software, can act as a low cost but low resolution <span class="redones">3D scanner</span>. Using <span class="redones">Skanect</span> as software for capturing and mixing Kinect's data, I had decent results. The picture on the left shows the raw model obtained from Skanet and imported in <span class="redones">Blender</span>. There were some minor imperfections (on the nose) and some flying objects (bottom left). I manually corrected these, as shown in the picture on the right. Here you can download the final model:<a href="drawings/week5/scan_hq.rar"><span class="redones" style="font-weight: bold;"> scan<span class="redones"></a>.</p>
+
+				<p><img src="img/week5/scan_raw.jpeg" alt=""></p>
+				<p><img src="img/week5/scan_final.jpeg" alt=""></p>
+
+				<p>Finally you can <span class="redones">play</span> with all the models that I designed this week:</p>
+
 			</div>
 		</section>
 		<section id= "week6" class="row">
@@ -501,10 +545,10 @@
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week3').innerHTML,'week3')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. computer-controlled cutting</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week4')" rel="lightbox" rel="lightbox" class="col-2"><span class="col-2" style="color: orange;font-weight: bold;color: orange;">4. electronics production</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week4')" rel="lightbox" rel="lightbox" class="col-2"><span class="col-2" style="font-weight: bold;color: orange;">4. electronics production</span></a>
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week5').innerHTML,'week5')" rel="lightbox" rel="lightbox" class="col-2">3D scanning and printing</a>-->
-				<a class="col-2">5. 3D scanning and printing</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week5').innerHTML,'week5')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">5. 3D scanning and printing</span></a>
+				
 
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week6').innerHTML,'week6')" rel="lightbox" rel="lightbox" class="col-2">electronics design</a>-->
 				<a class="col-2">6. electronics design</a>
@@ -557,6 +601,15 @@
 			<canvas id="cv" width=640 height=480>
 				It seems you are using an outdated browser that does not support canvas :-(
 			</canvas>
+			<canvas id="cv1" width=640 height=480>
+				It seems you are using an outdated browser that does not support canvas :-(
+			</canvas>
+			<canvas id="cv2" width=640 height=480>
+				It seems you are using an outdated browser that does not support canvas :-(
+			</canvas>
+			<canvas id="cv3" width=640 height=480>
+				It seems you are using an outdated browser that does not support canvas :-(
+			</canvas>
 			<p></p>
 			<div class="col-full">
 				<p>
@@ -587,7 +640,12 @@
 					
 					var canvas = document.getElementById('cv');
 					canvas.style.display="none";
-
+					var canvas1 = document.getElementById('cv1');
+					canvas1.style.display="none";
+					var canvas2 = document.getElementById('cv2');
+					canvas2.style.display="none";
+					var canvas3 = document.getElementById('cv3');
+					canvas3.style.display="none";
 
 					ReplaceContentInContainer('middle',document.getElementById('about').innerHTML)
 					document.getElementById('ab').style.color = '#ced9e0';
@@ -597,10 +655,16 @@
 
 		function ReplaceContentInContainer(id,content,endId) {
 
-			$("#week2").insertBefore("#cv1");
+			//$("#week2").insertBefore("#cv1");
 
 			var canvas = document.getElementById('cv');
 			canvas.style.display="none";
+			var canvas1 = document.getElementById('cv1');
+			canvas1.style.display="none";
+			var canvas2 = document.getElementById('cv2');
+			canvas2.style.display="none";
+			var canvas3 = document.getElementById('cv3');
+			canvas3.style.display="none";
 
 			var container = document.getElementById(id);
 			container.innerHTML = content;
@@ -638,8 +702,54 @@
 			    viewer.update();
 
 			    canvas.style.display="block";
-			    
-				//canvas.style.float = "bottom";
+
+			}else
+			if(endId=='week5'){
+				
+				var canvas1 = document.getElementById('cv1');
+			    var viewer = new JSC3D.Viewer(canvas1);
+			    viewer.setParameter('SceneUrl','drawings/week5/spheres.obj');
+			    viewer.setParameter('ModelColor','#FFFFFF');
+			    viewer.setParameter('BackgroundColor1','##CCCCA3');
+			    viewer.setParameter('BackgroundColor2','##CCCCA3');
+			    viewer.setParameter('RenderMode','flat');
+			    viewer.setParameter('MipMapping','on');
+			    viewer.setParameter('Definition','high');
+			    viewer.setParameter('Renderer','webgl');
+			    viewer.init();
+			    viewer.update();
+
+			    canvas1.style.display="block";
+
+			    var canvas2 = document.getElementById('cv2');
+			    var viewer = new JSC3D.Viewer(canvas2);
+			    viewer.setParameter('SceneUrl','drawings/week5/fractal_tube.obj');
+			    viewer.setParameter('ModelColor','#FFFFFF');
+			    viewer.setParameter('BackgroundColor1','##CCCCA3');
+			    viewer.setParameter('BackgroundColor2','##CCCCA3');
+			    viewer.setParameter('RenderMode','flat');
+			    viewer.setParameter('MipMapping','on');
+			    viewer.setParameter('Definition','high');
+			    viewer.setParameter('Renderer','webgl');
+			    viewer.init();
+			    viewer.update();
+
+			    canvas2.style.display="block";
+
+			 	var canvas3 = document.getElementById('cv3');
+			    var viewer = new JSC3D.Viewer(canvas3);
+			    viewer.setParameter('SceneUrl','drawings/week5/scan.obj');
+			    viewer.setParameter('ModelColor','#FFFFFF');
+			    viewer.setParameter('BackgroundColor1','##CCCCA3');
+			    viewer.setParameter('BackgroundColor2','##CCCCA3');
+			    viewer.setParameter('RenderMode','flat');
+			    viewer.setParameter('MipMapping','on');
+			    viewer.setParameter('Definition','high');
+			    viewer.setParameter('Renderer','webgl');
+			    viewer.init();
+			    viewer.update();
+
+			    canvas3.style.display="block";
 
 			}
 
