@@ -4,6 +4,28 @@ body {
     background-attachment: fixed;
 }
 
+.statusok {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+    color: green;
+}
+.statuswip {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+    color: orange;
+}
+.statusny {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+    color: red;
+}
+
+.elencomenu {
+    background-color: black;
+    width:150px; /* Larghezza cerchi */
+    height:150px; /* Altezza Cerchi */
+    border-radius: 100px; /* Arrotondamento */
+}
 .container .jumbotron, .container-fluid .jumbotron {
     border-color: #facd11;
 }
@@ -56,8 +78,9 @@ body {
 }
 
 .thumbnail h3 {
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Megrim', cursive;
+    text-align: center;
 }
 .thumbnail {
     background-color: grey;
@@ -114,12 +137,11 @@ a:focus {
 
 .dropdown-menu {
     background-color: #e7e7e7;
-}
-
-.dropdown-menu {
     color: black;
     background-color: #facd11;
     font-size: 17px;
+    padding: 0px 0px;
+    border-top: 0px;
 }
 
 .container p img, .pic, .html5-video-player, .ytp-thumbnail, .img-responsive, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -206,3 +228,4 @@ iframe, canvas {
     text-shadow: none;
 }
 
+@media (max-width:767px){.navbar-default .navbar-nav .open .dropdown-menu>li>a{color:black;background-color: #facd11;}.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus{color:#333;background-color:#777}
