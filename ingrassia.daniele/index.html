@@ -415,7 +415,65 @@
 		</section>
 		<section id= "week6" class="row">
 			<div class="photo-grid">
-				<p>week6 electronics design</p>
+				<p>During this week we've learned about <span class="redones">electronics design</span>.</p>
+				<p>Unfortunately we hadn't the opportunity to accomplish completely with our weekly assignment because of the lacking of some components. We'll try to complete the assignment as soon as the shipment of the components arrives.</p>
+				<p>The objective of this week is to redraw the <span class="redones">hello-echo board</span> adding to it a LED and a button. To do this we used a PCB design software called <span class="redones">Eagle</span>. With Eagle is possible to design PCBs from two different editor that represent respectively two point of view of the PCB: <span class="redones">schematic</span> and <span class="redones">board</span>. In schematic editor we are dealing with components types and connections between them. So here we specify the <span class="redones">electrical</span> part of the PCB, where important things are components' specifications and how they are connected. Before start working with board editor, is preferable to build the complete schematic of the PCB. This because in board editor we will work with physical specifications of the PCB, and every component added in the schematic editor will be added here as well. In board editor we take care of components' displacement and of <span class="redones">traces</span> that connects them.</p>
+
+				<p>To getting started with Eagle I created a <span class="redones">new project</span> and I added to it a new schematic:</p>
+				<p><img src="img/week6/new_project.png" alt=""></p>
+				<p><img src="img/week6/new_schema.png" alt=""></p>
+				
+				<p>Then, to be able to use some specific components, I added some FabAcademy Eagle <span class="redones">libraries</span>. Is in fact possible to create and add new components in Eagle. The components are packaged and distributed via libraries.</p>
+				<p><img style="width:90%" src="img/week6/adding_libraries.png" alt=""></p>
+				<p>After adding libraries I was able to find and add to the schema <span class="redones">components</span> needed for the hello-echo board.</p>
+				<ul class="lists">
+				<li>The components needed are:</li>
+				<li><span class="redones">6-pin programming header</span> to program the board</li>
+				<li><span class="redones">Attiny44A</span> the microcontroller</li>
+    			<li><span class="redones">FTDI header</span> for power supply and computer connection</li>
+    			<li><span class="redones">20 MHz Resonator</span> external crystal clock generator, Attiny44A can work also @20Mhz</li>
+    			<li><span class="redones">Capacitor</span> for a better quality input current</li>
+    			<li><span class="redones">10K Resistors</span></li>
+    			<li><span class="redones">Led</span> for the excerise</li>
+    			<li><span class="redones">Resistor</span> to reduce led applied voltage</li>
+				</ul>
+				<p><img style="width:90%" src="img/week6/adding_components1.png" alt=""></p>
+				<p><img style="width:90%" src="img/week6/adding_components2.png" alt=""></p>
+				<p>So, here are all the components in the schematic, just before connections was drawn:</p>
+				<p><img style="width:90%" src="img/week6/all_components.png" alt=""></p>
+				<p>To limit the voltage applied to the led, I had to <span class="redones">calculate resistor value</span>. Here is my exercise about calculating it: </p>
+				<p><img src="img/week6/led_resistance.jpg" alt=""></p>
+				<p>Finally here is the complete schematic, with all components connected and the value of the led's resistor assigned to <span class="redones">100 Ohm</span> to avoid be right on the limit valoue of 80 Ohm:</p>
+				<p><img style="width:90%" src="img/week6/completed_schema.png" alt=""></p>
+
+				<p>Going to the board editor, it first showed a confused group of components, connected by <span class="redones">yellow wires</span>. These wires let us know what connections there are between components, but they aren't the ones that we need to print the PCB. All of these lines have to be transformed in <span class="redones">traces</span>, in order to represent the real PCB to be printed. In this case we have to made a <span class="redones">single layer</span> PCB, so all the traces must be on the same surface.</p>
+
+				<p><img style="width:90%" src="img/week6/initial_board.png" alt=""></p>
+				<p>The first thing to do was to put all the components inside the printed area of the limited versio of Eagle:</p>
+				<p><img style="width:90%" src="img/week6/board_inside.png" alt=""></p>
+				<p>As first attempt to order traces, I tried the <span class="redones">autoroute</span> function. This function try to automatically find te best path for each trace:</p>
+				<p><img style="width:90%" src="img/week6/first_autoroute.png" alt=""></p>
+				<p>As you can see in the followig picture, the autoroute function is not perfect, in fact some of the traces were not made:</p>
+				<p><img style="width:90%" src="img/week6/after_first_autoroute.png" alt=""></p>
+				<p>After some attemps with changing components' displacement, the autoroute made a nice shot, with 100% of the traces ok. Still, the result was not so good, as many traces was too near each other or oblique:</p>
+				<p><img style="width:90%" src="img/week6/route_ok.png" alt=""></p>
+				<p>So, with the tutorial board in mind, i tried to replicate it via <span class="redones">manual traces editing</span>. Even if I made some minor changes at the components' displacement, the result was much pretty the same:</p>
+				<p><img style="width:90%" src="img/week6/hello_board_1.png" alt=""></p>
+				<p>To be ready to print the circuit, I selected only the first layer and then exported it with <span class="redones">*.png</span> image format, with settings of monochrome and 500DPI of resolution:</p>
+				<p><img style="width:90%" src="img/week6/hello_board_1_layer.png" alt=""></p>
+				<p><img style="width:90%" src="img/week6/hello_board_1_export.png" alt=""></p>
+				<p>After that I imported the png file in Gimp in order to crop the unnecessary part of the image, and to add some boarders and text. Here are the final results of board and interior:</p>
+				<p><img src="img/week6/first_board_traces.png" alt=""></p>
+				<p><img src="img/week6/first_board_interior.png" alt=""></p>
+				<p>Because I was not satisfied on copy the tutorial's board, I tried to make another one. To this this I redesigned manually all the trace's paths. The following pictures shows the final result of my hello-board <span class="redones">personal version</span>.</p>
+				<p><img style="width:90%" src="img/week6/hello_board_2.png" alt=""></p>
+				<p><img style="width:90%" src="img/week6/hello_board_2_layer.png" alt=""></p>
+
+				<p><img src="img/week6/satshas_board_traces.png" alt=""></p>
+				<p><img src="img/week6/satshas_board_interior.png" alt=""></p>
+
+				<p>Here you can download the two Eagle projects I made this week:<a href="drawings/week6/hello_board_1.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a></p>
+
 			</div>
 		</section>
 		<section id= "week7" class="row">
@@ -541,17 +599,17 @@
 			<div class="photo-grid">
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week1').innerHTML,'week1')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">1. principles and practices, project management</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week2').innerHTML,'week2')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">2. computer-aided design</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week2').innerHTML,'week2')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">2. computer-aided design</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week3').innerHTML,'week3')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. computer-controlled cutting</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week3').innerHTML,'week3')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. computer-controlled cutting</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week4')" rel="lightbox" rel="lightbox" class="col-2"><span class="col-2" style="font-weight: bold;color: orange;">4. electronics production</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week4')" rel="lightbox" class="col-2"><span class="col-2" style="font-weight: bold;color: orange;">4. electronics production</span></a>
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week5').innerHTML,'week5')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">5. 3D scanning and printing</span></a>
 				
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week6').innerHTML,'week6')" rel="lightbox" rel="lightbox" class="col-2">electronics design</a>-->
-				<a class="col-2">6. electronics design</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week6').innerHTML,'week6')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6. electronics design</span></a>
+				
 
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week7').innerHTML,'week7')" rel="lightbox" rel="lightbox" class="col-2">embedded programming</a>-->
 				<a class="col-2">7. embedded programming</a>
