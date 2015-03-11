@@ -86,95 +86,115 @@
       
      
     <h1>WEEK 5</h1>
-		  <h2>05. 3D Scanning and Printing</h2>
-		<h3><li>Design and 3D print an object (small, few cm) that could not be made subtractively.</li><br>
-<li>3D scan an object (and optionally print it)</li></h3>
+		  <h2>06. Electronics Design</h2>
+		<h3><li>Redraw the echo hello-world board.</li><br>
+<li>Add a button and LED (with current-limiting resistor) and make it.</li></h3>
         <br>
-       <p>I started the exercise "playing around" with 3D scanning together with my collegues. We had an X-Box 360 Kinect which we used with Skanect software.</p>
+       <p>This was my first time ever dealing with electronics design, but the task has been made much easier thanks to <a href="http://fabacademy.org/archives/2015/eu/students/boasso.simone/index.html">Simone Boasso's</a> great lecture about electronics and Eagle. I spent a whole sunday working with Eagle and at the end of the day I came up with tha schematics for the Hello Echo World + Button + LED board.</p>
 		
 		 <p class="pic">
-			 <a href="image/05/05threedprint01.jpg"></a>
-        <img src="image/05/05threedprint01.jpg"width="600" >
-			<legend>A scan of <a href="http://fabacademy.org/archives/2015/eu/students/pugliese.gianluca/index.html">Gianluca Pugliese</a></legend>
+			 <a href="image/06/image01.jpg"></a>
+        <img src="image/06/image01.jpg"width="600" >
+			<legend>Adding the microcontroller into the schematic</legend>
+			 </p>
 				 
 			 <p class="pic">
-			 <a href="image/05/05threedprint03.jpg"></a>
-        <img src="image/05/05threedprint03.jpg"width="600" >
-			<legend>Processing the scan of <a href="http://fabacademy.org/archives/2015/eu/students/pugliese.gianluca/index.html">Gianluca</a> in Rhino (very low mesh).</legend>
-				 
-		</p>
+			 <a href="image/06/image04.jpg"></a>
+        <img src="image/06/image04.jpg"width="600" >
+			<legend>Final schematics with all the parts</legend>
+				 </p>
 		
-		<p>After the first scans we realized that to have better results we had to keep the Kinect steady and rotate the object instead of moving the scanner around, because the Kinect doesn't have any georeferentiation capability. So we clamped the Kinect to a tripod and we turn ourselves on a rotating stool.</p>
-		
-		 <p class="pic">
-			 <a href="image/05/05threedprint12.jpg"></a>
-        <img src="image/05/05threedprint12.jpg"width="600" >
-			<legend>The set up</legend> 
-		</p> 
+		<p>Moving to board design I first arranged the parts nice and clean, then I set the grid to a 0,5 mm spacing to easily place the parts</p>
 		
 		 <p class="pic">
-			 <a href="image/05/05threedprint13.jpg"></a>
-        <img src="image/05/05threedprint13.jpg"width="600" >
-			<legend>Kinect clamped to a tripod</legend> 
-		</p> 
-		
-		<p class="pic">
-			 <a href="image/05/05threedprint14.jpg"></a>
-        <img src="image/05/05threedprint14.jpg"width="600" >
-			<legend>Me on set (this is a reconstruction, I had no glasses on during scenning)</legend> 
-		</p> 
+			 <a href="image/06/image14.jpg"></a>
+        <img src="image/06/image14.jpg"width="600" >
+			<legend>Placement of the parts</legend>
+			 </p>
+			 
+			 <p class="pic">
+			 <a href="image/06/image13.jpg"></a>
+        <img src="image/06/image13.jpg"width="600" >
+			<legend>Grid preferences</legend>
+				 </p>
 	
-		<p>Scans came out much better, but we had some problems with holes in the model. I exported the model as a .obj file and put it into blender to work the holes I had on the left of my nose, top of the head and bottom of the chin.</p>
+		<p>In the first time I went with Autotracing, but I wasn't satisfied with the results, even if the efficiency was 100% the traces looked very messy and with no "style". I traced the routes by myself and I found it very fun and challenging.</p>
 		
 		<p class="pic">
-			 <a href="image/05/05threedprint21.jpg"></a>
-        <img src="image/05/05threedprint21.jpg"width="600" >
-			<legend>Textured model as it came out of Skanect</legend> 
-		</p> 
+			 <a href="image/06/image15.jpg"></a>
+        <img src="image/06/image15.jpg"width="600" >
+			<legend>Routes traced</legend>
+				 </p>
 		
-		<p class="pic">
-			 <a href="image/05/05threedprint18.jpg"></a>
-        <img src="image/05/05threedprint18.jpg"width="600" >
-			<legend>I sware my nose is not like this!</legend> 
-		</p> 
 		
-		<p class="pic">
-			 <a href="image/05/05threedprint17.jpg"></a>
-        <img src="image/05/05threedprint17.jpg"width="600" >
-			<legend>Sculpt mode in Blender</legend> 
-		</p> 
-		
-		<p>Then I moved to Rhino where I refinished the shape and added a base with my name to the bust. I plan to 3D print it as well.</p>
+		<p>I run the design rule check and it showed some critic points where the wires where too close. I took note of it and after exporting the png I worked on those points with Photoshop. While I was there I also moved many other lines just for the love of beauty. Note that in Photoshop, to work with the png created with Eagle, you have to switch to RGB Color in Image>Mode</p>
 		
 	<p class="pic">
-			 <a href="image/05/05threedprint20.jpg"></a>
-        <img src="image/05/05threedprint20.jpg"width="600" >
-			<legend>Celebrating myself</legend> 
-		</p> 
+			 <a href="image/06/image02.jpg"></a>
+        <img src="image/06/image02.jpg"width="600" >
+			<legend>Errors check was ok</legend>
+				 </p>
 		
-		<p>As a 3D print project I designed two caps to close my bike's handlebar's ends. I took the measure of the inner and outer diameter with a caliper and then moved to Rhino.</p>
+			<p class="pic">
+			 <a href="image/06/image05.jpg"></a>
+        <img src="image/06/image05.jpg"width="600" >
+			<legend>Design rule check</legend>
+				 </p>
 		
-		<p class="pic">
-			 <a href="image/05/05threedprint05.jpg"></a>
-        <img src="image/05/05threedprint05.jpg"width="600" >
-			<legend>My ride's name's <a href="image/05/05threedprint22.jpg">CATerina</a></legend>		
-		</p> 
-		
-		<p class="pic">
-			 <a href="image/05/05threedprint04.jpg"></a>
-        <img src="image/05/05threedprint04.jpg"width="600" >
-			<legend>Measuring inner diameter</legend> 
-		</p> 
-		
-		<p>The caps have an <a href="http://images.elephantjournal.com/wp-content/uploads/2009/09/Picture-202.png">"anti theft curse"</a> engraved on the rim: on one cap it says "if you steal me I will" and on the other one "ride you straight to hell". I find a useful <a href="https://www.youtube.com/watch?v=P-ARMAN3row">tutorial on youtube to wrap a 3D text around a cylinder</a>.</p>
-		
+			<p class="pic">
+			 <a href="image/06/image06.jpg"></a>
+        <img src="image/06/image06.jpg"width="600" >
+			<legend>Switch from Indexed to RGB color mode</legend>
+				 </p>
 		
 		<p class="pic">
-			 <a href="image/05/05threedprint23.jpg"></a>
-        <img src="image/05/05threedprint23.jpg"width="600" >
-			<legend>Model on Rhino</legend> 
-		</p> 
+			 <a href="image/06/image03.jpg"></a>
+        <img src="image/06/image03.jpg"width="600" >
+			<legend>Solved critic points</legend>
+				 </p>
+		
+		<p>I added my name and a border to the board in Photoshop, then moved to Illustrator. Since we are using a Fibre/CO2 Laser Cutter I mixed the monochrome image which will be engraved with a vector rectangle to cut out the board.</p>
+		
+		<p class="pic">
+			 <a href="image/06/image07.jpg"></a>
+        <img src="image/06/image07.jpg"width="600" >
+			<legend>SVG file with raster and vector information</legend>
+				 </p>
+		
+		
+		<p>On the Trotec Laser Cutter we had to experiment the settings of the laser as it was one of the first times working with PCBs. This is the final settings we tried as they made a nice and clean job. The first board had a way too high power and we "cooked" the resin. Another issue was the size of the board. I discovered after making two of them that they were smaller. The problem was that Illustrator (which I used on my computer to create the SVG) and Inkscape (which we used on the laser cutter's computer to send the print) dealt with different resolution. So I scaled the file to the right size on Inkscape and the final result looks very good.</p>
+		
+		
+			<p class="pic">
+			 <a href="image/06/image08.jpg"></a>
+        <img src="image/06/image08.jpg"width="600" >
+			<legend>Engraving</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image11.jpg"></a>
+        <img src="image/06/image11.jpg"width="600" >
 			
+				 </p>
+			
+			<p class="pic">
+			 <a href="image/06/image09.jpg"></a>
+        <img src="image/06/image09.jpg"width="600" >
+			<legend>Cooked board on left, good one on right</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image10.jpg"></a>
+        <img src="image/06/image10.jpg"width="600" >
+			<legend>It's too small!</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image12.jpg"></a>
+        <img src="image/06/image12.jpg"width="600" >
+			<legend>Ready for soldering</legend>
+				 </p>
+		
 		<p>I then created the mesh on Rhino and exported as a .stl file which I opened on Cura. On cura I set some parameters for the print and send it to the printer.</p>		
 		
 							 	<p class="pic">
