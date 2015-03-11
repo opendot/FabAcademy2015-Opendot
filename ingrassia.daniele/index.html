@@ -441,7 +441,10 @@
 				<p><img style="width:90%" src="img/week6/adding_components2.png" alt=""></p>
 				<p>So, here are all the components in the schematic, just before connections was drawn:</p>
 				<p><img style="width:90%" src="img/week6/all_components.png" alt=""></p>
-				<p>To limit the voltage applied to the led, I had to <span class="redones">calculate resistor value</span>. Here is my exercise about calculating it: </p>
+				<p>To limit the voltage applied to the led, I had to <span class="redones">calculate resistor value</span>. In order to dimension it, I read current and voltage values form its <a href="http://academy.kaziunas.com/tutorials/Datasheets/LTST-C150CKT.pdf"><span class="redones" style="font-weight: bold;">datasheet</span></a>:</p> 
+				<p><img src="img/week6/forward_current.png" alt=""></p>
+				<p><img src="img/week6/forward_voltage.png" alt=""></p>
+				<p>Here you can see about my exercise on calculating it: </p>
 				<p><img src="img/week6/led_resistance.jpg" alt=""></p>
 				<p>Finally here is the complete schematic, with all components connected and the value of the led's resistor assigned to <span class="redones">100 Ohm</span> to avoid be right on the limit valoue of 80 Ohm:</p>
 				<p><img style="width:90%" src="img/week6/completed_schema.png" alt=""></p>
@@ -457,7 +460,7 @@
 				<p><img style="width:90%" src="img/week6/after_first_autoroute.png" alt=""></p>
 				<p>After some attemps with changing components' displacement, the autoroute made a nice shot, with 100% of the traces ok. Still, the result was not so good, as many traces was too near each other or oblique:</p>
 				<p><img style="width:90%" src="img/week6/route_ok.png" alt=""></p>
-				<p>So, with the tutorial board in mind, i tried to replicate it via <span class="redones">manual traces editing</span>. Even if I made some minor changes at the components' displacement, the result was much pretty the same:</p>
+				<p>So, with the tutorial board in mind, I tried to replicate it via <span class="redones">manual traces editing</span>. Even if I made some minor changes at the components' displacement, the result was much pretty the same:</p>
 				<p><img style="width:90%" src="img/week6/hello_board_1.png" alt=""></p>
 				<p>To be ready to print the circuit, I selected only the first layer and then exported it with <span class="redones">*.png</span> image format, with settings of monochrome and 500DPI of resolution:</p>
 				<p><img style="width:90%" src="img/week6/hello_board_1_layer.png" alt=""></p>
@@ -472,7 +475,7 @@
 				<p><img src="img/week6/satshas_board_traces.png" alt=""></p>
 				<p><img src="img/week6/satshas_board_interior.png" alt=""></p>
 
-				<p>Here you can download the two Eagle projects I made this week:<a href="drawings/week6/hello_board_1.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a></p>
+				<p>Here you can download the two Eagle projects I made this week: <a href="drawings/week6/hello_board_1.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a></p>
 
 			</div>
 		</section>
