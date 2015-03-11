@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Saverio Silli</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+	  
+
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
+            <li><a href="contact.html">contact me</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+      
+     
+    <h1>WEEK 5</h1>
+		  <h2>06. Electronics Design</h2>
+		<h3><li>Redraw the echo hello-world board.</li><br>
+<li>Add a button and LED (with current-limiting resistor) and make it.</li></h3>
+        <br>
+       <p>This was my first time ever dealing with electronics design, but the task has been made much easier thanks to <a href="http://fabacademy.org/archives/2015/eu/students/boasso.simone/index.html">Simone Boasso's</a> great lecture about electronics and Eagle. I spent a whole sunday working with Eagle and at the end of the day I came up with tha schematics for the Hello Echo World + Button + LED board.</p>
+		
+		 <p class="pic">
+			 <a href="image/06/image01.jpg"></a>
+        <img src="image/06/image01.jpg"width="600" >
+			<legend>Adding the microcontroller into the schematic</legend>
+			 </p>
+				 
+			 <p class="pic">
+			 <a href="image/06/image04.jpg"></a>
+        <img src="image/06/image04.jpg"width="600" >
+			<legend>Final schematics with all the parts</legend>
+				 </p>
+		
+		<p>Moving to board design I first arranged the parts nice and clean, then I set the grid to a 0,5 mm spacing to easily place the parts</p>
+		
+		 <p class="pic">
+			 <a href="image/06/image14.jpg"></a>
+        <img src="image/06/image14.jpg"width="600" >
+			<legend>Placement of the parts</legend>
+			 </p>
+			 
+			 <p class="pic">
+			 <a href="image/06/image13.jpg"></a>
+        <img src="image/06/image13.jpg"width="600" >
+			<legend>Grid preferences</legend>
+				 </p>
+	
+		<p>In the first time I went with Autotracing, but I wasn't satisfied with the results, even if the efficiency was 100% the traces looked very messy and with no "style". I traced the routes by myself and I found it very fun and challenging.</p>
+		
+		<p class="pic">
+			 <a href="image/06/image15.jpg"></a>
+        <img src="image/06/image15.jpg"width="600" >
+			<legend>Routes traced</legend>
+				 </p>
+		
+		
+		<p>I run the design rule check and it showed some critic points where the wires where too close. I took note of it and after exporting the png I worked on those points with Photoshop. While I was there I also moved many other lines just for the love of beauty. Note that in Photoshop, to work with the png created with Eagle, you have to switch to RGB Color in Image>Mode</p>
+		
+	<p class="pic">
+			 <a href="image/06/image02.jpg"></a>
+        <img src="image/06/image02.jpg"width="600" >
+			<legend>Errors check was ok</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image05.jpg"></a>
+        <img src="image/06/image05.jpg"width="600" >
+			<legend>Design rule check</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image06.jpg"></a>
+        <img src="image/06/image06.jpg"width="600" >
+			<legend>Switch from Indexed to RGB color mode</legend>
+				 </p>
+		
+		<p class="pic">
+			 <a href="image/06/image03.jpg"></a>
+        <img src="image/06/image03.jpg"width="600" >
+			<legend>Solved critic points</legend>
+				 </p>
+		
+		<p>I added my name and a border to the board in Photoshop, then moved to Illustrator. Since we are using a Fibre/CO2 Laser Cutter I mixed the monochrome image which will be engraved with a vector rectangle to cut out the board.</p>
+		
+		<p class="pic">
+			 <a href="image/06/image07.jpg"></a>
+        <img src="image/06/image07.jpg"width="600" >
+			<legend>SVG file with raster and vector information</legend>
+				 </p>
+		
+		
+		<p>On the Trotec Laser Cutter we had to experiment the settings of the laser as it was one of the first times working with PCBs. This is the final settings we tried as they made a nice and clean job. The first board had a way too high power and we "cooked" the resin. Another issue was the size of the board. I discovered after making two of them that they were smaller. The problem was that Illustrator (which I used on my computer to create the SVG) and Inkscape (which we used on the laser cutter's computer to send the print) dealt with different resolution. So I scaled the file to the right size on Inkscape and the final result looks very good.</p>
+		
+		
+			<p class="pic">
+			 <a href="image/06/image08.jpg"></a>
+        <img src="image/06/image08.jpg"width="600" >
+			<legend>Engraving</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image11.jpg"></a>
+        <img src="image/06/image11.jpg"width="600" >
+			
+				 </p>
+			
+			<p class="pic">
+			 <a href="image/06/image09.jpg"></a>
+        <img src="image/06/image09.jpg"width="600" >
+			<legend>Cooked board on left, good one on right</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image10.jpg"></a>
+        <img src="image/06/image10.jpg"width="600" >
+			<legend>It's too small!</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/06/image12.jpg"></a>
+        <img src="image/06/image12.jpg"width="600" >
+			<legend>Ready for soldering</legend>
+				 </p>
+		
+		<p>I then created the mesh on Rhino and exported as a .stl file which I opened on Cura. On cura I set some parameters for the print and send it to the printer.</p>		
+		
+							 	<p class="pic">
+			 <a href="image/05/05threedprint06.jpg"></a>
+        <img src="image/05/05threedprint06.jpg"width="600" >
+			<legend>Mesh preferences</legend> 
+		</p> 
+		
+	  	<p class="pic">
+			 <a href="image/05/05threedprint07.jpg"></a>
+        <img src="image/05/05threedprint07.jpg"width="600" >
+			<legend>In red, on Cura, you have the parts that might have problem because they overhang</legend> 
+		</p> 
+		
+	  	<p class="pic">
+			 <a href="image/05/05threedprint08.jpg"></a>
+        <img src="image/05/05threedprint08.jpg"width="600" >
+			<legend>Printing on a Mendel i3</legend> 
+		</p> 
+	  
+	  	<p class="pic">
+			 <a href="image/05/05threedprint09.jpg"></a>
+        <img src="image/05/05threedprint09.jpg"width="600" >
+			<legend>Printer status</legend> 
+		</p> 
+	  
+	<p>While it was printing I discovered that the text was mirrored left to right, so I stopped the printer and came back to Cura to mirror the file on the x axis and export the g-code again. In the lab there were other students with the same problem, but we didn't investigate to see if the issue was cura or printer related.</p>	
+	
+	  	<p class="pic">
+			 <a href="image/05/05threedprint10.jpg"></a>
+        <img src="image/05/05threedprint10.jpg"width="600" >
+			<legend>Mirrored text</legend> 
+		</p> 
+	  
+	  	<p class="pic">
+			 <a href="image/05/05threedprint11.jpg"></a>
+        <img src="image/05/05threedprint11.jpg"width="600" >
+			<legend>Mirror command on Cura</legend> 
+		</p> 
+		
+					
+			<p>Success! I made a fitting test on the bike handlebar and it goes smoothly into it. I have added a 0.3 mm to the diameter of the cylinder to give it a strong fit, to make sure it stays where they are.</p>
+	  
+	  	<p class="pic">
+			 <a href="image/05/05threedprint15.jpg"></a>
+        <img src="image/05/05threedprint15.jpg"width="600" >
+			<legend>Final piece</legend> 
+		</p> 
+	  
+	  	<p class="pic">
+			 <a href="image/05/05threedprint16.jpg"></a>
+        <img src="image/05/05threedprint16.jpg"width="600" >
+			<legend>Final piece</legend> 
+		</p> 
+
+		<p>At the end I wanted to print the little bust I made from my scan, but the print was a total fail! We discovered that the y axis belt was very loose and the printer gradually lost a lot of steps on it. We fixed the problem tightening the belt pivot with "strategically placed" plastic ties. The fix was effective, i didn't print the bust again, but the other students who have had the same problem, printed again effectively.</p>
+		
+	  <p class="pic">
+			 <a href="image/05/05threedprint24.jpg"></a>
+        <img src="image/05/05threedprint24.jpg"width="600" >
+			<legend>Messed up me</legend> 
+		</p> 
+	  
+	    <p class="pic">
+			 <a href="image/05/05threedprint25.jpg"></a>
+        <img src="image/05/05threedprint25.jpg"width="600" >
+			<legend>Two plastic ties tighten the pivot, while the other one keep the previous two from falling aside</legend> 
+		</p>
+	  
+<p>G-Code files of the caps are available here:</p>
+		<p><li><a href="http://www.spaghettiprop.it/materiale/tappinobici.zip">Bike Cap</a>  </li>
+		
+
+		
+		
+		
+<!-- End of your content -->
+
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> edited by <a href="http://www.facebook.com/saverio.silli">Saverio Silli</a><br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

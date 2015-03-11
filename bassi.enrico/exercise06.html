@@ -81,144 +81,77 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>06. Electronics Design</h1>
-    
+     <h2>06. Electronics Design</h2>
+     <p>
+	I followed the tutorial online to edit the Hello_world PCB, done in Eagle. 
+         
+        <br>
+        I saved a PNG file to follow the same process I did for the FabISP. 
+        <br><br>
+         <a href="images/hello_world1_cut.png">
+             <button type="button" class="btn btn-primary btn-lg">Download "Hello_world.png"</button> </a>
+             <br>
         
-    <img src="/images/progress.png" alt="work in progress" height="50" width="650">    
+        </p><br>
         
-    <!--    
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
+    <h3>Process the image</h3>    
       <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+    In Inkscape I added the cut lines as described in <a href="exercise04.html">Exercise 04</a>
+          <br>
+ <img src="images/img2.jpg" alt="editing with inkscape" width="1000"> 
+          <br>
+<img src="images/img1.jpg" alt="editing with inkscape" width="1000"> 
+          <br>
+I decided to test some not-square cuts and a couple of holes, to test the machine and to glue the connector.
+          <br>
+          
+          </p>
+          
+     <h3>Direct engrave with Trotec Flexx laser</h3>    
+      <p>
+I followed the same process I did <a href="exercise04.html">here</a> for the exercise 04.
+<br>
 
-    -->
+        </p>
+  <h3>Here some pictures of the process:</h3> 
+        
+        <p>
+            The engrave process. I think the green color is because of copper's oxides. It took less than 20 minutes, and i'm sure there is still the possibility to optimize it. 
+<img src="images/P1180150-2.jpg" alt="Engrave" width="1000"> 
+        
+<img src="images/P1180151-2.jpg" alt="Engrave" width="1000"> 
+          <br>
+            The cutting is very fast. It's important to don't take out the piece as soon as it's finished and let the filter works for a while. 
+<img src="images/P1180153-2.jpg" alt="Engrave" width="1000"> 
+        <br>
+            the final result before being polished.
+<img src="images/P1180155-2.jpg" alt="cut" width="1000"> 
+        
+<img src="images/P1180156-2.jpg" alt="cut" width="1000"> 
+         
+<img src="images/P1180157-2.jpg" alt="cut" width="1000">
+        <br>
+            The tinning process. It's done just with the soldering tin and pen.
+<img src="images/P1180160-2.jpg" alt="tinning" width="1000"> 
+      
+<img src="images/P1180159-2.jpg" alt="tinning" width="1000"> 
+          <br>
+            the final board
+<img src="images/P1180161-2.jpg" alt="tinning" width="1000"> 
+     
+<img src="images/P1180162-2.jpg" alt="tinning" width="1000"> 
+          <br>
+            I used the two hole i cut before to inject some hot glue to keep the connector more stable.
+<img src="images/P1180163-2.jpg" alt="tinning" width="1000"> 
 
+<img src="images/P1180164-2.jpg" alt="tinning" width="1000"> 
+          <br>
+            
+This time it was easier to solder everything. My only doubt is about the polarity of the led, cause it's not marked on the package and I'm not sure it's soldered properly. We will see as soon as I start to code.
+          <br>
+My next test is to check if it's possible to do this process with the fab modules.
+          
+          </p>
     <!-- End of your content -->
 
     </div> <!-- /container -->
