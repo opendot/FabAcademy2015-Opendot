@@ -20,11 +20,9 @@ body {
     color: red;
 }
 
-.elencomenu {
-    background-color: black;
-    width:150px; /* Larghezza cerchi */
-    height:150px; /* Altezza Cerchi */
-    border-radius: 100px; /* Arrotondamento */
+.page-header {
+    border-bottom: 4px dashed;
+    border-color: black;
 }
 .container .jumbotron, .container-fluid .jumbotron {
     border-color: #facd11;
@@ -148,6 +146,7 @@ a:focus {
     display: block;
     height: auto;
     max-width: 100%;
+    width: 600px;
     margin:auto;
 }
 

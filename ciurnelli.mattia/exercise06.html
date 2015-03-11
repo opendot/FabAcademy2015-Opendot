@@ -83,9 +83,69 @@
 
 	<!-- Insert your content here below! -->
         <div class="jumbotron">
-        <h1> <u> <strong> Lesson n. 6:</strong> </u> </h1>
-        <h2>Electronics Design</h2>
+    <div class="page-header">
+  <h1><u>Lesson n. 6:</u><h2>Electronics Design</h2></h1>
+</div>
 	<p>The assignment of this week is redraw the echo hello-world board, add (at least) a button and LED (with current-limiting resistor), check the design rules, and make it. (Extra credit: simulate its operation)</p>
+    
+<h3>Redrawing the echo hello-world board</h3>
+    <p>To layout and modify the circuit board for this assignment we use <a href="http://www.cadsoftusa.com/download-eagle/">EAGLE</a>.<br>
+        EAGLE is a multiplatform software, its freeware license, and its one of the most used.</p>
+<p>In EAGLE we find 2 different view of the same project: the "schematic" and the "board layout".<br>
+The "schematic" view is a rapresentation of the circuit whit a drawing, where every symbol represent real-world electronic components.
+    The "board layout" shows how the electrical componets and traces will be realized on the board.</p>
+            
+            <h4>Schematic</h4>
+            <p>First, we start drawing the original echo hello-world board, that is composed by:
+                <ul type="square">
+                    <li><strong>Attiny44A:</strong> is the microcontroller;</li>
+                    <li><strong>6-pin programming header:</strong> for programming the board;</li>
+                    <li><strong>FTDI header:</strong> powers the board and allows board to talk to computer;</li>
+                    <li><strong>20 MHz Resonator: is an external clock (the Attinty44A has a 8 MHz clock but the 20 MHz resonator is faster and more accurate;</strong></li>
+                    <li><strong>Capacitor:</strong> there is a 1uf capacitor, that make more clean the signal;</li>
+                    <li><strong>10K Resistor</strong> between the VCC and the Pin4 of the microcontroller;</li>
+                </ul></p>
+        <p>This is the echo hello-word board in the schematic view: <p class="pic"><img src= "Image/Lesson06/board-iniziale.jpg" class="img-responsive" alt="Responsive image"></p></p>
+      <p>Once placed the initial components, I added to the circuit the part requested in the assignment of the Week:
+          <ul type="square">
+              <li><strong>Button:</strong> to be connected to pin10 of the microcontroller;</li>
+              <li><strong>LED:</strong> to be connected to pin6 of the microcontroller;</li>
+              <li><strong>2 Resistor:</strong>
+                  <ol type="1">
+                    <li>10K Resistor, connected between the button and the VCC;</li>
+                      <li>a Resistor, whose value must be calculated, used to operate the LED.</li>
+                  </ol>
+      </ul>
+    To calculate the resistance to use with the Led you need to consult the datasheet for the component and read the values of "forward voltage" and "forward current".<br>
+      Once found these two values I used the utility at <a href="http://led.linear1.org/1led.wiz"> http://led.linear1.org/1led.wiz</a> for the calculation of the resistance, as shown in the tutorial.</p>
+    <p class="pic"><img src= "Image/Lesson06/calcolo_resistenza_led.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p>According to the calculations, the resistance to use must be of minimum 82 ohms, we used a 499 ohm.</p>
+    <p>Once added and connected all the components to the schematic the end result is this:<p class="pic"><img src= "Image/Lesson06/board+button+led.jpg" class="img-responsive" alt="Responsive image"></p></p>
+<h4>Board Layout</h4>
+<p>Once finished arranging the components in the schematic, you have to go to the Board Layout.
+Here, you have to reposition the components and draw routes in the best way possible.</p>
+<p>then, you start by placing the components considering the connections between them
+ <p class="pic"><img src= "Image/Lesson06/Board_component.jpg" class="img-responsive" alt="Responsive image"></p></p>
+<p>Once positioned, I used the autoroute to check that the positions of the components were correct, repeating after each movement of one of them: once got 100% in all the possibilities it means that the position of the components is correct.</p>
+<p class="pic"><img src= "Image/Lesson06/autoroute.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>Then I checked the various routes, modifying those too close (to make more simple soldering) and trying to get 90 ° angles, and this is the final result:</p>
+<p class="pic"><img src= "Image/Lesson06/final-route.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>Before exporting our circuit, you must always check the DR (Drawing Rules) to be sure that everything is in place. Just press the button and the DRC program performs a check on what we designed.</p>
+<p class="pic"><img src= "Image/Lesson06/DRC_error.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>Having found no error, you can proceeding with the export of the circuit.
+For export must first turn off all the layers taking on only the first one.</p>
+<p class="pic"><img src= "Image/Lesson06/exporting_route.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>To export the track, just go to "export" and select "image" (in the next panel make sure to select the "Monochrome").
+Will then create a .png file that will be the basis for realizing our board.</p>
+<p class="pic"><img src= "Image/Lesson06/Board_HelloW.png" class="img-responsive" alt="Responsive image"></p>
+<p>Using Gimp I modified the board by adding an outer edge and customizing it by putting my name.</p>
+<p>This is my echo hello-world board:</p>
+<p class="pic"><img src= "Image/Lesson06/Board_HelloW_v2.png" class="img-responsive" alt="Responsive image"></p>
+<a href="Image/Lesson06/Board_HelloW_v2.png">
+    <button type="button" class="btn btn-primary">Download .png file of the board</button></a>
+
+<h3>Make it</h3>
+
         
 
         </div>
