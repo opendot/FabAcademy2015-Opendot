@@ -81,143 +81,122 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>04. Electronics Production</h1>
-    
+     <h2>04. Electronics Production</h2>
+    <p>
+	The objective here is to produce a PCB of the FAB ISP. I want to try with different approaches and compare the results. 
+        <br>
+        In particular:
+        <br><strong>
+        - Fab ISP done with WIN PC-NC, milled with the a 0,5mm tip <br>
+        - FabISP done directly engraving the metal with a flexx laser from Trotec
+	</strong><br><br>
         
-    <img src="/images/progress.png" alt="work in progress" height="50" width="650">    
+       Unfortunately we are waiting for the assistence of the milling machine to come and fix it, so I started with the direct engraving method.
+        <br>
         
-    <!--    
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
+        </p><br>
+        
+    <h3>Direct Engraving with Trotec Flexx technology</h3>    
       <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
 
-    -->
+The Flexx technology combines two laser sources:
+          <br><strong>
+        - <a href="http://en.wikipedia.org/wiki/Carbon_dioxide_laser">CO2 Laser</a> <br>
+        - <a href="http://en.wikipedia.org/wiki/Fiber_laser">Fiber Laser</a>
+	</strong><br>
+          
+       The fiber laser can engrave metals as well, because of a different lenghtwave, even if the power is only 20 W.
+          <br>
+We are trying together with Trotec Italia how to use this laser to make electronic boards.
+<br>
+          
+     <h3>First expriment on the FabISP</h3>    
+      <p>
+
+I started with the <a href="http://www.fabacademy.org/archives/2014/tutorials/providence/FabISPWIthResPartsLayout.svg">FabISP with the resonator</a>
+<br>
+The first step was to modify the .png file of the board: the traces and the cutout should be in the same image. I blent them with GIMP and then imported in inkscape to add a cutout vector. To be able to cut the resin (with the CO2 source) the vector should be where the fiber laser has already removed the copper layer.
+          <br>
+<img src="images/fabisp_vecto.jpg" alt="FabISP modified in inkscape" width="900"> 
+          <br>
+The red line is the only vector and it's going to be cut at the end of the process.
+          <br>
+ <h3>First Test: FAIL!</h3>    
+      <p>
+
+In the fablab, we already understood because of previous experiments, that the copper layer can't be removed by a single engrave: the energy needed was too much and the resin underneed just get burned. We decided to set the number of "light engraves" to five, it takes longer but it's definitely more precise and clean.
+          <br>
+The first Fab ISP had not clean borders. It seems that the laser didn't remove entirely the copper, but it cut it in small stripes, here some pictures done with an amatorial microscope at 50x first and 500x after.
+          <br>
+ <img src="images/fib445.JPG" alt="hairy copper" width="640"> 
+          <br>
+<img src="images/fib657.JPG" alt="hairy copper" width="640"> 
+          <br>
+<img src="images/fib754.JPG" alt="hairy copper" width="640"> 
+          <br>
+<img src="images/fib818.JPG" alt="500x" width="640"> 
+          <br>
+In the last picture you can see that onw of this stripes of copper was actually shortcircuiting two pads. After some tests we realised it was a matter of <strong>resolution</strong>: we used the standard resolution of 500DPI, while it shouldn't be less than 1000DPI.
+          <br>
+I tried again and the result was definitely better.
+          <br>
+ <img src="images/fib026.JPG" alt="clean cut" width="640"> 
+          <br>
+<img src="images/fib957.JPG" alt="clean cut" width="640"> 
+          <br>
+It helps also to brush gently the surface with a slightly abrasive sponge, like the <a href="http://solutions.3m.com/wps/portal/3M/en_US/3MIndustrial/Abrasives/Products/~/Abrasives-Product-Catalog/Hand-Pads-Rolls-Abrasive-Sheets-and-Sponges/Hand-Pads?N=7581709&rt=r3">scotch-brite</a
+          
+          <br>
+
+ <h3>Some details</h3>    
+      <p>
+
+The board looked pretty nice, and the pads were very neat. 
+          <br>
+ <img src="images/P1180099-1.jpg" alt="clean cut" width="1000"> 
+          <br>
+The laser process probably alterate the surface of the resin, cause while i was soldering i noticed that the flux was changing the color of the material.
+          <br>
+ <img src="images/flux049-2.jpg" alt="flux" width="640"> 
+          <br>
+ <img src="images/flux106-2.jpg" alt="flux" width="640"> 
+          <br>
+ <img src="images/flux320.JPG" alt="flux" width="640"> 
+          <br>
+          
+<h3>Extra Flux, tinning, and minor troubles</h3>    
+      <p>
+
+I noticed that sometimes it was hard to solder properly the tiny components, so i tried tinning the traces and pads. Instead of using a chamical tinner, I added on the board some estra flux, worm it up with the soldering pen and add a thin layer of tin. It actually spread very well all over the copper and made my job much easier.
+          <br>
+in this picture you can see a part with and a part without extra flux.
+           <br>
+ <img src="images/P1180147.jpg" alt="extra flux" width="1000"> 
+          <br>
+After this i had no particular problems, but a resistor plased in the wrong place. I had to remove it and doing so i destroyed it. It also left some small pieces embedded in the tin. Fix this took just few minutes.
+          <br>
+<img src="images/P1180142-1.jpg" alt="wrong position" width="1000"> 
+          <br>
+<img src="images/P1180143-2.jpg" alt="inclusions" width="1000"> 
+          <br>
+          
+          <h3>Final result</h3>    
+      <p>
+Here some pictures of the final board
+          <br>
+<img src="images/P1180146-1.jpg" alt="wrong position" width="1000"> 
+          <br>
+<img src="images/P1180145-1.jpg" alt="inclusions" width="1000"> 
+          <br>
+          <img src="images/P1180144-1.jpg" alt="inclusions" width="1000"> 
+          <br>
+          
+
+
+          
+
+          
+          
 
     <!-- End of your content -->
 
