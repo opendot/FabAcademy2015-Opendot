@@ -151,18 +151,22 @@ a:focus {
     
 }
 
-.img-responsive, #cv {
-    background-color: #facd11;
-    border: 2px solid #393939 !important;
+.img-responsive, #cv, iframe {
+    background-color: black;
+    border: 2px solid #facd11 !important;
     border-radius: 14px;
+    overflow: hidden !important;
   
 }
 
 iframe, canvas {
-  display: block;
+    display: block;
     max-width: 100%;
     width: 600px;
     margin:auto;
+    padding: 4px;
+    border-radius: 14;
+    overflow: hidden !important;
 
 }
 
