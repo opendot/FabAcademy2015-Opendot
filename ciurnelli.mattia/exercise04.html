@@ -129,18 +129,359 @@ This kind of Laser Engraving Machine have 2 type of lasers:
                 <li>n. 2 jumpers (1 soldering bridge and 1 0 ohm resistor)</li>
                 <li>n. 1 Cystal 20MHz</li>
                 <li>n. 2 Zener Diode 3.3 V</li>
-                <li>n. 1 usb mini cable</li>
-                <li>n. 1 ribbon cable</li>
                 <li>n. 2 6 pin connectors</li>
             </ul></p>
     <p>For soldering I followed the rules on the tutorial and keeping in view the layout of FabISP.</p>
             <p class="pic"><img src= "Image/Lesson04/FabISPPartsLayout.jpg" class="img-responsive" alt="Responsive image"></p>
-            
-            
+    <p>The soldering operation took about an hour, and this is the result:</p>
             <p class="pic"><img src= "Image/Lesson04/final_result.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p>To verify that everything is soldered correctly we must execute the "smoke test": plug the FabISP into your computer via the mini USB cable and if you're not receiving error messages then it means that everything is working correctly, and you can proceed to programming.</p>
 
 <h4>Programming</h4>
-      
+      <p>To program our ISP we need:</p>
+    <ul type="square">
+        <li>another ISP;</li>
+        <li>Avrdude, for programming AVR microcontrollers;</li>
+        <li>GCC, to compile C code;</li>
+        <li>the FabISP firmware, downloaded from the tutorial page;</li>
+    </ul>
+    <p>As ISP we used an Arduino UNO, loaded from the Arduino IDE with the sketch "ArduinoISP" that allows you, in fact, to use it as an ISP.</p>
+    <p class="pic"><img src= "Image/Lesson04/arduino_ISP.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p>We connected the Arduino and FabISP following the diagram below:</p>
+    <p class="pic"><img src= "Image/Lesson04/arduino_fabISP_conn.jpg" class="img-responsive" alt="Responsive image"></p>
+        <table class="tg" style="undefined;table-layout: fixed; width: 303px" align="center">
+        <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100px">
+        <col style="width: 100px">
+        </colgroup>
+          <tr>
+                <td class="tg-hgcj">Signal</td>
+                <td class="tg-hgcj">FabISP</td>
+                <td class="tg-hgcj">ArduinoUNO</td>
+          </tr>
+          <tr>
+            <td class="tg-e3zv">MISO</td>
+            <td class="tg-031e">1</td>
+            <td class="tg-031e">12</td>
+          </tr>
+          <tr>
+            <td class="tg-e3zv">VCC</td>
+            <td class="tg-031e">2</td>
+            <td class="tg-031e">5V</td>
+          </tr>
+          <tr>
+            <td class="tg-e3zv">SCK</td>
+            <td class="tg-031e">3</td>
+            <td class="tg-031e">13</td>
+          </tr>
+          <tr>
+            <td class="tg-e3zv">MOSI</td>
+            <td class="tg-031e">4</td>
+            <td class="tg-031e">11</td>
+          </tr>
+          <tr>
+            <td class="tg-e3zv">RESET</td>
+            <td class="tg-031e">5</td>
+            <td class="tg-031e">10</td>
+          </tr>
+          <tr>
+            <td class="tg-e3zv">GND</td>
+            <td class="tg-031e">6</td>
+            <td class="tg-031e">GND</td>
+          </tr>
+        </table><br>
+    
+    <p>Once connected the two boards, you have to edit the Makefile (which is located in the firmware) to ensure that it works with our ISP: once opened, you have to look for the following two lines and you have to remove the "#" in front of the line with "usbtiny" in it and add a "#" to beginning the line with the "avrisp2" in it to comment it out.</p>
+    <div class="notepad">..........
+DEVICE  = attiny44
+#F_CPU   = 12000000	# edit this line for crystal speed, in Hz
+F_CPU   = 20000000	# edit this line for crystal speed, in Hz
+FUSE_L  = 0xFF
+FUSE_H  = 0xDF
+AVRDUDE = avrdude -c usbtiny -p $(DEVICE) # edit this line for your programmer
+#AVRDUDE = avrdude -c avrisp2 -P usb -p $(DEVICE) # edit this line for your programmer
+.........</div></p>
+
+<p>After editing the Makefile, you have to open the terminal and go to the directory of the firmware:</p>
+
+<div class="code">MacBook-Pro-di-Giulia:~ Giulia$ cd Desktop/FAB\ ACADEMY/fabISP_mac.0.8.2_firmware/
+MacBook-Pro-di-Giulia:fabISP_mac.0.8.2_firmware Giulia$ 
+</div><br>
+<p>Next you need to compile the firmware:</p>
+<p>first use the "make clean" command</p>
+
+<div class="code">MacBook-Pro-di-Giulia:fabISP_mac.0.8.2_firmware Giulia$ make clean
+
+rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.elf *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s
+</div><br>
+<p>then the "make hex"</p>
+<div class="code">MacBook-Pro-di-Giulia:fabISP_mac.0.8.2_firmware Giulia$ make hex
+
+avr-gcc -Wall -Os -DF_CPU=20000000	-Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c usbdrv/usbdrv.c -o usbdrv/usbdrv.o
+
+avr-gcc -Wall -Os -DF_CPU=20000000	-Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -x assembler-with-cpp -c usbdrv/usbdrvasm.S -o usbdrv/usbdrvasm.o
+
+avr-gcc -Wall -Os -DF_CPU=20000000	-Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c usbdrv/oddebug.c -o usbdrv/oddebug.o
+
+avr-gcc -Wall -Os -DF_CPU=20000000	-Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c main.c -o main.o
+
+main.c:88:13: warning: always_inline function might not be inlinable [-Wattributes]
+
+ static void delay ( void )
+
+             ^
+
+avr-gcc -Wall -Os -DF_CPU=20000000	-Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -o main.elf usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o main.o
+
+rm -f main.hex main.eep.hex
+
+avr-objcopy -j .text -j .data -O ihex main.elf main.hex
+
+avr-size main.hex
+
+   text	  data	    bss	    dec	    hex	filename
+
+      0	  1988	      0	  1988	    7c4	main.hex</div><br>
+
+<p>Next, you need to set the fuses so your board will use the external clock (crystal), usign "make fuse"</p>
+
+<div class="code">MacBook-Pro-di-Giulia:fabISP_mac.0.8.2_firmware Giulia$ sudo make fuse
+
+avrdude -c stk500v1 -P /dev/tty.usbmodem1421 -b19200 -p attiny44 -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m
+
+
+
+avrdude: AVR device initialized and ready to accept instructions
+
+
+
+Reading | ################################################## | 100% 0.05s
+
+
+
+avrdude: Device signature = 0x1e9207
+
+avrdude: reading input file "0xDF"
+
+avrdude: writing hfuse (1 bytes):
+
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+
+avrdude: 1 bytes of hfuse written
+
+avrdude: verifying hfuse memory against 0xDF:
+
+avrdude: load data hfuse data from input file 0xDF:
+
+avrdude: input file 0xDF contains 1 bytes
+
+avrdude: reading on-chip hfuse data:
+
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of hfuse verified
+
+avrdude: reading input file "0xFF"
+
+avrdude: writing lfuse (1 bytes):
+
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+
+avrdude: 1 bytes of lfuse written
+
+avrdude: verifying lfuse memory against 0xFF:
+
+avrdude: load data lfuse data from input file 0xFF:
+
+avrdude: input file 0xFF contains 1 bytes
+
+avrdude: reading on-chip lfuse data:
+
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of lfuse verified
+
+
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
+
+
+
+avrdude done.  Thank you.</div><br>
+
+<p>Finally you want to program the board to be an ISP, using "make program"</p>
+
+<div class="code">MacBook-Pro-di-Giulia:fabISP_mac.0.8.2_firmware Giulia$ sudo make program
+
+avrdude -c stk500v1 -P /dev/tty.usbmodem1421 -b19200 -p attiny44 -U flash:w:main.hex:i
+
+
+
+avrdude: AVR device initialized and ready to accept instructions
+
+
+
+Reading | ################################################## | 100% 0.05s
+
+
+
+avrdude: Device signature = 0x1e9207
+
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+
+         To disable this feature, specify the -D option.
+
+avrdude: erasing chip
+
+avrdude: reading input file "main.hex"
+
+avrdude: writing flash (1988 bytes):
+
+
+
+Writing | ################################################## | 100% 3.41s
+
+
+
+avrdude: 1988 bytes of flash written
+
+avrdude: verifying flash memory against main.hex:
+
+avrdude: load data flash data from input file main.hex:
+
+avrdude: input file main.hex contains 1988 bytes
+
+avrdude: reading on-chip flash data:
+
+
+
+Reading | ################################################## | 100% 2.26s
+
+
+
+avrdude: verifying ...
+
+avrdude: 1988 bytes of flash verified
+
+
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
+
+
+
+avrdude done.  Thank you.
+
+
+
+avrdude -c stk500v1 -P /dev/tty.usbmodem1421 -b19200 -p attiny44 -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m
+
+
+
+avrdude: AVR device initialized and ready to accept instructions
+
+
+
+Reading | ################################################## | 100% 0.05s
+
+
+
+avrdude: Device signature = 0x1e9207
+
+avrdude: reading input file "0xDF"
+
+avrdude: writing hfuse (1 bytes):
+
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+
+avrdude: 1 bytes of hfuse written
+
+avrdude: verifying hfuse memory against 0xDF:
+
+avrdude: load data hfuse data from input file 0xDF:
+
+avrdude: input file 0xDF contains 1 bytes
+
+avrdude: reading on-chip hfuse data:
+
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of hfuse verified
+
+avrdude: reading input file "0xFF"
+
+avrdude: writing lfuse (1 bytes):
+
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+
+avrdude: 1 bytes of lfuse written
+
+avrdude: verifying lfuse memory against 0xFF:
+
+avrdude: load data lfuse data from input file 0xFF:
+
+avrdude: input file 0xFF contains 1 bytes
+
+avrdude: reading on-chip lfuse data:
+
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of lfuse verified
+
+
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
+
+
+
+avrdude done.  Thank you.</div><br>
+
+<p>Once finished, to verify that the FabISP has been programmed properly, just go in the System Profiler> Hardware> USB> Hubs: if all went well, FabISP" should be listed in the hub menu.</p>
+<p class="pic"><img src= "Image/Lesson04/FabISP_rilevata.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>After you have programmed the board, you have to remove the 0 ohm resistor and solder bridge. Now you can use it as a programmer to program other boards.
+</p>
+
+    <p></p>
         </div>
     <!-- End of your content -->
 

@@ -123,10 +123,10 @@ a:focus {
 }
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #facd11;
-  background-position: 0 -15px;
-  border-color: black;
-  color: black;   
+    background-color: #facd11;
+    background-position: 0 -15px;
+    border-color: black;
+    color: black;   
 } 
 
 .progress {
@@ -168,6 +168,23 @@ iframe, canvas {
     border-radius: 14;
     overflow: hidden !important;
 
+}
+div.notepad {
+    background-color: white;
+    color: black;
+    max-width: 100%;
+    white-space: pre-line;
+    word-break: break-all;
+    font-family: "Menlo";
+
+}
+DIV.code {
+    font-family: "Lucida Console", Monaco, monospace;
+    white-space: pre-line;
+    word-break: break-all;
+    color: #50ff49;
+    background-color: black;
+    max-width: 100%;
 }
 
 /* navbar */
