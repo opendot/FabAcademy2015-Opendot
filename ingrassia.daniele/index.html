@@ -352,8 +352,244 @@
 		<section id= "week4" class="row">
 			<div class="photo-grid">
 				<p>During this week we've talked about <span class="redones">electronics production</span>.</p>
-				<p>Unfortunately we hadn't the opportunity to accomplish with our weekly assignment because of the lacking of <span class="redones">CNC mill</span>. We'll try to complete the assignment as soon as the shipment of the CNC mill arrives.</p>
-				<p>By the way Massimo used meanwhile time to teach us <span class="redones">Python</span>. Even if I'm a IT engineer, I didn't know anything about this language except the Monty Python's name. As an experiment and to practice a bit of Python, I made a simple Python framework called <span class="redones">Internet of Arduinos</span>. From readme on my <a href="https://github.com/satshas/InternetOfArduinos"><span class="redones" style="font-weight: bold;">GitHub repo<span class="redones"></a>:</p>
+				
+				<p>To demonstrate what we've learned, we had to make a <span class="redones">FabISP</span>. A FabISP is a simple <span class="redones">In System Programmer</span> useful for us as an exrcise in soldering and as a starting point in reading a schematic but also to directly work with <span class="redones">smd</span> electronic components. We will use this FabISP to program the boards that we will make along the FabAcademy.</p>
+
+				<p>The first step in order to make this FabISP, is to print the board. Thanks to some experimentations made by our fellow student Enrico Bassi, we can now use a <span class="redones">laser cutter machine</span> to engrave and cut, in a more precisely way, <span class="redones">FR-1</span> sheets. Our laser cutter features two different kind of laser beams, <span class="redones">CO2 and fiber</span>. We used fiber laser to engrave and completely remove copper from the FR-1 surface, and C02 laser to cut the board. Here is a video showing fiber laser while engraving FR-1 copper surface:</p>
+
+				<iframe src="https://player.vimeo.com/video/122442831" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<p></p>
+				<p>However, fiber laser need to go through the engraved surface different times, to be sure that all the copper was removed. This happens also if we use almost all the laser power. In fact, whitin some results, is possible to observe some thin copper lines inside engraved part of the PCB. Here you can see a picture about this:</p>
+
+				<p><img src="img/week4/lines.jpg"></p>
+
+				<p>Once a well-done board was ready, I started collecting and organizing components to be soldered:</p>
+				<p><img src="img/week4/components.jpg"></p>
+
+				<p>After listening some soldering suggestions from Massimo, I started to solder the components on the FabISP board. The first board never made to work, I think because it was my first smd soldering work. So I printed another board and started over again. This second attempt was successful. Here you see can the final result and the console output of the <span class="redones">programming steps</span>:</p>
+				<p><img src="img/week4/FabISP.jpg"></p>
+
+
+				<p><pre class="prettyprint lang-bash" style="color: white;">
+satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware > make clean
+rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.elf *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s
+satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware > make hex
+avr-gcc -Wall -Os -DF_CPU=20000000       -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c usbdrv/usbdrv.c -o usbdrv/usbdrv.o
+avr-gcc -Wall -Os -DF_CPU=20000000       -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -x assembler-with-cpp -c usbdrv/usbdrvasm.S -o usbdrv/usbdrvasm.o
+avr-gcc -Wall -Os -DF_CPU=20000000       -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c usbdrv/oddebug.c -o usbdrv/oddebug.o
+avr-gcc -Wall -Os -DF_CPU=20000000       -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c main.c -o main.o
+main.c:88:13: warning: always_inline function might not be inlinable [-Wattributes]
+ static void delay ( void )
+             ^
+avr-gcc -Wall -Os -DF_CPU=20000000       -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -o main.elf usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o main.o
+rm -f main.hex main.eep.hex
+avr-objcopy -j .text -j .data -O ihex main.elf main.hex
+avr-size main.hex
+   text    data     bss     dec     hex filename
+      0    2002       0    2002     7d2 main.hex
+satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware >  sudo make fuse
+
+avrdude -c stk500v1 -P /dev/ttyACM0 -b19200 -p attiny44 -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m
+
+
+avrdude: AVR device initialized and ready to accept instructions
+
+
+Reading | ################################################## | 100% 0.05s
+
+
+avrdude: Device signature = 0x1e9207
+
+avrdude: reading input file "0xDF"
+
+avrdude: writing hfuse (1 bytes):
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+avrdude: 1 bytes of hfuse written
+
+avrdude: verifying hfuse memory against 0xDF:
+
+avrdude: load data hfuse data from input file 0xDF:
+
+avrdude: input file 0xDF contains 1 bytes
+
+avrdude: reading on-chip hfuse data:
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of hfuse verified
+
+avrdude: reading input file "0xFF"
+
+avrdude: writing lfuse (1 bytes):
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+avrdude: 1 bytes of lfuse written
+
+avrdude: verifying lfuse memory against 0xFF:
+
+avrdude: load data lfuse data from input file 0xFF:
+
+avrdude: input file 0xFF contains 1 bytes
+
+avrdude: reading on-chip lfuse data:
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of lfuse verified
+
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
+
+
+avrdude done.  Thank you.
+
+
+satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware >  sudo make program
+
+avrdude -c stk500v1 -P /dev/ttyACM0 -b19200 -p attiny44 -U flash:w:main.hex:i
+
+
+avrdude: AVR device initialized and ready to accept instructions
+
+
+Reading | ################################################## | 100% 0.05s
+
+
+avrdude: Device signature = 0x1e9207
+
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+
+         To disable this feature, specify the -D option.
+
+avrdude: erasing chip
+
+avrdude: reading input file "main.hex"
+
+avrdude: writing flash (1988 bytes):
+
+
+Writing | ################################################## | 100% 3.40s
+
+
+avrdude: 1988 bytes of flash written
+
+avrdude: verifying flash memory against main.hex:
+
+avrdude: load data flash data from input file main.hex:
+
+avrdude: input file main.hex contains 1988 bytes
+
+avrdude: reading on-chip flash data:
+
+
+Reading | ################################################## | 100% 2.26s
+
+
+avrdude: verifying ...
+
+avrdude: 1988 bytes of flash verified
+
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
+
+
+avrdude done.  Thank you.
+
+
+avrdude -c stk500v1 -P /dev/ttyACM0 -b19200 -p attiny44 -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m
+
+
+avrdude: AVR device initialized and ready to accept instructions
+
+
+Reading | ################################################## | 100% 0.05s
+
+
+avrdude: Device signature = 0x1e9207
+
+avrdude: reading input file "0xDF"
+
+avrdude: writing hfuse (1 bytes):
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+avrdude: 1 bytes of hfuse written
+
+avrdude: verifying hfuse memory against 0xDF:
+
+avrdude: load data hfuse data from input file 0xDF:
+
+avrdude: input file 0xDF contains 1 bytes
+
+avrdude: reading on-chip hfuse data:
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of hfuse verified
+
+avrdude: reading input file "0xFF"
+
+avrdude: writing lfuse (1 bytes):
+
+
+Writing | ################################################## | 100% 0.02s
+
+
+avrdude: 1 bytes of lfuse written
+
+avrdude: verifying lfuse memory against 0xFF:
+
+avrdude: load data lfuse data from input file 0xFF:
+
+avrdude: input file 0xFF contains 1 bytes
+
+avrdude: reading on-chip lfuse data:
+
+
+Reading | ################################################## | 100% 0.02s
+
+
+avrdude: verifying ...
+
+avrdude: 1 bytes of lfuse verified
+
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
+
+
+avrdude done.  Thank you.
+
+
+				</pre></p>
+				
+				<p><br>As you can see from console output, I used an <span class="redones">Arduino as ISP</span> to program the <span class="redones">Attiny44</span>. In order to do this you have to use the following line in Makefile:</p>
+				<p><pre class="prettyprint lang-bash" style="color: white;">AVRDUDE = avrdude -c stk500v1 -P /dev/ttyACM0 -b19200 -p $(DEVICE)</pre></p>
+
+				<p>Here is a picture of the Arduino connected with FabISP:</p>
+				<p><img src="img/week4/arduino_fabisp.jpg"></p>
+
+				<p>As we couldn't accomplish in time with this weekly assignment because of the lacking of <span class="redones">CNC mill</span>, Massimo used meanwhile time to teach us <span class="redones">Python</span>. Even if I'm a IT engineer, I didn't know anything about this language except the Monty Python's name. As an experiment and to practice a bit of Python, I made a simple Python framework called <span class="redones">Internet of Arduinos</span>. From readme on my <a href="https://github.com/satshas/InternetOfArduinos"><span class="redones" style="font-weight: bold;">GitHub repo<span class="redones"></a>:</p>
 				<p>"Internet of Arduinos (<span class="redones">IoA</span> for friends :) is an Internet of Things Python framework where Things are Arduinos, or other MCU controlled devices. It's in a very early development stage, for now it supports basically HTTP(S) REST to Serial communication."</p>
 				<p>Maybe this framework will be useful to us in order to simplify the communication between internet connected devices and our MCUs. Here is a video with an <span class="redones">example of use:</p>
 				<p><iframe src="//player.vimeo.com/video/120672822" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </p>
@@ -429,7 +665,7 @@
 				<ul class="lists">
 				<li>The components needed are:</li>
 				<li><span class="redones">6-pin programming header</span> to program the board</li>
-				<li><span class="redones">Attiny44A</span> the microcontroller</li>
+				<li><span class="redones">Attiny44A</span> microcontroller</li>
     			<li><span class="redones">FTDI header</span> for power supply and computer connection</li>
     			<li><span class="redones">20 MHz Resonator</span> external crystal clock generator, Attiny44A can work also @20Mhz</li>
     			<li><span class="redones">Capacitor</span> for a better quality input current</li>
@@ -446,36 +682,28 @@
 				<p><img src="img/week6/forward_voltage.png" alt=""></p>
 				<p>Here you can see about my exercise on calculating it: </p>
 				<p><img src="img/week6/led_resistance.jpg" alt=""></p>
-				<p>Finally here is the complete schematic, with all components connected and the value of the led's resistor assigned to <span class="redones">100 Ohm</span> to avoid be right on the limit valoue of 80 Ohm:</p>
+				<p>Finally here is the complete schematic, with all components connected and the value of the led's resistor assigned to <span class="redones">499 Ohm</span> to avoid be right on the limit value of 80 Ohm:</p>
 				<p><img style="width:90%" src="img/week6/completed_schema.png" alt=""></p>
 
-				<p>Going to the board editor, it first showed a confused group of components, connected by <span class="redones">yellow wires</span>. These wires let us know what connections there are between components, but they aren't the ones that we need to print the PCB. All of these lines have to be transformed in <span class="redones">traces</span>, in order to represent the real PCB to be printed. In this case we have to made a <span class="redones">single layer</span> PCB, so all the traces must be on the same surface.</p>
-
-				<p><img style="width:90%" src="img/week6/initial_board.png" alt=""></p>
-				<p>The first thing to do was to put all the components inside the printed area of the limited versio of Eagle:</p>
-				<p><img style="width:90%" src="img/week6/board_inside.png" alt=""></p>
-				<p>As first attempt to order traces, I tried the <span class="redones">autoroute</span> function. This function try to automatically find te best path for each trace:</p>
+				<p>Going to the board editor, it first showed a confused group of components, connected by <span class="redones">yellow wires</span>. These wires let us know what connections there are between components, but they aren't the ones that we need to print the PCB. All of these lines have to be transformed in <span class="redones">traces</span>, in order to represent the real PCB to be printed. In this case we have to made a <span class="redones">single layer</span> PCB, so all the traces must be on the same surface. The first thing to do was to put all the components inside the printed area of the limited version of Eagle. As first attempt to order traces, I tried the <span class="redones">autoroute</span> function. This function try to automatically find the best path for each trace:</p>
 				<p><img style="width:90%" src="img/week6/first_autoroute.png" alt=""></p>
-				<p>As you can see in the followig picture, the autoroute function is not perfect, in fact some of the traces were not made:</p>
+				<p>As you can see in the following picture, the autoroute function is not perfect, in fact some of the traces were not made:</p>
 				<p><img style="width:90%" src="img/week6/after_first_autoroute.png" alt=""></p>
-				<p>After some attemps with changing components' displacement, the autoroute made a nice shot, with 100% of the traces ok. Still, the result was not so good, as many traces was too near each other or oblique:</p>
-				<p><img style="width:90%" src="img/week6/route_ok.png" alt=""></p>
 				<p>So, with the tutorial board in mind, I tried to replicate it via <span class="redones">manual traces editing</span>. Even if I made some minor changes at the components' displacement, the result was much pretty the same:</p>
 				<p><img style="width:90%" src="img/week6/hello_board_1.png" alt=""></p>
 				<p>To be ready to print the circuit, I selected only the first layer and then exported it with <span class="redones">*.png</span> image format, with settings of monochrome and 500DPI of resolution:</p>
 				<p><img style="width:90%" src="img/week6/hello_board_1_layer.png" alt=""></p>
 				<p><img style="width:90%" src="img/week6/hello_board_1_export.png" alt=""></p>
-				<p>After that I imported the png file in Gimp in order to crop the unnecessary part of the image, and to add some boarders and text. Here are the final results of board and interior:</p>
-				<p><img src="img/week6/first_board_traces.png" alt=""></p>
-				<p><img src="img/week6/first_board_interior.png" alt=""></p>
-				<p>Because I was not satisfied on copy the tutorial's board, I tried to make another one. To this this I redesigned manually all the trace's paths. The following pictures shows the final result of my hello-board <span class="redones">personal version</span>.</p>
+				<p>After that I imported the png file in <span class="redones">Inkscape</span> in order to add some text, and a red square, useful to identify the layer that will cut the board. Here is the final result:</p>
+				<p><img src="img/week6/first_board_traces.jpg" alt=""></p>
+				<p>Because I was not satisfied on copy the tutorial's board, I tried to make another one. To do this I redesigned manually all the trace's paths. The following pictures show the final result of my hello-board <span class="redones">personal version</span>.</p>
 				<p><img style="width:90%" src="img/week6/hello_board_2.png" alt=""></p>
 				<p><img style="width:90%" src="img/week6/hello_board_2_layer.png" alt=""></p>
 
-				<p><img src="img/week6/satshas_board_traces.png" alt=""></p>
-				<p><img src="img/week6/satshas_board_interior.png" alt=""></p>
+				<p><img src="img/week6/satshas_board_traces.jpg" alt=""></p>
 
-				<p>Here you can download the two Eagle projects I made this week: <a href="drawings/week6/hello_board_1.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a></p>
+				<p>Here you can find the two Eagle projects I made this week: <a href="drawings/week6/hello_board_1.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a>.</p>
+				<p>And here are olso the *.svg files: <a href="drawings/week6/hello_board_1_svg.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2_svg.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a>.</p>
 
 			</div>
 		</section>
@@ -606,16 +834,15 @@
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week3').innerHTML,'week3')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. computer-controlled cutting</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week4')" rel="lightbox" class="col-2"><span class="col-2" style="font-weight: bold;color: orange;">4. electronics production</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week4').innerHTML,'week4')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">4. electronics production</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week5').innerHTML,'week5')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">5. 3D scanning and printing</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week5').innerHTML,'week5')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">5. 3D scanning and printing</span></a>
 				
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week6').innerHTML,'week6')" rel="lightbox" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6. electronics design</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week6').innerHTML,'week6')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6. electronics design</span></a>
 				
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week7').innerHTML,'week7')" rel="lightbox" rel="lightbox" class="col-2">embedded programming</a>-->
-				<a class="col-2">7. embedded programming</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week7').innerHTML,'week7')" rel="lightbox" class="col-2" style="font-weight: bold;"><span class="redones">7. embedded programming</span></a>
 
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week8').innerHTML,'week8')" rel="lightbox" rel="lightbox" class="col-2">computer-controlled machining</a>-->
 				<a class="col-2">8. computer-controlled machining</a>
