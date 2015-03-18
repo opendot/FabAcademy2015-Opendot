@@ -87,7 +87,253 @@
   <h1><u> Lesson n. 7:</u><h2>Embedded Programming</h2></h1>
 </div>
 <p>For the week 7, we have to program the board to do something, with as many different programming languages and programming environments as possible.</p>
+            
+            <h3>First Approach</h3>
+            <p>First, given my lack of experience in programming, I downloaded a program already compiled (written in C) to begin to understand how it is structured and also to see if my board was working.</p>
+            <p>In the program folder that I downloaded are two files: the Makefile, which is used to automate the programming, and the file steadyled.c which is the program.</p>
+            <div class="notepad"><div class="titlenotepad"><div id="circle1" class="circle"></div><div id="circle2" class="circle"></div><div id="circle3" class="circle"></div>Makefile</div><div class="textnotepad">PROJECT=steadyled
+SOURCES=$(PROJECT).c
+MMCU=attiny44
+F_CPU = 20000000
 
+CFLAGS=-mmcu=$(MMCU) -Wall -Os -DF_CPU=$(F_CPU)
+
+$(PROJECT).hex: $(PROJECT).out
+	avr-objcopy -O ihex $(PROJECT).out $(PROJECT).c.hex;\
+	avr-size --mcu=$(MMCU) --format=avr $(PROJECT).out
+ 
+$(PROJECT).out: $(SOURCES)
+	avr-gcc $(CFLAGS) -I./ -o $(PROJECT).out $(SOURCES)
+ 
+program-bsd: $(PROJECT).hex
+	avrdude -p t44 -c bsd -U flash:w:$(PROJECT).c.hex
+
+program-dasa: $(PROJECT).hex
+	avrdude -p t44 -P /dev/ttyUSB0 -c dasa -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U lfuse:w:0x5E:m
+
+program-usbtiny: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U flash:w:$(PROJECT).c.hex
+
+program-usbtiny-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+program-dragon: $(PROJECT).hex
+                avrdude -p t44 -P usb -c dragon_isp -U flash:w:$(PROJECT).c.hex</div></div><br>
+
+            <div class="notepad"><div class="titlenotepad"><div id="circle1" class="circle"></div><div id="circle2" class="circle"></div><div id="circle3" class="circle"></div>steadyled.c</div><div class="textnotepad">#include &ltavr/io.h&gt;
+#include &ltinttypes.h&gt;
+#include &ltutil/delay.h&gt;
+                
+                
+void delay_ms(uint16_t ms);
+void init_io();
+int button_is_pressed();
+void toggle_led();
+
+#define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+
+#define BUTTON_PORT PORTA       /* PORTx - register for button output */
+#define BUTTON_PIN PINA         /* PINx - register for button input */
+#define BUTTON_BIT PA3          /* bit for button input/output */
+
+#define LED_PORT PORTA          /* PORTx - register for LED output */
+#define LED_BIT PA7             /* bit for button input/output */
+#define LED_DDR DDRA            /* LED data direction register */
+
+#define DEBOUNCE_TIME 25        /* time to wait while "de-bouncing" button */
+#define LOCK_INPUT_TIME 250     /* time to wait after a button press */
+
+int 
+main (void)
+{
+        init_io();
+
+        while (1)                       
+        {
+                if (button_is_pressed())
+                {
+                        toggle_led();
+                       
+                }
+        }
+}
+
+void delay_ms(uint16_t ms) {
+        while ( ms )
+        {
+                _delay_ms(1);
+                ms--;
+        }
+}
+
+void 
+init_io() 
+{
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* led is OFF initially (set pin high) */         
+        LED_PORT |= _BV(LED_BIT);
+
+        /* turn on internal pull-up resistor for the switch */
+        BUTTON_PORT |= _BV(BUTTON_BIT);
+}
+
+int 
+button_is_pressed()
+{
+        /* the button is pressed when BUTTON_BIT is clear */
+        if (bit_is_clear(BUTTON_PIN, BUTTON_BIT))
+        {
+                delay_ms(DEBOUNCE_TIME);
+                if (bit_is_clear(BUTTON_PIN, BUTTON_BIT)) return 1;
+        }
+
+        return 0;
+}
+
+void
+toggle_led()
+{
+        LED_PORT ^= _BV(LED_BIT);
+                }</div></div><br> 
+<a href="media/steadyled.zip"><button type="button" class="btn btn-primary"> Download the folder Steadyled (Makefile + steadyled.c) </button></a> <br> <br>
+            <p>Once downloaded file, I changed the number of pins where are connected the button and the LED (in the file above, pins are already modified) using the button for PA3 and PA7 for Led.</p>
+            <p>After that, I connected the FabISP and the board to the PC, and  connected each other with the rainbow cable.</p>
+            <p class="pic"><img src= "Image/Lesson07/connection.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>After connecting the two boards, open the terminal and enter the directory of the program "steadyled":</p>
+            <div class="code">MacBook-Pro-di-Giulia:~ Giulia$ cd Downloads/steadyled
+                MacBook-Pro-di-Giulia:steadyled Giulia$</div><br>
+            <p>After that, we have to type the command "make" in order to create the excecute the Makefile. The Makefile create by default the hexadecimal file (steadyled.c.hex).</p>
+            <div class="code">MacBook-Pro-di-Giulia:steadyled Giulia$ make
+avr-gcc -mmcu=attiny44 -Wall -Os -DF_CPU=20000000 -I./ -o steadyled.out steadyled.c
+steadyled.c:10:0: warning: "F_CPU" redefined
+ #define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+ ^
+&ltcommand-line&gt;:0:0: note: this is the location of the previous definition
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+</div><br>
+            <p>If you look now in the steadyled folder, you will see the new files created by the Makefile.</p>
+            <p class="pic"><img src= "Image/Lesson07/after_make.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>After, we have to do the "make program-usbtiny-fuses" to reset the microcontroller and prepare it to recieve the programming</p>
+            
+            <div class="code">MacBook-Pro-di-Giulia:steadyled Giulia$ sudo make program-usbtiny-fuses
+Password:
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.
+
+</div><br>
+            <p>Finally we have to do the "make program-usbtiny" to program the board:</p>
+            
+            <div class="code">MacBook-Pro-di-Giulia:steadyled Giulia$ sudo make program-usbtiny
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U flash:w:steadyled.c.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "steadyled.c.hex"
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: writing flash (140 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 140 bytes of flash written
+avrdude: verifying flash memory against steadyled.c.hex:
+avrdude: load data flash data from input file steadyled.c.hex:
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: input file steadyled.c.hex contains 140 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.43s
+
+avrdude: verifying ...
+avrdude: 140 bytes of flash verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.
+
+</div><br>
+            <p>After that, the LED should turn on: this means that the board is working properly and that has been programmed!</p>
+      <p class="pic"><img src= "Image/Lesson07/led_test.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>This was just an example, useful to see if the board is working properly and to begin to understand how is structured and how work a program written in C.</p>
+            <p>Now for the assignment of the week i have to study a "little bit" of C languages to write a personal code for my board! </p>
+            
+<h3></h3>
+            
+            
         </div>
     <!-- End of your content -->
 
