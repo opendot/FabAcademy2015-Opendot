@@ -24,15 +24,15 @@ body {background-color: black;}
 
 a {color: red;}
 
-footer id="footer"{background-color: black;}
+footer id="footer"{background-color: black;} 
 
 h3 small { color: green;text-align: left;}
 
-img { border-radius: 40px;border:3px solid green;}
+img { border-radius: 1px;border:1px solid green;}
 
 legend {color: green;font-size: 13px;}
 
-.img-responsive {max-width: 50%;}
+.img-responsive {max-width: 30%;}
 
 .container img {max-width:100%;}
 
@@ -41,3 +41,37 @@ legend {color: green;font-size: 13px;}
 .container p img {display: block;padding: 4px;line-height: 1px;max-width: 100%; border: 3px  solid green;}
 
 .pic { width:100%}
+
+
+.li {background-color: black ! important;}
+
+.pager li>a, .pager li>span {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: black;
+  border: 1px solid green;
+  border-radius: 15px;
+    color: green;
+    border-color: green;
+}
+.pager li>a:hover, .pager li>a:focus {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: green;
+  border: 1px solid red;
+  border-radius: 15px;
+    color: red;
+    border-color: red;
+}
+
+.statusINC{ 
+   color: yellow;
+    border-color: yellow;
+
+}
+
+.statusNO {
+    color: red;
+    border-color: red;
+    
+}

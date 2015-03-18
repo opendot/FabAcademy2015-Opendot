@@ -77,142 +77,171 @@
       </div>
     </nav>
 
-    <div class="container">
-
-	<!-- Insert your content here below! -->
-
-
-     <h2>Exercise...</h1>
     
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
 
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
 	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+        
+        <!-- Insert your content here below! -->
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+       <div class="container">
+           <p>****************************************************************************************************************</p> 
+        
+         <ul class="pager statusINC">
+    
+        <li class="previous"><a href="exercise03.html">← </a></li> 
+    
+        <li class="next"><a href="exercise05.html"> →</a></li>
+    
+        <h2><em>Week 4 -  Electronics Production -</em></h2>
+
+        </ul>
+
+      
+           
+        <br>
+           
+<h4>Goal: Mill (Laser) the board, stuff it with components and program it. </h4>
+           
+<h4>Reference :<a href="http://fabacademy.org/archives/2015/doc/electronics_production_FabISP.html"> FabISP Production Tutorial </a> # <a href="http://fabacademy.org/archives/2015/doc/programming_FabISP.html"> FabISP Programming Tutorial </a> </h4>
+           
+<h4>Machine: <a href="http://www.troteclaser.com/en-US/Laser-Machines/Compact/Pages/Speedy-100-flexx.aspx"> Trotec Speedy 100 Flexx </a></h4>
+           
+<h4>Support: Blank PCB  FR-1 </h4>
+         <br>
+           <p>****************************************************************************************************************</p>
+           
+        <br>
+    <p>PRODUCTION</p>
+        <br>
+           
+           
+<div class="row">
+          
+        <div class="col-lg-6">
+                <img src="Images/w4_ISP_web.jpg">
+	<legend>xxx</legend>
+            </div>
+          
+        <div class="col-lg-6">  
+	<img src="Images/w4_totale_fabisp.jpg">
+	<legend>xxx</legend>
+            </div>
+            
+        </div>
+    
+<br><br>
+    
+<p class="pic">
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/HMdX2siVev0?rel=0" frameborder="2" allowfullscreen></iframe>
+	<legend>Trotec Laser Cutter Speedy 100 Flexx : Fab Academy 2015 - FabISP Engraving Test</legend>
+	</p>
+        
+<br><br>
+        
+    <div class="row">
+          
+        <div class="col-lg-4">
+                <img src="Images/w4_Medio_fabisp_.jpg">
+	<legend>xxxx</legend>
+            </div>
+             
+         
+        <div class="col-lg-4">
+                <img src="Images/w4_dettaglio1_fabisp_.jpg">
+	<legend>xxxx</legend>
+            </div>
+          
+        <div class="col-lg-4">  
+	<img src="Images/w4_dettaglio3_fabisp.jpg">
+	<legend>Axxxx</legend>
+            </div>
+        </div>
+      <br><br>
+        
+        <div class="row">
+          
+        <div class="col-lg-4">
+                <img src="Images/w4_megazoom_2.jpg">
+	<legend>xxxx</legend>
+            </div>
+             
+         
+        <div class="col-lg-4">
+                <img src="Images/w4_megazoom_4.jpg">
+	<legend>xxxx</legend>
+            </div>
+          
+        <div class="col-lg-4">  
+	<img src="Images/w4_megazoom_7.jpg">
+	<legend>Axxxx</legend>
+            </div>
+        </div>
+      <br><br>
+    
+    <p>****************************************************************************************************************</p>
+      
+      <p>Electric Component</p>
+        
+      
+            <br><br>
+    <div class="row">
+          
+        <div class="col-lg-6">
+                <img src="Images/w4_hello.ISP.44_web.jpg">
+	<legend>xxx</legend>
+            </div>
+          
+        <div class="col-lg-6">  
+	<img src="Images/w4_Fab%20ISP%20Parts%20Layout_Web.png">
+	<legend>***</legend>
+            </div>
+        </div>
+      <br><br>
+    
+         <div class="row">
+          
+        <div class="col-lg-4">
+                <img src="Images/w4_costruzione_fabisp_.jpg">
+	<legend>xxx</legend>
+            </div>
+             
+         
+        <div class="col-lg-4">
+                <img src="Images/w4_costruzione4_fabisp_.jpg.jpg">
+	<legend>xxx</legend>
+            </div>
+          
+        <div class="col-lg-4">  
+	<img src="Images/w4_costruzione5_fabisp_.jpg">
+	<legend>xxx</legend>
+            </div>
+        </div>
+            
+      <br><br>
+      
+    <p>TEXT</p>
+      
+      
+     <div class="row">
+          
+        <div class="col-lg-6">
+                <img src="Images/w4_costruzione6_fabisp_.jpg_.jpg">
+	<legend>xxx</legend>
+            </div>
+          
+        <div class="col-lg-6">  
+	<img src="Images/w4_Final_Fab%20ISP_4.jpg">
+	<legend>xxx</legend>
+            </div>
+            
+        </div>
+      <p>TEXT</p>
+      
+      <br>
+      <br>
+      
+      
+      
     <!-- End of your content -->
 
     </div> <!-- /container -->
@@ -254,3 +283,4 @@
 
   </body>
 </html>
+

@@ -3771,6 +3771,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-stacked > li + li {
   margin-top: 2px;
   margin-left: 0;
+    
+}
+.pager li > span {
+    background-color: green;
 }
 .nav-justified {
   width: 100%;
