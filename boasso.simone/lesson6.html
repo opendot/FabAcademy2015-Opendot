@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fab Academy 2015 Simone Boasso</title>
+    
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+      
+<!-- Leaflet -->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<!-- Local style -->    
+<link rel="stylesheet" href="style.css" !IMPORTANT>
+
+  </head>
+  <body style="text-align: center; padding: 15px;">
+      <img src="fab-academy1.jpg" height="400">
+    <h1>Elettronic Design</h1>
+    </br></br>
+
+
+      <h3>This week we have to design an electronic circuit called "hello board" made whit the same micro of the lesson 4 but this time we have to add at least a button (input device) and a led ( output device).
+</h3>
+<p></br></br>
+<h5> We make some little lesson of basic electronic.</h5>
+</br>
+<h5>Because I'm an electronic and robotics engineer I help whit those lesson.
+I explain the basics law of the electricity, the typical usage and effect of the most used components, the basics of microcontroller and so on.
+</h5>
+ </p></br></br>
+<h5>
+After we make some experimentation in design the PCB whit eagle in free mode ( whit limitation)
+</br>
+Eagle cad is divided in 3 main pieces:</br></br>
+-schematic</br>
+-pcb/board</br>
+-libraries</br>
+</h5>
+<img src="images/eaglemenu.jpg" height="500">
+</br></br></
+<p>
+</br></br>
+<h5>The libraries make possible to make a link between the schematic part and the pcb footprint, make you able to design in simple way your circuit using the simplicity of the schematic process and keep all the traces up to date in the pcb section, so you don't have to remember the physical connection between component and pins but it is already made in the passage between the 3 side of the program.
+</h5>
+ </br></br>
+<img src="images/eaglelibrary.jpg" height="500">
+</br></br></br></br>
+<h5>For this exercise we have a library to download and add to the eagle CAD, in it we found all the component we need, just add them to the schematic and we have the footprint ready in the cad.</h5>
+</br></br>
+<a href="http://academy.cba.mit.edu/content/tutorials/akf/Downloads/helloEcho.zip">HERE you can donwloand the library we used to build the circuit</a>
+ </p>
+<p>
+</br></br></br>
+<h5>
+Schematic part is where you have a "schematic" and easy to read representation of the component where all the pin have a number and a nominal name ( usually the name of their function),here you can make all the logical connection between the component and declare the name of the net and data bus.</br></br>
+
+There are different ways to connect component and wire, the graphical one is to connect whit a line the 2 point (red),</br>
+the other is to add a label and name it the same as the net you want to joint (blue).</br>
+There is olso a useful thing called Junction who make a point to join 2 line or 2 wire(purple).
+</h5>
+</br>
+ </br></br>
+<img src="images/eagleschematic.jpg" height="500">
+</br></br>
+</br></br>
+ </p> 
+<h5>When you switch to the pcb design section all the component are converted in their footprint and physical dimension, the connection are maintained so it is easy to see where the traces have to be made.</br>
+you can set a fixed grid that help the drawings of this traces.</br>
+A useful tool to have an idea of were the line can pass is the auto-route process; this tool launch a script who calculate the possible way of the traces giving you a different level of optimization.</br>
+But is not so clean so after you have to rewrite this traces and make the correction you need whit the tool riprup ( to cancel the traces) and wire (to draw the traces)
+</h5>
+ </br></br>
+<img src="images/eagleauto.jpg" height="350">
+</br></br>
+<img src="images/eaglepcb.jpg" height="500">
+</br></br></br>
+<p>
+</br>
+<h5>We have all surface mount component so we only need the top layer, in the pcb section we select only top layer and we export the png file, monochrome.</br>
+Because of the fact we are using a laser to engrave this pcb we export it in 2000dpi, because we have to modify them after in inkscape to make it vectorial and usable to the Trotec program.</br>
+Where the picture is black is where the copper is eliminated.</br>
+We set the dimension of the working area to be the same as the copper board so we can arrange better the displacement.</br>
+We have also to add a second layer for the laser cut to performs co2 cut so we expand the black on the border to make the copper be engraved and removed and after we draw a vectorial rectangle on the border of the schematic but inside the black , giving them a red colour ( to be used in the Trotec cutting program).</br>
+After this the picture need to be exported in svg file.</br>
+</h5>
+</p>
+</br>
+ </br></br>
+<img src="images/eagleexport.jpg" height="500">
+</br>
+</br>
+<img src="images/eagleexport2.jpg" height="300" >
+</br></br>
+<img src="images/inkscapeeagle.jpg" height="400">
+</br></br></br>
+<a href="files/hello.png"
+   download="/hello.png">Download the PNG file of eagle Export</a>
+</br></br></br>
+<a href="files/hello.svg"
+   download="/hello.svg">Download the SVG file modified by inkcape</a>
+</br></br>
+<h5>After some fail pcb engraving we noticed that the perfect planarity of the pcb engraved is ESSENTIAL because the flexx laser have a so little focus space and a minimum inclination of the board make a fail the the process of removing al the copper... </br></br>
+For this reason we cut a new plexy support for the board and we also put the number of time the laser have to engrave the board from 7 to 9 to make sure all the copper will be removed.</br>
+</h5>
+ </br></br>
+<img src="images/board.jpg" height="430">
+</br>
+</br>
+<img src="images/cleanboard.jpg" height="500" >
+</br></br>
+
+</br></br>
+</br>
+<h5>In my design i add also 2 more led to use all the pin of the attiny44.
+unfortunately we run out of component for a mismatch in the order and we can all complete the circuit...</h5>
+</br></br>
+<img src="images/solderedboard.jpg" height="500">
+</br></br>
+<img src="images/solderedboard2.jpg" height="500">
+</br></br></br>
+<h5>The first circuit doesn't work because of the fact I didn't see some short circuit in the board made by a fail in the laser process ... so I will retry the next week!!! </h5>
+</br></br>
+      <p>
+      <ul>
+        <li><a href="index.html">Back To Index</a></li>
+        </ul>
+      </p>
+  </body>
+</html>
