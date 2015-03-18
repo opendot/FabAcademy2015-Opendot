@@ -370,7 +370,7 @@
 				<p><img src="img/week4/FabISP.jpg"></p>
 
 
-				<p><pre class="prettyprint lang-bash" style="color: white;">
+				<p><pre style="background-color: black;">
 satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware > make clean
 rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.elf *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s
 satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware > make hex
@@ -580,11 +580,22 @@ avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
 
 avrdude done.  Thank you.
 
-
-				</pre></p>
+satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware > lsusb
+Bus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 004: ID 04f2:b302 Chicony Electronics Co., Ltd 
+Bus 001 Device 090: ID 045e:0745 Microsoft Corp. Nano Transceiver v1.0 for Bluetooth
+Bus 001 Device 003: ID 8087:07da Intel Corp. 
+Bus 001 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 043: ID 1781:0c9f Multiple Vendors USBtiny
+Bus 003 Device 017: ID 0ace:1215 ZyDAS ZD1211B 802.11g
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+			</pre></p>
 				
 				<p><br>As you can see from console output, I used an <span class="redones">Arduino as ISP</span> to program the <span class="redones">Attiny44</span>. In order to do this you have to use the following line in Makefile:</p>
-				<p><pre class="prettyprint lang-bash" style="color: white;">AVRDUDE = avrdude -c stk500v1 -P /dev/ttyACM0 -b19200 -p $(DEVICE)</pre></p>
+				<p><pre style="background-color: black;">AVRDUDE = avrdude -c stk500v1 -P /dev/ttyACM0 -b19200 -p $(DEVICE)</pre></p>
 
 				<p>Here is a picture of the Arduino connected with FabISP:</p>
 				<p><img src="img/week4/arduino_fabisp.jpg"></p>
