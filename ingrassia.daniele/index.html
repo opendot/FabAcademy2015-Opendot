@@ -355,7 +355,12 @@
 				
 				<p>To demonstrate what we've learned, we had to make a <span class="redones">FabISP</span>. A FabISP is a simple <span class="redones">In System Programmer</span> useful for us as an exrcise in soldering and as a starting point in reading a schematic but also to directly work with <span class="redones">smd</span> electronic components. We will use this FabISP to program the boards that we will make along the FabAcademy.</p>
 
-				<p>The first step in order to make this FabISP, is to print the board. Thanks to some experimentations made by our fellow student Enrico Bassi, we can now use a <span class="redones">laser cutter machine</span> to engrave and cut, in a more precisely way, <span class="redones">FR-1</span> sheets. Our laser cutter features two different kind of laser beams, <span class="redones">CO2 and fiber</span>. We used fiber laser to engrave and completely remove copper from the FR-1 surface, and C02 laser to cut the board. Here is a video showing fiber laser while engraving FR-1 copper surface:</p>
+				<p>The first step in order to make this FabISP, is to print the board. Thanks to some experimentations made by our fellow student Enrico Bassi, we can now use a <span class="redones">laser cutter machine</span> to engrave and cut, in a more precisely way, <span class="redones">FR-1</span> sheets. Our laser cutter features two different kind of laser beams, <span class="redones">CO2 and fiber</span>. We used fiber laser to engrave and completely remove copper from the FR-1 surface, and C02 laser to cut the board. The following pictures shows Z-axis calibration and the laser cutter ready to print FabISP board:</p> 
+
+				<p><img src="img/week4/LaserZ.jpg"></p>
+				<p><img src="img/week4/LaserPRE.jpg"></p>
+
+				<p>And here is a video showing fiber laser while engraving FR-1 copper surface:</p>
 
 				<iframe src="https://player.vimeo.com/video/122442831" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				<p></p>
@@ -366,9 +371,21 @@
 				<p>Once a well-done board was ready, I started collecting and organizing components to be soldered:</p>
 				<p><img src="img/week4/components.jpg"></p>
 
-				<p>After listening some soldering suggestions from Massimo, I started to solder the components on the FabISP board. The first board never made to work, I think because it was my first smd soldering work. So I printed another board and started over again. This second attempt was successful. Here you see can the final result and the console output of the <span class="redones">programming steps</span>:</p>
+				<p>After listening some soldering suggestions from Massimo and my fellow student Enrico Bassi, I started to solder the components on the FabISP board. The first board never made to work because <span class="redones">avrdude</span> wasn't able to recognize it. I think that this happened because it was my first smd soldering work. Here you can see the first board:</p>
 				<p><img src="img/week4/FabISP.jpg"></p>
 
+				<p>I printed another board and started over again. For this second attempt, I also added a logo on the board. This time I was very careful with soldering: I tried to watch and test every single connection before going over. Here are some pictures of the procces:</p>
+
+				<p><img src="img/week4/ENGISP.jpg"></p>
+				<p><img src="img/week4/44POS.jpg"></p>
+				<p><img src="img/week4/44BLOCK.jpg"></p>
+				<p><img src="img/week4/44SSOL.jpg"></p>
+				<p><img src="img/week4/USBSOL.jpg"></p>
+
+
+				<p>This board was ok. Due to the lack of diodes I completed the board with diodes that respect original values (zener type of 3.3V), but aren't in smd form factor. Here you see can the final result and the console output of the <span class="redones">programming steps</span>:</p>
+				
+				<p><img src="img/week4/ENGISP_FINAL.jpg"></p>
 
 				<p><pre style="background-color: black;">
 satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware > make clean
