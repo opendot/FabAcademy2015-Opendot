@@ -680,7 +680,6 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 		<section id= "week6" class="row">
 			<div class="photo-grid">
 				<p>During this week we've learned about <span class="redones">electronics design</span>.</p>
-				<p>Unfortunately we hadn't the opportunity to accomplish completely with our weekly assignment because of the lacking of some components. We'll try to complete the assignment as soon as the shipment of the components arrives.</p>
 				<p>The objective of this week is to redraw the <span class="redones">hello-echo board</span> adding to it a LED and a button. To do this we used a PCB design software called <span class="redones">Eagle</span>. With Eagle is possible to design PCBs from two different editor that represent respectively two point of view of the PCB: <span class="redones">schematic</span> and <span class="redones">board</span>. In schematic editor we are dealing with components types and connections between them. So here we specify the <span class="redones">electrical</span> part of the PCB, where important things are components' specifications and how they are connected. Before start working with board editor, is preferable to build the complete schematic of the PCB. This because in board editor we will work with physical specifications of the PCB, and every component added in the schematic editor will be added here as well. In board editor we take care of components' displacement and of <span class="redones">traces</span> that connects them.</p>
 
 				<p>To getting started with Eagle I created a <span class="redones">new project</span> and I added to it a new schematic:</p>
@@ -728,10 +727,17 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 				<p><img style="width:90%" src="img/week6/hello_board_2.png" alt=""></p>
 				<p><img style="width:90%" src="img/week6/hello_board_2_layer.png" alt=""></p>
 
-				<p><img src="img/week6/satshas_board_traces.jpg" alt=""></p>
+				<p><img src="img/week6/satshas_board_traces.jpg"></p>
 
 				<p>Here you can find the two Eagle projects I made this week: <a href="drawings/week6/hello_board_1.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a>.</p>
 				<p>And here are olso the *.svg files: <a href="drawings/week6/hello_board_1_svg.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2_svg.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a>.</p>
+
+				<p>To make the board we used the same process that was experimented during Electronics Production: engraving pcb with a laser cutter. This is the board just after the laser cutter has finished its work:</p>
+				<p><img src="img/week6/HelloEcho.jpg" alt=""></p>
+				<p>Here is a pitcure of the final board, with all components soldered and tested:</p>
+				<p><img src="img/week6/HelloEchoFinal.jpg" alt=""></p>
+				<p>I also made a <span class="redones">smoke test</span> by connecting the board to the usb port. Luckily it was ok:</p>
+				<p><img src="img/week6/HelloEchoOK.jpg" alt=""></p>
 
 			</div>
 		</section>
