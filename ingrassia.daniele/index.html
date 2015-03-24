@@ -363,7 +363,7 @@
 				<p>And here is a video showing fiber laser while engraving FR-1 copper surface:</p>
 
 				<iframe src="https://player.vimeo.com/video/122442831" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				<p></p>
+				
 				<p>However, fiber laser need to go through the engraved surface different times, to be sure that all the copper was removed. This happens also if we use almost all the laser power. In fact, whitin some results, is possible to observe some thin copper lines inside engraved part of the PCB. Here you can see a picture about this:</p>
 
 				<p><img src="img/week4/lines.jpg"></p>
@@ -383,9 +383,12 @@
 				<p><img src="img/week4/USBSOL.jpg"></p>
 
 
-				<p>This board was ok. Due to the lack of diodes I completed the board with diodes that respect original values (zener type of 3.3V), but aren't in smd form factor. Here you see can the final result and the console output of the <span class="redones">programming steps</span>:</p>
-				
+				<p>This board was ok. Due to the lack of diodes I completed the board with diodes that respect original values (zener type of 3.3V), but aren't in smd form factor. Here is the result with non-smd diodes:</p>
 				<p><img src="img/week4/ENGISP_FINAL.jpg"></p>
+
+				 <p>Finally some other components arrived, so I replaced non-smd diodes with smd ones. In  this process a little piece of copper path has been lost, so I was forced to manually make a bridge in order to get the ISP working. Here you see can see the final result and the console output of the <span class="redones">programming steps</span>:</p>
+				
+				<p><img src="img/week4/ISP_rew.jpg"></p>
 
 				<p><pre style="background-color: black;">
 satsha@satsha-mint:~/tmp/fabISP_mac.0.8.2_firmware > make clean
@@ -611,11 +614,11 @@ Bus 003 Device 017: ID 0ace:1215 ZyDAS ZD1211B 802.11g
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 			</pre></p>
 				
-				<p><br>As you can see from console output, I used an <span class="redones">Arduino as ISP</span> to program the <span class="redones">Attiny44</span>. In order to do this you have to use the following line in Makefile:</p>
+				<p><br>As you can see from console output, I used an <a href="http://arduino.cc/en/Tutorial/ArduinoISP"><span class="redones" style="font-weight: bold;">Arduino as ISP</span></a> to program the <span class="redones">Attiny44</span>. In order to do this you have to use the following parameters for avrdude in Makefile:</p>
 				<p><pre style="background-color: black;">AVRDUDE = avrdude -c stk500v1 -P /dev/ttyACM0 -b19200 -p $(DEVICE)</pre></p>
 
-				<p>Here is a picture of the Arduino connected with FabISP:</p>
-				<p><img src="img/week4/arduino_fabisp.jpg"></p>
+				<p>Here is a picture of Arduino as ISP connected and ready to program the FabISP:</p>
+				<p><img src="img/week4/flashing.jpeg"></p>
 
 				<p>As we couldn't accomplish in time with this weekly assignment because of the lacking of <span class="redones">CNC mill</span>, Massimo used meanwhile time to teach us <span class="redones">Python</span>. Even if I'm a IT engineer, I didn't know anything about this language except the Monty Python's name. As an experiment and to practice a bit of Python, I made a simple Python framework called <span class="redones">Internet of Arduinos</span>. From readme on my <a href="https://github.com/satshas/InternetOfArduinos"><span class="redones" style="font-weight: bold;">GitHub repo<span class="redones"></a>:</p>
 				<p>"Internet of Arduinos (<span class="redones">IoA</span> for friends :) is an Internet of Things Python framework where Things are Arduinos, or other MCU controlled devices. It's in a very early development stage, for now it supports basically HTTP(S) REST to Serial communication."</p>
@@ -623,7 +626,7 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 				<p><iframe src="//player.vimeo.com/video/120672822" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </p>
 				<p>Other than this I made some experiment about assembling an <a href="http://arduino.cc/en/Main/Standalone"><span class="redones" style="font-weight: bold;">Arduino UNO on a breadboard</span></a> and flashing it with an <a href="http://arduino.cc/en/Tutorial/ArduinoISP"><span class="redones" style="font-weight: bold;">Arduino as ISP</span></a>. As you can already see in the video about InternetOfArduinos, the experiments were successful. So here are some pictures about this:</p>
 				<p><img src="img/week4/before.jpeg"></p>
-				<p><img src="img/week4/flashing.jpeg"></p>
+				<p><img src="img/week4/flashing1.jpeg"></p>
 				<p><img src="img/week4/after.jpeg"></p>
 
 			</div>
@@ -730,7 +733,7 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 				<p><img src="img/week6/satshas_board_traces.jpg"></p>
 
 				<p>Here you can find the two Eagle projects I made this week: <a href="drawings/week6/hello_board_1.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a>.</p>
-				<p>And here are olso the *.svg files: <a href="drawings/week6/hello_board_1_svg.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2_svg.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a>.</p>
+				<p>And here are also the *.svg files: <a href="drawings/week6/hello_board_1_svg.rar"><span class="redones" style="font-weight: bold;">hello-board<span class="redones"></a>, <a href="drawings/week6/hello_board_2_svg.rar"><span class="redones" style="font-weight: bold;">personal-hello-board<span class="redones"></a>.</p>
 
 				<p>To make the board we used the same process that was experimented during Electronics Production: engraving pcb with a laser cutter. This is the board just after the laser cutter has finished its work:</p>
 				<p><img src="img/week6/HelloEcho.jpg" alt=""></p>
@@ -743,12 +746,629 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 		</section>
 		<section id= "week7" class="row">
 			<div class="photo-grid">
-				<p>week7 embedded programming</p>
+				<p>This week we dealt with <span class="redones">embedded programming</span>.</p>
+
+				<p>To start with embedded programming, we first need to know a bit more about the microcontroller we are using, the <span class="redones">Attiny44</span>. So I read its <a href="http://www.atmel.com/Images/doc8006.pdf"><span class="redones" style="font-weight: bold;">datasheet</span></a> in order to find some general information about its <span class="redones">pinout</span>. As we have the version with SOIC package, we need to choose the right pinout from datasheet:</p>
+				<p><img src="img/week7/attiny44_pinout.png" alt=""></p>
+				<p>Also, I read about the meaning of the <span class="redones">pins' codes</span>, to better understand what I can do with them:</p>
+				<p><img src="img/week7/attiny44_pindesc.png" alt=""></p>
+				<p>With this information, I clearly saw how it's possible to decide where to connect microcontroller pins. This is more evident taking back the schema of my hello board, where button and led are connected to two PAx pins. In order to use these pins in our programs, we have to identify them. Here we can read that they are <span class="redones">PA7 for the LED and PA3 for the button</span>:</p>
+				<p><img src="img/week7/pins_sch.png" alt=""></p>
+				<p>Also, in the board schematic, we can physically identify where they are:</p>
+				<p><img src="img/week7/pins_brd.png" alt=""></p>
+
+				<p>Before starting in programming something for my hello board, I wanted to check if it was working. To do this I tried to upload the  <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.ftdi.44.echo.c"><span class="redones" style="font-weight: bold;">hello.ftdi.44.echo.c</span></a> program, found in FabAcademy embedded programming page. To compile the code, we also need the program's Makefile  <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.ftdi.44.echo.c.make"><span class="redones" style="font-weight: bold;">hello.ftdi.44.echo.c.make</span></a>. In order for this file to be read from make program, I renamed it into Makefile. At this point my computer was ready to upload the code, so I finally connected the boards, <span class="redones">FabISP and hello board</span>, together and with USB ports:</p>
+				<p><img src="img/week7/ISP_P.jpg" alt=""></p>
+
+
+				
+				<ul class="lists">
+				<li>Once ready, I read inside the Makefile which commands corresponds with my setup. I <span class="redones">successfully uploaded the program</span> with the following commands:</li>
+				<li><span class="redones">make</span></li>
+				<li><span class="redones">sudo make program-usbtiny-fuses</span></li>
+				<li><span class="redones">sudo make program-usbtiny</span></li>
+				</ul>
+
+				 <p>Here you can see the console output of these commands:</p>
+
+				<p><pre style="background-color: black;">
+satsha@satsha-mint:~/tmp/hello/work > make
+avr-objcopy -O ihex hello.ftdi.44.echo.out hello.ftdi.44.echo.c.hex;\
+        avr-size --mcu=attiny44 --format=avr hello.ftdi.44.echo.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     758 bytes (18.5% Full)
+(.text + .data + .bootloader)
+
+Data:         64 bytes (25.0% Full)
+(.data + .bss + .noinit)
+
+
+satsha@satsha-mint:~/tmp/hello/work > sudo make program-usbtiny-fuses
+[sudo] password for satsha: 
+avr-objcopy -O ihex hello.ftdi.44.echo.out hello.ftdi.44.echo.c.hex;\
+        avr-size --mcu=attiny44 --format=avr hello.ftdi.44.echo.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     758 bytes (18.5% Full)
+(.text + .data + .bootloader)
+
+Data:         64 bytes (25.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK (H:FF, E:DF, L:5E)
+
+avrdude done.  Thank you.
+
+satsha@satsha-mint:~/tmp/hello/work > sudo make program-usbtiny
+avr-objcopy -O ihex hello.ftdi.44.echo.out hello.ftdi.44.echo.c.hex;\
+        avr-size --mcu=attiny44 --format=avr hello.ftdi.44.echo.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     758 bytes (18.5% Full)
+(.text + .data + .bootloader)
+
+Data:         64 bytes (25.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U flash:w:hello.ftdi.44.echo.c.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "hello.ftdi.44.echo.c.hex"
+avrdude: input file hello.ftdi.44.echo.c.hex auto detected as Intel Hex
+avrdude: writing flash (758 bytes):
+
+Writing | ################################################## | 100% 0.76s
+
+avrdude: 758 bytes of flash written
+avrdude: verifying flash memory against hello.ftdi.44.echo.c.hex:
+avrdude: load data flash data from input file hello.ftdi.44.echo.c.hex:
+avrdude: input file hello.ftdi.44.echo.c.hex auto detected as Intel Hex
+avrdude: input file hello.ftdi.44.echo.c.hex contains 758 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.90s
+
+avrdude: verifying ...
+avrdude: 758 bytes of flash verified
+
+avrdude: safemode: Fuses OK (H:FF, E:DF, L:5E)
+
+avrdude done.  Thank you.
+
+
+				</pre></p>
+	
+				<p><br>Due to my previous experimentations about using an <span class="redones">Arduino as ISP</span>, I also tried to upload the same code of above with an Arduino. To do this I connected my <span class="redones">hello board with an Arduino</span>:</p>
+<p><img src="img/week7/ARDU_P.jpg" alt=""></p>	
+				<p>To work with an Arduino, I added the following lines to the Makefile:</p>
+
+				<p><pre style="background-color: black;">
+program-arduino: $(PROJECT).hex
+	avrdude -p t44 -b19200 -P /dev/ttyACM0 -c stk500v1 -U flash:w:$(PROJECT).c.hex
+
+program-arduino-fuses: $(PROJECT).hex
+	avrdude -p t44 -b19200 -P /dev/ttyACM0 -c stk500v1 -U lfuse:w:0x5E:m
+</pre></p>
+
+				<ul class="lists">
+				<li>And then used the following commands:</li>
+				<li><span class="redones">make</span></li>
+				<li><span class="redones">sudo make program-arduino-fuses</span></li>
+				<li><span class="redones">sudo make program-arduino</span></li>
+				</ul>
+				<p>Here you can see that, also with an Arduino as ISP, the upload of the program was successful:</p>
+
+
+	<p><pre style="background-color: black;">
+satsha@satsha-mint:~/tmp/hello/work > make
+avr-objcopy -O ihex hello.ftdi.44.echo.out hello.ftdi.44.echo.c.hex;\
+        avr-size --mcu=attiny44 --format=avr hello.ftdi.44.echo.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     758 bytes (18.5% Full)
+(.text + .data + .bootloader)
+
+Data:         64 bytes (25.0% Full)
+(.data + .bss + .noinit)
+
+
+satsha@satsha-mint:~/tmp/hello/work > sudo make program-arduino-fuses
+avr-objcopy -O ihex hello.ftdi.44.echo.out hello.ftdi.44.echo.c.hex;\
+        avr-size --mcu=attiny44 --format=avr hello.ftdi.44.echo.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     758 bytes (18.5% Full)
+(.text + .data + .bootloader)
+
+Data:         64 bytes (25.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -b19200 -P /dev/ttyACM0 -c stk500v1 -U lfuse:w:0x5E:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.05s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK (H:FF, E:DF, L:5E)
+
+avrdude done.  Thank you.
+
+satsha@satsha-mint:~/tmp/hello/work > sudo make program-arduino
+avr-objcopy -O ihex hello.ftdi.44.echo.out hello.ftdi.44.echo.c.hex;\
+        avr-size --mcu=attiny44 --format=avr hello.ftdi.44.echo.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     758 bytes (18.5% Full)
+(.text + .data + .bootloader)
+
+Data:         64 bytes (25.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -b19200 -P /dev/ttyACM0 -c stk500v1 -U flash:w:hello.ftdi.44.echo.c.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.05s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "hello.ftdi.44.echo.c.hex"
+avrdude: input file hello.ftdi.44.echo.c.hex auto detected as Intel Hex
+avrdude: writing flash (758 bytes):
+
+Writing | ################################################## | 100% 1.28s
+
+avrdude: 758 bytes of flash written
+avrdude: verifying flash memory against hello.ftdi.44.echo.c.hex:
+avrdude: load data flash data from input file hello.ftdi.44.echo.c.hex:
+avrdude: input file hello.ftdi.44.echo.c.hex auto detected as Intel Hex
+avrdude: input file hello.ftdi.44.echo.c.hex contains 758 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.79s
+
+avrdude: verifying ...
+avrdude: 758 bytes of flash verified
+
+avrdude: safemode: Fuses OK (H:FF, E:DF, L:5E)
+
+avrdude done.  Thank you.
+
+
+	</pre></p>
+
+				<p><br>Also, I tried to upload and compile the assembly version of hello echo <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.ftdi.44.echo.asm"><span class="redones" style="font-weight: bold;">hello.ftdi.44.echo.asm</span></a>. <br>Here you can see the console output:</p>
+				
+
+<p><pre style="background-color: black;">
+satsha@satsha-mint:~/tmp/hello/work_asm > make 
+gavrasm hello.ftdi.44.echo.asm
++------------------------------------------------------------+
+| gavrasm gerd's AVR assembler Version 3.4 (C)2014 by DG4FAC |
++------------------------------------------------------------+
+Compiling Source file: hello.ftdi.44.echo.asm
+-------
+Pass:        1
+145 lines done.
+
+Pass 1 ok.
+-------
+Pass:        2
+Line: 14
+Warning 009: Include defs not necessary, using internal values!
+  File: hello.ftdi.44.echo.asm, Line: 14
+  Source line: .include "tn44def.inc"
+Line: 140
+Warning 004: Number of bytes on line is odd, added 00 to fit program memory!
+  File: hello.ftdi.44.echo.asm, Line: 140
+  Source line:          message: .db "hello.ftdi.44.echo.asm: you typed ",0
+145 lines done.
+
+
+60 words code, 18 words constants, total=78 =  3.8%
+
+2 warnings!
+Compilation completed, no errors. Bye, bye ...
+satsha@satsha-mint:~/tmp/hello/work_asm > sudo make program-usbtiny-fuses
+avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+avrdude: AVR device initialized and ready to accept instructions 
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK (H:FF, E:DF, L:5E)
+
+avrdude done.  Thank you.
+
+satsha@satsha-mint:~/tmp/hello/work_asm > sudo make program-usbtiny
+avrdude -p t44 -P usb -c usbtiny -U flash:w:hello.ftdi.44.echo.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "hello.ftdi.44.echo.hex"
+avrdude: input file hello.ftdi.44.echo.hex auto detected as Intel Hex
+avrdude: writing flash (156 bytes):
+
+Writing | ################################################## | 100% 0.20s
+
+avrdude: 156 bytes of flash written
+avrdude: verifying flash memory against hello.ftdi.44.echo.hex:
+avrdude: load data flash data from input file hello.ftdi.44.echo.hex:
+avrdude: input file hello.ftdi.44.echo.hex auto detected as Intel Hex
+avrdude: input file hello.ftdi.44.echo.hex contains 156 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.22s
+
+avrdude: verifying ...
+avrdude: 156 bytes of flash verified
+
+avrdude: safemode: Fuses OK (H:FF, E:DF, L:5E)
+
+avrdude done.  Thank you.
+
+
+</pre></p>
+
+
+				<p><br>To test the hello echo program, I used a Phyton script that can be found here: <a href="http://academy.cba.mit.edu/classes/embedded_programming/term.py"><span class="redones" style="font-weight: bold;">term.py</span></a>. <br>The following screenshot demonstrates the hello echo program working:</p>
+				<p><img src="img/week7/ECHO_OK.png" alt=""></p>
+
+				<p>At this point I was almost sure that my board is working and thus I can start to create a program. For the first attempt I tried to write a <span class="redones">C program</span>. I found that there is a library called <a href="http://www.atmel.com/webdoc/AVRLibcReferenceManual/index_1avr_libc_intro.html"><span class="redones" style="font-weight: bold;">AVR Libc</span></a>, specifically developed to provide a subset of the standard C library <span class="redones">Libc</span>. This library supports almost <a href="http://www.atmel.com/webdoc/AVRLibcReferenceManual/index_1supp_devices.html"><span class="redones" style="font-weight: bold;">all AVR devices</span></a>, and there is also a complete <a href="http://www.atmel.com/webdoc/AVRLibcReferenceManual/index.html"><span class="redones" style="font-weight: bold;">reference manual</span></a> on Atmel website. As starting point I considered the <a href="http://www.atmel.com/webdoc/AVRLibcReferenceManual/group__demos.html"><span class="redones" style="font-weight: bold;">demo projects tutorials</span></a>.</p>
+				<p>After I studied a bit of these tutorials and read past students embedded programming exercises, I decided to create a C program that involves <span class="redones">input from a button and/or an external source, output to a led and interrupts</span>. So I ended up in making a sort of <span class="redones">led Ping Pong program </span> between an Arduino and my hello board. After a bit of thinking on it, and some inspiration coming from Massimo Menichinelli 2012 embedded programming exercise, here is the complete C program:</p>
+
+				<p><pre class="prettyprint lang-c">
+#include &ltavr/io.h&gt
+#include &ltinttypes.h&gt
+#include &ltutil/delay.h&gt
+#include &ltavr/interrupt.h&gt
+
+void delay_ms(uint16_t ms);
+void init();
+int signal_received();
+void switch_led();
+
+int led_on;
+
+#define F_CPU 20000000UL         	     /* 20MHz crystal oscillator */
+
+#define ARDUINO_AND_LED_PORT PORTA           /* PORTx - register for arduino and led */
+#define ARDUINO_AND_BUTTON_PIN PINA          /* PINx - register for arduino input */
+#define ARDUINO_BIT PA6                      /* bit for Arduino input */
+#define BUTTON_BIT PA3                       /* bit for button input */
+
+#define LED_BIT PA7                          /* bit for button input/output */
+#define LED_DDR DDRA                         /* LED data direction register */
+
+#define DEBOUNCE_TIME 5                      /* button debounce time */
+#define LOCK_INPUT_TIME 5                    /* time to wait after Arduino input/time to wait after a button press */
+
+#define set(port,pin) (port |= pin)          
+#define interrupt (1 << PCIE6)               /* interrupt settings */     
+#define interrupt_pin (1 << PCINT6) 	     /* interrupt settings */
+
+//interrupt function
+ISR(PCINT0_vect) {
+  
+    switch_led();  
+  
+}
+
+//software and hardware initialization function
+void init() {
+  
+	led_on = 0;
+	  
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* turn led off */         
+        ARDUINO_AND_LED_PORT |= _BV(ARDUINO_BIT);
+
+}
+
+int main (void){
+        
+  init();
+
+  while (1){
+      
+    if (signal_received()){
+                        
+      switch_led();
+                       
+    }
+      
+  }
+    
+}
+
+//simple function to stop execution of given milliseconds
+void delay_ms(uint16_t ms) {
+        
+  while ( ms ){
+        
+    _delay_ms(1);
+    ms--;
+    
+  }
+  
+}
+
+//check if a signal from the butto or Arduino ha arrived
+int signal_received(){
+  
+  /* the button is pressed when BUTTON_BIT is clear or Arduino is sending a signal when ARDUINO_BIT is clear */
+  if (bit_is_clear(ARDUINO_AND_BUTTON_PIN, ARDUINO_BIT) || bit_is_clear(ARDUINO_AND_BUTTON_PIN, BUTTON_BIT)){
+    
+    //wait a certain time for button debounce
+    delay_ms(DEBOUNCE_TIME);
+    
+    if (bit_is_clear(ARDUINO_AND_BUTTON_PIN, ARDUINO_BIT) || bit_is_clear(ARDUINO_AND_BUTTON_PIN, BUTTON_BIT))
+      return 1;
+      
+  }
+
+  return 0;
+
+}
+
+//if led is on switch it off and vice versa
+void switch_led(){
+
+  if(led_on){
+      
+    ARDUINO_AND_LED_PORT = 0b00000001;
+    led_on = 0;
+      
+  }else{
+    
+    ARDUINO_AND_LED_PORT = 0b10000000; 
+    led_on = 1;
+      
+   }
+    
+} </pre></p>
+				<p><br>As you can see from the code, is possible to pilot the hello board's led with the button, but also with a signal from an Arduino. To test this program I also developed a simple <span class="redones">Arduino sketch</span>:</p>
+
+
+				<p><pre class="prettyprint lang-c">
+void setup() {
+  
+  pinMode(7, OUTPUT);
+  pinMode(10, OUTPUT);
+
+}
+
+void loop() {
+ 
+  digitalWrite(10, LOW);
+  digitalWrite(7, LOW);
+  
+  delay(500);
+  
+  digitalWrite(10, HIGH);
+  digitalWrite(7,HIGH);
+
+  delay(500);
+
+}				</pre></p>
+				<p><br>Here can see a video that shows the led Ping Pong program while is working with my hello board and an Arduino:</p>
+				<iframe src="https://player.vimeo.com/video/122902948" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>
+				<p><br>Also, is possible to pilot the led with the button, as shown in the following video:</p>
+				<iframe src="https://player.vimeo.com/video/122902949" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<p><br>To experiment a bit more, I tried to control my hello board's led <span class="redones">through internet</span> via a REST service. To do this I used my <span class="redones">InternetOfArduinos</span> framework (here is <a href="https://github.com/satshas/InternetOfArduinos"><span class="redones" style="font-weight: bold;">GitHub repo</span></a>), the same C code of above for the hello board and the following Arduino sketch:</p>
+				<p><pre class="prettyprint lang-c">
+bool flag = false;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(7, OUTPUT);
+}
+
+void loop()
+{
+
+  if(Serial.available()){
+    
+    delay(100);
+    
+    while(Serial.available())
+      Serial.read();
+     
+     Serial.println("hi, i'm arduino :)!");
+  
+     if(flag){
+     
+       flag = false;
+       digitalWrite(7, HIGH);
+     
+     }else{
+     
+       flag = true;
+       digitalWrite(7, LOW);
+       
+     }
+  }
+  
+}			</pre></p>
+			<p><br>In the following video is possible to see that I can control the hello board's led with a REST call made with a smartphone:</p>
+			<iframe src="https://player.vimeo.com/video/122906315" width="750" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+
+				<p><br>Apart from C, is also possible to use Arduino IDE to program our hello board. To do this we need to modify <span class="redones">Arduino IDE</span> as described in this tutorial: <a href="http://highlowtech.org/?p=1695"><span class="redones" style="font-weight: bold;">Programming an ATtiny w/ Arduino IDE</span></a>. This tutorial has a little error about where to put attiny folder, the right place is inside Arduino IDE folder and not inside sketchbook folder. Once setted the Arduino IDE, it shows some new settings related to the Attiny MCU family:</p>
+				<p><img src="img/week7/patched_ide.png" alt=""></p>	
+				<p>To test coding my hello board with Arduino IDE, I modifed the Button example to have a similar behaviour of C Ping Pong when button is pressed. Here you can see the code:</p>
+
+<p><pre class="prettyprint lang-c">
+/*
+  Button
+
+ Turns on and off a light emitting diode(LED) connected to digital
+ pin 13, when pressing a pushbutton attached to pin 2.
+
+
+ The circuit:
+ * LED attached from pin 13 to ground
+ * pushbutton attached to pin 2 from +5V
+ * 10K resistor attached to pin 2 from ground
+
+ * Note: on most Arduinos there is already an LED on the board
+ attached to pin 13.
+
+
+ created 2005
+ by DojoDave <http://www.0j0.org>
+ modified 30 Aug 2011
+ by Tom Igoe
+
+ This example code is in the public domain.
+
+ http://www.arduino.cc/en/Tutorial/Button
+ */
+
+// constants won't change. They're used here to
+// set pin numbers:
+const int buttonPin = 3;     // the number of the pushbutton pin
+const int ledPin =  7;      // the number of the LED pin
+
+// variables will change:
+int buttonState = 0;         // variable for reading the pushbutton status
+bool led_on;
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+  // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
+  
+  led_on=true;
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed.
+  // if it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    // turn LED on:
+    digitalWrite(ledPin, HIGH);
+  }
+  else {
+    // turn LED on and off:
+    if(led_on){
+      
+      digitalWrite(ledPin, LOW);
+      led_on=false;
+      delay(50);
+      
+    }else{
+    
+      digitalWrite(ledPin, HIGH);
+      led_on=true;
+      delay(50);
+      
+    }
+  }
+}</pre></p>
+
+<p><br>Finally, here you can find all the code I've talked about in this week: <a href="other/code.rar"><span class="redones" style="font-weight: bold;">download</span></a>.</p>
+
 			</div>
 		</section>
 		<section id= "week8" class="row">
 			<div class="photo-grid">
-				<p>week8 computer-controlled machining</p>
+				<p>Along this week we've learned about <span class="redones">computer-controlled machining</span>.</p>
 			</div>
 		</section>
 		<section id= "week9" class="row">
@@ -878,8 +1498,7 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week7').innerHTML,'week7')" rel="lightbox" class="col-2" style="font-weight: bold;"><span class="redones">7. embedded programming</span></a>
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week8').innerHTML,'week8')" rel="lightbox" rel="lightbox" class="col-2">computer-controlled machining</a>-->
-				<a class="col-2">8. computer-controlled machining</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week8').innerHTML,'week8')" rel="lightbox" class="col-2" style="font-weight: bold;"><span class="redones">8. computer-controlled machining</span></a>
 
 
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week9').innerHTML,'week9')" rel="lightbox" class="col-2">molding and casting</a>-->
