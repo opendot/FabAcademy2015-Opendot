@@ -107,10 +107,42 @@
             <p class="pic"><img src= "Image/Lesson08/tavolo-rhino.jpg" class="img-responsive" alt="Responsive image"></p>
             <p>Once finished the drawing, to control the joints I created a 3D model of the table by extruding the curves of the design by the thickness of the wood that I will use to realize it.</p>
             <p class="pic"><img src= "Image/Lesson08/vista-3d-tavolo" class="img-responsive" alt="Responsive image"></p>
-            <p>After checking the joints I exported my project ".dxf" to be able to then import into XCarve to create the toolpath for milling.</p>
+            <p>After checking the joints I exported my project in .dxf to be able to import into XCarve to create the toolpath for milling.</p>
         <h3>Milling</h3>
-        <p>
-                </p>
+        <p>Once opened XCarve and imported the files of the table, the program asks you to specify the size of the work area (the wooden board) which in my case is 2100 mm x 1450 mm.</p>
+        <p>After setting the size of the work area you must arrange the parts of the project within it, this can be done either manually or using the automatic nesting. Using this function, the program will dispose the pieces as best considering three main parameters:<ul type="square">
+        <li><strong>Tool diameter:</strong> to set the diameter of the tip;</li>
+        <li><strong>Cleareance:</strong> the distance between the tool and the near piece;</li>
+        <li><strong>Border Gap:</strong> how much space you want to keep between the pieces and the border of the work area;</li></ul></p>
+      <p class="pic"><img src= "Image/Lesson08/import-xcarve.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>Once arranged the pieces, you have to create the toolpath for each operation that the machine will have to perform: selecting a layer at a time, and each time setting different parameters for each operation, I got 4 toolpath.</p>
+      <p class="pic"><img src= "Image/Lesson08/vista_toolpath.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>XCarve also lets you view a 3d preview of how your project will be milled:</p><p class="pic"><img src= "Image/Lesson08/import-xcarve-3d.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>After preparing all toopath, we can export it and open the ShopBot Control System Software.</p>
+      <p class="pic"><img src= "Image/Lesson08/setting-home.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>Before importing the toolpath must set the position of the three axes (x, y, z):<ul type="square">
+      <li>for the x and y position you have to move the tip in the starting position relative to the project to realize, using the control panel of the machine; </li>
+      <li>for the z position you must use the appropriate option for setting the height of the tip which, thanks to a metal plate connected to the machine, is able to establish the correct position.</li></ul></p>
+  <p class="pic"><img src= "Image/Lesson08/setting-z.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>After set the correct initial position of the axes, we can start to milling the project, importing a toolpath at a time.</p>
+        <p class="pic"><img src= "Image/Lesson08/cnc_working2.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Lesson08/cnc_working.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p>During the milling i encountred some problems with the wood, as much curved, and this has meant that some tabs in the middle of the panel didn't come good and the piece, that should have been hooked, start moving and being damaged.</p>
+    <p class="pic"><img src= "Image/Lesson08/errore_tab.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p>Once the machine have finish, i have removed the tab (used to hold the pieces during the milling) and starting to cleaning the pieces using the sandpaper.</p>
+    <p>Here you can see some details of the joins:</p>
+    <p class="pic"><img src= "Image/Lesson08/dettaglio_join_1.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p class="pic"><img src= "Image/Lesson08/dettaglio_join_2.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p class="pic"><img src= "Image/Lesson08/dettaglio_join_3.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p>And this is the final result:</p>
+    <p class="pic"><img src= "Image/Lesson08/Final_result2.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p class="pic"><img src= "Image/Lesson08/Final_result1.jpg" class="img-responsive" alt="Responsive image"></p>
+    
+    
+    
+    
+
+        
 
 
         </div>
