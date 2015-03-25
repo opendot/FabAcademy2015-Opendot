@@ -1370,56 +1370,86 @@ void loop() {
 			<div class="photo-grid">
 				<p>Along this week we've learned about <span class="redones">computer-controlled machining</span>.</p>
 
+				<p>To demonstrate we dealt with CNC's intrinsic way of working, our assignment was to <span class="redones">make something big</span>. Personally, to avoid wood waste, I added to this assignment also a personal objective to build a thing that I will really use. Because of my final project, that probably will require alot of work on electronic and mechanics, I decided to make a <span class="redones">work table</span>. I will use this table to solder boards, to assembly parts and so on.</p> 
+
+
+				<ul class="lists">
+					<li>Here are some <span class="redones">considerations</span> I've taken into account before starting design my work table:</li>
+					<li>each of us has available a single wood sheet of <span class="redones">210cm x 145cm x 1.2cm</span>
+					<li>actually I live in a place where there isn't so much space, so I chosen a <span class="redones">width x depth of 75cm x 75cm</span></li>
+					<li>I could use tools like screwdrivers, tongs etc , so I will create a specific <span class="redones">holed shelf</span> where I can put them</li>
+					<li>I could need to put my elbows on it, so table must <span class="redones">resist to some weight</span></li>
+					<li>I want to make it <span class="redones">assembly only by joints</span></li>
+					<li>I will use a <span class="redones">6mm CNC bit</span></li>
+				</ul>
+
+				<p>What comes out of all of these constraints was the following drawing:</p>
 				<p><img src="img/week8/screen.png"></p>
 
-				<p><img src="img/week8/vCarve_prop.png"></p>
-				<p><img src="img/week8/vCarve_nest1.png"></p>
-				<p><img src="img/week8/vCarve_nest2.png"></p>
+				<p>Because of I manually drawn joints, I also made a <span class="redones">3D model</span> of the work table, in order to check if its dimensions were ok:</p>
+				<p><img src="img/week8/render.jpg"></p>
+				<p>At this point I was ready to export an <span class="redones">*.dxf</span> file and to open it with <span class="redones">vCarve Pro</span>. Inside vCarve Pro we can set low level CNC settings, and export our drawings into a file format directly readable by ShopBot CNC controlling software.</p>
+
+				<p>Here you can see some vCarve Pro screenshots that shown the settings I was using. First, I set Job Size and material thickness. We fixed wood sheet with some borderline bolts, so I set height 1cm less:</p>
 				
+				<p><img src="img/week8/vCarve_prop.png"></p>
+				
+				<p>To optimize the cut and to left some wood for future jobs, I used <span class="redones">Nest Parts</span> feature. Here are the nest settings I was using:</p>
+				<p><img src="img/week8/vCarve_nest1.png"></p>
+				<p>And here are the results of nesting:</p>
+				<p><img src="img/week8/vCarve_nest2.png"></p>
+
+				<p>The first cuts I wanted to make were the <span class="redones">internal ones</span>. This because is possible that a piece will move a bit after it's cutted, so if it contains internal cuts, these will move as well. So I selected all the internals cuts:</p>
 				<p><img src="img/week8/vCarve_int1.png"></p>
+				<p>And apply to them the following settings:</p>
 				<p><img src="img/week8/vCarve_int2.png"></p>
+				<p>As you can see, I set <span class="redones">Inside / Left</span> as Machine Vectors, because of these cuts were internal. Finally, for the internal cuts, I wanted to see the preview:</p>
 				<p><img src="img/week8/vCarve_int3.jpg"></p>
+
+				<p>Similar procedure I followed for the external cuts, with the difference that this time the Machine Vectors setting were <span class="redones">Outside / Right</span>:</p>
 
 				<p><img src="img/week8/vCarve_ext1.png"></p>
 				<p><img src="img/week8/vCarve_ext2.png"></p>
 				<p><img src="img/week8/vCarve_ext3.jpg"></p>
 
+				<p>Before starting cuts, I used the ShobBot controlling software to reset X and Y axis and to calibrate Z axis:</p>
 				<p><img src="img/week8/sharebot.jpg"></p>
 
 				
-
+				<p>Here you can see a video about our ShopBot starting to do internal cuts:</p>
 				<iframe src="https://player.vimeo.com/video/123101274" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
+				<p>And here is shown that the Job Size and Nest Parts <span class="redones">Border Gap</span> were ok:</p>
 				<iframe src="https://player.vimeo.com/video/123101276" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-
+				<p>Here is the table, quickly assembled just after it has been cutted:</p>
 				<p><img src="img/week8/table_first.jpg"></p>
-				<p>After glass paper...</p>
+
+
+				<p>To refine table's wood I used some sand paper. Here are some pictures about the <span class="redones">final result</span>:</p>
 				<p><img src="img/week8/table_front.jpg"></p>
 				<p><img src="img/week8/table_back.jpg"></p>
 				<p><img src="img/week8/table_left.jpg"></p>
 				<p><img src="img/week8/table_right.jpg"></p>
-
-				<p>Me while I simulate work..</p>
 				<p><img src="img/week8/table_eng.jpg"></p>
 				<p><img src="img/week8/table_pra.jpg"></p>
 				
-				<p>Some details on the joints..</p>
+				<p>Here are some detailed pictures about the quality of the joints:</p>
 				<p><img src="img/week8/table_holes.jpg"></p>
 				<p><img src="img/week8/table_inc1.jpg"></p>
 				<p><img src="img/week8/table_inc2.jpg"></p>
 				<p><img src="img/week8/table_inc3.jpg"></p>
 				<p><img src="img/week8/table_inc4.jpg"></p>
 
+				<p>Also, some tabs caused <span class="redones">little imperfections</span> while I was detaching pieces, maybe next time I will reduce tabs size and their quantity:</p>
 				<p><img src="img/week8/table_tab1.jpg"></p>
 				<p><img src="img/week8/table_tab2.jpg"></p>
 
-
+				<p>At the end I also made a <span class="redones">load test</span> with myself on the table, that luckily was <span class="redones">successful</span>:</p>
 				<iframe src="https://player.vimeo.com/video/123137722" width="700" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 				
-
-				<p><br>Here you can download the drawing of <a href="drawings/week8/work_table.3dm.rar"><span class="redones" style="font-weight: bold;">work table</span></a>.</p>
+				<p><br>Here you can download the drawing of the <a href="drawings/week8/work_table.3dm.rar"><span class="redones" style="font-weight: bold;">work table</span></a>. Or, if just want to see on the fly the 3D model, here it is:</p>
 
 			</div>
 		</section>
@@ -1603,6 +1633,9 @@ void loop() {
 			<canvas id="cv3" width=640 height=480>
 				It seems you are using an outdated browser that does not support canvas :-(
 			</canvas>
+			<canvas id="cv4" width=640 height=480>
+				It seems you are using an outdated browser that does not support canvas :-(
+			</canvas>
 			<p></p>
 			<div class="col-full">
 				<p>
@@ -1639,6 +1672,8 @@ void loop() {
 					canvas2.style.display="none";
 					var canvas3 = document.getElementById('cv3');
 					canvas3.style.display="none";
+					var canvas4 = document.getElementById('cv4');
+					canvas4.style.display="none";
 
 					ReplaceContentInContainer('middle',document.getElementById('about').innerHTML)
 					document.getElementById('ab').style.color = '#ced9e0';
@@ -1658,6 +1693,8 @@ void loop() {
 			canvas2.style.display="none";
 			var canvas3 = document.getElementById('cv3');
 			canvas3.style.display="none";
+			var canvas4 = document.getElementById('cv4');
+			canvas4.style.display="none";
 
 			var container = document.getElementById(id);
 			container.innerHTML = content;
@@ -1743,6 +1780,24 @@ void loop() {
 			    viewer.update();
 
 			    canvas3.style.display="block";
+
+			}else
+			if(endId=='week8'){
+				
+				var canvas4 = document.getElementById('cv4');
+			    var viewer = new JSC3D.Viewer(canvas4);
+			    viewer.setParameter('SceneUrl','drawings/week8/work_table.obj');
+			    viewer.setParameter('ModelColor','#FFFFFF');
+			    viewer.setParameter('BackgroundColor1','##CCCCA3');
+			    viewer.setParameter('BackgroundColor2','##CCCCA3');
+			    viewer.setParameter('RenderMode','flat');
+			    viewer.setParameter('MipMapping','on');
+			    viewer.setParameter('Definition','high');
+			    viewer.setParameter('Renderer','webgl');
+			    viewer.init();
+			    viewer.update();
+
+			    canvas4.style.display="block";
 
 			}
 
