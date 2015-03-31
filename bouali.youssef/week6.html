@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Week 6 : Electronics Design</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      <h2>Module 6: Electronics Design</h2><br>
+      
+        <h3>Module contents:</h3>
+      <p> During this week we've learned about Electronics Design.<br><br>
+The assignment  of this week module is to redesign and redraw the hello-echo board from scratch, and to add to it a LED and a button. In order to achieve our goals, and as suggested by Neil, I learned some software to design PCBs. After various trials and It was expected, I felt very comfortable with Eagle where it is possible to design PCBs from two different editors that represent respectively two point of view of the PCB: schematic and board. <br><br>
+The schematic editor allow to add various components types and then define all the connections between them. This phase allow to determine the electrical and electronic parts of the PCB. It is very important to check components' specifications in their data sheet and how they can be connected. Next, we move to board editor in order to place all the components along with their connections inside the board. In this we phase, we are able to design the board and more importantly the traces and paths for final production.<br><br>
+
+</p>
+      
+      
+        <h3>My work:</h3>
+      
+      <u><b>Step 1: Preparing Eagle Libraries and Project</b></u> <br><br>
+              <p> I started with Eagle software, where I added all the necessary libraries that I have previously downloaded from the FabAcademy website:<br><br></p>
+          
+                      <p class="pic"><img
+src="media/W6_eagle_library.jpg"><legend>Add FabAcademy liabraries to Eagle.</legend> </p><br><br>
+        
+         <u><b>Step 2: Add and Connecting Components in the Schematic Editor</b></u> <br><br>
+         <p> Next after adding libraries, I moved to add to the schema components needed for the hello-echo board. I added the following components:<br>
+             -> 6-pin programming header to program the board<br>
+             -> Attiny44A microcontroller<br>
+             -> FTDI header for power supply and computer connection<br>
+             -> 20 MHz Resonator external crystal clock generator, Attiny44A can work also @20Mhz<br>
+             -> Capacitor for a better quality input current<br>
+             -> 10K Resistors<br>
+             -> Led for the excerise<br>
+             -> Resistor to reduce led applied voltage<br>
+<br></p>
+        
+        <p class="pic"><img
+src="media/W6_eagleparts.jpg"><legend>Add Electronic Components.</legend> </p>
+                
+        <p> After that, I connected all the components to the right slots as specified in datasheets. I got the following schematic board: <br><br></p>
+        
+        <p class="pic"><img
+src="media/W6_eagle_schematic.jpg"><legend>Board Schematic View with Components Connected .</legend> </p>
+        
+         <u><b>Step 3: Traces design in the Board Editor</b></u> <br><br>
+        <p> After finalizing the schematic work and all logical connections between all components, I moved to the board editor, where at the beginning it showed a mess of components connected by yellow lines. These yellow lines show the connections we have defined and which I had to follow in order to place components inside the board and design traces for final print.<br><br>
+I made many trials in order to place the traces, including the “AUTOROUTE” function, but I made many mistakes and got and error board: 
+</p>
+        <p class="pic"><img
+src="media/W6_eagle_error.jpg"><legend>Board with Trace Error.</legend> <br></p>
+        <p> After that, slowly I made single traces and avoiding intersections between them. Finally I made it, and this is the result:</p>
+        <p class="pic"><img
+src="media/W6_eagle_board.jpg"><legend>My final board with all traces fine.</legend></p>
+        
+    
+       <u><b>Step 4: Prepare board for printing</b></u> <br><br> 
+        <p>I exported my Eagle board into a png image format with settings of monochrome and 500DPI of resolution. At this step, I detected an error that would made circuit error on my board:</p>
+         <p class="pic"><img
+src="media/W6_trace_error.jpg"><legend>Trace error on PNG exported file.</legend> </p>
+        
+        <p>Therefore I had to go back to Eagle and make the necessary changes in order to solve this problem, then export again the png file and customize it. Here is the final result:</p>
+        <p class="pic"><img
+src="media/W6_trace_final.jpg"><legend>Final board traces working.</legend> </p>
+        
+        <u><b>Step 5: Board Printing and Adding Electronic Components</b></u> <br><br> 
+        
+<p>To print the board we used the same process that was experimented during Electronics Production module: engraving PCB using the laser cutter. Here is my boar finished result:
+    </p>
+      
+      <p class="pic"><img
+src="media/W6_board_lasercut.jpg"><legend>PCB Board lasercut.</legend> </p><br><br>
+        
+        <p>After I soldered all the electronic components to their corresponding slots, this is what I got:</p>
+        <p class="pic"><img
+src="media/W6_board_with_components.jpg"><legend>PCB Board with components soldered.</legend> </p>
+        
+        <p>After that I made the smoke test by connecting the board to the USB port. Everything is OK (after intermediate failures)</p>
+        <p class="pic"><img
+src="media/W6_board_smoke_test.jpg"><legend>PCB Board Smoke Test OK.</legend> </p><br><br>
+        
+            
+      <h3>Download Zone</h3>
+      <p> The Eagle and PNG files are available for downloand here: </p>
+      <p> <a href="media/Module%206.rar"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+      
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
