@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Saverio Silli</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+	  
+
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
+            <li><a href="contact.html">contact me</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+      
+     
+    <h1>WEEK 8</h1>
+		  <h2>08. Computer-Controlled Machining</h2>
+		<h3><li>Make something big.</li><br></h3>
+        <br>
+       <p>I was waiting for this week since the beginning of the Academy. I love to design furnitures but I never dealt with a CNC based project. I started watching this inspirational video, which I find beautiful,  posted in the class' email by our classmate <a href="http://fabacademy.org/archives/2015/sa/students/ortiz.patricio/index.html">Prof. Patricio Ortiz Silva</a>.</p>
+		
+		<iframe src="https://player.vimeo.com/video/44947985" width="600" height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/44947985">Love Letter to Plywood. By Tom Sachs</a> from <a href="https://vimeo.com/tomsachs">Tom Sachs</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+		
+		 
+		
+		<p>To begin the design process I examined the material we had available: a 2100 by 1450 by 12 mm board of cheap poplar plywood, low quality. I then had to find a need I had to fulfill, and noticed that in my apartment in Milan I had nothing to sit on in the bathroom, neither do I had something to hang a coat in the living room. One bathroom stool and a coat hanger please!</p>
+		
+		<p>I knew I wanted to try a curved shape with a living hinge sistem. At first I designed a pattern made of one long snake-like line, then a standard pattern which later were both machined and tested. I also included in the design this joint system which I found on <a href="http://www.flexiblestream.org/project/50-digital-wood-joints">this useful collection</a>. It is a Symmetrical Double Dovetail based on the Japanese "Ryo-men-ari-tsugi"</p>
+		
+		 <p class="pic">
+			 <a href="image/08/image1.jpg"></a>
+        <img src="image/08/image1.jpg"width="600" >
+			<legend>Living hinge designs</legend>
+				 </p>
+		
+		 <p class="pic">
+			 <a href="image/08/image2.jpg"></a>
+        <img src="image/08/image2.jpg"width="600" >
+			<legend>Symmetrical Double Dovetail</legend>
+				 </p>
+		
+	
+		
+		<p>Then I made some tests on the resistance of both living hinge systems. As you can see it bends very much and at the end it doesn't brake in one point only. That's the best feature of plywood. One important thing is how yu put your design on the board you have available: you should lay according to the direction of the fibers, meaning that you have to count the layers of your plywood and see how many layers have the same veneer direction. Than rotate your parts along the veneers.</p>
+		
+			 <p class="pic">
+			 <a href="image/08/image01.jpg"></a>
+        <img src="image/08/image01.jpg"width="600" >
+			<legend>Cutting parts for testing</legend>
+				 </p>
+		
+		<p><iframe width="600" height="377" src="https://www.youtube.com/embed/9zxW81H2Mu0" frameborder="0" allowfullscreen></iframe><legend>Living hinge stress test.</legend></p>
+		
+			 <p class="pic">
+			 <a href="image/08/image04.jpg"></a>
+        <img src="image/08/image04.jpg"width="600" >
+			<legend>Living hinge stress test.</legend>
+				 </p>
+		
+			 <p class="pic">
+			 <a href="image/08/image05.jpg"></a>
+        <img src="image/08/image05.jpg"width="600" >
+			<legend>Living hinge stress test.</legend>
+				 </p>
+		
+			 <p class="pic">
+			 <a href="image/08/image06.jpg"></a>
+        <img src="image/08/image06.jpg"width="600" >
+			<legend>Living hinge stress test.</legend>
+				 </p>
+		
+	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/Ov_CIqqpI94" frameborder="0" allowfullscreen></iframe><legend>Living hinge load test (98 kg sit was ok, 98 kg jumping, too much).</legend></p>
+		
+			 <p class="pic">
+			 <a href="image/08/image07.jpg"></a>
+        <img src="image/08/image07.jpg"width="600" >
+			<legend>Test was a success but still I'm sad for the loss.</legend>
+				 </p>
+
+		
+		<p class="pic">
+			 <a href="image/08/image3.jpg"></a>
+        <img src="image/08/image3.jpg"width="600" >
+			<legend>All parts ready to be cut</legend>
+				 </p>
+		
+	
+		<p>I put many tabs along the toolpaths to be sure the parts didn't move, so after the machining was done, I had to remove them. I used a chisel first and then I used a saw.</p>
+		
+	 <p class="pic">
+			 <a href="image/08/image08.jpg"></a>
+        <img src="image/08/image08.jpg"width="600" >
+			<legend>The cnc job is done.</legend>
+				 </p>
+
+			 <p class="pic">
+			 <a href="image/08/image03.jpg"></a>
+        <img src="image/08/image03.jpg"width="600" >
+			<legend>Removing the tabs with a chisel.</legend>
+				 </p>
+		
+			 <p class="pic">
+			 <a href="image/08/image09.jpg"></a>
+        <img src="image/08/image09.jpg"width="600" >
+			<legend>Removing the tabs with a saw.</legend>
+				 </p>
+		
+		<p>This is the final stool and coat hanger I design ad made. I'm very happy with the results, both design works properly, but the coat hanger surely need some stabilization at the base. The wood joints where so precise that I had to hammer them in, and I broke some of them doing so. Next time I will leave a play of some decimal to ensure an easy fit.</p>
+	
+	  
+	  <p class="pic">
+			 <a href="image/08/image11.jpg"></a>
+        <img src="image/08/image11.jpg"width="600" >
+			<legend>Bathroom stool.</legend>
+				 </p>
+
+		<p class="pic">
+			 <a href="image/08/image12.jpg"></a>
+        <img src="image/08/image12.jpg"width="600" >
+			<legend>Bathroom stool: wood joint.</legend>
+				 </p>
+		
+		<p class="pic">
+			 <a href="image/08/image13.jpg"></a>
+        <img src="image/08/image13.jpg"width="600" >
+			<legend>Bathroom stool: living hinge.</legend>
+				 </p>
+		
+		<p class="pic">
+			 <a href="image/08/image14.jpg"></a>
+        <img src="image/08/image14.jpg"width="600" >
+			<legend>Bathroom stool.</legend>
+				 </p>
+
+	
+		
+		<p class="pic">
+			 <a href="image/08/image15.jpg"></a>
+        <img src="image/08/image15.jpg"width="600" >
+			<legend>Coat hanger.</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/08/image10.jpg"></a>
+        <img src="image/08/image10.jpg"width="600" >
+			<legend>Coat hanger: wood joint.</legend>
+				 </p>
+		
+		<p class="pic">
+			 <a href="image/08/image16.jpg"></a>
+        <img src="image/08/image16.jpg"width="600" >
+			<legend>Coat hanger: wood joint.</legend>
+				 </p>
+		
+		
+		<p>Dxf file is available here:</p>
+		<p><li><a href="http://www.spaghettiprop.it/materiale/makesomethingbig.dxf.zip">Make Something Big</a>  </li></p>
+		
+		
+		
+		
+<!-- End of your content -->
+
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> edited by <a href="http://www.facebook.com/saverio.silli">Saverio Silli</a><br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

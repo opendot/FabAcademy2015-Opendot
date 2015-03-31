@@ -15,7 +15,9 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <link href='http://fonts.googleapis.com/css?family=Rationale|Megrim|Maven+Pro' rel='stylesheet' type='text/css'>
+    <link href="media/Mattia.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -56,7 +58,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Mattia Ciurnelli</a>
+          <strong><a class="navbar-brand" href="index.html">Mattia Ciurnelli</a></strong>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -80,139 +82,259 @@
     <div class="container">
 
 	<!-- Insert your content here below! -->
+        <div class="jumbotron">
+    <div class="page-header">
+  <h1><u> Lesson n. 7:</u><h2>Embedded Programming</h2></h1>
+</div>
+<p>For the week 7, we have to program the board to do something, with as many different programming languages and programming environments as possible.</p>
+            
+            <h3>First Approach</h3>
+            <p>First, given my lack of experience in programming, I downloaded a program already compiled (written in C) to begin to understand how it is structured and also to see if my board was working.</p>
+            <p>In the program folder that I downloaded are two files: the Makefile, which is used to automate the programming, and the file steadyled.c which is the program.</p>
+            <div class="notepad"><div class="titlenotepad"><div id="circle1" class="circle"></div><div id="circle2" class="circle"></div><div id="circle3" class="circle"></div>Makefile</div><div class="textnotepad">PROJECT=steadyled
+SOURCES=$(PROJECT).c
+MMCU=attiny44
+F_CPU = 20000000
+
+CFLAGS=-mmcu=$(MMCU) -Wall -Os -DF_CPU=$(F_CPU)
+
+$(PROJECT).hex: $(PROJECT).out
+	avr-objcopy -O ihex $(PROJECT).out $(PROJECT).c.hex;\
+	avr-size --mcu=$(MMCU) --format=avr $(PROJECT).out
+ 
+$(PROJECT).out: $(SOURCES)
+	avr-gcc $(CFLAGS) -I./ -o $(PROJECT).out $(SOURCES)
+ 
+program-bsd: $(PROJECT).hex
+	avrdude -p t44 -c bsd -U flash:w:$(PROJECT).c.hex
+
+program-dasa: $(PROJECT).hex
+	avrdude -p t44 -P /dev/ttyUSB0 -c dasa -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U lfuse:w:0x5E:m
+
+program-usbtiny: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U flash:w:$(PROJECT).c.hex
+
+program-usbtiny-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+program-dragon: $(PROJECT).hex
+                avrdude -p t44 -P usb -c dragon_isp -U flash:w:$(PROJECT).c.hex</div></div><br>
+
+            <div class="notepad"><div class="titlenotepad"><div id="circle1" class="circle"></div><div id="circle2" class="circle"></div><div id="circle3" class="circle"></div>steadyled.c</div><div class="textnotepad">#include &ltavr/io.h&gt;
+#include &ltinttypes.h&gt;
+#include &ltutil/delay.h&gt;
+                
+                
+void delay_ms(uint16_t ms);
+void init_io();
+int button_is_pressed();
+void toggle_led();
+
+#define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+
+#define BUTTON_PORT PORTA       /* PORTx - register for button output */
+#define BUTTON_PIN PINA         /* PINx - register for button input */
+#define BUTTON_BIT PA3          /* bit for button input/output */
+
+#define LED_PORT PORTA          /* PORTx - register for LED output */
+#define LED_BIT PA7             /* bit for button input/output */
+#define LED_DDR DDRA            /* LED data direction register */
+
+#define DEBOUNCE_TIME 25        /* time to wait while "de-bouncing" button */
+#define LOCK_INPUT_TIME 250     /* time to wait after a button press */
+
+int 
+main (void)
+{
+        init_io();
+
+        while (1)                       
+        {
+                if (button_is_pressed())
+                {
+                        toggle_led();
+                       
+                }
+        }
+}
+
+void delay_ms(uint16_t ms) {
+        while ( ms )
+        {
+                _delay_ms(1);
+                ms--;
+        }
+}
+
+void 
+init_io() 
+{
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* led is OFF initially (set pin high) */         
+        LED_PORT |= _BV(LED_BIT);
+
+        /* turn on internal pull-up resistor for the switch */
+        BUTTON_PORT |= _BV(BUTTON_BIT);
+}
+
+int 
+button_is_pressed()
+{
+        /* the button is pressed when BUTTON_BIT is clear */
+        if (bit_is_clear(BUTTON_PIN, BUTTON_BIT))
+        {
+                delay_ms(DEBOUNCE_TIME);
+                if (bit_is_clear(BUTTON_PIN, BUTTON_BIT)) return 1;
+        }
+
+        return 0;
+}
+
+void
+toggle_led()
+{
+        LED_PORT ^= _BV(LED_BIT);
+                }</div></div><br> 
+<a href="media/steadyled.zip"><button type="button" class="btn btn-primary"> Download the folder Steadyled (Makefile + steadyled.c) </button></a> <br> <br>
+            <p>Once downloaded file, I changed the number of pins where are connected the button and the LED (in the file above, pins are already modified) using the button for PA3 and PA7 for Led.</p>
+            <p>After that, I connected the FabISP and the board to the PC, and  connected each other with the rainbow cable.</p>
+            <p class="pic"><img src= "Image/Lesson07/connection.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>After connecting the two boards, open the terminal and enter the directory of the program "steadyled":</p>
+            <div class="code">MacBook-Pro-di-Giulia:~ Giulia$ cd Downloads/steadyled
+                MacBook-Pro-di-Giulia:steadyled Giulia$</div><br>
+            <p>After that, we have to type the command "make" in order to create the excecute the Makefile. The Makefile create by default the hexadecimal file (steadyled.c.hex).</p>
+            <div class="code">MacBook-Pro-di-Giulia:steadyled Giulia$ make
+avr-gcc -mmcu=attiny44 -Wall -Os -DF_CPU=20000000 -I./ -o steadyled.out steadyled.c
+steadyled.c:10:0: warning: "F_CPU" redefined
+ #define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+ ^
+&ltcommand-line&gt;:0:0: note: this is the location of the previous definition
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+</div><br>
+            <p>If you look now in the steadyled folder, you will see the new files created by the Makefile.</p>
+            <p class="pic"><img src= "Image/Lesson07/after_make.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>After, we have to do the "make program-usbtiny-fuses" to reset the microcontroller and prepare it to recieve the programming</p>
+            
+            <div class="code">MacBook-Pro-di-Giulia:steadyled Giulia$ sudo make program-usbtiny-fuses
+Password:
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
 
 
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
 
-		# Add edges...
-		print "Building the graph..."
+avrdude: AVR device initialized and ready to accept instructions
 
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.
+
+</div><br>
+            <p>Finally we have to do the "make program-usbtiny" to program the board:</p>
+            
+            <div class="code">MacBook-Pro-di-Giulia:steadyled Giulia$ sudo make program-usbtiny
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U flash:w:steadyled.c.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "steadyled.c.hex"
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: writing flash (140 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 140 bytes of flash written
+avrdude: verifying flash memory against steadyled.c.hex:
+avrdude: load data flash data from input file steadyled.c.hex:
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: input file steadyled.c.hex contains 140 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.43s
+
+avrdude: verifying ...
+avrdude: 140 bytes of flash verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.
+
+</div><br>
+            <p>After that, the LED should turn on: this means that the board is working properly and that has been programmed!</p>
+      <p class="pic"><img src= "Image/Lesson07/led_test.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>This was just an example, useful to see if the board is working properly and to begin to understand how is structured and how work a program written in C.</p>
+            <p>Now for the assignment of the week i have to study a "little bit" of C languages to write a personal code for my board! </p>
+            
+<h3></h3>
+            
+            
+        </div>
     <!-- End of your content -->
 
     </div> <!-- /container -->
@@ -221,7 +343,7 @@
     
     <footer id="footer">
         <p id="cclicense">
-                </p>
+        </p>
         <p class="license">
         Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
         Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.

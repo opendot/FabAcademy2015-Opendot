@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+    <meta name="author" content="Pierluigi De Palo">
     <link rel="icon" href="media/favicon.ico">
 
-    <title>Fab Academy 2015 - Name Surname</title>
+    <title>Fab Academy 2015 -Pierluigi De Palo</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+      <link href="media/Pierluigi.css" rel="stylesheet">
+      
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+      <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+      <link href="media/Pierluigi.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -35,8 +39,6 @@
     <!-- Load the menu file -->
     <script>
 	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
 					  $('#cclicense').load("license.html");
 					  }
 	</script>
@@ -55,20 +57,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
+          <a class="navbar-brand" href="index.html">Home</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="about.html">About</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
+        <a href="exercises-menu.html">Log Book</a>
+              
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
+            <li>
+        <a href="project-menu.html">Final Project</a>
             </li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -80,138 +79,134 @@
 
 	<!-- Insert your content here below! -->
 
+<p>****************************************************************************************************************</p>
+          
+        <ul class="pager status">
+    
+        <li class="previous"><a href="exercise06.html">← </a></li> 
+    
+        <li class="next"><a href="#exercise08.html"> →</a></li>
+    
+        <h2>Week 7 - Embedded Programming -</h2>
 
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+        </ul>
+        
 
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
+<br>
+        <h4>Goal: Program The Hello World Board And Embedded Program with Fab ISP.</h4>
+        <h4>Soft : MAC OS TERMINAL // <a href="http://www.nano-editor.org/"> GNU Nano Editor </a></h4>
+          <h4>Tutorial : <a href="http://fabacademy.org/archives/2012/students/menichinelli.massimo/index.html"> Massimo Menichinelli Fab Academy 2012 Exercise: Embedded Erogramming</a> // 
+        
+        <a href=" http://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192"> Terminal </a></h4><br>
+       
+        
+        
+<br>
+        <p>****************************************************************************************************************</p>
+     <br>
+ <p class="pic">
+                <img src="Images/w7_Embedded_logo.jpg">
 	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+            </p>
+        <br>
+         
+         <h4>NANO EDITOR</h4>
+        <br>
+        <p>With Nano editor I had changed the original code find in the <a href="http://fabacademy.org/archives/2012/students/menichinelli.massimo/index.html"> Massimo Menichinelli (my tutor) Fab Academy 2012 Exercise</a> to conformed it whith my Eagle Schematic create in week 6.</p>
+        <br>
+        <br>
+         <p class="pic">
+                <img src="Images/w6_w6_eagle_3.jpg">
+	<legend>Eagle Schematic</legend>
+            </p>
+        <br>
+        
+        Changing do to the code:
+       <br>
+        <br>
+        
+    <p>-->Port B to Port A</p>
+    <p>-->Pin B to Pin A</p>
+    <p>-->Input Time 250 to 25</p>
+         
+        
+        <br>
+         <div class="row">
+          
+        <div class="col-lg-6">
+                <img src="Images/w7_Nano_Massimo_Original.png">
+	<legend>Original Code</legend>
+            </div>
+          
+        <div class="col-lg-6">  
+	<img src="Images/w7_Nano_Massimo_Edited.png">
+	<legend>Modified Code</legend>
+            </div>
+        </div>
+       <br>
+        <h4>COMMAND : MAKE </h4>
+        <br>
+        <p>After This modification, i can use "Make command" for compile the code </p>
+        
+        <br>
+        
+        <p class="pic">
+                <img src="Images/w7_A_make.png">
+	<legend>Report of well done process</legend>
+            </p>
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+          <br>
+        <br>
+        
+     <br>
+         <h4>COMMAND : MAKE PROGRAM USBTINY FUSE</h4>
+        <br> 
+        <p>Whith "Make program usbtiny command" we prepared the "Hello Led Board" to be programmed</p>
+        <br>
+        
+        <p class="pic">
+                <img src="Images/W7_nano_make_program-usbtiny-fuses.png">
+	<legend>Command List</legend>
+            </p>
+      
+          <br>
+        
+          <br>
+        <p class="pic">
+                <img src="Images/w7_B_make_program-usbtiny-fuses.png">
+	<legend>Report of well done process</legend>
+            </p>
+        
+        <br>
+                 <br>
+         <h4>COMMAND : MAKE PROGRAM USBTINY</h4>
+        <br>
+        <p>Whith "Make Program Usbitiny" we upload the code </p>
+        <br>
+        
+        <p class="pic">
+                <img src="Images/w7_C_make_program-usbtiny.png">
+	<legend>Report of well done process</legend>
+            </p>
+      
+          <br>
+      <br>
+         
+                 <h4>TEST: WOW!! IT'S WORK!!!</h4>
+        
+        
+        <p class="pic">
+                <img src="Images/w7_led_board_blink.jpg">
+	<legend>EUREKA! The Led Blink</legend>
+            </p>
+        <br>
+      <div> 
+          <br>
+        <p class="pic">
+                <iframe width="960" height="540" src="https://www.youtube.com/embed/7ToEiiS-JHw?rel=0" frameborder="2" allowfullscreen></iframe>
+	</p></div>
+          <br> 
+        
     <!-- End of your content -->
 
     </div> <!-- /container -->
