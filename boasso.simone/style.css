@@ -11,6 +11,8 @@ h2{font-family: 'Electrolize',sans-serif;font-size: 50px;font-weight: 800}
 h3{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 600}
 h4{font-family: 'Electrolize',sans-serif;font-size: 35px;font-weight: 700; text-align: left; color:#2a5ade}
 h5{font-family: 'Electrolize',sans-serif;font-size: 20px;font-weight: 600}
+h6{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 700;color: firebrick}
+h7{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 700;color:#38d8a2}
 li {font-family: 'Electrolize',sans-serif;
     list-style-type: none;
     background: #e23448;
@@ -52,3 +54,18 @@ a:hover{ color: #37adeb;
 figcaption{
     font-family: 'Electrolize',sans-serif;font-size: 14px;font-weight: 600; text-align: center;
 }
+
+DIV.code {
+    font-family: "Lucida Console", monospace;
+    white-space: pre-line;
+    word-break: break-all;
+    color: #3c3e3c;
+    background-color:#e2e2e2;
+    max-width: 100%;
+    padding: 10px;
+    overflow: hidden !important;
+    text-align: left;
+}
+
+pre{
+text-align: left}
