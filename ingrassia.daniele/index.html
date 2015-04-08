@@ -1455,9 +1455,9 @@ void loop() {
 		</section>
 		<section id= "week9" class="row">
 			<div class="photo-grid">
-				<p>In this week we've talked about <span class="redones" style="font-weight: bold;">molding and casting</span>.</p>
+				<p>In this week we've talked about <span class="redones">molding and casting</span>.</p>
 
-				<p>Unfortunately this week I hadn't the opportunity to complete this assignment cause we have some problems with our little cnc machine. To be prepared when these problems will be addressed I used the meanwhile time to model the molds I will use. I decided to make a cross composed by <span class="redones" style="font-weight: bold;">golden spiral</span>. First I drawn a golden spiral with <span class="redones" style="font-weight: bold;">golden ratio</span>:</p>
+				<p>Unfortunately this week I hadn't the opportunity to complete this assignment cause we have some problems with our little cnc machine. To be prepared when these problems will be addressed I used the meanwhile time to model the molds I will use. I decided to make a cross composed by <span class="redones">golden spiral</span>. First I drawn a golden spiral with <span class="redones">golden ratio</span>:</p>
 
 
 				<p><img src="img/week9/spiral1.jpg"></p>
@@ -1466,13 +1466,13 @@ void loop() {
 				<p>Then, in order to transform it in a 3D shape, I drawn two circumferences at the begin and the end of the spiral:</p>
 				<p><img src="img/week9/spiral3.jpg"></p>
 
-				<p>And I used the command <span class="redones" style="font-weight: bold;">Sweep1</span> of Rhino, to get the 3D shape:</p>
+				<p>And I used the command <span class="redones">Sweep1</span> of Rhino, to get the 3D shape:</p>
 				<p><img src="img/week9/spiral4.png"></p>
 
 				<p>To create the complete cross I simply copied at 90° degree single spirals:</p>
 				<p><img src="img/week9/object.jpg"></p>
 
-				<p>After completing the cross I was ready to designed the mold. I drawn, accordingly with our <span class="redones" style="font-weight: bold;">wax block</span>, the mold for silicon rubber. Here you can see wax block with two holes ready to insert half of the cross:</p>
+				<p>After completing the cross I was ready to designed the mold. I drawn, accordingly with our <span class="redones">wax block</span>, the mold for silicon rubber. Here you can see wax block with two holes ready to insert half of the cross:</p>
 				<p><img src="img/week9/mold1.jpg"></p>
 				<p>And here you can see the final model ready to be CNC'ed:</p>
 				<p><img src="img/week9/mold2.png"></p>
@@ -1480,7 +1480,9 @@ void loop() {
 				<p><img src="img/week9/mold3.png"></p>
 				<p><img src="img/week9/mold4.jpg"></p>
 
-				<p>Here you can find the model of the mold: <a href="drawings/week9/spirals.rar"><span class="redones" style="font-weight: bold;">spirals</span></a>.</p>
+				<p>Here you can find the model of the mold: <a href="drawings/week9/spirals.rar"><span class="redones" style="font-weight: bold;">spirals</span></a>, and here you can <span class="redones">play</span> with the model:</p>
+
+
 
 			</div>
 		</section>
@@ -1662,6 +1664,9 @@ void loop() {
 			<canvas id="cv4" width=640 height=480>
 				It seems you are using an outdated browser that does not support canvas :-(
 			</canvas>
+			<canvas id="cv5" width=640 height=480>
+				It seems you are using an outdated browser that does not support canvas :-(
+			</canvas>
 			<p></p>
 			<div class="col-full">
 				<p>
@@ -1700,6 +1705,9 @@ void loop() {
 					canvas3.style.display="none";
 					var canvas4 = document.getElementById('cv4');
 					canvas4.style.display="none";
+					var canvas5 = document.getElementById('cv5');
+					canvas5.style.display="none";
+
 
 					ReplaceContentInContainer('middle',document.getElementById('about').innerHTML)
 					document.getElementById('ab').style.color = '#ced9e0';
@@ -1721,6 +1729,8 @@ void loop() {
 			canvas3.style.display="none";
 			var canvas4 = document.getElementById('cv4');
 			canvas4.style.display="none";
+			var canvas5 = document.getElementById('cv5');
+			canvas5.style.display="none";
 
 			var container = document.getElementById(id);
 			container.innerHTML = content;
@@ -1813,6 +1823,24 @@ void loop() {
 				var canvas4 = document.getElementById('cv4');
 			    var viewer = new JSC3D.Viewer(canvas4);
 			    viewer.setParameter('SceneUrl','drawings/week8/work_table.obj');
+			    viewer.setParameter('ModelColor','#FFFFFF');
+			    viewer.setParameter('BackgroundColor1','##CCCCA3');
+			    viewer.setParameter('BackgroundColor2','##CCCCA3');
+			    viewer.setParameter('RenderMode','flat');
+			    viewer.setParameter('MipMapping','on');
+			    viewer.setParameter('Definition','high');
+			    viewer.setParameter('Renderer','webgl');
+			    viewer.init();
+			    viewer.update();
+
+			    canvas4.style.display="block";
+
+			}else
+			if(endId=='week9'){
+				
+				var canvas4 = document.getElementById('cv5');
+			    var viewer = new JSC3D.Viewer(canvas5);
+			    viewer.setParameter('SceneUrl','drawings/week9/spirals.stl');
 			    viewer.setParameter('ModelColor','#FFFFFF');
 			    viewer.setParameter('BackgroundColor1','##CCCCA3');
 			    viewer.setParameter('BackgroundColor2','##CCCCA3');
