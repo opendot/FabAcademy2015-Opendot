@@ -83,141 +83,101 @@
 
      <h2>09. Molding and Casting</h1>
     
+        <h3>Project</h3>
+	<p>
+	The idea is to cast chocolate diretly in a plexiglass mold. Professional chocolatier use both vacuum formed molds and rigid polycarbonate milled molds. obviously the seconds are more expensive, but more reliable. They also help the tempering process, very important to get a high quality, glossy chocolate.
+     </p>   
         
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
+        <h3>3D design</h3>
+        <p>
+    I decide to design (small) chocolate mountains. Like real mountains, they are all different from each others, so i make a small sketch in grasshopper. Here a screenshot of the file:
+    <img src="images/m3.JPG" alt="grasshopper" width="900"> 
         
-    <!--    
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-
-    -->
+The definition is basically deciding the number of peaks, the shape and the complexity. Each shape can have different parameters or a different random seed to get virtually infinite possible shapes. I choose three mountains with different features to see the result after casting, not cause they're easy to demold. I actually had a lot of trouble with one of these. <br>
+        Here the three random shapes i used:
+    <img src="images/m1.JPG" alt="three mountains" width="900"> 
+        To design the mold I did a Boolean subtraction between a box with the same dimension on the plexiglass block and the three mountains.
+         <img src="images/m2.JPG" alt="three mountains" width="900"> 
+        Here the final Stl for the CNC machine
+        <img src="images/m4.JPG" alt="three mountains" width="900">
+            <a href="media/chocolate%20mountains.gh">
+                <button type="button" class="btn btn-primary btn-lg">Download chocolate mountains.gh</button> </a> <br><br>
+                
+            <a href="media/mold.zip">
+	<button type="button" class="btn btn-primary btn-lg">Download mold.stl</button> </a>
+      </p> 
+        
+      <h3>CNC Milling</h3>
+        <p>
+   I did the mold with our Shopbot and Part Works 3D. Based on my previous experience with CNC machines it's a very simple tools with just basic milling strategies, but almost impossible to misunderstand. 
+            <br>
+To fix the piece I used an extra layer of plexiglass clamped to the sacrificial layer with screws and washers. this allows me to attach the piece with double side tape and see through the extra layer and align the piece using some old milling trace in the bed.  
+    <img src="images/P1180256.JPG" alt="extra layer" width="900">  
+    <img src="images/P1180257.JPG" alt="screw+washer" width="900"> 
+I did the roughting with a 6mm cilindrical downcut end mill and the finishing with a 3 mm round tapered end mill. I don't suggest to do so, it's deinitely better to use a 3mm for the roughting as well, if the mold is not too deep.
+            <br> I did a double finishing (along X and along Y) to get a more homogeneus result. Even if I did so, the result was not smooth enought. 
+      <img src="images/mou1.JPG" alt="before smoothing" width="900">   
+            <img src="images/mou2.JPG" alt="before smoothing" width="900">  
+            <img src="images/mou3.JPG" alt="before smoothing" width="900">  
+            
+            The geometry was to complex to smooth it with abrasives, I used a small butane pencil torch. It's not so easy to get a precise result, but with a little bit of experience it's very effective and quick. That's actually not my case... I smoothed the mold but in some points I have overheated the material and that's leaving small bubbles inside the plasic and on the surface.
+        <img src="images/mou4.JPG" alt="smoothed" width="900">   
+            <img src="images/mou5.JPG" alt="smoothed" width="900">  
+            <img src="images/mou6.JPG" alt="smoothed" width="900">  
+            
+        </p>
+        
+   <h3>Casting</h3>
+        <p>
+  Chocolate is a complex material to cast. To get a nice glossy finishing and to demold it easyly it must be temperded properly. To have an idea of what that means you can have a look at this instructable (<a href="http://www.instructables.com/id/How-to-Temper-Chocolate/">How to temper chocolate</a>)   
+        I haven't a thermometer for food, and the firts experiment wasnt's a success: i had bubbles, sticky surfeces and cracks
+    <img src="images/mou8.JPG" alt="first experiment" width="900">   
+    <img src="images/mou9.JPG" alt="bubbles+cracked" width="900">  
+    <img src="images/mou10.JPG" alt="bubbles+cracked" width="900"> 
+            It's interesting how the chocolate is copying the mold perfectly, even the traces the smoothing didn't erase
+        <img src="images/mou11.JPG" alt="bubbles+cracked" width="900">     
+            The second experiment was definitely better, even if the most "extreme mountain" (the one with a pretty flat hill next to it) was basically impossible to demond without breaking it.
+    <img src="images/mou12.JPG" alt="final results" width="900">   
+    <img src="images/mou13.JPG" alt="final results" width="900">  
+    <img src="images/mou14.JPG" alt="final results" width="900"> 
+    <img src="images/mou15.JPG" alt="final results" width="900">   
+    <img src="images/mou16.JPG" alt="final results" width="900">  
+    <img src="images/mou17.JPG" alt="final results" width="900">       
+        </p>
+  
+        <h3>Extra content 1: Lost PLA process</h3>
+        <p>
+Few months ago in Opendot we tested the "pla lost process", using a reprep Prusa I3 and plaster to make the mold, and Zama (or Zamak) as the metal alloy to cast. the results were very interesting: zama melts at 400°C and it's a pretty resistant material. Being the mold destroyed every time you don't have to worry about undercuts. <br>
+            Here some pictures of the process 
+    <img src="images/za1.JPG" alt="lost pla" width="900">  
+    <img src="images/za2.JPG" alt="lost pla" width="900"> 
+    <img src="images/za3.JPG" alt="lost pla" width="900">   
+    <img src="images/za4.JPG" alt="lost pla" width="900">  
+    <img src="images/za5.JPG" alt="lost pla" width="900"> 
+        </p>
+        
+        
+        <h3>Extra content 2: cuttlebone casting </h3>
+        <p>
+After the first wokshop done with zama, we made a second, more artistic appointment with melted metal. We used a very ancient technique in which the molds are made with a cuttlebone. <a href="http://ganoksin.com/blog/primitive/2010/02/22/cuttlefish-casting/">Here</a> some extra info on the process. There are two interesting aspects about this method: to make the mold it's enough to press the object agains the cuttlebone and the melat part copies the natural texture of the mold. We used both zama and silver, with different results. Here some piclures
+    <img src="images/ag2.JPG" alt="cuttlebone" width="900">  
+    <img src="images/ag3.JPG" alt="cuttlebone" width="900"> 
+    <img src="images/ag4.JPG" alt="cuttlebone" width="900">   
+    <img src="images/ag5.JPG" alt="cuttlebone" width="900">  
+    <img src="images/ag6.JPG" alt="cuttlebone" width="900">  
+    <img src="images/ag7.JPG" alt="cuttlebone" width="900">  
+        </p>
+        
+        
+        <h3>Extra content 3: DIY machinable wax (WIP)</h3>
+        <p>
+  We tried to make the machinable wax starting from paraffine wax and polyethylene. the first experiment was a failure: the plastic did't melt properly. The second time it improved a little bit: we didn't use a direct flame to melt the wax, but hot a metal plate. this reduce the risk to burn the plastic and the smokes made by the wax. to have a more homogeneous result we used a blender. it get better but it's still far away from the wanted result. Next step is to use a wax for jewels (the one used to be injected in molds to do replicas. It's less than half the price of the machinable wax) and polyethylane in pellet.
+        </p>
+        
+        
+        
+        
+        
 
     <!-- End of your content -->
 
