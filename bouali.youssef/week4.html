@@ -13,6 +13,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -97,12 +98,42 @@ src="media/W4_Circuit_engraved.jpg"><legend>Final Circuit Lasercut.</legend> </p
 
     
         <u><b>Step 3: Electronic components soldering:</b></u> <br><br>
-        <p>Demostrative steps will be published soon:<br><br></p>
-        
+       <p class="pic"><img
+src="media/W4_FABISP_soldering.jpg"><legend>FABISP Soldering process.</legend> </p>
+        <p class="pic"><img
+src="media/W4_FABISP_soldered.jpg"><legend>FABISP ready for programming.</legend> </p>
         
         <u><b>Step 4: FabISP circuit programming</b></u> <br><br>
-        <p>Demostrative steps will be published soon:<br><br></p>
+          <p>In order to program our FABISP borad, we need the following:<br><br>
+              - Another FABISP or use Arduino as ISP;<br>
+              - Avrdude, for programming AVR microcontrollers;<br>
+              - GCC, to compile C code;<br>
+              - The FabISP firmware, downloaded from the tutorial page;<br><br>
+              In my case, I used the Arduino UNO as ISP. I loaded from the Arduino IDE the sketch "ArduinoISP" in order to start programming. I also added the following line on the Makefile in order to use Arduino as ISP:<br>
+              -> AVRDUDE = avrdude -c stk500v1 -P com4 -b19200 -p $(DEVICE) <br></p>    
+        <p class="pic"><img
+src="media/W4_FABISP_arduino.jpg"><legend>Connecting FABISP to Arduino for programming</legend> </p>
+        <p class="pic"><img
+src="media/W4_ArduinoISP_Sketch.jpg"><legend>Loading Arduino as ISP sketch</legend> </p>
+                
+         <p>From the command line, I started programming the board following these commands:<br>
+        Command 1: "make clean"<br></p>
+        <p class="pic"><img
+src="media/W4_FABISP_programming1.jpg"><legend>First command OK</legend> </p>
         
+        <p>Command 2: "make hex"<br></p>
+        <p class="pic"><img
+src="media/W4_FABISP_programming2.jpg"><legend>Second command OK</legend> </p>
+        
+        <p>Command 3: "make fuse"<br></p>
+        
+        <p>Command 4: "make program"<br></p>
+        <p class="pic"><img
+src="media/W4_FABISP_programming4.jpg"><legend>Fourth command OK</legend> </p>
+        
+        <p>After the programming phase, I verified that the FabISP has been programmed properly and is detected by my computer. To do so, I went to Start Menu > Hardware and Sound, and WOW it is there.<br></p>
+        <p class="pic"><img
+src="media/W4_FABISP_PC.jpg"><legend>Fourth command OK</legend> </p>
         
         
       <h3>Download Zone</h3>

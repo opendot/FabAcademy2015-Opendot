@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Week 7 : Embedded Programming</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      <h2>Module 7: Embedded Programming</h2><br>
+      
+        <h3>Module contents:</h3>
+      <p> During this week we've learned about how to program the electronic board that we have produced in the previous module.<br><br>The assignment of this week module is read the microcontroller data sheet, and to program our board to do something, with as many different programming languages and programming environments as possible.<br><br></p>
+      
+      <h3>My work:</h3>
+      
+      <u><b>Step 1: Reading Microcontroller Datasheet</b></u> <br><br>
+              <p>In previous module 6, we have designed the board to use the microcontroller Attiny44. Therefore, I downloaded its related datasheed and read it in order to understand well its architecture, functioning and how to connect the various Pinout. In my case, I have the version with SOIC package, so it is necessary to understand the functionalities of each Pinout and select the right Pinouts from datasheet as follow:<br><br></p>
+          
+                      <p class="pic"><img
+src="media/W7_datasheet.png"><legend>Pinout Architecture of Attiny44 Microcontroller</legend> </p>
+        
+        <p>Therefore, now for me it was clear the reasoning behind connecting each of 6 pins of the microcontroller. Let’s take a look at the scheme of my Hello Board in order to see that for example the button is connected to PA3 and the LED to PA7:<br><br></p>
+        
+        <p class="pic"><img
+src="media/W7_scheme.jpg"><legend>Pinout Architecture of Attiny44 Microcontroller</legend> </p>
+        
+         <u><b>Step 2: Preparing Pprogramming Files</b></u> <br><br>
+         <p> I have some advanced knowledge of programming in various languages, but I have never made electronic programming. As a starting point, I downloaded a precompiled program in C in order to learn and understand how an electronic program is structured, and further check if it will work with my board. <br>
+The package I downloaded is composed of two files: the Makefile, which is used to automate the programming, and the file steadyled.c which is the program.<br></p>
+        
+        <div class="notepad"><div class="titlenotepad">Makefile</div><div class="textnotepad">PROJECT=steadyled
+SOURCES=$(PROJECT).c
+MMCU=attiny44
+F_CPU = 20000000
+
+CFLAGS=-mmcu=$(MMCU) -Wall -Os -DF_CPU=$(F_CPU)
+
+$(PROJECT).hex: $(PROJECT).out
+	avr-objcopy -O ihex $(PROJECT).out $(PROJECT).c.hex;\
+	avr-size --mcu=$(MMCU) --format=avr $(PROJECT).out
+ 
+$(PROJECT).out: $(SOURCES)
+	avr-gcc $(CFLAGS) -I./ -o $(PROJECT).out $(SOURCES)
+ 
+program-bsd: $(PROJECT).hex
+	avrdude -p t44 -c bsd -U flash:w:$(PROJECT).c.hex
+
+program-dasa: $(PROJECT).hex
+	avrdude -p t44 -P /dev/ttyUSB0 -c dasa -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U lfuse:w:0x5E:m
+
+program-usbtiny: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U flash:w:$(PROJECT).c.hex
+
+program-usbtiny-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+	
+program-arduino: $(PROJECT).hex
+	avrdude -p t44 -P com4 -b19200 -c stk500v1 -U flash:w:$(PROJECT).c.hex
+
+program-arduino-fuses: $(PROJECT).hex
+	avrdude -p t44 -P com4 -b19200 -c stk500v1 -U lfuse:w:0x5E:m
+
+program-dragon: $(PROJECT).hex
+	avrdude -p t44 -P usb -c dragon_isp -U flash:w:$(PROJECT).c.hex</div></div><br>
+        
+        
+        <p> Before going further with programming the board, I had to modify the following two lines in order to specify to which pins the button and led are connected:<br>
+#define BUTTON_BIT PA3 <br>
+#define LED_BIT PA7<br><br></p>
+        
+        <div class="notepad"><div class="titlenotepad">steadyled.c</div><div class="textnotepad">#include &ltavr/io.h&gt;
+#include &ltinttypes.h&gt;
+#include &ltutil/delay.h&gt;
+
+void delay_ms(uint16_t ms);
+void init_io();
+int button_is_pressed();
+void toggle_led();
+
+#define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+
+#define BUTTON_PORT PORTA       /* PORTx - register for button output */
+#define BUTTON_PIN PINA         /* PINx - register for button input */
+#define BUTTON_BIT PA3          /* bit for button input/output */
+
+#define LED_PORT PORTA          /* PORTx - register for LED output */
+#define LED_BIT PA7             /* bit for button input/output */
+#define LED_DDR DDRA            /* LED data direction register */
+
+#define DEBOUNCE_TIME 25        /* time to wait while "de-bouncing" button */
+#define LOCK_INPUT_TIME 250     /* time to wait after a button press */
+
+int 
+main (void)
+{
+        init_io();
+
+        while (1)                       
+        {
+                if (button_is_pressed())
+                {
+                        toggle_led();
+                       
+                }
+        }
+}
+
+void delay_ms(uint16_t ms) {
+        while ( ms )
+        {
+                _delay_ms(1);
+                ms--;
+        }
+}
+
+void 
+init_io() 
+{
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* led is OFF initially (set pin high) */         
+        LED_PORT |= _BV(LED_BIT);
+
+        /* turn on internal pull-up resistor for the switch */
+        BUTTON_PORT |= _BV(BUTTON_BIT);
+}
+
+int 
+button_is_pressed()
+{
+        /* the button is pressed when BUTTON_BIT is clear */
+        if (bit_is_clear(BUTTON_PIN, BUTTON_BIT))
+        {
+                delay_ms(DEBOUNCE_TIME);
+                if (bit_is_clear(BUTTON_PIN, BUTTON_BIT)) return 1;
+        }
+
+        return 0;
+}
+
+void
+toggle_led()
+{
+        LED_PORT ^= _BV(LED_BIT);
+}</div></div><br>
+        
+                
+         <u><b>Step 3: Programming Hello Board</b></u> <br>
+        <p> After making the necessary changes to the C program, I was ready to connect the board to the computer and upload the code. So I connected the Hello board to the FabISP using the rainbow cable through the 6 Pins, and both boards to my computer through USB ports:</p>
+        <p class="pic"><img
+src="media/W7_Helloboard_connection.jpg"><legend>Connection between Hello board and FABISP.</legend> <br></p>
+        
+        <p> Now I opened the terminal and changed command line to the directory of where my Makefile and C code are. So I executed the command "make" in order to create the execute file of the Makefile. The Makefile creates by default the hexadecimal file (steadyled.c.hex)</p>
+        
+        <div class="code">C:\Users\Bouali\Desktop\steadyled>  make
+avr-gcc -mmcu=attiny44 -Wall -Os -DF_CPU=20000000 -I./ -o steadyled.out steadyled.c
+steadyled.c:10:0: warning: "F_CPU" redefined
+ #define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+ ^
+&ltcommand-line&gt;:0:0: note: this is the location of the previous definition
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)</div><br>
+        
+        
+        <p>At the beginning, in the steadyled folder I had only two files (Makefile and steadyled.c) , now after the first command other two new files have been created by the Makefile.</p>
+        <p class="pic"><img
+src="media/W7_steadyled.jpg"><legend>New files created</legend></p>
+        
+        
+        <p>After that, I have launched the command "make program-usbtiny-fuses" to reset the microcontroller and prepare it to receive the programming:</p>
+        
+        <div class="code">C:\Users\Bouali\Desktop\steadyled> make program-usbtiny-fuses
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.</div><br>
+        
+    
+        <p>Finally I launched the command "make program-usbtiny" in order to program the Hello board:</p>
+        
+        <div class="code">C:\Users\Bouali\Desktop\steadyled> make program-usbtiny
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U flash:w:steadyled.c.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "steadyled.c.hex"
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: writing flash (140 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 140 bytes of flash written
+avrdude: verifying flash memory against steadyled.c.hex:
+avrdude: load data flash data from input file steadyled.c.hex:
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: input file steadyled.c.hex contains 140 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.43s
+
+avrdude: verifying ...
+avrdude: 140 bytes of flash verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.
+
+</div><br>
+        
+        
+        <p>At this level, the LED should turn on by clicking on the button: this means that the board is working properly and it has been programmed successfully!</p>
+        
+        
+            
+      <h3>Download Zone</h3>
+      <p> The Makefile and C program are available for downloand here: </p>
+      <p> <a href="media/W7_steadyled.rar"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+      
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

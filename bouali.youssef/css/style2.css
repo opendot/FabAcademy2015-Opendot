@@ -1,0 +1,86 @@
+body {
+    font-family: 'Maven Pro', sans-serif; color: black;
+    background-image: url(../Image/background.jpg);
+    background-attachment: fixed;
+}
+    
+
+
+div.notepad {
+    background-color: white;
+    color: black;
+    max-width: 100%;
+    white-space: pre-line;
+    word-break: break-all;
+    font-family: "Menlo";
+    padding: 0px;
+    border: 2px solid #facd11 !important;
+    border-radius: 14px;
+    overflow: hidden !important;
+    width: 800px;
+    margin:auto;
+}
+
+div.textnotepad {
+    background-color: white;
+    color: black;
+    max-width: 100%;
+    white-space: pre-line;
+    word-break: break-all;
+    font-family: "Menlo";
+    padding: 10px;
+    overflow: hidden !important;
+    font-size: 12px;
+    width: 800px;
+    margin:auto;
+    border: 2px solid black;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border-top: 0px;
+    
+}
+
+div.titlenotepad {
+   background: #f5f6f6; /* Old browsers */
+background: -moz-linear-gradient(top,  #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f6f6), color-stop(21%,#dbdce2), color-stop(49%,#b8bac6), color-stop(80%,#dddfe3), color-stop(100%,#f5f6f6)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */
+
+    color: black;
+    max-width: 100%;
+    white-space: pre-line;
+    word-break: break-all;
+    font-family: "Menlo";
+    padding: 0px;
+    overflow: hidden !important;
+    font-size: 14px;
+    margin: 0px;
+    text-align: center;
+    width: 800px;
+    margin:auto;
+    border: 2px solid black;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+div.code {
+    font-family: "Lucida Console", Monaco, monospace;
+    white-space: pre-line;
+    word-break: break-all;
+    color: #50ff49;
+    background-color: black;
+    max-width: 100%;
+    padding: 10px;
+    background-color: black;
+    border: 2px solid #facd11 !important;
+    border-radius: 14px;
+    overflow: hidden !important;
+    font-size: 12px;
+    font-weight: bold;
+    width: 800px;
+    margin:auto;
+}
+
