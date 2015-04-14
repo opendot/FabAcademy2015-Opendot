@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Rationale|Megrim|Maven+Pro' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fab Academy 2015 Simone Boasso</title>
+    
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+      
+<!-- Leaflet -->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<!-- Local style -->    
+<link rel="stylesheet" href="style.css" !IMPORTANT>
+
+  </head>
+  <body style="padding: 15px;">
+      <div style="text-align: center"><img src="fab-academy1.jpg" height="400" align="middle"></div>
+    <h1>Input Devices</h1>
+       </br></br>
+      <h8>This week lecture is to experiment whit the input device in the embedded programming.</h8>
+    </br></br>
+<h8>I decide to tell and try something about the PicMicro world, (because of the fact that i didn't have time to build my own Atmel based device at the Opendot, my fault)</h8>
+</br></br>
+<h8>The microchip produce a large variety of microcontroller 8, 16 and 32 bit based processor and register, also he produce a large variety of DSP whit a high MIPS in data management and calculation.
+By now I experiment the 8 bit line in different model of microcontroller( from the base line to the high end).</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/MPLABX.jpg" width="700">
+</div>
+</br></br>
+<h8>This micro can be programmed whit a lot of IDE in free version and also whit licensed IDE.
+The Microchip's ones is called MPLABX and is a powerful tool whit a lot of useful things like subroutine lookout, peripheral used, register control and so on.
+also the microchip release for free a large volume of library written in c usable in all the IDE.
+The processor of the compiler and linker is not really optimized in the free version but it didn't put limit to the usable program memory of the micro, so for non commercial things ( united to the large capacity of the PicMicro sounds good).</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/MPLABX2.jpg" width="1000">
+</div>
+</br></br>
+<h8>Another IDE is developed by  MikroElektronika and is downloadable for free in the base version who give a basic optimization and a limited size in programming memory.
+It have a nice user interface and a nice console, and it will include a large variety of library( the program will only unlock the library usable on the pic you choose to use, evaluating the internal module).
+It also have a nice user friendly section to set the fuses of the micro and set the register who set the function of the micro.</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/config.jpg" width="700">
+</br></br>
+<img src="images/microe.jpg" width="1000">
+</br></br>
+<img src="images/library.jpg" width="1000">
+</div>
+</br></br>
+<h8>All the two IDE have a direct section to upload the code in the micro via different tool (all the microchip programmer for the MPLABX and the MikroElektronika's programmer for that IDE), and all the two make a file HEX as output.</h8>
+</br></br>
+<h8>I decide to use the pickit2 (clone) to upload the HEX file in the PicMicro. It can be also replied because the microchip released the schematic and the firmware they put in the original one (made whit a PicMicro).
+microchip give free for the use a program to use the pickit2 as programmer and debugger.
+</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/sendhex.jpg" width="700">
+</div>
+</br></br>
+<h8>The microchip programming technique is a bit different from the Atmel, it have a only line of data and a line of clock, the other 3 lines are ground, voltage (that can be modulated directly from the pickit2 program, so is possible to test the 5 volt micro and also the low voltage 3.3v and 1.8v), and the programming voltage.
+The programming voltage is applied at the reset pin of the micro and if it go to 12-13v put the micro in the programming mode, so all the data that arrive on the two line clock and data will be flushed on the internal memory and register of the micro in serial mode.</h8>
+
+</br></br>
+<a  href="http://www.microchip.com/pagehandler/en_us/designsupport/programming" target="_blank">HERE you can find some useful information about programming technique</a>
+</br></br>
+<div style="text-align: center">
+<img src="images/Pic_icsp.jpg" width="600">
+</div>
+</br></br>
+<h8>A lot of things can be told about this devices but is not the mission of this week assignment, but I will soon build a programmer for the Pic family and make some researching in open software IDE.
+for selecting the proper device you can see what you need and search in the long list of embedded peripheral in the PicMicro family.</h8>
+</br></br>
+<h8>I decide to implement a Capacitive Touch, so I search a PicMicro in the list whit a CPS module so i choose the PIC16F1825.</h8></br></br>
+<div style="text-align: center">
+<img src="images/pinoutpic.jpg" width="800">
+</div>
+</br></br>
+<h8>
+The CPS module is Capacitive Sensing Module ( also called CSM) and reportet from the PIC datasheet is "The Capacitive Sensing (CPS) module allows for an interaction with an end user without a mechanical interface. In a typical application, the CPS module is
+attached to a pad on a Printed Circuit Board (PCB),
+which is electrically isolated from the end user. When the
+end user places their finger over the PCB pad, a
+capacitive load is added, causing a frequency shift in the
+CPS module. The CPS module requires software and at
+least one timer resource to determine the change in
+frequency."</h8>
+
+</br></br>
+<div style="text-align: center">
+<img src="images/cpsmodule.jpg" width="800">
+</div>
+</br></br>
+<h8>So is based on the fact that the human body have a little capacitance and by using it ( via touch, using the skin as a dielectric), is possible to make an influence in the frequency of an oscillator RC (resistor capacitor).</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/cpsmodule2.jpg" width="800">
+</div>
+</br></br>
+<h8>I read the data sheet and the application note from microchip and I start coding...</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/cpsreg.jpg" width="800">
+</div>
+</br></br>
+<h8>I follow the indication and make my own c program activating and the activating all the module i need.</h8>
+</br></br>
+<a  href="http://ww1.microchip.com/downloads/en/DeviceDoc/41440A.pdf" target="_blank">HERE you can find the datasheet of the PIC16F1825</a>
+</br></br>
+<h8>The module can connect a lot of input (pin of the micro) to an oscillator circuit and add the capacity that can be put on the pin by a human touch to the total capacity of the integrated circuit, in this way the generator will change the operational frequency he put in output.
+So the way is use a time fix unit and count the oscillation the circuit do in this period, so we can detect if a touch happen.
+This way need to use 2 different timer. Is also possible to switch easily to a different pin and remake the procedure.
+The time needed to make a efficient detection is based on the speed of the oscillator and the precision of the module, so it can be a slow process (in therm of real time process).
+</h8>
+</br></br>
+<a href="files/inputDevicetouch.rar"
+   download="inputDevicetouch.rar">Download the ZIP file of the c project and HEX</a>
+</br></br>
+<h8>after the compile goes right i charge the hex in the pickit2 program and flash it....</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/programming.jpg" width="1000">
+    <figcaption>
+       in the picture you can see PIC12f1822 because i olso try a similar code in that (it have the same pheripheral bit less pin)
+    </figcaption>
+</div>
+</br></br>
+<h8>test and work...</h8>
+</br></br>
+<div style="text-align: center">
+<img src="images/testinputtouch.jpg" width="600">
+</div>
+</br></br>
+<h8>other thing will be made...</h8>
+  <p>
+      <ul>
+        <li><a href="index.html">Back To Index</a></li>
+        </ul>
+      </p>
+  </body>
+</html>

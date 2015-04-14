@@ -1,4 +1,4 @@
-body {font-family: 'Press Start 2P', cursive;}
+body {font-family: 'Press Start 2P', cursive;align-items: center}
 <!--body {
     font-family: 'Slabo 27px', serif; 
     font-family: 'Press Start 2P', serif;
@@ -6,13 +6,14 @@ body {font-family: 'Press Start 2P', cursive;}
     margin: auto;
     
 } -->
-h1{font-family: 'Electrolize',sans-serif; font-size: 60px}
-h2{font-family: 'Electrolize',sans-serif;font-size: 50px;font-weight: 800}
-h3{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 600}
+h1{font-family: 'Electrolize',sans-serif; font-size: 60px;text-align: center}
+h2{font-family: 'Electrolize',sans-serif;font-size: 50px;font-weight: 800;text-align: center}
+h3{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 600;text-align: center}
 h4{font-family: 'Electrolize',sans-serif;font-size: 35px;font-weight: 700; text-align: left; color:#2a5ade}
-h5{font-family: 'Electrolize',sans-serif;font-size: 20px;font-weight: 600}
-h6{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 700;color: firebrick}
-h7{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 700;color:#38d8a2}
+h5{font-family: 'Electrolize',sans-serif;font-size: 20px;font-weight: 600;text-align: center}
+h6{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 700;color: firebrick;text-align: center}
+h7{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 700;color:#38d8a2;text-align: center}
+h8{font-family: 'Electrolize',sans-serif;font-size: 20px;font-weight: 600;text-align-last: left}
 li {font-family: 'Electrolize',sans-serif;
     list-style-type: none;
     background: #e23448;
@@ -34,6 +35,7 @@ li :hover {
     width: 100%;
     display: block;
     text-decoration: none;
+    text-align: center;
 }
 
 li  a{
@@ -42,10 +44,12 @@ li  a{
     width: 100%;
     display: block;
     text-decoration: none;
+    text-align: center;
 }
 
 a{ color: #db0c34;
     font-size:20px;
+
 }
 a:hover{ color: #37adeb;
     font-size:20px;
@@ -69,3 +73,5 @@ DIV.code {
 
 pre{
 text-align: left}
+
+
