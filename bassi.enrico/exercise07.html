@@ -81,16 +81,65 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>07. Embedded Programming</h1>
-    
+     <h2>07. Embedded Programming</h2>   
         
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
-        
-    <!--    
-    
-    <h3>Menu</h3>
+   
+        <h3>Reading the Datasheet</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+	Considering how complex is the ATtiny44 datasheet i decided to make a syntesis here to speed up the comprehence and memorize better some features. <br><br>
+        
+     <strong>ATtiny 44</strong>   
+<ul style="list-style-type:disc
+           ">
+  <li>One 8-Bit and One 16-Bit Timer/Counter with Two PWM Channels, Each</li>
+  <li>10 bit Analog to Digital (ADC): 8 are single-ended and 12 a differential. Here a breaf note about this two different signal:<br><br>
+   <q> <font color= "gray"> WHEN TO USE SINGLE-ENDED OR DIFFERENTIAL INPUTS<br>
+Differential inputs provide a more stable reading when EMI or RFI is present, and therefore, it is recommended to use them whenever noise is generally a problem. This is especially true when measuring <strong> thermocouple, strain gage and Bridge type pressure sensor </strong>inputs, since they produce very small signals that are very succeptible to noise.<br>
+
+Single-ended inputs are lower in cost, and provide twice the number of inputs for the same size wiring connector, since they require only one analog HIGH (+) input per channel and one LLGND (-) shared by all inputs. Differential inputs require signal HIGH and LOW inputs for each channel and one common shared LLGND. Single-ended inputs save connector space, cost, and are easier to install.</font> <a href="http://bit.ly/1C1XR7q">(Original link)</a></q> <br><br>
+    </li>
+  <li>analog comparator (not sure if with internal hysteresis or not)</li>
+    <li>Internal calibrated oscillator (how relaiable?)</li>
+  <li>working with 2.7V to 5.5V</li>
+    <li>up to 20 MHz(5.5V)</li>
+  <li>Low power consumtion</li>
+</ul>
+    <br>
+       <strong> Here the Pinout:</strong><br>
+        <img src="images/pinout.GIF" alt="Pinout" width="800">
+         <img src="images/porta.GIF" alt="Port A" width="800">
+         <img src="images/portb.GIF" alt="Port B" width="800">
+	</p>
+
+    <br>
+    <strong>To be remembered</strong>   
+<ul style="list-style-type:disc
+           ">
+  <li>Port B is a 4bit bidirectional I\O port, with internal pull-up resistor (to "keep clean and stable" the voltage to the pin) with the reset pin (PB3)</li>
+      <li>Port A is a 8bit bidirectional I\O port, with internal pull-up resistor. Port A has alternate functions as analog inputs for the ADC, analog comparator, timer/counter,
+SPI and pin change interrupt</li>
+    <li>A watchdog timer (A watchdog timer or WDT is a hardware timer that automatically generates a system reset if the main program neglects to periodically service it. It is often used to automatically reset an embedded device that hangs because of a software or hardware fault) </li>
+    <li>There are two types of interrupts, one is recording what's happening while the interrupt is on, the other is not. In the second case, if another interrupt accurs while the first one is on, and it goes off before the end of the first, it's not going to be triggered</li>
+    <li>if an external clock is used, the CKSEL fuses is programmed to 0000</li>
+    <li>Internal clock is approximately 8 MHz (to be calibrated)</li>
+    <li>There is a low power clock (CKSEL fuses to 0100) at 128kHz (to be calibrated)</li>
+    <li>The default clock source setting is therefore the Internal Oscillator running at 8.0 MHz </li>
+    <li>The ports are bi-directional I/O ports with optional internal pull-ups resistors</li>
+    <li>The DDxn bit in the DDRx Register selects the direction of this pin. If DDxn is written logic one,
+Pxn is configured as an output pin. If DDxn is written logic zero, Pxn is configured as an input
+pin. </li>
+    <li>If PORTxn is written logic one when the pin is configured as an input pin, the pull-up resistor is
+activated. </li>
+    <li>If PORTxn is written logic one when the pin is configured as an output pin, the port pin is driven
+high (one). If PORTxn is written logic zero when the pin is configured as an output pin, the port
+pin is driven low (zero) </li>
+    
+      
+        
+    
+    <h3>Programming the "hello world"</h3>
+	<p>
+
 	</p>
     
     <h3>Text</h3>
@@ -217,7 +266,7 @@
       Check the documentation of Bootstrap <a href="">here</a>.
       </p>
 
-    -->
+   
 
     <!-- End of your content -->
 

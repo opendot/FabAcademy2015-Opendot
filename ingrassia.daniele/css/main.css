@@ -38,6 +38,8 @@ audio:not([controls]) {
   display: none;
 }
 
+
+
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
@@ -228,7 +230,7 @@ body {
   text-rendering: optimizeLegibility;
   background-color: #22272a;
   color: #ced9e0;
-  font-family: 'Averia Serif Libre', cursive;
+  
   
   font-size: 1em;
   line-height: 1.5;
@@ -503,6 +505,13 @@ color: white;
   color: #e85151;
 }
 
+.redones-link {
+  color: #e85151;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
 .weeks {
 
   text-align: justify;
@@ -658,6 +667,7 @@ color: white;
 .lists{
   font-size: 1.2em;
   line-height: 1.6em;
+  
 }
 
 .lists{
@@ -692,6 +702,24 @@ td,tr{
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.images-default{
+  clear: both;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: block;
+}
+
+.images-margin-auto{
+  clear: both;
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 #content section.row .col, #content section.row .col-full {

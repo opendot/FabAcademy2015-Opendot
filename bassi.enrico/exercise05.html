@@ -81,143 +81,89 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>05. 3D Scanning and Printing</h1>
+     <h2>05. 3D Scanning and Printing</h2>
     
         
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
+   <h3>Project</h3>
+	<p>
+	My objective for this exercise is to make a piece of a bike frame with the lost wax process.
+        <br> Design a bike frame is not easy at all, in particular to do it with the proper angles. I did a little bit of practive for the project <a href="http://www.rootless.tk">Rootless</a>. In the tutorial section there are some extra info on how to make it.
+    <br> An alternative to design it form scratch is to "copy" an existing one. 
+        <br> In the first part i'm gonna scan a bike frame to get a quick and rought result. After that I'm designing and printing a connection for that.
+	</p>
         
-    <!--    
-    
-    <h3>Menu</h3>
+          <h3>3D scanning</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
+	My objective for this exercise is to make a piece of a bike frame with the lost wax process.
+        <br>
+        To do that i need a 3D scan to use a reference, for diameters and angles. Probably there are easier ways with such a simple geometry, but I wanted to test the process to eventually apply it in other (more complex) situations.
+        <br>
+        Together with <a href="http://fabacademy.org/archives/2015/eu/students/ciurnelli.mattia/index.html">Mattia Ciurnelli</a> we used a Kinect to scan the bike. to keep a regular distance from the object we used a nylon thread.
+        <br>
+        <img src="images/2900-1.jpg" alt="Tools"  width="900">  
+        <br>
+        Here the process:
+        <br>
+        first step we choose the reference point, the center of a virtual sphere around the object
+        <img src="images/3720-1.jpg" alt="Process1"  width="900">  
+         <br>
+        Then we mesured the distance form that point to the kinect to have a good result. The software helps you a lot showing in green the parts at the right distance
+        <img src="images/2943-1.jpg" alt="Process2"  width="900">
+         <br>
+        While the software is recording I moved the kinect around, staying focused minly on the front part, cause i didn't need a high detail back part too. 
+        <img src="images/3437-1.jpg" alt="Process1"  width="900">
+        <img src="images/3444-1.jpg" alt="Process1"  width="900">
+    <br>
+        The software we used is <a href="http://skanect.occipital.com/">Skanect</a>. It's pretty simple and quick. We started evaluating the distance
+        <img src="images/162951.jpg" alt="Process1"  width="900">
+        After it has recorded the scan, it's creating a 3D model and it's showing the path done with the kinect
+        <img src="images/163622.jpg" alt="path1"  width="900">
+        <img src="images/163638.jpg" alt="path2"  width="900">
+    In the end it's creating a 3D model that can be shown with or without texture. 
+        <img src="images/163722.jpg" alt="without texture"  width="900">
+        <img src="images/163901.jpg" alt="with texture"  width="900">
+        </p>
+        
+<h3>3D modeling</h3>
 	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+	Being just a reference, i imported the stl as is in rhino
+         <img src="images/sc1.jpg" alt="stl"  width="900">
+       I used that Stl to extract a geometric approximation that will become the base of my design
+         <img src="images/sc2.jpg" alt="geometry"  width="900">
+        As you can notice, it's still noisy and it's not as precised as i hoped. Beside that, I went on with my project and i created this net that wires the joint. This should help the soldering and resist to torsion. The design is based on some topological optimization found online.
+        <img src="images/sc3.jpg" alt="design"  width="900">
+        <img src="images/sc4.jpg" alt="design"  width="900">
+        It was to complex to do it in grasshopper+millipede, but that was the original idea.  At the end I got a lot of pipes basically impossible to merge together. 
+         <img src="images/rhino1.jpg" alt="pipes"  width="900">
+        Rhinoceros still has some troubles with the boolean union, and it's pretty common to be unable to merge complex geometry. To do so, I used "Solidify" in Meshmixer (123D app). It's a simple shortcut to merge together meshes into a single oblect perfectly closed. The last step was blender to smooth the connection between the pipes. This is how it looks at the beginning
+        <img src="images/blender1.JPG" alt="original"  width="900">
+        And here after a "subsurface" (modifier -> subsurface)
+        <img src="images/blender2.JPG" alt="sub"  width="900">
+The final Stl file is approximately 110Mb, so i have to upload a lighter vesion before being fused in a single piece (with meshmixer) and being smoothed (with blender)<br><br>
+        <a href="media/low-res%20bike%20joint.zip">
+	<button type="button" class="btn btn-primary btn-lg">Download "Bike joint.stl"</button>
 	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-
-    -->
+ </p>
+        <h3>3D printing</h3>
+	<p>
+	To print such a complex shape in a material suitable for the lost wax process I used the DWS 020X, a high resolution SLA 3D printer
+         <img src="https://s-media-cache-ak0.pinimg.com/736x/71/eb/95/71eb9561bc86b346c4d663f84ce4e697.jpg"  height="600">
+From the machine software it's easy to set support material, resolution and resin's characteristics. I used a "digital wax" designed for jewelery and dental purpose. 
+        <img src="images/P1180114.jpg" alt="software"  width="900">
+While the machine is printing you can see the laser spot
+        <img src="images/P1180110.jpg" alt="laserspot"  width="900">
+        After the piece is finished there is a period of curing in a UV oven
+        <img src="images/P1180115.jpg" alt="UV"  width="900">
+        Here the final object
+        <img src="images/5102-1.jpg" alt="final"  width="900">     
+        And here two details: in the first picture you can notice that when the surfaces are almost flat, even if the layers are very thin they become visible. The second shows how a small detachment of a fragment create a "shadow cone effect", the laser is polymerizing the resin attached to the fragment and not to the object.
+        <img src="images/P1180119.jpg" alt="final"  width="900"> 
+        <img src="images/P1180120.jpg" alt="final"  width="900"> 
+        
+        </p>
+        
+        
+    
 
     <!-- End of your content -->
 
