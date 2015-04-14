@@ -84,14 +84,56 @@
 	<!-- Insert your content here below! -->
         <div class="jumbotron">
     <div class="page-header">
-  <h1><u> Lesson n. 4:</u><h2>Electronics Production</h2></h1>
+  <h1><u> Lesson n. 10:</u><h2>Input Devices</h2></h1>
 </div>
 
-	<p>The Electronics Production assignment is to make the FabISP in-circuit programmer: you have to mill the board, stuff it with components and program it.</p>
-        
-   <h3>FabISP</h3>
-   <p>Unfortunately we are waiting for the components used in the FabISP, once we have all the parts we will get to work.</p>
-
+	<p>The Input Devices assignment is to measure something, adding a sensor to a microcontroller board that you've designed, and read it.</p>
+            <h3>The Microcontroller Board</h3>
+            <p>For the exercise of this week, I and some my classmates, we used an improved version of FabKit by Daniele Ingrassia, the SatshaKit.</p>
+             <p class="pic"><img src= "Image/Lesson10/SatshaKit.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>........
+            .......
+            .......
+            ......</p>
+            
+            
+            <h3>The Sensor</h3>
+            <p>For the input device assignment, i decided to work with a possible sensor for the final project: the <a href="http://www.drotek.fr/shop/en/home/62-imu-10dof-mpu6050-hmc5883-ms5611.html">IMU 10DOF by Drotek</a>.<br>
+                This sensor integrates MPU6050 gyro + accelerometer, HMC5883L magnetometer and MS5611 altimeter. This type of IMU is widely used in drones as it has all the equipment for the control of the flight, but in my case what interests me is the only part of the accelerometer and gyroscope.</p>
+             <p class="pic"><img src= "Image/Lesson10/imu10dof.jpg" class="img-responsive" alt="Responsive image"></p>
+            <h3>Software</h3>
+            <p>To communicate with the sensor and read data from it, I used the MultiWii.<br><a href="http://www.multiwii.com/">MultiWii</a> is an open source software project aiming to provide the brain of a RC controlled multi rotor flying platform. It is compatible with several hardware boards and sensors.</p>
+            <p>One of the strengths of MultiWii is its GUI, who provide to the  graphical visualization of sensors, motors and RC signal.</p>
+            <p class="pic"><img src= "Image/Lesson10/MultiWiiGUI" class="img-responsive" alt="Responsive image"></p>
+            <p>On the <a href="https://code.google.com/p/multiwii/#Download">Google code page of the MultiWII</a> you can download the lastest version (I used the version 2.4), which includes the GUI (for each OS) and files to be loaded into the microcontroller.</p>
+            <p>In the .zip file that you download from the site, there are two folders:</p>
+            <ul type="square">
+            <li>MultiWii, which contain the program that you have to upload on the microcontroller;</li>
+                <li>MultiWiiConf, which contain the GUI for each operating system.</li></ul>
+            
+            <h3>Program the Microcontroller</h3>
+            <p>First of all, after soldering the components on the Satshakit board, you have to load the bootloader via the Arduino IDE. To do this, you have to connect the board to FabISP using only the following pins: RESET, SCK, MOSI and MISO. Before writing the bootloader on the board, make sure you give it the power using the FTDI cable.</p>
+            <p class="pic"><img src= "Image/Lesson10/programmingSatshaKit.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>After connecting the board with FabISP, open the Arduino IDE, select "Arduino Uno" as a board and "USBtinyISP" as a programmer and then we can press "burn the bootloader".</p>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/eN_27hET2PM?rel=0" frameborder="0" allowfullscreen></iframe><br>
+            <p>Once wrote the bootloader, we can move to import in our board's program MultiWii. Also through the Arduino IDE, open the file "MultiWII.ino" located in the folder MultiWii.</p>
+            <p>Before uploading the program you have to edit the file "config.h" to configure the program for use it whit the IMU 10DOF. In the file you have to uncomment 2 line:</p>
+            <ul type="square">
+            <li>#define QUADX</li>
+            <li>#define DROTEK_10DOF_MPU//</li></ul>
+            <p class="pic"><img src= "Image/Lesson10/editconfigfile1.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p class="pic"><img src= "Image/Lesson10/editconfigfile2.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>After do this the program is ready to be uploaded in the microcontroller (always using the FabISP).</p>
+            <p class="pic"><img src= "Image/Lesson10/UploadMultiWII.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>After programming the board you have to disconnect it from the FabISP and connect the IMU 10DOF to it. A useful thing is to keep open the datasheet of the ATmega328 to check the name of the pins.</p>
+            <p class="pic"><img src= "Image/Lesson10/PinoutATMega328.jpg" class="img-responsive" alt="Responsive image"></p>
+                <p>Connect the TX and RX pins of the board to the corresponding pins on the FTDI cable.</p>
+            <p>Connect the SDA and SCL pins on the board to the corresponding pins on the IMU 10DOF.</p>
+            <p>Once connected the IMU to the board, connect the FTDI cable to the computer and open the GUI MultiWii, select the FTDI port and press start: if connections were made in the right way you should receive the data of the IMU directly on pc.</p>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/vfsIAyyM5x4?rel=0" frameborder="0" allowfullscreen></iframe><br>
+            <p class="pic"><img src= "Image/Lesson10/MultiWIItest1.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p class="pic"><img src= "Image/Lesson10/MultiWIItest2.jpg" class="img-responsive" alt="Responsive image"></p>
+            
         </div>
     <!-- End of your content -->
 
