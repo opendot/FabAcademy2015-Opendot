@@ -1,4 +1,4 @@
-body {font-family: 'Source Code Pro';color: green;font-size: 17px;text-align: justify}
+body {font-family: 'Source Code Pro';color:#00FF00;font-size: 17px;text-align: justify}
 
 jumbotron p, {font-family: 'Source Code Pro';color: red;font-size: 17px;}
 
@@ -6,31 +6,31 @@ jumbotron p, {font-family: 'Source Code Pro';color: red;font-size: 17px;}
     
 .col-lg-3,.col-lg-4,.col-lg-6,.col-lg-12 .container {text-align: justify;}
 
-.jumbotron {background-color: rgb(0, 0, 0);color: green;border-color: red;}
+.jumbotron {background-color: rgb(0, 0, 0);color: #00FF00;border-color: red;}
 
-.btn-primary {background-color: rgb(0, 0, 0);border-color:green;color: green;}
+.btn-primary {background-color: rgb(0, 0, 0);border-color:#00FF00;color: #00FF00;}
 
-.btn-primary:hover {background-color: green;border-color:green;color: black;}
+.btn-primary:hover {background-color: #00FF00;border-color:#00FF00;color: black;}
 
 .navbar {background-color: black;}
 
-#navbar ul a {color: green;}
+#navbar ul a {color: #00FF00;}
 
-.navbar-default { border-color: green;}
+.navbar-default { border-color: #00FF00;}
 
-.navbar-brand {color: green !important;}
+.navbar-brand {color: #00FF00 !important;}
 
 body {background-color: black;}
 
-a {color: red;}
+a {color:#0093ff;}
 
 footer id="footer"{background-color: black;} 
 
-h3 small { color: green;text-align:justify;}
+h3 small { color: #00FF00;text-align:justify;}
 
 img { border-radius: 1px;border:1px solid green;}
 
-legend {color: green;font-size: 13px;}
+legend {color: #00FF00;font-size: 13px;}
 
 .img-responsive {max-width: 30%;}
 
@@ -38,9 +38,11 @@ legend {color: green;font-size: 13px;}
 
 .portfolio-item p {margin: 5px;text-align: center;width: 100%;font-size: 13px;border: 5px;}
 
-.container p img {display: block;padding: 4px;line-height: 1px;max-width: 100%; border: 3px  solid green;}
+.container p img {display: block;padding: 4px;line-height: 1px;max-width: 100%; border: 3px  solid #00FF00;}
 
 .pic { width:100%}
+
+div.code { border-color: yellow ! important; border: 1px solid; border-radius: 5px; white-space: pre-line; word-break: break-all;}
 
 
 .li {background-color: black ! important;}
@@ -49,15 +51,15 @@ legend {color: green;font-size: 13px;}
   display: inline-block;
   padding: 5px 14px;
   background-color: black;
-  border: 1px solid green;
+  border: 1px solid #00FF00;
   border-radius: 15px;
-    color: green;
-    border-color: green;
+    color: #00FF00;
+    border-color: #00FF00;
 }
 .pager li>a:hover, .pager li>a:focus {
   display: inline-block;
   padding: 5px 14px;
-  background-color: green;
+  background-color: #00FF00;
   border: 1px solid red;
   border-radius: 15px;
     color: red;
@@ -75,3 +77,5 @@ legend {color: green;font-size: 13px;}
     border-color: red;
     
 }
+
+pre class="prettyprint linenums"
