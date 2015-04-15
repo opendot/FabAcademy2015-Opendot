@@ -90,13 +90,9 @@
 	<p>The Input Devices assignment is to measure something, adding a sensor to a microcontroller board that you've designed, and read it.</p>
             <h3>The Microcontroller Board</h3>
             <p>For the exercise of this week, I and some my classmates, we used an improved version of FabKit by Daniele Ingrassia, the SatshaKit.</p>
-             <p class="pic"><img src= "Image/Lesson10/SatshaKit.jpg" class="img-responsive" alt="Responsive image"></p>
-            <p>........
-            .......
-            .......
-            ......</p>
-            
-            
+            <p>For more information and a detailed guide, here you can find the direct link to the repository on GitHub of Daniele project  ----> <a href="https://github.com/satshas/satshakit">SatshaKit on GitHub</a></p>
+            <p class="pic"><img src= "Image/Lesson10/satshakit_board.png" class="img-responsive" alt="Responsive image"></p>
+             <p class="pic"><img src= "Image/Lesson10/SatshaKit.jpg" class="img-responsive" alt="Responsive image"></p> 
             <h3>The Sensor</h3>
             <p>For the input device assignment, i decided to work with a possible sensor for the final project: the <a href="http://www.drotek.fr/shop/en/home/62-imu-10dof-mpu6050-hmc5883-ms5611.html">IMU 10DOF by Drotek</a>.<br>
                 This sensor integrates MPU6050 gyro + accelerometer, HMC5883L magnetometer and MS5611 altimeter. This type of IMU is widely used in drones as it has all the equipment for the control of the flight, but in my case what interests me is the only part of the accelerometer and gyroscope.</p>
@@ -113,6 +109,7 @@
             
             <h3>Program the Microcontroller</h3>
             <p>First of all, after soldering the components on the Satshakit board, you have to load the bootloader via the Arduino IDE. To do this, you have to connect the board to FabISP using only the following pins: RESET, SCK, MOSI and MISO. Before writing the bootloader on the board, make sure you give it the power using the FTDI cable.</p>
+            <p class="pic"><img src= "Image/Lesson10/programming_FABIsp.jpg" class="img-responsive" alt="Responsive image"></p>
             <p class="pic"><img src= "Image/Lesson10/programmingSatshaKit.jpg" class="img-responsive" alt="Responsive image"></p>
             <p>After connecting the board with FabISP, open the Arduino IDE, select "Arduino Uno" as a board and "USBtinyISP" as a programmer and then we can press "burn the bootloader".</p>
             <iframe width="420" height="315" src="https://www.youtube.com/embed/eN_27hET2PM?rel=0" frameborder="0" allowfullscreen></iframe><br>
@@ -133,7 +130,6 @@
             <iframe width="420" height="315" src="https://www.youtube.com/embed/vfsIAyyM5x4?rel=0" frameborder="0" allowfullscreen></iframe><br>
             <p class="pic"><img src= "Image/Lesson10/MultiWIItest1.jpg" class="img-responsive" alt="Responsive image"></p>
             <p class="pic"><img src= "Image/Lesson10/MultiWIItest2.jpg" class="img-responsive" alt="Responsive image"></p>
-            
         </div>
     <!-- End of your content -->
 
