@@ -80,9 +80,7 @@
 		<section id= "final_project" class="row">
 			<div class="photo-grid">
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project1').innerHTML,'project1')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">1. Concept</span></a>
-				<a rel="lightbox" class="col-2">2. Process</a>
-				<a rel="lightbox" class="col-2">3. System</a>
-				<a rel="lightbox" class="col-2">4. Project v0.1</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project2').innerHTML,'project2')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">2. Hardware: flight controller</span></a>
 			</div>
 		</section>	
 
@@ -1488,7 +1486,190 @@ void loop() {
 		</section>
 		<section id= "week10" class="row">
 			<div class="photo-grid">
-				<p>week10 input devices</p>
+				<p>Along this week we've learned about <span class="redones">input devices</span>.</p>
+				
+				<p>To start with this assignment, first I tried to make the <span class="redones">Fabkit</span>. I was thinking about using Fabkit and its compatibility with a patched Arduino IDE, as starting board to use some sensors. In order to make Fabkit, I followed the official FabAcademy tutorial posted by Massimo: <a href="http://fabacademy.org/archives/2015/doc/fabkit-0.4.html"><span class="redones-link" >A newer Fabkit</span></a>.</p>
+
+				<p>Despite several difficulties I had in soldering Fabkit, here is the Fabkit soldered:</p>
+				<img class="images-default" src="img/week10/fabkit.jpg">
+
+				<p>I managed to successfully upload the Arduino bootloader and some examples sketch like Blink one. However I was <span class="redones">not satisfied by Fabkit</span>. This mainly because you <span class="redones">need to patch your Arduino IDE</span> in order to make it work with Fabkit, and also it differ from original Arduino because of the clock of 8Mhz instead of 16Mhz. Furthermore, there are other differences with original Arduino, like using a resonator instead of a crystal. So after a while I decided <span class="redones">to design my own board</span>, with these differences as the main improvements that my new board can have. This board could be also useful for my final project, as a <span class="redones">first prototype of flight controller</span>.</p>
+
+				<p>I made <span class="redones">several attemtps (5 dead boards!)</span>, before, Thursday night, I was able to made first <span class="redones">working board</span>. I called this board <span class="redones">satshakit</span>. As some of my fellow students had difficulties with Fabkit, they tried to make this prototype board. The board was very appreciated that some of my fellow students made it for their exercises, or use it as a starting point for their final projects. Thus I decided to do this documentation, if anyone wants to try it. I also started a <a href="https://github.com/satshas/satshakit"><span class="redones-link" >Github repo</span></a>.</p>
+
+				<p>Here is a screenshot about <span class="redones">satshakit schematic</span>:</p>
+
+				<img class="images-default" src="img/week10/satshakit_schematic.png">
+
+				<p>And here is a screenshot about <span class="redones">satshakit board</span>:</p>
+
+				<img class="images-default" src="img/week10/satshakit_board.png">
+
+				<p>As we use the Trotec laser cutter machine, here is satshakit inkscape file ready to be printed:</p>
+
+				<img class="images-default" src="img/week10/satshakit_print.png">
+
+				<p>So here is <span class="redones">first satshakit</span> board that worked without problems:</p>
+
+				<img class="images-default" src="img/week10/first_satshakit.jpg">
+
+				<p>In order to help my fellow students to replicate this board, I also made a <span class="redones">BOM of satshakit</span>:</p>
+				<iframe width="1200" height="400" src="https://docs.google.com/spreadsheets/d/1svDoZXL4UT52zrwGDGs7aG2bA4hvbDQF-i0Wjd3rae0/pubhtml?widget=true&amp;headers=false"></iframe>
+				<p></p>
+				<ul class="lists">
+				<li><span class="redones">Main improvements</span> of satshakit over Fabkit are:</li>
+				<li><span class="redones">16Mhz</span> instead of 8Mhz</li>
+				<li><span class="redones">crystal</span> instead of resonator</li>
+				<li><span class="redones">it costs less</span> (9.23 euro vs 13.11 euro)</li>
+				<li><span class="redones">it uses default Arduino IDE</span> (satshakit is recognized as Arduino UNO) instead of a patched Arduino IDE</span></li>
+				<li>it has almost <span class="redones">rect traces</span> instead of almost oblique ones</li>
+				<li>ADC6/7 connected instead of ADC6/7 not connected</li>
+				<li>larger space to easy soldering</li>
+				<li>power led instead of none</li>
+				</ul>		
+
+
+				<p>To use satshakit as an Arduino, here is <span class="redones">Arduino pinout on satshakit<span class="redones">:</p>
+
+				<img class="images-default" src="img/week10/arduino_pin_mapping.png">
+
+				<p>Also, here is the schema about <span class="redones">programming satshakit with a FabISP</span>:</p>
+				
+				<img class="images-default" src="img/week10/programming_fab_isp.png">
+
+				<p>So here are some boards from my fellow students <span class="redones">Pierluigi de Palo and Mattia Ciurnelli</span>:</p>
+				<img class="images-default" src="img/week10/satshakits.jpg">
+
+				<p>And also some videos that show <span class="redones">satshakit while is working</span> with different configurations/sensors:</p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/YNITEv0ebkc" frameborder="0" allowfullscreen></iframe>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/Gk_RFebLofY" frameborder="0" allowfullscreen></iframe>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/ZQmN3uTlZuc" frameborder="0" allowfullscreen></iframe>
+				<p></p>
+				<p>Rethinking about this week assignment, now with satshakit available, I decided to make a <span class="redones">little radar</span>. I made this radar with a reclycled (from a scanner)  <span class="redones">unipolar stepper motor and two HC-SR04 sonar sensors </span> attached to the stepper with some 
+				scotch tape. Here are some pictures about:</p>
+
+				<img class="images-default" src="img/week10/radar_1.jpg">
+
+				<img class="images-default" src="img/week10/radar_2.jpg">
+
+				<img class="images-default" src="img/week10/radar_3.jpg">
+
+				<p>In order to move the stepper motor I design a special version of satshakit board: <span class="redones">satshakit radar</span>. This board is basically a satshakit, plus an <span class="redones">ULN2003A</span> to control the stepper motor. Here is a screenshot about <span class="redones">satshakit radar schematic</span>:</p>
+				
+				<img class="images-default" src="img/week10/satshakit_radar_schematic.png">
+
+				<p>And here you can see a screenshot about <span class="redones">satshakit radar board:</span></p>
+
+				<img class="images-default" src="img/week10/satshakit_radar_board.png">
+				
+				<p>Here is a picture of the soldered and ready-to-use satshakit radar board:</p>
+
+				<img class="images-default" src="img/week10/satshakit_radar.jpg">
+
+				<p>To move stepper motor and get distance data from sensors, I wrote the following Arduino sketch (it uses  <a href="https://code.google.com/p/arduino-new-ping/"><span class="redones-link" >NewPing library</span></a> to work with HC-SR4 sensors):</p>
+
+				<p><pre class="prettyprint lang-c">
+#include Stepper.h
+#include NewPing.h
+
+#define TRIGGER_PIN1  12
+#define ECHO_PIN1     11
+#define MAX_DISTANCE1 400
+#define TRIGGER_PIN2  3
+#define ECHO_PIN2     2
+
+#define MAX_DISTANCE2 400
+#define STEPS 48
+int HALF_TURN = 24;
+
+int count = 0;
+boolean dir = true;
+
+NewPing sonar1(TRIGGER_PIN1, ECHO_PIN1, MAX_DISTANCE1);
+NewPing sonar2(TRIGGER_PIN2, ECHO_PIN2, MAX_DISTANCE2);
+
+Stepper stepper(STEPS, 5, 6, 7, 8); 
+
+void setup()
+{
+  
+  Serial.begin(115200);
+  stepper.setSpeed(30);
+
+}
+
+void loop()
+{
+  
+  delay(50);
+  
+  if(dir){
+ 
+      ++count;
+      stepper.step(1);
+      unsigned int uS1 = sonar1.ping();
+      Serial.print("S1: ");
+      Serial.print(uS1 / US_ROUNDTRIP_CM);
+      Serial.println("cm");
+      unsigned int uS2 = sonar2.ping();
+      Serial.print("S2: ");
+      Serial.print(uS2 / US_ROUNDTRIP_CM);
+      Serial.println("cm");
+      
+      if(count==HALF_TURN){
+      
+        count = 0;
+        dir = false;
+        
+      }
+    
+  }else{
+  
+        ++count;
+      stepper.step(-1);
+      unsigned int uS1 = sonar1.ping();
+      Serial.print("S1: ");
+      Serial.print(uS1 / US_ROUNDTRIP_CM);
+      Serial.println("cm");
+      Serial.print("S2: ");
+      unsigned int uS2 = sonar2.ping();
+      Serial.print(uS2 / US_ROUNDTRIP_CM);
+      Serial.println("cm");
+  
+      if(count==HALF_TURN){
+      
+        count = 0;
+        dir = true;
+        
+      }
+  
+  }
+  
+
+}
+				</pre></p>	
+
+				<p></p>
+				<p>Here are some <span class="redones">videos about satshakit radar</span>. Here is satshakit radar  while uploading Arduino bootloader:</p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/ws3hkNioKY0" frameborder="0" allowfullscreen></iframe>
+
+				<p>And here while uploading satshakit radar Arduino sketch:</p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/6jgbYFliTYo" frameborder="0" allowfullscreen></iframe>
+
+				<p>Finally, here is the <span class="redones">satshakit radar working</span> with data about distance of the two sonar sensors (labeled as S1 and S2 in the serial output) displayed in serial monitor. Stepper do half-turn and return back. In this way, with two opposed sonar sensors, radar is reading distance in a 360 degree range: </p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/0FD7bHNqlxU" frameborder="0" allowfullscreen></iframe>
+				
+				<p>Here you can find the files about satshakit, and satshakit radar eagle projects: <a href="drawings/week10/satshakit.rar"><span class="redones-link" >download</span></a>. Also here is BOM in xlsx: <a href="other/satshakit_BOM.xlsx"><span class="redones-link" >download</span></a>.</p>
+
+				
+
+
 			</div>
 		</section>
 		<section id= "week11" class="row">
@@ -1571,7 +1752,56 @@ void loop() {
 		</section>
 		<section id= "project2" class="row">
 			<div class="photo-grid">
-				<p>project2: process</p>
+				<p>Hardware: <span class="redones">flight controller</span></p>
+				<p>The developing of AAVOID flight controller goes through several steps. I will use the flight controller as the interface to <span class="redones">access and control low level drone hardware</span>, such as motors, accelerometer etc. Due to the fact that flight controller and actuators & sensors board share the same core architecture, I will use the work done for flight controller as the starting point to develop the sensors & actuators board.</p> 
+
+				<p>One of the my firts ideas was to use the <span class="redones">ATMega2560</span> microcontroller, as you can see from the old AAVOID Control Unit architecture:</p>
+
+				<img class="images-default" src="img/final_project/1/fligh_controller_old.jpg">
+
+				<p>In order to pursue this idea, first I wanted to know if I was able to <span class="redones">proper solder</span> the 100 pins of this big microcontroller. Also, I needed FDTI and USB part of the circuit in order to test it completely. So I made, with our Trotec Speedy100 Flexx, <span class="redones">three different breakout boards</span>, ATMega2560, FTDI FT232RL and USB.</p>
+
+				<p>Here are screens about eagle schematics:</p>
+				
+				<img class="images-default" src="img/final_project/1/usb_schematic.png">
+				<img class="images-default" src="img/final_project/1/ft232rl_schematic.png">
+				<img class="images-default" src="img/final_project/1/2560_schematics.jpg">
+
+				<p>Here you can see screens about eagle boards:</p>
+
+				<img class="images-default" src="img/final_project/1/usb_board.png">
+				<img class="images-default" src="img/final_project/1/ft233rl_board.png">
+				<img class="images-default" src="img/final_project/1/2560_board.png">
+
+				<p>Here you can download the eagle projects of the breakboards plus the svg files ready to be printed: <a href="drawings/final_project/1/breakboards.rar"><span class="redones-link" >download</span></a>.</p>
+
+				<p>Attempts to solder ATMega2560 and FT232RL failed, due to, now recognized, my error in apply too much flux. The USB breakboard was ok. Here you can see some pictures about the results and test circuits:</p>
+
+				<img class="images-default" src="img/final_project/1/usb_soldering.jpg">
+				<img class="images-default" src="img/final_project/1/usb_real.jpg">
+				<img class="images-default" src="img/final_project/1/ft232rl_positioning.jpg">
+				<img class="images-default" src="img/final_project/1/ft232rl_real_.jpg">
+				<img class="images-default" src="img/final_project/1/ft232rl_full.jpg">
+
+				<p>A short circuit cause some smoke exiting from FT232RL pins, so I quickly detached USB cable from PC..:</p>
+
+				<img class="images-default" src="img/final_project/1/ft232rl_explosion.jpg">
+
+				<p>Here you can see the attemps with ATMega2560, from positioning to test circuit:</p>
+
+				<img class="images-default" src="img/final_project/1/2560_resin.jpg">
+				<img class="images-default" src="img/final_project/1/2560_positioning.jpg">
+				<img class="images-default" src="img/final_project/1/2560_flux.jpg">
+				
+				<img class="images-default" src="img/final_project/1/2560_real.jpg">
+				<img class="images-default" src="img/final_project/1/2560_full.jpg">
+
+				<p>I never managed to past the fuses step while programming the ATMega2560:</p>
+
+				<img class="images-default" src="img/final_project/1/2560_fuses.png">
+				
+				
+
 			</div>
 		</section>
 		<section id= "project3" class="row">
@@ -1614,8 +1844,8 @@ void loop() {
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week9').innerHTML,'week9')" rel="lightbox" class="col-2" style="font-weight: bold;"><span class="redones">9. molding and casting</span></a>
 				
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week10').innerHTML,'week10')" rel="lightbox" class="col-2">input devices</a>-->
-				<a class="col-2">10. input devices</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week10').innerHTML,'week10')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">10. input devices</span></a>
+				
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week11').innerHTML,'week11')" rel="lightbox" class="col-2">output devices</a>-->
 				<a class="col-2">11. output devices</a>
