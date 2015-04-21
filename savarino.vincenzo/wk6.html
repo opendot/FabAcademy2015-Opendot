@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Week 4</title>
+		<title>Fab Academy 2015 - Week 6</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -59,7 +59,7 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Week 4</h2>
+						<h2>About Week 6</h2>
 						
 					</header>
 					<div class="container">
@@ -67,21 +67,38 @@
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>My Electronics Production Exercise...</h3>
+									<h3>My Electronics Design Exercise...</h3>
 									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
-									<p>This week assignment was about Electronics Production and in particular to make the FabISP in-circuit programmer: milling the board, stuffing it with components and finaly program it. As reported in <a href="http://www.fabacademy.org/archives/2015/doc/electronics_production_FabISP.html" target=_blank>tutorial</a> "the FabISP is an in-system programmer for AVR microcontrollers, designed for production within a FabLab. It allows you to program the microcontrollers on other boards you make". </p>
-									<p>The first step was to download the board traces <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.traces.png" target=_blank><img src="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.traces.png" alt="&quot;&quot;" width="200" border="0"></a> and  board outline <a href="&quot;http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.png&quot;" target=_blank><img src="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.interior.png" alt="&quot;&quot;" width="200"> </a></p>
-									<p>I imported them in Inkscape, I vectorized the png, I signed it and I putted a red border for cutting</p>
-									<p><img align="center"  hspace="12" src="images/myfabispsvg.jpg"  width="200"/></p>
-									<p>Ready for engraving and cutting...</p>
-																		
-									<p>Thanks to the experimentations made by  <a href="http://fabacademy.org/archives/2015/eu/students/bassi.enrico/exercise04.html" target=_blank>Enrico Bassi</a>, in OpenDot it is possible to use a Trotec laser cutter machine to engrave and cut FR-1 sheets. This laser cutter has two different kind of laser beams, CO2 and fiber. We used fiber laser to engrave and completely remove copper from the FR-1 surface, and C02 laser to cut the board. With the support of my collegue Daniele Ingrassia I've produced my FabISP: as I'm new with electronic production two copies are better!</p>
+									<p>This week assignment was about Electronics Design, in particular starting from the echo hello-world board: <ul>
+          <li>1. add a button and LED  to the echo hello-world board, </li>
+          <li>2. check the design rules, </li>
+          <li>3. make it. </li>
+          </li>
+        </ul> </p>
+									<p>The first step was design the board. To do this we used <Strong>Eagle</Strong>. EAGLE (Easily Applicable Graphical Layout Editor) is a flexible and expandable EDA schematic capture, PCB layout, autorouter and CAM program. EAGLE is popular among hobbyists because of its freeware license and rich availability of component libraries on the web.  The main feature of Eagle is that you can design from two perspectives: the schematic view, that is  a drawing representing a circuit by using symbols to represent real-world electronic components, and the board layout that shows how the electrical componets and traces will be laid out on the board.</p>
 									
-									 <p><img align="center"  hspace="12" src="images/myfabisp.jpg"  /></p>
+									<p>First of all I downloaded the Eagle installer , I've installed the freeware version and downloaded the <a href="http://academy.cba.mit.edu/content/tutorials/akf/Downloads/helloEcho.zip" target=_blank> eagle project of helloEcho example</a></p>
+									<p>Before starting I followed suggestions from Fab Academy  <a href="http://www.fabacademy.org/archives/2015/doc/electronics_design_eagle.html" target=_blank>Eagle Tutorial </a></p>
+									<p>Once imported the HelloEcho I started to add the need components not yet inserted into the schematic</p>
+																		
+																		
+									 <p><img align="center"  hspace="12" src="images/w6eagle1.jpg"  /></p>
 									 
-									 <p>it is time to stuff it with components...</p>
-								 <p></p>
-								<p></p>
+									 <p>The Led, the button and related resistors were connected to ATTINY44, to pin 6 and 10 respectivelly. I calculated the current limiting resistor by using the web tool  <a href="http://led.linear1.org/1led.wiz " target=_blank>  http://led.linear1.org/1led.wiz </a> </p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle2.jpg"  /></p>
+								     <p>After this I switched to the board view and the inserted component swere located down on the left and their traces not displayied. I reduced the zoom an I tried to allocate them by using the autoroute function, but without success. After several temptatives,  I realized that the problem was that starting from the example many of the components are just displaced reducing a lot the available space. So I decided to manualy arrange the components and the traces. </p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle3.jpg"  /></p>
+								     <p>I've checked for errors, but only warnings </p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle4.jpg"  /></p>
+									 <p>The next step wat to prepare the board for printing. I've deselected some levels, changed the background</p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle5.jpg"  /></p>
+								     <p>and exported as monochrome image with 1000 dpi of resolution</p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle6.jpg"  /></p>
+								     <p>As done for my FabISP, I've imported the .png file into Inkscape, I vectorized it and I added text and a red square</p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle7.jpg"  /></p>
+									 <p>ready for engraving and cutting</p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle8.jpg"  /></p>
+								     
 								
 								
 	
