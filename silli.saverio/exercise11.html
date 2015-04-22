@@ -116,7 +116,7 @@
 				<legend>The setup</legend>
 				 </p>
 		
-		<h3>DC Motor setup: Input</h3>
+		<h3>Inputs</h3>
 			<p>On the breadboard I plugged two buttons to control ON/OFF and direction. Both have a 10K ohm resistance to keep the circuit safe from the 9Volts battery that powers the motor. There is also a potentiometer to regulate the speed.</p>
 
 		
@@ -132,9 +132,14 @@
 				<legend>Potentiometer</legend>
 				 </p>
 		
-		<h3>DC Motor setup: Output</h3>
+		<h3>H Bridge</h3>
 			<p>The output is a simple DC motor. To control it you need an integrated circuit called H-Bridge. It is basically a transistor that lets you control higher voltage and amperage than the arduino might do.</p>
 		
+				 <p class="pic">
+			 <a href="image/11/image9.jpg"></a>
+        <img src="image/11/image9.jpg"width="600" >
+				<legend>L293D H-Bridge pin configuration</legend>
+				 </p>
 		
 				 <p class="pic">
 			 <a href="image/11/image4.jpg"></a>
@@ -146,6 +151,12 @@
 		<h3>Sketch and video</h3>
 			<p>You can see in the video the motor starting on as the green button is pushed, changing direction at the blue button, and going faster/slower as I turn the potentiometer. Pushing the green button again stops it.</p>
 
+				 <p class="pic">
+			 <a href="image/11/image8.jpg"></a>
+        <img src="image/11/image8.jpg"width="600" >
+				<legend>Fritzing breadboard layout</legend>
+				 </p>
+		
 		<p><pre class="prettyprint linenums">		
 		const int controlPin1 = 2;
 const int controlPin2 = 3;
@@ -225,9 +236,10 @@ void loop()
 	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/sfB8VFPf5jo" frameborder="0" allowfullscreen></iframe>
 		<legend class="legend">Arduino controlled DC Motor with H-Bridge</legend></p>	
 
-			<p>Arduino sketch available here</p>
+			<p>Files available here</p>
 		<p>
-		<li><a href="http://www.spaghettiprop.it/materiale/dcmotor.zip">Motor sketch</a>  </li>
+		<li><a href="http://www.spaghettiprop.it/materiale/dcmotor.zip">Arduino sketch</a>  </li>
+			<li><a href="http://www.spaghettiprop.it/materiale/dcmotorfritzing.zip">Fritzing sketch</a>  </li></p>
 	
 		
 <!-- End of your content -->
