@@ -1665,7 +1665,7 @@ void loop()
 
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/0FD7bHNqlxU" frameborder="0" allowfullscreen></iframe>
 				
-				<p>Here you can find the files about satshakit, and satshakit radar eagle projects: <a href="drawings/week10/satshakit.rar"><span class="redones-link" >download</span></a>. Also here is BOM in xlsx: <a href="other/satshakit_BOM.xlsx"><span class="redones-link" >download</span></a>.</p>
+				<p>Here you can find the files about satshakit, and satshakit radar eagle projects: <a href="drawings/week10/satshakit.rar"><span class="redones-link" >download</span></a>. Also here is BOM in xlsx: <a href="other/satshakit_BOM.xlsx"><span class="redones-link">download</span></a>.</p>
 
 				
 
@@ -1674,7 +1674,74 @@ void loop()
 		</section>
 		<section id= "week11" class="row">
 			<div class="photo-grid">
-				<p>week11 output devices</p>
+				<p>During this week I've learned about <span class="redones">output devices.</span></p>
+
+				<p>To accomplish with this weekly assignment, and at the same time do so something for my <span class="redones">quadcopter</span> final project, I tried to <span class="redones">control drone ESCs and motors</span> with a prototype of a flight controller board. As flight controller board I used <span class="redones">satshakit</span>, a general purpose Arduino compatible board, developed by me during input devices assignment. Here you can find some information about satshakit: <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html"><span class="redones-link">FabAcademy project</span></a>,<a href="https://github.com/satshas/satshakit"><span class="redones-link">Github repo</span></a></p>
+
+
+				<p>As test platform for this assignment I assembled a <span class="redones">250mm quadcopter</span>, with four 12A ESCs, four 2150kv motors and a 2200mAh battery. Here you can see a pitcure about this test quadcopter:</p>
+
+				<img class="images-default" src="img/week11/drone.jpg">
+
+				<p>Satshakit is fully compatible with Arduino libraries, so first I tried to control a single ESC via the <a href="http://www.arduino.cc/en/reference/servo"><span class="redones-link">Arduino servo library</span></a>. Also I wanted to control the ESC via a value sent from serial console to satshakit. In order to do this I wrote the following Arduino sketch:</p>
+
+				<pre class="prettyprint lang-c">
+#include &ltServo.h&gt
+
+int readValue = 0, value = 0;
+
+Servo esc1;
+
+void setup() {
+
+  esc1.attach(9);
+  Serial.begin(9600);
+  
+}
+
+void loop() {
+
+  esc1.writeMicroseconds(value);
+ 
+  if(Serial.available()){ 
+   
+    readValue = Serial.parseInt();
+    
+    if(readValue != NULL){
+    value = readValue;  
+    
+    Serial.println(value);
+    f
+  }
+  }
+
+}
+			</pre>
+			<p><br><span class="redones">GND</span> of ESC and satshakit must be connected together. Here you can see a picture about the setup of this test:</p>
+			<img class="images-default" src="img/week11/drone_1esc_setup.jpg">
+			<p>This test was <span class="redones">successfull</span>, the motor started to spin from the value of 1500, and reached maximum rotation speed at 2000. Encouraged from this first result, and as a more <span class="redones">complete setup</span>, I tried to control all the drone ESCs and motors, using a <a href="http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM5500"><span class="redones-link"> Spectrum DX5 as remote controller</span></a>, an <a href="http://www.drotek.fr/shop/en/home/62-imu-10dof-mpu6050-hmc5883-ms5611.html"><span class="redones-link"> Drotek 10DOF</span></a> as IMU and <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii 2.3</span> software</a>. So I configured MultiWii to work my quadcopter configuration:</p>
+
+			<img class="images-default" src="img/week11/multiwii_quadx.png">
+			<img class="images-default" src="img/week11/multiwii_motors.png">
+			<img class="images-default" src="img/week11/multiwii_imu.png">
+
+			<p>Then I uploaded Multiwii to satshakit. I found how to connect MultiWii to an Arduino UNO on this <a href="http://sgeorgiev.com/blog/2014/02/25/quadcopter-with-multiwii-running-on-arduino-uno/"><span class="redones-link">blog</span></a>. Here you can see some pictures about the complete drone setup:</p>
+
+			<img class="images-default" src="img/week11/satshakit.jpg">
+			<img class="images-default" src="img/week11/imu.jpg">
+			<img class="images-default" src="img/week11/receiver.jpg">
+			<img class="images-default" src="img/week11/complete_setup.jpg">
+
+			<p>Finally I successfully managed to control all the ESCs and read data from the IMU with the remote controller. This test demonstrates that I can <span class="redones">use satshakit as the starting point for my flight controller board</span>. Here you can see a video about:</p>
+
+			<iframe width="700" height="450" src="https://www.youtube.com/embed/kZMLoyP47z4" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+			
+
+
 			</div>
 		</section>
 		<section id= "week12" class="row">
@@ -1847,8 +1914,8 @@ void loop()
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week10').innerHTML,'week10')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">10. input devices</span></a>
 				
 				
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week11').innerHTML,'week11')" rel="lightbox" class="col-2">output devices</a>-->
-				<a class="col-2">11. output devices</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week11').innerHTML,'week11')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">11. output devices</span></a>
+				
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week12').innerHTML,'week12')" rel="lightbox" class="col-2">composites</a>-->
 				<a class="col-2">12. composites</a>
