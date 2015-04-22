@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fab Academy 2015 - Week 6</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		
+		<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		
+	</head>
+	<body>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="./index.html#top">Home</a></li>
+					<li><a href="./index.html#work">About Me</a></li>
+					<li><a href="./index.html#class-schedule">Fab Academy</a></li>
+					<li><a href="./index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		
+
+		<!-- Work -->
+			<div class="wrapper style2">
+				<article id="work">
+					<header>
+						<h2>About Week 6</h2>
+						
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+								<section class="box style1">
+									<span class="icon featured fa-comments-o"></span>
+									<h3>My Electronics Design Exercise...</h3>
+									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
+									<p>This week assignment was about Electronics Design, in particular starting from the echo hello-world board: <ul>
+          <li>1. add a button and LED  to the echo hello-world board, </li>
+          <li>2. check the design rules, </li>
+          <li>3. make it. </li>
+          </li>
+        </ul> </p>
+									<p>The first step was design the board. To do this we used <Strong>Eagle</Strong>. EAGLE (Easily Applicable Graphical Layout Editor) is a flexible and expandable EDA schematic capture, PCB layout, autorouter and CAM program. EAGLE is popular among hobbyists because of its freeware license and rich availability of component libraries on the web.  The main feature of Eagle is that you can design from two perspectives: the schematic view, that is  a drawing representing a circuit by using symbols to represent real-world electronic components, and the board layout that shows how the electrical componets and traces will be laid out on the board.</p>
+									
+									<p>First of all I downloaded the Eagle installer , I've installed the freeware version and downloaded the <a href="http://academy.cba.mit.edu/content/tutorials/akf/Downloads/helloEcho.zip" target=_blank> eagle project of helloEcho example</a></p>
+									<p>Before starting I followed suggestions from Fab Academy  <a href="http://www.fabacademy.org/archives/2015/doc/electronics_design_eagle.html" target=_blank>Eagle Tutorial </a></p>
+									<p>Once imported the HelloEcho I started to add the need components not yet inserted into the schematic</p>
+																		
+																		
+									 <p><img align="center"  hspace="12" src="images/w6eagle1.jpg"  /></p>
+									 
+									 <p>The Led, the button and related resistors were connected to ATTINY44, to pin 6 and 10 respectivelly. I calculated the current limiting resistor by using the web tool  <a href="http://led.linear1.org/1led.wiz " target=_blank>  http://led.linear1.org/1led.wiz </a> </p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle2.jpg"  /></p>
+								     <p>After this I switched to the board view and the inserted component swere located down on the left and their traces not displayied. I reduced the zoom an I tried to allocate them by using the autoroute function, but without success. After several temptatives,  I realized that the problem was that starting from the example many of the components are just displaced reducing a lot the available space. So I decided to manualy arrange the components and the traces. </p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle3.jpg"  /></p>
+								     <p>I've checked for errors, but only warnings </p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle4.jpg"  /></p>
+									 <p>The next step wat to prepare the board for printing. I've deselected some levels, changed the background</p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle5.jpg"  /></p>
+								     <p>and exported as monochrome image with 1000 dpi of resolution</p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle6.jpg"  /></p>
+								     <p>As done for my FabISP, I've imported the .png file into Inkscape, I vectorized it and I added text and a red square</p>
+								     <p><img align="center"  hspace="12" src="images/w6eagle7.jpg"  /></p>
+									 <p>ready for engraving and cutting</p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle8.jpg"  /></p>
+								     
+								
+								
+	
+	
+<p>&nbsp;</p>
+								</section>
+							</div>
+							
+							
+							
+							
+							
+							
+						</div>
+					</div>
+					
+				</article>
+			</div>
+
+		<!-- Portfolio -->
+			<div class="wrapper style3">
+				<article id="class-schedule">
+					<header>
+						<h2>Fab Academy - Class schedule 2015</h2>
+						<p></p>
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk1.html" class="image featured"><img src="images/wk1.jpg" alt="" /></a>
+									<h3><a href="wk1.html">Week 1</a></h3>
+									<p>Principles and Practices </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk2.html" class="image featured"><img src="images/wk2.jpg" alt="" /></a>
+									<h3><a href="wk2.html">Week 2</a></h3>
+									<p>Computer-Aided Design</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk3.html" class="image featured"><img src="images/wk3.jpg" alt="" /></a>
+									<h3><a href="wk3.html">Week 3</a></h3>
+									<p>Computer-Controlled Cutting</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk4.html" class="image featured"><img src="images/wk4.jpg" alt="" /></a>
+									<h3><a href="wk4.html">Week 4</a></h3>
+									<p>Electronics Production</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk5.html" class="image featured"><img src="images/wk5.jpg" alt="" /></a>
+									<h3><a href="wk5.html">Week 5</a></h3>
+									<p>3D Scanning and Printing </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk6.html" class="image featured"><img src="images/wk6.jpg" alt="" /></a>
+									<h3><a href="wk6.html">Week 6</a></h3>
+									<p>Electronics Design</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 7</a></h3>
+									<p>Embedded Programming </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 8</a></h3>
+									<p>Computer-controlled machining </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 9</a></h3>
+									<p>Molding and Casting</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 10</a></h3>
+									<p>Input Devices</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 11</a></h3>
+									<p>Output Devices</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 12</a></h3>
+									<p>Composites</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 13</a></h3>
+									<p>Networking and Communications</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 14</a></h3>
+									<p>Mechanical Design, Machine Design</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 15</a></h3>
+									<p>Interface and application programming</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 16</a></h3>
+									<p>Applications and Implications</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 17</a></h3>
+									<p>Invention, Intellectual Property, and Income</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 18</a></h3>
+									<p>Project Development</p>
+								</article>
+							</div>
+							
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 19</a></h3>
+									<p>Project Presentation</p>
+								</article>
+							</div>
+							
+							
+						</div>
+					</div>
+					<footer>
+						<a href="#contact" class="button big scrolly">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
+
+		<!-- Contact -->
+			<div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<header>
+						<h2>More information and suggestions</h2>
+						<p>please Keep in Touch!</p>
+					</header>
+					<div>
+						<div class="row">
+							<div class="12u">
+								<form method="post" action="MAILTO:vincenzo.savarino@gmail.com">
+									<div>
+										<div class="row">
+											<div class="6u">
+												<input type="text" name="name" id="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" name="email" id="email" placeholder="Email" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<input type="text" name="subject" id="subject" placeholder="Subject" value="[Fab Academy]"/>
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<textarea name="message" id="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row 200%">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" value="Send Message" /></li>
+													<li><input type="reset" value="Clear Form" class="alt" /></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+				<footer>
+						<ul id="copyright">
+							<li>This work is released under the <a href="http://creativecommons.org/licenses/by/3.0/" target=_blank>CCA license</a>    </li><li>Design: <a href="http://html5up.net" target=_blank>HTML5 UP</a></li>
+						</ul>
+					</footer>	
+				</article>
+			</div>
+
+	</body>
+</html>
