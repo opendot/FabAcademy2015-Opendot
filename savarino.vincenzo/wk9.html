@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Week 4</title>
+		<title>Fab Academy 2015 - Week 9</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -59,7 +59,7 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Week 4</h2>
+						<h2>About Week 9</h2>
 						
 					</header>
 					<div class="container">
@@ -67,21 +67,63 @@
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>My Electronics Production Exercise...</h3>
+									<h3>My Molding and Casting Exercise...</h3>
 									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
-									<p>This week assignment was about Electronics Production and in particular to make the FabISP in-circuit programmer: milling the board, stuffing it with components and finaly program it. As reported in <a href="http://www.fabacademy.org/archives/2015/doc/electronics_production_FabISP.html" target=_blank>tutorial</a> "the FabISP is an in-system programmer for AVR microcontrollers, designed for production within a FabLab. It allows you to program the microcontrollers on other boards you make". </p>
-									<p>The first step was to download the board traces <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.traces.png" target=_blank><img src="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.traces.png" alt="&quot;&quot;" width="200" border="0"></a> and  board outline <a href="&quot;http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.png&quot;" target=_blank><img src="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.interior.png" alt="&quot;&quot;" width="200"> </a></p>
-									<p>I imported them in Inkscape, I vectorized the png, I signed it and I putted a red border for cutting</p>
-									<p><img align="center"  hspace="12" src="images/myfabispsvg.jpg"  width="200"/></p>
-									<p>Ready for engraving and cutting...</p>
-																		
-									<p>Thanks to the experimentations made by  <a href="http://fabacademy.org/archives/2015/eu/students/bassi.enrico/exercise04.html" target=_blank>Enrico Bassi</a>, in OpenDot it is possible to use a Trotec laser cutter machine to engrave and cut FR-1 sheets. This laser cutter has two different kind of laser beams, CO2 and fiber. We used fiber laser to engrave and completely remove copper from the FR-1 surface, and C02 laser to cut the board. With the support of my collegue Daniele Ingrassia I've produced my FabISP: as I'm new with electronic production two copies are better!</p>
 									
-									 <p><img align="center"  hspace="12" src="images/myfabisp.jpg"  /></p>
+									<p>This week assignment is about molding and casting: design a 3D mold, machine it, and cast parts from it.</p>
+									
+									<p>For my exercise I decided for a first experimentation to model a styled owl with Rhino.</p>
+									<p>First of all I decided the dimension, taking into account the available wax block: 168X79x36 mm.</p>
+									<p>After that  I started to model the owl, starting from the profile</p>
+									
+																									
+																		
+									 <p><img align="center"  hspace="12" src="images/moldcast01.jpg"  /></p>
+									 <p>Created a surface from it, and extruded it. with _FilledEdges I smoothed the edges.</p>
+									 <p><img align="center"  hspace="12" src="images/moldcast02.jpg"  /></p>
+								     
+									 <p>For the eyes I've applied solid difference and boolean operations. For the nose, applied a transformation of a circle with its control points, extruded it and filled the edges.</p>
 									 
-									 <p>it is time to stuff it with components...</p>
-								 <p></p>
-								<p></p>
+									 <p><img align="center"  hspace="12" src="images/moldcast03.jpg"  /></p>
+								     <p>Once added the feets, I've prepared the box for silicon rubber</p>
+									 <p>I've rotated+duplicated (in rhino by pressing alt during the operation) the model  and positioned them  on the extruded surfaces of the box.</p>
+								     <p><img align="center"  hspace="12" src="images/moldcast041.jpg"  /></p>
+									 <p><img align="center"  hspace="12" src="images/moldcast042.jpg"  /></p>
+									 <p>Added the pins for the junction of the two faces:</p>
+									 <p><img align="center"  hspace="12" src="images/moldcast05.jpg"  /></p>
+								     <p>I tested that the two faces of model are in line.</p>
+								     <p><img align="center"  hspace="12" src="images/moldcast06.jpg"  /></p>
+								     
+								     <p>
+									Below the final molding box ready to be to be CNC'ed
+											
+									
+																	<canvas id="cv" width=640 height=480>
+									It seems you are using an outdated browser that does not support canvas :-(
+									</canvas>
+									<script type="text/javascript">
+										var canvas = document.getElementById('cv');
+										var viewer = new JSC3D.Viewer(canvas);
+										viewer.setParameter('SceneUrl','media/owlmold.stl');
+										viewer.setParameter('ModelColor','#CAA618');
+										viewer.setParameter('BackgroundColor1','#E5D7BA');
+										viewer.setParameter('BackgroundColor2','#383840');
+										viewer.setParameter('RenderMode','flat');
+										viewer.setParameter('MipMapping','on');
+										viewer.setParameter('Definition','high');
+										viewer.setParameter('Renderer','webgl');
+										viewer.init();
+										viewer.update();
+									</script> 
+									</p> 
+									
+									<h3>Download</h3>
+									
+									<p>
+									<a href="media/owlmold.stl">
+									<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+									</a>
+									</p>
 								
 								
 	
