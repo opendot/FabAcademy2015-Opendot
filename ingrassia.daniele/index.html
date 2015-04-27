@@ -1717,22 +1717,28 @@ void loop() {
 
 }
 			</pre>
-			<p><br><span class="redones">GND</span> of ESC and satshakit must be connected together. Here you can see a picture about the setup of this test:</p>
+			<p><br><span class="redones">GND</span> of ESC BEC and satshakit must be connected together. Here is the connection schema of this setup:</p>
+			<img class="images-default" src="img/week11/simple_schema.jpg">
+
+			<p>And here you can see a picture about the setup of this test:</p>
 			<img class="images-default" src="img/week11/drone_1esc_setup.jpg">
-			<p>This test was <span class="redones">successfull</span>, the motor started to spin from the value of 1500, and reached maximum rotation speed at 2000. Encouraged from this first result, and as a more <span class="redones">complete setup</span>, I tried to control all the drone ESCs and motors, using a <a href="http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM5500"><span class="redones-link"> Spectrum DX5 as remote controller</span></a>, an <a href="http://www.drotek.fr/shop/en/home/62-imu-10dof-mpu6050-hmc5883-ms5611.html"><span class="redones-link"> Drotek 10DOF</span></a> as IMU and <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii 2.3</span> software</a>. So I configured MultiWii to work my quadcopter configuration:</p>
+			<p>This test was <span class="redones">successfull</span>, the motor started to spin from the value of 1500, and reached maximum rotation speed at 2000. Encouraged from this first result, and as a more <span class="redones">complete setup</span>, I tried to control all the drone ESCs and motors, using a <a href="http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM5500"><span class="redones-link"> Spectrum DX5</span></a> as remote controller, an <a href="http://www.drotek.fr/shop/en/home/62-imu-10dof-mpu6050-hmc5883-ms5611.html"><span class="redones-link"> Drotek 10DOF</span></a> as IMU and <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii 2.3</span> software</a>. So I configured MultiWii to work my quadcopter configuration:</p>
 
 			<img class="images-default" src="img/week11/multiwii_quadx.png">
 			<img class="images-default" src="img/week11/multiwii_motors.png">
 			<img class="images-default" src="img/week11/multiwii_imu.png">
 
-			<p>Then I uploaded Multiwii to satshakit. I found how to connect MultiWii to an Arduino UNO on this <a href="http://sgeorgiev.com/blog/2014/02/25/quadcopter-with-multiwii-running-on-arduino-uno/"><span class="redones-link">blog</span></a>. Here you can see some pictures about the complete drone setup:</p>
+			<p>Then I uploaded Multiwii to satshakit, here is the connection schema of this setup:</p>
 
+			<img class="images-default" src="img/week11/complete_schema.jpg">
+
+			<p>Here you can see some pictures about the complete drone setup:</p>
 			<img class="images-default" src="img/week11/satshakit.jpg">
 			<img class="images-default" src="img/week11/imu.jpg">
 			<img class="images-default" src="img/week11/receiver.jpg">
 			<img class="images-default" src="img/week11/complete_setup.jpg">
 
-			<p>Finally I successfully managed to control all the ESCs and read data from the IMU with the remote controller. This test demonstrates that I can <span class="redones">use satshakit as the starting point for my flight controller board</span>. Here you can see a video about:</p>
+			<p>Finally I successfully managed to control all drone ESCs and read data from the IMU with the remote controller. This test demonstrates that I can <span class="redones">use satshakit as the starting point for my flight controller board</span>. Here you can see a video about:</p>
 
 			<iframe width="700" height="450" src="https://www.youtube.com/embed/kZMLoyP47z4" frameborder="0" allowfullscreen></iframe>
 
