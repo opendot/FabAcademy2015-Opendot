@@ -81,145 +81,163 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>11. Output Devices</h1>
+     <h2>11. Output Devices</h2>
     
-        
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
-        
-    <!--    
-    
-    <h3>Menu</h3>
+ <h3>Second version</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+I fixed all the bugs I found on the previous version and made a more dense board.
+        <br> 
+        <img src= "images/output21.jpg" alt="board compared" >
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
+<br> Here the eagle file:
+  <br>      
+<a href="media/yogurt_V2.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Yogurt maker V2"</button> </a> 
+        
+        <br><br>
+        The idea was to keep the temporary connections just to programm and debug the board and then remove them
+        </p>
+        
+  <h3>Debugging V2</h3>
+	<p>
+Before trying to power it I checked for short circuits and I there was one between Vin and GND. The most likely place would have been under the microcontroller, but being the harder to fix i decided to test everything else before desolder it and change it.
+        <br> I took pics of the connection and marked between one and the other with a cutter. From the picture, everyting seems fine
+        <br>
+        <img src= "images/output4.jpg" alt="checking the connections">
+        
+        <br>
+        After that I cut the Vin that get to the microcontroller, to see where actually was the problem.
+        <br>
+        <img src="images/output2.jpg" alt="cutting the Vin">
+        <br>
+        This helped me to realize that the problem wasn't the microcontroller, but something else. Luckly I had not so many connection to check and I found that a small copper wire form the desoldering braid, got stuck between two connections. I cleaned everything with a cutter and bridged the Vin with a 0 Ohm resistor.
+        <br>
+        <img src="images/output5.jpg" alt="cleaning the pads">
+        <img src="images/output6.jpg" alt="bridge the Vin">
+      
+        <br>
+        Everything else went smoothly until I tried to programm it. I have been able to upload the sketch, but the timing was completely wrong and hard to predict (a 1000 millisecond loop could take from 6 to 14 seconds). Considering the position of the cristal capacitors wasn't exacly simmetrical, I thought that could be the problem, so I removed the capacitor and tested using the inner 8MHz cristal. 
+        <br>
+        <img src="images/output7.jpg">
+        <br>
+        
+        Still no good results... Next test was to use a ceramic oscillator. I had a 16 MHz smd oscillator and I soldered temporarely to check if it helped.
+        <br>
+        <img src="images/output9.jpg">
+        <br>
+        Even if it's not good looking I tested it and it was properly conneced with no short circuits.
+        Still nothing. 
+        </p>
+        
+  <h3>File Board.txt</h3>
+	<p>
+Obviously everytime I tried a new configuration I edited the file Board.txt in the Arduino folder, and I had no problem to upload the sketch. The board was actually working the way it has to do, readint the sensor and the trigger, and turning on a led and the mosfet when the temperature was lower that the trigger's value. 
+        </p>
+        
+          <h3>Debugging the code</h3>
+	<p>
+The board was working, still without the serial monitor, it was complex to debugging and remapping the values from the trigger to match the sensitivity of the temperature sensor. I sterted from the <a href="http://www.farnell.com/datasheets/488304.pdf">datasheet</a> to understand the values readed. It said there is a typical variation of 10mV per °C, starting form 500mV at 0 °C.
+        I also checked the values and the variation directly from the sensor, using a multimeter. 
+        <br>
+        <img src="images/output14.jpg">
+        <br>
+        In the end the calibration was approximative but effective. I tested it turning on and off a light pointing to the sensor (to warm it up). It behaved as expected: at room temperature the sensor turned on the mosfet, and therefor, the lamp. After a while this incresed the temperature and the sensor turn it off as a consequence. 
+        <br>
+        <img src="images/output18.jpg">
+        <br>
+        
+        Being something I needed, I decided to keep it like this and desolder the connectors to be programmed. Here the result
+        <br>
+       <img src= "images/output17.jpg">          
+    
+ </p>
+        
+<h3>Fixing the serial comunication</h3>
+	<p>
+Following a suggestion of <a href="http://fabacademy.org/archives/2015/eu/students/boasso.simone/index.html">Simone Boasso</a>, I tried restarting from the upload of the bootloader, using a project of an Arduino on breadboard, published on <a href="http://www.instructables.com/id/USBASP-Bootloading-a-ATMega328p-with-a-8mhZ-intern/">instructables</a>. This was a project that run with the internal 8 MHz clock. 
+        <br>
+        When I first tried to upload this Arduino Ide gave me an error message, because no bootloader.tool parameter were set. After some try and error I got to this configuration
+        <br>
+        <pre class="prettyprint linenums">
+atmega328bb.name=ATmega328 on a breadboard (8 MHz internal clock)
+atmega328bb.upload.protocol=stk500
+atmega328bb.upload.tool=avrdude
+atmega328bb.upload.maximum_size=30720
+atmega328bb.upload.speed=57600
+atmega328bb.bootloader.tool=avrdude
+atmega328bb.bootloader.low_fuses=0xE2
+atmega328bb.bootloader.high_fuses=0xDA
+atmega328bb.bootloader.extended_fuses=0x03
+atmega328bb.bootloader.path=arduino:atmega
+atmega328bb.bootloader.file=ATmegaBOOT_168_atmega328_pro_8MHz.hex
+atmega328bb.bootloader.unlock_bits=0x3F
+atmega328bb.bootloader.lock_bits=0x0F
+atmega328bb.build.mcu=atmega328p
+atmega328bb.build.f_cpu=8000000L
+atmega328bb.build.core=arduino:arduino
+atmega328bb.build.variant=arduino:standard</pre>
+        
+        <br>
+        In particular I had to modify the extended_fuses following the request in the error messages of Arduino IDE. 
+        <br>
+        After that i reupladed the sketch and the serial monitor was working perfectly. 
+        <br><br>
+        
+        <img src="images/output1.jpg">
+        
+        <br> <br>
+        This allowed me to fix minor issues and calibrate the sensor better. The final Arduino sketch is here: 
+        
+<pre class="prettyprint linenums">
+void setup() {
+pinMode (13, OUTPUT);
+Serial.begin (9600);
+}
+
+void loop() {
+  int v1 = analogRead(A0);
+  int v2 = analogRead(A2);
+  float mv1 = ( v1/1024.0)*5000; //value in millivolt
+  mv1 = mv1-500; //value in millivolt after °C
+  float cel = mv1/10; //°C degrees considering +10mV = +1°C
+
+  Serial.print(cel);
+  Serial.print(" C");
+
+  v2 = map(v2, 0, 1024, 20, 45);
+  
+  Serial.print(" - trig");
+  Serial.print(v2);
+  Serial.println(); 
+if (v2 > cel)
+{
+digitalWrite (13, HIGH);
+}
+else
+{
+digitalWrite (13, LOW);
+}
+delay(5000);        
+}
+</pre>
+        </p>
+  <h3>Final result</h3>
+	<p>
+Few days after I received the heating pads I bought, it's just a resistor wire around a paper support, but it works.
+        <img src="images/output20.jpg">
+        
+        I did a final test with the pads connected and it works perfectly: if the sensr reads a temperature lower that the trigger's value, it turns on the mosfet and, consequently, the pads. <br>
+        <img src="images/output31.jpg">
+        <br>
+        
+        These are warming up the sensor that will turn off the mosfet over a certain temperature. There is a delay of 5 seconds, just to don't turn on and off the pads too quickly.
+        <img src="images/output32.jpg">
+        <br>
       </p>
-
-    -->
-
-    <!-- End of your content -->
+        
+        
+         
+ 
 
     </div> <!-- /container -->
 
