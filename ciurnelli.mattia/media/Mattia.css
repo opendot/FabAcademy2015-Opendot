@@ -257,6 +257,24 @@ div.code {
     margin:auto;
 }
 
+div.codeArduino {
+    font-family: "Lucida Console", Monaco, monospace;
+    white-space: pre-line;
+    word-break: break-all;
+    color: #000000;
+    background-color: #000000;
+    max-width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #facd11 !important;
+    border-radius: 14px;
+    overflow: hidden !important;
+    font-size: 12px;
+    font-weight: bold;
+    width: 800px;
+    margin:auto;
+}
+
 /* navbar */
 .navbar {
     font-size: 20px;
