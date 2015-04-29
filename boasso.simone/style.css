@@ -1,12 +1,22 @@
-body {font-family: 'Press Start 2P', cursive;align-items: center}
-<!--body {
-    font-family: 'Slabo 27px', serif; 
-    font-family: 'Press Start 2P', serif;
-    width: 80%;
-    margin: auto;
-    
-} -->
-h1{font-family: 'Electrolize',sans-serif; font-size: 60px;text-align: center}
+body {font-family: 'Press Start 2P', cursive;}
+
+
+img {
+  vertical-align: middle;
+}
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{font-family: 'Electrolize',sans-serif;font-size: 60px;text-align: center}
 h2{font-family: 'Electrolize',sans-serif;font-size: 50px;font-weight: 800;text-align: center}
 h3{font-family: 'Electrolize',sans-serif;font-size: 25px;font-weight: 600;text-align: center}
 h4{font-family: 'Electrolize',sans-serif;font-size: 35px;font-weight: 700; text-align: left; color:#2a5ade}
