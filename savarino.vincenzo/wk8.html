@@ -75,10 +75,42 @@
 									<p>For my exercise I decided to make an idea from my previous exercise: 3d scanner mount </p>
 																		
 									 <p><img align="center"  hspace="12" src="images/scan3d_scansystem.jpg"  /></p>
-									 <p>First of all I designed with Rhino the components of the stand, taking into account that I will assembly them only by joints and I will use a 1.2 mm wood sheet</p>
+									 <p>First of all I designed with Rhino the components of the stand, taking into account that I will assembly them only by joints and I will use a 12 mm wood sheet</p>
 									 <p><img align="center"  hspace="12" src="images/wk8.jpg"  /></p>
-								     
+								     <p>After the design of 3d model I realized that some minor correction are needed:</p>
+									 <p><img align="center"  hspace="12" src="images/cnc1.jpg"  /></p>
+									 <p>Again the design of the 3d model to verify other issues</p>
+									 <p><img align="center"  hspace="12" src="images/cnc2.jpg"  /></p>
 									 
+									 <p>
+																			
+									
+																	<canvas id="cv" width=640 height=480>
+									It seems you are using an outdated browser that does not support canvas :-(
+									</canvas>
+									<script type="text/javascript">
+										var canvas = document.getElementById('cv');
+										var viewer = new JSC3D.Viewer(canvas);
+										viewer.setParameter('SceneUrl','media/cnc.stl');
+										viewer.setParameter('ModelColor','#CAA618');
+										viewer.setParameter('BackgroundColor1','#E5D7BA');
+										viewer.setParameter('BackgroundColor2','#383840');
+										viewer.setParameter('RenderMode','flat');
+										viewer.setParameter('MipMapping','on');
+										viewer.setParameter('Definition','high');
+										viewer.setParameter('Renderer','webgl');
+										viewer.init();
+										viewer.update();
+									</script> 
+									</p> 
+									
+									<h3>Download</h3>
+									
+									<p>
+									<a href="media/cnc.stl">
+									<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+									</a>
+									</p>
 								
 								
 	
