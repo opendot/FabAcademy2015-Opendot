@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+    <meta name="author" content="Pierluigi De Palo">
     <link rel="icon" href="media/favicon.ico">
 
-    <title>Fab Academy 2015 - Name Surname</title>
+    <title>Fab Academy 2015 -Pierluigi De Palo</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+      <link href="media/Pierluigi.css" rel="stylesheet">
+      
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+      <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+      <link href="media/Pierluigi.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -35,8 +39,6 @@
     <!-- Load the menu file -->
     <script>
 	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
 					  $('#cclicense').load("license.html");
 					  }
 	</script>
@@ -46,6 +48,7 @@
   <body onload="menu()">
 
     <!-- Static navbar -->
+      
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
@@ -55,20 +58,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
+          <a class="navbar-brand" href="index.html">Home</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="about.html">About</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
+        <a href="exercises-menu.html">Log Book</a>
+              
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
+            <li>
+        <a href="project-menu.html">Final Project</a>
             </li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -80,138 +80,446 @@
 
 	<!-- Insert your content here below! -->
 
+<p>****************************************************************************************************************</p>
+          
+        <ul class="pager status">
+    
+        <li class="previous"><a href="exercise10.html">← </a></li> 
+    
+        <li class="next"><a href="exercise12.html"> →</a></li>
+    
+        <h2>Week 11 - Ouput Devices -</h2>
 
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+        </ul>
+        
 
-		# Add edges...
-		print "Building the graph..."
+<br>
+        <h4>Goal: <u>Add an output device to a microcontroller board you've designed and program it to do something</u></h4>
+        <h4>Input: <a href="http://pulsedlight3d.com/"> Lidar Lite - Laser distance measurement</a></h4
+             <h4>Output: <a href="http://www.wvshare.com/product/LCD1602-blue.html"> LCD  LCM1602C - </a></h4
+        <h4>
+            <br>Soft :<a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a></h4>
+        <h4>Board: Satshakit --> Board developped by Daniele ingrassia of my Fab Academy Class<a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html"><a href="https://github.com/satshas/satshakit"> Git Hub repository of the project</a>
+        <h4>Datasheet : <a href="http://www.wvshare.com/product/LCD1602-blue.html">LCD  LCM1602C</a> - <a href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/5007466446/original/LIDAR-Lite-Laser-Datasheet.pdf?AWSAccessKeyId=AKIAJ2JSYZ7O3I4JO6DA&Expires=1429631642&Signature=4i%2FJCFif41I3O8U3%2FFxnoDnHMQw%3D&response-content-type=application%2Fpdf"> Lidar Lite </a></h4>
+            <h4>Tutorial: <a href="https://learn.adafruit.com/character-lcds/overview">Wiring up a character LCD to an Arduino</a></h4>
 
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+        <br>
+               <p>*****************************************************************************************************************</p>
+<br><br>
+<p>ARDUINO STARTER KIT : EX 11 - CRISTAL BALL - First Exercise input/output in my life -</p>
+            <br>
+            <p>List of elements : Potentiometer - 220 ohm Resistor - 10 Kilohm Resistor - Switch -Tilt Sensor - Lcd Screen</p>
+            <br>
+            <p>with this first and simple exercise I have had my first experience of output device with arduino. I have followed the simple procedure of realization following the exercise of the arduino project book.</p>
+            <br>
+            <br>
+                <p class="pic">
+                <img src="Images/w11_arduino_crystal_ball7.jpg">
+	<legend></legend>
+            </p>
+        <br>
+ 
+              <div class="row">
+              <div class="col-lg-6">
+                <img src="Images/w11_arduino_crystal_ball3.jpg">
+	<legend></legend>
+            </div>
+              
+              
+            <div class="col-lg-6">
+                <img src="Images/w11_arduino_crystal_ball_0.jpg">
+	<legend></legend>
+            </p> </div>
+        
+        </div>
+              <br>
+            
+              
+              
+            <p class="pic">
+                <img src="Images/w11_arduino_crystal_ball5.jpg">
+	<legend></legend>
+            </p> 
+            
+            <p class="pic">
+                <img src="Images/w11_arduino_crystal_ball8.jpg">
+	<legend></legend>
+            </p> 
+            <br>
+           
+            <pre class="prettyprint linenums">
+        /*
+  Arduino Starter Kit example
+ Project 11  - Crystal Ball
+
+ This sketch is written to accompany Project 11 in the
+ Arduino Starter Kit
+
+ Parts required:
+ 220 ohm resistor
+ 10 kilohm resistor
+ 10 kilohm potentiometer
+ 16x2 LCD screen
+ tilt switch
+
+
+ Created 13 September 2012
+ by Scott Fitzgerald
+
+ http://arduino.cc/starterKit
+
+ This example code is part of the public domain
+ */
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+// set up a constant for the tilt switchPin
+const int switchPin = 6;
+
+// variable to hold the value of the switchPin
+int switchState = 0;
+
+// variable to hold previous value of the switchpin
+int prevSwitchState = 0;
+
+// a variable to choose which reply from the crystal ball
+int reply;
+
+void setup() {
+  // set up the number of columns and rows on the LCD
+  lcd.begin(16, 2);
+
+  // set up the switch pin as an input
+  pinMode(switchPin, INPUT);
+
+  // Print a message to the LCD.
+  lcd.print("Ask the");
+  // set the cursor to column 0, line 1
+  // line 1 is the second row, since counting begins with 0
+  lcd.setCursor(0, 1);
+  // print to the second line
+  lcd.print("Crystal Ball!");
+}
+
+void loop() {
+  // check the status of the switch
+  switchState = digitalRead(switchPin);
+
+  // compare the switchState to its previous state
+  if (switchState != prevSwitchState) {
+    // if the state has changed from HIGH to LOW
+    // you know that the ball has been tilted from
+    // one direction to the other
+    if (switchState == LOW) {
+      // randomly chose a reply
+      reply = random(8);
+      // clean up the screen before printing a new reply
+      lcd.clear();
+      // set the cursor to column 0, line 0
+      lcd.setCursor(0, 0);
+      // print some text
+      lcd.print("the ball says:");
+      // move the cursor to the second line
+      lcd.setCursor(0, 1);
+
+      // choose a saying to print baed on the value in reply
+      switch (reply) {
+        case 0:
+          lcd.print("Yes");
+          break;
+
+        case 1:
+          lcd.print("Most likely");
+          break;
+
+        case 2:
+          lcd.print("Certainly");
+          break;
+
+        case 3:
+          lcd.print("Outlook good");
+          break;
+
+        case 4:
+          lcd.print("Unsure");
+          break;
+
+        case 5:
+          lcd.print("Ask again");
+          break;
+
+        case 6:
+          lcd.print("Doubtful");
+          break;
+
+        case 7:
+          lcd.print("No");
+          break;
+      }
+    }
+  }
+  // save the current switch state as the last state
+  prevSwitchState = switchState;
+}
+</pre>  
+            <br>
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+        <p class="pic">
+                <iframe width="960" height="540" src="https://www.youtube.com/embed/DYcvCKlGlvY?rel=0" frameborder="2" allowfullscreen></iframe>
+	</p>
+          <br>       
+            
+            <p>2nd STEP --> ARDUINO "Hello World" TUTORIAL: Assign new digital pin address between the board and the LCD</p>
+            <br>
+            <p>After having followed  <a href="https://learn.adafruit.com/character-lcds/overview">this tutorial</a> I have modified the native code of the exercise, assigning the corresponding pins.</p>
+            <br>
+            <p>LCD pin name	--> RS	EN	DB4	DB5	DB6	DB7</p>
+            <p>Arduino pin  --> 7	8	9	10	11	12</p>
+            <br>
+<p>Open up the File→Examples→LiquidCrystal→HelloWorld example sketch</p>
+<br>
+<pre class="prettyprint linenums">
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);</pre>
+<br>
+<p>And change it to:</p>
+<br>
+<pre class="prettyprint linenums">
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);</pre>
+<br>
+
+<p>The modify sketch is :</p>
+<br>
+<pre class="prettyprint linenums">
+ */
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
+
+void setup() {
+  // set up the LCD's number of columns and rows: 
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  lcd.print("hello, world!");
+}
+
+void loop() {
+  // set the cursor to column 0, line 1
+  // (note: line 1 is the second row, since counting begins with 0):
+  lcd.setCursor(0, 1);
+  // print the number of seconds since reset:
+  lcd.print(millis()/1000);
+}
+</pre>
+<br>
+
+<p>IMPORT LIDAR LITE LIBRARIES AND CONNECT TO ARDUINO -</p>
+<br>
+<p>After having downloaded  and imported the<a href="http://www.dsscircuits.com/images/code/I2C_Rev5.zip"> Library I2C </a>it is possible to connect the sensor Lidar to the board.</p>
+<br>
+<p class="pic">
+                <img src="Images/w11_Lidar%20Lite_Arduino%20connection%20.jpg">
+	<legend></legend>
+            </p> 
+            <br>
+            <p>Differents sketchs are available in the <a href="https://github.com/PulsedLight3D">Git Hub Repository</a> of the Lidar Retailer.<br> That one that i used is the following  <a href="https://github.com/PulsedLight3D/LIDARLite_Basics">LIDARLite_Basics</a></p>
+            <br>
+            
+            <pre class="prettyprint linenums">
+            /* 
+
+http://pulsedlight3d.com
+
+This sketch demonstrates getting distance with the LIDAR-Lite Sensor
+
+It utilizes the 'Arduino I2C Master Library' from DSS Circuits:
+http://www.dsscircuits.com/index.php/articles/66-arduino-i2c-master-library 
+
+You can find more information about installing libraries here:
+http://arduino.cc/en/Guide/Libraries
+
+
+*/
+
+#include <I2C.h>
+#define    LIDARLite_ADDRESS   0x62          // Default I2C Address of LIDAR-Lite.
+#define    RegisterMeasure     0x00          // Register to write to initiate ranging.
+#define    MeasureValue        0x04          // Value to initiate ranging.
+#define    RegisterHighLowB    0x8f          // Register to get both High and Low bytes in 1 call.
+
+
+void setup(){
+  Serial.begin(9600); //Opens serial connection at 9600bps.     
+  I2c.begin(); // Opens & joins the irc bus as master
+  delay(100); // Waits to make sure everything is powered up before sending or receiving data  
+  I2c.timeOut(50); // Sets a timeout to ensure no locking up of sketch if I2C communication fails
+}
+
+void loop(){
+  // Write 0x04 to register 0x00
+  uint8_t nackack = 100; // Setup variable to hold ACK/NACK resopnses     
+  while (nackack != 0){ // While NACK keep going (i.e. continue polling until sucess message (ACK) is received )
+    nackack = I2c.write(LIDARLite_ADDRESS,RegisterMeasure, MeasureValue); // Write 0x04 to 0x00
+    delay(1); // Wait 1 ms to prevent overpolling
+  }
+
+  byte distanceArray[2]; // array to store distance bytes from read function
+  
+  // Read 2byte distance from register 0x8f
+  nackack = 100; // Setup variable to hold ACK/NACK resopnses     
+  while (nackack != 0){ // While NACK keep going (i.e. continue polling until sucess message (ACK) is received )
+    nackack = I2c.read(LIDARLite_ADDRESS,RegisterHighLowB, 2, distanceArray); // Read 2 Bytes from LIDAR-Lite Address and store in array
+    delay(1); // Wait 1 ms to prevent overpolling
+  }
+  int distance = (distanceArray[0] << 8) + distanceArray[1];  // Shift high byte [0] 8 to the left and add low byte [1] to create 16-bit int
+  
+  // Print Distance
+  Serial.println(distance);
+  delay(500);
+}
+
+</pre>
+<br>
+
+<p>MERGE 2 ARDUINO SKETCHES : ARDUINO "Hello World" + LIDAR Lite_Basics </p>
+<br>
+
+<p>Now it'is the moment to marge 2 sketchs: <br>I have respected the respective fields "void setup ()" and "void loop ()" for creating one only sketch.
+<br>
+<br> I have modified :
+<br>
+<br> Removed <pre class="prettyprint linenums">lcd.print ("hello, world!")</pre>
+<br>
+Removed <pre class="pretty linenums"> Serial.begin(9600); </pre>
+<br>
+Add "lcd.clear" line for the refresh of LCD data.
+<br><pre class="pretty linenums"> lcd.clear();</pre> 
+Add "lcd.print" For print the 1st text
+<br><pre class="pretty linenums"> lcd.print("DISTANCE Cm:");</pre>
+Add "lcd.print" For print the 2st text Lidar Information
+<br><pre class="pretty linenums"> lcd.print(distance);</pre> 
+
+<br>
+Add "delay" line to reduce the time of dispatch of the data and to allow LCD to visualize proprely the data.
+<pre class="pretty linenums"> delay(300);</pre> 
+<br>
+
+The result is the following sketch : -)</p>
+<br>
+
+
+<pre class="pretty linenums">
+
+/*
+  LiquidCrystal +  LIDAR Lite Sensor By Pierluigi De Palo // Fab Academy "=!%
+
+ Demonstrates the use a 16x2 LCD display.  The LiquidCrystal
+ library works with all LCD displays that are compatible with the
+ Hitachi HD44780 driver. There are many of them out there, and you
+ can usually tell them by the 16-pin interface.
+
+
+  The circuit:
+  
+  For the LCD
+  
+ * LCD RS pin to digital pin 7
+ * LCD Enable pin to digital pin 8
+ * LCD D4 pin to digital pin 9
+ * LCD D5 pin to digital pin 10
+ * LCD D6 pin to digital pin 11
+ * LCD D7 pin to digital pin 12
+ * LCD R/W pin to ground
+ * LCD VSS pin to ground
+ * LCD VCC pin to 5V
+ * ends to +5V and ground
+ * wiper to LCD VO pin (pin 3)
+
+ Library originally added 18 Apr 2008 by David A. Mellis 
+ Modified 5 Jul 2009 by Limor Fried (http://www.ladyada.net)
+ Example added 9 Jul 2009 by Tom Igoe modified 22 Nov 2010 by Tom Igoe
+
+ This example code is in the public domain. http://www.arduino.cc/en/Tutorial/LiquidCrystal
+ 
+ For the Lidar Lite Distance Sensor:
+ 
+ * Lidar Lite GND
+ * Lidar Lite SDA
+ * Lidar Lite SCL
+ * Lidar Lite MODE no pin
+ * Lidar Lite PWR EN no pin
+ * Lidar 5V
+ 
+ */
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+#include <I2C.h>
+#define    LIDARLite_ADDRESS   0x62          // Default I2C Address of LIDAR-Lite.
+#define    RegisterMeasure     0x00          // Register to write to initiate ranging.
+#define    MeasureValue        0x04          // Value to initiate ranging.
+#define    RegisterHighLowB    0x8f          // Register to get both High and Low bytes in 1 call.
+
+
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12); // initialize the library with the numbers of the interface pins
+
+void setup() {
+  
+  lcd.begin(16, 2); // set up the LCD's number of columns and rows:
+  
+  I2c.begin(); // Opens & joins the irc bus as master
+  delay(500); // Waits to make sure everything is powered up before sending or receiving data  
+  I2c.timeOut(50); // Sets a timeout to ensure no locking up of sketch if I2C communication fails
+}
+
+void loop() {
+  
+   // Write 0x04 to register 0x00
+  uint8_t nackack = 100; // Setup variable to hold ACK/NACK resopnses     
+  while (nackack != 0){ // While NACK keep going (i.e. continue polling until sucess message (ACK) is received )
+    nackack = I2c.write(LIDARLite_ADDRESS,RegisterMeasure, MeasureValue); // Write 0x04 to 0x00
+    delay(1); // Wait 1 ms to prevent overpolling
+  }
+   byte distanceArray[2]; // array to store distance bytes from read function
+  
+  // Read 2byte distance from register 0x8f
+  nackack = 100; // Setup variable to hold ACK/NACK resopnses     
+  while (nackack != 0){ // While NACK keep going (i.e. continue polling until sucess message (ACK) is received )
+    nackack = I2c.read(LIDARLite_ADDRESS,RegisterHighLowB, 2, distanceArray); // Read 2 Bytes from LIDAR-Lite Address and store in array
+    delay(1); // Wait 1 ms to prevent overpolling
+  }
+  
+  int distance = (distanceArray[0] << 8) + distanceArray[1];  // Shift high byte [0] 8 to the left and add low byte [1] to create 16-bit int
+  
+  
+  lcd.setCursor(6, 1);  // set the cursor to column and line   // (note: line 1 is the second row, since counting begins with 0):
+  lcd.clear();
+  lcd.print("DISTANCE Cm:");
+  lcd.print(distance); // Print Distance
+  
+  
+  delay(300);
+  
+  
+}
+
+</pre>
+
+ <br>
+                <p class="pic">
+                <img src="Images/w11_Lidar+Arduino_1.JPG">
+	<legend></legend>
+            </p>
+        <br>
+
+
     <!-- End of your content -->
 
     </div> <!-- /container -->

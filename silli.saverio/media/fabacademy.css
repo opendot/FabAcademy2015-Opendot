@@ -54,6 +54,7 @@ legend {
   padding: 4px;
   width: 940px;
   line-height: 1;
+	
  /*  border: 1px solid #ddd;
   -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
@@ -68,6 +69,22 @@ legend {
   margin-bottom:20px;
 }
 
+.youtube {
+  
+  margin-left: 0 px;
+
+  	
+}
+
+.legend { 
+	margin:3px; 
+	text-align:left;
+	width:100%; 
+	font-size: 14px; 
+	border: 0px;   
+	line-height: 18px;
+	margin-left: 105px;
+	}
 
 /* CSS from Bootstrap website: */
 

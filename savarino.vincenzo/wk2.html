@@ -69,16 +69,18 @@
 									<span class="icon featured fa-comments-o"></span>
 									<h3>My Computer Aided Design Exercise...</h3>
 									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
-									<p>Starting from Sketchup sketch table from week 1, I designed a more detailed one, in particular the table structure and the pin system. The structure will contain the mechanical equipment (i.e. the step motors) and overal electronics. </p>
-									<p>CAD tested and used:</p>
-										<ul>
-											<li><strong>GIMP 2.8.10</strong></li>
-											<li><strong>Inkscape:</strong> vectorial design of table surface</li>
-											<li><strong>Skechtup Make 2014:</strong>First skecth</li>
-											<li><strong>FreeCAD:</strong> I modified the previous release</li>
-											<li><strong>MeshLab:</strong>I tested portability and functionalities</li>
-											<li><strong>Blender:</strong> Final release and exporting. In this fase I realized that the dimension of final file was too bigger. In order to reduce it I removed isolated vertices adn edges and I reduced model dimension by reducing its volume. After this action I reduced by 50% the original size </li>
-										</ul>
+									<p>This week exercise was related to experiments on usage of a set of computer aided design software.  I have some experience on <Strong>Skecthup, GIMP and Inkscape</Strong> and during the first week I have used them to describe the table and my final project. I took this opportunity to install the new version of Sketchup: Make 2014. I see that more template are now available, and in particular for 3D Printing and woodworking.</p>
+									 <p><img align="center"  hspace="12" src="images/sk_template.jpg"  /></p>
+								 <p>Starting from the Sketchup sketch table from week 1, I designed a more detailed one, in particular the table structure and the pin system. The structure will contain the mechanical equipment (i.e. the step motors) and overal electronics.</p>
+								<p><img align="center"  hspace="12" src="images/sktableview.jpg"  /></p>
+								
+								<p>Once realized the model I searched for an stl export plugin for sketchup, in order to use it during the usage of the other software. I founded it: <Strong>SketchUp STL</Strong>. This extension provides import/export functionality for STL files to and from SketchUp It is possible to export SketchUp groups to STL, or import an STL design and manipulate it within SketchUp. I have installed it successfully and the next step is to test other software.</p>
+								
+								<p>First of all I have installed <Strong>MeshLab</Strong> in order to test only the .stl file exported from SketchUp. The import went well.</p>
+								<p>The next step was <Strong>FreeCAD</Strong>. It is a parametric modeler and I made some try with it starting from Sketcher environment  and  Part design. I have tested the import of  Sketchup stl too. FreeCAD is at its 0.14 version and it seems quite instable.</p>
+								
+								<p>Finally I've installed <Strong>Blender</Strong>. I've spent a lot of time to experience with its interface and I followed some on-line start tutorial. It is very powerful for 3D modeling and meshes but it seems hard to use. I promise to try it deeper in future. Anyway I used it for the final release of the table and for final exporting. During this phase I realized that the dimension of final file was too bigger. In order to reduce it I removed isolated vertices and edges and I reduced model dimension by reducing its volume. After this action I reduced by 50% the original size.</p>
+										
 								</section>
 							</div>
 							<div class="12u">
@@ -103,22 +105,92 @@
 		viewer.setParameter('MipMapping','on');
 		viewer.setParameter('Definition','high');
 		viewer.setParameter('Renderer','webgl');
+		viewer.setParameter('InitRotationX','45');
+		viewer.setParameter('InitRotationY','45');
+		viewer.setParameter('InitRotationZ','45');
 		viewer.init();
 		viewer.update();
 	</script> 
     </p> 
     
-    <h3>Download</h3>
-	
+    	
 	<p>
 	<a href="media/free_cad_table_v2.obj">
 	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
 	</a>
 	</p>
 
+	
+										
+	
+	
 <p>&nbsp;</p>
 								</section>
 							</div>
+							
+							
+							<div class="12u">
+								<section class="box style1">
+									
+                                    
+
+	<p>Finally I've installed <Strong>Rhinoceros</Strong>. Unlike previous tools Rhino has a proprietary licence. I took quickly experience with its user interface.It provides an intuitive navigation of viewports and toolbars, and I find more of design tools used in SketchUp with a great difference: many more and more powerful!. After several try on basic commands (surfaces, solids, drafting, and image tracing) and the usage of Osnap and Gumball tools I tried to replicate the table surface by using  push/pulling techniques of faces and edges. I took the opportunity to try the difference of approach compared to SketchUp one (surface splitting).</p>
+										
+	<p><img align="center"  hspace="12" src="images/rhino_tsurface.jpg"  /></p>
+	
+	<p>Rhino can import from many formats and I triedd to import skechup file of the table but the import failed cause the last version of SketchUp Make 2014. I've tried with previous version files and it works. Anyway rather than repeat the same model in rhino I continue to try advanced features, by modeling small particular of table:</p>
+	
+	<p>Repeated round hole ( very similar to the clone  comand of Inkscape)</p>
+	
+	<p><img align="center"  hspace="12" src="images/rhino3d.jpg"  /></p>
+	
+	<p>or surface tools for 2D/3D transform like "surface revolution":</p>
+	
+	
+	
+	<p>
+									
+									
+									
+									
+									<canvas id="cv2" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv2');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/rhino3d.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.setParameter('InitRotationX','220');
+		viewer.setParameter('InitRotationY','130');
+		viewer.setParameter('InitRotationZ','130');
+		viewer.init();
+		viewer.update();
+	</script> 
+    </p> 
+    
+    	
+	<p>
+	<a href="media/rhino3d.stl">
+	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+	</a>
+	</p>
+	
+	
+<p>&nbsp;</p>
+								</section>
+							</div>
+							
+							
+							
+							
+							
 							
 						</div>
 					</div>
@@ -190,15 +262,15 @@
 							</div>
 							<div class="4u">
 								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 8</a></h3>
+									<a href="wk8.html" class="image featured"><img src="images/wk8.jpg" alt="" /></a>
+									<h3><a href="wk8.html">Week 8</a></h3>
 									<p>Computer-controlled machining </p>
 								</article>
 							</div>
 							<div class="4u">
 								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 9</a></h3>
+									<a href="wk9.html" class="image featured"><img src="images/wk9.jpg" alt="" /></a>
+									<h3><a href="wk9.html">Week 9</a></h3>
 									<p>Molding and Casting</p>
 								</article>
 							</div>

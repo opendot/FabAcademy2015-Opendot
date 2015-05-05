@@ -9,11 +9,12 @@ body {
 }
 
 p {
-    font-size: 20px;
+    font-size: 16px;
+    text-align: justify
 }
 
 p.small {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 a,
@@ -35,7 +36,9 @@ h6 {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
-
+G3 { font-size: 16px;
+    text-align: right
+}
 hr.star-light,
 hr.star-primary {
     margin: 25px auto 30px;
@@ -215,6 +218,7 @@ section.success {
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
+    border-radius: 14px;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption:hover {
@@ -230,6 +234,7 @@ section.success {
     text-align: center;
     font-size: 20px;
     color: #fff;
+    
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content i {

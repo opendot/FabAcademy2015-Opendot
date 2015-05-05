@@ -82,17 +82,103 @@
 
 
      <h2>10. Input Devices</h1>
+     
     
-        
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
-        
-    <!--    
-    
-    <h3>Menu</h3>
+    <h3>Project</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+In Opendot we have three different user groups, one of there is focused on food (from cooking to events). During the next two weeks I'll try to design the electronic board for a yogurt maker.
+        <br> The project we are developing in the user group is the "universal kitchen cabinet", designed to be digitally fabricated and fully customizable. Each drawer has a different funcion based on the interest of the user, for instance it could keep a certain temperature to rise the dough, make yougurt, it could water sprouts or it could dry fruits and vegetables. WE decided to start with the yougurt maker.
+        <br> Here a sketch that describe it
+        <img src="images/yogurt.JPG" alt="sketch">
+        </p>
+        <h3>Components</h3>
+	<p>
+The main component are these:
+         <ul style="list-style-type:disc">
+            <li>Microcontroller</li>
+             <li>Termistor</li>
+             <li>Trigger</li>
+             <li>Tension regolator</li>
+             <li>Mosfet</li>
+             <li>Heating pads</li>
+</ul>
+        Here the complete BOM for the board:
+        <pre class="prettyprint linenums">
+	Part      Value               Device             Package       Library              Sheet
+
+C1        22pF                  0612ZC225MAT2A        CAPC3216X178N AVX_By_element14_Batch_1    1
+C2        22pF                  0612ZC225MAT2A        CAPC3216X178N AVX_By_element14_Batch_1    1
+C3        10uF                  CAP1206               1206          01_SparkFun                 1
+C4        1uF                   CAP1206               1206          01_SparkFun                 1
+C5        100pF                 CAP1206               1206          01_SparkFun                 1
+CRYSTAL   16Mhz                 CSM-7X-DU             CSM-7X-DU     01_FAB_Hello                1
+IC1       LM50                  LM50                  SOT23         linear                      1
+IC2       5V                    V_REG_78XXSIDE        78XXL         01_SparkFun                 1
+LED_13    RED                   LED1206               1206          01_FAB_Hello                1
+LED_PWR   GREEN                 LED1206               1206          01_FAB_Hello                1
+MICRO     ATMEGA328P-AU         ATMEGA48/88/168-AU    TQFP32-08     atmega8                     1
+R1        10k                   RESISTOR1206          1206          01_SparkFun                 1
+R2        499                   RESISTOR1206          1206          01_SparkFun                 1
+R3        499                   RESISTOR1206          1206          01_SparkFun                 1
+R4        10k                   TRIM_US-SM-42/43X     SM-42/43X     pot                         1
+SWITCH                          6MM_SWITCH6MM_SWITCH  6MM_SWITCH    01_FAB_Hello                1
+MOSFET    NCHANNEL-SOIC8        MOSFET-NCHANNEL-SOIC8 SO08          01_SparkFun                 1
+</pre>
+        Being designed to be integrated in an object the idea was to have temporary connections to MOSI, MISO, SCK, Reset, Tx and Rx just to programm and debug it. After this alle the connection should be removed. The power supply will be soldered as well.
+<br> The only extra components not listed in the BOM are the pins for the connections (because they' are temporary), the power supply (12V - min 1,5A), and the heated pads (I used a 10W pads).    </p>
+      <br>
+      
+  <h3>First test</h3>
+	<p>
+The first board wasn't particularly optimized and I made a lot of mistakes. 
+<br> Here the eagle file:
+  <br>      
+<a href="media/yogurt_V1.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Yogurt maker V1"</button> </a>
+    </p>
+      
+    <h3>Debugging</h3>
+    <p>  
+    This is the first version of the board after the debugging
+        <br>
+        <img src="images/debug_v1_0.jpg" alt"debug V1">
+        <br>
+        Let's check all the mistakes done:
+    <br> <strong>1. Trigger package</strong>
+        <br>
+        <img src="images/debug_v1_5.jpg" alt="trigger package">
+        I picked up the wrong package of the trigger, so to be able to test it I had to rotate it and bend a little bit the connections. In the end it worked like this.
+        <br><br>
+        <strong>2. Current regulator vs. Tension regulator</strong>
+        <br>
+        <img src="images/debug_v1_4.jpg" alt="current regulator">
+        I bought by mistake a current regulator instead of a tension regulator. In the schematic It was connected in a different way, so when I pluged in the board it became so warm that it melted the solder. After that I double checked the datasheet and I realized I switched GND and VOut. <br>
+        To this point I haven't noticed yet it was the wrong component, so I went on to trying to fix it. I rotate it untill the GND get to the back part of the component (also connected to the ground) and the VOut to a place where it was easy to bridge it to the proper connector. At this point I tested the output with the multimeter, the result was 8V, enough to fry the microcontroller. I decide to go on to complete the debug, so i used a couple of temporary connectors to power properly the board.
+        <br><br>
+        <strong>3. Mosfet</strong>
+        <br>
+        <img src="images/debug_v1_2.jpg" alt="mosfet">
+        After soldering the mosfet I tested the connections and I noticed there was something wrong, it seemed a shortcircuit. Double checking the scheatic I realized I connected it completely wrong.
+        <img src="images/mosfet.gif" alt="wrong mosfet schematic">
+        So, I desoldered it and moved to keep the Gate not connected to anything. After that I bridged it to the right pin.
+        <br><br>
+        <strong>3. MISO</strong>
+        <br>
+        <img src="images/debug_v1_7.jpg" alt="MISO">
+        While i was plugging the board to try to programm it I realize I connected in the schematic the wrong pin to the MISO. So I had to cut the trace and bridged it to the right pin.
+        <br><br>
+        Beside the debugging, when i tryed to connect it and programm it, the arduino IDE gave me the message that it was impossible to upload the code. So i decide to fix all the mistakes in the schematic and make a V2.
+        <br> I also realize it's a bad idea to buy components at 3.40 a.m. and design electronics boards during the night.
+        
+        
+        
+        
+        
+        
+
+        
 	</p>
-    
+     <!--
     <h3>Text</h3>
 	<p>
 	You can set it up with:

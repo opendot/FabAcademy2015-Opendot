@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Solid Thinking</title>
+		<title>Fab Academy 2015 - Week 4</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -15,6 +15,22 @@
 		<script src="js/jquery.scrolly.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+		
+		<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -37,31 +53,13 @@
 				</ul>
 			</nav>
 
-		<!-- Home -->
-			<div class="wrapper style1 first">
-				<article class="container" id="top">
-					<div class="row">
-						<div >
-							<span class="image fit"><img src="images/pic00_.jpg" alt="" /></span>
-						</div>
-						<div class="8u">
-							<header>
-								<h1><strong>How to Make (Almost) Anything</strong></h1>
-								
-								
-							</header>
-							<p><h1><strong>... in Solid Thinking</strong>.....</h1></strong>.</p>
-							<a href="#work" class="button big scrolly"> about me and my final project </a>
-						</div>
-					</div>
-				</article>
-			</div>
+		
 
 		<!-- Work -->
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Me and my final project.</h2>
+						<h2>About Week 4</h2>
 						
 					</header>
 					<div class="container">
@@ -69,57 +67,34 @@
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>Hi! I'm Vincenzo Savarino.</h3>
-									<p>I'm a researcher of Engineering Ingegneria Informatica R&D in Public Administration Innovation Unit in Palermo. I'm a Computer Science Engineer  and I took my degree in Computer Science at the University of Palermo . Since 2004 I have been involved in several research projects financed by both the Italian Ministry of University and Research and the European Community. My main research interests are in Business and Process Modeling, SOA governance, Open Data, Semantics and Web technologies and Human-computer interaction.</p>
-								</section>
-							</div>
-							<div class="12u">
-								<section class="box style1">
+									<h3>My Electronics Production Exercise...</h3>
+									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
+									<p>This week assignment was about Electronics Production and in particular to make the FabISP in-circuit programmer: milling the board, stuffing it with components and finaly program it. As reported in <a href="http://www.fabacademy.org/archives/2015/doc/electronics_production_FabISP.html" target=_blank>tutorial</a> "the FabISP is an in-system programmer for AVR microcontrollers, designed for production within a FabLab. It allows you to program the microcontrollers on other boards you make". </p>
+									<p>The first step was to download the board traces <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.traces.png" target=_blank><img src="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.traces.png" alt="&quot;&quot;" width="200" border="0"></a> and  board outline <a href="&quot;http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.png&quot;" target=_blank><img src="http://academy.cba.mit.edu/classes/embedded_programming/hello.ISP.44.interior.png" alt="&quot;&quot;" width="200"> </a></p>
+									<p>I imported them in Inkscape, I vectorized the png, I signed it and I putted a red border for cutting</p>
+									<p><img align="center"  hspace="12" src="images/myfabispsvg.jpg"  width="200"/></p>
+									<p>Ready for engraving and cutting...</p>
+																		
+									<p>Thanks to the experimentations made by  <a href="http://fabacademy.org/archives/2015/eu/students/bassi.enrico/exercise04.html" target=_blank>Enrico Bassi</a>, in OpenDot it is possible to use a Trotec laser cutter machine to engrave and cut FR-1 sheets. This laser cutter has two different kind of laser beams, CO2 and fiber. We used fiber laser to engrave and completely remove copper from the FR-1 surface, and C02 laser to cut the board. With the support of my collegue Daniele Ingrassia I've produced my FabISP: as I'm new with electronic production two copies are better!</p>
 									
-									<p><img align="center" height="113" hspace="12" src="images/clip_image002.jpg" width="94" /></p>
-
-<p>The final project is related to a wider idea we want to develop in our R&D laboratory. The idea was born remembering old games , especially the Pin Art , the desk -toy patented Ward Fleming . It is a box containing a matrix crowded of tacks that are free to slide in an independent manner such as to create a three-dimensional  surface . From this idea sprang the aim of studying the possible uses of interfaces that can change appearance and shape dynamically as the pixels of a screen.</p>
-								</section>
-							</div>
-							<div class="12u">
-								<section class="box style1">
-									<span class="icon featured fa-thumbs-o-up"></span>
-									<h3>3D Table</h3>
-									<p>
- Starting from a single pixel I‘ll make an architecture composed by an environment for the tracking of objects or gestures through a kinect , mounted on a pedestal , reproducible through simulation environment based on web3d and finally through a table consisting of a series of actuators ( servo motors and RGB LED ) and drive all by means of a control logic , for example based on Arduino boards .</p>
-
+									 <p><img align="center"  hspace="12" src="images/myfabisp.jpg"  /></p>
+									 
+									 <p>it is time to stuff it with components...</p>
+								 <p></p>
+								<p></p>
+								
+								
+	
+	
 <p>&nbsp;</p>
-
-<p align="center"><img height="100%" src="images/architecture.jpg" width="100%" /></p>
-								
-								<p align="center">Why a 3D Table?</p>
-
-<p align="center"><strong><em>Create new ways of Human-Machine Interaction,</em></strong></p>
-
-<p align="center"><strong><em>in order to improve User Experience, Usability and Accessibility</em></strong></p>
-
-<p align="center">As just wrote a wider idea by starting in small</p>
-
-<p align="center">And ….<em>solid thinking</em>…<em>making (almost) anything</em> and putting together</p>
-
-<ol>
-	<li>I can interact with my 3D Object in Holographic Pyramid, for example&nbsp; a City 3D Model. I could rotate the object, highlight a part, explore its composition seeing details that in standard ways I would never have noticed</li>
-	<li>I can highlight a part of object and send it to my SMART Table.</li>
-	<li>SMART Table is composed by:
-	<ul>
-		<li align="center">3D Shape Display where the 3D City&nbsp; Model is rendered&nbsp; and related&nbsp; 3D thematic layers can be displayed</li>
-		<li align="center">Two interactive displays built by&nbsp; a&nbsp; Interactive Display Builder (IDB): the first one shows the 3D object or its element and users could draw annotations or select details,while the second one shows a virtual keyboard for insert textual annotations by users.</li>
-	</ul>
-	</li>
-	<li>A user could watch the 3D Model on the Dynamic Shape Display and see users annotations thanks to augmented reality (ex. by Google Glasses).</li>
-</ol>
-
-<p align="center">The experience could continue by sending the data of an element of 3D model&nbsp; to a 3D printer…..</p>
-
-<p align="center"><img height="286" src="images/solidthinkingall.jpg" width="675" /></p>
-								
 								</section>
 							</div>
+							
+							
+							
+							
+							
+							
 						</div>
 					</div>
 					
@@ -161,7 +136,7 @@
 							<div class="4u">
 								<article class="box style2">
 									<a href="wk4.html" class="image featured"><img src="images/wk4.jpg" alt="" /></a>
-									<h3><a href="#">Week 4</a></h3>
+									<h3><a href="wk4.html">Week 4</a></h3>
 									<p>Electronics Production</p>
 								</article>
 							</div>
@@ -174,8 +149,8 @@
 							</div>
 							<div class="4u">
 								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 6</a></h3>
+									<a href="wk6.html" class="image featured"><img src="images/wk6.jpg" alt="" /></a>
+									<h3><a href="wk6.html">Week 6</a></h3>
 									<p>Electronics Design</p>
 								</article>
 							</div>
@@ -190,15 +165,15 @@
 							</div>
 							<div class="4u">
 								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 8</a></h3>
+									<a href="wk8.html" class="image featured"><img src="images/wk8.jpg" alt="" /></a>
+									<h3><a href="wk8.html">Week 8</a></h3>
 									<p>Computer-controlled machining </p>
 								</article>
 							</div>
 							<div class="4u">
 								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 9</a></h3>
+									<a href="wk9.html" class="image featured"><img src="images/wk9.jpg" alt="" /></a>
+									<h3><a href="wk9.html">Week 9</a></h3>
 									<p>Molding and Casting</p>
 								</article>
 							</div>

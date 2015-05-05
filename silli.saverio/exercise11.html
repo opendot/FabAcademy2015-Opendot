@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Saverio Silli</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+	  
+
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
+            <li><a href="contact.html">contact me</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+      
+     
+    <h1>WEEK 11</h1>
+		  <h2>11. Output Devices</h2>
+		<h3><li>Add an output device to a microcontroller board you've designed and program it to do something</li><br></h3>
+        <br>
+       <p>This week I kept learning arduino and experimenting with it. I wanted to work with a DC motor as an output because that will be useful for my rotocasting machine final project, and having the ability to control its speed and direction.</p>
+		
+		
+		 <p class="pic">
+			 <a href="image/11/image1.jpg"></a>
+        <img src="image/11/image1.jpg"width="600" >
+				<legend>The setup</legend>
+				 </p>
+		
+		 <p class="pic">
+			 <a href="image/11/image2.jpg"></a>
+        <img src="image/11/image2.jpg"width="600" >
+				<legend>The setup</legend>
+				 </p>
+		
+		 <p class="pic">
+			 <a href="image/11/image3.jpg"></a>
+        <img src="image/11/image3.jpg"width="600" >
+				<legend>The setup</legend>
+				 </p>
+		
+			 <p class="pic">
+			 <a href="image/11/image7.jpg"></a>
+        <img src="image/11/image7.jpg"width="600" >
+				<legend>The setup</legend>
+				 </p>
+		
+		<h3>Inputs</h3>
+			<p>On the breadboard I plugged two buttons to control ON/OFF and direction. Both have a 10K ohm resistance to keep the circuit safe from the 9Volts battery that powers the motor. There is also a potentiometer to regulate the speed.</p>
+
+		
+				 <p class="pic">
+			 <a href="image/11/image6.jpg"></a>
+        <img src="image/11/image6.jpg"width="600" >
+				<legend>Buttons</legend>
+				 </p>
+		
+				 <p class="pic">
+			 <a href="image/11/image5.jpg"></a>
+        <img src="image/11/image5.jpg"width="600" >
+				<legend>Potentiometer</legend>
+				 </p>
+		
+		<h3>H Bridge</h3>
+			<p>The output is a simple DC motor. To control it you need an integrated circuit called H-Bridge. It is basically a transistor that lets you control higher voltage and amperage than the arduino might do.</p>
+		
+				 <p class="pic">
+			 <a href="image/11/image9.jpg"></a>
+        <img src="image/11/image9.jpg"width="600" >
+				<legend>L293D H-Bridge pin configuration</legend>
+				 </p>
+		
+				 <p class="pic">
+			 <a href="image/11/image4.jpg"></a>
+        <img src="image/11/image4.jpg"width="600" >
+				<legend>H-Bridge</legend>
+				 </p>
+		
+		
+		<h3>Sketch and video</h3>
+			<p>You can see in the video the motor starting on as the green button is pushed, changing direction at the blue button, and going faster/slower as I turn the potentiometer. Pushing the green button again stops it.</p>
+
+				 <p class="pic">
+			 <a href="image/11/image8.jpg"></a>
+        <img src="image/11/image8.jpg"width="600" >
+				<legend>Fritzing breadboard layout</legend>
+				 </p>
+		
+		<p><pre class="prettyprint linenums">		
+		const int controlPin1 = 2;
+const int controlPin2 = 3;
+const int enablePin = 9;
+const int directionSwitchPin = 4;
+const int onOffSwitchStateSwitchPin = 5;
+const int potPin = A0;
+
+int onOffSwitchState = 0;
+int previousOnOffSwitchState = 0;
+int directionSwitchState = 0;
+int previousDirectionSwitchState = 0;
+
+int motorEnabled = 0;
+int motorSpeed = 0;
+int motorDirection = 1;
+
+void setup()
+{
+  pinMode(directionSwitchPin, INPUT);
+  pinMode(onOffSwitchStateSwitchPin, INPUT);
+  pinMode(controlPin1, OUTPUT);
+  pinMode(controlPin2, OUTPUT);
+  pinMode(enablePin, OUTPUT);
+  
+  digitalWrite(enablePin, LOW);
+}
+
+void loop()
+{
+  onOffSwitchState = digitalRead(onOffSwitchStateSwitchPin);
+  delay(1);
+  directionSwitchState = digitalRead(directionSwitchPin);
+  motorSpeed = analogRead(potPin)/4;
+  if (onOffSwitchState != previousOnOffSwitchState)
+  {
+    if (onOffSwitchState == HIGH)
+    {
+      motorEnabled = !motorEnabled;
+    }
+  }
+  
+  if (directionSwitchState != previousDirectionSwitchState)
+  {
+    if (directionSwitchState == HIGH)
+    {
+      motorDirection = !motorDirection;
+    }
+  }
+  
+  if (motorDirection == 1)
+  {
+    digitalWrite(controlPin1, HIGH);
+    digitalWrite(controlPin2, LOW); 
+  }
+  else
+  {
+    digitalWrite(controlPin1, LOW);
+    digitalWrite(controlPin2, HIGH);
+  }
+  
+  if (motorEnabled == 1)
+  {
+    analogWrite(enablePin, motorSpeed);
+  }
+  else
+  {
+    analogWrite(enablePin, 0); 
+  }
+  
+  previousDirectionSwitchState = directionSwitchState;
+  previousOnOffSwitchState = onOffSwitchState;
+}
+		</pre></p>
+	
+		
+	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/sfB8VFPf5jo" frameborder="0" allowfullscreen></iframe>
+		<legend class="legend">Arduino controlled DC Motor with H-Bridge</legend></p>	
+
+			<p>Files available here</p>
+		<p>
+		<li><a href="http://www.spaghettiprop.it/materiale/dcmotor.zip">Arduino sketch</a>  </li>
+			<li><a href="http://www.spaghettiprop.it/materiale/dcmotorfritzing.zip">Fritzing sketch</a>  </li></p>
+	
+		
+<!-- End of your content -->
+
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> edited by <a href="http://www.facebook.com/saverio.silli">Saverio Silli</a><br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
