@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Rationale|Megrim|Maven+Pro' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fab Academy 2015 Simone Boasso</title>
+    
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+      
+<!-- Leaflet -->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<!-- Local style -->    
+<link rel="stylesheet" href="style.css" !IMPORTANT>
+
+  </head>
+  <body style="padding: 15px;">
+      <img src="fab-academy1.jpg" class="img-responsive" >
+    <h1>Networking and Communications</h1>
+       </br></br>
+      <h8>This week lecture is to create a wired or wireless network between 2 processor</h8>
+    </br></br>
+<h8> I have some nRF24L01 module so I decide to use it whit the Satsha kit and make a wireless communication between them.</h8>
+ </br>
+ <img src="images/nrf24l01.jpg" class="img-responsive" >
+</br></br>
+<h4>Reported from the web:</h4>
+</br>
+<h8>The nRF24L01 is a single chip 2.4GHz transceiver with an embedded baseband protocol engine (Enhanced ShockBurst™), designed for ultra low power wireless applications. The nRF24L01 is designed for operation in the world wide ISM frequency band at 2.400 - 2.4835GHz. An MCU (microcontroller) and very few external passive components are needed to design a radio system with the nRF24L01.The nRF24L01 is configured and operated through a Serial Peripheral Interface (SPI.) Through this interface the register map is available. The register map contains all configuration registers in the nRF24L01 and is accessible in all operation modes of the chip.The embedded baseband protocol engine (Enhanced ShockBurst™) is based on packet communication and supports various modes from manual operation to advanced autonomous protocol operation. Internal FIFOs ensure a smooth data flow between the radio front end and the system’s MCU. Enhanced Shock-Burst™ reduces system cost by handling all the high-speed link layer operations.The radio front end uses GFSK modulation. It has user configurable parameters like frequency channel,output power and air data rate.The air data rate supported by the nRF24L01 is configurable to 2Mbps. The high air data rate combined with two power saving modes makes the nRF24L01 very suitable for ultra low power designs.Internal voltage regulators ensure a high Power Supply Rejection Ratio (PSRR) and a wide power supply range.</h8>
+</br></br>
+<h6>Specification</h6>
+</br>
+<h8>
+    Power supply :1.9V~3.6V</br>
+    Working current:13.5mA at 2Mbps / 11.3mA at 0dBm output power</br>
+    IO counts :8</br>
+    Sensitivity :-85dBm at 1Mbps</br>
+    Emission distance :70~100 meter at 256kbps</br>
+    Data rate :256kbps / 1Mbps / 2Mbps</br>
+    Commuinitcation mode :Enhanced ShockBurst TM / ShockBurst TM</br>
+    Working mode :Power Down Mode / Standby Mode / RX Mode / TX Mode</br>
+    Temperatures :Operating:-40°C ~ 85°C / Storage:-40°C ~ 125°C </br>
+</h8>
+</br></br>
+<h8>This module use the SPI interface so I have to use the MOSI and MISO channel on the satshakit, here you can find the pin connection schematic.</h8>
+</br></br>
+<img src="images/nrf24connection.jpg" class="img-responsive" >
+</br></br>
+<h6>IMPORTANT!!</h6>
+</br>
+<h8> the nRF24L01 module need a 3.3v vcc to work so if you are using the usb to power the arduino connect it to the proper line on the header (arduino board have already a voltage regulator for 3.3v).</br>
+ In my case the Satshakit doesn't have a voltage regulator and the chip works at 5v so I have to put this in my circuit.</br>
+the data pin on the nRF24L01 are 5v tolerant so you don't have to worry about this. </h8>
+</br></br>
+<h8>In this test I program a board to be the sender and a board to be the receiver.</h8>
+</br></br>
+<h9>here the code of the transmitter</h9>
+</br>
+<pre>
+#include < SPI.h>
+#include < nRF24L01p.h>
+
+nRF24L01p transmitter(7,8);//CSN,CE
+
+void setup(){
+  delay(150);
+  Serial.begin(115200);
+  SPI.begin();
+  SPI.setBitOrder(MSBFIRST);
+  transmitter.channel(90);
+  transmitter.TXaddress("Artur");
+  transmitter.init();
+}
+
+String message;
+
+void loop(){
+  if(Serial.available()>0){
+    char character=Serial.read();
+    if(character=='\n'){
+      transmitter.txPL(message);
+      transmitter.send(SLOW);
+      message="";
+    }else{
+      message+=character;
+    }
+  }
+}
+</pre>
+
+</br></br>
+<h9>here the code of the receiver</h9>
+</br>
+<pre>
+#include < SPI.h>
+#include < nRF24L01p.h>
+
+nRF24L01p receiver(7,8);//CSN,CE
+
+void setup(){
+  delay(150);
+  Serial.begin(115200);
+  SPI.begin();
+  SPI.setBitOrder(MSBFIRST);
+  receiver.channel(90);
+  receiver.RXaddress("Artur");
+  receiver.init();
+}
+
+String message;
+
+void loop(){ 
+  if(receiver.available()){
+    receiver.read();
+    receiver.rxPL(message);
+    Serial.println(message);
+    message="";
+  }
+}
+</pre>
+</br></br>
+
+<h8>Basically the sketch sent the "message" from the transmitter to the receiver.</br>
+the message is send via serial interface (usb) at the transmitter, the transmitter send it to the receiver.</br>
+the receiver "listen" the message and send it to the serial(usb).</br>
+</h8>
+</br></br>
+<h8>i use a virtual com (Putty) to send and receive the data from the UART of the satshakit</h8>
+</br></br>
+<a href="http://www.putty.org/" target="_blank">Here homepage putty</a>
+</br></br>
+<h6>here the terminal of the transmitter</h6>
+</br>
+<img src="images/puttytx.jpg" class="img-responsive" >
+</br></br>
+<h6>here the terminal of the receiver</h6>
+</br>
+<img src="images/puttyrx.jpg" class="img-responsive" >
+</br></br>
+<a href="http://playground.arduino.cc/InterfacingWithHardware/Nrf24L01" target="_blank">Here you can find some information about the nRF24L01 module and arduino library</a>
+</br></br></br>
+<a href="files/nRF24L01p.rar"
+   download="nRF24L01.rar">Download the library and sketch</a>
+
+<p>
+      <ul>
+        <li><a href="index.html">Back To Index</a></li>
+        </ul>
+      </p>
+  </body>
+</html>
