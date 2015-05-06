@@ -83,17 +83,85 @@
 
      <h2>12. Composites</h1>
     
-        <p>
-        WIP....
-         <img src="images/problems.JPG" alt="work in progress">
-        </p>
-      
-        
-    <!--    
     
-    <h3>Menu</h3>
+  
+    <h3>Project</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+	To test the resistence and the flexibility od the composite, I decided to make a low-cost Darrieus wind turbine. A <a href="http://en.wikipedia.org/wiki/Darrieus_wind_turbine">Darrieus</a> is a vertical axis wind turbine, pretty simple and robust, it's less sensitive to design mistake than horizontal axis wint turbines, and that's why it's more appropriate to be produced with a minimum budget.
+        <br>
+        Instead of carve the blade profile and cover it with fibers and resin, I want to make a reusable mold without divide the blade. I used this reference for the profile:
+        <br> <img src="http://www.otherpower.com/images/scimages/2637/goe435.gif">
+        Now the problem was to unroll it without bend too much some parts. To do it I made a small Grasshopper sketch, that analize the curvature of a certain number of point on the curve and reduce it proportionally.  
+        <img src="images/comp1.JPG">
+        Here the grasshopper file
+        <br>
+        
+        <a href="media/unfold_curve.gh">
+             <button type="button" class="btn btn-primary btn-lg">Download "Curve unfold"</button> </a>
+        
+        <br>
+        From the unfolded curve I did the 3D model of the mold.
+        <img src="images/comp2.JPG">
+        
+      <br>  Here the *.stl file
+<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/3blades.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script> 
+        
+    <a href="media/3blades.stl">
+             <button type="button" class="btn btn-primary btn-lg">Download "blades_mold.stl"</button> </a>  
+        
+        </p>
+        
+     <h3>Milling</h3>
+	<p>
+	I used a very basic polyurethane, milled with the Shopbot. To speed up the process i used a very simple roughing with a depth of 0.5 inches.
+        <img src="images/comp7.jpg">
+        I attached the foam to a plywood panel to keep it standing still, but it ended up that the double side tape wasn't strong enough. After a while the corner start to detach. as a consequence the cnc left a cut where it wasn't suppose to be.
+        <img src="images/comp9.jpg">
+        I used some hot glue on the corner to be able to go on without problems. 
+        <br>
+        When I started the finishing, I noticed that the head of the spindle was going to hit the foam because of the too quick roughing. To avoind it, I paused the machine and cut the extra material with a cutter.
+        <img src="images/comp16.jpg">
+    The top layer of this insulation polyurethane foam is a double layer sheet made out of paper and aluminium. After a while I stopped the machine because of a wierd noise and i checked the end mill: the aluminium was covering the tip, making it uncapable of cutting. 
+               <img src="images/problems.JPG" alt="work in progress">
+        During the finishing the vacuum tube was too close to the piece and sometimes it touched the foam. Being a very soft material that was enough to ruin the surface
+        
+        <img src="images/comp19.jpg">
+        Use some tape to pull up the tube was enough to go on with the finishing without any further trouble. The final result was pretty nice
+        <img src="images/comp23.jpg">
+        
+        </p>
+        
+        <h3>Coating the mold</h3>
+        <p>
+        Folloging the same idea of using very cheap materials that could last for few uses, I decided to coat the mold with hot wax. To don't burn it while you melt it, I used a metal ashtray 
+            <img src="images/comp28.jpg">
+            The final result was decent but not perfect. The wax works pretty well, but it's hard to have a continuous layer, in particular if you want to get to a certain thikness. I decided to have a less polished finishing but with a more robust coating
+            <img src="images/comp32.jpg">
+            </p>
+        
+        <h3> Making the composite</h3>
+            
+        
+    
+        
+        
+       <!-- 
 	</p>
     
     <h3>Text</h3>
