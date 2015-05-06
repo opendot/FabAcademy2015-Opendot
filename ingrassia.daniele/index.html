@@ -1789,7 +1789,7 @@ void loop() {
 
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/nVHYBydPKpk" frameborder="0" allowfullscreen></iframe>
 
-				<p>At this point I was ready to build an <span class="redones">satshakit IoT module</span>. An satshakit IoT module consist of a satshakit (normal or modular version), a satshakit power board, a ESP8266 WiFi module and a PIR sensor. The objective of the IoT system is to send to a smart system, data about of human presence detected by a distributed set of sensors. Here you can see some pictures about the first IoT module prototype:</p>
+				<p>At this point I was ready to build an <span class="redones">satshakit IoT module</span>. An satshakit IoT module consist of a satshakit (normal or modular version), a satshakit power board, a <span class="redones">ESP8266 WiFi</span> module and a PIR sensor. The objective of the IoT system is to send to a smart system, data about of human presence detected by a distributed set of sensors. Here you can see some pictures about the first IoT module prototype:</p>
 			
 				<img class="images-default" src="img/week13/iot_module_caliper.jpg">
 				<img class="images-default" src="img/week13/iot_module_hand1.jpg">
@@ -1799,7 +1799,388 @@ void loop() {
 
 				<img class="images-default" src="img/week13/Iot_system.jpg">
 				
-				<p>Where <a href="http://practionist.eng.it/"><span class="redones-link">PRACTIcal reasONIng sySTem</span></a> is a suite of tools supporting the design and development of distributed complex systems based on the BDI model of agency. The framework provides each system component with necessary tools to interact with the environment where it lives, including cognitive capacities upon the environment and execution of actions. I'm one of the active developer of PRACTIONIST. Data received from PRACTIONIST is stored and retrieved in <span class="redones">PROLOG</span> like <span class="redones">Belief Base</span>.</p>
+				<p>Where <a href="http://practionist.eng.it/"><span class="redones-link">PRACTIcal reasONIng sySTem</span></a> is a suite of tools supporting the design and development of distributed complex systems based on the BDI model of agency. The framework provides each system component with necessary tools to interact with the environment where it lives, including cognitive capacities upon the environment and execution of actions. I'm one of the active developer of PRACTIONIST. Data received from PRACTIONIST is stored and retrieved in <span class="redones">PROLOG</span> like <span class="redones">Belief Base</span>. Here you can see two simple PRACTIONIST Prolog Like rules wrote on purpose for this IoT system:</p>
+
+				<pre class="prettyprint lang-c">
+bel(self, empty(status: A)) &lt= owner_inside(value: A)
+and presence(where: main,value: A)
+and presence(where: bathroom,value: A)
+and presence(where: kitchen,value: A)
+and presence(where: corridor,value: A)
+and presence(where: entrance,value: A).
+			  
+bel(self, alarm(status: A, owner: B)) &lt= owner_inside(value: B) 
+and ( presence(where: main,value: A) 
+or presence(where: bathroom,value: A)
+or presence(where: kitchen,value: A) 
+or presence(where: corridor,value: A) 
+or presence(where: entrance,value: A) ).
+				</pre>
+
+				<p>Also, here is the code of the PRACTIONIST plans that update the Belief Base and retrieve data for an exposed REST web service:</p>	
+
+				<pre class="prettyprint lang-c">
+
+/**
+ * Copyright (C) 2013 Engineering Ingegneria Informatica S.p.A.
+ * Research & Development Laboratory
+ *
+ * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE, 
+ * Version 3 (the "License"); you may not use this file except 
+ * in compliance with the License. You may obtain a copy of the 
+ * License at http://www.gnu.org/licenses/lgpl.txt
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @author Daniele Ingrassia Company: Engineering Ingegneria Informatica S.p.A
+ *         E-mail: daniele.ingrassia@eng.it
+*/
+package rs.fabacademy.reasoning_agent.plan.utility;
+
+import jade.content.abs.AbsPredicate;
+
+import java.util.HashMap;
+
+import org.practionist.container.message.PractionistBusinessMessage;
+import org.practionist.plan.library.BusinessMessageReceiverPlan;
+
+import rs.fabacademy.RSConstants;
+import rs.fabacademy.TRACE;
+import rs.service.ServiceConstants;
+
+public class UpdateDataBMPlan extends BusinessMessageReceiverPlan
+{
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.practionist.plan.GoalPlan#practical(org.practionist.core.Goal)
+	 */
+	@Override
+	protected boolean practical(PractionistBusinessMessage businessMessage)
+	{
+
+		if (businessMessage.getOperation() == RSConstants.NOTIFICATION_OPERATION_UPDATE_DATA)
+			return true;
+
+		return false;
+	}
+
+	@Override
+	protected void body()
+	{
+
+		TRACE.info("start");
+		long time1 = System.nanoTime(), time2;
+
+		AbsPredicate bufferBelief,bufferBelief1,templateBelief;
+		
+		HashMap&ltString, String&gt notificationData = (HashMap&ltString, String&gt) msg.getContent().get(0);
+		String presenceData;
+		String updateData = notificationData.get(ServiceConstants.PARAMETER_UPDATE_DATA);
+		String updateKind = notificationData.get(ServiceConstants.PARAMETER_UPDATE_KIND);
+		
+		TRACE.info("updateData: "+updateData);
+		TRACE.info("updateKind: "+updateKind);
+		
+		if(updateKind.startsWith(RSConstants.UPDATE_KIND_PRESENCE)){
+
+			//extract presence data
+			presenceData = updateKind.split("_")[1];
+			
+			try {
+				
+				templateBelief = new AbsPredicate(RSConstants.BELIEF_PRESENCE_HEAD);
+				templateBelief.set("where",presenceData);
+				remove(templateBelief);
+				
+				bufferBelief = new AbsPredicate(RSConstants.BELIEF_PRESENCE_HEAD);
+				bufferBelief.set("where",presenceData);
+				bufferBelief.set("value",updateData);
+				add(bufferBelief);
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				TRACE.info("error predicates UPDATE_KIND_PRESENCE");
+			
+			}
+			
+		}else
+		if(updateKind.equals(RSConstants.UPDATE_KIND_DOOR)){
+			
+			try{
+			
+				templateBelief = new AbsPredicate(RSConstants.BELIEF_DOOR_HEAD);
+				templateBelief.set("value", "open");
+				remove(templateBelief);
+				
+				templateBelief = new AbsPredicate(RSConstants.BELIEF_DOOR_HEAD);
+				templateBelief.set("value", "close");
+				remove(templateBelief);
+			
+				bufferBelief = new AbsPredicate(RSConstants.BELIEF_DOOR_HEAD);
+				bufferBelief.set("value",updateData);
+				add(bufferBelief);
+			
+			} catch (Exception e) {
+			
+				e.printStackTrace();
+				TRACE.info("error predicates UPDATE_KIND_DOOR");
+		
+			}
+			
+		}else
+		if(updateKind.equals(RSConstants.UPDATE_KIND_DOOR_PRESENCE)){
+				
+			try{
+				
+				templateBelief = new AbsPredicate(RSConstants.BELIEF_DOOR_PRESENCE_HEAD);
+				templateBelief.set("value","true");
+				remove(templateBelief);
+				
+				templateBelief = new AbsPredicate(RSConstants.BELIEF_DOOR_PRESENCE_HEAD);
+				templateBelief.set("value","false");
+				remove(templateBelief);
+			
+				bufferBelief = new AbsPredicate(RSConstants.BELIEF_DOOR_PRESENCE_HEAD);
+				bufferBelief.set("value",updateData);
+				add(bufferBelief);
+			
+			} catch (Exception e) {
+			
+				e.printStackTrace();
+				TRACE.info("error predicates UPDATE_KIND_DOOR_PRESENCE");
+		
+			}
+				
+		}else	
+		if(updateKind.equals(RSConstants.UPDATE_KIND_OWNER_INSIDE)){
+				
+			try{
+				
+				templateBelief = new AbsPredicate(RSConstants.BELIEF_OWNER_INSIDE_HEAD);
+				templateBelief.set("value","true");
+				remove(templateBelief);
+				
+				templateBelief = new AbsPredicate(RSConstants.BELIEF_OWNER_INSIDE_HEAD);
+				templateBelief.set("value","false");
+				remove(templateBelief);
+			
+				bufferBelief = new AbsPredicate(RSConstants.BELIEF_OWNER_INSIDE_HEAD);
+				bufferBelief.set("value",updateData);
+				add(bufferBelief);
+			
+			} catch (Exception e) {
+			
+				e.printStackTrace();
+				TRACE.info("error predicates UPDATE_KIND_OWNER_INSIDE");
+		
+			}
+				
+		}	
+
+		time2 = System.nanoTime() - time1;
+		TRACE.info(time2 + "");
+		TRACE.info("end");
+
+		setSucceed();
+
+	}
+
+}
+				</pre>
+
+				
+				<pre class="prettyprint lang-c">
+				
+/**
+ * Copyright (C) 2013 Engineering Ingegneria Informatica S.p.A.
+ * Research & Development Laboratory
+ *
+ * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE, 
+ * Version 3 (the "License"); you may not use this file except 
+ * in compliance with the License. You may obtain a copy of the 
+ * License at http://www.gnu.org/licenses/lgpl.txt
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @author Daniele Ingrassia Company: Engineering Ingegneria Informatica S.p.A
+ *         E-mail: daniele.ingrassia@eng.it
+*/
+package rs.fabacademy.reasoning_agent.plan.utility;
+
+import jade.content.abs.AbsPredicate;
+
+import java.util.HashMap;
+
+import org.practionist.belief.AbsPredicateFactory;
+import org.practionist.container.message.PractionistBusinessMessage;
+import org.practionist.plan.PlanExecutionException;
+import org.practionist.plan.library.BusinessMessageReceiverPlan;
+
+import rs.fabacademy.RSConstants;
+import rs.fabacademy.TRACE;
+import rs.service.AbsPredicateObject;
+import rs.service.Alarm;
+import rs.service.Empty;
+import rs.service.ServiceConstants;
+
+import com.google.gson.Gson;
+
+public class GetDataBMPlan extends BusinessMessageReceiverPlan
+{
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.practionist.plan.GoalPlan#practical(org.practionist.core.Goal)
+	 */
+	@Override
+	protected boolean practical(PractionistBusinessMessage businessMessage)
+	{
+
+		if (businessMessage.getOperation() == RSConstants.NOTIFICATION_OPERATION_GET_DATA)
+			return true;
+
+		return false;
+	}
+
+	@Override
+	protected void body()
+	{
+
+		TRACE.info("start");
+		long time1 = System.nanoTime(), time2;
+
+		Alarm alarm = new Alarm();
+		Empty empty = new Empty();
+		
+		AbsPredicate bufferBelief,bufferBeliefs[];
+		Gson bufferGson = new Gson();
+		
+		HashMap&ltString, String&gt notificationData = (HashMap&ltString, String&gt) msg.getContent().get(0);
+		String dataKind = notificationData.get(ServiceConstants.PARAMETER_GET_DATA_KIND);
+
+		if(dataKind.equals("empty")){
+			
+		bufferBelief = AbsPredicateFactory.create(RSConstants.BELIEF_EMPTY.replace("A", "false"));
+									
+			try {
+				
+				bufferBeliefs = retrieveAllAbsPredicates(bufferBelief,true);
+				
+				if(bufferBeliefs == null){
+					
+					TRACE.info("NOT EMPTY");
+					
+					empty.empty = "false";
+					
+					RSConstants.PRACTIONIST_RESPONSE.add(empty);
+					
+				}else{
+					
+					TRACE.info("EMPTY");
+					
+					empty.empty = "true";
+					
+					RSConstants.PRACTIONIST_RESPONSE.add(empty);
+					
+				}
+				
+			} catch (PlanExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+				RSConstants.PRACTIONIST_RESPONSE.add("Belief base error");
+				
+			}	
+			
+			
+			
+		}else
+		if(dataKind.equals("alarm")){
+				
+			bufferBelief = AbsPredicateFactory.create(RSConstants.BELIEF_ALARM.replace("A", "true").replace("B", "false"));
+											
+				try {
+						
+					bufferBeliefs = retrieveAllAbsPredicates(bufferBelief,true);
+						
+					if(bufferBeliefs != null){
+							
+						TRACE.info("ALARM true");
+						
+						alarm.alarm = "true";
+						
+						RSConstants.PRACTIONIST_RESPONSE.add(alarm);
+							
+					}else{
+							
+						TRACE.info("ALARM false");
+						alarm.alarm = "false";
+						RSConstants.PRACTIONIST_RESPONSE.add(alarm);
+							
+					}
+						
+				} catch (PlanExecutionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+						
+					RSConstants.PRACTIONIST_RESPONSE.add("Belief base error");
+						
+				}	
+					
+					
+					
+		}else
+		if(dataKind.equals("all")){
+			
+			Object AllPredicates[] = getBeliefBase().all().toArray();
+			AbsPredicateObject APOS[] = new AbsPredicateObject[AllPredicates.length];	
+				
+			for(int C=0;C&ltAllPredicates.length;C++){
+
+			System.out.println("Predicate "+C+": "+AllPredicates[C].toString());
+			
+			APOS[C] = new AbsPredicateObject("");
+			APOS[C].fromAbsPredicate((AbsPredicate)AllPredicates[C]);
+			
+			}
+			
+			RSConstants.PRACTIONIST_RESPONSE.add(APOS);
+			
+		}else
+			RSConstants.PRACTIONIST_RESPONSE.add("invalid data kind");
+
+		
+		
+		
+		
+		//retrieveAbsPredicate(AbsPredicateFactory.create());
+
+		time2 = System.nanoTime() - time1;
+		TRACE.info(time2 + "");
+		TRACE.info("end");
+
+		setSucceed();
+
+	}
+
+}
+
+
+				</pre>
 
 				<p><a href="http://eclipse.org/jetty/"><span class="redones-link">Jetty webserver</span></a> was launched on my notebook, in order to be used as <span class="redones">gateaway</span>. IoT modules are able to make an HTTP GET request to Jetty web server with the following sketch:</p>
 
@@ -1807,14 +2188,12 @@ void loop() {
 
 
     #include &ltSoftwareSerial.h&gt
-    #include &ltWire.h&gt
     #define DEBUG false
     
     SoftwareSerial mySerial(9,10);
     
     String cipSend,startConnection,domain,port,getRequest,path,parameters;
     boolean presence,bufferPresence;
-    char fromSlave;
     
     void setup(){
       
@@ -1846,17 +2225,7 @@ void loop() {
     }
     
     void loop(){
-      
-      fromSlave = 'a';
-      
-      Wire.requestFrom(2, 6);
-      
-      if(Wire.available()){
-      
-        fromSlave = Wire.read();
-        
-      }
-      
+          
       if(digitalRead(2))
         bufferPresence = true;
       else
@@ -2234,7 +2603,6 @@ public class HttpRequestHandler extends AbstractHandler {
     }
  
 }
-
 				</pre>
 
 				<p>Here you can see all the modules powered on and ready to be used:</p>
@@ -2244,10 +2612,9 @@ public class HttpRequestHandler extends AbstractHandler {
 
 				<img class="images-default" src="img/week13/multicore_iot.jpg">
 				
-				<p>Here you can see the sketch I used on this IoT module:</p>
+				<p>Here you can see the sketch I used on the master of this IoT module:</p>
 
 				<pre class="prettyprint lang-c">
-
 
     #include &ltSoftwareSerial.h&gt
     #include &ltWire.h&gt
@@ -2376,20 +2743,140 @@ public class HttpRequestHandler extends AbstractHandler {
     
   }
 
+				</pre>
+				<p>And here is the code about I uploaded on the slave satshakit in order to send sensor data to master:</p>
 
+				<pre class="prettyprint lang-c">
+#include &ltWire.h&gt
 
+char toMaster;
+
+void setup()
+{
+  Wire.begin(2);                
+  Wire.onRequest(requestEvent); 
+  pinMode(2,INPUT);
+  
+  toMaster = 'b';
+
+}
+
+void loop()
+{
+  
+  delay(100);
+}
+
+void requestEvent()
+{
+  
+  if(digitalRead(2))
+     Wire.write('b');
+   else 
+     Wire.write('a');
+                       
+}
 				</pre>
 
 				<p>Here is a video where you can see the satshakit yellow led powered by my presence while I was getting near the sensor:</p>
 
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/5-wfTvfO6ss" frameborder="0" allowfullscreen></iframe>
 
-				<p>Finally here is the final and complete test of the IoT system. Due to a weak wifi not all modules were able to quickly communicate with gateaway and server: </p>
+				<p>Finally here is the <span class = "redones">final and complete test of the IoT system</span>. Due to a weak WiFi not all modules were able to quickly communicate with gateaway and server: </p>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/gabnJ0VTCmk" frameborder="0" allowfullscreen></iframe>
 
 				<p>After a while other GET requests were coming...</p>
 
 				<img class="images-default" src="img/week13/calls.jpg">
+
+				<p>Here you can see the <span class = "redones">json output</span> of the PRACTIONIST REST web service. Data is updated in realtime while is perceived by satshakit IoT modules.</p>
+
+				<pre class="prettyprint lang-c">
+[
+{
+"kind": "door",
+"parameters": [
+"value"
+],
+"values": [
+"close"
+]
+},
+{
+"kind": "door_presence",
+"parameters": [
+"value"
+],
+"values": [
+"false"
+]
+},
+{
+"kind": "owner_inside",
+"parameters": [
+"value"
+],
+"values": [
+"false"
+]
+},
+{
+"kind": "presence",
+"parameters": [
+"where",
+"value"
+],
+"values": [
+"corridor",
+"false"
+]
+},
+{
+"kind": "presence",
+"parameters": [
+"where",
+"value"
+],
+"values": [
+"main",
+"true"
+]
+},
+{
+"kind": "presence",
+"parameters": [
+"where",
+"value"
+],
+"values": [
+"bathroom",
+"true"
+]
+},
+{
+"kind": "presence",
+"parameters": [
+"where",
+"value"
+],
+"values": [
+"entrance",
+"false"
+]
+},
+{
+"kind": "presence",
+"parameters": [
+"where",
+"value"
+],
+"values": [
+"kitchen",
+"true"
+]
+}
+]
+				</pre>
 
 				<p>Here you can download eagle projects of <a href="drawings/week13/eagle_satshakit_modular.zip"><span class="redones-link">satshakit multicore & modular</span></a> and <a href="drawings/week13/eagle_satshakit_power_board.zip"><span class="redones-link">satshakit power board</span></a>.</p>
 
