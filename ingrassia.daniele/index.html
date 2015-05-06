@@ -1757,7 +1757,643 @@ void loop() {
 		</section>
 		<section id= "week13" class="row">
 			<div class="photo-grid">
-				<p>week13 networking and communications</p>
+				<p>This week we've dealt with <span class="redones">networking and communications</span></p>
+
+				<p>As first experiment with MCU communication, I tried <span class="redones">I2C</span> with two satshakit. The setup was simple, as you can see in the following picture:</p>
+				<img class="images-default" src="img/week13/satshakit_i2c.jpg">
+				<p>Also, to do a quick test, I used sketches described in the <a href="http://www.arduino.cc/en/Tutorial/MasterReader"><span class="redones-link">Arduino I2C MasterReader tutorial</span></a>. Here you can see a video about this:</p>
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/9XcrL3Ypu_s" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>After this simple test was successful, I decided to implement a full <span class="redones">Internet of Things</span> system. Within this, I developed also some improvements to the satshakit board. These improvements regards the realization of a <span class="redones">modular, multicore, satshakit system</span>. Also, in order to supply power to multiple satshakit and additional communication devices, I developed a <span class="redones">satshakit power board</span>. Starting from satshakit power board, I needed to get 5V and 3.3V from an input voltage of 7-12V, and to have available multiple VCCs and GNDs. From these considerations born the power board:</p>
+
+				<img class="images-default" src="img/week13/power_board_sch.jpeg">
+				<img class="images-default" src="img/week13/power_board_board.jpeg">
+
+				<p>I designed this board taking into consideration the components I had available: SMD 10uF capacitors, through-hole L7085CV and UA78M33C voltage regulators. Here you can see a picture about a soldered satshakit power board:</p>
+
+				<img class="images-default" src="img/week13/power_board.jpg">
+
+				<p>As MCU communication between the satshakit modular boards, and due to the previous test, I chose to use I2C. Satshakit modular boards have only the following <span class="redones">modifications</span> in confront of the standard satshakit: <span class="redones">4 extra pin header (1 GND,1 VCC,1 A4, 1 A5)</span>. Here you can see the a picture of the modular satshakit board:</p>
+
+				<img class="images-default" src="img/week13/satshakit_modular_board.jpeg">
+
+				<p>To make this modular version, I used <span class="redones">dual layer fiber glass FR4</span> sheets. The key was to center the 4 extra pin header along Y of the eagle board. Here you can see a dual layer board ready to be soldered: </p>
+
+				<img class="images-default" src="img/week13/satshakit_dl_modular.jpg">
+
+				<p>The experiment to make this <span class="redones">modular and multicore satshakit board was successful</span>, as you can see in the following videos:</p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/bxnmX-B9Czo" frameborder="0" allowfullscreen></iframe>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/fPvHaHXurHE" frameborder="0" allowfullscreen></iframe>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/nVHYBydPKpk" frameborder="0" allowfullscreen></iframe>
+
+				<p>At this point I was ready to build an <span class="redones">satshakit IoT module</span>. An satshakit IoT module consist of a satshakit (normal or modular version), a satshakit power board, a ESP8266 WiFi module and a PIR sensor. The objective of the IoT system is to send to a smart system, data about of human presence detected by a distributed set of sensors. Here you can see some pictures about the first IoT module prototype:</p>
+			
+				<img class="images-default" src="img/week13/iot_module_caliper.jpg">
+				<img class="images-default" src="img/week13/iot_module_hand1.jpg">
+				<img class="images-default" src="img/week13/iot_module_hand2.jpg">
+				
+				<p>After implementing the software for the full IoT system, I made the following schema to have a clear starting point:</p>
+
+				<img class="images-default" src="img/week13/Iot_system.jpg">
+				
+				<p>Where <a href="http://practionist.eng.it/"><span class="redones-link">PRACTIcal reasONIng sySTem</span></a> is a suite of tools supporting the design and development of distributed complex systems based on the BDI model of agency. The framework provides each system component with necessary tools to interact with the environment where it lives, including cognitive capacities upon the environment and execution of actions. I'm one of the active developer of PRACTIONIST. Data received from PRACTIONIST is stored and retrieved in <span class="redones">PROLOG</span> like <span class="redones">Belief Base</span>.</p>
+
+				<p><a href="http://eclipse.org/jetty/"><span class="redones-link">Jetty webserver</span></a> was launched on my notebook, in order to be used as <span class="redones">gateaway</span>. IoT modules are able to make an HTTP GET request to Jetty web server with the following sketch:</p>
+
+				<pre class="prettyprint lang-c">
+
+
+    #include &ltSoftwareSerial.h&gt
+    #include &ltWire.h&gt
+    #define DEBUG false
+    
+    SoftwareSerial mySerial(9,10);
+    
+    String cipSend,startConnection,domain,port,getRequest,path,parameters;
+    boolean presence,bufferPresence;
+    char fromSlave;
+    
+    void setup(){
+      
+      Wire.begin();
+      
+      pinMode(2,INPUT);
+      pinMode(13,OUTPUT);
+      
+      presence = false;
+      bufferPresence = false;
+          
+      Serial.begin(9600); 
+      
+      if(DEBUG)
+        mySerial.begin(9600); 
+
+      domain = "192.168.1.90";
+      path="";
+      parameters="";
+      port = "8080";
+
+      sendData("AT+RST\r\n",5000,DEBUG);
+      sendData("AT+CWMODE=1\r\n",5000,DEBUG);
+      sendData("AT+CWJAP=\"opendot\",\"xxxx\"\r\n",30000,DEBUG);
+            
+      if(DEBUG)      
+        mySerial.println("end setup");
+      
+    }
+    
+    void loop(){
+      
+      fromSlave = 'a';
+      
+      Wire.requestFrom(2, 6);
+      
+      if(Wire.available()){
+      
+        fromSlave = Wire.read();
+        
+      }
+      
+      if(digitalRead(2))
+        bufferPresence = true;
+      else
+        bufferPresence = false;
+        
+      if(bufferPresence != presence){
+      
+        presence = bufferPresence;
+        
+       if(DEBUG)  
+        mySerial.println("presence changed");
+        
+        if(presence){
+          parameters = "?presence5=true";
+          digitalWrite(13, HIGH);
+        }else{
+          parameters = "?presence5=false";
+          digitalWrite(13, LOW);  
+        }     
+                
+        startConnection = "AT+CIPSTART=\"TCP\",\"" + domain + "\","+port+"\r\n";
+        sendData(startConnection,5000,DEBUG);
+      
+        getRequest = "GET /"+parameters+" HTTP/1.1\r\nHost:"+domain+":"+port+"\r\n\r\n";
+      
+        cipSend = "AT+CIPSEND=";
+        cipSend += getRequest.length();
+        cipSend += "\r\n";
+      
+        sendData(cipSend,5000,DEBUG);     
+        sendData(getRequest,5000,DEBUG);
+      
+        delay(30000);
+      
+        sendData("AT+CIPCLOSE\r\n",5000,DEBUG);
+      
+        delay(5000);    
+          
+      }else{
+        if(DEBUG) 
+          mySerial.print("presence not changed");
+      }
+      delay(1000);
+      
+      
+    }
+   
+   
+    String sendData(String command, const int timeout, boolean debug){
+      
+      String response = "";
+      
+      Serial.print(command);
+      mySerial.print("Command: "+command);
+      
+      long int time = millis();
+      
+      while((time+timeout) > millis()){
+        
+        while(Serial.available()){
+          
+          char c = Serial.read(); 
+          response+=c;
+        
+        }  
+      }
+      
+      if(debug){
+       
+        mySerial.print("response: "); 
+        mySerial.print(response);
+      }
+      
+      return response;
+    
+  }
+
+				</pre>
+
+				<p><br>To be noted that every module has its own specific URL parameter. Also, the gateaway enrich these parameters with better identifiers. These because the gateaway know where the IoT module are. Here you can see the principal java class implementing the Jetty web server:</p>
+
+				<pre class="prettyprint lang-c">
+
+package rs.service;
+
+
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.handler.AbstractHandler;
+
+import rs.fabacademy.RestClient;
+import rs.fabacademy.RestClient.RequestMethod;
+
+import com.google.gson.Gson;
+ 
+public class HttpRequestHandler extends AbstractHandler {
+
+	private Gson bufferGson;
+	private Response bufferResponse;
+	private String parameter,requestUrl;
+	private RestClient restClient;
+	
+	public HttpRequestHandler(){
+		
+		bufferGson = new Gson();
+		bufferResponse = new Response();
+				
+	}
+	
+	@Override
+    public void handle(String target, Request baseRequest, HttpServletRequest request, 
+    HttpServletResponse response) throws IOException, ServletException {
+    		
+    	response.setContentType("application/json;charset=utf-8");
+        response.setStatus(HttpServletResponse.SC_OK);
+        baseRequest.setHandled(true);
+        bufferResponse.reset();
+    	
+    	System.out.println("Parameters received-> " + request.getParameterMap().toString());
+    	
+    	requestUrl = "http://"+ServiceConstants.PRACTIONIST_HOST+":"
+    	+ServiceConstants.PRACTIONIST_PORT+ServiceConstants.PRACTIONIST_PATH;
+
+		if(target.equals("/")){ 
+			
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_PRESENCE_1)) 
+			!= null){
+				
+				bufferResponse.
+				setStatus(ServiceConstants.PARAMETER_PRESENCE_1+": "+parameter);
+				
+				requestUrl += "?";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_main";
+				requestUrl += "&";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+				
+				restClient = new RestClient(requestUrl);
+				
+				try
+				{
+	
+					restClient.execute(RequestMethod.GET);
+	
+				}
+				catch (Exception e)
+				{
+	
+					e.printStackTrace();
+				}
+				
+			}else
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_PRESENCE_2)) 
+			!= null){
+					
+				bufferResponse.
+				setStatus(ServiceConstants.PARAMETER_PRESENCE_2+": "+parameter);
+				
+				requestUrl += "?";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_bathroom";
+				requestUrl += "&";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+				
+				restClient = new RestClient(requestUrl);
+				
+				try
+				{
+	
+					restClient.execute(RequestMethod.GET);
+	
+				}
+				catch (Exception e)
+				{
+	
+					e.printStackTrace();
+				}
+					
+			}else
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_PRESENCE_3)) 
+			!= null){
+					
+				bufferResponse.
+				setStatus(ServiceConstants.PARAMETER_PRESENCE_3+": "+parameter);
+				
+				requestUrl += "?";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_kitchen";
+				requestUrl += "&";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+				
+				restClient = new RestClient(requestUrl);
+				
+				try
+				{
+	
+					restClient.execute(RequestMethod.GET);
+	
+				}
+				catch (Exception e)
+				{
+	
+					e.printStackTrace();
+				}
+						
+			}else
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_PRESENCE_4)) 
+			!= null){
+					
+					bufferResponse.
+					setStatus(ServiceConstants.PARAMETER_PRESENCE_4+": "+parameter);
+					
+					requestUrl += "?";
+					requestUrl += 
+					ServiceConstants.
+					PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_corridor";
+					requestUrl += "&";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+					
+					restClient = new RestClient(requestUrl);
+					
+					try
+					{
+		
+						restClient.execute(RequestMethod.GET);
+		
+					}
+					catch (Exception e)
+					{
+		
+						e.printStackTrace();
+					}
+							
+			}else
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_PRESENCE_5)) 
+			!= null){
+				
+				requestUrl += "?";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_entrance";
+				requestUrl += "&";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+				
+				restClient = new RestClient(requestUrl);
+				
+				try
+				{
+	
+					restClient.execute(RequestMethod.GET);
+	
+				}
+				catch (Exception e)
+				{
+	
+					e.printStackTrace();
+				}
+					
+					bufferResponse.
+					setStatus(ServiceConstants.PARAMETER_PRESENCE_5+": "+parameter);
+							
+			}else
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_DOOR)) 
+			!= null){
+					
+					bufferResponse.
+					setStatus(ServiceConstants.PARAMETER_DOOR+": "+parameter);
+					
+					requestUrl += "?";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=door";
+					requestUrl += "&";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+					
+					restClient = new RestClient(requestUrl);
+					
+					try
+					{
+		
+						restClient.execute(RequestMethod.GET);
+		
+					}
+					catch (Exception e)
+					{
+		
+						e.printStackTrace();
+					}
+					
+							
+			}else	
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_DOOR_PRESENCE)) 
+			!= null){
+					
+					bufferResponse.
+					setStatus(ServiceConstants.PARAMETER_DOOR_PRESENCE+": "+parameter);
+					
+					requestUrl += "?";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=doorPresence";
+					requestUrl += "&";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+					
+					restClient = new RestClient(requestUrl);
+					
+					try
+					{
+		
+						restClient.execute(RequestMethod.GET);
+		
+					}
+					catch (Exception e)
+					{
+		
+						e.printStackTrace();
+					}
+							
+			}else
+			if( 
+			(parameter = request.getParameter(ServiceConstants.PARAMETER_OWNER_INSIDE)) 
+			!= null){
+					
+					bufferResponse.
+					setStatus(ServiceConstants.PARAMETER_OWNER_INSIDE+": "+parameter);
+					
+					requestUrl += "?";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=ownerInside";
+					requestUrl += "&";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+					
+					restClient = new RestClient(requestUrl);
+					
+					try
+					{
+		
+						restClient.execute(RequestMethod.GET);
+		
+					}
+					catch (Exception e)
+					{
+		
+						e.printStackTrace();
+					}
+							
+			}else	
+				bufferResponse.setError("invalid parameters");	       
+			
+		}else
+			bufferResponse.setError("invalid path");
+
+	
+		 response.getWriter().
+		 println(bufferGson.toJson(bufferResponse).replace("\\\"", "\""));
+		
+    }
+ 
+}
+
+				</pre>
+
+				<p>Here you can see all the modules powered on and ready to be used:</p>
+				<img class="images-default" src="img/week13/iot_modules.jpg">
+				
+				<p>I made also a multicore satshakit IoT module, in which a satshakit act as a master and reads the PIR sensor value from a slave one:</p>
+
+				<img class="images-default" src="img/week13/multicore_iot.jpg">
+				
+				<p>Here you can see the sketch I used on this IoT module:</p>
+
+				<pre class="prettyprint lang-c">
+
+
+    #include &ltSoftwareSerial.h&gt
+    #include &ltWire.h&gt
+    #define DEBUG true
+    
+    SoftwareSerial mySerial(9,10);
+    
+    String cipSend,startConnection,domain,port,getRequest,path,parameters;
+    boolean presence,bufferPresence;
+    char fromSlave;
+    
+    void setup(){
+      
+      Wire.begin();
+      
+      pinMode(13,OUTPUT);
+      
+      presence = false;
+      bufferPresence = false;
+          
+      Serial.begin(9600); 
+      
+      if(DEBUG)
+        mySerial.begin(9600); 
+
+      domain = "192.168.1.90";
+      path="";
+      parameters="";
+      port = "8080";
+
+      sendData("AT+RST\r\n",5000,DEBUG);
+      sendData("AT+CWMODE=1\r\n",5000,DEBUG);
+      sendData("AT+CWJAP=\"opendot\",\"xxxxxx\"\r\n",30000,DEBUG);
+            
+      if(DEBUG)      
+        mySerial.println("end setup");
+      
+    }
+    
+    void loop(){
+      
+      fromSlave = 'a';
+      
+      Wire.requestFrom(2, 6);
+      
+      if(Wire.available()){
+      
+        fromSlave = Wire.read();
+        
+      }
+      
+      if(fromSlave != 'a')
+        bufferPresence = true;
+      else
+        bufferPresence = false;
+        
+      if(bufferPresence != presence){
+      
+        presence = bufferPresence;
+        
+       if(DEBUG)  
+        mySerial.println("presence changed");
+        
+        if(presence){
+          parameters = "?presence5=true";
+          digitalWrite(13, HIGH);
+        }else{
+          parameters = "?presence5=false";
+          digitalWrite(13, LOW);  
+        }     
+                
+        startConnection = "AT+CIPSTART=\"TCP\",\"" + domain + "\","+port+"\r\n";
+        sendData(startConnection,5000,DEBUG);
+      
+        getRequest = "GET /"+parameters+" HTTP/1.1\r\nHost:"+domain+":"+port+"\r\n\r\n";
+      
+        cipSend = "AT+CIPSEND=";
+        cipSend += getRequest.length();
+        cipSend += "\r\n";
+      
+        sendData(cipSend,5000,DEBUG);     
+        sendData(getRequest,5000,DEBUG);
+      
+        delay(30000);
+      
+        sendData("AT+CIPCLOSE\r\n",5000,DEBUG);
+      
+        delay(5000);    
+          
+      }else{
+        if(DEBUG) 
+          mySerial.print("presence not changed");
+      }
+      delay(1000);
+      
+      
+    }
+   
+   
+    String sendData(String command, const int timeout, boolean debug){
+      
+      String response = "";
+      
+      Serial.print(command);
+      mySerial.print("Command: "+command);
+      
+      long int time = millis();
+      
+      while((time+timeout) > millis()){
+        
+        while(Serial.available()){
+          
+          char c = Serial.read(); 
+          response+=c;
+        
+        }  
+      }
+      
+      if(debug){
+       
+        mySerial.print("response: "); 
+        mySerial.print(response);
+      }
+      
+      return response;
+    
+  }
+
+
+
+				</pre>
+
+				<p>Here is a video where you can see the satshakit yellow led powered by my presence while I was getting near the sensor:</p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/5-wfTvfO6ss" frameborder="0" allowfullscreen></iframe>
+
+				<p>Finally here is the final and complete test of the IoT system. Due to a weak wifi not all modules were able to quickly communicate with gateaway and server: </p>
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/gabnJ0VTCmk" frameborder="0" allowfullscreen></iframe>
+
+				<p>After a while other GET requests were coming...</p>
+
+				<img class="images-default" src="img/week13/calls.jpg">
+
+				<p>Here you can download eagle projects of <a href="drawings/week13/eagle_satshakit_modular.zip"><span class="redones-link">satshakit multicore & modular</span></a> and <a href="drawings/week13/eagle_satshakit_power_board.zip"><span class="redones-link">satshakit power board</span></a>.</p>
+
+
 			</div>
 		</section>
 		<section id= "week14" class="row">
@@ -1923,11 +2559,11 @@ void loop() {
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week11').innerHTML,'week11')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">11. output devices</span></a>
 				
 				
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week12').innerHTML,'week12')" rel="lightbox" class="col-2">composites</a>-->
-				<a class="col-2">12. composites</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week12').innerHTML,'week12')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">12. composites</span></a>
 				
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week13').innerHTML,'week13')" rel="lightbox" class="col-2">networking and communications</a>-->
-				<a class="col-2">13. networking and communications</a>
+				
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week13').innerHTML,'week13')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">13. networking and communications</span></a>
+				
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week14').innerHTML,'week14')" rel="lightbox" class="col-2">mechanical design, machine design</a>-->
 				<a class="col-2">14. mechanical design, machine design</a>
