@@ -84,14 +84,72 @@
 	<!-- Insert your content here below! -->
         <div class="jumbotron">
     <div class="page-header">
-  <h1><u> Lesson n. 4:</u><h2>Electronics Production</h2></h1>
+  <h1><u> Lesson n. 13:</u><h2>Networking and Communications</h2></h1>
 </div>
 
-	<p>The Electronics Production assignment is to make the FabISP in-circuit programmer: you have to mill the board, stuff it with components and program it.</p>
-        
-   <h3>FabISP</h3>
-   <p>Unfortunately we are waiting for the components used in the FabISP, once we have all the parts we will get to work.</p>
-
+	<p>For this week we have to design and build a wired and/or wireless network connecting at least two processors.</p>
+            
+            <p>Given the need for my final project to communicate 2 devices located in different places, I decided to start testing some type wireless communication.</p>
+            <p>Looking on the internet I found a possible option: the <a href="http://www.amazon.com/nRF24L01-Wireless-Transceiver-Arduino-Compatible/dp/B00E594ZX0">nRF24L01</a> module.
+These modules are radio frequency transceiver to 2.4Ghz (the same as WiFi) really very cheap: they do not offer the same advanced features of the wifi, but are suitable for my needs.</p>
+            <h3>nRF24L01</h3>
+            
+            <p class="pic"><img src= "Image/Lesson13/rf24-pin.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p class="pic"><img src= "Image/Lesson13/nrf24l01_board.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>The advantages of this module are:</p>
+            <ul type="square">
+                <li>Ultra low power (ULP);</li>
+                <li>Very cheap;</li>
+                <li>A (exstimated) transmission range of 250m in open area;</li>
+                <li>On internet there are a lot of libraries and resources and a large community of people who have used it;</li>
+            </ul>
+            <p>Between all the libraries I've tested (<a href="https://github.com/stanleyseow/arduino-nrf24l01">Mirf</a> - <a href="https://github.com/mysensors/Arduino/tree/master/libraries/MySensors">MySensors NRF24L01 Arduino Library</a> - <a href="http://www.airspayce.com/mikem/arduino/RadioHead/index.html">RadioHead Packet Radio Library</a>) the most complete and easy to use is the <a href="https://github.com/tmrh20/RF24">RF24</a>.</p>
+            <p>This library, as well as being well documented, there are a number of examples to better understand the operation of the module nRF24L01.</p>
+            <p>First of all, we have to connect the nRF24 to our microcontroller boar, following this schematic:</p>
+            <p class="pic"><img src= "Image/Lesson13/arduino-nrf24_connection.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>nRF24L01 pin ----> Microcontroller pin</p> 
+            <ul type="square">
+                <li>pin 1 (GND) ----> GND</li>
+                <li>pin 2 (VCC) ----> VCC 3,3 V</li>
+                <li>pin 3 (CE)  ----> digital pin 9*</li>
+                <li>pin 4 (CSN) ----> digital pin 10*</li>
+                <li>pin 5 (SCK) ----> digital pin 13</li>
+                <li>pin 6 (MOSI)----> digital pin 11</li>
+                <li>pin 7 (MISO)----> digital pin 12</li>
+                <li>pin 8 (IRQ) ----> digital pin 2 **</li>
+            </ul>
+            <p>*CE and CSN pin are defined by software.<br>
+                ** Pin 8 IRQ is unused by most software, but the RF24 library has an example that utilizes it.</p>
+            <p>to use this module of course we will need a current regulator to be able to properly power to 3.3 V.</p>
+            <p class="pic"><img src= "Image/Lesson13/satshakit_nrf24.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>The first test we can do is upload the sketch "GettingStarted" library RF24 on both microcontrollers that we want to communicate, defining the roles of each in the same sketch.
+           This is a very basic example of how to send data from one node to another.</p>
+            <p class="pic"><img src= "Image/Lesson13/define_role.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>Once loaded the sketch in two microcontrollers, we start the serial monitor and we should see, depending on which microcontroller is connected to the PC, the bits that are transmitted or received.</p>
+            <p>here the two screens (transmitter and receiver) compared</p>
+            <p class="pic"><img src= "Image/Lesson13/ping_test.jpg" class="img-responsive" alt="Responsive image"></p>
+            
+            <p>Another example in the library, it can give you a visual idea of wireless communication, is "LedRemote".</p>
+            <p>This is an example of how to use the RF24 class to control a remote
+ bank of LED's using buttons on a remote control. On the 'remote', connect any number of buttons or switches from a microcontroller pin to ground.  Update 'button_pins' to reflect the pins used.</p>
+            
+               <p> On the 'led' board, connect the same number of LED's from an microcontroller pin to a resistor to ground. Update 'led_pins' to reflect the pins used.  Also connect a separate pin to ground and change the 'role_pin'. This tells the sketch it's running on the LED board.</p>
+            
+ 
+  <p>Every time the buttons change on the remote, the entire state of
+  buttons is send to the led board, which displays the state.</p>
+            <p class="pic"><img src= "Image/Lesson13/remote-led.jpg" class="img-responsive" alt="Responsive image"></p>
+            
+            <p>Once loaded the scketch, always open the serial monitor and control the transmission of data. This is the start-up message </p>
+            <p class="pic"><img src= "Image/Lesson13/serial_monitor_inizio.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>and these ones when sending data (ie the pressure of a button)</p>
+            <p class="pic"><img src= "Image/Lesson13/serial_monitor_comunicazione.jpg" class="img-responsive" alt="Responsive image"></p>
+            
+            This is a video while the 2 micro are working:<br><br>
+            
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/m08v2ARye7k?rel=0" frameborder="0" allowfullscreen></iframe><br>
+            <p><a href="https://github.com/tmrh20/RF24"><button type="button" class="btn btn-primary">RF24 Library Repo on GitHub</button></a></p>
+            
         </div>
     <!-- End of your content -->
 

@@ -433,16 +433,56 @@ void loop() {
       
       <h3>8x8 Led Matrix Board</h3>
       
-      <p>...................</p>
+      <p>After testing a Led matrix ready, I decided to try out a board for a 8x8 matrix LED RG.</p>
       
+      <p class="pic"><img src= "Image/Lesson11/RGledMatrix.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>The idea is to create a board that will enable me to use only three microcontroller pins (SCK, MISO, MOSI) using the shift register, following some example on internet.</p>
+      <p>To do this, I used:</p>
+       <ul type="square">
+           <li>RG LED matrix</li>
+           <li>8  resistors 1k ohm</li>
+           <li>8  resistors 220 ohm</li>
+           <li>8 557 transistors</li>
+           <li>1 ULN2803 IC - Array Transistor</li>
+           <li>2 74HC595 shift register</li>
+      </ul>
+      <li>I started to draw the schematic in eagle</li>
+      <p class="pic"><img src= "Image/Lesson11/Schematic_boardRGLedMatrix.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>preparing 5-pin header for connection with the microcontroller</p>
+      <p class="pic"><img src= "Image/Lesson11/exit_pin_header.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>When, in the view of the board, I had to arrange the components and draw all the tracks I realized that making everything on a single layer was impossible, so I decided to start experiencing the double layer board.</p>
+      <p>In order to maintain the orientation of the double layer FR4 while changing side, we have built an alignment grid that would allow us to move the piece while maintaining the initial posizone.</p>
+      <p class="pic"><img src= "Image/Lesson11/griglia_laser.jpg" class="img-responsive" alt="Responsive image"></p>
       
+      <p>Once lasered the board I noticed some problems:</p>
+               
+      <p>1 - I realized that the component used in eagle and the one that I had were different: the distance between the pins of the matrix and those on board was different.</p>
+      <p class="pic"><img src= "Image/Lesson11/errror_board.jpg" class="img-responsive" alt="Responsive image"></p>
+      
+      <p>2 - The holes of the VIA and of the pin matrix were too small: this means that when the laser goes to pierce the board, heats the copper and makes them detach from the board. </p> 
+      <p class="pic"><img src= "Image/Lesson11/errore_buchi.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>So I went back in Ealge, I corrected the distance between pins of the component and I expanded the holes so as to avoid overheating occured during the engraving with laser.</p>
+      <p class="pic"><img src= "Image/Lesson11/Edit_component_2.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p class="pic"><img src= "Image/Lesson11/Edit_component_1.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>And finally i have esported again the corrected .png file</p>
+      <p>this is the top layer</p>
+      <p class="pic"><img src= "media/top_ledmatrix.png" class="img-responsive" alt="Responsive image"></p>
+      <p>and this is the bottom layer</p>
+      <p class="pic"><img src= "media/bottom_ledmatrix.png" class="img-responsive" alt="Responsive image"></p>
+      
+    <p>Then i start to soldering the wire in the VIA</p>
+      <p class="pic"><img src= "Image/Lesson11/saldatura_via.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>and then the other component and the matrix, and this is the final result</p>
+    <p class="pic"><img src= "Image/Lesson11/Front_final.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p class="pic"><img src= "Image/Lesson11/Retro_final.jpg" class="img-responsive" alt="Responsive image"></p>
+      <p>I have used the normal 220 Ohm resistor because i don't have the Smd one, i have rebuild some traces with wires and finally i have tested it</p>
+      <p class="pic"><img src= "Image/Lesson11/final_test.jpg" class="img-responsive" alt="Responsive image"></p>
+      
+      <p><a href="media/griglia%20double%20layer.3dm"><button type="button" class="btn btn-primary">Download alignment grid for double layer</button></a></p>
+      <p><a href="media/top_ledmatrix.png"><button type="button" class="btn btn-primary">Download .png file of Top Layer</button></a></p>
+      <p><a href="media/bottom_ledmatrix.png"><button type="button" class="btn btn-primary">Download .png file of Bottom Layer</button></a></p>
       
     
-       
-        
-        
-            
-   
         </div>
     <!-- End of your content -->
 
