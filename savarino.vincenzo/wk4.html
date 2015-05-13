@@ -79,9 +79,205 @@
 									
 									 <p><img align="center"  hspace="12" src="images/myfabisp.jpg"  /></p>
 									 
-									 <p>it is time to stuff it with components...</p>
-								 <p></p>
-								<p></p>
+									 <p>it is time to stuff it with components....Before starting I collected several soldering tutorials and tips, and discussed with my collegue Daniele. For the step by step soldering process I followed <a href="http://www.fabacademy.org/archives/2015/doc/electronics_production_FabISP.html"> Fab Academy tutorial</a>.</p>
+									 
+									 <p><img align="center"  hspace="12" src="images/fabispsolder1.jpg"  /></p>
+									
+  									 <p><img align="center"  hspace="12" src="images/fabispsolder2.jpg"  /></p>
+									 
+									 									 
+									 <p><img align="center"  hspace="12" src="images/fabispsolder3.jpg"  /></p>
+									 
+									 <p>After long several steps I realized that two 100 ohm resistor were missing and I was at home! My mistake was not to check and prepare all components from my component box. I remembered of some board of a broken fax and I searched for two resistors with code 1000. I found them with code (after checking <a href="www.hobby-hour.com/electronics/smdcalc.php"> SMD resistor code</a>) 101, one very smaller. I desoldered and used them. </p>
+									 
+									 
+									 <p><img align="center"  hspace="12" src="images/fabispsolder4.jpg"  /></p>
+									 
+									 <p><img align="center"  hspace="12" src="images/fabispsolder5.jpg"  /></p>
+									 
+									 
+									 <p>Once soldered all components and verified with a multimeter possible short circuits and I made my Smoke Test: OK!</p>
+									 <p>It was time to program FabISP. To do this I used an  <a href="http://www.fabacademy.org/archives/2015/doc/arduinoisp.html">  Arduino UNO as programmer</a>. I downloaded the firmware and installed WinAVR. I've done a backup of my System PATH variables  as suggested in tutorial but after installation I realized in my Windows 7 OS that the installation maintained my PATH variable configuration.  </p>
+									 
+									 <p>Inside the Makefile for the configuration of  FabISP firmware, after checking the port of my Arduino , I modified the following line:</p> 
+
+<p><strong>AVRDUDE = avrdude -c stk500v1 -b19200 -P COM4 -p $(DEVICE)</strong></p>
+
+<p>I connected Arduino and my FabISP as reported on the top of comment section of ArduinoISP sketch:<p>
+
+<div class=boxed>
+<p>// slave reset: 	10</p>
+<p>// MOSI:        	11</p>
+<p>// MISO:       	 12</p>
+<p>// SCK:        	 13</p>
+
+</div>
+									 
+									 <p><img align="center"  hspace="12" src="images/fabispmake01.jpg"  /></p>
+									 
+									 <p><img align="center"  hspace="12" src="images/fabispmake02.jpg"  /></p>
+									 
+<p>My first try failed because I forgot to upload the Arduino sketch! Once uploaded I restarted the programming steps
+
+<ul>
+	<li>> make clean </li>
+	<li>> make hex </li>
+	<li>> make fuse</li>
+    <li>> make program</li>	
+</ul>
+
+<p>									 
+									 
+									 <div class="boxed">
+									 
+									 <p "color:#FFFFFF;">D:\FabAcademy_Files\ElectronicProduction\firmware\fabISP_mac.0.8.2_firmware&gt;<br />
+D:\FabAcademy_Files\ElectronicProduction\firmware\fabISP_mac.0.8.2_firmware&gt;make clean<br />
+rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.elf *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s</p>
+
+<p>D:\FabAcademy_Files\ElectronicProduction\firmware\fabISP_mac.0.8.2_firmware&gt;make hex<br />
+avr-gcc -Wall -Os -DF_CPU=20000000 &nbsp; &nbsp; &nbsp; -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c usbdrv/usbdrv.c -o usbdrv/usbdrv.o<br />
+avr-gcc -Wall -Os -DF_CPU=20000000 &nbsp; &nbsp; &nbsp; -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -x assembler-with-cpp -c usbdrv/usbdrvasm.s -o usbdrv/usbdrvasm.o<br />
+avr-gcc -Wall -Os -DF_CPU=20000000 &nbsp; &nbsp; &nbsp; -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c usbdrv/oddebug.c -o usbdrv/oddebug.o<br />
+avr-gcc -Wall -Os -DF_CPU=20000000 &nbsp; &nbsp; &nbsp; -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -c main.c -o main.o<br />
+avr-gcc -Wall -Os -DF_CPU=20000000 &nbsp; &nbsp; &nbsp; -Iusbdrv -I. -DDEBUG_LEVEL=0 -mmcu=attiny44 -o main.elf usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o main.o<br />
+rm -f main.hex main.eep.hex<br />
+avr-objcopy -j .text -j .data -O ihex main.elf main.hex<br />
+avr-size main.hex<br />
+&nbsp; &nbsp;text &nbsp; &nbsp;data &nbsp; &nbsp; bss &nbsp; &nbsp; dec &nbsp; &nbsp; hex filename<br />
+&nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp;2050 &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp;2050 &nbsp; &nbsp; 802 main.hex</p>
+
+<p>D:\FabAcademy_Files\ElectronicProduction\firmware\fabISP_mac.0.8.2_firmware&gt;make fuse<br />
+avrdude -c stk500v1 -b19200 -P COM4 -p attiny44 -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m</p>
+
+<p>avrdude: please define PAGEL and BS2 signals in the configuration file for part ATtiny44<br />
+avrdude: AVR device initialized and ready to accept instructions</p>
+
+<p>Reading | ################################################## | 100% 0.07s</p>
+
+<p>avrdude: Device signature = 0x1e9207<br />
+avrdude: reading input file "0xDF"<br />
+avrdude: writing hfuse (1 bytes):</p>
+
+<p>Writing | ################################################## | 100% 0.01s</p>
+
+<p>avrdude: 1 bytes of hfuse written<br />
+avrdude: verifying hfuse memory against 0xDF:<br />
+avrdude: load data hfuse data from input file 0xDF:<br />
+avrdude: input file 0xDF contains 1 bytes<br />
+avrdude: reading on-chip hfuse data:</p>
+
+<p>Reading | ################################################## | 100% 0.02s</p>
+
+<p>avrdude: verifying ...<br />
+avrdude: 1 bytes of hfuse verified<br />
+avrdude: reading input file "0xFF"<br />
+avrdude: writing lfuse (1 bytes):</p>
+
+<p>Writing | ################################################## | 100% 0.06s</p>
+
+<p>avrdude: 1 bytes of lfuse written<br />
+avrdude: verifying lfuse memory against 0xFF:<br />
+avrdude: load data lfuse data from input file 0xFF:<br />
+avrdude: input file 0xFF contains 1 bytes<br />
+avrdude: reading on-chip lfuse data:</p>
+
+<p>Reading | ################################################## | 100% 0.02s</p>
+
+<p>avrdude: verifying ...<br />
+avrdude: 1 bytes of lfuse verified</p>
+
+<p>avrdude: safemode: Fuses OK</p>
+
+<p>avrdude done. &nbsp;Thank you.</p>
+
+<p><br />
+D:\FabAcademy_Files\ElectronicProduction\firmware\fabISP_mac.0.8.2_firmware&gt;make program<br />
+avrdude -c stk500v1 -b19200 -P COM4 -p attiny44 -U flash:w:main.hex:i</p>
+
+<p>avrdude: please define PAGEL and BS2 signals in the configuration file for part ATtiny44<br />
+avrdude: AVR device initialized and ready to accept instructions</p>
+
+<p>Reading | ################################################## | 100% 0.07s</p>
+
+<p>avrdude: Device signature = 0x1e9207<br />
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;To disable this feature, specify the -D option.<br />
+avrdude: erasing chip<br />
+avrdude: please define PAGEL and BS2 signals in the configuration file for part ATtiny44<br />
+avrdude: reading input file "main.hex"<br />
+avrdude: writing flash (2050 bytes):</p>
+
+<p>Writing | ################################################## | 100% 3.49s</p>
+
+<p>avrdude: 2050 bytes of flash written<br />
+avrdude: verifying flash memory against main.hex:<br />
+avrdude: load data flash data from input file main.hex:<br />
+avrdude: input file main.hex contains 2050 bytes<br />
+avrdude: reading on-chip flash data:</p>
+
+<p>Reading | ################################################## | 100% 2.52s</p>
+
+<p>avrdude: verifying ...<br />
+avrdude: 2050 bytes of flash verified</p>
+
+<p>avrdude: safemode: Fuses OK</p>
+
+<p>avrdude done. &nbsp;Thank you.</p>
+
+<p>avrdude -c stk500v1 -b19200 -P COM4 -p attiny44 -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m</p>
+
+<p>avrdude: please define PAGEL and BS2 signals in the configuration file for part ATtiny44<br />
+avrdude: AVR device initialized and ready to accept instructions</p>
+
+<p>Reading | ################################################## | 100% 0.07s</p>
+
+<p>avrdude: Device signature = 0x1e9207<br />
+avrdude: reading input file "0xDF"<br />
+avrdude: writing hfuse (1 bytes):</p>
+
+<p>Writing | ################################################## | 100% 0.02s</p>
+
+<p>avrdude: 1 bytes of hfuse written<br />
+avrdude: verifying hfuse memory against 0xDF:<br />
+avrdude: load data hfuse data from input file 0xDF:<br />
+avrdude: input file 0xDF contains 1 bytes<br />
+avrdude: reading on-chip hfuse data:</p>
+
+<p>Reading | ################################################## | 100% 0.02s</p>
+
+<p>avrdude: verifying ...<br />
+avrdude: 1 bytes of hfuse verified<br />
+avrdude: reading input file "0xFF"<br />
+avrdude: writing lfuse (1 bytes):</p>
+
+<p>Writing | ################################################## | 100% 0.03s</p>
+
+<p>avrdude: 1 bytes of lfuse written<br />
+avrdude: verifying lfuse memory against 0xFF:<br />
+avrdude: load data lfuse data from input file 0xFF:<br />
+avrdude: input file 0xFF contains 1 bytes<br />
+avrdude: reading on-chip lfuse data:</p>
+
+<p>Reading | ################################################## | 100% 0.02s</p>
+
+<p>avrdude: verifying ...<br />
+avrdude: 1 bytes of lfuse verified</p>
+
+<p>avrdude: safemode: Fuses OK</p>
+
+<p>avrdude done. &nbsp;Thank you.</p>
+
+<p><br />
+D:\FabAcademy_Files\ElectronicProduction\firmware\fabISP_mac.0.8.2_firmware&gt;</p>
+
+</div>									 
+
+<p>I tested if FabISP has been recognized by Windows 7 but I realized that no drivers were available despite I've installed it following the step by step     <a href="http://www.fabacademy.org/archives/2015/doc/programming_FabISP.html#windows">   Fab Academy tutorial</a>. So I retried to provide drivers by selecting the drivers path and finally it recognized without drivers errors: </p>
+
+ <p><img align="center"  hspace="12" src="images/fabispmake03.jpg"  /></p>
+								
+<p>The final step was to remove the  SJ1 zero ohm resistor  and SJ2 solder jumpers in order to make the FabISP to be a programmer</p>
+								
 								
 								
 	

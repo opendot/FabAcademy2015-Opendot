@@ -548,9 +548,16 @@
 		{
 			background: #fff;
 			box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.15), 0px 2px 3px 0px rgba(0,0,0,0.1);
-			text-align: center;
+			text-align: left;
 		}
-
+        .boxed {
+             border: 1px solid grey;
+			 
+			 
+			 
+         }
+		
+		
 /*********************************************************************************/
 /* Icons                                                                         */
 /*********************************************************************************/
@@ -562,11 +569,11 @@
 		.icon:before {
 			display: inline-block;
 			font-family: FontAwesome;
-			font-size: 1.25em;
+			font-size: 2em;
 			text-decoration: none;
 			font-style: normal;
 			font-weight: normal;
-			line-height: 1;
+			line-height: 1.25;
 			-webkit-font-smoothing:antialiased;
 			-moz-osx-font-smoothing:grayscale;
 		}

@@ -72,12 +72,12 @@
 									
 									<p>This week assignment is about Computer-Controlled Machine: design and make something big.</p>
 									
-									<p>For my exercise I decided to make an idea from my previous exercise: 3d scanner mount </p>
+									<p>For my exercise I decided to make an idea from my previous exercise: 3d scanner mount. The system should enable to fix, with a variable angle and height, a camera, a 3dscanner or a Kinect. The rotating system should be composed of two circle surfaces divided by a smaller one, in order to rotate a surface respect the other one by means of several spherical wheels. The rotating plane will be moved by a stepper motor. </p>
 																		
 									 <p><img align="center"  hspace="12" src="images/scan3d_scansystem.jpg"  /></p>
 									 <p>First of all I designed with Rhino the components of the stand, taking into account that I will assembly them only by joints and I will use a 12 mm wood sheet</p>
 									 <p><img align="center"  hspace="12" src="images/wk8.jpg"  /></p>
-								     <p>After the design of 3d model I realized that some minor correction are needed:</p>
+								     <p>After the design of 3d model I realized that some minor correction are needed: the junction piece between horizontal and vertical planes had to be reduced and a need of  smaller round plane between the bigger ones: </p>
 									 <p><img align="center"  hspace="12" src="images/cnc1.jpg"  /></p>
 									 <p>Again the design of the 3d model to verify other issues</p>
 									 <p><img align="center"  hspace="12" src="images/cnc2.jpg"  /></p>
@@ -97,10 +97,27 @@
 									<button type="button" class="btn btn-primary btn-lg">Download the file</button>
 									</a>
 									</p>
+								    <p>I exported the Rhino design file in a .dxf one to be imported in <strong>vCarve Pro</strong> in order to configure the ShopBot CNC Machine and produce the GCode files, that is in a format suitable to be read by ShopBot CNC controlling software </p>
+									
+									<p>The production of GCode file is the result of several low level configuration in vCarve. A first step is the optimization of the cut by using Nest Parts feature. In my case the design was already optimized.</p>
+									
+																		
+									<p>Next step was to select all internal cuts for a first cut in order to avoid possible movement of the the wood sheet. And then the configuration of external ones. This process produced two different GCode files to be executed sequentially.</p>
+									
+									<p><img align="center"  hspace="12" src="images/vcarve1.jpg"  /></p>
+									<p><img align="center"  hspace="12" src="images/vcarve2.jpg"  /></p>
+									<p><img align="center"  hspace="12" src="images/vcarve3.jpg"  /></p>
+									
+									<p>Before starting cuts, I used the ShobBot controlling software to reset X and Y axis, once placed the machine in a suitable x,y position, and finally to calibrate Z axis by using an ad hoc metal plate connected with an electrical wire to the ShopBot machine.</p>
 								
+								    <p><img align="center"  hspace="12" src="images/cnccut1.jpg"  /></p>
+									<p><img align="center"  hspace="12" src="images/cnccut2.jpg"  /></p>
+									<p><img align="center"  hspace="12" src="images/cnccut3.jpg"  /></p>
 								
-								
-	
+								    <p>Here the final results: one of the round plate has been engraved by the laser cutting for the guide of spherical wheels </p>
+	                                
+									<p><img align="center"  hspace="12" src="images/cnccut4.jpg"  /></p>
+									<p><img align="center"  hspace="12" src="images/cnccut5.jpg"  /></p>
 	
 <p>&nbsp;</p>
 								</section>
