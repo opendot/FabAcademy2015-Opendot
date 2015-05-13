@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Saverio Silli</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+	  
+
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
+            <li><a href="contact.html">contact me</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+      
+     
+    <h1>WEEK 14</h1>
+		  <h2>14. Interface and Application Programming</h2>
+		<h3><li>Write an application that interfaces with an input &/or output device</li><br></h3>
+        <br>
+       <p>I started from Processing, as I found it pretty simple for a newbie like me. I made a lot of search on the web and found a firmware that you can upload on an Arduino to make it ready to communicate with anything you write in Processing. This firmware comes as a sketch you need to upload to your Arduino and is called <a href="http://playground.arduino.cc/interfacing/processing">Firmata</a>.</p>
+		
+	<h3>Processing</h3>
+			<p>Processing is very similar to Arduino IDE. For my application, I wanted to do something that I could use for my final project, so I searched the internet and I found some useful information I used for my sketch.<br>
+		As a first thing I used <a href="	http://www.sojamo.de/libraries/controlP5/">ControlP5</a> which is a GUI (graphical user interface) library for Processing. It is useful to create sliders and buttons for your app. Then I included the arduino library I previously imported in Processing and I used part of the code I found on <a href="http://web.ics.purdue.edu/~fwinkler/AD32600_F14/Processing_motor_control.pdf">Fabian Winkler</a>'s website.</p>
+<br>
+		
+		 <p class="pic">
+			 <a href="image/14/image1.jpg"></a>
+        <img src="image/14/image1.jpg"width="324" >
+				<legend>The application features a slider to regulate speed ad two buttons to change direction</legend>
+				 </p>
+		
+		<h4>DC Motor Control</h4>
+		<p><pre class="prettyprint linenums">
+		/*modified by Saverio Silli on may 12th 2015.
+Week 14 excercise for Fab Academy 2015.*/
+
+
+import processing.serial.*;
+import cc.arduino.*;
+import controlP5.*;
+
+ControlP5 controlP5;
+Arduino arduino;
+RadioButton r;
+Textarea myTextarea;
+
+int speed = 150; // 0-255
+int direction = 1; // 0: backward, 1: forward
+
+void setup() { 
+  
+  size(325,250);
+  
+println(Arduino.list());
+arduino = new Arduino(this, "/dev/tty.usbmodemfa141", 57600);
+
+for (int i = 0; i <= 13; i++)
+arduino.pinMode(i, Arduino.OUTPUT);
+// pin3: PWM, pin 6: 1A, pin 7: 2A (see SN754410 datasheet, same as L293D)
+
+controlP5 = new ControlP5(this);
+
+myTextarea = controlP5.addTextarea("txt1")
+                  .setPosition(20,10)
+                  .setSize(255,30)
+                  .setFont(createFont("verdana",14))
+                  .setLineHeight(14)
+                  .setColor(color(0))
+                  .setColorBackground(color(204))
+                  .setColorForeground(color(204));
+                  ;
+  myTextarea.setText("ARDUINO DC_MOTOR CONTROL v1.0"
+                   );
+
+
+controlP5.addSlider("speed",0,255,speed,20,50,255,30);
+controlP5.setColorCaptionLabel(0); 
+
+ 
+
+r = controlP5.addRadio("radio",20,100);
+r.setSize(30, 30); 
+r.setColorLabel(color(0));
+r.setItemsPerRow(2);
+r.setSpacingColumn(90);
+//r = controlP5.setSize (50, 50);
+//r.deactivateAll();
+// use deactiveAll to NOT make the first radio button active.
+r.add("forward",0);
+r.add("backward",1);
+
+myTextarea = controlP5.addTextarea("txt")
+                  .setPosition(20,150)
+                  .setSize(255,100)
+                  .setFont(createFont("verdana",12))
+                  .setLineHeight(14)
+                  .setColor(color(0))
+                  .setColorBackground(color(204))
+                  .setColorForeground(color(204));
+                  ;
+  myTextarea.setText("Slide right or left to increase or decrease DC Motor speed."
+                    +"                                              "
+                    +"                              "
+                    +"Use the buttons to change DC Motor direction.");
+
+
+}
+
+void draw() {
+  
+arduino.analogWrite(3, speed);
+
+if (direction == 1) { // run in one direction, i.e. forward
+arduino.digitalWrite(6, 1);
+arduino.digitalWrite(7, 0);
+}
+else { // run in the opposite direction, i.e. backward
+arduino.digitalWrite(6, 0);
+arduino.digitalWrite(7, 1); }
+}
+
+void radio(int theID) {
+  switch(theID) {
+    case(0):
+    direction = 1; // forward
+    break;
+  case(1):
+  direction = 0; // backward
+  break;
+} }
+</pre></p>
+		
+	<h3>Setting up Arduino</h3>
+			<p>The set up is the same as my Output device week's assignment. I still use my Motor Shield, but this time the two buttons and the potentiometer are not connected to the Arduino. The input they where providing will come from the desktop application. </p>
+
+		
+		
+		 <p class="pic">
+			 <a href="image/14/image2.jpg"></a>
+        <img src="image/14/image2.jpg"width="600" >
+				<legend>Connection schematic</legend>
+				 </p>
+		
+			 <p class="pic">
+			 <a href="image/14/image3.jpg"></a>
+        <img src="image/14/image3.jpg"width="600" >
+				<legend>The setup</legend>
+				 </p>
+		
+			 <p class="pic">
+			 <a href="image/14/image4.jpg"></a>
+        <img src="image/14/image4.jpg"width="600" >
+				<legend>My Motor Control Shield</legend>
+				 </p>
+		<br>
+		<br>
+		
+	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/ek0aMl2iuls" frameborder="0" allowfullscreen></iframe><legend class="legend">DC Motor control with a desktop application</legend></p
+	  <br><br>
+			<p>File available here</p>
+		<p>
+		<li><a href="http://www.spaghettiprop.it/materiale/fabacademy/dcmotorprocessing.zip">Processing sketch</a>  </li>
+			</p>
+	
+		
+<!-- End of your content -->
+
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> edited by <a href="http://www.facebook.com/saverio.silli">Saverio Silli</a><br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
