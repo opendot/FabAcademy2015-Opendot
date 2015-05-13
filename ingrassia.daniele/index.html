@@ -1795,7 +1795,7 @@ void loop() {
 				<img class="images-default" src="img/week13/iot_module_hand1.jpg">
 				<img class="images-default" src="img/week13/iot_module_hand2.jpg">
 				
-				<p>After implementing the software for the full IoT system, I made the following schema to have a clear starting point:</p>
+				<p>Before implementing the software for the full IoT system, I made the following schema to have a clear starting point:</p>
 
 				<img class="images-default" src="img/week13/Iot_system.jpg">
 				
@@ -2744,7 +2744,7 @@ public class HttpRequestHandler extends AbstractHandler {
   }
 
 				</pre>
-				<p>And here is the code about I uploaded on the slave satshakit in order to send sensor data to master:</p>
+				<p>And here is the code I uploaded on the slave satshakit in order to send sensor data to master:</p>
 
 				<pre class="prettyprint lang-c">
 #include &ltWire.h&gt
@@ -2793,104 +2793,425 @@ void requestEvent()
 
 				<pre class="prettyprint lang-c">
 [
-{
-"kind": "door",
-"parameters": [
-"value"
-],
-"values": [
-"close"
-]
-},
-{
-"kind": "door_presence",
-"parameters": [
-"value"
-],
-"values": [
-"false"
-]
-},
-{
-"kind": "owner_inside",
-"parameters": [
-"value"
-],
-"values": [
-"false"
-]
-},
-{
-"kind": "presence",
-"parameters": [
-"where",
-"value"
-],
-"values": [
-"corridor",
-"false"
-]
-},
-{
-"kind": "presence",
-"parameters": [
-"where",
-"value"
-],
-"values": [
-"main",
-"true"
-]
-},
-{
-"kind": "presence",
-"parameters": [
-"where",
-"value"
-],
-"values": [
-"bathroom",
-"true"
-]
-},
-{
-"kind": "presence",
-"parameters": [
-"where",
-"value"
-],
-"values": [
-"entrance",
-"false"
-]
-},
-{
-"kind": "presence",
-"parameters": [
-"where",
-"value"
-],
-"values": [
-"kitchen",
-"true"
-]
-}
+   {
+      "kind":"door",
+      "parameters":[
+         "value"
+      ],
+      "values":[
+         "close"
+      ]
+   },
+   {
+      "kind":"door_presence",
+      "parameters":[
+         "value"
+      ],
+      "values":[
+         "false"
+      ]
+   },
+   {
+      "kind":"owner_inside",
+      "parameters":[
+         "value"
+      ],
+      "values":[
+         "false"
+      ]
+   },
+   {
+      "kind":"presence",
+      "parameters":[
+         "where",
+         "value"
+      ],
+      "values":[
+         "corridor",
+         "false"
+      ]
+   },
+   {
+      "kind":"presence",
+      "parameters":[
+         "where",
+         "value"
+      ],
+      "values":[
+         "main",
+         "true"
+      ]
+   },
+   {
+      "kind":"presence",
+      "parameters":[
+         "where",
+         "value"
+      ],
+      "values":[
+         "bathroom",
+         "true"
+      ]
+   },
+   {
+      "kind":"presence",
+      "parameters":[
+         "where",
+         "value"
+      ],
+      "values":[
+         "entrance",
+         "false"
+      ]
+   },
+   {
+      "kind":"presence",
+      "parameters":[
+         "where",
+         "value"
+      ],
+      "values":[
+         "kitchen",
+         "true"
+      ]
+   }
 ]
 				</pre>
 
-				<p>Here you can download eagle projects of <a href="drawings/week13/eagle_satshakit_modular.zip"><span class="redones-link">satshakit multicore & modular</span></a> and <a href="drawings/week13/eagle_satshakit_power_board.zip"><span class="redones-link">satshakit power board</span></a>.</p>
-
+				<p><br>Here you can download eagle projects of <a href="drawings/week13/eagle_satshakit_modular.zip"><span class="redones-link">satshakit multicore & modular</span></a> and <a href="drawings/week13/eagle_satshakit_power_board.zip"><span class="redones-link">satshakit power board</span></a>.</p>
+				<p>Also, here you can download code I wrote for this assignment: <a href="other/IoTGateaway.rar"><span class="redones-link">IoTGateaway</span></a>, <a href="other/PRACTIONIST_FabAcademy.rar"><span class="redones-link">PRACTIONIST_FabAcademy</span></a></p>
 
 			</div>
 		</section>
 		<section id= "week14" class="row">
 			<div class="photo-grid">
-				<p>week14 mechanical design, machine design</p>
+				<p>Along this week, we've learned about <span class="redones">interface and application programming</span></p>
+				<p>What I wanted to do for this week, was to improve the Internet of Things system I developed along the previous week13. This time with the objective of implement a <span class="redones">web gui</span> and to do some simple <span class="redones">data analisys</span>. Also, another improvement I desired, was to detect if a <span class="redones">specific person</span> (eg: the owner) is inside the environment where the IoT system is. In order to recognize this presence I was thinking about an <span class="redones">Android application</span> that can detect if its inside an environment via a WiFi network.</p>
+
+				<p>First, I modified the IoT schema as follows:</p>
+				<img class="images-default" src="img/week14/iot_system_new.jpg">
+				<p>As you can see this time there is also an Anroid smartphone. This smartphone can connect via local WiFi in order to recognize if it's inside a specific environment, and also connect via mobile internet to the remote <a href="http://practionist.eng.it/index.htm"><span class="redones-link">PRACTIcal reasONIng sySTem</span></a> (see week13 for more details).</p>
+				<p>The idea behind how to recognize the owner presence is to develop an Android application that continuously probe for a fixed WiFi <span class="redones">SSID name</span>. If the SSID name is found, the app will try to connect to this WiFi network, and then will make an <span class="redones">HTTP GET request to check if in the response there is the password</span>. If the password match, the app will made another HTTP GET request to remote PRACTIONIST, in order to set it's presence to true. Otherwise, if there isn't the SSID name in the WiFi detected networks, or the password doesn't match, it will made an HTTP GET request to set it's presence to false.</p>
+				<p>To implement the aforementioned behaviour, I wrote the followind Android Broadcast Receiver:</p>
+				<pre class="prettyprint lang-c">
+    class MyBroadcastReceiver extends BroadcastReceiver{
+    	
+    	public void updateOwnerPresence(){
+    		
+    		String ownerInside = 
+    			"http://satsha.sytes.net:8080/updateData?updateKind=ownerInside&updateData=true";
+    		String ownerOutside = 
+    			"http://satsha.sytes.net:8080/updateData?updateKind=ownerInside&updateData=false";
+    		
+    		RestClient restClientPRACTIONIST; 
+			RestClient restClient = new RestClient("http://10.10.10.99:8084/recognize");
+			
+			try{
+				
+				restClient.execute(RequestMethod.GET);
+				
+				Log.v("test",restClient.getResponse());
+				
+				if(restClient.getResponse().startsWith("satshakitIoT")){
+					
+					Log.v("test","inside");
+					
+					restClientPRACTIONIST = new RestClient(ownerInside);
+					restClientPRACTIONIST.execute(RequestMethod.GET);
+					
+				}else{
+					
+					restClientPRACTIONIST = new RestClient(ownerOutside);
+					restClientPRACTIONIST.execute(RequestMethod.GET);
+					
+					Log.v("test","outside");
+					
+				}
+
+			}catch (Exception e){
+
+				e.printStackTrace();
+				
+				restClientPRACTIONIST = new RestClient(ownerOutside);
+				
+				try {
+					
+					restClientPRACTIONIST.execute(RequestMethod.GET);
+				
+				}catch (Exception e1) {
+					
+					e1.printStackTrace();
+				
+				}
+				
+			}
+    		
+    	}
+    	
+        public void onReceive(Context c, Intent intent){
+        	
+        	WifiManager wifiManager = (WifiManager) c.getSystemService(Context.WIFI_SERVICE);
+        	WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        	if (WifiInfo.getDetailedStateOf(wifiInfo.getSupplicantState()) 
+        		== NetworkInfo.DetailedState.CONNECTED) {
+        		
+        		Log.v("test",wifiInfo.getSSID());
+        		
+        		if(wifiInfo.getSSID().equals(mySSID)){
+        			
+        			Log.v("test","already conn");
+        			updateOwnerPresence();
+        			
+        		}else{
+        			
+                	WifiConfiguration conf = new WifiConfiguration();
+        	    	conf.SSID = "\"" + mySSID + "\""; 
+        	    	conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+        	    	
+        	    	wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE); 
+        	    	wifiManager.addNetwork(conf);
+        	    	
+        	    	List&ltWifiConfiguration&gt list = wifiManager.getConfiguredNetworks();
+        	    	for( WifiConfiguration i : list ) {
+        	    	    if(i.SSID != null && i.SSID.equals("\"" + mySSID + "\"")) {
+        	    	         //wifiManager.disconnect();
+        	    	         wifiManager.enableNetwork(i.networkId, true);
+        	    	         wifiManager.reconnect();               
+        	
+        	    	         break;
+        	    	         
+        	    	    }           
+        	    	 }
+        			
+        	    	updateOwnerPresence();
+        	    	
+        		}
+        	   
+        	}else{
+        			
+    	    	WifiConfiguration conf = new WifiConfiguration();
+    	    	conf.SSID = "\"" + mySSID + "\""; 
+    	    	conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+    	    	
+    	    	wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE); 
+    	    	wifiManager.addNetwork(conf);
+    	    	
+    	    	List&ltWifiConfiguration&gt list = wifiManager.getConfiguredNetworks();
+    	    	for( WifiConfiguration i : list ) {
+    	    	    if(i.SSID != null && i.SSID.equals("\"" + mySSID + "\"")) {
+    	    	         //wifiManager.disconnect();
+    	    	         wifiManager.enableNetwork(i.networkId, true);
+    	    	         wifiManager.reconnect();               
+    	
+    	    	         break;
+    	    	    }           
+    	    	 }
+    			
+    	    	updateOwnerPresence();
+        		
+        	}
+
+        }
+        
+    }
+				</pre>
+				<p>This time I tried this IoT system inside my <span class="redones">residence room</span> (where I live actually here in Milan). My residence room only has the room: <span class="redones">entrance, bathroom and bedroom</span>. So I modified the week13's IoT Gateaway, in order to work with different rooms and to be able to send the password if the owner is inside. Here you can see the principal class of the IoT Gateaway: </p>
+				<pre class="prettyprint lang-c">
+package service;
+
+
+
+import gateaway.RestClient;
+import gateaway.RestClient.RequestMethod;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.handler.AbstractHandler;
+
+import com.google.gson.Gson;
+ 
+public class HttpRequestHandler extends AbstractHandler {
+
+	private Gson bufferGson;
+	private Response bufferResponse;
+	private String parameter,requestUrl;
+	private RestClient restClient;
+	
+	public HttpRequestHandler(){
+		
+		bufferGson = new Gson();
+		bufferResponse = new Response();
+				
+	}
+	
+	@Override
+    public void handle(String target, Request baseRequest, 
+    HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    		
+    	response.setContentType("application/json;charset=utf-8");
+        response.setStatus(HttpServletResponse.SC_OK);
+        baseRequest.setHandled(true);
+        bufferResponse.reset();
+    	
+    	System.out.println("Parameters received-> " + request.getParameterMap().toString());
+    	
+    	requestUrl = "http://"+ServiceConstants.PRACTIONIST_HOST+":"
+    	+ServiceConstants.PRACTIONIST_PORT+ServiceConstants.PRACTIONIST_PATH;
+
+		if(target.equals("/")){ 
+			
+			if( (parameter 
+				= request.getParameter(ServiceConstants.PARAMETER_PRESENCE_1)) != null){
+				
+				bufferResponse.setStatus(ServiceConstants.PARAMETER_PRESENCE_1
+					+": "+parameter);
+				
+				requestUrl += "?";
+				requestUrl += ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_entrance";
+				requestUrl += "&";
+				requestUrl += ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+				
+				restClient = new RestClient(requestUrl);
+				
+				try
+				{
+	
+					restClient.execute(RequestMethod.GET);
+	
+				}
+				catch (Exception e)
+				{
+	
+					e.printStackTrace();
+				}
+				
+			}else
+			if( (parameter 
+				= request.getParameter(ServiceConstants.PARAMETER_PRESENCE_2)) != null){
+					
+				bufferResponse.setStatus(ServiceConstants.PARAMETER_PRESENCE_2
+					+": "+parameter);
+				
+				requestUrl += "?";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_bathroom";
+				requestUrl += "&";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+				
+				restClient = new RestClient(requestUrl);
+				
+				try
+				{
+	
+					restClient.execute(RequestMethod.GET);
+	
+				}
+				catch (Exception e)
+				{
+	
+					e.printStackTrace();
+				}
+					
+			}else
+			if( (parameter 
+				= request.getParameter(ServiceConstants.PARAMETER_PRESENCE_3)) != null){
+					
+				bufferResponse.setStatus(ServiceConstants.PARAMETER_PRESENCE_3
+					+": "+parameter);
+				
+				requestUrl += "?";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=presence_bedroom";
+				requestUrl += "&";
+				requestUrl += 
+				ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+				
+				restClient = new RestClient(requestUrl);
+				
+				try
+				{
+	
+					restClient.execute(RequestMethod.GET);
+	
+				}
+				catch (Exception e)
+				{
+	
+					e.printStackTrace();
+				}
+							
+			}else
+			if( (parameter 
+				= request.getParameter(ServiceConstants.PARAMETER_OWNER_INSIDE)) != null){
+					
+					bufferResponse.setStatus(ServiceConstants.PARAMETER_OWNER_INSIDE
+						+": "+parameter);
+					
+					requestUrl += "?";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_KIND+"=ownerInside";
+					requestUrl += "&";
+					requestUrl += 
+					ServiceConstants.PRACTIONIST_PARAMETER_UPDATE_DATA+"="+parameter;
+					
+					restClient = new RestClient(requestUrl);
+					
+					try
+					{
+		
+						restClient.execute(RequestMethod.GET);
+		
+					}
+					catch (Exception e)
+					{
+		
+						e.printStackTrace();
+					}
+							
+			}else	
+				bufferResponse.setError("invalid parameters");	       
+			
+		}else
+			if(target.equals("/recognize")){
+				
+				response.getWriter().print("satshakitIoT");
+				System.out.println("recognize received");
+				return;
+				
+			}
+				else
+			bufferResponse.setError("invalid path");
+
+	
+		 response.getWriter().
+		 	println(bufferGson.toJson(bufferResponse).replace("\\\"", "\""));
+		
+    }
+ 
+}
+				</pre>
+				<p>And, according to the above modifications, also I modified the <span class="redones">PRACTIONIST code</span>. However these are minor modifications, so if you want to check them you can download the code at the bottom of this page. As starting point in develop the web gui, I drawn an SVG of the <span class="redones">residence room planimetry</span>:</p>
+				<img class="images-default" src="img/week14/residence_room.svg">
+
+				<p>I choose to made an SVG because I wanted to have the possibility to <span class="redones">change the room's colors to </span> as the output indicating (or not) a presence. I separated the web gui in two main sections: <span class="redones">real time data</span> and <span class="redones">statistical data</span>. Real time data section will show the real time status of the rooms with also some general statuses, such as <span class="redones">empty</span>, <span class="redones">owner inside</span> and <span class="redones">alarm</span> (if a presence is detected and the owner is outside). The other section statistical data, will show some charts about <span class="redones">rooms utilization</span>, and <span class="redones">owner presence</span>. The web gui is made up of <span class="redones">HTML</span> mixed with <span class="redones">javascript code</span>. I used <a href="http://getbootstrap.com/"><span class="redones-link">bootstrap</span></a> and <a href="https://jquery.com/"><span class="redones-link">jQuery</span></a>. With jQuery I made some loops doing asynchronous HTTP GET requests to PRACTIONIST, in order to update data in real time.</p>
+
+				<p>Here is the code doing requests for the real time rooms presence:</p>
+				<pre class="prettyprint lang-c">
+
+				</pre>
+
+
 			</div>
 		</section>
 		<section id= "week15" class="row">
 			<div class="photo-grid">
-				<p>week15 interface and application programming</p>
+				<p>week15 mechanical design, machine design</p>
 			</div>
 		</section>
 		<section id= "week16" class="row">
@@ -3052,11 +3373,10 @@ void requestEvent()
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week13').innerHTML,'week13')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">13. networking and communications</span></a>
 				
 				
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week14').innerHTML,'week14')" rel="lightbox" class="col-2">mechanical design, machine design</a>-->
-				<a class="col-2">14. mechanical design, machine design</a>
-				
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week14').innerHTML,'week14')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">14. interface and application programming</span></a>
+
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week15').innerHTML,'week15')" rel="lightbox" class="col-2">interface and application programming</a>-->
-				<a class="col-2">15. interface and application programming</a>
+				<a class="col-2">15. mechanical design, machine design</a>
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week16').innerHTML,'week16')" rel="lightbox" class="col-2">applications and implications</a>-->
 				<a class="col-2">16. applications and implications</a>
