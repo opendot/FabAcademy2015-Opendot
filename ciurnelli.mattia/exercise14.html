@@ -84,13 +84,132 @@
 	<!-- Insert your content here below! -->
         <div class="jumbotron">
     <div class="page-header">
-  <h1><u> Lesson n. 4:</u><h2>Electronics Production</h2></h1>
+  <h1><u> Lesson n. 14:</u><h2>Interface and Application Programming</h2></h1>
 </div>
+            <p>For this week we have to write an application that interfaces with an input and/or output device.</p>
+            <p>During class on Wednesday, we have seen the various methods for interfacing a microcontroller with the PC, using various tools and programs.</p>
+            <p>Given my lack of experience in programming, I decided to try Processing, which has an environment similar to the Arduino and it is easy to understand.</p>
+            <h3>Processing</h3>
+            <p>First of all I started to take a look at the available libraries for Processing for serial communication with microcotrollori. Processing has, among the standard libraries, the library "Serial": the "Serial" library reads and writes data to and from external devices one byte at a time. It Allows two computers to send and receive data. This library has the flexibility to communicate with custom microcontroller devices and to use them as the input or output to processing programs.</p>
+            <p>Another useful resource is the library <a href="http://firmata.org/wiki/Main_Page">"Firmata"</a> for Arduino (and also for Processing): this library implements the Firmata protocol for communicating with software on the host computer. This allows you to write custom firmware without having to create your own protocol and objects for the programming environment that you are using.</p>
+            <p>Using these two resources I made a first exercise: I connected 3 potentiometers to analog pins A0, A1 and A2 of the microcontroller and loaded on the example "analogRead" of the library "Firmata" to try then to graphically display their values.</p>
+            <p class="pic"><img src= "Image/Lesson14/3potenziometri.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>In Processing instead, I modified the example sketch "ArduinoInput" of the library "Firamta" for Processing to display 3 circles, one for each potentiometer, with a radius equal to its value.</p>
+            <div class=codeArduino>
+import processing.serial.*;
 
-	<p>The Electronics Production assignment is to make the FabISP in-circuit programmer: you have to mill the board, stuff it with components and program it.</p>
-        
-   <h3>FabISP</h3>
-   <p>Unfortunately we are waiting for the components used in the FabISP, once we have all the parts we will get to work.</p>
+import cc.arduino.*;
+
+Arduino arduino;
+
+color off = color(1, 1, 1);
+color on = color(84, 145, 158);
+
+void setup() {
+  size(470, 280);
+
+ 
+  println(Arduino.list());
+  
+  arduino = new Arduino(this, "/dev/tty.usbserial-FTH04VDZ", 57600);
+ 
+  for (int i = 0; i <= 2; i++)
+    arduino.pinMode(i, Arduino.INPUT);
+}
+
+void draw() {
+  background(off);
+  stroke(on);
+
+  for (int i = 0; i <= 2; i++) {
+    ellipse(90 + i * 150, 150, arduino.analogRead(i) / 10, arduino.analogRead(i) / 10);
+    
+  }
+}
+                
+            </div><br>
+            <p>And this is the result:</p>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/wZNz1xIEHCM?rel=0" frameborder="0" allowfullscreen></iframe><br>
+            <p><a href="media/3_Potenziometri.pde"><button type="button" class="btn btn-primary">Download 3_Potenziometri.pde Processing file</button></a></p>
+            <p>To experience a little more I tried another simple exercise: see the sound wave through the use of a sound sensor.</p>
+            <p>To do this I connected to the analog pin A0 of the microcontroller the sound sensor</p>
+            <p class="pic"><img src= "Image/Lesson14/SoundSensor.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>and I loaded on the microcontroller a simple sketch that prints via serial the sensor value</p>
+            <div class=codeArduino>
+                void setup() {
+  // initialize the serial communication:
+  pinMode(A0, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // send the value of analog input 0:
+  Serial.println(analogRead(A0));
+  // wait a bit for the analog-to-digital converter 
+  // to stabilize after the last reading:
+  delay(100);
+}
+                
+            </div><br>
+            <p>Instead in Processing I used this program, reading values via serial, returns them by drawing a line of the same size</p>
+            <div class="codeArduino">
+            import processing.serial.*;
+ 
+ Serial myPort;       
+ int xPos = 1;        
+ 
+ void setup () {
+ 
+ size(600, 300);        
+ 
+ println(Serial.list());
+
+ myPort = new Serial(this, "/dev/cu.usbserial-FTH04VDZ", 9600);
+ 
+ myPort.bufferUntil('\n');
+ 
+ background(0);
+ }
+ void draw () {
+
+ }
+ 
+ void serialEvent (Serial myPort) {
+
+ String inString = myPort.readStringUntil('\n');
+ 
+ if (inString != null) {
+ inString = trim(inString);
+
+ float inByte = float(inString); 
+ inByte = map(inByte, 0, 1023, 0, height);
+
+ stroke(#21FF2A);
+ line(xPos, height, xPos, height - inByte*10);
+ 
+ if (xPos >= width) {
+ xPos = 0;
+ background(0); 
+ } 
+ else {
+
+ xPos++;
+ }
+ }
+ }
+                
+</div><br>
+        <p>Then i placed the sound sensor near the pc speaker</p>
+            <p class="pic"><img src= "Image/Lesson14/SoundSensor2.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>and after started the program in Processing</p>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/EXoQQEIfVlA?rel=0" frameborder="0" allowfullscreen></iframe><br>
+            <p><a href="media/AudioWave.zip"><button type="button" class="btn btn-primary">Download AudioWave.zip file with Processing file and Arduino sketch</button></a></p>
+            
+            
+            
+            
+            
+            
 
         </div>
     <!-- End of your content -->
