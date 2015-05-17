@@ -1,0 +1,660 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fab Academy 2015 - Week 7</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		
+		<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		
+	</head>
+	<body>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="./index.html#top">Home</a></li>
+					<li><a href="./index.html#work">About Me</a></li>
+					<li><a href="./index.html#class-schedule">Fab Academy</a></li>
+					<li><a href="./index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		
+
+		<!-- Work -->
+			<div class="wrapper style2">
+				<article id="work">
+					<header>
+						<h2>About Week 7</h2>
+						
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+								<section class="box style1">
+									<span class="icon featured fa-comments-o"></span>
+									<h3>My Embedded Programming Exercise...</h3>
+									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
+									<p>This week assignment was about Embedded Programming, in particular starting from my previous hello-world board: <ul>
+          <li>1. Read the microcontroller data sheet. </li>
+          <li>2. Program it </li>
+          </li>
+        </ul> </p>
+									<p>In few words the essential capability to program a microcontroller is to know its ports & pins, its input/output (I/O) system and related functions. So by means of ATTINY44 datasheet I read its pins' codes, and related alternate functions:</p>
+									<p><img align="center"  hspace="12" src="images/attiny44_datasheet.png"  /></p>
+									<p><img align="center"  hspace="12" src="images/attiny44_datasheet_2.png"  /></p>
+									<p><img align="center"  hspace="12" src="images/attiny44_datasheet_3.png"  /></p>
+									
+									<p>I found this useful image that provides a schematic summary of ATTINY44 pin</p>
+									<p><img align="center"  hspace="12" src="images/attiny44_datasheet_4.png"  /></p>
+									<p>I went back on my hello board design and the Led, the button and related resistors were connected to ATTINY44, to pin 6 and 10 respectively,that is ports PA3 and PA7 respectively.</p>
+									 								
+									 <p><img align="center"  hspace="12" src="images/w6eagle1.jpg"  /></p>
+									 
+									 <p><img align="center"  hspace="12" src="images/w6eagle2.jpg"  /></p>
+									 
+								     <p>After this study, I started to check if my hello board was OK. To do this for the first try, first of all I studied from <a href='http://www.fabacademy.org/archives/2015/doc/makefile.html' target=_blank>Fab Academy 2015 Tutorials </a> the structure of Makefile:</p>
+									 
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+PROJECT=hello.ftdi.44.echo
+SOURCES=$(PROJECT).c
+MMCU=attiny44
+F_CPU = 20000000
+
+CFLAGS=-mmcu=$(MMCU) -Wall -Os -DF_CPU=$(F_CPU)
+
+$(PROJECT).hex: $(PROJECT).out
+	avr-objcopy -O ihex $(PROJECT).out $(PROJECT).c.hex;\
+	avr-size --mcu=$(MMCU) --format=avr $(PROJECT).out
+ 
+$(PROJECT).out: $(SOURCES)
+	avr-gcc $(CFLAGS) -I./ -o $(PROJECT).out $(SOURCES)
+</pre>
+
+<p style="line-height: 24px; color: rgb(51, 51, 51); font-family: Tahoma, Geneva, sans-serif;">Where the first four lines are configuration declaration of the Makefile:</p>
+
+<ol style="color: rgb(51, 51, 51); font-family: Tahoma, Geneva, sans-serif;">
+	<li style="line-height: 26px; margin-top: -3px;">Name of the file to compile</li>
+	<li style="line-height: 26px; margin-top: -3px;">Extension of the file to compile</li>
+	<li style="line-height: 26px; margin-top: -3px;">Microcontroller to program</li>
+	<li style="line-height: 26px; margin-top: -3px;">Frequency of the board to program</li>
+</ol>
+									 
+
+				 <p>After this I downloaded and  used a led blink C program from <a href="http://fabacademy.org/archives/2012/students/menichinelli.massimo/index.html">Massimo Menichinelli's</a> by using my FabISP:</p>
+				 <p><img align="center"  hspace="12" src="images/wk7_1.jpg"  /></p>
+				 <p>The two board were recognized by my PC so I used Win-GCC for the following commands:</p>
+				 
+ <pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+D:\FabAcademy_Files\Embedded_Programming\steadyled>make
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+        avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     172 bytes (4.2% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+
+D:\FabAcademy_Files\Embedded_Programming\steadyled>make program-usbtiny-fuses
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+        avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     172 bytes (4.2% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK
+
+avrdude done.  Thank you.
+
+
+D:\FabAcademy_Files\Embedded_Programming\steadyled>make program-usbtiny
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+        avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     172 bytes (4.2% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U flash:w:steadyled.c.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "steadyled.c.hex"
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: writing flash (172 bytes):
+
+Writing | ################################################## | 100% 0.23s
+
+
+
+avrdude: 172 bytes of flash written
+avrdude: verifying flash memory against steadyled.c.hex:
+avrdude: load data flash data from input file steadyled.c.hex:
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: input file steadyled.c.hex contains 172 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.16s
+
+
+
+avrdude: verifying ...
+avrdude: 172 bytes of flash verified
+
+avrdude: safemode: Fuses OK
+
+avrdude done.  Thank you.
+
+
+D:\FabAcademy_Files\Embedded_Programming\steadyled>					
+ </pre>
+ 
+ <p>All went well and my hello board started to blink. </p>
+ <p>Then I removed FabISP-hello board connection and I checked the program loaded that is a led switch on-off once button pressed:OK!</p>
+ <p><img align="center"  hspace="12" src="images/wk7_2.jpg"  /></p>
+	<div align="center"> <iframe width="420" height="315" align="center" src="https://www.youtube.com/embed/sGYQqj7-PhU" frameborder="0" allowfullscreen></iframe> </div>
+	
+ <p>Once verified my board I started to create a new program to load. My first idea was to create a Morse Code translator that translates a string into Morse code by means of led blinking. To do this I started from the previous led blink, removed the unused functions and inserted two functions for the elaboration of a String by calling for each character  morse_char decode function. My first try was to put in memory a string ('FAB ACADEMY'-> <a href="http://morse-code.eu/m/eJxjZJCUZHBzdFJwdHZ0cfWNBAATEQMR" target=_blank>..-. .- -... / .- -.-. .- -.. . -- -.--</a>) and in while(1){} block in the main the instruction to start the blink Morse Code once the button is pressed:</p>
+ 
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+#include <avr/io.h>
+#include <inttypes.h>
+#include <util/delay.h>
+#include <avr/pgmspace.h>
+
+void delay_ms(uint16_t ms);
+void init_io();
+int button_is_pressed();
+
+
+void morse_character(char c);
+void morse_P(const char *s);
+const unsigned char morse_code_table[];
+
+#define F_CPU 20000000UL        /* 20MHz crystal oscillator */
+
+#define BUTTON_PORT PORTA       /* PORTx - register for button output */
+#define BUTTON_PIN PINA         /* PINx - register for button input */
+#define BUTTON_BIT PA3          /* bit for button input/output */
+
+#define LED_PORT PORTA          /* PORTx - register for LED output */
+#define LED_BIT PA7             /* bit for button input/output */
+#define LED_DDR DDRA            /* LED data direction register */
+
+#define DEBOUNCE_TIME 25        /* time to wait while "de-bouncing" button */
+#define LOCK_INPUT_TIME 250     /* time to wait after a button press */
+
+#define DIT 25		            /* unit time for morse code */
+
+int 
+main (void)
+{
+	init_io();
+
+	while (1)                       
+	{
+		if (button_is_pressed())
+		{
+			morse_P(PSTR("FAB ACADEMY"));
+						   
+		}
+	}
+}
+
+void delay_ms(uint16_t ms) {
+	while ( ms )
+		{
+			_delay_ms(1);
+			ms--;
+		}
+}
+
+void 
+init_io() 
+{
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* led is OFF initially (set pin high) */         
+        LED_PORT |= _BV(LED_BIT);
+
+        /* turn on internal pull-up resistor for the switch */
+        BUTTON_PORT |= _BV(BUTTON_BIT);
+}
+
+int 
+button_is_pressed()
+{
+        /* the button is pressed when BUTTON_BIT is clear */
+        if (bit_is_clear(BUTTON_PIN, BUTTON_BIT))
+        {
+			delay_ms(DEBOUNCE_TIME);
+			if (bit_is_clear(BUTTON_PIN, BUTTON_BIT)) return 1;
+        }
+
+        return 0;
+}
+
+
+
+// blink a single character in Morse code
+void morse_character(char c)
+{
+	unsigned char code, count;
+
+	if (c == ' ') {
+		
+		delay_ms(DIT * 7);
+		return;
+	}
+	
+		
+	
+	
+	if(c >= 'A' && c <= 'Z') {
+	
+		code = pgm_read_byte(morse_code_table + (c - 'A'));
+	
+	}
+	
+	else {
+		
+		return;
+	}
+	
+	for (count = code & 0x07; count > 0; count--) {
+		LED_PORT=0b00000001;
+		if (code & 0x80) {
+			
+			delay_ms(DIT * 3);
+		} else {
+			
+			delay_ms(DIT);
+		}
+		LED_PORT=0b10000000;
+		delay_ms(DIT);
+		code = code << 1;
+	}
+	
+	delay_ms(DIT * 2);
+}
+
+// blink an entire message in Morse code
+// the string must be in flash memory (using PSTR macro)
+void morse_P(const char *s)
+{
+	char c;
+	
+	while (1) {
+		c = pgm_read_byte(s++);
+		if (!c) break;
+		morse_character(c);
+	}
+	
+}
+
+const unsigned char PROGMEM morse_code_table[] = {
+	0x40 + 2,	// A: .-
+	0x80 + 4,	// B: -...
+	0xA0 + 4,	// C: -.-.
+	0x80 + 3,	// D: -..
+	0x00 + 1,	// E: .
+	0x20 + 4,	// F: ..-.
+	0xC0 + 3,	// G: --.
+	0x00 + 4,	// H: ....
+	0x00 + 2,	// I: ..
+	0x70 + 4,	// J: .---
+	0xA0 + 3,	// K: -.-
+	0x40 + 4,	// L: .-..
+	0xC0 + 2,	// M: --
+	0x80 + 2,	// N: -.
+	0xE0 + 3,	// O: ---
+	0x60 + 4,	// P: .--.
+	0xD0 + 4,	// Q: --.-
+	0x40 + 3,	// R: .-.
+	0x00 + 3,	// S: ...
+	0x80 + 1,	// T: -
+	0x20 + 3,	// U: ..-
+	0x10 + 4,	// V: ...-
+	0x60 + 3,	// W: .--
+	0x90 + 4,	// X: -..-
+	0xB0 + 4,	// Y: -.--
+	0xC0 + 4    // Z: --..
+	
+};
+</pre>
+ 
+ <DIV align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/KVuN5g0sIpc" frameborder="0" allowfullscreen></iframe></DIV>
+ 
+ <h3>Download the code</h3>
+<p>
+<a href="media/hellomorse.zip">
+<button type="button" class="btn btn-primary btn-lg">Download the code</button>
+</a>
+</p> 
+								
+								
+	
+	
+<p>&nbsp;</p>
+								</section>
+							</div>
+							
+							
+							
+							
+							
+							
+						</div>
+					</div>
+					
+				</article>
+			</div>
+
+		<!-- Portfolio -->
+			<div class="wrapper style3">
+				<article id="class-schedule">
+					<header>
+						<h2>Fab Academy - Class schedule 2015</h2>
+						<p></p>
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk1.html" class="image featured"><img src="images/wk1.jpg" alt="" /></a>
+									<h3><a href="wk1.html">Week 1</a></h3>
+									<p>Principles and Practices </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk2.html" class="image featured"><img src="images/wk2.jpg" alt="" /></a>
+									<h3><a href="wk2.html">Week 2</a></h3>
+									<p>Computer-Aided Design</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk3.html" class="image featured"><img src="images/wk3.jpg" alt="" /></a>
+									<h3><a href="wk3.html">Week 3</a></h3>
+									<p>Computer-Controlled Cutting</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk4.html" class="image featured"><img src="images/wk4.jpg" alt="" /></a>
+									<h3><a href="wk4.html">Week 4</a></h3>
+									<p>Electronics Production</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk5.html" class="image featured"><img src="images/wk5.jpg" alt="" /></a>
+									<h3><a href="wk5.html">Week 5</a></h3>
+									<p>3D Scanning and Printing </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk6.html" class="image featured"><img src="images/wk6.jpg" alt="" /></a>
+									<h3><a href="wk6.html">Week 6</a></h3>
+									<p>Electronics Design</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk7.html" class="image featured"><img src="images/wk7.jpg" alt="" /></a>
+									<h3><a href="wk7.html">Week 7</a></h3>
+									<p>Embedded Programming </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk8.html" class="image featured"><img src="images/wk8.jpg" alt="" /></a>
+									<h3><a href="wk8.html">Week 8</a></h3>
+									<p>Computer-controlled machining </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk9.html" class="image featured"><img src="images/wk9.jpg" alt="" /></a>
+									<h3><a href="wk9.html">Week 9</a></h3>
+									<p>Molding and Casting</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 10</a></h3>
+									<p>Input Devices</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 11</a></h3>
+									<p>Output Devices</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 12</a></h3>
+									<p>Composites</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 13</a></h3>
+									<p>Networking and Communications</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 14</a></h3>
+									<p>Mechanical Design, Machine Design</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 15</a></h3>
+									<p>Interface and application programming</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 16</a></h3>
+									<p>Applications and Implications</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 17</a></h3>
+									<p>Invention, Intellectual Property, and Income</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 18</a></h3>
+									<p>Project Development</p>
+								</article>
+							</div>
+							
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="#">Week 19</a></h3>
+									<p>Project Presentation</p>
+								</article>
+							</div>
+							
+							
+						</div>
+					</div>
+					<footer>
+						<a href="#contact" class="button big scrolly">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
+
+		<!-- Contact -->
+			<div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<header>
+						<h2>More information and suggestions</h2>
+						<p>please Keep in Touch!</p>
+					</header>
+					<div>
+						<div class="row">
+							<div class="12u">
+								<form method="post" action="MAILTO:vincenzo.savarino@gmail.com">
+									<div>
+										<div class="row">
+											<div class="6u">
+												<input type="text" name="name" id="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" name="email" id="email" placeholder="Email" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<input type="text" name="subject" id="subject" placeholder="Subject" value="[Fab Academy]"/>
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<textarea name="message" id="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row 200%">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" value="Send Message" /></li>
+													<li><input type="reset" value="Clear Form" class="alt" /></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+				<footer>
+						<ul id="copyright">
+							<li>This work is released under the <a href="http://creativecommons.org/licenses/by/3.0/" target=_blank>CCA license</a>    </li><li>Design: <a href="http://html5up.net" target=_blank>HTML5 UP</a></li>
+						</ul>
+					</footer>	
+				</article>
+			</div>
+
+	</body>
+</html>
+
+
+
+
+
+

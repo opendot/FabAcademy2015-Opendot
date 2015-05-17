@@ -84,21 +84,33 @@
 																		
 									 <p><img align="center"  hspace="12" src="images/w6eagle1.jpg"  /></p>
 									 
-									 <p>The Led, the button and related resistors were connected to ATTINY44, to pin 6 and 10 respectivelly. I calculated the current limiting resistor by using the web tool  <a href="http://led.linear1.org/1led.wiz " target=_blank>  http://led.linear1.org/1led.wiz </a> </p>
+									 <p>The Led, the button and related resistors were connected to ATTINY44, to pin 6 and 10 respectively. I calculated the current limiting resistor by using the web tool  <a href="http://led.linear1.org/1led.wiz " target=_blank>  http://led.linear1.org/1led.wiz </a> </p>
 									 <p><img align="center"  hspace="12" src="images/w6eagle2.jpg"  /></p>
-								     <p>After this I switched to the board view and the inserted component swere located down on the left and their traces not displayied. I reduced the zoom an I tried to allocate them by using the autoroute function, but without success. After several temptatives,  I realized that the problem was that starting from the example many of the components are just displaced reducing a lot the available space. So I decided to manualy arrange the components and the traces. </p>
+								     <p>After this I switched to the board view and the inserted component were located down on the left and their traces not displayed. I reduced the zoom an I tried to allocate them by using the autoroute function, but without success. After several temptatives,  I realized that the problem was that starting from the example many of the components are just displaced reducing a lot the available space. So I decided to manualy arrange the components and the traces. </p>
 								     <p><img align="center"  hspace="12" src="images/w6eagle3.jpg"  /></p>
-								     <p>I've checked for errors, but only warnings </p>
 								     <p><img align="center"  hspace="12" src="images/w6eagle4.jpg"  /></p>
-									 <p>The next step wat to prepare the board for printing. I've deselected some levels, changed the background</p>
+									 <p>I've checked for errors, but only warnings.</p>
 									 <p><img align="center"  hspace="12" src="images/w6eagle5.jpg"  /></p>
-								     <p>and exported as monochrome image with 1000 dpi of resolution</p>
+								     <p>The next step was to prepare the board for printing. I've deselected some levels, changed the backgroundand exported as monochrome image with 1000 dpi of resolution</p>
 								     <p><img align="center"  hspace="12" src="images/w6eagle6.jpg"  /></p>
 								     <p>As done for my FabISP, I've imported the .png file into Inkscape, I vectorized it and I added text and a red square</p>
 								     <p><img align="center"  hspace="12" src="images/w6eagle7.jpg"  /></p>
-									 <p>ready for engraving and cutting</p>
+									 <p>ready for engraving and cutting. Unfortunately after the engraving I found an error in my board: </p>
 									 <p><img align="center"  hspace="12" src="images/w6eagle8.jpg"  /></p>
-								     
+								     <p>The path from the led cathode and GND was missing, and I did not notice this during the export and check of board design. In order to check the error and solve it in eagle files I noticed that maybe the error was the missing junction between led and ground in schematic. I corrected it and saved the project. </p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle9.jpg"  /></p>
+									 <h3>Download the Eagle Project file</h3>
+									<p>
+									<a href="media/enzosavhello_board.zip">
+									<button type="button" class="btn btn-primary btn-lg">Download the file</button>
+									</a>
+									</p>
+									 <p>So I started to solder the components. About Led in order to identify anode and cathode I checked the symbols:</p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle_polarity_smd_led.jpg"  /><img align="center"  hspace="12" src="images/w6eagle_polarity_smd_led_2.jpg"  /></p>
+									 <p>About the board I decide to solve the problem during the components soldering by making an emergency junction. For the </p>
+									 <p><img align="center"  hspace="12" src="images/w6eagle10.jpg"  /></p>
+									 <p>Once finished, with crossed fingers, I connected the FTDI cable with my PC and my helloboard for a smoke test: seems all OK! In the next week exercise I will check if the board is able to be programmed.</p>
+									  <p><img align="center"  hspace="12" src="images/w6eagle11.jpg"  /></p>
 								
 								
 	
@@ -175,8 +187,8 @@
 						<div class="row">
 							<div class="4u">
 								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 7</a></h3>
+									<a href="wk7.html" class="image featured"><img src="images/wk7.jpg" alt="" /></a>
+									<h3><a href="wk7.html">Week 7</a></h3>
 									<p>Embedded Programming </p>
 								</article>
 							</div>
