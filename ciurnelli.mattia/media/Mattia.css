@@ -372,3 +372,17 @@ div.codeArduino {
       height: 12px;
       background: green;
 }
+
+.photo-grid {
+    border: 1px dashed;
+    width: 900px;
+}
+
+#gantt_here {
+    width:auto;
+    height:300px;
+    background-color: white;
+    border: 2px solid #facd11 !important;
+    border-radius: 14px;
+    padding: 5px;
+}
