@@ -83,6 +83,9 @@
 			<div class="photo-grid">
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project1').innerHTML,'project1')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">1. Concept</span></a>
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project2').innerHTML,'project2')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">2. Hardware: flight controller</span></a>
+
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project3').innerHTML,'project2')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. Final project: the proposal</span></a>
+
 			</div>
 		</section>	
 
@@ -3935,9 +3938,9 @@ function drawRoomsTimesChart(){
 
 				<img class="images-default" src="img/final_project/1/2560_fuses.png">
 				
-				<p>As I developed a general purpose Arduino compatible board, the <a href="https://github.com/satshas/satshakit"><span class="redones-link">satshakit</span></a>, I decided to use it as my flight controller board. As communication and the programming communication I will use an <span class="redones">USB FTDI 5V cable</span>. With this cable I don't need anymore the FT232RL chip.</p>
+				<p>As I developed a general purpose Arduino compatible board, the <a href="https://github.com/satshas/satshakit"><span class="redones-link">satshakit</span></a>, I decided to use it as my flight controller board. As communication and the programming communication I will use an <span class="redones">USB FTDI 5V cable</span>. With this cable I don't need anymore the FT232RL chip. Also, as IMU, I will use a <a href="http://www.drotek.fr/shop/en/home/62-imu-10dof-mpu6050-hmc5883-ms5611.html"><span class="redones-link">Drotek 10DOF</span></a>. With this IMU I will get MPU6050 gyro, HMC5883 digital compass and MS5611 barometer, all in a compact package. Furthermore, this the Drotek 10DOF will work well with <a href="http://www.multiwii.com/"><span class="redones-link">Multiwii</span></a>.</p>
 
-				<p>With satshakit, multiwii and quadcopter hardware I've done several <span class="redones">successful experimentation</span>. You can read more in the <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week11').innerHTML,'week11')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">output devices assignment</span></a> section. Here is a video about controlling ESCs and motors with satshakit:</p>
+				<p>With satshakit, Multiwii and quadcopter hardware I've done several <span class="redones">successful experimentation</span>. You can read more in the <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week11').innerHTML,'week11')" rel="lightbox" class="col-2"><span class="redones-link" style="font-weight: bold;">output devices assignment</span></a> section. Here is a video about controlling ESCs and motors with satshakit:</p>
 
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/kZMLoyP47z4" frameborder="0" allowfullscreen></iframe>
 
@@ -3945,7 +3948,24 @@ function drawRoomsTimesChart(){
 		</section>
 		<section id= "project3" class="row">
 			<div class="photo-grid">
-				<p>project3: system</p>
+				<p>Final project: <span class="redones">the proposal</span>.</p>
+				<p>In this project page we've to better describe our final project, and also take into consideration that it isn't just a <span class="redones">mind's whim</span>, but it can have some real-world <span class="redones">Applications and Implications</span>.</p>
+
+				<p>The <span class="redones">big news</span> is that I've accepted <span class="redones">Neil's suggestion</span> to cooperate with someone to have better chances to <span class="redones">carry it out</span>.</p>
+
+				<p>Question 1: <span class="redones" style="font-style: italic;">what will it do?</span></p>	
+				<p> </p>			
+      			<p>Question 2: <span class="redones" style="font-style: italic;">who's done what beforehand?</span></p>
+      			<p>Question 3: <span class="redones" style="font-style: italic;">what materials and components will be required?</span></p>
+      			<p>Question 4: <span class="redones" style="font-style: italic;">where will they come from?</span></p>
+      			<p>Question 5: <span class="redones" style="font-style: italic;">how much will it cost?</span></p>
+     			<p>Question 6: <span class="redones" style="font-style: italic;">what parts and systems will be made?</span></p>
+      			<p>Question 7: <span class="redones" style="font-style: italic;">what processes will be used?</span></p>
+      			<p>Question 8: <span class="redones" style="font-style: italic;">what tasks need to be completed?</span></p>
+      			<iframe  scrolling="no" width="1200" height="300" src="dhtmlxGantt/gantt.html"></iframe>
+      			<p>Question 9: <span class="redones" style="font-style: italic;">what questions need to be answered?</span></p>
+      			<p>Question 10: <span class="redones" style="font-style: italic;">what is the schedule?</span></p>
+     		 	<p>Question 11: <span class="redones" style="font-style: italic;">how will it be evaluated?</span></p>				
 			</div>
 		</section>
 		<section id= "project4" class="row">
@@ -4055,12 +4075,13 @@ function drawRoomsTimesChart(){
 	<script type="text/javascript" src="js/vendor/jquery.fluidbox.min.js"></script>
 	<script type="text/javascript" src="js/run_prettify.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-
+	
 
 	<script type="text/javascript">
 		
 
 		window.onload = function () { 
+
 
 					
 					var canvas = document.getElementById('cv');
