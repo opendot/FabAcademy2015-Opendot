@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
     <link rel="icon" href="media/favicon.ico">
-
-    <title>Fab Academy 2015 - Name Surname</title>
-
+    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
+      rel="stylesheet" type="text/css">
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <!-- FORCED COLOR LINK TBD -->
+    <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
-	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
     <script type="text/javascript" src="media/jsc3d.touch.js"></script>
-
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
     <!-- Load the menu file -->
     <script>
 	function menu() {
@@ -40,216 +35,187 @@
 					  $('#cclicense').load("license.html");
 					  }
 	</script>
-
   </head>
-
   <body onload="menu()">
-
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
-        </div>
+        <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese
+            @FabAcademy2k15</a> </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
               <ul id="exercises" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+            <li><a href="contact.html">Contact </a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
     </nav>
-
     <div class="container">
-
-	<!-- Insert your content here below! -->
-
-
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-    <!-- End of your content -->
-
-    </div> <!-- /container -->
-
-	<!-- footer -->
-    
+      <!-- Insert your content here below! -->
+      <h1><strong>Exercise 12</strong></h1>
+      <p>22.04.2015</p>
+      <h2>Composite Materials</h2>
+      <h3>Assignment</h3>
+      <p> </p>
+      <ul type="â€discâ€">
+      </ul>
+      Design and make a 3D mold (~ft2), and produce a fiber composite part in it<br>
+      <br>
+      2 project:<br>
+      <a href="#skate">How to make a longboard</a><br>
+      <a href="#surf">How to make a surf</a><br>
+      <br>
+      <br>
+      <ul type="â€discâ€">
+      </ul>
+      <h1><a id="skate" name="skate"></a>OhMyLong!</h1>
+      I have a personal project called <a target="_blank" href="http://www.ohmylong.tk">OhMyLong!</a><a
+        target="_blank">&nbsp; </a>that is a derivate of Fab Skate by Luciano
+      Bertoldi.<br>
+      During this week I tried to experiment a new technique.<br>
+      <br>
+      <h2>Robot Arm</h2>
+      In Fablab Torino, we have a Comau robotic arm and we use it to experiment
+      some artistic field with the arm like 3D print in ceramic and milling
+      wood. This project is developed by Co-De-It, Officine Arduino and Fablab
+      Torino. link to the project <a target="_blank" href="https://stefanoparadiso.wordpress.com/">Digifab
+        Touring</a><br>
+      With <a target="_blank" href="https://stefanoparadiso.wordpress.com/">Stefano
+        Paradiso</a> we tryng to make a longboard mold using the robot arm:<br>
+      The Arm is controlled by a Grasshopper script that make and send directly
+      a custom g-code to the arm<br>
+      <br>
+      <img style="width: 482px; height: 361px;" alt="1" src="img/long_fab06.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img style="width: 484px; height: 362px;" alt="2" src="img/long_fab09.jpg"><br>
+      <br>
+      <img style="width: 483px; height: 362px;" alt="3" src="img/long_fab11.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img style="width: 485px; height: 363px;" alt="4" src="img/long_fab12.jpg"><br>
+      <br>
+      We mount a 12mm bit and we try to mill all the mold in one time <br>
+      <br>
+      <img style="width: 380px; height: 273px;" alt="1" src="img/long_fab14.jpg"><img
+        style="width: 363px; height: 272px;" alt="1" src="img/long_fab17.jpg"><img
+        style="width: 743px; height: 558px;" alt="1" src="img/long_fab19.jpg"><br>
+      <br>
+      <h2>Shape</h2>
+      With Rhino I designed and cutted with laser the 3 brich wood layer<br>
+      <img alt="1" src="img/fab13.jpg"><br>
+      <h2>Glue</h2>
+      using fiber and bicomponent epoxy resin mixed 1:20 I glued all the layer<br>
+      <img style="width: 401px; height: 301px;" alt="1" src="img/long_fab05.jpg">&nbsp;
+      <img style="width: 399px; height: 299px;" alt="2" src="img/fab06.jpg"><br>
+      <h2>Press</h2>
+      I put the sandwich in a vacuum bag with the particular spoonge fiber to
+      absorb the resin and I made the vacuum with a <a href="http://en.wikipedia.org/wiki/Venturi_effect">Ventuti
+        valve</a> instead the vacuum cleaner because with this valve I can use
+      my 100L compressor to make the vacuum for many time with a low energy
+      consumption<span style="color: #141414;"><span style="font-family: Verdana,Arial,Tahoma,Calibri,Geneva,sans-serif;"></span></span><span
+        style="color: rgb(20, 20, 20); font-family: Verdana, Arial, Tahoma, Calibri, Geneva, sans-serif; font-size: 13.3333330154419px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18.6666660308838px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(252, 252, 255);"></span><br>
+      <div style="text-align: center;"><img style="width: 430px; height: 322px;"
+          alt="1" src="img/fab08.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img style="width: 426px; height: 319px;" alt="1" src="img/fab09.jpg"><img
+          style="width: 670px; height: 502px;" alt="1" src="img/fab11.jpg"></div>
+      <br>
+      <br>
+      <h2>Color</h2>
+      when the shape is ready is possible to mask some parts and color the board<br>
+      <div style="text-align: center;"><img alt="1" src="img/fab29.jpg"><img style="width: 498px; height: 664px;"
+          alt="1" src="img/fab30.jpg"><img style="width: 500px; height: 666px;"
+          alt="1" src="img/fab31.jpg"><br>
+      </div>
+      <br>
+      <h2>Finishing</h2>
+      With a gelcoat is possible to make the board woterproof an then is
+      possible to stick the grip, trucks and wheels<br>
+      and this is the final result:<br>
+      <br>
+      <img alt="1" src="img/fab33.jpg"><br>
+      <br>
+      <br>
+      <p> </p>
+      <h2><a id="surf" name="surf"></a></h2>
+      <h1>Surf!</h1>
+      During the <a href="exercise08.html">week 8</a> I made a surf board.<br>
+      <br>
+      <h2>Shaping</h2>
+      I started using a nylon pantyhose to make a smoothie shape but it wasn't
+      good<br>
+      <img style="width: 378px; height: 504px;" alt="x" src="img/long_fab86.jpg"><br>
+      <br>
+      So I used a rubber fiber sheet that is unveiled perfect because it is
+      useful to reinforce the pin and the tail of the board<br>
+      <br>
+      <img style="width: 349px; height: 466px;" alt="x" src="img/long_fab88.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img style="width: 603px; height: 451px;" alt="x" src="img/long_fab89.jpg"><br>
+      <br>
+      On the sides I userd american tape to smooth the side shape<br>
+      <br>
+      <img alt="x" src="img/long_fab90.jpg"><br>
+      <h2>Resin</h2>
+      I covered the board with fiber covered by Epoxy resin mixed 1:2<br>
+      <br>
+      <img style="width: 419px; height: 559px;" alt="x" src="img/long_fab91.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img style="width: 421px; height: 561px;" alt="x" src="img/long_fab93.jpg"><br>
+      <br>
+      <br>
+      <br>
+      <h2>Customizing</h2>
+      Between the first and second layer I've insered a cartonboard logo<br>
+      <img alt="x" src="img/long_fab100.jpg"><br>
+      <br>
+      <img alt="x" src="img/long_fab101.jpg"><br>
+      <br>
+      <br>
+      <br>
+      <p> </p>
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
     <footer id="footer">
-        <p id="cclicense">
-                </p>
-        <p class="license">
-        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
-        </p>
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+          href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
     </footer>
-    
-
-	<!-- Do not touch this! -->
+    <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="media/jquery-1.9.1.min.js"></script>
-    
     <!-- Syntax Highlighter -->
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
     </script>
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript">
+    <script type="text/javascript">
 	  !function ($) {
 		$(function(){
 		  window.prettyPrint && prettyPrint()   
 		})
 	  }(window.jQuery)
 	</script>
-	
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-
   </body>
 </html>
