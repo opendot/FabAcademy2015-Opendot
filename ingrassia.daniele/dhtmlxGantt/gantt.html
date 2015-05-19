@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>How to Start with dhtmlxGantt</title>
+   <title>AAVOID Gantt</title>
    <script src="codebase/dhtmlxgantt.js"></script>
    <script src="gantt.js"></script> 
    <link href="codebase/dhtmlxgantt.css" rel="stylesheet">
 </head>
 <body>
-    <div id="gantt" style='width:1800px; height:300px;'></div>
+    <div id="gantt" style='width:18000px; height:300px;'></div>
     <script type="text/javascript">
 	gantt.config.readonly = true;
+   gantt.config.autosize = "xy";
 	gantt.init("gantt"); 
 	gantt.parse (tasks);
     </script>

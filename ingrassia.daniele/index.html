@@ -10,10 +10,6 @@
 	<link rel="stylesheet" href="css/vendor/fluidbox.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
-	<!-- GANTT files-->
-	<script type="stylesheet" src="dhtmlxGantt/codebase/dhtmlxgantt.css"></script>
-	<script type="text/javascript" src="dhtmlxGantt/codebase/dhtmlxgantt.js"></script>
-
 	<script type="text/javascript" src="js/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="js/jsc3d.min.js"></script>
     <script type="text/javascript" src="js/jsc3d.webgl.js"></script>
@@ -3951,21 +3947,76 @@ function drawRoomsTimesChart(){
 				<p>Final project: <span class="redones">the proposal</span>.</p>
 				<p>In this project page we've to better describe our final project, and also take into consideration that it isn't just a <span class="redones">mind's whim</span>, but it can have some real-world <span class="redones">Applications and Implications</span>.</p>
 
-				<p>The <span class="redones">big news</span> is that I've accepted <span class="redones">Neil's suggestion</span> to cooperate with someone to have better chances to <span class="redones">carry it out</span>.</p>
+				<p>The <span class="redones">big news</span> is that I've accepted <span class="redones">Neil's suggestion</span> to cooperate with someone to have better chances to <span class="redones">carry out the project</span>. In fact, after Neil told me two times the aforementioned suggestion, our local instructur <span class="redones">Massimo Menichinelli</span> and my fellow student <a href="http://fabacademy.org/archives/2015/eu/students/ciurnelli.mattia/index.html"><span class="redones-link">Mattia Ciurnelli</span></a>, proposed me to develop the project not alone. After this Mattia told me that, if for me it's ok, he would participate. Finally, I <span class="redones">decided to cooperate</span> with him. Motivations behind this decision are mainly that I've always cooperated well with Mattia. He is young and also filled with the desire to succeed, like me. I also <span class="redones">warned him</span> about the chances that this project will fail. This project may go <span class="redones">beyond the FabAcademy scopes</span>, but also I think that it's difficult for me that similar <span class="redones">circumstances will come again</span>, so <span class="redones">let's try our best</span>.</p>
 
-				<p>Question 1: <span class="redones" style="font-style: italic;">what will it do?</span></p>	
-				<p> </p>			
-      			<p>Question 2: <span class="redones" style="font-style: italic;">who's done what beforehand?</span></p>
-      			<p>Question 3: <span class="redones" style="font-style: italic;">what materials and components will be required?</span></p>
-      			<p>Question 4: <span class="redones" style="font-style: italic;">where will they come from?</span></p>
-      			<p>Question 5: <span class="redones" style="font-style: italic;">how much will it cost?</span></p>
-     			<p>Question 6: <span class="redones" style="font-style: italic;">what parts and systems will be made?</span></p>
-      			<p>Question 7: <span class="redones" style="font-style: italic;">what processes will be used?</span></p>
-      			<p>Question 8: <span class="redones" style="font-style: italic;">what tasks need to be completed?</span></p>
-      			<iframe  scrolling="no" width="1200" height="300" src="dhtmlxGantt/gantt.html"></iframe>
-      			<p>Question 9: <span class="redones" style="font-style: italic;">what questions need to be answered?</span></p>
-      			<p>Question 10: <span class="redones" style="font-style: italic;">what is the schedule?</span></p>
-     		 	<p>Question 11: <span class="redones" style="font-style: italic;">how will it be evaluated?</span></p>				
+				<h2 class="col-2" style="margin: 30px;">Question 1: <span class="redones" style="font-style: italic;">what will it do?</span><br></h2>	
+
+				<p><span class="redones">Fly</span>. With the difference on <span class="redones">how</span> it will fly. Something can fly, if it's light enough for you to launch it. And what about an remote controlled airplane? You're just using another method to control it, but, same as an hand launch, you're in charge do decide what to do, how and where fly. So what's this project about? It's about giving <span class="redones">some degree of autonomy</span> at an <span class="redones"> almost fabbed quadcopter</span>. Key features in this direction are: <span class="redones">obstacle avoidance</span> and <span class="redones">cooperation</span> capabilities.</p>	
+
+      			<h2 class="col-2" style="margin: 30px;">Question 2: <span class="redones" style="font-style: italic;">who's done what beforehand?</span><br></h2>
+      			
+      			<p>As far as I know, in today market there isn't a <span class="redones">really, even partially, autonomous drone</span>. Unless you consider autonomous some drones following GPS coordinates at high quota, needed to avoid obstacles. In the academician world there are some prototypes that seems to work very well, talking about cooperation, but not of obstacle avoidance: <a href="http://www.ted.com/talks/raffaello_d_andrea_the_astounding_athletic_power_of_quadcopters"><span class="redones-link">Raffaello D'Andrea's athletic quadcopter</span></a>, <a href="https://www.ted.com/talks/vijay_kumar_robots_that_fly_and_cooperate"><span class="redones-link">Vijay Kumar robots that fly...and cooperate</span></a>. To be know that these prototypes work only in a special and built on purpose environment, that helps the drones to move and detect each other.</p>
+      			
+      			<h2 class="col-2" style="margin: 30px;">Question 3: <span class="redones" style="font-style: italic;">what materials and components will be required?</span><br></h2>
+      			
+      			<ul class="lists">
+      				<li>I think it's a good idea to split required materials in three macro category:</li>
+      				<li><span class="redones">structural materials:</span> wood frame, plastic/carbon fiber propellers, plastic supports/cage</li>
+      				<li><span class="redones">electronics equipment:</span> <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html"><span class="redones-link">satshakits</span></a>, 10DOF IMU, radio remote controller, USB FTDI cable, Android smartphone, sonar sensors, eventually a server</li>
+      				<li><span class="redones">software components:</span> Android porting of <a href="http://practionist.eng.it/index.htm"><span class="redones-link">PRACTIcal reasONIng sySTem</span></a> framework for implementing autonomous behaviours, <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii</span></a> as flight controller, eventually a Linux server for storage and data anlysis</li>
+      			</ul>
+      			
+      			<h2 class="col-2" style="margin: 30px;">Question 4: <span class="redones" style="font-style: italic;">where will they come from?</span><br></h2>
+
+      			<p>Wood will come from a <span class="redones">local supplier</span>, same as for the PLA we will use to 3D print small parts such as supports. I developed satshakit, so it will come from <a href="http://www.opendotlab.it/"><span class="redones-link">OpenDot Fablab</span></a>, but obviously, the component of which is made or the other electronic parts, are all made in China.</p>
+
+      			<h2 class="col-2" style="margin: 30px;">Question 5: <span class="redones" style="font-style: italic;">how much will it cost?</span><br></h2>
+
+     			<p>This will be an expensive project. It's too early to know now the exact cost of all, but I think it will costs around <span class="redones">300 euros</span>. The <span class="redones">most expensive parts</span> will be: ESCs, motors, sonar sensors and the Android smartphone.</p>
+     			
+     			<h2 class="col-2" style="margin: 30px;">Question 6: <span class="redones" style="font-style: italic;">what parts and systems will be made?</span><br></h2>
+      			
+      			<ul class="lists">
+      				<li>We will try, at our best, to <span class="redones">make/develop by ourselves</span> the following parts:</li>
+      				<li>frame</li>
+      				<li>surroundings cage</li>
+      				<li>parts and sensors supports</li>
+      				<li>flight controller board (based on satshakit)</li>
+      				<li>sensors and actuators board (based on satshakit)</li>
+      				<li>power and signal distribution board</li>
+      				<li>software for autonomous control</li>
+      				<li>software for drone data streaming and analysis</li>
+      				</ul>
+      			<h2 class="col-2" style="margin: 30px;">Question 7: <span class="redones" style="font-style: italic;">what processes will be used?</span><br></h2>
+      			
+      			<ul class="lists"><li>I think that we will use <span class="redones">several and heterogeneous processes</span>. In fact we have to deal with:</li>
+      				<li><span class="redones">laser engraving</span> pcbs</li>
+      				<li><span class="redones">soldering</span> and testing pcbs</li>
+      				<li><span class="redones">laser cutting</span> the frame</li>
+      				<li><span class="redones">3D printing supports</li>
+      				<li>Android, Web and Linux <span class="redones">software development</span></li>
+      			</ul>
+
+      			<h2 class="col-2" style="margin: 30px;">Question 8: <span class="redones" style="font-style: italic;">what tasks need to be completed?</span><br></h2>
+      			
+      			<h2 class="col-2" style="margin: 30px;">Question 9: <span class="redones" style="font-style: italic;">what questions need to be answered?</span><br></h2>
+
+      			<ul class="lists"><li>I continuously think <span class="redones"> about three main concerns:</span></li>
+      				<li>how to make a <span class="redones">stable flight</span> with almost fabbed parts</li>
+      				<li>how to efficiently load sensors and smartphone on the quadcopter</li>
+      				<li>develop <span class="redones">accurate and efficient agorithms</span> for obstacle avoidance and cooperation capabilities</li>
+      			</ul>
+      			
+      			<h2 class="col-2" style="margin: 30px;">Question 10: <span class="redones" style="font-style: italic;">what is the schedule?</span><br></h2>
+      			
+      			<iframe  style="margin: 30px" width="1200" height="300" src="dhtmlxGantt/gantt.html"></iframe>
+     		 	
+     		 	<h2 class="col-2" style="margin: 30px;">Question 11: <span class="redones" style="font-style: italic;">how will it be evaluated?</span><br></h2>
+     		 	<ul class="lists"><li>We will evalute this project by effectively reaching three macro milestones. I think that the milestones are:</li>
+     		 		<li><span class="redones">fly</span> with an almost fabbed quadcopter</li>
+     		 		<li>implement some autonomous <span class="redones">obstacle avoidance capabilities</span></li>
+     		 		<li>implement some autonomous <span class="redones">cooperation capabilities</span></li>
+     		 		</ul>				
 			</div>
 		</section>
 		<section id= "project4" class="row">
@@ -4017,11 +4068,10 @@ function drawRoomsTimesChart(){
 				
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week14').innerHTML,'week14')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">14. interface and application programming</span></a>
 
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week15').innerHTML,'week15')" rel="lightbox" class="col-2">interface and application programming</a>-->
-				<a class="col-2">15. mechanical design, machine design</a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project3').innerHTML,'project3')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">15. applications and implications</span></a>
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week16').innerHTML,'week16')" rel="lightbox" class="col-2">applications and implications</a>-->
-				<a class="col-2">16. applications and implications</a>
+				<a class="col-2">16. mechanical design, machine design</a>
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week17').innerHTML,'week17')" rel="lightbox" class="col-2">invention, intellectual property, and income</a>-->
 				<a class="col-2">17. invention, intellectual property, and income</a>
