@@ -407,7 +407,7 @@ div.codeArduino {
 iframe.Gantt {
     width: 100%;
     background: white;
-    height: 400px;
+    height: 800px;
     overflow:hidden;
     overflow-y: hidden;  
     overflow-x: hidden;
