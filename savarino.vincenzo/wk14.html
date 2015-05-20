@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Week 9</title>
+		<title>Fab Academy 2015 - Week 14</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -48,7 +48,6 @@
 				<ul class="container">
 					<li><a href="./index.html#top">Home</a></li>
 					<li><a href="./index.html#work">About Me</a></li>
-					<li><a href="./finalproject.html">Final Project</a></li
 					<li><a href="./index.html#class-schedule">Fab Academy</a></li>
 					<li><a href="./index.html#contact">Contact</a></li>
 				</ul>
@@ -60,7 +59,7 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Week 9</h2>
+						<h2>About Week 14</h2>
 						
 					</header>
 					<div class="container">
@@ -68,78 +67,33 @@
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>My Molding and Casting Exercise...</h3>
+									<h3>Interface and Application Programming Exercise...</h3>
 									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
 									
-									<p>This week assignment is about molding and casting: design a 3D mold, machine it, and cast parts from it.</p>
-									
-									<p>For my exercise I decided for a first experimentation to model a styled owl with Rhino.</p>
-									<p>First of all I decided the dimension, taking into account the available wax block: 168X79x36 mm.</p>
-									<p>After that  I started to model the owl, starting from the profile</p>
-									
-																									
-																		
-									 <p><img align="center"  hspace="12" src="images/moldcast01.jpg"  /></p>
-									 <p>Created a surface from it, and extruded it. with _FilledEdges I smoothed the edges.</p>
-									 <p><img align="center"  hspace="12" src="images/moldcast02.jpg"  /></p>
-								     
-									 <p>For the eyes I've applied solid difference and boolean operations. For the nose, applied a transformation of a circle with its control points, extruded it and filled the edges.</p>
-									 
-									 <p><img align="center"  hspace="12" src="images/moldcast03.jpg"  /></p>
-								     <p>Once added the feets, I've prepared the box for silicon rubber</p>
-									 <p>I've rotated+duplicated (in rhino by pressing alt during the operation) the model  and positioned them  on the extruded surfaces of the box.</p>
-								     <p><img align="center"  hspace="12" src="images/moldcast041.jpg"  /></p>
-									 <p><img align="center"  hspace="12" src="images/moldcast042.jpg"  /></p>
-									 <p>Added the pins for the junction of the two faces:</p>
-									 <p><img align="center"  hspace="12" src="images/moldcast05.jpg"  /></p>
-								     <p>I tested that the two faces of model are in line.</p>
-								     <p><img align="center"  hspace="12" src="images/moldcast06.jpg"  /></p>
-								     
-								      
-									
-									<h3>Download the stl mold file</h3>
-									
-									<p>
-									<a href="media/owlmold.stl.zip">
-									<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-									</a>
+									<p>This week assignment is about Interface and Application Programming:  write an application that interfaces with an input &/or output device.</p>
+									<p> With Massimo we have spent a full day about several programming languages and tools, in particular we focused mainly on:
+										<ul>
+											  <li>- <a href="http://www.fabacademy.org/archives/2015/doc/python.html" target=_blank>Python</a> </li>
+											  <li>- <a href="www.wxpython.org/" target=_blank>WXPython</a> </li>
+											  <li>- WXPython GUI Builder: <a href="http://sourceforge.net/projects/wxformbuilder/files/wxformbuilder-nightly/3.3.04-beta/" target=_blank>WXFormBuilder</a> </li>
+											  <li>- <a href="https://processing.org/ " target=_blank>Processing </a></li>
+											  <li>- <a href="https://nodejs.org/" target=_blank>Node.js </a></li>
+										</ul>
 									</p>
-								
-								
-								<h3>Download the Rhino file</h3>
-									
-									<p>
-									<a href="media/owlmold.zip">
-									<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-									</a>
-									</p>
-								
-	
-	
-                            <p>&nbsp;</p>
-							<p>For the molding I had to use the CNC shotbot but unfortunately the smaller bit was broken. The only available was the 6mm one. This bit is not suitable for my design and the selected wax box, so I decided to use another base, a 2.5 cm of MDF sheet, and to enlarge my stylized owl. I returned to my Rhino model and I used Scale 2D function to enlarge the model . Further operation was to reduce the height of mold (the original one was 3.6 cm) by mean of a boolean difference between the enlarged model and a 3d block. </p>
-							<p>As done in computer controlled machine assignment I've exported the .dxf file in order to use the ShopBot machine. In this case another ShopBot software has been used: <strong>ShopBot Part Works 3D</strong>.  </p>
-							<p><img align="center"  hspace="12" src="images/moldcast7.jpg"  /></p>
-							<p><img align="center"  hspace="12" src="images/moldcast8.jpg"  /></p>
-							<p>The mold process was composed of two steps, with two different GCODE files: routhing toolpath and finishing toolpath. For the second one I choose a 45 degree engraving without a 90 degree double pass.</p>
-							<p><img align="center"  hspace="12" src="images/moldcast9.jpg"  /></p>
-							<p><img align="center"  hspace="12" src="images/moldcast10.jpg"  /></p>
-							<p><img align="center"  hspace="12" src="images/moldcast11.jpg"  /></p>
-							<p>The next step was to prepare the surface for the casting by smoothing several times with a soft sandpaper.</p>
-							<p><img align="center"  hspace="12" src="images/moldcast12.jpg"  /></p>
-							<p>Once removed all mdf dust I used a water based impregnant in order to avoid any detachment of pieces of MDF</p>
-							<p><img align="center"  hspace="12" src="images/moldcast13.jpg"  /></p>
-							<p>Finally I used a mold release wax to facilitate the detaching of the silicone rubber</p>
-							<p><img align="center"  hspace="12" src="images/moldcast14.jpg"  /></p>
-							<p>It was time for casting. I prepared the rubber where parts A & B were mixed for 3 minutes with a composition of 100A (silicone rubber):3B (hardness) by weight-scale.</p>
-							<p><img align="center"  hspace="12" src="images/moldcast15.jpg"  /></p>
-							<p><img align="center"  hspace="12" src="images/moldcast16.jpg"  /></p>
-							<p>From product instructions the pot life is 40 minutes and rubber cures in 24 hours, so after the casting during the first ten minutes I continued to vibrate the mold in order to remove residual bubbles. </p>
-							<p><img align="center"  hspace="12" src="images/moldcast17.jpg"  /></p>
-							<p>After 24 hours I try to remove the hard silicone with success. I realized some residuals of mold release and a not perfect mixture of rubber and hardness (blue streak), which however did not affect the texture of the silicone. </p>
-							<p><img align="center"  hspace="12" src="images/moldcast18.jpg"  /></p>
-							<p><img align="center"  hspace="12" src="images/moldcast19.jpg"  /></p>
-							<p><img align="center"  hspace="12" src="images/moldcast20.jpg"  /></p>
+							<p>Before starting to complete my assignment I decided to make a first insight into the above languages and tools.</p>
+                            
+							<p>I've just installed Python 2.7 and I've tried my first example to read from serial after having installed <a href="http://pyserial.sourceforge.net/" ><Strong>pySerial</Strong></a>. It is a wrapper library that encapsulates the access for the serial port. It provides backends for all OS, Windows, Linux and BSD, by selecting automatically the appropriate one.</a></p>
+							
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+>>> import serial
+>>> ser = serial.Serial('COM4', 9600)
+>>> while True:
+...     print ser.readline()
+</pre>
+							
+							
+							<p>&nbsp;</p>
+						
 								</section>
 							</div>
 							
