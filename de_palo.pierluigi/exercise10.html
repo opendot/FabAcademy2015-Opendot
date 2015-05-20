@@ -70,7 +70,7 @@
             <li>
         <a href="project-menu.html">Final Project</a>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+   
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -88,26 +88,36 @@
     
         <li class="next"><a href="exercise11.html"> →</a></li>
     
-        <h2>Week 10 - Input Devices -</h2>
+        <h2>WEEK 10 - INPUT DEVICES -</h2>
 
         </ul>
         
 
 <br>
-        <h4>Goal: Add a sensor to a microcontroller board that you've designed and read it.</h4>
-        <h4>Sensor: <a href="http://en.wikipedia.org/wiki/Photoresistor"> Photoresistor </a></h4
+        <h4>GOAL: ADD A SENSOR TO A MICROCONTROLLER BOARD THAT YOU'VE DESIGNED AND READ IT</h4>
+        <h4>Project : Exercise n°6 of Arduino Project Book - Light Theremin - and edit the code for use my own board. </h4>
+            <br>
+        <h4>Sensor Input: <a href="http://en.wikipedia.org/wiki/Photoresistor"> Photoresistor </a></h4
         <h4>Soft :<a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a></h4>
-        <h4>Board: Satshakit --> <a href="https://github.com/satshas/satshakit">Git Hub repository of the project</a> by <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">Daniele Ingrassia</a> of my Fab Academy class</h4>
+        <h4>Board: Satsha Kit --> by <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">Daniele Ingrassia</a> # <a href="https://github.com/satshas/satshakit"> Git Hub repository of the project</a></h4>
         <h4>Datasheet : <a href="http://atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf">Microcontroller ATmega 328P Datasheet</a></h4>
+        <h4>Note : MY FIRST ARDUINO PROJECT EVER :-)</h4>
 
-        <br>
                <br>
         <p>****************************************************************************************************************</p>
      <br>
 
+         <h4><u>1ST PART --> MAKE A HOME MADE ARDUINO  </u></h4>
         <br>
-         <h4><u>MAKE A HOME MADE ARDUINO  </u></h4>
+        <p>For the realizzaione of the Design of my bord, I have use the project of Daniel Ingrassia of my Fab Academy Class. </p>
         <br>
+        <p>What I have done : </p>
+        <p>1--> I have lasered and engraved the board following the experience did in <a href="exercise04.html"> week 4 </a> et <a href="exercise06.html"> week 6 </a> </p>
+            
+        <p>2--> Sold the components following skematic</p>
+        
+        <br>
+        
         <div class="row">
               <div class="col-lg-6">
                 <img src="Images/w10_soldering_1.jpg">
@@ -128,9 +138,18 @@
           <br>
               
             <br>
-         <h4><u>CONNECT FAB ISP TO THE BOARD</u></h4>
+         <h4><u>2ND PART --> CONNECT FAB ISP TO THE BOARD FOR PROGRAMMING</u></h4>
         <br>
-                  <br>
+      <p>When board ready I have followed this process for programming it : </p>
+      <br>
+      
+        <p>Connected this pin list, looking FabISP Labeled Board reference and Satsha Kit Pin Mapping : </p>
+        <br>
+        <p>MOSI (Master Output Slave Input) in Fab ISP to  --> board pin 11</p>
+        <p>MISO (Master Input Slave Output) in Fab ISP to --> board pin 12</p>
+        <p>SCK (Serial Clock) in Fab ISP to --> board pin  13</p>
+        <p>RST (Reset ) in Fab ISP to --> board pin RST</p>
+      <br>
                 <p class="pic">
                 <img src="Images/w10_Fab_ISP_andFab_Kit_Satcha_Edited.jpg">
 	<legend></legend>
@@ -154,20 +173,7 @@
                 <img src="Images/w10_Programming_FABIsp.jpg">
 	<legend>Programming_FABIsp</legend>
             </p>
-        
-
-        
-        <br>
-        <br>
-        <p> 1st step --> Connect this pin list looking FabISP Labeled Board reference and Satshakit Pin Mapping </p>
-        <br>
-        <p>MOSI (Master Output Slave Input) in Fab ISP to  --> board pin 11</p>
-        <p>MISO (Master Input Slave Output) in Fab ISP to --> board pin 12</p>
-        <p>SCK (Serial Clock) in Fab ISP to --> board pin  13</p>
-        <p>RST (Reset ) in Fab ISP to --> board pin RST</p>
-        
-        
-        
+    
         <br>
               
     <p class="pic">
@@ -193,10 +199,11 @@
 	<legend></legend>
             </div>
         </div>
-      <br>  
-        <br>
-        <p> 2st step --> Connect the FTDI (Future Technology Devices International) cable with red (+) and black (-) pins, to the Fab Kit following the map</p>
-        <p>Connect FIRST the USB cable between the Fab ISP and computer and  for SECOND the Fab Kit with the FTDI cable to computer.</p>
+
+    <br>
+    
+        <p>Connect the FTDI (Future Technology Devices International) cable with red (+) and black (-) pins, to the Fab Kit following the map</p>
+        <p>(Connect FIRST the USB cable between the Fab ISP and computer and  for SECOND the Fab Kit with the FTDI cable to computer)</p>
       <br>
         <p>Now the 2 boards are powered and we are ready to upload Bootloader. </p>
         <br>
@@ -207,7 +214,7 @@
            
         
         <br>
-         <h4><u>LOAD BOOTLOADER WITH IDE ARDUINO 1.6.3</u></h4>
+         <h4><u>3RD PART--> LOAD BOOTLOADER WITH IDE ARDUINO 1.6.3</u></h4>
         <br>
         
         
@@ -240,15 +247,10 @@
           <br>
     
         <br>
-         <h4><u>BUILD THE CIRCUIT FOR A LIGHT THEREMIN</u></h4>
+         <h4><u>4TH PART -->BUILD THE CIRCUIT FOR A LIGHT THEREMIN</u></h4>
         <br>
-<p>Elements</p>
-    <br>
-    <p>1 Piezo</p>
-    <br>
-    <p>10 Kilohm Resistor</p>
-    <br>
-    <p>1 Photoresistor</p>
+<p>Elements : 1 Piezo # 10 Kilohm Resistor # 1 Photoresistor</p>
+
       <br><br>
       
       <br>
@@ -275,7 +277,7 @@
         <br>
     
       
-      <h4><u>THE CODE</u></h4>
+      <h4><u>5TH PART --> THE CODE</u></h4>
       <br>
       <br>
       <br>
@@ -285,7 +287,7 @@
 	<legend></legend>
             </p>
       <br>
-     <pre class="prettyprint linenums">
+     <div class="code">
 	
 	/*
   Arduino Starter Kit example
@@ -349,7 +351,7 @@ void loop() {
 
   // wait for a moment
   delay(10);
-}</pre>
+}</div>
       <br>
           
         <p class="pic">

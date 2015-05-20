@@ -2,6 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+      
+      <style>
+
+body {
+  margin:auto;
+  background: #222;
+  min-width: none;
+}
+
+rect {
+  fill: none;
+  pointer-events: all;
+}
+
+circle {
+  fill: none;
+  stroke-width: 2.5px;
+}
+
+</style>
+      
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -71,7 +92,7 @@
             <li>
         <a href="project-menu.html">Final Project</a>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -80,7 +101,42 @@
 
 
 	<!-- Insert your content here below! -->
-      
+            <script>
+
+var width = Math.max(960, innerWidth),
+    height = Math.max(500, innerHeight);
+
+var i = 0;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .on("ontouchstart" in document ? "touchmove" : "mousemove", particle);
+
+function particle() {
+  var m = d3.mouse(this);
+
+  svg.insert("circle", "rect")
+      .attr("cx", m[0])
+      .attr("cy", m[1])
+      .attr("r", 1e-6)
+      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(2000)
+      .ease(Math.sqrt)
+      .attr("r", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+
+  d3.event.preventDefault();
+}
+
+</script>
           
       <div class="container">
         
@@ -90,13 +146,22 @@
     
         <li class="next"><a href="exercise02.html"> →</a></li>
     
-        <h2><em>Week 1 - Principles and Practices -</em></h2>
+        <li class="previous"><a href="exercises-menu.html">← </a></li> 
+    
+
+            
+            
+            
+        <h2>Week 1 - Principles and Practices -</h2>
         </ul>
         
         <br>
         
-        <h4>Goal: <u>Web Site + Syncro repository whit hosting service</u></h4>
-        <h4>Soft : <a href="http://brackets.io"> Brakets</a> for Html writing + <a href="https://github.com/">Git Hub </a> for Syncro </h4>
+        <h4>ASSIGNMENT: PLAN AND SKETCH A POTENTIAL SEMESTER PROJECT</h4>
+          <h4>PROJECT: DO MY WEB SITE // SYNCRO REPOSITORY WITH A HOSTING SERVICE</h4>
+          <br>
+        <h4>SOFT: <a href="http://brackets.io"> Brakets</a> for Html writing // <a href="https://github.com/">Git Hub </a> for Syncro </h4>
+          <h4>NOTE: <a href="project-menu.html">Final Project Page </a> </h4>
         <br>
          <p>****************************************************************************************************************</p>
         <br>
@@ -136,9 +201,45 @@ Overcome the barriers of the graphic interface, is very stimulating. I don't hid
             </div>
         </div>
 
-      
 
+</script>
           
+      <script>
+
+var width = Math.max(960, innerWidth),
+    height = Math.max(500, innerHeight);
+
+var i = 0;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .on("ontouchstart" in document ? "touchmove" : "mousemove", particle);
+
+function particle() {
+  var m = d3.mouse(this);
+
+  svg.insert("circle", "rect")
+      .attr("cx", m[0])
+      .attr("cy", m[1])
+      .attr("r", 1e-6)
+      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(2000)
+      .ease(Math.sqrt)
+      .attr("r", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+
+  d3.event.preventDefault();
+}
+
+</script>
     <!-- End of your content -->
 
     </div> <!-- /container -->
@@ -180,5 +281,44 @@ Overcome the barriers of the graphic interface, is very stimulating. I don't hid
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = Math.max(960, innerWidth),
+    height = Math.max(500, innerHeight);
+
+var i = 0;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .on("ontouchstart" in document ? "touchmove" : "mousemove", particle);
+
+function particle() {
+  var m = d3.mouse(this);
+
+  svg.insert("circle", "rect")
+      .attr("cx", m[0])
+      .attr("cy", m[1])
+      .attr("r", 1e-6)
+      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(2000)
+      .ease(Math.sqrt)
+      .attr("r", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+
+  d3.event.preventDefault();
+}
+
+</script>
+
+    
   </body>
 </html>

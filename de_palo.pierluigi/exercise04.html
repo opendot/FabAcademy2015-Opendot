@@ -71,7 +71,7 @@
             <li>
         <a href="project-menu.html">Final Project</a>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -86,13 +86,13 @@
        <div class="container">
            <p>****************************************************************************************************************</p> 
         
-         <ul class="pager statusINC">
+         <ul class="pager status">
     
         <li class="previous"><a href="exercise03.html">← </a></li> 
     
         <li class="next"><a href="exercise05.html"> →</a></li>
     
-        <h2><em>Week 4 -  Electronics Production -</em></h2>
+        <h2>Week 4 -  Electronics Production -</h2>
 
         </ul>
 
@@ -100,9 +100,10 @@
            
         <br>
            
-<h4>Goal: <u>Mill (Laser) the board, stuff it with components and program it </u></h4>
+<h4>ASSIGNMENT: MILL (LASER !) THE BOARD // STUFF IT WITH COMPONENTS // PROGRAM IT </h4>
+           <br>
            
-<h4>Reference :<a href="http://fabacademy.org/archives/2015/doc/electronics_production_FabISP.html"> FabISP Production Tutorial </a> # <a href="http://fabacademy.org/archives/2015/doc/programming_FabISP.html"> FabISP Programming Tutorial </a> </h4>
+<h4>Reference:<a href="http://fabacademy.org/archives/2015/doc/electronics_production_FabISP.html"> FabISP Production Tutorial </a> // <a href="http://fabacademy.org/archives/2015/doc/programming_FabISP.html"> FabISP Programming Tutorial </a> </h4>
            
 <h4>Machine: <a href="http://www.troteclaser.com/en-US/Laser-Machines/Compact/Pages/Speedy-100-flexx.aspx"> Trotec Speedy 100 Flexx </a></h4>
            
@@ -111,7 +112,7 @@
            <p>****************************************************************************************************************</p>
            
         <br>
-           <h4>LASER ENGRAVING BOARD - Part 1 (next part in <a href="exercise06.html">week 6</a>) </h4>
+           <h4>--> LASER ENGRAVING BOARD - PART 1 (next part in <a href="exercise06.html">week 6</a>) </h4>
         <br>
         <p>To create  our Fab Isp Boards here in OpenDot, instead of using the milling process, we try to used the laser cutter machine to engrave our boards.<br>
             <br> For more details about this process, I invite you to look the development page of our colleague <a href="http://fabacademy.org/archives/2015/eu/students/bassi.enrico/exercise04.html">Enrico Bassi</a> who is the developer of this process.</p>
@@ -171,7 +172,7 @@
       <br><br>
  
            <br>
-<h4>CONCLUSIONS</h4>
+<h4>--> CONCLUSIONS</h4>
            <br>
            <p>The process work good but for the next set we will try to do 7 pass of engraving</p>
            
@@ -180,7 +181,7 @@
       
         <br>
         
-      <h4>Electronics Components Soldering</h4>
+      <h4>--> ELECTRONICS COMPONENT SOLDERING</h4>
         
            <br><br>
         
@@ -195,7 +196,7 @@
             </div>
           
         <div class="col-lg-6">  
-	<img src="Images/w4_Fab%20ISP%20Parts%20Layout_Web.png">
+	<img src="Images/w4_Fab%20ISP%20Parts%20Layout_Web.jpg">
 	<legend>FabISP Parts Layout</legend>
             </div>
         </div>
@@ -246,7 +247,7 @@
       
         <br>
         
-      <h4>PROGRAMMING THE BOARD</h4>
+      <h4>--> PROGRAMMING THE BOARD</h4>
         
            <br><br>
       
@@ -269,7 +270,7 @@ AVRDUDE = avrdude -c usbtiny -p $(DEVICE) # edit this line for your programmer
           <br><br>
            
            
-      <p>Make Clean</p>
+      <p>--> MAKE CLEAN</p>
            
            <br>
            
@@ -312,7 +313,7 @@ avr-size main.hex
            <br>
            <br>
            
-<p>sudo make fuse</p>      
+<p>--> SUDO MAKE FUSE</p>      
            <br>
            
            <div class="code">
@@ -402,154 +403,7 @@ avrdude done.  Thank you.
 
 </div>
            
-           <br><br>
-      
-           <div class="code">
-               Pierluigi-MacBook-Pro:fabISP_mac.0.8.2_firmware massimo$ sudo make program
 
-avrdude -c stk500v1 -P /dev/tty.usbmodem1421 -b19200 -p attiny44 -U flash:w:main.hex:i
-
-
-
-avrdude: AVR device initialized and ready to accept instructions
-
-
-
-Reading | ################################################## | 100% 0.05s
-
-
-
-avrdude: Device signature = 0x1e9207
-
-avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
-
-         To disable this feature, specify the -D option.
-
-avrdude: erasing chip
-
-avrdude: reading input file "main.hex"
-
-avrdude: writing flash (1988 bytes):
-
-
-
-Writing | ################################################## | 100% 3.41s
-
-
-
-avrdude: 1988 bytes of flash written
-
-avrdude: verifying flash memory against main.hex:
-
-avrdude: load data flash data from input file main.hex:
-
-avrdude: input file main.hex contains 1988 bytes
-
-avrdude: reading on-chip flash data:
-
-
-
-Reading | ################################################## | 100% 2.26s
-
-
-
-avrdude: verifying ...
-
-avrdude: 1988 bytes of flash verified
-
-
-
-avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
-
-
-
-avrdude done.  Thank you.
-
-
-
-avrdude -c stk500v1 -P /dev/tty.usbmodem1421 -b19200 -p attiny44 -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m
-
-
-
-avrdude: AVR device initialized and ready to accept instructions
-
-
-
-Reading | ################################################## | 100% 0.05s
-
-
-
-avrdude: Device signature = 0x1e9207
-
-avrdude: reading input file "0xDF"
-
-avrdude: writing hfuse (1 bytes):
-
-
-
-Writing | ################################################## | 100% 0.02s
-
-
-
-avrdude: 1 bytes of hfuse written
-
-avrdude: verifying hfuse memory against 0xDF:
-
-avrdude: load data hfuse data from input file 0xDF:
-
-avrdude: input file 0xDF contains 1 bytes
-
-avrdude: reading on-chip hfuse data:
-
-
-
-Reading | ################################################## | 100% 0.02s
-
-
-
-avrdude: verifying ...
-
-avrdude: 1 bytes of hfuse verified
-
-avrdude: reading input file "0xFF"
-
-avrdude: writing lfuse (1 bytes):
-
-
-
-Writing | ################################################## | 100% 0.02s
-
-
-
-avrdude: 1 bytes of lfuse written
-
-avrdude: verifying lfuse memory against 0xFF:
-
-avrdude: load data lfuse data from input file 0xFF:
-
-avrdude: input file 0xFF contains 1 bytes
-
-avrdude: reading on-chip lfuse data:
-
-
-
-Reading | ################################################## | 100% 0.02s
-
-
-
-avrdude: verifying ...
-
-avrdude: 1 bytes of lfuse verified
-
-
-
-avrdude: safemode: Fuses OK (E:FF, H:DF, L:FF)
-
-
-
-avrdude done.  Thank you.
-           
-           </div>
            
            
            

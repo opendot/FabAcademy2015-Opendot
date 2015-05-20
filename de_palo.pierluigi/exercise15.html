@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+    <meta name="author" content="Pierluigi De Palo">
     <link rel="icon" href="media/favicon.ico">
 
-    <title>Fab Academy 2015 - Name Surname</title>
+    <title>Fab Academy 2015 -Pierluigi De Palo</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+      <link href="media/Pierluigi.css" rel="stylesheet">
+      
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+      <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+      <link href="media/Pierluigi.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -35,8 +39,6 @@
     <!-- Load the menu file -->
     <script>
 	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
 					  $('#cclicense').load("license.html");
 					  }
 	</script>
@@ -46,6 +48,7 @@
   <body onload="menu()">
 
     <!-- Static navbar -->
+      
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
@@ -55,22 +58,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
+          <a class="navbar-brand" href="index.html">Home</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="about.html">About</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
+        <a href="exercises-menu.html">Log Book</a>
+              
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
+            <li>
+        <a href="project-menu.html">Final Project</a>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -80,138 +80,117 @@
 
 	<!-- Insert your content here below! -->
 
+<p>****************************************************************************************************************</p>
+          
+        <ul class="pager status">
+    
+        <li class="previous"><a href="exercise14.html">← </a></li> 
+    
+        <li class="next"><a href="exercise16.html"> →</a></li>
+        
+        
+    <h2>WEEK 15 - APPLICATIONS AND IMPLICATIONS -</h2>
+</ul>
+<br>
+        <h4>ASSIGNMENT: PROPOSE A FINAL PROJECT THAT INTEGRATES THE RANGE OF UNITS COVERED </h4>
+        <h4>PROJECT:    PHOTOGRAMMETRIC FAB SCANNER</h4>
+        <br>
+        
+        <h4>NOTE: projects can be separate or joint, but need to show individual mastery of all of the skills
+   where possible, you should make rather than buy the parts of your project</h4>
 
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+        <br>
+               <p>*****************************************************************************************************************</p>
 
-		# Add edges...
-		print "Building the graph..."
+        <br>
+        
+      <h4>--> What will it do?</h4>
 
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+        <p></p>
+      <h4>--> <em>Who's done what beforehand?</em></h4>
+        <br>
+        <p>Until today I do not find similar project like that one that I'm trying to develop. I don't hide that I would really happy to find samething that have the similar concept for complete the photogrammetric scan process.
+<br>Exist of course a lot of really powerfoul set up that multiply the cameras and obviously the costs.
+<br> What I think be useful in my proposal final-project is justly the use of only one camera, that combined with the rotaition of the object to scan, move in different positions to . In short I try to  </p>
+        
+        <div class="row">
+              <div class="col-lg-6">
+                <img src="Images/w15_photogrammetry_multicam_exemple.jpg">
+	<legend></legend>
+            </div>
+              
+            <div class="col-lg-6">
+                <img src="Images/">
+	<legend></legend>
+             </div>
+        
+             </div>
+        
+      <h4>-->What materials and components will be required?</h4>
+      <h4>-->Where will they come from?</h4>
+      <h4>-->How much will it cost?</h4>
+      <h4>-->What parts and systems will be made?</h4>
+      <h4>-->What processes will be used?</h4>
+      <h4>-->What tasks need to be completed?</h4>
+      <h4>-->What questions need to be answered?</h4>
+      <h4>-->What is the schedule?</h4>
+      <h4>-->How will it be evaluated?</h4>
+  
+        <br>
+        
+           <h3>Post Production Of Images</h3>
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+      <p>  <br>With the help of a specific  photogrammetric software like <a href="http://ccwu.me/vsfm/"><strong><em> VSFM </em></strong></a> for creating the dense cloud and <a href="http://meshlab.sourceforge.net"><strong><em> MeshLab </em></strong></a> for develop the masch, it will be possible to create and edit 3D models, that will be subsequently printed. </p>
+      
+        <br>
+        <h3>Resurces</h3>
+        <br>
+       <p> For the camera Curved Rail I will make reference to the project of <a href="http://fabacademy.org/archives/2014/students/begle.moritz/"><strong><em> Begle Moritz </em></strong></a> a 2014 Fab Academy Projects.</p>
+  <br>
+        <br>
+        
+        <h3>Component List (not exhaustive)</h3>
+        
+<br>1 Computer
+<br>1 Consumer photo camera
+<br>1 Micro-controller
+<br>2 H Bridge
+<br>2 Stepper Motors
+<br>1 Power pack
+<br>N Led
+<br>N Mosfet
+<br>
+
+        <em><h4>/// Useful links for the 3d Parametric Scanner ///</h4></em>
+        <br>
+        <a href="https://community.thefoundry.co.uk/discussion/topic.aspx?f=32&t=88840">--> Stepper Motor + Arduino + Modo = Motion Control</a> 
+        <br>
+        <a href="https://fablab.lacasemate.fr/#!/projects/cube-de-led">--> Led Cube</a>
+        <br>
+        <br>
+        <em><h4>/// Useful links for 360° Video ///</h4></em>
+        <br>
+        <a href="http://www.video-stitch.com/">--> Video Stitch soft</a>
+        <br>
+        <a href="http://bubl.io/experiences/">--> 360° Video experience web site   </a>
+        <br>
+        <a href="http://www.flong.com/blog/2010/open-source-panoramic-video-bloggie-openframeworks-processing/">--> open source soft for Bloggie</a>
+        <br>
+        <a href="http://www.chioka.in/">--> Python Live Video Streaming Example</a>
+        <br>
+        <a href="http://www.amazon.com/Digital-Representation-Real-World-Capture/dp/1482243814%3FSubscriptionId%3D1C5ZS71D9A07T4RCRKG2%26tag%3Dcern%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1482243814">--> BOOK !! Digital Representation of the Real World: How to Capture, Model, and Render Visual Reality</a>
+        <br>
+        <a href="http://raspberrypi.stackexchange.com/questions/28341/what-do-i-need-to-do-to-stream-two-usb-webcams-with-my-raspberry-pi-b">--> What do I need to do to stream two USB webcams with my Raspberry Pi B+</a>
+        <br>
+        
+        <a href=" http://elinux.org/RPi_USB_Webcams">--> RPi_USB_Webcams</a>
+        
+        
+        
+        <br>
+        <em><h4>/// Intreasting and to do later projects ///</h4></em>
+        <br>
+        <a href="https://sites.google.com/site/mechatronicsguy/lightscythe-v2">--> LightScythe V2 -- For long exposure photos art</a>
     <!-- End of your content -->
 
     </div> 

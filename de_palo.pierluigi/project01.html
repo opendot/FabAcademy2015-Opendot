@@ -71,7 +71,7 @@
             <li>
         <a href="project-menu.html">Final Project</a>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+           
         </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -80,130 +80,79 @@
     <div class="container">
 
 	<!-- Insert your content here below! -->
-
-
-    <h2>Concept</h2><br>
-        <em><h4>/// The Photogrammetric Fab Scanner ///</h4></em>
-   <br>
-       <p>The fab-scanner is a cylindrical box, whit 1 meter of diameter.<br>
-           
-It's composed from 2 different parts, that work in direct relationship :
-        <br>
-
-<br>- A - The Light Box : composed of 1 motorized stepper dish + 1 system of LED lights.
-        <br> 
-<br>- B - The Camera Curved Rail: for the radial movement of the photographic camera.<br>
-                            <br>
-        </p>
-        <br>
-        <br>
-	    <br>
-        <div class="row">
-          
-        <div class="col-lg-6">
-                <img src="Images/Scanner_Draw_Concept_1.jpg">
-	<legend>Drawing section view</legend>
-            </div>
+<p>****************************************************************************************************************</p> 
         
-        <div class="col-lg-6">  
-	<img src="Images/Scanner_Draw_Concept_2.jpg">
-	<legend>1st sketch of cylindrical form</legend>
-            </div>
-        </div>
-        <br>
-      
-          <br>
-          <br>
-          
-        <p> The object to scan will be set on the rotating dish. </p>
-<p>Whit the lock down of the back doors of the scanner, the process starts: the led lights on, and the photographic camera will take a picture each 10° angle of the rotation support (36 photos).</p>
-<p>Once the 360°rotation completed, the camera moves in the new positon, and the process rotation / shooting start again. </p>
-        <p>The radial movement increases each 15°.</p>
+       <ul class="pager">
+    
+        <li class="next"><a href="project02.html"> →</a></li>
+            <li class="previous"><a href="project-menu.html">← </a></li> 
+            
+        <h2>Final Project V0.1 - CONCEPT -</h2>
 
-<p>The complete process it's composed from 10 different positions in the camera rail:</p>
-        <p>0° / +15°/  +30° / +45° / +60° / +75°/ -15°/ -30°/ -45° (90° require just 1 photo).</p>
-         <p> Each of it, corresponds to a 360° rotation dish and a set of 36 photos.</p>
-
-          <br>
-          <br>
-          <br>
+        <em><h4>/// Photogrammetric Fab Scanner ///</h4></em>
+        </ul>
+             
       <p class="pic">
         <img src="Images/Project_Menu_Dev_Web.jpg">
-	<legend>Prospective View</legend>
+	<legend></legend>
 	</p>
-          <br>
-          <br>
-          <br>
+        <br>
+        <h4>DOWNLOAD: <a href="download/Fab_Photo_Scanner_V0.1.stl"><button type="button" class="btn btn-primary btn-lg">stl</button></a>
+	</h4>
+ <p>****************************************************************************************************************</p>
         
-          <div class="row">
-        <div class="col-lg-6">  
-	<img src="Images/Scanner_Computer_Edited_Front_Web.jpg">
-	<legend>Front View</legend>
+<br>
+        <br>
+   
+       <p>The Photogrammetric Fab-Scanner is a cylindrical box, whit 50 cm of diameter.</p>      
+<p>It's composed from 3 different parts, that work in direct relationship :</p>
+        <br>
+        <p>- A - The Light Box </p>
+        <p>- B - The Motorized Stepper Dish</p>
+        <p>- C - The Motorized Camera Curved Rail</p>
+        <br>
+        <br>
+        <br>
+        
+        <div class="row">
+          
+        <div class="col-lg-4">
+                <img src="Images/final_project_fab_scanner_v01_box.jpg">
+	<legend>- A - The Light Box </legend>
             </div>
+             
          
-          <div class="col-lg-6">  
-	<img src="Images/Scanner_Computer_Edited_Top_Web.jpg">
-	<legend>Top View</legend>
+        <div class="col-lg-4">
+                <img src="Images/final_project_fab_scanner_v01_rotatif_dish.jpg">
+	<legend>- B - The Motorized Stepper Dish</legend>
+            </div>
+          
+        <div class="col-lg-4">  
+	<img src="Images/final_project_fab_scanner_v01_rail.jpg">
+	<legend>- C - The Motorized Camera Curved Rail</legend>
             </div>
         </div>
-      <br>
-          <br>
-          <br>
         
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-        
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','download/Fab_Photo_Scanner_V0.1.stl');
-        viewer.setParameter('InitRotationX', 0);
-        viewer.setParameter('InitRotationY', -70);
-        viewer.setParameter('InitRotationZ', -90);
-		viewer.setParameter('ModelColor','#fff');
-		viewer.setParameter('BackgroundColor1','#14ff00')
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-        
-    </script> 
-        <br>
-        <br>
-        <p>
-	<a href="download/Fab_Photo_Scanner_V0.1.stl">
-	<button type="button" class="btn btn-primary btn-lg">Download the .stl file</button>
-	</a>
-	</p>
-        <br>
-      <h3>Post Production Of Images</h3>
-      
-      <p>  <br>With the help of a specific  photogrammetric software like <a href="http://ccwu.me/vsfm/"><strong><em> VSFM </em></strong></a> for creating the dense cloud and <a href="http://meshlab.sourceforge.net"><strong><em> MeshLab </em></strong></a> for develop the masch, it will be possible to create and edit 3D models, that will be subsequently printed. </p>
-      
-        <br>
-        <h3>Resurces</h3>
-        <br>
-       <p> For the camera Curved Rail I will make reference to the project of <a href="http://fabacademy.org/archives/2014/students/begle.moritz/"><strong><em> Begle Moritz </em></strong></a> a 2014 Fab Academy Projects.</p>
-  <br>
-        <br>
-        
-        <h3>Component List (not exhaustive)</h3>
-        
-<br>1 Computer
-<br>1 Consumer photo camera
-<br>1 Micro-controller
-<br>2 H Bridge
-<br>2 Stepper Motors
-<br>1 Power pack
-<br>N Led
-<br>N Mosfet
 <br>
+<br>        
+<br>
+        <p> The object to scan will be set on the rotating dish. </p>
+<p>With the lock down of the back doors of the scanner, the process starts: <br><br><br><br><br> --> the led lights on, and the photographic camera will take a picture each 15° angle of the rotation support (24 photos).</p>
         
+<p>--> Once the 360°rotation completed, the camera moves in the new positon, and the process "rotation / shooting" start again.<br><br>--> The radial movement increases each 45°.<br><br>--> The complete process it's composed from 4 differents positions in the camera rail: 0° / +45° / -45° / + 90° (require just 1 photo)</p>
+        <br>
+        
+        <br>
+         <p>-->Each of it, corresponds to a 360° rotation dish and a set of 24 photos.</p>
 
+          <br>
+          <p class="pic">
+        <img src="Images/final_project_fab_scanner_v01_total.jpg">
+	<legend></legend></p>
+
+          <br>
+        
+        
     </div> <!-- /container -->
 
 	<!-- footer -->
@@ -245,3 +194,6 @@ It's composed from 2 different parts, that work in direct relationship :
 
   </body>
 </html>
+
+<br>
+	    
