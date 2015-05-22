@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../../ingrassia.daniele/dhtmlxGantt/codebase/dhtmlxgantt.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script src="../machinedesign/gantt-data02.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../ingrassia.daniele/dhtmlxGantt/codebase/ext/dhtmlxgantt_marker.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../ingrassia.daniele/dhtmlxGantt/codebase/ext/dhtmlxgantt_tooltip.js" type="text/javascript" charset="utf-8"></script>
 
 <style>
 	html, body{
@@ -76,6 +77,11 @@
     {name:"end_date",   label:"End date",   align: "center", width:80 },
     {name:"progress",   label:"Progress",   align: "center", width:60 },
 ];
+        
+    // Tooltip setup
+    gantt.templates.tooltip_text = function(start,end,task){
+    return "<b>Task:</b> "+task.text+"<br/><b>Duration:</b> " + task.duration+"<br/><b>Workers:</b> "+task.workers+"<br/><b>Description:</b> "+task.description;
+};
         
     // Initialize Gantt
 	gantt.config.readonly = true;
