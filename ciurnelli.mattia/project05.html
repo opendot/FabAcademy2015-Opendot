@@ -85,31 +85,32 @@
      
     <div class="jumbotron">
           <div class="page-header">
-  <h1><u>Initial Consideration</u><h2>after the first five week</h2></h1>
+  <h1><u>CAD Design: </u><h2>Parts of the drone</h2></h1>
 </div>
-<h3>From Fixed to Modular</h3>
-    <p>During these first five weeks of FabAcademy i had the opportunity to reflect on my idea of final project, on what to use to build it and on how to do it.<br>
-        Initially my idea was to create a basket full of backboard, ring and a spring from which detect the intensity applied to the rim, but during these initial weeks i thought it would be better to make a device (composed of 2 parts: one for the input of data and one for the output) that can be applied to the basket.</p> 
-        <p>Thinking in this way i would get many more benefits:
-            <ul type="square"> 
-           
-                <li>The device would be universal and applicable to any type of basket;</li>
-                <li>Development costs would definitely lower;</li>
-                <li>The amount of material required for the structural part would be far less;</li>
-                <li>The device would be easy to apply and transportable.</li>
-            </ul></p>
+        <p>The first thing on which we have decided to work with Daniele is the design of the physical parts of the drone. As shown in the Gantt of the project we tried to split, in the most equitable possibilie, the work and the objectives to reach, considering that I started working on the frame while Daniele on support structures.</p>
+        <h3>The Frame</h3>
+        <p>Our first idea for the realization of the main frame structure has been to use plywood of 8 mm thickness, to give much more robustness as possible to the structure.
+            I started from a fairly standard form, with a distance between the opposite propellers of 25 cm, and trying to maintain as much as possible the shapes and dimensions.</p>
+        <p class="pic"><img src= "Image/Project03/droneFrameExample.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>In rhino I redesigned the frame preparing two types: a frame designed in one piece and another divided into pieces to try to realize a modular structure. In the middle of the frame i have predisposed a hole for connect the IMU (that stay on the upper side) with the main board below.</p>
+        <p>I added an additional hole in each arm of the frame to facilitate the connection between the motor and ESC. In the center instead I added 8 holes, 2 per arm, in order to assembly on it additional parts, such as support for the battery.</p>
+        <p class="pic"><img src= "Image/Project03/rhinoFrameDrone.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>Once cut the frame with the laser cutter, we realized that the best choice was the frame made from a single piece, as it increases the structural strength of itself.</p>
+        <p>Next, we tried to assemble on the frame the main parts (engine, IMU and feet designed by Daniele) to check that the joints were accurate and of the right size.</p>
+        <p class="pic"><img src= "Image/Project03/test_frameup.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/test_framedown.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>After checking everything is ok and adjusted some dimension of the frame, i have passed to the design a support for the battery that will be applied directly on the frame and secure it with screws.</p>
         
-<p>The device, as mentioned above, would be composed of 2 parts:
-        <ol type="1">
-                <li>The first part would deal with input data, the force applied to the basket, perhaps using an one axis accelerometer;</li> 
-        
-                <li>The second transform incoming data, and via an output device (a display or a series of LEDs) would make visible the value obtained.</li> 
-        </ol></p>
-<p>The two devices, therefore, should be applied one (the first) directly on the ring of the basket and the other (the second) or on the board or wherever you want to display the value of the dunk.</p>
-     
-      
-      
-      
+        <h3>Battery Compartment</h3>
+        <p>With Daniele we decided to place the battery at the top of the drone, so we have the bottom clear and be able to add them all future components required for improvment we would like to make to the drone.</p>
+        <p>Always using rhino, I started to draw the battery compartment taking into account the size of the battery that we would like to use: I tried to create a structure as more linear and clean as possible, so as to affect as little as possible on the weight.</p>
+        <p class="pic"><img src= "Image/Project03/vano_batteria_rhino.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>I drew a kind of "cage" where will the battery, and left a hole in the center where instead it will be placed the IMU: this structure fact, as well as keep the battery, aims also to keep the IMU as much protected and steady as possible.</p>
+        <p>Once finished, I exported the model as STL and, once created gcode with Cura I sent in print. For 3d printing I changed the parameters of thickness of the upper and lower layers taking them to 1.2 and fill to 35% to give added strength to the piece.</p>
+        <p>This is the final result:</p>
+        <p class="pic"><img src= "Image/Project03/vano_batteria2.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/vano_batteria.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/vano_batteria3.jpg" class="img-responsive" alt="Responsive image"></p> 
      </div>
     <!-- End of your content -->
 

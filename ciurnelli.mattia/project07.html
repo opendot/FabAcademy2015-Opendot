@@ -85,40 +85,10 @@
      
     <div class="jumbotron">
           <div class="page-header">
-  <h1><u>Electronics:</u><h2>Power Distribution Board</h2></h1>
-</div>
-<p>After drawing the frame, i have passed to the next target: draw the Power Distribution board.
-This board has the task of power, through the battery, the esc of the motors and, thanks to a 5v voltage regulator, the board for the control of flight.</p>
-            <p class="pic"><img src= "Image/Project03/PowDistBoard.jpg" class="img-responsive" alt="Responsive image"></p> 
-        <p>Initially, with Daniele, we had planned on doing a power distribution board and a board for the flight control separately: after thinking together, we came to the conclusion it would be better to make one single that included both board.
-Create a single board, which includes both, it has several advantages:</p>
-        <ul type=square>
-            <li>less external wirings and reducing risks of wires disconnection during flight </li>
-            <li>reduce frame and supports complexity as we will use only one board</li>
-            <li>reduce wrong connection risks</li>
-            <li>reduce overall quadcopter weight and volume</li>
-        </ul>
-         <p>So, to create a single board I first realized the power distribution board, and once finished I pass the Eagle files to Daniele that has implemented the board for the flight control.</p>
-        <p>The realization of the power distribution board was something quite simple, where the only constraint I had was to try to create a board that has the size of the central part of the frame of the drone.</p>
-        <p>First I put the components in the schematic, that is:</p>
-        <ul type=square>
-            <li>4 pad to the VCC of the ESC;</li>
-            <li>4 pad to the GND of the ESC;</li>
-            <li>1 voltage regulator, to switch from the 11.1V of the battery to 5V that will power the flight control board. We choose the 7805 voltage regulator, that give out 1,5 amphere, and this is usefull in order to power the flgiht controller board and the in the future the sensors and actuators and their realitve board;</li>
-            <li>2 pad for connecting the board to the battery (GND and VCC);</li>
-        </ul>
-        <p class="pic"><img src= "Image/Project03/PowDistBoard_schematic.jpg" class="img-responsive" alt="Responsive image"></p>
-        <p>After placing the components in the schematic I started to arrange them in the board view, but before doing this, I measured the size of the central part of the drone, and adapted to this size my work area of Eagle.</p>
-        <p>The arrangement of the components and their connection was easy, considering the few constraints that I had:</p>
-        <ul type=square>
-            <li>place 1 GND and 1 VCC in each corner, one for each ESC of the drone;</li>
-            <li>try to leave as much free space as possible in the center, so as to facilitate the work to Daniele inserting components of the flight control board;</li>
-            <li>try to keep the VCC traces outside and the GND traces inside so that it can be easily accessed later by Daniele when inserting components;</li>
-            <li>uses larger traces than the default that can be able to support high current flow;</li>
-        </ul>
-        <p class="pic"><img src= "Image/Project03/PowDistBoard_board.jpg" class="img-responsive" alt="Responsive image"></p>
-        <p>Once finished i pass the Eagle file to Daniele so that he could insert the flight controller board.</p>
-     </div>
+  <h1><u>Teamwork:</u><h2>AAVOID v1.0</h2></h1>
+    </div>
+        
+    </div>
     <!-- End of your content -->
 
     </div> <!-- /container -->
