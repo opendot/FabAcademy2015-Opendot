@@ -77,10 +77,17 @@
 
 		<section id= "final_project" class="row">
 			<div class="photo-grid">
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project1').innerHTML,'project1')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">1. Concept</span></a>
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project2').innerHTML,'project2')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">2. Hardware: flight controller</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project1').innerHTML,'project1')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">1 Concept</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project2').innerHTML,'project2')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">2 Electronics: flight controller experimentations</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project3').innerHTML,'project2')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3. Final project: the proposal</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project3').innerHTML,'project3')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">3 Applications and Implications</span></a>
+
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project4').innerHTML,'project4')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">4.1 CAD design: quadcopter foots</span></a>
+
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project5').innerHTML,'project5')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">4.2 Electronics: flight controller</span></a>
+ 	
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">4.3 Teamwork: AAVOID v1</span></a>
+
 
 			</div>
 		</section>	
@@ -2436,7 +2443,7 @@ public class GetDataBMPlan extends BusinessMessageReceiverPlan
 
 				</pre>
 
-				<p><br>To be noted that every module has its own specific URL parameter. Also, the gateaway enrich these parameters with better identifiers. These because the gateaway know where the IoT module are. Here you can see the principal java class implementing the Jetty web server:</p>
+				<p><br>To be noted that every module has its own specific URL parameter. Also, the gateaway enrich these parameters with better identifiers. This because the gateaway know where the IoT module are. Here you can see the principal java class implementing the Jetty web server:</p>
 
 				<pre class="prettyprint lang-c">
 
@@ -3886,7 +3893,7 @@ function drawRoomsTimesChart(){
 		</section>
 		<section id= "project2" class="row">
 			<div class="photo-grid">
-				<p>Hardware: <span class="redones">flight controller</span></p>
+				<p>Final project electronics: <span class="redones">flight controller experimentations</span></p>
 				<p>The developing of AAVOID flight controller goes through several steps. I will use the flight controller as the interface to <span class="redones">access and control low level drone hardware</span>, such as motors, accelerometer etc. Due to the fact that flight controller and actuators & sensors board share the same core architecture, I will use the work done for flight controller as the starting point to develop the sensors & actuators board.</p> 
 
 				<p>One of the my firts ideas was to use the <span class="redones">ATMega2560</span> microcontroller, as you can see from the old AAVOID Control Unit architecture:</p>
@@ -3944,7 +3951,7 @@ function drawRoomsTimesChart(){
 		</section>
 		<section id= "project3" class="row">
 			<div class="photo-grid">
-				<p>Final project: <span class="redones">the proposal</span>.</p>
+				<p>Final project: <span class="redones">Applications and Implications</span>.</p>
 				<p>In this project page we've to better describe our final project, and also take into consideration that it isn't just a <span class="redones">mind's whim</span>, but it can have some real-world <span class="redones">Applications and Implications</span>.</p>
 
 				<p>The <span class="redones">big news</span> is that I've accepted <span class="redones">Neil's suggestion</span> to cooperate with someone to have better chances to <span class="redones">carry out the project</span>. In fact, after Neil told me two times the aforementioned suggestion, our local instructur <span class="redones">Massimo Menichinelli</span> and my fellow student <a href="http://fabacademy.org/archives/2015/eu/students/ciurnelli.mattia/index.html"><span class="redones-link">Mattia Ciurnelli</span></a>, proposed me to develop the project not alone. After this Mattia told me that, if for me it's ok, he would participate. Finally, I <span class="redones">decided to cooperate</span> with him. Motivations behind this decision are mainly that I've always cooperated well with Mattia. He is young and also filled with the desire to succeed, like me. I also <span class="redones">warned him</span> about the chances that this project will fail. This project may go <span class="redones">beyond the FabAcademy scopes</span>, but also I think that it's difficult for me that similar <span class="redones">circumstances will come again</span>, so <span class="redones">let's try our best</span>.</p>
@@ -4024,9 +4031,59 @@ function drawRoomsTimesChart(){
      		 		</ul>				
 			</div>
 		</section>
+		<section id= "project5" class="row">
+			<div class="photo-grid">
+				<p>Final project electronics: <span class="redones">flight controller</span>.</p>
+				<p>As discussed in the previous final project section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project2').innerHTML,'project2')" rel="lightbox" class="col-2"><span class="redones-link" style="font-weight: bold;">flight controller experimentations</span></a>, I decided to use a modified <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html"><span class="redones-link">satshakit</span></a> with <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii</span></a> as flight controller board.
+
+				<p>Due to the fact <span class="redones">Mattia Ciurnelli</span> joined with me in order to help carrying out AAVOID quadcopter final project, I discussed with him about the size and the shape of the board in order to fit it within the distribution board. Also, there were several other design parameters related to the <span class="redones">intrinsic structure of a quadcopter</span> and <span class="redones">future modifications plans</span>. I had the <span class="redones">idea to integrate distribution board</span> with <span class="redones">flight controller board</span>, and, in the future, also to integrate <span class="redones">sensors and actuators board</span>.</p>
+
+				<ul class="lists">
+				<li>In my opinion, make a single, <span class="redones">high integrated board</span> will bring the following <span class="redones">benefits</span>:</li>
+				<li><span class="redones">less</span> external <span class="redones">wirings</span></li>
+				<li><span class="redones">better</span> overall and compact <span class="redones">package</span></li>
+				<li><span class="redones">reduce frame and supports complexity</span> as we will use <span class="redones">one board instead of three</span></li>
+				<li><span class="redones">reduce risks of wire cut by propellers</span></li>
+				<li><span class="redones">reduce wrong connection risks</span></li>
+				<li><span class="redones">reduce overall weight</span></li>
+				<li><span class="redones">reduce overall quadcopter volume</span></li>
+				<li><span class="redones">reduce risks of wires disconnection during flight</span></li>
+				</ul>
+
+				<ul class="lists">
+				<li>Summarizing, the design parameters for the bord were:</li>
+				<li><span class="redones">space available</span> on the frame</li>
+				<li><span class="redones">centralize IMU</span> connectors</li>
+				<li>leave space for <span class="redones">adding components</span> for sensors and actuators board</li>
+				<li>leave space to fit this board (in eagle) <span class="redones">inside distribution board</span> (made by Mattia)</li>
+				<li>move to the <span class="redones">angles ESC signals pads</span></li>
+				<li><span class="redones">eliminate unnecessary components</span> from satshakit, to obtain more board space and reduce complexity (power led and reset button)</li>
+				<li><span class="redones">logically dispose group of pin headers</span> for easy usage and to reduce external wirings</li>
+				</ul>
+
+				<p>Considering all of this thoughts, you can see the resulting board in the following pictures. This is <span class="redones">AAVOID v1 schematics</span>:</p>
+				<img class="images-default" src="img/final_project/4.2/AAVOID_v1_schematics.png">
+
+				<p>This time I used clear names and labels to easy identify components, and better realize where put them. Finally here is <span class="redones">AAVOID v1 board</span>:</p>
+				<img class="images-default" src="img/final_project/4.2/AAVOID_v1_board.png">
+
+				<p>As you can see, IMU connectors on the board aren't perfectly at the center, due the fact that <span class="redones">connectors on the IMU aren't themselves centered</span>. You can see IMU connectors in the following picture:</p>
+
+				<img class="images-default" src="img/final_project/4.2/imu.jpg">
+
+				 <p>As you can read in the next section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')" rel="lightbox" class="col-2"><span class="redones-link" style="font-weight: bold;">4.3 Teamwork: AAVOID v1</span></a> we <span class="redones">manage to flight</span> with this board.</p>
+			</div>
+		</section>
+
 		<section id= "project4" class="row">
 			<div class="photo-grid">
-				<p>project4: v0.1</p>
+				<p>Final project CAD design: <span class="redones">quadcopter foots</span>.</p>
+			</div>
+		</section>
+
+		<section id= "project6" class="row">
+			<div class="photo-grid">
+				<p> Final project teamwork: <span class="redones">AAVOID v1</span>.</p>
 			</div>
 		</section>
 
