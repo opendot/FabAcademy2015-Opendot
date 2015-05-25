@@ -85,39 +85,31 @@
      
     <div class="jumbotron">
           <div class="page-header">
-  <h1><u>Electronics:</u><h2>Power Distribution Board</h2></h1>
+  <h1><u>Initial Consideration</u><h2>after the first five week</h2></h1>
 </div>
-<p>After drawing the frame, i have passed to the next target: draw the Power Distribution board.
-This board has the task of power, through the battery, the esc of the motors and, thanks to a 5v voltage regulator, the board for the control of flight.</p>
-            <p class="pic"><img src= "Image/Project03/PowDistBoard.jpg" class="img-responsive" alt="Responsive image"></p> 
-        <p>Initially, with Daniele, we had planned on doing a power distribution board and a board for the flight control separately: after thinking together, we came to the conclusion it would be better to make one single that included both board.
-Create a single board, which includes both, it has several advantages:</p>
-        <ul type=square>
-            <li>less external wirings and reducing risks of wires disconnection during flight </li>
-            <li>reduce frame and supports complexity as we will use only one board</li>
-            <li>reduce wrong connection risks</li>
-            <li>reduce overall quadcopter weight and volume</li>
-        </ul>
-         <p>So, to create a single board I first realized the power distribution board, and once finished I pass the Eagle files to Daniele that has implemented the board for the flight control.</p>
-        <p>The realization of the power distribution board was something quite simple, where the only constraint I had was to try to create a board that has the size of the central part of the frame of the drone.</p>
-        <p>First I put the components in the schematic, that is:</p>
-        <ul type=square>
-            <li>4 pad to the VCC of the ESC;</li>
-            <li>4 pad to the GND of the ESC;</li>
-            <li>1 voltage regulator, to switch from the 11.1V of the battery to 5V that will power the flight control board. We choose the 7805 voltage regulator, that give out 1,5 amphere, and this is usefull in order to power the flgiht controller board and the in the future the sensors and actuators and their realitve board;</li>
-            <li>2 pad for connecting the board to the battery (GND and VCC);</li>
-        </ul>
-        <p class="pic"><img src= "Image/Project03/PowDistBoard_schematic.jpg" class="img-responsive" alt="Responsive image"></p>
-        <p>After placing the components in the schematic I started to arrange them in the board view, but before doing this, I measured the size of the central part of the drone, and adapted to this size my work area of Eagle.</p>
-        <p>The arrangement of the components and their connection was easy, considering the few constraints that I had:</p>
-        <ul type=square>
-            <li>place 1 GND and 1 VCC in each corner, one for each ESC of the drone;</li>
-            <li>try to leave as much free space as possible in the center, so as to facilitate the work to Daniele inserting components of the flight control board;</li>
-            <li>try to keep the VCC traces outside and the GND traces inside so that it can be easily accessed later by Daniele when inserting components;</li>
-            <li>uses larger traces than the default that can be able to support high current flow;</li>
-        </ul>
-        <p class="pic"><img src= "Image/Project03/PowDistBoard_board.jpg" class="img-responsive" alt="Responsive image"></p>
-        <p>Once finished i pass the Eagle file to Daniele so that he could insert the flight controller board.</p>
+<h3>From Fixed to Modular</h3>
+    <p>During these first five weeks of FabAcademy i had the opportunity to reflect on my idea of final project, on what to use to build it and on how to do it.<br>
+        Initially my idea was to create a basket full of backboard, ring and a spring from which detect the intensity applied to the rim, but during these initial weeks i thought it would be better to make a device (composed of 2 parts: one for the input of data and one for the output) that can be applied to the basket.</p> 
+        <p>Thinking in this way i would get many more benefits:
+            <ul type="square"> 
+           
+                <li>The device would be universal and applicable to any type of basket;</li>
+                <li>Development costs would definitely lower;</li>
+                <li>The amount of material required for the structural part would be far less;</li>
+                <li>The device would be easy to apply and transportable.</li>
+            </ul></p>
+        
+<p>The device, as mentioned above, would be composed of 2 parts:
+        <ol type="1">
+                <li>The first part would deal with input data, the force applied to the basket, perhaps using an one axis accelerometer;</li> 
+        
+                <li>The second transform incoming data, and via an output device (a display or a series of LEDs) would make visible the value obtained.</li> 
+        </ol></p>
+<p>The two devices, therefore, should be applied one (the first) directly on the ring of the basket and the other (the second) or on the board or wherever you want to display the value of the dunk.</p>
+     
+      
+      
+      
      </div>
     <!-- End of your content -->
 
