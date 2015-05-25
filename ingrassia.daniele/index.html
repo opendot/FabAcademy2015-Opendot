@@ -4044,7 +4044,7 @@ function drawRoomsTimesChart(){
 				<li><span class="redones">better</span> overall and compact <span class="redones">package</span></li>
 				<li><span class="redones">reduce frame and supports complexity</span> as we will use <span class="redones">one board instead of three</span></li>
 				<li><span class="redones">reduce risks of wire cut by propellers</span></li>
-				<li><span class="redones">reduce wrong connection risks</span></li>
+				<li><span class="redones">reduce risk of wrong connections</span></li>
 				<li><span class="redones">reduce overall weight</span></li>
 				<li><span class="redones">reduce overall quadcopter volume</span></li>
 				<li><span class="redones">reduce risks of wires disconnection during flight</span></li>
@@ -4054,24 +4054,31 @@ function drawRoomsTimesChart(){
 				<li>Summarizing, the design parameters for the bord were:</li>
 				<li><span class="redones">space available</span> on the frame</li>
 				<li><span class="redones">centralize IMU</span> connectors</li>
-				<li>leave space for <span class="redones">adding components</span> for sensors and actuators board</li>
+				<li>leave space for <span class="redones">adding components</span> for integrating sensors and actuators board</li>
 				<li>leave space to fit this board (in eagle) <span class="redones">inside distribution board</span> (made by Mattia)</li>
 				<li>move to the <span class="redones">angles ESC signals pads</span></li>
 				<li><span class="redones">eliminate unnecessary components</span> from satshakit, to obtain more board space and reduce complexity (power led and reset button)</li>
 				<li><span class="redones">logically dispose group of pin headers</span> for easy usage and to reduce external wirings</li>
 				</ul>
 
-				<p>Considering all of this thoughts, you can see the resulting board in the following pictures. This is <span class="redones">AAVOID v1 schematics</span>:</p>
+				<p>Considering all this thoughts, you can see the resulting board in the following pictures. This is <span class="redones">AAVOID v1 schematics</span>:</p>
 				<img class="images-default" src="img/final_project/4.2/AAVOID_v1_schematics.png">
 
-				<p>This time I used clear names and labels to easy identify components, and better realize where put them. Finally here is <span class="redones">AAVOID v1 board</span>:</p>
+				<p>This time I used clear names and labels to easy identify components, and better realize where put them. Here is <span class="redones">AAVOID v1 board</span>:</p>
 				<img class="images-default" src="img/final_project/4.2/AAVOID_v1_board.png">
 
-				<p>As you can see, IMU connectors on the board aren't perfectly at the center, due the fact that <span class="redones">connectors on the IMU aren't themselves centered</span>. You can see IMU connectors in the following picture:</p>
+				<p>Our IMU is a <a href="http://www.drotek.fr/shop/en/home/62-imu-10dof-mpu6050-hmc5883-ms5611.html"><span class="redones-link">Drotek 10DOF</span></a>, and it connects to flight controller via <span class="redones">I2C</span> bus. As you can see from the above picture, our IMU connectors on the board aren't perfectly at the center, due the fact that <span class="redones">connectors on the IMU aren't themselves centered</span>. You can see IMU connectors in the following picture:</p>
 
 				<img class="images-default" src="img/final_project/4.2/imu.jpg">
 
-				 <p>As you can read in the next section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')" rel="lightbox" class="col-2"><span class="redones-link" style="font-weight: bold;">4.3 Teamwork: AAVOID v1</span></a> we <span class="redones">manage to flight</span> with this board.</p>
+				<p>Finally, here is the soldered board ready to be mounted on the frame:</p>
+
+				<img class="images-default" src="img/final_project/4.2/board.jpg">
+
+				 <p>You can read more about this board and other things into <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')" rel="lightbox" class="col-2"><span class="redones-link" style="font-weight: bold;">4.3 Teamwork: AAVOID v1</span></a> we <span class="redones"> section. We manage to fly</span> with this board.</p>
+
+				 <p>Here is the download AAVOID v1 eagle project: <a href="drawings/final_project/4.2/AAVOID_v1.rar"><span class="redones-link">AAVOID_v1</span></a>.</p>
+
 			</div>
 		</section>
 
