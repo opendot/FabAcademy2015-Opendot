@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Machine Design Gantt</title>
+</head>
+	<script src="../dhtmlxGantt/codebase/dhtmlxgantt.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="../dhtmlxGantt/codebase/dhtmlxgantt.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script src="../machinedesign/gantt-data01.js" type="text/javascript" charset="utf-8"></script>
+<script src="../dhtmlxGantt/codebase/ext/dhtmlxgantt_marker.js" type="text/javascript" charset="utf-8"></script>
+<script src="../dhtmlxGantt/codebase/ext/dhtmlxgantt_tooltip.js" type="text/javascript" charset="utf-8"></script>
+
+<style>
+	html, body{
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
+	.weekend{
+		background: #f4f7f4;
+	}
+	.gantt_selected .weekend{
+		background: #f7eb91;
+	}
+    .gantt_task_progress{
+	text-align:left;
+	padding-left:10px;
+    box-sizing: border-box;
+	color:white;
+	font-weight: bold;
+}
+</style>
+
+
+<body>
+	<div id="gantt" style='width:100%; height:300px;'></div>
+    <script type="text/javascript">
+    // Config time scale
+    gantt.config.scale_unit = "month";
+	gantt.config.date_scale = "%F, %Y";
+	gantt.config.scale_height = 50;
+	gantt.config.subscales = [
+		{unit:"day", step:1, date:"%j, %D" }
+	];
+        
+    // Today marker
+    var date_to_str = gantt.date.date_to_str(gantt.config.task_date);
+	var today = new Date();
+	gantt.addMarker({
+		start_date: today,
+		css: "today",
+		text: "Today",
+		title:"Today: "+ date_to_str(today)
+	});
+        
+    // Color weekends
+    gantt.templates.scale_cell_class = function(date){
+            if(date.getDay()==0||date.getDay()==6){
+                return "weekend";
+            }
+        };
+        gantt.templates.task_cell_class = function(item,date){
+            if(date.getDay()==0||date.getDay()==6){
+                return "weekend"
+            }
+        };
+    
+        // Progress text
+    gantt.templates.progress_text = function(start, end, task){
+			return "<span style='text-align:left;'>"+Math.round(task.progress*100)+ "% </span><b> Done by:</b> "+task.workers;
+		};
+        
+        
+    // Columns
+    gantt.config.columns =  [
+    {name:"text",       label:"Task name",  tree:true, width:150 },
+    {name:"start_date", label:"Start time", align: "center", width:80 },
+    {name:"end_date",   label:"End date",   align: "center", width:80 },
+    {name:"progress",   label:"Progress",   align: "center", width:60 },
+];
+    
+    // Tooltip setup
+    gantt.templates.tooltip_text = function(start,end,task){
+    return "<b>Task:</b> "+task.text+"<br/><b>Duration:</b> " + task.duration+"<br/><b>Workers:</b> "+task.workers+"<br/><b>Description:</b> "+task.description;
+};
+        
+    // Initialize Gantt
+	gantt.config.readonly = true;
+	gantt.init("gantt"); 
+	gantt.parse(tasks);
+    </script>
+</body>
