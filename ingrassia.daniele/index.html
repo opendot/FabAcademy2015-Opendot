@@ -3863,9 +3863,11 @@ function drawRoomsTimesChart(){
 
 		<section id= "project1" class="row">
 			<div class="photo-grid">
-				<p>Final Project: <span class="redones">concept</span></p>
-
-				<p>
+				
+				<p>A</span>utonomous <span class="redones"> A</span>ssembly a<span class="redones">VOI</span>ding <span class="redones">D</span>rone managed to <span class="redones">fly at first try!!!!</span> Here's a <span class="redones">video</span> about:</p>
+				<iframe width="700" height="400" src="https://www.youtube.com/embed/JLgGLL2r4ZU?" frameborder="0" allowfullscreen></iframe>
+				
+				<p><br>Final Project: <span class="redones">concept</span>.<br>
 				We are by now invaded by <span class="redones">Unmanned Aerial Vehicles</span>. They spread everywhere and for whatever kind of use, from taking an aerial video of a party to flying over a raging forest fire alerting firefighters, from hovering over a construction site conducting a building inspection to exploring dangerous places like war sites.</p>
 
 				<img class="images" src="img/drone_fire.jpeg">
@@ -4073,11 +4075,15 @@ function drawRoomsTimesChart(){
 
 				<img class="images-default" src="img/final_project/4.2/imu.jpg">
 
+				<p>So here it's the board on inkscape ready to be printed:</p>
+
+				<img class="images-default" src="img/final_project/4.2/board_ink.png">
+
 				<p>Finally, here is the soldered board ready to be mounted on the frame:</p>
 
 				<img class="images-default" src="img/final_project/4.2/board.jpg">
 
-				 <p>You can read more about this board and other things into <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')" rel="lightbox" class="col-2"><span class="redones-link" style="font-weight: bold;">4.3 Teamwork: AAVOID v1</span></a> we <span class="redones"> section. We manage to fly</span> with this board.</p>
+				 <p>As you can see the holes on the board were adjusted to center the IMU on the frame. You can read more about this board and other things into <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')" rel="lightbox" class="col-2"><span class="redones-link" style="font-weight: bold;">4.3 Teamwork: AAVOID v1</span></a> we <span class="redones"> section. We manage to fly</span> with this board.</p>
 
 				 <p>Here is the download AAVOID v1 eagle project: <a href="drawings/final_project/4.2/AAVOID_v1.rar"><span class="redones-link">AAVOID_v1</span></a>.</p>
 
@@ -4131,77 +4137,150 @@ function drawRoomsTimesChart(){
 			<div class="photo-grid">
 				<p>Final project teamwork: <span class="redones">AAVOID v1</span>.</p>
 				<p>This section is the last final project section in which I've cooperated with <a href="http://fabacademy.org/archives/2015/eu/students/ciurnelli.mattia/index.html"></aside><span class="redones-link">Mattia Ciurnelli</span></a>.</p>
+								
+				<ul class="lists">
+				<li>We've divided this section in the following main processes:</li>
+				<li><span class="redones">Design considerations and decisions</span></li>
+				<li><span class="redones">Soldering the board</span></li>
+				<li><span class="redones">Assembly the quadcopter</span></li>
+				<li><span class="redones">Configuration</span></li>
+				<li><span class="redones">Fly test</span></li>
+				</ul>
 
-				<p>SOLDERING
+				<h3><span class="redones">-------------Design considerations and decisions-------------</span></h3>
+				<p>There were alot of design considerations and decisions to be taken, and this just in order to hope that AAVOID will do <span class="redones">some simple jumps on the ground without destroy itself at first flight</span>. In order to synthesize, we will cover in this section the main ones.</p>
 
-As first step to build the first prototype of AAVOID quadcopter was to solder the board and step by step test all the traces and components. Everyone has proceeded to solder a board, having finally two of them, to reduce the probability of errors. The board was very easy and quick to solder due some unnecessary components was removed from the schematic, and there is plenty of space for the future integration of the sensors and actuators board. Here you can see a picture about the board layout just before it was printed with our fiber laser: 
+				<ul class="lists">
+				<li>Here's the considerations:</li>
+				<li>as <span class="redones">frame material</span> we need one that is a good <span class="redones">compromise between resistency, vibration absorption and price</span></li>
+				<li>we need to future <span class="redones">integrate</span> several <span class="redones">sonar sensors and an Android smartphone</span></li>
+				<li></li>
+				</ul>
 
-As you can see, the space where’s the name and the version of the board, it’s deliberately empty to fit future components. Together we started to solder the board and in a few minutes it was ready. We leave the endpoint connectors of the distribution board, as we needed to see how this first version will fit with the frame and the other physical parts. In the following picture, there is the soldered board:
+				<ul class="lists">
+				<li>And Here's the decisions:</li>
+				<li></li>
+				<li></li>
+				</ul>
 
+				<h3><span class="redones">---------------Soldering the board---------------</span></h3>
+				<p><br>
+				As starting step to build the <span class="redones">first prototype of AAVOID quadcopter</span> was to solder the board and step by step test all the traces and components. Everyone has proceeded to solder a board, having finally two of them, to reduce the probability of errors. The board was very <span class="redones">easy and quick to solder</span> due some unnecessary components was removed from the schematic, and there is plenty of <span class="redones">space for the future integration</span> of the sensors and actuators board. Here you can see a picture about the board layout just before it was printed with our fiber laser: </p>
 
-ASSEMBLY
-As we wasn’t sure about the board mounting holes, we don’t let the laser completely cut them: we adjusted the holes with a dremel (as you can see in the picture above), after tried to fit the board in the frame, paying attention to the position of the IMU that should stay perfectly centered. Center the IMU was a fundamental step, that we prepared together by considering combining the positioning of the IMU connectors on the board and the hole for the IMU connectors on the the frame. We decided to put the IMU directly on top frame surface, and firmly block it with bi-adhesive scotch tape. This because we wanted to exploit the plywood surface finish, to put the IMU in a almost ground parallel position and for taking it at the same level with motors basement. Here is the IMU mounted on the frame:
+				<img class="images-default" src="img/final_project/4.2/board_ink.png">
 
+				<p>
+				As you can see, the space where’s the name and the version of the board, it’s deliberately empty to <span class="redones">fit future components</span>. Together we started to solder the board and in a few minutes it was ready. We leave the endpoint connectors of the distribution board, as we needed to see how this first version will fit with the frame and the other physical parts. In the following picture, there is the soldered board:
 
-After we found the right way to place the board and IMU we block the board at the frame directly using screw on the wood. Here’s you can see pictures about the process:
+				<img class="images-default" src="img/final_project/4.2/board.jpg">
 
-Once mounted the board and the IMU on the frame, we started to add the other physical parts like the foots of the drone and the upper structure, that are 3d printed. The foots are blocked in the frame by using the predisposed holes on it, and fit together becoming hard to remove.
-The upper structure, instead, is attached on the frame using screws and bolts, and its function is to cover and protect the IMU, and to hold the battery. 
-The next steps in assembly AAVOID quadcopter were to add ESCs, motors and to test them. ESCs were attached to frame arms with cable ties, and connected to board for power supply and signal. We decided to solder all of these connection to avoid in-fly dangerous disconnections. After the ESCs were all in place, we continued with motors. Motors are fixed with 4 10mm bolts directly on the motors platform, placed at the end of each frame arm. Because of the motors are the most stressed part, as they bring movements to the quadcopter, we apply one washer to each bolt. The next step is to test and configure the quadcopter, in order to do this we didn’t mount propellers, as they can be dangerous.
+				</p>
+				<h3><span class="redones"><span class="redones">---------------Assembly the quadcopter---------------</span></h3>
+				<p><br>
+					As we wasn’t sure about the board mounting holes, we don’t let the laser completely cut them: we adjusted the holes with a dremel (as you can see in the picture above), after tried to fit the board in the frame, paying attention to the position of the IMU that should stay perfectly centered. Center the IMU was a fundamental step, that we prepared together by considering combining the positioning of the IMU connectors on the board and the hole for the IMU connectors on the the frame. We decided to put the IMU directly on top frame surface, and firmly block it with bi-adhesive scotch tape. This because we wanted to <span class="redones"> exploit the plywood surface finish</span>, to put the IMU in a <span class="redones">almost ground parallel position</span> and for taking it at the same level with motors basement. Here are some pictures about the IMU mounted on the frame:</p>
 
-TEST & CONFIG
+					<img class="images-default" src="img/final_project/4.3/imu_frame2.jpg">	
+					<img class="images-default" src="img/final_project/4.3/imu_frame1.jpg">	
+					<img class="images-default" src="img/final_project/4.3/imu_foots1.jpg">	
+					<img class="images-default" src="img/final_project/4.3/imu_foots.jpg">	
 
-The first thing we did, was to verify if the board works correctly. To start testing the board we tried to power it with 5V, to see if there was some smoke. As Daniele didn’t put the power led, to know if the board was really switched on, we needed to program it. So, due to the fact that luckily there wasn’t any smoke, we tried to program the board with an Arduino as ISP. Also this step was passed, as the board was programmed flawlessly. As final step in programming the board we uploaded MultiWii, defining in the “config.h” file the type of multicopter and IMU, uncommenting the relative lines. 
+					<p>After we found the right way to place the board and IMU we block the board at the frame directly using <span class="redones">screw on the wood</span>. Here’s you can see pictures about this process:</p>
 
-https://www.youtube.com/watch?v=J8oPGxUSLbI&feature=youtu.be
+					<img class="images-default" src="img/final_project/4.3/board_wood_screws.jpg">
 
-As you can see in the video, the IMU and the board work fine, but the accelerometer, the gyro and the magnetometer was not calibrated. As further test we tried the connection between smartphone and the board, using USB OTG cable, in order to visualize the IMU data on the smartphone screen, and also this test was good.
+					<p>And here is AAVOID v1 board mounted on the frame:</p>
 
-https://www.youtube.com/watch?v=NPf7IKyEKg0&feature=youtu.be
+					<img class="images-default" src="img/final_project/4.3/board_frame.jpg">
+					<img class="images-default" src="img/final_project/4.3/board_frame1.jpg">
+					<img class="images-default" src="img/final_project/4.3/board_frame2.jpg">
 
-Next step was to test motors and ESCs, and, as required intermediate steps, arming of the quadcopter and radio channel. Due we’ve a 5-channel radio control, and to the fact that the fifth channel isn’t strictly needed to fly, we used this channel as input for arming/disarming the quadcopter. We set as arming signal an high level of this channel.
+					<p>Once we finished mounting board and IMU on the frame, we started to add the other physical parts like <span class="redones">foots</span> and the upper structure, that are 3d printed. The foots are <span class="redones">blocked in the frame by using the predisposed holes</span> on it, and fit together becoming hard to remove. Here's some foots pictures, and relative frame joints:</p>
 
+					<img class="images-default" src="img/final_project/4.3/foots.jpg">
+					<img class="images-default" src="img/final_project/4.1/drone_foot.jpg">
 
+						
+					<p>The <span class="redones">upper structure</span>, instead, is attached on the frame using <span class="redones">screws and bolts</span>, and its function is to <span class="redones">cover and protect the IMU</span>, <span class="redones">and to hold the battery</span> Here you can see the upper structure mounted on the frame:</p>
 
+					<img class="images-default" src="img/final_project/4.3/imu_battery_holder.jpg">
+					<img class="images-default" src="img/final_project/4.3/imu_battery_holder1.jpg">
 
+					<p>Also, the sides of the quadcopter is actually very thin:</p>
 
+					<img class="images-default" src="img/final_project/4.3/quadcopter_side.jpg">
 
+					<p>After we put the battery, we weren't sure about the IMU will stay fixed with the frame while the quadcopter is flying. So, to stay safer, we used a square <span class="redones">piece of cardboard</span> to further block the IMU with the battery:</p>	
 
+					<img class="images-default" src="img/final_project/4.3/imu_paper.jpg">
 
+					<p>The next steps in assembly AAVOID quadcopter were to <span class="redones">add ESCs and motors</span>. ESCs were attached to frame arms with <span class="redones">cable ties</span>, and connected to board for power supply and signal. We decided to <span class="redones">solder all of these connections</span> to avoid in-fly dangerous disconnections:</p>
 
- 
+					<img class="images-default" src="img/final_project/4.3/esc_solder.jpg">
 
-We pinned the following modification to be made in the next board version:
+					<p>After the ESCs were all in place, we continued with motors. <span class="redones">Motors are fixed with 4 10mm bolts</span> directly on the motors platform, placed at the end of each frame arm. Because of the motors are the <span class="redones">most stressed part</span>, as they bring movements to the quadcopter, we apply one <span class="reodnes">washer to each bolt</span>. The next step was to test and configure the quadcopter, in order to do this <span class="redones">we didn’t mount propellers</span>, as they could be dangerous if they rotate near us.
 
-add two 10uF capacitor to the distribution board in order to stabilize the power supply
-rotate also the bottom left ESC pads
-make the board larger to be firmly blocked by the 3D printed supports structure
-add another GND for board Multiwii Uploading (I soldered a pin on the fly to be able to program it)
-add another RESET pin (I soldered a pin on the fly to be able to use reset)
-reorder ESC signals pad, as they were mirrored
-maybe add add a switch to power on and off the quadcopter without remove the battery
+					</p>
+					<h3><span class="redones"><span class="redones">---------------Configuration---------------</span></h3>
+					<p><br>
+					The first thing we did, was to verify if the board works correctly. To start testing the board we tried to power it with 5V, to see if there was some smoke. As Daniele didn’t put the power led, to know if the board was really switched on, we needed to program it. So, due to the fact that luckily there <span class="redones">wasn’t any smoke</span>, we tried to program the board with an <span class="redones">Arduino as ISP</span>.</p>
 
+					<img class="images-default" src="img/final_project/4.3/board_programming.jpg">
 
+					<p> Also this step was passed, as the board was programmed flawlessly. As final step in programming the board we <span class="redones">uploaded MultiWii</span>, setting in the <span class="redones">“config.h”</span> file type of multicopter and IMU, by uncommenting the corresponding lines:</p> 
 
-AAVOID v1 fabbed parts list:
+					<img class="images-default" src="img/final_project/4.3/multiwii1.png">
+					<img class="images-default" src="img/final_project/4.3/multiwii2.png">
 
-flight and distribution board
-frame
-foots
-battery compartment
+					<p>Here's a video about the <span class="redones">Multiwii working on AAVOID v1 board</span>:</p>
+
+					<iframe width="700" height="450" src="https://www.youtube.com/embed/J8oPGxUSLbI" frameborder="0" allowfullscreen></iframe>
+
+					<p><br>As you can see in the video, <span class="redones">IMU and board worked fine</span>, but the accelerometer, the gyro and the magnetometer was not calibrated. As further test we tried the <span class="redones">connection between smartphone and the board</span>, using <span class="redones">USB OTG cable</span>, in order to visualize the <span class="redones">IMU data on the smartphone screen</span>, and also this test was good. Due to the future integration of an Android smartphone on AAVOID, this test was a fundamental one to prove that <span="redones">communications between Androd and Multiwii are possible</span>. The Android app I used is <a href="https://play.google.com/store/apps/details?id=com.ezio.multiwii&hl=it"><span class="redones">EZ-GUI ground station</span></a>.</p>
+
+					<iframe width="700" height="450" src="https://www.youtube.com/embed/NPf7IKyEKg0" frameborder="0" allowfullscreen></iframe>
+					
+					<p>Next step was to test motors and ESCs, and, as required intermediate steps, arming of the quadcopter and radio channel. Due we’ve a 5-channel radio control, and to the fact that the fifth channel isn’t strictly needed to fly, we used this channel as input for arming/disarming the quadcopter. We set as arming signal an high level of this channel.</p>
+ 	
+					<p>AVVOID v1 <span class="redones">managed to fly!</span> Here's a video of one the <span class="redones">first flights</span>:</p>
+					<iframe width="700" height="450" src="https://www.youtube.com/embed/JLgGLL2r4ZU" frameborder="0" allowfullscreen></iframe>
+
+					<ul class="lists">
+					<li>We  pinned the following modification to be made in the next board version:</li>
+					add two 10uF capacitor to the distribution board in order to stabilize the power supply</li>
+					<li>rotate also the bottom left ESC pads</li>
+					<li>make the board larger to be firmly blocked by the 3D printed supports structure</li>
+					<li>add another GND for board Multiwii Uploading (I soldered a pin on the fly to be able to program it)</li>
+					<li>add another RESET pin (I soldered a pin on the fly to be able to use reset)</li>
+					<li>reorder ESC signals pad, as they were mirrored</li>
+					<li>maybe add add a switch to power on and off the quadcopter without remove the batter</li>
+					</ul>
+
+<ul class="lists">
+<li>AAVOID v1 fabbed parts list:</li>
+<li>flight and distribution board</li>
+<li>frame</li>
+<li>foots</li>
+<li>battery compartment</li>
+</ul>
   
+<ul class="lists">
+<li>AAVOID v1  bought parts list:</li>
+<li>3S 11.1V 1300mah LiPo battery</li>
+<li>4 x 12A Afro ECS’s</li>
+<li>4 x 2150kv Multistar brushless motors</li>
+<li>Drotek 10DOF IMU</li>
+<li>AR610 6 channel Spektrum receiver</li>
+<li>DX5E 5 channel Spektrum transmitter</li>
+<li>4 x carbon fiber 6030 propellers</li>
+</ul>
 
-AAVOID v1  bought parts list:
 
-3S 11.1V 1300mah LiPo battery
-4 x 12A Afro ECS’s
-4 x 2150kv Multistar brushless motors
-Drotek 10DOF IMU
-AR610 6 channel Spektrum receiver
-DX5E 5 channel Spektrum transmitter
-4 x carbon fiber 6030 propellers
+<p>
+	<a href="drawings/final_project/4.3/upper_structure.3dm.rar"><span class="redones-link">upper_structure</span></a> 
+	<a href="drawings/final_project/4.2/AAVOID_v1.rar"><span class="redones-link">AAVOID v1 board</span></a> 
+	<a href="drawings/final_project/4.1/foot_drone2.3dm.rar"><span class="redones-link">foots</span></a> <a href="drawings/final_project/4.1/foot_drone2.3dm.rar"><span class="redones-link">foot_drone2</span></a>
+
 </p>
-
 
 			</div>
 		</section>
@@ -4337,8 +4416,11 @@ DX5E 5 channel Spektrum transmitter
 					canvas5.style.display="none";
 
 
-					ReplaceContentInContainer('middle',document.getElementById('about').innerHTML)
-					document.getElementById('ab').style.color = '#ced9e0';
+					//ReplaceContentInContainer('middle',document.getElementById('about').innerHTML)
+					//document.getElementById('ab').style.color = '#ced9e0';
+
+					ReplaceContentInContainer('middle',document.getElementById('project1').innerHTML)
+					document.getElementById('project1').style.color = '#ced9e0';
 
 		 }
 
