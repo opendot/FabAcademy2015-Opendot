@@ -550,6 +550,12 @@ color: white;
   text-align: justify;
 }
 
+#project7{
+  border: none;
+  display: none;
+  text-align: justify;
+}
+
 #week1 {
   border: none;
   display: none;
