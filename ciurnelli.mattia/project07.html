@@ -87,6 +87,144 @@
           <div class="page-header">
   <h1><u>Teamwork:</u><h2>AAVOID v1.0</h2></h1>
     </div>
+        <p>After everyone finished their personal work, we started the teamwork part, which involves the soldering of the board, assembly the drone, configure of MultiWii and the first test flight.</p>
+        <h3>Soldering</h3>
+        <p>As first step to build the first prototype of AAVOID quadcopter was to solder the final board, that came frome the union from the power distribution board and the fly control board.</p>
+        <p class="pic"><img src= "Image/Project03/AAVOID_board.png" class="img-responsive" alt="Responsive image"></p> 
+        <p>As you can see, the space where’s the name and the version of the board, it’s deliberately empty to fit future components.</p>
+        <p>Everyone has proceeded to solder a board, having finally two of them, to reduce the probability of errors. The board was very easy and quick to solder due some unnecessary components was removed from the schematic, and there is plenty of space for the future integration of the sensors and actuators board.</p>
+        <p class="pic"><img src= "Image/Project03/saldatura_board.jpg" class="img-responsive" alt="Responsive image"></p> 
+<p>We leave the endpoint connectors of the distribution board, as we needed to see how this first version will fit with the frame and the other physical parts. In the following picture, there is the soldered board:</p>
+        <p class="pic"><img src= "Image/Project03/board_saldata.jpg" class="img-responsive" alt="Responsive image"></p> 
+        
+        <h3>Assembly</h3>
+        <p>As we wasn’t sure about the board mounting holes, we don’t let the laser completely cut them: we adjusted the holes with a dremel (as you can see in the picture above), after tried to fit the board in the frame, paying attention to the position of the IMU that should stay perfectly centered.</p> 
+        <p>Center the IMU was a fundamental step, that we prepared together by considering combining the positioning of the IMU connectors on the board and the hole for the IMU connectors on the the frame. We decided to put the IMU directly on top frame surface, and firmly block it with bi-adhesive scotch tape.</p> 
+            <p>This because we wanted to exploit the plywood surface finish, to put the IMU in a almost ground parallel position and for taking it at the same level with motors basement. Here is the IMU mounted on the frame:</p>
+        <p class="pic"><img src= "Image/Project03/center_imu.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>Once mounted the IMU on the frame we started to add the physical parts like the foots and the upper structure, that are 3d printed. The foots are blocked in the frame by using the predisposed holes on it, and fit together becoming hard to remove.</p>
+        <p class="pic"><img src= "Image/Project03/foot_drone.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/IMU_on_frame.jpg" class="img-responsive" alt="Responsive image"></p>
+<p>The upper structure, instead, is attached on the frame using screws and bolts, and its function is to cover and protect the IMU, and to hold the battery.</p>
+        <p class="pic"><img src= "Image/Project03/vano_batteria2.jpg" class="img-responsive" alt="Responsive image"></p>
+     <p class="pic"><img src= "Image/Project03/vano_batteria.jpg" class="img-responsive" alt="Responsive image"></p>
+       <p class="pic"><img src= "Image/Project03/vano_batteria3.jpg" class="img-responsive" alt="Responsive image"></p>
+    
+        <p>After that we placed the board on the frame and we block them using screw.</p>
+        <p class="pic"><img src= "Image/Project03/montaggio_board.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/board_on_frame.jpg" class="img-responsive" alt="Responsive image"></p>
+        
+        
+        <p>The next steps in assembly AAVOID quadcopter were to add ESCs, motors and the receiver and to test them. ESCs were attached to frame arms with cable ties, and connected to board for power supply and signal. We decided to solder all of these connection to avoid in-fly dangerous disconnections. For the receiver we connect them to the board using the specific pin on it.</p>
+        <p class="pic"><img src= "Image/Project03/montaggio_esc.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/montaggio_esc2.jpg" class="img-responsive" alt="Responsive image"></p>
+        
+        <p>After the ESCs were all in place, we continued with motors. Motors are fixed with 4 10mm bolts directly on the motors platform, placed at the end of each frame arm. Because of the motors are the most stressed part, as they bring movements to the quadcopter, we apply one washer to each bolt.</p>
+        <p class="pic"><img src= "Image/Project03/attacco_motori.jpg" class="img-responsive" alt="Responsive image"></p>
+    <p>The next step is to test and configure the quadcopter, in order to do this we didn’t mount propellers, as they can be dangerous.</p>
+        
+        <h3>Test and Configuration</h3>
+        <p>The first thing we did, was to verify if the board works correctly. To start testing the board we tried to power it with 5V, to see if there was some smoke. As Daniele didn’t put the power led, to know if the board was really switched on, we needed to program it. So, due to the fact that luckily there wasn’t any smoke, we tried to program the board with an Arduino as ISP. Also this step was passed, as the board was programmed flawlessly.</p>
+        <p class="pic"><img src= "Image/Project03/programming_board.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/programming_board2.jpg" class="img-responsive" alt="Responsive image"></p>
+        
+        <p>As final step in programming the board we uploaded MultiWii, defining in the “config.h” file the type of multicopter and IMU, uncommenting the relative lines.</p>
+        <p class="pic"><img src= "Image/Project03/def_quadcopter_type.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/def_IMU.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/programming_Multiwii.jpg" class="img-responsive" alt="Responsive image"></p>
+        
+        <p>As you can see in the following video, the IMU and the board work fine, but the accelerometer, the gyro and the magnetometer was not calibrated.</p>
+         <iframe width="420" height="315" src="https://www.youtube.com/embed/J8oPGxUSLbI?rel=0" frameborder="0" allowfullscreen></iframe><br>
+        <p>As further test we tried the connection between smartphone and the board, using USB OTG cable, in order to visualize the IMU data on the smartphone screen, and also this test was good.</p>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/NPf7IKyEKg0?rel=0" frameborder="0" allowfullscreen></iframe><br>
+        <p>Next step was to test motors and ESCs, and, as required intermediate steps, arming of the quadcopter and radio channel. Due we’ve a 5-channel radio control, and to the fact that the fifth channel isn’t strictly needed to fly, we used this channel as input for arming/disarming the quadcopter. We set as arming signal an high level of this channel, and we do this directly from the Multiwii control panel.</p>
+        <p class="pic"><img src= "Image/Project03/set_arm_channel5.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>After this we have configured the ESCs, following the guide on the <href src="http://www.multiwii.com/wiki/index.php?title=Multiwii_Beginners_Guide_to_Basic_First_Flight">wiki page of MultiWii</href>.</p>
+        <p>We need to set the min and the max of all ESCs. To do this, you must connect one by one each ESCs directly to the receiver on the GAS channel. Then, turn on the TX and move the gas to 100% then connect the battery to the ESC, it starts beeping. After, bring the throttle to 0 and wait fot the confirmation beep.</p>
+        <p>The next thing we did was setting end points. Using the Multiwii GUI, open the RC CONTROLS tab look at the live tx data, then use your tx sub trim to set the throttle low at 1000 and all the mid sticks at 1500.</p>
+        <p>Then using the tx end points adjustment make the throttle high point 2000, yaw left 1000, yaw right 2000, pitch down 1000, pitch up 2000, roll left 1000, roll right 2000. You may have to readjust for 1500 center.</p> 
+        <p>Ensure that all readings move in direction of TX sticks and switches (maximum value when the sticks are in the upper right corner). Reverse on TX if not. Note: Do not set Ends Points less than 1000 or greater than 2000. Slightly within these limits is better than any value going outside these limits.</p>
+        <p>After, we have ensured that motors are turning in correct direction with correct propellerps for rotation and not mounted upside down, following this schematic:</p>
+        <p class="pic"><img src= "Image/Project03/quad_motor_layout.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>The last things we did were calibrate the accelerometer/gyroscope and the magnetometer. For the accelerometer/gyroscope calibration, we palced the drone on a flat surface, and then lunched the calibration option: when the calibration is finished value of the sensor should now be close to 0 (within the range -10 to 10) for PITCH and ROLL, and close to either 256 or 512 in the Z axis.</p>
+        <p>To calibrate the magnetometer we had hit the CALIB_MAG button in the Multiwii GUI, starting the calibration process:
+    you have 30 seconds to rotate the board in all orientations. It doesn’t matter too much which order of directions you rotate it, but this is what we generally do:</p><ul type=square>
+
+        <li>Begin by rotating the drone 360 degrees passing through North, East, South and West.</li>
+        <li>Now flip the board over 360 degrees in the roll axis, then undo the flip back to normal.</li>
+        <li>Now flip the board end-over-end in the pitch axis a complete 360 degrees, then undo the flip back to normal</li>
+        <li>Now wave the board around in the air as if you were actually flying around outside, back and forth, side to side, up and down.</li>
+        <li>Stop when the yellow light stops blinking and returns to normal,</li>
+        </ul>
+    <p>Finished the calibration procedure, we went out to make the first flight test!</p>
+        <p class="pic"><img src= "Image/Project03/prototipo_final.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>This is the video of one of our first test flight</p>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/JLgGLL2r4ZU?rel=0" frameborder="0" allowfullscreen></iframe><br>
+        <p>As you can see AAVOID still not fly perfectly. We think this happened because we left default flight mode of MultiWii set to ACRO. From what we've read from Multiwii documentation, this flight mode is useful for "performing acrobatics (tight turns, flips, etc)" and also uses only the gyroscope.</p>
+            <p>Another consideration about flight is relative to choice to put the battery to the top instead of placing it under the frame, that could have been caused further flight instability. These consideration could explain why AAVOID v1 was so reactive to the transmitter sticks.</p>
+
+<p>As we and other fellow students really enjoyed these flights, we ended up in a crash, useful for us to point out frame fragility. In fact in this crash the frame broke in one of its weak points: </p>
+        <p class="pic"><img src= "Image/Project03/broke1.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p class="pic"><img src= "Image/Project03/broke2.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>Even the propellers were broken in the crash:</p>
+        <p class="pic"><img src= "Image/Project03/broken_propeller.jpg" class="img-responsive" alt="Responsive image"></p>
+        <p>So for future flights, we are thinking about a more solid frame and some sort of propellers protection.</p>
+
+    <p>Talking about wiring and flight controller and distribution board, we pinned the following modification to be made in the next version:</p>
+        
+    <ul type=square>    
+        <li>add two 10uF capacitor to the distribution board in order to stabilize the power supply</li>
+        <li>rotate also the bottom left ESC pads</li>
+        <li>make the board larger to be firmly blocked by the 3D printed supports structure</li>
+        <li>add another GND for board Multiwii Uploading (I soldered a pin on the fly to be able to program it)</li>
+        <li>add another RESET pin (I soldered a pin on the fly to be able to use reset)</li>
+        <li>reorder ESC signals pad, as they were mirrored</li>
+        <li>maybe add add a switch to power on and off the quadcopter without remove the batter</li>
+        </ul>
+        
+        <h3>Specific and Download</h3>
+        
+        
+    <p>AAVOID v1 fabbed parts list:</p>
+        <ul type=square>
+            <li>flight and distribution board</li>
+            <li>250mm frame</li>
+            <li>foots</li>
+            <li>battery holder (upper structure)</li>
+        </ul>
+        
+    <p>AAVOID v1 bought parts list:</p>
+        <ul type=square>
+            <li>3S 11.1V 1300mah LiPo battery</li>
+            <li>4 x 12A Afro ECS’s</li>
+            <li>4 x 2150kv 2206 Multistar brushless motors</li>
+            <li>Drotek 10DOF IMU</li>
+            <li>AR610 6 channel Spektrum receiver</li>
+            <li>DX5E 5 channel Spektrum transmitter</li>
+            <li>4 x carbon fiber 6030 propellers</li>
+        </ul><br>
+        
+        <p><a href="media/AAVOID_v1_frame.3dm.rar"><button type="button" class="btn btn-primary">Download frame file for Rhino </button></a></p>
+        <p><a href="media/foot_drone2.3dm.rar"><button type="button" class="btn btn-primary">Download .stl file of the foots </button></a></p>
+        <p><a href="media"><button type="button" class="btn btn-primary">Download .stl file of the upper structure </button></a></p>
+        <p><a href="media/AAVOID_v1.rar"><button type="button" class="btn btn-primary">Download Eagle files of the board </button></a></p>
+        
+        
+        
+        
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
         
     </div>
     <!-- End of your content -->
