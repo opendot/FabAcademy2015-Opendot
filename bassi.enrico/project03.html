@@ -81,10 +81,144 @@
 	<!-- Insert your content here below! -->
 
 
-    <h2>Final Project - Process</h1>
-    
-     <img src="images/progress.png" alt="work in progress" height="50" width="650">  
+    <h2>Final project - Development</h2>
         
+       
+                <h3>Electronic</h3>
+	<p>
+The board is designed based on the schematic of the CNC board by <a href="https://ryanpourcillie.files.wordpress.com" target="_blank"> Ryan Pourcillie</a>
+        <img src="images/original_board.JPG" width="900">
+        
+        <br> 
+        His schematic was mainly useful as a reference for the capacitors used and the solution used. 
+        <br>
+        Here the schematic I made, based on his:
+        <img src="images/board1.jpg">
+        <br>
+        
+        And here the board:
+         <img src="images/board2.jpg">
+        <br>
+        <a href="media/smill.zip">
+	<button type="button" class="btn btn-primary btn-lg">Download "S-mill board V1"</button>
+	</a>
+        </p>
+        <p>
+        
+        It was pretty easy to connect almost everythig, these are the main issues:
+        <p>
+        <ul>
+        <li>One of the traces must pass on the corner of ATMEGA 328P</li>
+        <li>The endstops hve no external pull-up resistors (i hope to fix this using the internal ones)</li>
+        <li>The enable of the stepper drivers and one of the endstop must be connected with jumpers</li>
+        </ul>
+        </p>
+      <p>
+        <br>
+        Beside be careful in placing the traces in the center of the corner, I did a small modification on the shape of the pad in inkscape, just to have a little bit more room. So here it is the original image:
+        <img src="images/details2.jpg">
+        
+        And here the small adjustment done in inkscape:
+        <img src="images/details3.jpg">
+        
+        I had no problem to solder the ATMEGA 328p without shortcircuiting anything.
+        <br>
+To make the board a little bit easier to read, I add some simple "silks" (like "GND", "Z - Axis", "+", etc.). They're pretty fragile, but still useful to have.
+          <br>
+          <img src="images/details10.jpg">
+          
+Here the jumper used:
+          <img src="images/details13.jpg">
+          <img src="images/details15.jpg">
+          
+          <br>
+          The driver used are the DRV8825 Stepper Motor Driver, that can get to 1,5 A without cooling. I'll probably need more current, but it coul work for the tests. To improve the performances I added a passive cooler
+          <img src="images/details16.jpg">
+          
+          <br>
+          The board has a connector for the FTDI and four pins to be programmed (SCK, MISO, MOSI, RESET). There pins can be removed after the debugging. 
+          <img src="images/details18.jpg">
+          
+          <br>
+          So far, I tested the board and it seems there are no electrical issues and the clock is working properly (I used a simple blink and a watch to do a very basic test).
+          <img src="images/details24.jpg">
+          
+          <br>
+          
+          <strong>Next steps</strong>
+          </p>
+          <p>
+          <ul>
+      <li>test drivers + motors with a temporary code (Processing + Firmata)</li>
+              <li>Test the grbl on this board, after have properly mapped the pins of the ATMEGA 328p </li>
+      </ul>
+      </p>
+    <br>
+                <h3>Y movement</h3>
+	<p>
+	The most tricky part is probably how to move the machine along Y. I started following <a href="http://www.bg-cnc.com/wordpress/?p=542" target="_blank"> this</a> solution:
+  <img src="http://www.bg-cnc.com/wordpress/wp-content/uploads/2009/07/realistic-x-sect.jpg" alt="components" height="600" width="900">
+        <img src="http://www.bg-cnc.com/wordpress/wp-content/uploads/2014/10/New-Belt-Drive-Side.jpg" alt="components" height="600" width="900">
+        
+        <br>
+        This allow me to dismount the machine without too many problems. <br>
+    The first solution to test is to use a circular belt moved by a stepper that use a secont linear belt glued to the rail as a rack. 
+	</p>
+      
+        <img src="media/detail_y.svg" alt="Detail Y axis" height="600" width="800">           
+        
+      <p>
+	<strong>
+        A - Circular belt <br>
+        B - Pulley <br>
+        C - Y motor <br>
+        D - Linear belt (rack) <br>   
+          </strong>  
+    <br>
+	
+	<a href="media/detail_y.svg">
+	<button type="button" class="btn btn-primary btn-lg">Download "Detail_Y.svg"</button>
+	</a>
+    <br><br>
+      The solution I made so far is wrong dimensionally but the idea could work
+          
+          <img src="images/structure62.jpg">
+          
+          It works like a caterpillar track that moves over another timing belt used as a rack. 
+          <img src="images/structure71.jpg">
+          
+          To guarantee the proper pressure and avoid backlash, the structure is preloaded with springs
+          <img src="images/structure72.jpg">
+
+             <h3>Z movement</h3>
+    <p>
+    To move in Z the entire machine is sliding down. This seems to me the most rigid way to move the structure instead of have a Z axis made as usual. The objective was to keep the force loop as short as possible.
+    
+    <br>
+    Here two Z position compared (first high and then low)
+    </p>
+    <img src="images/pos1.JPG" width="900">
+    <img src="images/pos2.JPG" width="900">
+    <p>
+    <br>
+    
+    The movimentation is done with two motors and two threaded bars. To avoid the backlash I designed two 3D printed parts preloaded with a spring and aligned with four screws
+    <img src="images/structure69.jpg">
+    </p>
+        
+    <h3>Next Steps</h3>
+    <p>
+       There is still a long run to do. This is going to be my check list:
+        
+        <lu>
+        <li>Check all the connections and assembling holes</li>
+            <li>Decide the assembling process and testing it</li>
+            <li>decide the endstop position and regulation</li>
+            <li>implement the fixing and assembly a more definitive version</li>
+            <li>test together electronic and mechanic</li>
+        </lu>
+        </p>
+    
         
     <!--    
     <p>

@@ -81,145 +81,125 @@
 	<!-- Insert your content here below! -->
 
 
-    <h2>Final Project - Notes</h1>
+    <h2>Final Project - Analysis and Research</h2>
     
         
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
-          
+    <h3>What will it do?</h3>
         
-    <!--    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+        <p>
+        S-mill is a CNC milling machine with the following goals:
+            <br>
+            <ul>
+                <li> make pieces bigger than it</li>
+                <li> don't be bulky, in particular when it's not in use</li>
+                <li>be self-replicable</li>
+                <li>be as affordable as possible</li>
+                <li>be as precise as possible</li>
+                </ul>
+        <br>
+        To do so, it has a round frame and a particular Z-axis movement to reduce the forceloop. It's made with CNC milling and standard, cheap components.
+        
+        </p>
       
-    <h3>Would you like to insert more style/elements?</h3>
+     <h3> Who's done what beforehand? </h3>
+      
       <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
+Here some exhisting projects that I considered inspiring:
+      <br><br>
+      <a href="http://www.michaelwarrendesign.com/grow/Grow_CNC/Home.html"><strong>Grow CNC</strong></a>
+      <br><br>
+      <img src="http://www.michaelwarrendesign.com/grow/Grow_CNC/Home_files/shapeimage_6.png" width = "900">
+      <br>
+      interesting concept of alternative CNC, definitely able to cut pieces bigger that it.
+          
+          
+      <br><br>
+      <a href="http://christianfiebig.de/impulsive-furnishing-unit/" ><strong>Impulsive Furnishing unit</strong></a>
+            <br><br>
+    <img src="https://lh4.googleusercontent.com/-PeD4axVicEU/UJRtk8hEuLI/AAAAAAAAK2Y/EXFQEG31zSE/s2048/DSC_5140.jpg" width="900">
+      <br>
+      Very nice project, based on the idea to bring the machine where you need it to make stuff. No working bed, it cuts directly the panel it lays on. <br>
+          Still pretty bulky.
+      
+          
+          
+      <br><br>
+      <a href="https://www.buildyourcnc.com/item/cnc-machine-greenLean-v1" ><strong>Green Lean</strong></a>
+            <br><br>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/58KpXx7hNOE" frameborder="0" allowfullscreen></iframe>
+      <br>
+      Entirely made in wood it gave ma a lot of suggestion and it's vertical
+      
+      <br><br>
+      <a href="http://www.openbuilds.com/builds/original-phlatprinter.95/" ><strong>Phlat Printer</strong></a>
+            <br><br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4QCnsag23k4" frameborder="0" allowfullscreen></iframe>
+      <br>
+      Very similar to what i had in my mind, still too big and the it moves the panel works for foams but probably not with more rigid materials.
+          
+      
+          
+      <br><br>
+      <a href="http://kimlyis.me/otherlab-otherfab/" ><strong>Othercutter</strong></a>
+            <br><br>
+<iframe src="https://player.vimeo.com/video/62182723" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <br>
+      Beautiful project, very clever idea, it works with soft material but probably not with plywood or similar (even if the blade would be changed with a spindle)
+          <br> 
+      
+     <h3> What materials and components will be required? \\ Where will they come from? </h3>
+      
+      <p>
+          The project is divided in different parts:<br>
+           <ul>
+      <li>Structure</li>
+               <li>Electronic</li>
+               <li>Firmware</li>
+               <li>Software</li>
+      </ul>
 
-    -->
+      I started from the work done by <a href="www.shapeoko.com">Shapeoko</a>
+      studying the board to implement mine. <br>
+      The formware is a standard g-code interpreter (<a href="https://github.com/grbl/grbl">grbl</a>) edited to match the pitch of the pulleys i'm gonna use and the pins of the microcontroller that will give step+dir to the motors.
+    </p>
+    
+      
+    <h3> How much will it cost? </h3>
+    <p>
+    An approx estimation of the price is:
+        
+<img src="images/Costs.JPG">
+        <br>
+    	<a href="media/costs.ods">
+	<button type="button" class="btn btn-primary btn-lg">Download "costs.odt"</button>
+    </a>
+</p>
+        
+     <h3> What processes will be used?</h3>
+            <p>
+               The frame of the machine is designed to be made with another CNC, some minor components are 3D printed and the electronic is made with the fiber laser. 
+The firmware is an simple editing of the grbl.
+                </p>
+    
 
+      <h3>How will it be evaluated?</h3>
+   
+    <br>
+    This is going to be my evaluation grid for the project:
+    <br>
+    <ul>
+    <li></li>
+        <li><strong>Sufficient:</strong> get to a smooth mechanical design, where all the axis move properly without the motors </li>
+        <li><strong>Decent:</strong> be able to move all the axis using a debugging application done in Processing + firmata on the board </li>
+        <li><strong>Good: </strong>be able to move all the axis using a modified version of grbl + grbl controller</li>
+        <li><strong>Ninja: </strong>send a standard g-code to the CNC</li>
+        <li><strong>Jedi: </strong>cut the frame for another S-mill with the S-mill</li>
+        <li><strong>Yoda: </strong>cut with S-mill an object bigger that S-mill itself</li>
+    </ul>
+    
+	</p>
+        
+   
     <!-- End of your content -->
 
     </div> <!-- /container -->
