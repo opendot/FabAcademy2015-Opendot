@@ -169,6 +169,47 @@
 								
 								</section>
 							</div>
+							
+							<div class="12u">
+								<section class="box style1">
+									
+									
+ <p>The first step was to think about a single pixel in order to define a first version of the table and its structure.</p>
+ <p><img align="center"  hspace="12" src="images/onepixelstructure.jpg"  /></p>
+ <p>On the top we have a transparent pin moved by a servo motor connected by an armonic steel wire.
+on the bottom of the pin a rgb led is connected </p>
+<p>My final project as described is and will focused mainly on table structure and driving starting from a deph and colour information from a sensor.The following 
+video shows by means of a web application written that by means of webgl to simulate the table ( in simulation the pins and motors are free ;-)
+</p>
+<div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/lsqNa107_6E" frameborder="0" allowfullscreen></iframe></div>
+<p>Starting from this early prototype I think about the overall structure, nd taking into account the total transmitted torque a metal structure solution has been adopted.</p>
+<p><img align="center"  hspace="12" src="images/tablestructure.jpg"  /></p> 
+<p>Each table layer contains a component of system
+table layer ( electronics->servo motors-> transmission->pin-push-> pins and leds.
+The introduction of a pin-push facilitates the stability of the edge transparent pin during its linear movement.
+In the last months a first try has been performed by adopting a dual layer disposal of motors in order to reduce the distance of neighbour motors respect to the vertical axis of the pi. Obviously the dimension of the motors and their arms are greater than the dimension of each pixel/pin.
+This first try was useful to test a first release of motor and led drive.
+</p>
+<p><img align="center"  hspace="12" src="images/firsttabletry.jpg"  /></p> 
+
+<div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/B_RldbHvDA8" frameborder="0" allowfullscreen></iframe></div>
+<div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/mYHI423AHnA" frameborder="0" allowfullscreen></iframe></div>
+
+<p>but this solution provide complexity and space reduction on the composition of the entire motor system and transmission (wires are too near). So the approach is to return on a single linear disposal of motors with the support of  a rubber tube inside which  steel wire flows.
+</p>
+<p><img align="center"  hspace="12" src="images/newpinsystem.jpg"  /></p>
+<p>
+At this moment in order to test the entire system software an arduino pool system is adopted by using a shift register system. After this test the second phase I plan to replace the arduino boards with satsha ones.
+At this moment  I'm going to enhance the table by using the results of Fab Academy assignments.
+</p>
+<p><img align="center"  hspace="12" src="images/newtoppinsystem.jpg"  /></p>
+
+
+ 
+ 
+								</section>
+							</div>
+							
 						</div>
 					</div>
 					
