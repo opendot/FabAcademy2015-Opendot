@@ -67,88 +67,67 @@
     </nav>
     <div class="container">
       <!-- Insert your content here below! -->
-      <h2>Research and Inspiration for final project</h2>
-      <p> In this page I will collect and describe useful links that possibly
-        help me to my target. </p>
-      <h3>Sub-division </h3>
+      <h2>Electronics</h2>
       <p> </p>
+      <br>
       <ul type="”disc”">
-        <li><a href="#mechanic">Mechanics</a></li>
-        <li><a href="#motion">Motions</a></li>
-        <li><a href="#electronic">Electronics</a></li>
-        <li><a href="#programming">Programming</a></li>
-        <div> </div>
-        <h3>Mechanics </h3>
-        <a name="mechanic"></a>
-        <p> Using fishing line to move the axis, refer to: <a href="http://www.thingiverse.com/thing:368902">PrintBQ</a>
-        </p>
-        <p> Theme: <a href="http://www.fishing.net.nz/how-to/fishing-lines-pros-and-cons-of-braided-lines/">some
-            about fishing braid</a> </p>
-        <p> Theme: <a href="https://github.com/wolfmanjm/wolfhbot/blob/master/README.md">Wolf
-            Bot</a> </p>
-        <p> Theme: <a href="http://www.3ders.org/articles/20141107-richrap-shares-sli3dr-3d-printer-design-files.html">RichRap
-            awsome printer</a> </p>
-        <div> </div>
-        <h3>Motions </h3>
-        <a name="motion"></a>
-        <p> As explained in the Project Note page I will use <a href="http://corexy.com/">CoreXY</a>
-          as kinematics </p>
-        <p> Theme: <a href="https://groups.google.com/forum/#%21topic/h-bot-and-corexy-3d-printers/GAFgSyKyGWo">new
-            corexy twist</a> </p>
-        <div> </div>
-        <h3>Electronics </h3>
-        <a name="electronic"></a>
-        <p> <a href="http://www.pighixxx.com/test/pinoutspg/boards/">Pighixxx </a>Pinout
-          of most used atmega board and chips </p>
-        <p>Starting form the beautiful <a href="http://mtm.cba.mit.edu/machines/science/">MTM
-            </a>project, I want to make a similar circuit board that possible to
-          drive by Inkscape. To do this I need to make 2 modules, one for the
-          basic configuration with 2 stepper driver and 2 RC servos, and another
-          one like a modular stepper board with one stepper driver and one RC
-          servo. </p>
-        <p>I'm thinking about using a scheme like this:</p>
+        <p>The First concept was:</p>
+        <p> to use GRBL as interpreter</p>
+        <p>Main stage with 2 motor driver and servo/solenoid as Z axis</p>
+        <p>The concept is that the main stage will be able to make the 3rd 4th etc.
+          axis board using a brushless motor or a PCB pen as a tool.</p>
         <p class="pic"><img src="img/board.jpg"></p>
-        <p>The boards will be like <a href="https://github.com/imoyer/086-005">Gestalt
-            Node</a> but the communication with arduino will be via ISP or I2C </p>
+        This is the schematic and the design of the board:
+      </ul>
+      <div style="text-align: center;"><img style="width: 893px; height: 499px;"
+          alt="z" src="img/xysch.jpg"><br>
+        <img alt="z" src="img/xybrd.jpg"><br>
+      </div>
+      <br>
+      <br>
+      and this is the board made with Trotec flexx, I tried also to add a "silk"
+      on the board<br>
+      <div style="text-align: center;"><img alt="z" src="img/fab11a.jpg"><br>
+      </div>
+      <ul type="”disc”">
+        <br>
         <p> </p>
         <p> </p>
         <div> </div>
-        <h3>Programming </h3>
-        <a name="programming"></a>
-        <p>The big gap is the software, Gestalt Node uses own software wrote in
-          python, but my things is to use Inkscape to drive the machine. In
-          order to do this I decided to study around Inkscape plugins
-          developing.</p>
-        <p>Searching about plugins i discovered a plugin used for the Eggbot
-          machine, is a beautiful plugin that allow to drive a simple cartesian
-          bot with a tool like a pen. One problem about this plugin is that the
-          eggbot board have a PIC microprocessor instead Atmega that I want, so
-          I will take inspiration on this plugin and I will rewrite to send a
-          normal GCode.</p>
-        <p> The Eggbot project fortunately is well documented <a href="https://github.com/evil-mad/EggBot">Eggbot
-            on Github</a> </p>
-        <p>and: <a href="http://www.inkscapeforum.com/viewtopic.php?f=31&amp;t=16747">Eggbot
-            plugin description</a> </p>
-        <p>Inskape have already other nice plugins to convert SVG to gcode like:
-          <a href="http://www.cnc-club.ru/forum/viewtopic.php?f=33&amp;t=35">Gcode
-            Tools</a> </p>
-        <p> Another ispirational maybe is this <a href="http://www.thingiverse.com/thing:65753/#instructions">Spherebot
-            project</a> </p>
-        <p>To write a new inkscape plugins i will follow these links <a href="http://www.inkscapeforum.com/viewtopic.php?f=34&amp;t=11359">Inkscape
-            forum</a> </p>
-        <p> and <a href="http://wiki.inkscape.org/wiki/index.php/Script_extensions">Inkscape
-            wiki</a> </p>
-        <p>Using these library <a href="https://pypi.python.org/pypi/pycam/0.5.1">pycam</a>
-        </p>
-        <p> and <a href="https://pypi.python.org/pypi/pygrbl/0.2.2">pygrbl</a></p>
-        <p><br>
-        </p>
+        <h3>PIN OUT</h3>
+        <p>The pinouts are:</p>
+        <p>STEP X&nbsp;&nbsp;&nbsp; 10</p>
+        <p>DIR X&nbsp;&nbsp; &nbsp;&nbsp; 9</p>
       </ul>
-      <h3>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; GRBL</h3>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; STEP Y
+        &nbsp;&nbsp; 12</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; DIR Y &nbsp;
+        &nbsp;&nbsp;&nbsp; 11</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; LIMIT
+        X&nbsp;&nbsp;&nbsp; A0</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; LIMIT Y&nbsp;&nbsp;&nbsp;
+        A1</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        SERVO&nbsp;&nbsp;&nbsp; A3</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; JOYPAD ANALOG
+        PIN &nbsp;&nbsp; &nbsp; A4 - A5</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; JOYPAD DIGITAL
+        PIN&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 5 - 6 - 7</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; I2C PIN&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; A4 - A5</p>
+      <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AUX
+        PIN&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; A2</p>
       <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </p>
       <ul type="”disc”">
-        <p><a href="https://pypi.python.org/pypi/pygrbl/0.2.2"><br>
-          </a> </p>
+        <p></p>
+        <p>I added some pin more as Joypad as is possible to use the machine
+          stand alone for example with a pen as toy plotter.</p>
+        <p>the AUX pin will be used for example to power up led light or a fan
+          in case I want to use a laser diode as a tool.</p>
+        <p><br>
+        </p>
+        <p><br>
+        </p>
         <!-- End of your content -->
       </ul>
     </div>
