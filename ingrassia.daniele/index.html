@@ -4144,24 +4144,34 @@ function drawRoomsTimesChart(){
 				<li><span class="redones">Soldering the board</span></li>
 				<li><span class="redones">Assembly the quadcopter</span></li>
 				<li><span class="redones">Configuration</span></li>
-				<li><span class="redones">Fly test</span></li>
+				<li><span class="redones">Results and thoughts</span></li>
+				<li><span class="redones">Dowloads and specifications</span></li>
 				</ul>
 
 				<h3><span class="redones">-------------Design considerations and decisions-------------</span></h3>
-				<p>There were alot of design considerations and decisions to be taken, and this just in order to hope that AAVOID will do <span class="redones">some simple jumps on the ground without destroy itself at first flight</span>. In order to synthesize, we will cover in this section the main ones.</p>
+				<p><br>There were alot of design considerations and decisions to be taken, and this just in order to hope that AAVOID will do <span class="redones">some simple jumps on the ground without destroy itself at first flight</span>. In order to synthesize, we will cover in this section the main ones.</p>
 
 				<ul class="lists">
 				<li>Here's the considerations:</li>
 				<li>as <span class="redones">frame material</span> we need one that is a good <span class="redones">compromise between resistency, vibration absorption and price</span></li>
 				<li>we need to future <span class="redones">integrate</span> several <span class="redones">sonar sensors and an Android smartphone</span></li>
-				<li></li>
+				<li>we wanted to avoid as many as possible <span class="redones">external wirings</span></li>
+				<li>we wanted a very <span class="redones">compact and simple shape</span></li>
+				<li>to get <span class="redones">most precise readings from IMU</span></li>
 				</ul>
 
 				<ul class="lists">
 				<li>And Here's the decisions:</li>
-				<li></li>
-				<li></li>
+				<li><span class="redones">use 0.8mm plywood</span></li>
+				<li><span class="redones">integrate flight controller board with distribution board</span></li>
+				<li><span class="redones">put the IMU at center</span> and also aligned with motor basement</li>
+				<li><span class="redones">put battery on top</span>, in order to leave space below, needed for future integration of an Android smartphone</li>
+				<li><span class="redones">reduce the length of all the wires</span></li>
+				<li>make and solder a <span class="redones">battery cable into the board</span></li>
+				<li><span class="redones">solder ECSs power and signal cables</span></li>
 				</ul>
+
+				<p>You can read about solutions details we implemented, along all of this page.</p>
 
 				<h3><span class="redones">---------------Soldering the board---------------</span></h3>
 				<p><br>
@@ -4217,7 +4227,11 @@ function drawRoomsTimesChart(){
 
 					<img class="images-default" src="img/final_project/4.3/esc_solder.jpg">
 
-					<p>After the ESCs were all in place, we continued with motors. <span class="redones">Motors are fixed with 4 10mm bolts</span> directly on the motors platform, placed at the end of each frame arm. Because of the motors are the <span class="redones">most stressed part</span>, as they bring movements to the quadcopter, we apply one <span class="reodnes">washer to each bolt</span>. The next step was to test and configure the quadcopter, in order to do this <span class="redones">we didn’t mount propellers</span>, as they could be dangerous if they rotate near us.
+					<p>After the ESCs were all in place, we continued with motors. <span class="redones">Motors are fixed with 4 10mm bolts</span> directly on the motors platform, placed at the end of each frame arm. Because of the motors are the <span class="redones">most stressed part</span>, as they bring movements to the quadcopter, we apply one <span class="reodnes">washer to each bolt</span>:</p>
+
+					<img class="images-default" src="img/final_project/4.3/motor_fix.jpg">
+
+					<p>The next step was to test and configure the quadcopter, in order to do this <span class="redones">we didn’t mount propellers</span>, as they could be dangerous if they rotate near us.
 
 					</p>
 					<h3><span class="redones"><span class="redones">---------------Configuration---------------</span></h3>
@@ -4239,14 +4253,67 @@ function drawRoomsTimesChart(){
 
 					<iframe width="700" height="450" src="https://www.youtube.com/embed/NPf7IKyEKg0" frameborder="0" allowfullscreen></iframe>
 					
-					<p>Next step was to test motors and ESCs, and, as required intermediate steps, arming of the quadcopter and radio channel. Due we’ve a 5-channel radio control, and to the fact that the fifth channel isn’t strictly needed to fly, we used this channel as input for arming/disarming the quadcopter. We set as arming signal an high level of this channel.</p>
- 	
-					<p>AVVOID v1 <span class="redones">managed to fly!</span> Here's a video of one the <span class="redones">first flights</span>:</p>
-					<iframe width="700" height="450" src="https://www.youtube.com/embed/JLgGLL2r4ZU" frameborder="0" allowfullscreen></iframe>
+					<p>Next were to <span class="redones">test motors and ESCs</span>, and, as required intermediate steps, add <span class="redones">radio receiver</span>, and configure the <span class="redones">arming of the quadcopter</span>. Due we’ve a <span class="redones">5-channel radio control</span>, and to the fact that the <span class="redones">fifth channel</span> isn’t strictly needed to fly, we used <span class="redones">this channel as input for arming/disarming</span> the quadcopter. We set as arming signal an high level of this channel. Receiver wirings were made with very short cables, as you can see from the below picture:</p>
+
+					<img class="images-default" src="img/final_project/4.3/receiver.jpg">
+
+					<p>After was connected we <span class="redones">manually adjusted max-min receiver signal</span>, in order to use with the right proportions of the receiver stick's movements. After the radio control was setup, we tested motor rotations. As you may know, an <span class="redones">X quadcopter</span> need to rotate propellers in the followwing way:</p>
+
+
+					<img class="images-default" src="img/final_project/4.3/propellers_config.png">
+
+					<ul class="lists"><li>Final steps in configuration were to <span class="redones">calibrate magnetometer and accelerometer</span>.In order to calibrate accelerometer here are the instructions (from <a href="http://www.multiwii.com/wiki/index.php?title=Calibration_Accelerometer"><span class="redones-link"></span>MultiWii wiki</a>):</li>
+
+    				<li>Place your MULTI on a flat leveled surface</li>
+    				<li>Connect your MULTI to your Multiwii GUI</li>
+    				<li>Press the calib_mag button in your Multiwii GUI to start the calibration</li>
+    				<li>Wait a few secounds. Do not move your copter during this</li>
+    				<li>Check your sensors directions</li>
+					</ul>
 
 					<ul class="lists">
-					<li>We  pinned the following modification to be made in the next board version:</li>
-					add two 10uF capacitor to the distribution board in order to stabilize the power supply</li>
+						<li>Different procedure was needed to calibrate magnetomer:</li>
+						<li>Press the calib_mag button in your Multiwii GUI</li>
+						<li>Rotate 360 degree around yaw axis for x, y calibration.</li>
+    					<li>Rotate 360 degree around pitch axis for y z calibration.</li>
+    				    <li>Rotate 360 degree around roll for x z calibration.</li>
+
+					</ul>
+					
+					<p>At this point AAVOID v1 was <span class="redones">ready to fly</span>! We added olny some scotch tape in order to fix some moving parts. Here are some pictures of AAVOID v1 just before the first flight:</p>
+
+					<img class="images-default" src="img/final_project/4.3/AAVOID1.jpg">
+					<img class="images-default" src="img/final_project/4.3/AAVOID2.jpg">
+					<img class="images-default" src="img/final_project/4.3/AAVOID3.jpg">
+
+<h3><span class="redones"><span class="redones">---------------Results and thoughts---------------</span></h3>
+
+		<p><br><span class="redones">AVVOID v1 managed to fly!</span> Here's a video of one the <span class="redones">first flights</span>:</p>
+					<iframe width="700" height="450" src="https://www.youtube.com/embed/JLgGLL2r4ZU" frameborder="0" allowfullscreen></iframe>
+
+		<p><br>Another great result was weight, as you can see from the following picture, <span class="redones">AAVOID v1 weights only 449 grams</span>. This is good to be able to add other weights in the future, such as Android smartphone.</p>
+
+
+		<img class="images-default" src="img/final_project/4.3/weight.jpg">
+		
+
+		<p>As you can see AAVOID still not fly perfectly. We think this happened because we <span class="redones">left default flight mode of MultiWii set to ACRO</span>. From what we've read from Multiwii documentation, this flight mode is useful for "performing acrobatics (tight turns, flips, etc)" and also uses only the <span class="redones">gyroscope</span>. Another consideration about flight is relative to choice to <span class="redones">put the battery to the top</span> instead of placing it under the frame, that could have been caused further flight instability. These consideration could explain why AAVOID v1 was so reactive to the remote sticks.</p>
+
+		<p>As we and other fellow students really enjoyed these flights, we ended up in a crash, useful for us to point out 
+		frame fragility. In fact in this crash the <span class="redones">frame broke in one of its weak points</span>:
+</p>
+		<img class="images-default" src="img/final_project/4.3/broke1.jpg">
+		<img class="images-default" src="img/final_project/4.3/broke2.jpg">
+
+		<p>Even the propellers were broken in the crash:</p>
+
+		<img class="images-default" src="img/final_project/4.3/broken_propeller.jpg">
+
+		<p>So for future flights, we are thinking about a more <span class="redones">solid frame</span> and some sort of <span class="redones">propellers protection is needed</span>.</p>
+
+		<ul class="lists">
+					<li>Talking about wiring and <span class="redones">flight controller and distribution board</span>, we pinned the following modification to be made in the next version:</li>
+					<li>add two 10uF capacitor to the distribution board in order to stabilize the power supply</li>
 					<li>rotate also the bottom left ESC pads</li>
 					<li>make the board larger to be firmly blocked by the 3D printed supports structure</li>
 					<li>add another GND for board Multiwii Uploading (I soldered a pin on the fly to be able to program it)</li>
@@ -4255,32 +4322,35 @@ function drawRoomsTimesChart(){
 					<li>maybe add add a switch to power on and off the quadcopter without remove the batter</li>
 					</ul>
 
+
+<h3><span class="redones"><span class="redones">---------------Downloads and specifications---------------</span></h3>
+
 <ul class="lists">
-<li>AAVOID v1 fabbed parts list:</li>
+<li>AAVOID v1 <span class="redones">fabbed parts list</span>:</li>
 <li>flight and distribution board</li>
-<li>frame</li>
+<li>250mm frame</li>
 <li>foots</li>
-<li>battery compartment</li>
+<li>battery holder (upper structure)</li>
 </ul>
-  
+
 <ul class="lists">
-<li>AAVOID v1  bought parts list:</li>
+<li>AAVOID v1  <span class="redones">bought</span> parts list:</li>
 <li>3S 11.1V 1300mah LiPo battery</li>
 <li>4 x 12A Afro ECS’s</li>
-<li>4 x 2150kv Multistar brushless motors</li>
+<li>4 x 2150kv 2206 Multistar brushless motors</li>
 <li>Drotek 10DOF IMU</li>
 <li>AR610 6 channel Spektrum receiver</li>
 <li>DX5E 5 channel Spektrum transmitter</li>
 <li>4 x carbon fiber 6030 propellers</li>
 </ul>
 
-
-<p>
-	<a href="drawings/final_project/4.3/upper_structure.3dm.rar"><span class="redones-link">upper_structure</span></a> 
-	<a href="drawings/final_project/4.2/AAVOID_v1.rar"><span class="redones-link">AAVOID v1 board</span></a> 
-	<a href="drawings/final_project/4.1/foot_drone2.3dm.rar"><span class="redones-link">foots</span></a> <a href="drawings/final_project/4.1/foot_drone2.3dm.rar"><span class="redones-link">foot_drone2</span></a>
-
-</p>
+<ul class="lists">
+	<li>Here are all <span class="redones">AAVOID v1 downloads</span>: </li>
+	<li><a href="drawings/final_project/4.3/upper_structure.3dm.rar"><span class="redones-link">upper structure</span></a></li> 
+	<li><a href="drawings/final_project/4.2/AAVOID_v1.rar"><span class="redones-link">AAVOID v1 board</span></a></li>
+<li><a href="drawings/final_project/4.1/foot_drone2.3dm.rar"><span class="redones-link">foots</span></a></li> 
+<li><a href="drawings/final_project/4.3/AAVOID_v1_frame.3dm.rar"><span class="redones-link">frame</span></a></li>
+</ul>
 
 			</div>
 		</section>
@@ -4338,14 +4408,14 @@ function drawRoomsTimesChart(){
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project3').innerHTML,'project3')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">15. applications and implications</span></a>
 				
+
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">16. project development</span></a>
+
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week16').innerHTML,'week16')" rel="lightbox" class="col-2">applications and implications</a>-->
-				<a class="col-2">16. mechanical design, machine design</a>
+				<a class="col-2">17. mechanical design, machine design</a>
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week17').innerHTML,'week17')" rel="lightbox" class="col-2">invention, intellectual property, and income</a>-->
-				<a class="col-2">17. invention, intellectual property, and income</a>
-				
-				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week18').innerHTML,'week18')" rel="lightbox" class="col-2">project development</a>-->
-				<a class="col-2">18. project development</a>
+				<a class="col-2">18. invention, intellectual property, and income</a>
 				
 				<!--<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('week19').innerHTML,'week19')" rel="lightbox" class="col-2">project presentation</a>-->
 				<a class="col-2">19. project presentation</a>
