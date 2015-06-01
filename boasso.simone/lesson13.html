@@ -61,6 +61,10 @@
 </br></br>
 <img src="images/nrf24connection.jpg" class="img-responsive" >
 </br></br>
+<h8>Here you can also find a fritzing img for the connection ( i use arduino uno as base for the project in fritzing because the shatshakit is not yet implemented), the file is in the archive of the lecture at the end of the page.</h8>
+</br></br>
+<img src="images/satshakit_connection_nrf.jpg" class="img-responsive" >
+</br></br>
 <h6>IMPORTANT!!</h6>
 </br>
 <h8> the nRF24L01 module need a 3.3v vcc to work so if you are using the usb to power the arduino connect it to the proper line on the header (arduino board have already a voltage regulator for 3.3v).</br>
@@ -79,7 +83,7 @@ nRF24L01p transmitter(7,8);//CSN,CE
 
 void setup(){
   delay(150);
-  Serial.begin(115200);
+  Serial.begin(9600);
   SPI.begin();
   SPI.setBitOrder(MSBFIRST);
   transmitter.channel(90);
@@ -114,7 +118,7 @@ nRF24L01p receiver(7,8);//CSN,CE
 
 void setup(){
   delay(150);
-  Serial.begin(115200);
+  Serial.begin(9600);
   SPI.begin();
   SPI.setBitOrder(MSBFIRST);
   receiver.channel(90);
@@ -144,13 +148,37 @@ the receiver "listen" the message and send it to the serial(usb).</br>
 </br></br>
 <a href="http://www.putty.org/" target="_blank">Here homepage putty</a>
 </br></br>
+<h4>Here i show the settin of putty for open the serial comunication whit the ftdi cable connected to the satshakit</h4>
+</br></br>
+<h6>Session</h6>
+</br>
+<img src="images/puttysession.png" class="img-responsive" >
+</br></br>
+<h6>connection serial</h6>
+</br>
+<img src="images/puttyconnectionserial.png" class="img-responsive" >
+</br></br>
+<h6>Terminal reciver</h6>
+</br>
+<img src="images/puttyterminalreciver.png" class="img-responsive" >
+</br></br>
+<h6>Terminal transmitter</h6>
+</br>
+<img src="images/puttyterminalsender.png" class="img-responsive" >
+</br></br>
 <h6>here the terminal of the transmitter</h6>
 </br>
-<img src="images/puttytx.jpg" class="img-responsive" >
+<img src="images/com7send.png" class="img-responsive" >
 </br></br>
 <h6>here the terminal of the receiver</h6>
 </br>
-<img src="images/puttyrx.jpg" class="img-responsive" >
+<img src="images/com8recive.png" class="img-responsive" >
+</br></br>
+<h6>video of the terminal</h6>
+</br>
+<div class="rwd-video" style="text-align: center">    
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DELsDwc4hHE" frameborder="0" allowfullscreen></iframe>
+</div>
 </br></br>
 <a href="http://playground.arduino.cc/InterfacingWithHardware/Nrf24L01" target="_blank">Here you can find some information about the nRF24L01 module and arduino library</a>
 </br></br></br>
