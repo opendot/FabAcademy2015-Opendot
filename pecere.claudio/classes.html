@@ -643,6 +643,289 @@ MacBook-Air-di-Claudio:Fabacademy claudio$ cd fabISP_mac.0.8.2_firmware/
             </div>
         </div>
     </div>
+<!--lesson7 -->   <div class="portfolio-modal modal fade" id="lesson7" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Embedded Programming</h2>
+                            <hr class="star-primary">
+                           
+      <p> During this week the assignment was learn to program the electronic board that we have produced in the previous module.<br><br>The particular assignment of this was read the microcontroller data sheet, and to program the hello board to do something, with as many different programming languages and programming environments as possible. In previous module 6, we have designed the board to use the microcontroller Attiny44 and the related data sheet is the follow:<br><br></p>
+          
+                     <img
+src="img/lesson7.1.jpg">
+        
+    
+         <p> To understand and programming my hello board i followed the <a href="http://fabacademy.org/archives/2015/doc/makefile.html">tutorial</a> suggested on Fab Aacademy. To programming the board I needed to download a precompiled program written in C that is composed by a folder with two files: the Makefile, which is used to automate the programming, and the file steadyled.c which is the program.  <br>
+The package I downloaded is composed of two files: the Makefile, which is used to automate the programming, and the file steadyled.c which is the program.<br></p>
+        
+        <div class="notepad"><div class="titlenotepad">Makefile</div><div class="textnotepad" align=left>PROJECT=steadyled
+SOURCES=$(PROJECT).c
+MMCU=attiny44
+F_CPU = 20000000
+
+CFLAGS=-mmcu=$(MMCU) -Wall -Os -DF_CPU=$(F_CPU)
+
+$(PROJECT).hex: $(PROJECT).out
+	avr-objcopy -O ihex $(PROJECT).out $(PROJECT).c.hex;\
+	avr-size --mcu=$(MMCU) --format=avr $(PROJECT).out
+ 
+$(PROJECT).out: $(SOURCES)
+	avr-gcc $(CFLAGS) -I./ -o $(PROJECT).out $(SOURCES)
+ 
+program-bsd: $(PROJECT).hex
+	avrdude -p t44 -c bsd -U flash:w:$(PROJECT).c.hex
+
+program-dasa: $(PROJECT).hex
+	avrdude -p t44 -P /dev/ttyUSB0 -c dasa -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U lfuse:w:0x5E:m
+
+program-usbtiny: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U flash:w:$(PROJECT).c.hex
+
+program-usbtiny-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+	
+program-arduino: $(PROJECT).hex
+	avrdude -p t44 -P com4 -b19200 -c stk500v1 -U flash:w:$(PROJECT).c.hex
+
+program-arduino-fuses: $(PROJECT).hex
+	avrdude -p t44 -P com4 -b19200 -c stk500v1 -U lfuse:w:0x5E:m
+
+program-dragon: $(PROJECT).hex
+	avrdude -p t44 -P usb -c dragon_isp -U flash:w:$(PROJECT).c.hex</div></div><br>
+        
+        
+        <p> Before going further with programming the board, I had to modify the following two lines in order to specify to which pins the button and led are connected:<br>
+#define BUTTON_BIT PA3 <br>
+#define LED_BIT PA7<br><br></p>
+        
+        <div class="notepad"><div class="titlenotepad">steadyled.c</div><div class="textnotepad" align=left>#include &ltavr/io.h&gt;
+#include &ltinttypes.h&gt;
+#include &ltutil/delay.h&gt;
+
+void delay_ms(uint16_t ms);
+void init_io();
+int button_is_pressed();
+void toggle_led();
+
+#define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+
+#define BUTTON_PORT PORTA       /* PORTx - register for button output */
+#define BUTTON_PIN PINA         /* PINx - register for button input */
+#define BUTTON_BIT PA3          /* bit for button input/output */
+
+#define LED_PORT PORTA          /* PORTx - register for LED output */
+#define LED_BIT PA7             /* bit for button input/output */
+#define LED_DDR DDRA            /* LED data direction register */
+
+#define DEBOUNCE_TIME 25        /* time to wait while "de-bouncing" button */
+#define LOCK_INPUT_TIME 250     /* time to wait after a button press */
+
+int 
+main (void)
+{
+        init_io();
+
+        while (1)                       
+        {
+                if (button_is_pressed())
+                {
+                        toggle_led();
+                       
+                }
+        }
+}
+
+void delay_ms(uint16_t ms) {
+        while ( ms )
+        {
+                _delay_ms(1);
+                ms--;
+        }
+}
+
+void 
+init_io() 
+{
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* led is OFF initially (set pin high) */         
+        LED_PORT |= _BV(LED_BIT);
+
+        /* turn on internal pull-up resistor for the switch */
+        BUTTON_PORT |= _BV(BUTTON_BIT);
+}
+
+int 
+button_is_pressed()
+{
+        /* the button is pressed when BUTTON_BIT is clear */
+        if (bit_is_clear(BUTTON_PIN, BUTTON_BIT))
+        {
+                delay_ms(DEBOUNCE_TIME);
+                if (bit_is_clear(BUTTON_PIN, BUTTON_BIT)) return 1;
+        }
+
+        return 0;
+}
+
+void
+toggle_led()
+{
+        LED_PORT ^= _BV(LED_BIT);
+}</div></div><br>
+        
+                
+        <p>So I connected the Hello board to the FabISP using the rainbow cable through the 6 Pins, and both boards to my computer through FDTI cable via USB ports:</p>
+        <img src="img/lesson7.3.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson7.4.jpg" class="img-responsive img-centered" alt="">
+        
+        <p> Now I opened the terminal and changed command line to the directory of where my Makefile and C code are. So I executed the command "make" in order to create the execute file of the Makefile. The Makefile creates by default the hexadecimal file (steadyled.c.hex)</p>
+        
+        <div class="code" align=left >MacBook-Air-di-Claudio:~ claudio$ cd Fabacademy/
+MacBook-Air-di-Claudio:Fabacademy claudio$ cd steadyled>  make
+avr-gcc -mmcu=attiny44 -Wall -Os -DF_CPU=20000000 -I./ -o steadyled.out steadyled.c
+steadyled.c:10:0: warning: "F_CPU" redefined
+ #define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+ ^
+&ltcommand-line&gt;:0:0: note: this is the location of the previous definition
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)</div><br>
+        
+        
+        <p>Now in the same folder I saved the stadyled file, I found the new files to programming the board. After that, I have launched the command "make program-usbtiny-fuses" to reset the microcontroller and prepare it to receive the programming:</p>
+        
+        <div class="code" align=left>MacBook-Air-di-Claudio:steadyled claudio$> make program-usbtiny-fuses
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0x5E"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x5E:
+avrdude: load data lfuse data from input file 0x5E:
+avrdude: input file 0x5E contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.</div><br>
+        
+    
+        <p>The last step was launched the command "make program-usbtiny" in order to program the Hello board:</p>
+        
+        <div class="code" align=left>MacBook-Air-di-Claudio:steadyled claudio$  make program-usbtiny
+avr-objcopy -O ihex steadyled.out steadyled.c.hex;\
+	avr-size --mcu=attiny44 --format=avr steadyled.out
+AVR Memory Usage
+----------------
+Device: attiny44
+
+Program:     140 bytes (3.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+avrdude -p t44 -P usb -c usbtiny -U flash:w:steadyled.c.hex
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "steadyled.c.hex"
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: writing flash (140 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 140 bytes of flash written
+avrdude: verifying flash memory against steadyled.c.hex:
+avrdude: load data flash data from input file steadyled.c.hex:
+avrdude: input file steadyled.c.hex auto detected as Intel Hex
+avrdude: input file steadyled.c.hex contains 140 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.43s
+
+avrdude: verifying ...
+avrdude: 140 bytes of flash verified
+
+avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
+
+avrdude done.  Thank you.
+
+</div><br>
+        
+        
+        <p>At this level, the LED should turn on by clicking on the button: this means that the board is working properly and it has been programmed successfully. Luckily my board works well! </p>         <img src="img/lesson7.2.jpg" class="img-responsive img-centered" alt="">
+        
+        
+            
+     
+      <p> The Makefile and C program are available for downloand here: </p>
+      <p> <a href="media/steadyled.zip"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+  <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <!--lesson8 -->   <div class="portfolio-modal modal fade" id="lesson8" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -657,7 +940,7 @@ MacBook-Air-di-Claudio:Fabacademy claudio$ cd fabISP_mac.0.8.2_firmware/
                         <div class="modal-body">
                             <h2>Computer-Controlled Machining</h2>
                             <hr class="star-primary">
-                            <p>The exercise of this <a href="http://academy.cba.mit.edu/classes/computer_machining/index.html">week</a> was to build something big, drawing it and then producing it through the the CNC machine. The idea was to build something to give to my grandchildren, something that would be useful and would last (I would not bet on this;)). So I thought of a stool and having been inspired by some of the projects I started drawing in Rhino. The reference to the holes was obviously the thick sheet of wood which in my case was of 12mm <br> <br><img src="img/lesson8.1.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.2.jpg" class="img-responsive img-centered" alt=""> Once finished drawing I set the levels of milling that, having no parts to be engraved, were only two: red for external cut and blue for internal cut <br> <br><img src="img/lesson8.3.jpg" class="img-responsive img-centered" alt=""> Last step of drawing was the check about the join parts. To control if all parts fit correctly with holes, I extruded all the pieces and then I lined up as a 3D model. Through this step I realized that the design was well done  <br> <br><img src="img/lesson8.4.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.5.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.6.jpg" class="img-responsive img-centered" alt="">  <br> <br> The next step was to load the .dxf on VCarv pro before sending it to cnc machine, in my case a Shopbot. The first step was to define the dimension of the wood sheet: 2100X1440mm and 12mm thickness of the wood and the size of the tools  <br> <br><img src="img/lesson8.7.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson8.8.jpg" class="img-responsive img-centered" alt=""> I have after set the levels of internal and external cut and viewed everything the preview set of VCarve <br> <br> <img src="img/lesson8.9.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.10.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.11.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.12.jpg" class="img-responsive img-centered" alt="">The last step is to mill the pieces with Shopbot, I will make it during the next time in my lab</p>  
+                            <p>The exercise of this <a href="http://academy.cba.mit.edu/classes/computer_machining/index.html">week</a> was to build something big, drawing it and then producing it through the the CNC machine. The idea was to build something to give to my grandchildren, something that would be useful and would last (I would not bet on this;)). So I thought of a stool and having been inspired by some of the projects I started drawing in Rhino. The reference to the holes was obviously the thick sheet of wood which in my case was of 12mm <br> <br><img src="img/lesson8.1.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.2.jpg" class="img-responsive img-centered" alt=""> Once finished drawing I set the levels of milling that, having no parts to be engraved, were only two: red for external cut and blue for internal cut <br> <br><img src="img/lesson8.3.jpg" class="img-responsive img-centered" alt=""> Last step of drawing was the check about the join parts. To control if all parts fit correctly with holes, I extruded all the pieces and then I lined up as a 3D model. Through this step I realized that the design was well done  <br> <br><img src="img/lesson8.4.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.5.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.6.jpg" class="img-responsive img-centered" alt="">  <br> <br> The next step was to load the .dxf on VCarv pro before sending it to cnc machine, in my case a Shopbot. The first step was to define the dimension of the wood sheet: 2100X1440mm and 12mm thickness of the wood and the size of the tools  <br> <br><img src="img/lesson8.7.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson8.8.jpg" class="img-responsive img-centered" alt=""> I have after set the levels of internal and external cut and viewed everything the preview set of VCarve <br> <br> <img src="img/lesson8.9.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.10.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.11.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.12.jpg" class="img-responsive img-centered" alt="">The last step was to mill the pieces with Shopbot. Before starting the Shopbot, I set the Z axis and than I lauched the CNC <br> <br> <img src="img/lesson8.13.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.14.jpg" class="img-responsive img-centered" alt=""></p>  <iframe src="https://player.vimeo.com/video/128685835" width="600" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/128685835">Shopbot starts working</a> from <a href="https://vimeo.com/user25115924">Claudio Pecere</a> on <a href="https://vimeo.com">Vimeo</a> <br> <br> <p>Once the shopbots has finished its work, I removed the pieces from the sheet of wood with a chisel. I immediately noticed some imperfections within the holes, it looked as if the CNC had drawn tabs even within the parties to pierce completely. I removed also this parts <img src="img/lesson8.15.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.16.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.17.jpg" class="img-responsive img-centered" alt=""> Finally I can start to assembly all parts and this is the final result of my stool that now is used by my bonsai elm <br> <br> <img src="img/lesson8.18.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.19.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.20.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.21.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.22.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson8.23.jpg" class="img-responsive img-centered" alt=""></p>
                             <p> All the files are available for downloand here: </p>
       <p> <a href="https://www.dropbox.com/sh/e5m17qed1meneom/AACahK1WYhrS3UfQgEkb8OEna?dl=0"> <button type="button" class="btn btn-primary
             btn-lg">Download files</button> </a> </p>
@@ -683,7 +966,91 @@ MacBook-Air-di-Claudio:Fabacademy claudio$ cd fabISP_mac.0.8.2_firmware/
                             <h2>Molding and Casting</h2>
                             <hr class="star-primary">
                             <p>This <a href="http://academy.cba.mit.edu/classes/molding_casting/index.html">week</a> the exercise concerned the realization of a mold designed by us then to use it with the resins and produce the cast. In our lab we have the wax, to be milled with a small milling. For the task this week I wanted to reproduce the mold of the logo of my app for smartphones, <a href="https://itunes.apple.com/gb/app/pipeline-app/id483483184?mt=8">Pipeline</a>. I therefore started drawing the slab of wax on which mill the object and after, starting from the vector logo made of inkscape, I fixed the object, I extruded and put it at the center of the wax.<br> <br> <img src="img/lesson9.1.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson9.2.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson9.3.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson9.4.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson9.5.jpg" class="img-responsive img-centered" alt=""> <br> <br>One finished, I tried to make a simple render to replicate the colour of wax to mill, this is the final results <br> <br><img src="img/lesson9.6.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson9.7.jpg" class="img-responsive img-centered" alt=""></p>
-      The last step is to mill the wax and use the resins to make the cast, I will make it during the next time in my lab<p> <a href="https://www.dropbox.com/sh/okjerartdm8igvz/AACTCDmKRihX3ITuNLX3Mlnna?dl=0"> <button type="button" class="btn btn-primary
+      The next step was to mill the wax with a milling machine. Unfortunately in our lab we did not have this machine so we used the shop bot to mill the wax. The first step was to determine the settings of milling on the ShopBot Partworks3D. I decided to use before a tip from 0.6mm for a first milling and the tip of 0.3mm for the finishings. Later I have fixed and placed the block of wax with pieces of wood, placed the tip and the machine and launched the action of milling. <img src="img/lesson9.10.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson9.8.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson9.9.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson9.11.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson9.12.jpg" class="img-responsive img-centered" alt=""> </p> <iframe src="https://player.vimeo.com/video/128685841" width="700" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/128685841">Milling wax</a> from <a href="https://vimeo.com/user25115924">Claudio Pecere</a> on <a href="https://vimeo.com">Vimeo</a>.</p> <br> <br> The first pass with the biggest tip was fine. I recovered wax milled for reuse and change the tip for the finishing touches. At this stage, something went wrong, surely the milling speed, so the smaller tip has broken and I had to stop drilling before the completion of the project. <img src="img/lesson9.13.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson9.14.jpg" class="img-responsive img-centered" alt=""><p> <p> And this is the final results, and the recovered wax, before starting use the silicon rubber on the wax <img src="img/lesson9.16.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson9.15.jpg" class="img-responsive img-centered" alt=""></p><p> All the files are available for downloand here: </p><a href="https://www.dropbox.com/sh/okjerartdm8igvz/AACTCDmKRihX3ITuNLX3Mlnna?dl=0"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+                            <br><button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--lesson10 -->   <div class="portfolio-modal modal fade" id="lesson10" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Input devices</h2>
+                            <hr class="star-primary">
+                            <p>This <a href="http://academy.cba.mit.edu/classes/input_devices/index.html">week</a> the assigmnet was to measure something: add a sensor to a microcontroller board that you've designed and read it. I made to board following the <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html">satshakit</a> of my mate <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">Daniele Ingrassia</a> <img src="img/lesson10.1.jpg" class="img-responsive img-centered" alt=""> <br> For the exercise I decided to measure the soil moisture of my plants. It 's really simple to build a humidity sensor but to save time I have decided to use a sensor already made <img src="img/lesson10.2.jpg" class="img-responsive img-centered" alt=""> <br> The image easily explains how to connect the sensor to the Arduino, from here it is easy to connect also satshakit. <img src="img/lesson10.3.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson10.4.jpg" class="img-responsive img-centered" alt=""> <br> The next was to insert the sensor in the soil and try to measure the moisture. This is the final result: <img src="img/lesson10.5.jpg" class="img-responsive img-centered" alt=""> <iframe src="https://player.vimeo.com/video/130025022" width="700" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/130025022">Moisture Sensor - Input Devices</a> from <a href="https://vimeo.com/user25115924">Claudio Pecere</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+                        <p> The sketch for Moisture sensor is available for downloand here: </p><a href="media/moisture.zip"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+                            <br><button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--lesson11 -->   <div class="portfolio-modal modal fade" id="lesson11" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Output devices</h2>
+                            <hr class="star-primary">
+                            <p>This <a href="http://academy.cba.mit.edu/classes/output_devices/index.html">week</a> the exercise was to add an output device to a microcontroller board you've designed and program it to do something. For this exercise I used a 7-segment display with four digits to be connected to satshakit through a breadbord <img src="img/lesson10.1.jpg" class="img-responsive img-centered" alt=""> These are simple images that shows how is made this kind of display and how to connect to a microcontroller <img src="img/lesson11.1.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson11.3.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson11.4.jpg" class="img-responsive img-centered" alt=""> <br>  <p align="justify">And these are the right links between microcontroller and display</p>
+                <li align="justify">ARDUINO Pin 1 - Display Pin 10 (a) </li>
+                <li align="justify">ARDUINO Pin 2 - Display Pin 7 (b) </li>
+                <li align="justify">ARDUINO Pin 3 - Display Pin 4 (c) </li>
+                <li align="justify">ARDUINO Pin 4 - Display Pin 2 (d)  </li>
+                <li align="justify">ARDUINO Pin 5 - Display Pin 1 (e) </li>
+                <li align="justify">ARDUINO Pin 6 - Display Pin 11 (f) </li>
+                <li align="justify">ARDUINO Pin 7 - Display Pin 5 (g) </li>
+                <li align="justify">ARDUINO Pin 8 - Display Pin 3 (dot) </li>
+                <li align="justify">ARDUINO Pin 9 - Display Pin 12 with resistor 1K (d1) </li>
+                <li align="justify">ARDUINO Pin 10 - Display Pin 9 with resistor 1K (d2) </li>
+                <li align="justify">ARDUINO Pin 11 - Display Pin 8 with resistor 1K (d3) </li>
+                <li align="justify">ARDUINO Pin 12 - Display Pin 6 with resistor 1K (d4) </li>
+ </p>
+      <p> The next step was to connect the display to satshakit and load the sketch, I choose an animation for the display for single segment <img src="img/lesson11.2.jpg" class="img-responsive img-centered" alt=""> <iframe src="https://player.vimeo.com/video/130227583" width="700" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/130227583">Display 7 segment 4 digit animation</a> from <a href="https://vimeo.com/user25115924">Claudio Pecere</a> on <a href="https://vimeo.com">Vimeo</a>.</p><p> The sketch for the animation is available for downloand here: </p><a href="media/sketch_animation_display.zip"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+                            <br><button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--lesson12 -->   <div class="portfolio-modal modal fade" id="lesson12" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Composites</h2>
+                            <hr class="star-primary">
+                            <p>The goal of this <a href="http://academy.cba.mit.edu/classes/composites/index.html">week</a> was to Design and make a 3D mold (~ft2), and produce a fiber composite part in it. During the week, I tried to draw more projects to do the exercise but at the end I decided to produce a long board taking inspiration from some models found on the web. My goal was to produce a longboard to give to a friend very passionate about these objects. I have therefore designed the board on Rhino with the aim of producing with the laser cut, three equal pieces of 4 mm to be assembled by means of composite materials. <img src="img/lesson12.2.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson12.3.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson12.1.jpg" class="img-responsive img-centered" alt="">  <br> <br> <p> This was the phase of laser cutting: </p> <iframe src="https://player.vimeo.com/video/128685834" width="700" height="400"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/128685834">Laser on Longboard</a> from <a href="https://vimeo.com/user25115924">Claudio Pecere</a> on <a href="https://vimeo.com">Vimeo</a>.</p> <img src="img/lesson12.4.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson12.5.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.6.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.7.jpg" class="img-responsive img-centered" alt=""></p> <br> <br> The next step was make the final longboard using fiber and bicomponent epoxy resin mixed 1:2. I glued all the layer using fiber and resin and taking care not to leave air bubbles or gaps between the levels of wood <img src="img/lesson12.8.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.9.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.10.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.11.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.12.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson12.13.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.14.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.15.jpg" class="img-responsive img-centered" alt=""></p> <br> <p> The next step was to locate and secure the board on the mold previously prepared by <a href="http://fabacademy.org/archives/2015/eu/students/pugliese.gianluca/exercise12.html">Gianluca Pugliese</a> to give the right angle to the longboard <img src="img/lesson12.16.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson12.17.jpg" class="img-responsive img-centered" alt=""> <br> <br> When I finished with the resin and fiber I waited 12 hours that the composite material dried out completely. After I started the stage of removing the excess parts first with scissors then with a dremel and then sanding the corners of the board.<img src="img/lesson12.18.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.19.jpg" class="img-responsive img-centered" alt=""> <img src="img/lesson12.20.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.21.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.22.jpg" class="img-responsive img-centered" alt=""> <br> <br> Once I finished I performed a test of strength of the board and fortunately everything went pretty well! </p><iframe src="https://player.vimeo.com/video/128683211" width="700" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/128683211">Load resistance Test</a> from <a href="https://vimeo.com/user25115924">Claudio Pecere</a> on <a href="https://vimeo.com">Vimeo</a>.</p> <br> <p>The last step was to assembly truck and wheels to my longboard:<img src="img/lesson12.23.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.24.jpg" class="img-responsive img-centered" alt=""><img src="img/lesson12.25.jpg" class="img-responsive img-centered" alt=""></p> <p> <p> Finally the board is ready for use!!! </p><iframe src="https://player.vimeo.com/video/128968196" width="700" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/128968196">Trying longboard</a> from <a href="https://vimeo.com/user25115924">Claudio Pecere</a> on <a href="https://vimeo.com">Vimeo</a>.</p> <p> The longboard file is available for downloand here: </p><a href="media/longboard.3dm.zip"> <button type="button" class="btn btn-primary
             btn-lg">Download files</button> </a> </p>
                             <br><button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
