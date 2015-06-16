@@ -518,6 +518,12 @@ color: white;
 
 }
 
+#project0{
+  border: none;
+  display: none;
+  text-align: justify;
+}
+
 #project1{
   border: none;
   display: none;
