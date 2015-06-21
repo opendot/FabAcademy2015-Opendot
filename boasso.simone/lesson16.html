@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Rationale|Megrim|Maven+Pro' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fab Academy 2015 Simone Boasso</title>
+    
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+      
+<!-- Leaflet -->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<!-- Local style -->    
+<link rel="stylesheet" href="style.css" !IMPORTANT>
+
+  </head>
+  <body style="padding: 15px;">
+      <img src="fab-academy1.jpg" class="img-responsive" >
+    <h1>Mechanical Design - Machine Design</h1>
+       </br></br>
+      <h8>In this module, we have to work in group and make a machine that implement a specific function. We have to design all the machine,the axis the effector, and then automate it. After this we make a page of  all individuals documentation of the project</h8>
+    </br></br>
+<h8>We decide to split up the student in 2 group and make 2 different machine made out of 2 axis each one ( because we have only 4 gestalt board a 4 motor)</h8>
+  </br></br>
+<h8>Before that me and some other students in the opendot make some test on the gestalt axis whit cardboard to understand the future system we have to design
+we build up 2 gestalt axis and start to experiment in motion and control mechanic</h8>
+</br></br>
+<img src="images/machine05.jpg" class="img-responsive" >
+</br></br>
+<img src="images/machine04.jpg" class="img-responsive" >
+</br></br>
+<img src="images/machine01.jpg" class="img-responsive" >
+</br></br>
+<img src="images/machine02.jpg" class="img-responsive" >
+</br></br>
+<img src="images/machine03.jpg" class="img-responsive" >
+</br></br>
+
+<h8>After this experimentation and the test of all the gestalt board and motor to work well we start the two different project of MTM module</h8>
+</br></br></br>
+
+<h7>Machine that make Zen Garden</h7>
+</br></br>
+<h8>I'm in the Zen Garden group so we have to make a xy motion system that will draw in the sand like a real zen garden.</h8>
+</br></br>
+<h8>
+For this purpose we need to add a 3rd actuator that will pull up and down the item used to draw in the sand.
+we decide to use a servo motor united to a satsha kit for the control part who will sink whit the pc sender to synch the action.
+this is my job for this project.</h8>
+</br></br>
+<h8>Searching in the lab i found a micro servo motor whit about a 1kg of torque and a 180° rotation.</br>
+I decide to build the linear actuator round this.</h8>
+</br></br>
+<img src="images/servo.JPG" class="img-responsive" >
+</br></br>
+
+<h8>After a technical talk to the master of the project Saverio Silli who have to build the structure, i have all the data needed to build the actuator.</br></br>
+
+it will have a moving space about 5 cm and a usable space of about 8cm above the sand box</h8>
+</br></br>
+
+<h8>I decide to build all the part using 3d printing so I start to model it.</br>
+the idea is to make a rack and pinion in a linear guide all printed in PLA that have low friction during movement and can be easily reworked whit sand paper</h8>
+</br></br>
+
+<h8>I use the inkscape add on to model the gear and the rack building some gear profile.</h8>
+
+</br></br>
+<img src="images/machineink.jpg" class="img-responsive" >
+</br></br>
+<h8>I import this drawing in rhino in dxf format and start to model in 3d the shape of final "slider".</br>
+I build a "T" version linear guide whit gear.</br>
+the diameter of the gear is made using the proportion of the 180° of the servo to make a 5 cm long movement on full extension of the rail.</h8>
+</br></br>
+<img src="images/machineRhino.jpg" class="img-responsive" >
+</br></br>
+
+<h8>the second modify is to make more strong the last piece of the rail ( the cylinder) so the item will fit more stable and to make the geared side of the rail not ending so the rail will be pulled off and replaced more easily</h8>
+</br></br></br></br>
+
+<h4>Electronics</h4>
+</br></br>
+
+<h8>For the electronic side i solder a satsha's kit and make a simple sketch whit Daniele Ingrassia.</h8>
+</br></br>
+<img src="images/machineSatsha.jpg" class="img-responsive" >
+</br></br>
+<a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html" target="_blank">Here you can find the main page of Satsha's kit</a>
+
+</br></br>
+<pre>
+#include < Servo.h>
+
+Servo servo;
+int value;
+
+void setup() {
+ 
+  pinMode(13,OUTPUT);
+  servo.attach(12);
+  Serial.begin(115200);
+}
+
+void loop() {
+ 
+  if(Serial.available()){
+   
+    value = Serial.read();
+    Serial.println(value);
+    if(value == 48){
+      
+      digitalWrite(13,LOW);
+      servo.write(0);  
+   
+    }
+    else
+    if(value == 49){
+     
+      digitalWrite(13,HIGH);
+      servo.write(130);  
+    }
+  }
+ delay(10);
+}
+</pre>
+</br></br>
+<h8>This sketch will monitor the serial for a communication to occur and after the data was revived if it was 0 the servo will go to 0° position, if the data was 1 it will go to the 180° position.</h8>
+</br></br>
+<h8>this serial comunication is synked on the software side that Daniele made.</h8>
+</br></br></br></br>
+<h8>This is the final result of my job</h8>
+</br></br>
+<img src="images/machine06.jpg" class="img-responsive" >
+</br></br>
+<img src="images/machine07.jpg" class="img-responsive" >
+</br></br>
+<a href="files/machine.rar"
+   download="machine.rar">Download the folder of the dxf and the stl of the machine servo linear actuator</a>
+
+</br></br>
+
+      <p>
+      <ul>
+        <li><a href="index.html">Back To Index</a></li>
+        </ul>
+      </p>
+  </body>
+</html>
