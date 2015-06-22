@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fab Academy 2015 - Week 15</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		
+		<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		
+	</head>
+	<body>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="./index.html#top">Home</a></li>
+					<li><a href="./index.html#work">About Me</a></li>
+					<li><a href="./finalproject.html">Final Project</a></li>
+					<li><a href="./index.html#class-schedule">Exercises</a></li>
+					<li><a href="./index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		
+
+		<!-- Work -->
+			<div class="wrapper style2">
+				<article id="work">
+					<header>
+						<h2>About Week 14</h2>
+						
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+								<section class="box style1">
+									<span class="icon featured fa-comments-o"></span>
+									<h3>Mechanical Design, Machine DesignExercise...</h3>
+									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
+									<p>
+									For this week assignment we have to work in group and make a machine that does something. We have to design all the machine and automate it. 
+									</p>
+									<p>We have done a preliminary study of gestalt libraries and together in opendot fab lab made some test with cardboard and axis in order to understand how it works</p>
+								    <p><img align="center" height="500" hspace="12" src="images/machine1.jpg"  /></p>
+									<p><img align="center" height="500" hspace="12" src="images/machine12.jpg"  /></p>
+									<p><img align="center" height="500" hspace="12" src="images/machine2.jpg"  /></p>
+									<p><img align="center" height="500" hspace="12" src="images/machine21.jpg"  /></p>
+									<p><img align="center" height="500" hspace="12" src="images/machine33.jpg"  /></p>
+									
+									
+									<p> After this experimentation, Daniele Ingrassia, Youssef Bouali, Claudio Pecere and me were in charge of the development of the software for the machines. The language used is Python. In particular I was involved on SVG understanding and the develop of a SVG parser, needed manly for the XY plotter "Zen Garden" proposed by Saverio Silli.
+									</p>
+									<p>
+									To do this I created an Eclipse project by mean of PyDev plugin named "SVGParse". Successively this project has been integrate in Daniele MTM PyDev Project.
+									</p>
+									<p>
+									In particular the project contains:
+									</p>
+									
+									<p><em><strong>parse_path.py</strong></em> the parser itself. In particular to use the method parse_path.get_path_commands<br /><em><strong>svg2path.py</strong></em> contains an example of how to read the xml file of SVG and pass it to the above method<br /><em><strong>PyAUIFrame.py</strong></em> an example interface wxPython with a file picker to select the SVG and the event handler that calls the method above .</p>
+<p>After a first attempt with the wxPython object wx.html.HtmlWindow I realized that the elementary browser cannot render svg constructs so at the moment the preview is not implemented yet. A future implementation can be realazed by using CAIRO libraries or pyWxSVG ones.</p>
+									
+<p>
+The parse use a Path object able to manage the following SVG commands:
+</p>									
+<pre>
+#The <path> element is used to define a path.
+#The following commands are available for path data:
+
+#M = moveto
+#L = lineto
+#H = horizontal lineto
+#V = vertical lineto
+#C = curveto
+#S = smooth curveto
+#Q = quadratic Bezier curve
+#T = smooth quadratic Bezier curveto
+#A = elliptical Arc
+#Z = closepath
+</pre>
+
+<p>
+The code svg2path.py takes as input an svg file ( svg2path.py FILENAME [x y ]  x and y are option) and provides the array of SVG commands. 
+</p>
+<pre>
+[['M', [(150.0, 0.0)]], ['L', [(75.0, 200.0)]], ['L', [(225.0, 200.0)]], ('Z', (None,))]
+</pre>
+<p>
+The library takes only SVG pure
+</p>
+<Strong>svg2path.py</Strong>
+<pre>
+#!/usr/local/bin/python
+
+import os
+import xml.dom.minidom
+from fabacademy import parse_path
+import sys
+   
+
+if len(sys.argv) == 1:
+    sys.exit("svg2path.py FILENAME [x y ]")
+if not os.path.exists(sys.argv[1]):
+    sys.exit("Input file does not exist")
+x, y = None, None
+if len(sys.argv) >= 3:
+    x = float(sys.argv[2])
+    y = float(sys.argv[3])
+    print "eeeee"
+
+svg_file = xml.dom.minidom.parse(sys.argv[1])
+svg = svg_file.getElementsByTagName('svg')[0]
+
+raw_width = float(svg.getAttribute('width'))
+raw_height = float(svg.getAttribute('height'))
+
+print x
+if (not(x,y==None) and  raw_width>x and raw_height>y):
+    sys.exit("dimension")
+#width_ratio = x and (x / raw_width) or 1
+#height_ratio = y and (y / raw_height) or 1
+
+pathCommands=[]
+elements = svg.getElementsByTagName('g')
+print "Groups #"+str(elements.__len__())
+for e in elements:
+    paths = []
+    if e.nodeName == 'g':
+        for path in e.getElementsByTagName('path'):
+            #print parse_path.path.parseString(path.getAttribute('d'))
+            pathCommands = parse_path.get_path_commands(path.getAttribute('d'))
+            print pathCommands
+for command in pathCommands:
+    print  command
+
+</pre>
+
+
+
+<p><img align="center" height="500" hspace="12" src="images/machine4.jpg"  /></p>
+		
+						
+							<p>&nbsp;</p>
+						
+								</section>
+							</div>
+							
+							
+							
+							
+							
+							
+						</div>
+					</div>
+					
+				</article>
+			</div>
+
+		<!-- Portfolio -->
+			<div class="wrapper style3">
+				<article id="class-schedule">
+					<header>
+						<h2>Fab Academy - Class schedule 2015</h2>
+						<p></p>
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk1.html" class="image featured"><img src="images/wk1.jpg" alt="" /></a>
+									<h3><a href="wk1.html">Week 1</a></h3>
+									<p>Principles and Practices </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk2.html" class="image featured"><img src="images/wk2.jpg" alt="" /></a>
+									<h3><a href="wk2.html">Week 2</a></h3>
+									<p>Computer-Aided Design</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk3.html" class="image featured"><img src="images/wk3.jpg" alt="" /></a>
+									<h3><a href="wk3.html">Week 3</a></h3>
+									<p>Computer-Controlled Cutting</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk4.html" class="image featured"><img src="images/wk4.jpg" alt="" /></a>
+									<h3><a href="wk4.html">Week 4</a></h3>
+									<p>Electronics Production</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk5.html" class="image featured"><img src="images/wk5.jpg" alt="" /></a>
+									<h3><a href="wk5.html">Week 5</a></h3>
+									<p>3D Scanning and Printing </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk6.html" class="image featured"><img src="images/wk6.jpg" alt="" /></a>
+									<h3><a href="wk6.html">Week 6</a></h3>
+									<p>Electronics Design</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk7.html" class="image featured"><img src="images/wk7.jpg" alt="" /></a>
+									<h3><a href="wk7.html">Week 7</a></h3>
+									<p>Embedded Programming </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk8.html" class="image featured"><img src="images/wk8.jpg" alt="" /></a>
+									<h3><a href="wk8.html">Week 8</a></h3>
+									<p>Computer-controlled machining </p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box style2">
+									<a href="wk9.html" class="image featured"><img src="images/wk9.jpg" alt="" /></a>
+									<h3><a href="wk9.html">Week 9</a></h3>
+									<p>Molding and Casting</p>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk10.html" class="image featured"><img src="images/wk10.jpg" alt="" /></a>
+								<h3><a href="#">Week 10</a></h3>
+								<p>Input Devices</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk11.html" class="image featured"><img src="images/wk11.jpg" alt="" /></a>
+								<h3><a href="wk11.html">Week 11</a></h3>
+								<p>Output Devices</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk12.html" class="image featured"><img src="images/wk12.jpg" alt="" /></a>
+								<h3><a href="wk12.html">Week 12</a></h3>
+								<p>Composites</p>
+							</article>
+						</div>
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk13.html" class="image featured"><img src="images/wk13.jpg" alt="" /></a>
+								<h3><a href="#">Week 13</a></h3>
+								<p>Networking and Communications</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk14.html" class="image featured"><img src="images/wk14.jpg" alt="" /></a>
+								<h3><a href="wk14.html">Week 14</a></h3>
+								<p>Interface and application programming</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk15.html" class="image featured"><img src="images/wk15.jpg" alt="" /></a>
+								<h3><a href="wk15.html">Week 15</a></h3>
+								<p>Mechanical Design, Machine Design</p>
+							</article>
+						</div>
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk16.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 16</a></h3>
+								<p>Applications and Implications</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk17.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 17</a></h3>
+								<p>Invention, Intellectual Property, and Income</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk18.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 18</a></h3>
+								<p>Project Development</p>
+							</article>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="presentation.png" class="image featured"><img src="images/wk19.jpg" alt="" /></a>
+								<h3><a href="presentation.png">Week 19</a></h3>
+								<p>Project Presentation</p>
+							</article>
+						</div>
+						
+						
+					</div>
+					</div>
+					<footer>
+						<a href="#contact" class="button big scrolly">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
+
+		<!-- Contact -->
+			<div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<header>
+						<h2>More information and suggestions</h2>
+						<p>please Keep in Touch!</p>
+					</header>
+					<div>
+						<div class="row">
+							<div class="12u">
+								<form method="post" action="MAILTO:vincenzo.savarino@gmail.com">
+									<div>
+										<div class="row">
+											<div class="6u">
+												<input type="text" name="name" id="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" name="email" id="email" placeholder="Email" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<input type="text" name="subject" id="subject" placeholder="Subject" value="[Fab Academy]"/>
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<textarea name="message" id="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row 200%">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" value="Send Message" /></li>
+													<li><input type="reset" value="Clear Form" class="alt" /></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+				<footer>
+						<ul id="copyright">
+							<li>This work is released under the <a href="http://creativecommons.org/licenses/by/3.0/" target=_blank>CCA license</a>    </li><li>Design: <a href="http://html5up.net" target=_blank>HTML5 UP</a></li>
+						</ul>
+					</footer>	
+				</article>
+			</div>
+
+	</body>
+</html>
