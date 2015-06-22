@@ -48,7 +48,8 @@
 				<ul class="container">
 					<li><a href="./index.html#top">Home</a></li>
 					<li><a href="./index.html#work">About Me</a></li>
-					<li><a href="./index.html#class-schedule">Fab Academy</a></li>
+					<li><a href="./finalproject.html">Final Project</a></li>
+					<li><a href="./index.html#class-schedule">Exercises</a></li>
 					<li><a href="./index.html#contact">Contact</a></li>
 				</ul>
 			</nav>
@@ -84,14 +85,414 @@
                             
 							<p>I've just installed Python 2.7 and I've tried my first example to read from serial after having installed <a href="http://pyserial.sourceforge.net/" ><Strong>pySerial</Strong></a>. It is a wrapper library that encapsulates the access for the serial port. It provides backends for all OS, Windows, Linux and BSD, by selecting automatically the appropriate one.</a></p>
 							
+							<p>
+							Prior to continue further study with Python and WxPython I decide to do some exercises with the other two languages (Processing and Nodejs) in order to command the rgb led and servo motor system used during my <a href="wk14.html" target="_blank"> output devices exercices</a>. 
+							</p>
+							<h3>
+								Processing
+							</h3>
+							<p>
+								Once installed processing I wrote the following code that uses Processing Serial Library. This Library The Serial library reads and writes data to and from external devices one byte at a time. It allows two computers to send and receive data. This library has the flexibility to communicate with custom microcontroller devices and to use them as the input or output to Processing programs.
+							</p>
+							<p>
+								The code first of all get a color from a color picker and then capture the mouse scroll event to  write on serial
+							</p>
+							
+							<p><img align="center" height="500" hspace="12" src="images/wk14_processing.jpg"  /></p>
+							
+<Strong>sketch_processing_servo_rgb</Strong>							
 <pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
->>> import serial
->>> ser = serial.Serial('COM4', 9600)
->>> while True:
-...     print ser.readline()
+    import javax.swing.JColorChooser;
+	import java.awt.Color;
+	import processing.serial.*;  
+
+
+	Color javaColor;
+							
+	boolean open=false;
+	boolean setted=false;
+	Serial port; // The serial port
+	void setup() {
+	  size(100, 100);
+	  color c = color(255,255,255);
+
+	javaColor  = JColorChooser.showDialog(this,"Java Color Chooser",Color.white);
+	if(javaColor!=null) 
+		  c= color(javaColor.getRed(),javaColor.getGreen(),javaColor.getBlue());
+	fill(c);
+	rect(0,0,width,height);
+
+	String[] ports=Serial.list();
+
+
+	if(ports.length!=0){
+	 port = new Serial(this, ports[0], 9600); 
+
+	 open=true;
+	}
+	 
+	}
+	 
+	void draw() {
+	 
+	} 
+	 
+	int pos;
+	void mouseWheel(MouseEvent event) {
+	  float e = event.getAmount();
+	  if (e>0) {
+		if (pos<180){
+		pos+=4;
+		}
+		
+	  }
+	  if (e<0) {
+		if (pos>0){
+		pos-=4;
+		}
+	  }
+	  if(!setted){
+	   
+	   String rout = nf(255-javaColor.getRed(),3);
+	   String gout = nf(255-javaColor.getGreen(),3);
+	   String bout = nf(255-javaColor.getBlue(),3);
+	   port.write('r'+rout+'g'+gout+'b'+bout);
+	   setted=true;
+	  
+	  }
+	 
+	  String sout = nf(pos,3);  
+	  println('r'+sout);
+		if(open){
+	  port.write("s"+sout);
+	   
+	  }
+	  
+	  
+	}
+
 </pre>
-							
-							
+
+<p>
+The code for the board read from the serial and first of all set the color of the rgb Led and in general read the byte and according to the character read (s:move, r:red, g:green, b:blue) write in the related port or set the Servo object.
+</p>
+<Strong>sketch_board_servo_rgb</Strong>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+ #include <Servo.h>
+
+Servo xservo; // servo object
+//set initial values for x 
+int xpos= 0;
+int Red = 11;                  //
+int Green = 9;                //pin definitions
+int Blue = 10;                 //
+int r = 125;                  //
+int g = 125;                  //default all the pins to 125(white)
+int b = 125;
+
+
+void setup(){
+  xservo.attach(5); 
+   
+  Serial.begin(9600); // rate of communication
+  Serial.println("Rolling"); // some output for debug purposes.
+ 
+}
+ 
+  void loop() {
+
+  static int v = 0; // value to be sent to the servo (0-180)
+  if ( Serial.available()) {
+    
+    char ch = Serial.read();
+    Serial.print("readinh");
+    Serial.println(ch);
+    
+    switch(ch) {
+     
+      case 's':
+      Serial.println("Writing servo");
+      delay(10);
+        v = v * 10 + Serial.read() - '0';
+        v = v * 10 + Serial.read() - '0';
+        v = v * 10 + Serial.read() - '0';
+       
+        xservo.write(v);
+        v = 0;
+        break;
+      case 'r':
+       Serial.println("Writing red");
+       delay(10);
+         v = v * 10 + Serial.read() - '0';
+         v = v * 10 + Serial.read() - '0';
+         v = v * 10 + Serial.read() - '0';
+       
+         analogWrite(Red,v);
+          v = 0;
+          break;
+      case 'g':
+       Serial.println("Writing green");
+       delay(10);
+          v = v * 10 + Serial.read() - '0';
+          v = v * 10 + Serial.read() - '0';
+          v = v * 10 + Serial.read() - '0';
+       
+       analogWrite(Green,v);
+          v = 0;
+          break; 
+      case 'b':
+       Serial.println("Writing blu");
+          v = v * 10 + Serial.read() - '0';
+          v = v * 10 + Serial.read() - '0';
+          v = v * 10 + Serial.read() - '0';
+       
+         analogWrite(Blue,v);
+          v = 0;
+          break;   
+        
+    }
+  }
+}
+
+</pre>	
+
+<div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/k1IuGUmGqTI" frameborder="0" allowfullscreen></iframe></div>
+ 						
+<h3>
+	Nodejs
+</h3>	
+<p>
+Once installed Nodejs, in order to use it to communicate with the microcontroller I used <Strong>Firmata</Strong>.
+</p>
+<p>
+	“Firmata is a generic protocol for communicating with microcontrollers from software on a host computer.”
+	All I need is to install Firmata in my board from Arduino IDE (“Standard Firmata”.
+    File > Examples > Firmata > StandardFirmata). Once installed I can control the board by sending it Firmata instructions over the Serial port. There are Firmata implementations available in most languages, for Node.js too.
+	This means that I can handle the board-logic directly from your Node.js.
+</p>
+<p>
+So there is a important difference between programming a board via Firmata and programming it from the Arduino IDE.
+My own  program is not in the board, inside it there is only Firmata code. So if I disconnect the board from my pc it doesn't run because it doesn't receive instructions.
+</p>
+<p>
+To install Firmata inside my Node.js project folder:
+</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+ npm install firmata
+</pre>
+<p>
+	The firmata protocol requires to set the pin mode command:
+</p>
+<ul>
+                        <li>
+                            -INPUT
+                        </li>
+                        <li>
+                            -OUTPUT
+                        </li>
+                        <li>
+                            -ANALOG
+                        </li>
+                        <li>
+                            -PWM
+                        </li>
+                        <li>
+                            -SERVO
+                        </li>
+                    </ul>
+
+<p>
+The following code commands port 5 with pinMode PWM. A servo connected to this pin will move from position 10 to 30 and the return to 10. The code use a facility code "firmataConnector" for returning the board object. 
+</p>					
+					
+<Strong>Node.js Firmatata code: main.js</Strong>					
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+"use strict";
+
+// Firmata
+var serialPort = 'COM5';
+var board = require('./firmataConnector').start(serialPort);
+
+board.on('connection', function () {
+    
+    console.log("successfully connected to the Satshakit!");
+	
+	 // Set the pin to Pulse With Modulation
+        board.pinMode(5, board.PWM);
+              
+		board.analogWrite(5, 80);
+		
+});
+</pre>
+
+<Strong>firmataConnector.js</Strong>					
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+
+"use strict";
+
+var firmata = require('firmata');
+
+/**
+ * firmataConnector.js
+ * 
+ * ABOUT
+ * Connect to the Arduino via the Firmata protocol.
+ *
+ */
+
+// ANSI escape codes (used to color the server logs)
+var magenta = '\u001b[35m';
+var green    = '\u001b[32m';
+var red      = '\u001b[31m';
+var reset    = '\u001b[0m';
+
+
+exports.start = function (serialPort) {
+
+    if(! serialPort) {
+        
+        console.error('no port address set for the arduino');
+        return;
+    }
+    
+    // connect to the Arduino
+    var board = new firmata.Board (serialPort, function (err) {
+        
+        if (err) {
+            console.log(red + err + reset);
+            return;
+        }
+        
+        //arduino is ready to communicate
+        console.log(green +'Successfully connected to your Arduino'+ reset);
+        console.log('Firmware: '+ board.firmware.name +'-'+
+                                  board.firmware.version.major +'.'+
+                                  board.firmware.version.minor);
+        
+        // set pin mode short hands
+        board.INPUT  = board.MODES.INPUT;
+        board.OUTPUT = board.MODES.OUTPUT;
+        board.ANALOG = board.MODES.ANALOG;
+        board.PWM    = board.MODES.PWM;
+        board.SERVO  = board.MODES.SERVO;
+        
+        // analog pins
+        board.A0 = board.pins[board.analogPins[0]].analogChannel;
+        board.A1 = board.pins[board.analogPins[1]].analogChannel;
+        board.A2 = board.pins[board.analogPins[2]].analogChannel;
+        board.A3 = board.pins[board.analogPins[3]].analogChannel;
+        board.A4 = board.pins[board.analogPins[4]].analogChannel;
+        board.A5 = board.pins[board.analogPins[5]].analogChannel;
+        
+        // sensor-shield ports (untested)
+        board.I0 = board.A0;
+        board.I1 = board.A1;
+        board.I2 = board.A2;
+        board.I3 = board.A3;
+        board.I4 = board.A4;
+        board.I5 = board.A5;
+        
+        board.O0 = 11;
+        board.O1 = 10;
+        board.O2 = 9;
+        board.O3 = 6;
+        board.O4 = 5;
+        board.O5 = 3;
+        
+        board.emit('connection');
+    });
+    
+    board.lineLog = function (msg) {
+        
+        process.stdout.clearLine();  // clear previous output
+        process.stdout.cursorTo(0);  // move cursor to beginning of line
+        process.stdout.write(msg);
+    };
+    
+    return board;
+}
+</pre>
+</p>
+
+<p><img align="center" height="500" hspace="12" src="images/wk14_nodejs.jpg"  /></p>
+
+<p>
+An interesting Node.js library using The Firmata Protocol is <a href="https://github.com/rwaldron/johnny-five" target="_blank">Johnny-five</a> a JavaScript Robotics and IoT programming framework.
+</p>
+<p>
+For example the following code from Johnny-five framework replicates the Servo Sweep example: 
+</p>
+<Strong>eg/servo.js</Strong>					
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+
+var five = require("../lib/johnny-five.js");
+var board = new five.Board();
+
+board.on("ready", function() {
+  var servo = new five.Servo(5);
+
+  // Servo alternate constructor with options
+  /*
+  var servo = new five.Servo({
+    id: "MyServo",     // User defined id
+    pin: 10,           // Which pin is it attached to?
+    type: "standard",  // Default: "standard". Use "continuous" for continuous rotation servos
+    range: [0,180],    // Default: 0-180
+    fps: 100,          // Used to calculate rate of movement between positions
+    invert: false,     // Invert all specified positions
+    startAt: 90,       // Immediately move to a degree
+    center: true,      // overrides startAt if true and moves the servo to the center of the range
+    specs: {           // Is it running at 5V or 3.3V?
+      speed: five.Servo.Continuous.speeds["@5.0V"]
+    }
+  });
+  */
+
+  // Add servo to REPL (optional)
+  this.repl.inject({
+    servo: servo
+  });
+
+
+  // Servo API
+
+  // min()
+  //
+  // set the servo to the minimum degrees
+  // defaults to 0
+  //
+  // eg. servo.min();
+
+  // max()
+  //
+  // set the servo to the maximum degrees
+  // defaults to 180
+  //
+  // eg. servo.max();
+
+  // center()
+  //
+  // centers the servo to 90°
+  //
+  // servo.center();
+
+  // to( deg )
+  //
+  // Moves the servo to position by degrees
+  //
+  // servo.to( 90 );
+
+  // step( deg )
+  //
+  // step all servos by deg
+  //
+  // eg. array.step( -20 );
+
+  servo.sweep();
+});
+</pre>
+
+						
 							<p>&nbsp;</p>
 						
 								</section>
@@ -163,7 +564,7 @@
 							</div>
 						</div>
 						<div class="row">
-                            <div class="4u">
+							<div class="4u">
 								<article class="box style2">
 									<a href="wk7.html" class="image featured"><img src="images/wk7.jpg" alt="" /></a>
 									<h3><a href="wk7.html">Week 7</a></h3>
@@ -186,86 +587,86 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 10</a></h3>
-									<p>Input Devices</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 11</a></h3>
-									<p>Output Devices</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 12</a></h3>
-									<p>Composites</p>
-								</article>
-							</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk10.html" class="image featured"><img src="images/wk10.jpg" alt="" /></a>
+								<h3><a href="#">Week 10</a></h3>
+								<p>Input Devices</p>
+							</article>
 						</div>
-						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 13</a></h3>
-									<p>Networking and Communications</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 14</a></h3>
-									<p>Mechanical Design, Machine Design</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 15</a></h3>
-									<p>Interface and application programming</p>
-								</article>
-							</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk11.html" class="image featured"><img src="images/wk11.jpg" alt="" /></a>
+								<h3><a href="wk11.html">Week 11</a></h3>
+								<p>Output Devices</p>
+							</article>
 						</div>
-						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 16</a></h3>
-									<p>Applications and Implications</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 17</a></h3>
-									<p>Invention, Intellectual Property, and Income</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 18</a></h3>
-									<p>Project Development</p>
-								</article>
-							</div>
-							
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk12.html" class="image featured"><img src="images/wk12.jpg" alt="" /></a>
+								<h3><a href="wk12.html">Week 12</a></h3>
+								<p>Composites</p>
+							</article>
 						</div>
-						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 19</a></h3>
-									<p>Project Presentation</p>
-								</article>
-							</div>
-							
-							
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk13.html" class="image featured"><img src="images/wk13.jpg" alt="" /></a>
+								<h3><a href="#">Week 13</a></h3>
+								<p>Networking and Communications</p>
+							</article>
 						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk14.html" class="image featured"><img src="images/wk14.jpg" alt="" /></a>
+								<h3><a href="wk14.html">Week 14</a></h3>
+								<p>Interface and application programming</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk15.html" class="image featured"><img src="images/wk15.jpg" alt="" /></a>
+								<h3><a href="wk15.html">Week 15</a></h3>
+								<p>Mechanical Design, Machine Design</p>
+							</article>
+						</div>
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk16.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 16</a></h3>
+								<p>Applications and Implications</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk17.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 17</a></h3>
+								<p>Invention, Intellectual Property, and Income</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk18.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 18</a></h3>
+								<p>Project Development</p>
+							</article>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="presentation.png" class="image featured"><img src="images/wk19.jpg" alt="" /></a>
+								<h3><a href="presentation.png">Week 19</a></h3>
+								<p>Project Presentation</p>
+							</article>
+						</div>
+						
+						
+					</div>
 					</div>
 					<footer>
 						<a href="#contact" class="button big scrolly">Get in touch with me</a>

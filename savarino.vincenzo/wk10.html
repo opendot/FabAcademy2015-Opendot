@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Week 2</title>
+		<title>Fab Academy 2015 - Week 10</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -60,7 +60,7 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Week 2</h2>
+						<h2>About Week 10</h2>
 						
 					</header>
 					<div class="container">
@@ -68,123 +68,150 @@
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>My Computer Aided Design Exercise...</h3>
+									<h3>Input Devices Exercise...</h3>
 									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
-									<p>This week exercise was related to experiments on usage of a set of computer aided design software.  I have some experience on <Strong>Skecthup, GIMP and Inkscape</Strong> and during the first week I have used them to describe the table and my final project. I took this opportunity to install the new version of Sketchup: Make 2014. I see that more template are now available, and in particular for 3D Printing and woodworking.</p>
-									 <p><img align="center"  hspace="12" src="images/sk_template.jpg"  /></p>
-								 <p>Starting from the Sketchup sketch table from week 1, I designed a more detailed one, in particular the table structure and the pin system. The structure will contain the mechanical equipment (i.e. the step motors) and overal electronics.</p>
-								<p><img align="center"  hspace="12" src="images/sktableview.jpg"  /></p>
-								
-								<p>Once realized the model I searched for an stl export plugin for sketchup, in order to use it during the usage of the other software. I founded it: <Strong>SketchUp STL</Strong>. This extension provides import/export functionality for STL files to and from SketchUp It is possible to export SketchUp groups to STL, or import an STL design and manipulate it within SketchUp. I have installed it successfully and the next step is to test other software.</p>
-								
-								<p>First of all I have installed <Strong>MeshLab</Strong> in order to test only the .stl file exported from SketchUp. The import went well.</p>
-								<p>The next step was <Strong>FreeCAD</Strong>. It is a parametric modeler and I made some try with it starting from Sketcher environment  and  Part design. I have tested the import of  Sketchup stl too. FreeCAD is at its 0.14 version and it seems quite instable.</p>
-								
-								<p>Finally I've installed <Strong>Blender</Strong>. I've spent a lot of time to experience with its interface and I followed some on-line start tutorial. It is very powerful for 3D modeling and meshes but it seems hard to use. I promise to try it deeper in future. Anyway I used it for the final release of the table and for final exporting. During this phase I realized that the dimension of final file was too bigger. In order to reduce it I removed isolated vertices and edges and I reduced model dimension by reducing its volume. After this action I reduced by 50% the original size.</p>
-										
-								</section>
-							</div>
-							<div class="12u">
-								<section class="box style1">
 									
-                                    <p>
-									Below the final result.
-									
-									
-									
-									<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/free_cad_table_v2.obj');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.setParameter('InitRotationX','45');
-		viewer.setParameter('InitRotationY','45');
-		viewer.setParameter('InitRotationZ','45');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    	
-	<p>
-	<a href="media/free_cad_table_v2.obj">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
+									<p>For this week the assignment is about input devices in order to measure something by adding a sensor to a microcontroller board.</p>
+									<p> For this assignment Massimo introduced us the <a href="http://www.fabacademy.org/archives/2015/doc/projects/fabkit-0.4.html">Fabkit</a>, an Arduino-compatible board designed by David Mells and based on an <a href="http://www.atmel.com/devices/atmega328p.aspx">ATMEGA382P</a> microcontroller.</p>
+									<p>Starting from this my colleague <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">Daniele Ingrassia</a> designed a new Arduino-compatible board during Fab Academy 2015, the <a href="https://github.com/satshas/satshakit">satshakit</a>. Me and Daniele have discussed about the usage of this new board and I accepted the proposal of test it, for milling, solder and programming, mainly thinking about my final project in order to In order to replace Arduino with this board.</p>
+									<p>I discussed and exchanged experiences with other colleagues about how to solder the microcontroller and for this exercise I decided to use a technique I read: the pins are not soldered one by one but serially in a row! I was thinking "difficult" but I wanted to try in order to provide a different experience. The final result was successful:</p>
+							        <p><img align="center" height="400" hspace="12" src="images/wk10_1.jpg"/></p>
+									<p>I continued to solder the other components until the final results:</p>
+									<p><img align="center" height="400" hspace="12" src="images/wk10_2.jpg"/></p>
+									<p>It was the time to program in order to use satshakit as an Arduino, that is the next step was to upload Arduino bootloader.</p>
+                                    <p>As described in </p>
+									<p>To upload the bootloader I need  a <strong>programmer</strong>, an Arduino:</p>
 
-	
-										
-	
-	
-<p>&nbsp;</p>
-								</section>
-							</div>
-							
-							
-							<div class="12u">
-								<section class="box style1">
-									
-                                    
+									<p><img src="https://raw.githubusercontent.com/satshas/satshakit/master/media/satshakit/programming_Arduino.jpg" width="60%" style="max-width:100%;"></p>
 
-	<p>Finally I've installed <Strong>Rhinoceros</Strong>. Unlike previous tools Rhino has a proprietary licence. I took quickly experience with its user interface.It provides an intuitive navigation of viewports and toolbars, and I find more of design tools used in SketchUp with a great difference: many more and more powerful!. After several try on basic commands (surfaces, solids, drafting, and image tracing) and the usage of Osnap and Gumball tools I tried to replicate the table surface by using  push/pulling techniques of faces and edges. I took the opportunity to try the difference of approach compared to SketchUp one (surface splitting).</p>
-										
-	<p><img align="center"  hspace="12" src="images/rhino_tsurface.jpg"  /></p>
-	
-	<p>Rhino can import from many formats and I triedd to import skechup file of the table but the import failed cause the last version of SketchUp Make 2014. I've tried with previous version files and it works. Anyway rather than repeat the same model in rhino I continue to try advanced features, by modeling small particular of table:</p>
-	
-	<p>Repeated round hole ( very similar to the clone  comand of Inkscape)</p>
-	
-	<p><img align="center"  hspace="12" src="images/rhino3d.jpg"  /></p>
-	
-	<p>or surface tools for 2D/3D transform like "surface revolution":</p>
-	
-	
-	
-	<p>
+									<p>or myFabISP produced during week 4 assignement:</p>
+
+									<p><img src="https://raw.githubusercontent.com/satshas/satshakit/master/media/satshakit/programming_FABIsp.jpg" width="60%" style="max-width:100%;"></p>
+									<p><img align="center" height="400" hspace="12" src="images/wk10_3.jpg"/></p>
+									<p>So I followed the steps:</p>
+
+									<ol>
+									<li>a)from Arduino IDE </li>
+									<li>b)select USBtinyISP) </li>
+									<li>c)select Arduino UNO as board</li>
+									<li>d)click on tools-&gt;Burn Bootloader</li>
+									</ol>
+
+									<p>The upload went successfully and the board was recognized. It was time to test a first sketch for input exercise. For my exercises I used a potenziometer and an analog temperature sensor: tmp36</p>
+                                    <p>First of all I had to connect FTDI cable:</p>
+                                    <p><img align="center" height="400" hspace="12" src="https://raw.githubusercontent.com/satshas/satshakit/master/media/satshakit/programming_FTDI.jpg"/></p>
+									<p>As for input sensors these can be distinguished in two categories: analog and digital . Typically, the analog sensor returns a value continuous in time , the digital provides a discrete numeric value.
+                                       For the first try, read value from potentiometer, I considered as pin reading the AnalogIn 0 , consequently the voltage drop across the potentiometer is read from this pin and , digitized by a value which varies between 0 and 1023 .</p>
+									<p><img align="center" height="400" hspace="12" src="images/wk10_4.jpg"/></p>
+									<p><img align="center" height="400" hspace="12" src="images/wk10_5.jpg"/></p>
+									<p>After this I uploaded the following sketch</p>
 									
-									
-									
-									
-									<canvas id="cv2" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv2');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/rhino3d.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.setParameter('InitRotationX','220');
-		viewer.setParameter('InitRotationY','130');
-		viewer.setParameter('InitRotationZ','130');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    	
-	<p>
-	<a href="media/rhino3d.stl">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-	
-	
-<p>&nbsp;</p>
+
+							
+<p><Strong>Sketch_Input_Potenziometer</Strong></p>							
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+int potentiometerPin = 0;
+int value = 0;
+ 
+void setup()
+{
+    Serial.begin(9600); // setup serial port
+}
+ 
+void loop()
+{
+    value = analogRead(potentiometerPin); // read value from potenziometer
+    Serial.println(value); // write value on serial output as debugging
+    delay(500);
+}
+</pre>
+
+<p>The sketch was uploaded successfully, and I tried to vary the potentiometer and read the data from Arduino IDE serial monitor</p>
+<p><img align="center" height="400" hspace="12" src="images/wk10_6.jpg"/></p>
+
+<p>The next exercise was to read the temperature value from a analog sensor. To this end I used a <a href="http://www.analog.com/en/mems-sensors/digital-temperature-sensors/tmp36/products/product.html" target="_blank"><strong>TMP36</strong> produced by Analog Device</a></p>
+<p> the circuit is similar to the previous one for potentiometer, by connecting the board with TMP36 by A0 pin</p>
+<p><img align="center" height="400" hspace="12" src="images/wk10_8.jpg	"/></p>
+<p>The <Strong>TMP36</Strong> allows to acquire temperatures in the range between <Strong>-40 ° C</Strong> and <Strong>+ 125 ° C</Strong> by returning output values ​​of linear voltage between about <Strong>0.1Vdc and 1.7Vdc</Strong> . A variation of degree produces a change in output voltage equal to 10mV ; at a temperature of 0 ° C the sensor provides a voltage of 500mV .</p>					
+<p>In order to read the temperature and provide a correct value( for example in C°) the measured value should be interpreted so as to obtain the value directly in ° C . To do this we need the datasheet of the component , namely the graphic conversion ° C / Vdc , represented in the following figure :</p>
+<p><img align="center" height="400" hspace="12" src="images/Tmp36_CtoV.png	"/></p>
+<p>For an output voltage of 0.5Vdc the sensor detects the temperature of 0 ° C . So  lower voltages 0.5Vdc indicate temperatures below zero . Furthermore a change of grade is reflected with a variation of voltage of 10mV . Thus if at pin A0 are present 510mV means that the sensor is detecting a temperature of 1 ° C ( 510mV - 500mV = 10 mV variation of 1 ° C ). Starting from this information the following  sketch returns the value in ° C :</p>
+<p><Strong>Sketch_Input_TMP36</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+int val_Adc = 0;
+float temp = 0;
+ 
+void setup()
+{
+  //init seriale
+  Serial.begin(9600);
+}
+ 
+void loop()
+{
+  
+  val_Adc = analogRead(0);
+  temp = ((val_Adc * 0.00488) - 0.5) / 0.01;
+  Serial.println(temp);
+  delay(500);
+}
+</pre>
+<p>The formula that converts the acquired value in Celsius degrees Celsius is the following</p>
+<p>°C = ((valueADC * PrecisionADC) – vZero) / stepGradeV</p>
+<p>where</p>
+<p><Strong>° C</Strong> = the temperature in Celsius degrees </p>
+<p><Strong>valueADC</Strong> = value of the conversion from analog to digital returned by analogRead</p>
+<p><Strong>PrecisionADC</Strong> = This value is obtained by dividing the reference voltage of the ADC ( default 5Vdc ) and the maximum return from the conversion (1024 ) . ( 5Vdc / 1,024 = 0.00488 )</p>
+<p><Strong>vZero</Strong>= indicates the output voltage from the sensor when it detects a temperature of 0 ° C</p>
+<p><Strong>stepGradeV</Strong> = indicates the voltage variation for each variation of a degree ( 12:01 = 10 mV )</p>
+
+<p><img align="center" height="400" hspace="12" src="images/wk10_9.png	"/></p>
+
+
+<p>
+Checking the values from serial monitor for the previous sketch the temperature values ​​are variable. Considering the accuracy of the sensor TMP36  +/- 2 ° C throughout the scale , however, the values  differ from the real value . This ' error ' is dependent on several factors including lack of precision ADC , signal noise and approximate values ​​in calculations .
+</p>
+<p>
+A simple solution is to consider a value calculation taking into account the mean of a set of measures:
+</p>
+
+<p><Strong>Sketch_Input_TMP36_v2</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+
+int val_Adc = 0;
+float temp = 0;
+ 
+void setup()
+{
+  
+  Serial.begin(9600);
+}
+ 
+void loop()
+{
+  
+  val_Adc = analogRead(0);
+  
+  
+
+for(byte Ciclo = 0; Ciclo<100; Ciclo++)
+{
+val_Adc += analogRead(0);
+delay(10);
+}
+
+val_Adc /= 100;
+
+temp = ((val_Adc * 0.00488) - 0.5) / 0.01;
+
+Serial.println(temp);
+
+}
+</pre>		
+
+<p><img align="center" height="400" hspace="12" src="images/wk10_10.png	"/></p>				
+							<p>&nbsp;</p>
+						
 								</section>
 							</div>
 							

@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Week 2</title>
+		<title>Fab Academy 2015 - Week 11</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -60,131 +60,216 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Week 2</h2>
-						
+						<h2>About Week 11</h2>
 					</header>
 					<div class="container">
 						<div class="row">
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>My Computer Aided Design Exercise...</h3>
+									<h3>Output Devices Exercise...</h3>
 									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
-									<p>This week exercise was related to experiments on usage of a set of computer aided design software.  I have some experience on <Strong>Skecthup, GIMP and Inkscape</Strong> and during the first week I have used them to describe the table and my final project. I took this opportunity to install the new version of Sketchup: Make 2014. I see that more template are now available, and in particular for 3D Printing and woodworking.</p>
-									 <p><img align="center"  hspace="12" src="images/sk_template.jpg"  /></p>
-								 <p>Starting from the Sketchup sketch table from week 1, I designed a more detailed one, in particular the table structure and the pin system. The structure will contain the mechanical equipment (i.e. the step motors) and overal electronics.</p>
-								<p><img align="center"  hspace="12" src="images/sktableview.jpg"  /></p>
-								
-								<p>Once realized the model I searched for an stl export plugin for sketchup, in order to use it during the usage of the other software. I founded it: <Strong>SketchUp STL</Strong>. This extension provides import/export functionality for STL files to and from SketchUp It is possible to export SketchUp groups to STL, or import an STL design and manipulate it within SketchUp. I have installed it successfully and the next step is to test other software.</p>
-								
-								<p>First of all I have installed <Strong>MeshLab</Strong> in order to test only the .stl file exported from SketchUp. The import went well.</p>
-								<p>The next step was <Strong>FreeCAD</Strong>. It is a parametric modeler and I made some try with it starting from Sketcher environment  and  Part design. I have tested the import of  Sketchup stl too. FreeCAD is at its 0.14 version and it seems quite instable.</p>
-								
-								<p>Finally I've installed <Strong>Blender</Strong>. I've spent a lot of time to experience with its interface and I followed some on-line start tutorial. It is very powerful for 3D modeling and meshes but it seems hard to use. I promise to try it deeper in future. Anyway I used it for the final release of the table and for final exporting. During this phase I realized that the dimension of final file was too bigger. In order to reduce it I removed isolated vertices and edges and I reduced model dimension by reducing its volume. After this action I reduced by 50% the original size.</p>
-										
-								</section>
-							</div>
-							<div class="12u">
-								<section class="box style1">
 									
-                                    <p>
-									Below the final result.
+									<p>For this week the assignment is about output devices in order add them to a microcontroller board and program them to do something.</p>
+									<p>In this assignment I took the opportunity to continue to think about my final project and in particular the two main output devices that compose each single pi of the table: <Strong>RGB Leds and Servos</Strong></p>
+									<p>For the microcontroller board as just said in my previous assignment I continued to use the <a href="https://github.com/satshas/satshakit">satshakit</a> of Daniele.</p>
+									<p><Strong>RGB LED</Strong></p>
+									<p>The RGB LEDs are LEDs capable of producing 3 different wavelengths : Red ( R , red ), Green ( G , green ) Blue ( B , blue ) </p>
+									<p>An RGB Led has four terminals and it can have two configurations :
+									<ol>
+									<li>1)1 anode and cathode 3 ( RGB common anode ) </li>
+									<li>2)Three anodes and one cathode ( RGB common cathode ) </li>
+									</ol>
+									For my assignment I considered an RGB common anode.The mixing of the three colors gives rise to a light of a certain color that depends on the intensity of each of the three original colors </p>
+									<p><img align="center" height="400" hspace="12" src="images/wk11_1.jpg"/></p>
+									<p>From LED datasheet the voltage drop Vf , for the same nominal current If is different for each LED and the variability of Vf is quite wide, for this reason to perform the calculations of the resistances by placing in series to the respective LED it is possible to considered an average value of Vf. </p>
+									<p><img align="center" height="400" hspace="12" src="images/wk11_2.jpg"/></p>
+									<p>The operating voltage of the diodes to consider may be accessed at column TYP and these values ​​take into consideration a direct current of 20 mA , using these voltage values ​​it is possible to calculate the value of the resistance to put in series for each RGB Pin. For simplicity I used an unique value (22O Ohm) for each pin</p>
+									<p><img align="center" height="400" hspace="12" src="images/wk11_3.jpg"/></p>
+									<p><Strong>SERVO</Strong></p>
+									<p>Servo motor has integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds. Servo motors have three wires: power, ground, and signal. </p>
+									<p>For my exercise I used a standard servo (0-180 degree). My goal was to put altogether and build a prototype of table pin composed of a led a servo and a concept structure of pin system. I used an input device used in my previous exercise ( potenziometer) in order to drive the servo with a satshakit and another satshakit to drive Led.</p>
 									
+									<p><img align="center" height="400" hspace="12" src="images/wk11_5.jpg"/></p>
+									<p><img align="center" height="400" hspace="12" src="images/wk11_6.jpg"/></p>
+									<p>After this I uploaded the following sketches in order to drive the servo accordingly to the AnalogIn value provided by the measure of the potenziometer, while for the RGB Led alternative Green Red and Blue are switched on</p>
 									
-									
-									<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/free_cad_table_v2.obj');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.setParameter('InitRotationX','45');
-		viewer.setParameter('InitRotationY','45');
-		viewer.setParameter('InitRotationZ','45');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    	
-	<p>
-	<a href="media/free_cad_table_v2.obj">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
 
-	
-										
-	
-	
-<p>&nbsp;</p>
-								</section>
-							</div>
 							
-							
-							<div class="12u">
-								<section class="box style1">
-									
-                                    
+<p><Strong>Sketch_output_servo_with_Potenziometer</Strong></p>							
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+#include <Servo.h>
 
-	<p>Finally I've installed <Strong>Rhinoceros</Strong>. Unlike previous tools Rhino has a proprietary licence. I took quickly experience with its user interface.It provides an intuitive navigation of viewports and toolbars, and I find more of design tools used in SketchUp with a great difference: many more and more powerful!. After several try on basic commands (surfaces, solids, drafting, and image tracing) and the usage of Osnap and Gumball tools I tried to replicate the table surface by using  push/pulling techniques of faces and edges. I took the opportunity to try the difference of approach compared to SketchUp one (surface splitting).</p>
-										
-	<p><img align="center"  hspace="12" src="images/rhino_tsurface.jpg"  /></p>
-	
-	<p>Rhino can import from many formats and I triedd to import skechup file of the table but the import failed cause the last version of SketchUp Make 2014. I've tried with previous version files and it works. Anyway rather than repeat the same model in rhino I continue to try advanced features, by modeling small particular of table:</p>
-	
-	<p>Repeated round hole ( very similar to the clone  comand of Inkscape)</p>
-	
-	<p><img align="center"  hspace="12" src="images/rhino3d.jpg"  /></p>
-	
-	<p>or surface tools for 2D/3D transform like "surface revolution":</p>
-	
-	
-	
-	<p>
-									
-									
-									
-									
-									<canvas id="cv2" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv2');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/rhino3d.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.setParameter('InitRotationX','220');
-		viewer.setParameter('InitRotationY','130');
-		viewer.setParameter('InitRotationZ','130');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    	
-	<p>
-	<a href="media/rhino3d.stl">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-	
-	
-<p>&nbsp;</p>
+Servo myservo;  // create servo object to control a servo
+
+int potpin = 0;  // analog pin used to connect the potentiometer
+int val;    // variable to read the value from the analog pin
+
+void setup()
+{
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+}
+
+void loop() 
+{ 
+  val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023) 
+  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180) 
+  myservo.write(val);                  // sets the servo position according to the scaled value 
+  delay(15);                           // waits for the servo to get there 
+} 
+</pre>
+
+<p><Strong>Sketch_Output_RGBLed</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+// pin for LED RGB
+const int GREEN = 10;
+const int BLUE = 9;
+const int RED = 11;
+
+// transition time
+const int delayTime = 20;
+
+void setup() {
+
+  // imposta il pin digitale come output
+  pinMode(GREEN, OUTPUT);
+  pinMode(BLUE, OUTPUT);
+  pinMode(RED, OUTPUT);
+
+
+  // set HIGH GREEN, BLUE, RED
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(BLUE, HIGH);
+  digitalWrite(RED, HIGH);
+}
+
+
+int ValGreen;
+int ValRed;
+int ValBlue;
+
+void loop() {
+  // start with Green
+
+  ValGreen = 255;
+
+  for( int i = 0 ; i < 255 ; i += 1 ){
+
+    ValGreen -= 1;
+
+    analogWrite( GREE, 255 - ValGreen );
+
+    delay( delayTime );
+  }
+  
+  // continue with RED
+
+  ValRed = 255;
+
+  for( int i = 0 ; i < 255 ; i += 1 ){
+
+    ValRed -= 1;
+
+    analogWrite( RED, 255 - ValRed );
+
+    delay( delayTime );
+  }
+  // and finally blue
+
+  ValBlue = 255;
+
+  for( int i = 0 ; i < 255 ; i += 1 ){
+
+    ValBlue -= 1;
+
+    analogWrite( BLUE, 255 - ValBlue );
+
+    delay( delayTime );
+  } 
+}
+</pre>
+
+<p><img align="center" height="600" hspace="12" src="images/wk11_7.jpg	"/></p>
+
+<p>
+</p>
+<p><img align="center" height="600" hspace="12" src="images/wk11_8.jpg	"/></p>
+<p>
+</p>
+<div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/Xkep8aKChl0" frameborder="0" allowfullscreen></iframe></div>
+ 
+<p>
+Obviously with a single board is not possible drive several servo/RgB Led. A solution is the use of a shift register like the Texas Instruments TLC5940.
+</p>
+
+<p>
+The TLC5940 is a 16 channel PWM unit with 12 bit duty cycle control (0 - 4095), 6 bit current limit control (0 - 63), and a daisy chainable serial interface. It is handy for expanding the number of PWM outputs available. 
+</p>
+<p>
+I started to study this interesting chip form my final project in order to command a lot of leds and servos, and I started from this tutorial: <a href="http://playground.arduino.cc/learning/TLC5940" target="_blank">http://playground.arduino.cc/learning/TLC5940</a>
+</p>
+<p><img align="center"  hspace="12" src="images/tlc5940.jpg	"/></p>
+<p><img align="center"  hspace="12" src="images/tlc5940_scheme.jpg	"/></p>
+<p>
+I started to study this interesting chip form my final project in order to command a lot of leds and servos, and I started from this tutorial: <a href="http://playground.arduino.cc/learning/TLC5940" target="_blank">http://playground.arduino.cc/learning/TLC5940</a>
+</p>
+<p>
+An Arduino Library for the TLC5940 is available: <a href="https://code.google.com/p/tlc5940arduino/" target="_blank">https://code.google.com/p/tlc5940arduino/</a> 
+</p>
+<p>
+After this preliminary study I decided to build a 64 channel shift register by chaining 4 TLC5490 shift registries. 
+</p>
+<p>
+For a 16 Channel circuit I need:
+</p>
+<ul>
+<li>1)A satshakit board</a></li>
+<li>2)a 2 kΩ resistor </li>
+<li>3)a 0.1uF ceramic and a 4.7uF electrolytic capacitor</li>
+<li>4)16 3.3 kΩ resistors</li>
+<li>5)A 10kΩ pull up resistor</li>
+</ul>
+
+<p><img align="center" height="400" hspace="12" src="images/wk11_tlc5940_all.jpg	"/></p>
+<p>
+In order to daisy chain two or more TLC5940, connect the SOUT of TLC 1 to the SIN of TLC 2, and the SCLK, XLAT, BLANK and GSCLK and proceed in that manner for every additional TLC5940.
+</p>
+<p><span>An important thing to do in order to use multiple TLC5940s, is to set the number of registries in the file &rdquo;tlc_config.h&ldquo; in the library's folder by replacing the value of the constant NUM_TLCS with the amount of TLCs (in my case 4). After saving it is necessary to &nbsp;restart the Arduino IDE.</span></p>
+
+<p><Strong>Sketch_TLC_SERVO</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+//Requires the Tlc5940 library. http://code.google.com/p/tlc5940arduino/downloads/list
+
+#include "Tlc5940.h"
+#include "tlc_servos.h"
+
+void setup()
+{
+  tlc_initServos();  // Note: this will drop the PWM freqency down to 50Hz.
+}
+
+void loop()
+{
+  for (int angle = 0; angle < 90; angle++) {
+    tlc_setServo(0, angle);
+    tlc_setServo(1, angle);
+    Tlc.update();
+    delay(5);
+  }
+  for (int angle = 90; angle >= 0; angle--) {
+    tlc_setServo(0, angle);
+    tlc_setServo(1, angle);
+    Tlc.update();
+    delay(5);
+  }
+}
+
+</pre>		
+
+<div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/wQd14v6c10U" frameborder="0" allowfullscreen></iframe></div>
+ 			
+							<p>&nbsp;</p>
+						
 								</section>
 							</div>
 							

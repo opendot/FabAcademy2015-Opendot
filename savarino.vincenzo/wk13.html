@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Fab Academy 2015 - Week 2</title>
+		<title>Fab Academy 2015 - Week 13</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -48,8 +48,7 @@
 				<ul class="container">
 					<li><a href="./index.html#top">Home</a></li>
 					<li><a href="./index.html#work">About Me</a></li>
-					<li><a href="./finalproject.html">Final Project</a></li>
-					<li><a href="./index.html#class-schedule">Exercises</a></li>
+					<li><a href="./index.html#class-schedule">Fab Academy</a></li>
 					<li><a href="./index.html#contact">Contact</a></li>
 				</ul>
 			</nav>
@@ -60,7 +59,7 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>About Week 2</h2>
+						<h2>About Week 13</h2>
 						
 					</header>
 					<div class="container">
@@ -68,123 +67,288 @@
 							<div class="12u">
 								<section class="box style1">
 									<span class="icon featured fa-comments-o"></span>
-									<h3>My Computer Aided Design Exercise...</h3>
+									<h3>Networking and Communications Exercise...</h3>
 									<p><img align="center" height="264" hspace="12" src="images/3dbox3.jpg" width="383" /></p>
-									<p>This week exercise was related to experiments on usage of a set of computer aided design software.  I have some experience on <Strong>Skecthup, GIMP and Inkscape</Strong> and during the first week I have used them to describe the table and my final project. I took this opportunity to install the new version of Sketchup: Make 2014. I see that more template are now available, and in particular for 3D Printing and woodworking.</p>
-									 <p><img align="center"  hspace="12" src="images/sk_template.jpg"  /></p>
-								 <p>Starting from the Sketchup sketch table from week 1, I designed a more detailed one, in particular the table structure and the pin system. The structure will contain the mechanical equipment (i.e. the step motors) and overal electronics.</p>
-								<p><img align="center"  hspace="12" src="images/sktableview.jpg"  /></p>
-								
-								<p>Once realized the model I searched for an stl export plugin for sketchup, in order to use it during the usage of the other software. I founded it: <Strong>SketchUp STL</Strong>. This extension provides import/export functionality for STL files to and from SketchUp It is possible to export SketchUp groups to STL, or import an STL design and manipulate it within SketchUp. I have installed it successfully and the next step is to test other software.</p>
-								
-								<p>First of all I have installed <Strong>MeshLab</Strong> in order to test only the .stl file exported from SketchUp. The import went well.</p>
-								<p>The next step was <Strong>FreeCAD</Strong>. It is a parametric modeler and I made some try with it starting from Sketcher environment  and  Part design. I have tested the import of  Sketchup stl too. FreeCAD is at its 0.14 version and it seems quite instable.</p>
-								
-								<p>Finally I've installed <Strong>Blender</Strong>. I've spent a lot of time to experience with its interface and I followed some on-line start tutorial. It is very powerful for 3D modeling and meshes but it seems hard to use. I promise to try it deeper in future. Anyway I used it for the final release of the table and for final exporting. During this phase I realized that the dimension of final file was too bigger. In order to reduce it I removed isolated vertices and edges and I reduced model dimension by reducing its volume. After this action I reduced by 50% the original size.</p>
-										
-								</section>
-							</div>
-							<div class="12u">
-								<section class="box style1">
 									
-                                    <p>
-									Below the final result.
-									
-									
-									
-									<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/free_cad_table_v2.obj');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.setParameter('InitRotationX','45');
-		viewer.setParameter('InitRotationY','45');
-		viewer.setParameter('InitRotationZ','45');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    	
-	<p>
-	<a href="media/free_cad_table_v2.obj">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-
-	
-										
-	
-	
-<p>&nbsp;</p>
-								</section>
-							</div>
+									<p>This week assignment is about Networking and Communications: design and build a wired &/or wireless network connecting at least two processors.</p>
+									<p>
+For my exercises I started from my boards built from Satshakit design of my colleague Daniele. First of all I used <a href="http://www.nxp.com/documents/other/39340011.pdf"><Strong>I2C-bus protocol</Strong></a>. I2C is a Master to Slave protocol in which the Master asks data to the Slave or to send data to it. The Slave could only replay to the only Master without making any query. I2C protocol works over analog pins, with the possibility to have much more digital pins. &nbsp;Obviously if I need more analog pins (for example for analog sensors) I2C is not the right protocol. However for my exercise I used an analog one, the analog tmp36 temperature sensor.
+									</p>
+									<p>The I2C bus , based on two wires , does not allow the contemporary communication between Master and Slave . The data exchange have to be managed by the Master through  slaves addresses (unique). The flow can be summarized as the follow:</p>
+									<ol>
+									<li>The Master sends on the bus a start bit</li>
+									<li>The Master sends on the bus  the address of slave which wants to communicate</li>
+									<li>Master decide if Write or read from the device</li>
+									<li>The slave reads or writes according to the request of the Master</li>
+									</ol>
+							        <p><img align="center" height="320" hspace="12" src="images/wk13_i2c_1.jpg"  /></p>
+									<p>As regards the code we need the <a href="http://arduino.cc/en/Reference/Wire" target="_blank">Wire library</a> that has all the functions needed to implement Master - Slave between two/more boards. </p>
+							        
+                            
 							
-							
-							<div class="12u">
-								<section class="box style1">
-									
-                                    
+<p><Strong>MASTER</Strong></p>							
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+//MASTER
+#include <Wire.h>
+ 
+byte x = 0;
+byte num = 0;
+ 
+void setup()
+{
+  //inizialize
+  Wire.begin();
+ 
+  //init serial
+  Serial.begin(9600);
+  //debug that code starts
+  Serial.println("...start communication");
+ 
+}
+ 
+void loop()
+{
+  // sends a byte to the I2C device
+  // Which it has the address value 0x01
+  //start transmission
+  Wire.beginTransmission(0x01);
+  //byte sent
+  Wire.write(x);
+  Serial.println(x);
+  //end transmission
+  Wire.endTransmission();
+ 
+  delayMicroseconds(500);
+ 
+  //a byte request to the slave with address 0x01
+  Wire.requestFrom(0x01, 1);
+ 
+  //waiting for datat on i2c bus
+  while(Wire.available())
+  {
+    //when data available the master reads the data
+    num = Wire.read();
+  }
+ 
 
-	<p>Finally I've installed <Strong>Rhinoceros</Strong>. Unlike previous tools Rhino has a proprietary licence. I took quickly experience with its user interface.It provides an intuitive navigation of viewports and toolbars, and I find more of design tools used in SketchUp with a great difference: many more and more powerful!. After several try on basic commands (surfaces, solids, drafting, and image tracing) and the usage of Osnap and Gumball tools I tried to replicate the table surface by using  push/pulling techniques of faces and edges. I took the opportunity to try the difference of approach compared to SketchUp one (surface splitting).</p>
-										
-	<p><img align="center"  hspace="12" src="images/rhino_tsurface.jpg"  /></p>
-	
-	<p>Rhino can import from many formats and I triedd to import skechup file of the table but the import failed cause the last version of SketchUp Make 2014. I've tried with previous version files and it works. Anyway rather than repeat the same model in rhino I continue to try advanced features, by modeling small particular of table:</p>
-	
-	<p>Repeated round hole ( very similar to the clone  comand of Inkscape)</p>
-	
-	<p><img align="center"  hspace="12" src="images/rhino3d.jpg"  /></p>
-	
-	<p>or surface tools for 2D/3D transform like "surface revolution":</p>
-	
-	
-	
-	<p>
-									
-									
-									
-									
-									<canvas id="cv2" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv2');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/rhino3d.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.setParameter('InitRotationX','220');
-		viewer.setParameter('InitRotationY','130');
-		viewer.setParameter('InitRotationZ','130');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
+  x++;
+ Serial.println(num);
+  //data check
+  if(num != x)
+    Serial.println("ERROR");
+ 
+  delay(500);
+ 
+}
+</pre>
+<p><Strong>SLAVE</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+//SLAVE
+#include <Wire.h>
+ 
+byte x = 0;
+ 
+void setup()
+{
+  //wire inizialization
+  //slave address
+  Wire.begin(0x01);
+ 
+  //receive/request data event
+  Wire.onReceive(receiveEvent);
+  Wire.onRequest(requestEvent);
+}
+ 
+void loop()
+{
+  //do something
+  delay(1000);
+}
+ 
+void receiveEvent(int data)
+{
+ //this event is generated itf there is a data to read
+ //read
+  x = Wire.read();
+ 
+  //data elaboration
+  x++;
+}
+ 
+void requestEvent()
+{
+  //this event is generated if data is requested
+ 
+  //send data to Master
+  Wire.write(x);
+ 
+}
+</pre>							
+
+<p>
+	The schematic of the circuit I made is shown in the following figure.
+</p>
+<p><img align="center" height="400" hspace="12" src="images/wk13_i2c_2.jpg"  /></p>
+<p><img align="center" height="400" hspace="12" src="images/wk13_i2c_3.jpg"  /></p>
+
+<p>
+After this first try I modify all the system in order to request (from Master) the measure of the temperature from slave. The scale of temperature (C or F) is requested alternatively by the the Master ( Wire.write(0),  Wire.write(1)). In this case the value sent is a float and have to be sent as a set of byte. The above sketches has been modified accordingly including a new library "I2C_Anything.h"
+</p>
+<p><Strong>MASTER 2</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+
+//MASTER
+#include <Wire.h>
+#include "I2C_Anything.h"
+ 
+byte x = 0;
+volatile float fnum;
+ 
+void setup()
+{
+  
+  Wire.begin();
+ 
+  
+  Serial.begin(9600);
+  
+  Serial.println("START");
+ 
+}
+ 
+void loop()
+{
+  
+  Wire.beginTransmission(0x04);
+  
+  Wire.write(x);
+  Serial.println(x);
+  
+  Wire.endTransmission();
+ 
+  delayMicroseconds(500);
+ 
+  
+  Wire.requestFrom(0x04, 4);
+ 
+  
+  while(Wire.available())
+  {
+    Serial.print ("Waiting ");
+    //read
+    I2C_readAnything (fnum);
     
-    	
-	<p>
-	<a href="media/rhino3d.stl">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-	
-	
-<p>&nbsp;</p>
+  }
+  
+  if(x==1)
+  {  
+    
+    Serial.print ("Received temp (F) = ");
+    Serial.println (fnum); 
+    x=0;
+  }else{
+    Serial.print ("Received temp (C) = ");
+    Serial.println (fnum); 
+    x=1;
+  }
+  delay(500);
+ 
+}
+</pre>
+<p><Strong>SLAVE 2</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+//SLAVE
+#include <Wire.h>
+#include "I2C_Anything.h" 
+
+byte x = 0;
+int val_Adc = 0;
+float temp = 0;
+
+
+void setup()
+{
+  //init seriale
+  Serial.begin(9600);
+  Wire.begin(0x04);
+  Wire.onReceive(receiveEvent);
+  Wire.onRequest(requestEvent);
+}
+ 
+void loop()
+{
+  //do something
+  delay(1000);
+}
+ 
+void receiveEvent(int data)
+{
+  x = Wire.read();
+  Serial.println(x);
+  val_Adc = analogRead(0);
+  
+  //in C
+  temp = ((val_Adc * 0.00488) - 0.5) / 0.01;
+  if (x==0){
+   //In F
+   temp = (temp * 9 / 5) + 32;
+  }
+  
+}
+ 
+void requestEvent()
+{
+  Serial.println(temp);
+  //spedisco il dato al Master
+  I2C_singleWriteAnything(temp);
+  
+ 
+}
+</pre>	
+<p><Strong>I2C_Anything.h</Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+// Code modified from the original one written by Nick Gammon
+// May 2012
+
+#include <Arduino.h>
+#include <Wire.h>
+
+template <typename T> int I2C_writeAnything (const T& value)
+ {
+   const byte * p = (const byte*) &value;
+   unsigned int i;
+   for (i = 0; i < sizeof value; i++)
+         Wire.write(*p++);
+   return i;
+ }  // end of I2C_writeAnything
+
+template <typename T> int I2C_readAnything(T& value)
+ {
+   byte * p = (byte*) &value;
+   unsigned int i;
+   for (i = 0; i < sizeof value; i++)
+         *p++ = Wire.read();
+   return i;
+ }  // end of I2C_readAnything
+ 
+ template <typename T> int I2C_singleWriteAnything (const T& value) {
+  int size = sizeof value;
+  byte vals[size];
+  const byte* p = (const byte*) &value;
+  unsigned int i;
+  for (i = 0; i < sizeof value; i++) {
+    vals[i] = *p++;
+  }
+  
+  Wire.write(vals, size);
+  return i;
+}
+
+</pre>
+<p><img align="center" height="400" hspace="12" src="images/wk13_i2c_4.jpg"  /></p>
+<p><img align="center" height="400" hspace="12" src="images/wk13_i2c_5.jpg"  /></p>						
+							<p>&nbsp;</p>
+						
 								</section>
 							</div>
 							

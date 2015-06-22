@@ -15,6 +15,22 @@
 		<script src="js/jquery.scrolly.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+		
+		<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -33,7 +49,7 @@
 					<li><a href="./index.html#top">Home</a></li>
 					<li><a href="./index.html#work">About Me</a></li>
 					<li><a href="./finalproject.html">Final Project</a></li>
-					<li><a href="./index.html#class-schedule">Fab Academy</a></li>
+					<li><a href="./index.html#class-schedule">Exercises</a></li>
 					<li><a href="./index.html#contact">Contact</a></li>
 				</ul>
 			</nav>
@@ -54,17 +70,85 @@
 									<span class="icon featured fa-comments-o"></span>
 									<h3>My Web Pages</h3>
 									<p><img align="center" height="264" hspace="12" src="images/wk1.jpg" width="383" /></p>
-									<p></p>
 								</section>
 							</div>
 							<div class="12u">
 								<section class="box style1">
 									
-                                    <p>To document myself, my final project and my class assignement I started by a responsive website template.</p>
+                                    <p>To document myself, my final project concept and my class assignment I started by a <a  href="http://html5up.net/miniport" target="_blank">responsive website template</a>.</p>
 
-<p>I've modified the layout css and page structure, while maintaining the same licence (CCv3 licence).</p>
+									<p>I've modified the layout css and page structure form according to my objectives, while maintaining the same licence (CCv3 licence).</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+</pre>									
 
-<p>The website template will be the container of each content I'll put inside it.</p>
+									<p>The website template will be the container of each content I'll put inside it.</p>
+<p>
+I've prepared also a template <a href="wkx.html" target="_blank">wkx.html</a> page with useful sections that can be used during assignments documentation: text, code view, file download and video embedding and for 3D object view ( the last one from <a href="https://github.com/openp2pdesign/FabAcademy_Template" target="_blank">Fab Academy Template</a> by <a href="http://openp2pdesign.org" target="_blank">Massimo Menichinelli</a>).
+</p>
+									
+<p><Strong>My work html template Code </Strong></p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+
+&lt;!-- My Week Work --&gt;<br />
+&lt;div class="wrapper style2"&gt;<br />
+&lt;article id="work"&gt;<br />
+&lt;header&gt;<br />
+&lt;h2&gt;About Week XX&lt;/h2&gt;<br />
+&lt;/header&gt;<br />
+&lt;div class="container"&gt;<br />
+&lt;div class="row"&gt;<br />
+&lt;div class="12u"&gt;<br />
+	&lt;section class="box style1"&gt;<br />
+		&lt;span class="icon featured fa-comments-o"&gt;&lt;/span&gt;<br />
+		&lt;h3&gt;My Exercise...&lt;/h3&gt;<br />
+		&lt;p&gt;&lt;img align="center" height="264" hspace="12" src="images/xxxxxx.jpg" width="383" /&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;img align="center" height="400" hspace="12" src="images/xxxxxx.jpg"/&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;/p&gt;<br />
+		&lt;!-- List --&gt;<br />
+		&lt;ol&gt;<br />
+		&lt;li&gt; &lt;/li&gt;<br />
+		&lt;li&gt; &lt;/li&gt;<br />
+		&lt;li&gt;&lt;/li&gt;<br />
+		&lt;li&gt;&lt;/li&gt;<br />
+		&lt;/ol&gt;<br />
+		&lt;!-- Download a file --&gt;<br />
+		&lt;p&gt;<br />
+			&lt;a href="media/afile.zip"&gt;<br />
+				&lt;button type="button" class="btn btn-primary btn-lg"&gt;Download the file&lt;/button&gt;<br />
+			&lt;/a&gt;<br />
+		&lt;/p&gt;<br />
+		&lt;!-- embed a youtube video --&gt;<br />
+		&lt;DIV align="center"&gt;&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/&lt;video youtube code&gt;" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/DIV&gt;<br />
+		&lt;p&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;img align="center" height="400" hspace="12" src="images/xxxxxx.jpg"/&gt;&lt;/p&gt;<br />
+		&lt;p&gt;&lt;/p&gt;<br />
+&lt;!-- Title of code --&gt;							<br />
+&lt;p&gt;&lt;Strong&gt;My Code Title&lt;/Strong&gt;&lt;/p&gt;							<br />
+&lt;!-- Code --&gt;<br />
+&lt;pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);"&gt;<br />
+
+	println("Hello Fab Academy")<br />
+
+&lt;/pre&gt;<br />
+						&lt;/section&gt;<br />
+						&lt;/div&gt;<br />
+					&lt;/div&gt;<br />
+				&lt;/div&gt;<br />
+			&lt;/article&gt;<br />
+		&lt;/div&gt;	
+</pre>
+
+<p>
+Once finished my web site template, I prepared  my home page providing information <a href="index.html#top" target="_blank"><Strong>About me and My Final Project concept</Strong></a>
+</p>
+
 
 <p>For the home page and first week page I have used:</p>
 
@@ -73,6 +157,104 @@
 	<li>MS Powerpoint to collect ideas</li>
 	<li>Sketchup and Gimp&nbsp;to create images&nbsp;</li>
 </ul>
+
+
+<p>
+During the first week also with Massimo discussed about <a href=https://git-scm.com/ target="_blank">Git</a>, a distributed revision control system, the related web-based hosting service <a href="github.com" target="_blank">GitHub</a>.
+</p>
+
+<p>
+We will use a git repository "https://github.com/opendot/FabAcademy2015-Opendot.git" as intermediate repository tu push our documentation. As Tools I used "Git Bash console""
+</p>
+
+<p>
+To do this first of all I cloned the repository locally:
+</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+git clone https://github.com/opendot/FabAcademy2015-Opendot.git
+</pre>
+<p>
+I added my website content inside a new folder "savarino.vincenzo" and added all to virtual index
+</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+git add -A
+</pre>
+<p>
+then commit
+</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+git commit -m "first commit of my website"
+</pre>
+<p>
+before to push check form modifications
+</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+git pull origin master
+</pre>
+<p>
+and finally
+</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+git push origin master
+</pre>
+
+<p>
+After this first process a typical git process  will be:
+</p>
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+git pull
+in order to get an updated version of everything
+
+git add <filename>
+for selecting a specific file
+or
+git add .
+for selecting all files
+or
+git add -u
+for selecting already tracked files that are modified
+
+git commit -m "message"
+for saving a commit in the local repository. It is important to write a meaningful message.
+
+git pull
+in order to be sure that you have everything updated
+
+git push
+in order to send everything you commited to github
+</pre>
+
+<p>
+I've experienced in my office problems in using Git bash caused by our company proxy. In this case to overcome the problem It is needed to configure proxy
+</p>
+
+<pre class="code" style="padding: 8px; border: 1px solid grey; width: 800px; color: rgb(51, 51, 51); font-size: 14px !important; background-color: rgb(244, 244, 244);">
+
+
+gitCommand to use :
+
+git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+git config --global https.proxy https://proxyuser:proxypwd@proxy.server.com:8080
+change proxyuser to your proxy user
+change proxypwd to your proxy password
+change proxy.server.com to the URL of your proxy server
+change 8080 to the proxy port configured on your proxy server
+
+If you decide at any time to reset this proxy and work without (no proxy):
+Commands to use:
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+</pre>
+
+
+
+
+
+
+
+
+
 
 <p>&nbsp;</p>
 								</section>
@@ -162,86 +344,86 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 10</a></h3>
-									<p>Input Devices</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 11</a></h3>
-									<p>Output Devices</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 12</a></h3>
-									<p>Composites</p>
-								</article>
-							</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk10.html" class="image featured"><img src="images/wk10.jpg" alt="" /></a>
+								<h3><a href="#">Week 10</a></h3>
+								<p>Input Devices</p>
+							</article>
 						</div>
-						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 13</a></h3>
-									<p>Networking and Communications</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 14</a></h3>
-									<p>Mechanical Design, Machine Design</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 15</a></h3>
-									<p>Interface and application programming</p>
-								</article>
-							</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk11.html" class="image featured"><img src="images/wk11.jpg" alt="" /></a>
+								<h3><a href="wk11.html">Week 11</a></h3>
+								<p>Output Devices</p>
+							</article>
 						</div>
-						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/wk16.jpg" alt="" /></a>
-									<h3><a href="./finalproject.html">Week 16</a></h3>
-									<p>Applications and Implications</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 17</a></h3>
-									<p>Invention, Intellectual Property, and Income</p>
-								</article>
-							</div>
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 18</a></h3>
-									<p>Project Development</p>
-								</article>
-							</div>
-							
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk12.html" class="image featured"><img src="images/wk12.jpg" alt="" /></a>
+								<h3><a href="wk12.html">Week 12</a></h3>
+								<p>Composites</p>
+							</article>
 						</div>
-						<div class="row">
-							<div class="4u">
-								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Week 19</a></h3>
-									<p>Project Presentation</p>
-								</article>
-							</div>
-							
-							
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk13.html" class="image featured"><img src="images/wk13.jpg" alt="" /></a>
+								<h3><a href="#">Week 13</a></h3>
+								<p>Networking and Communications</p>
+							</article>
 						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk14.html" class="image featured"><img src="images/wk14.jpg" alt="" /></a>
+								<h3><a href="wk14.html">Week 14</a></h3>
+								<p>Interface and application programming</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="wk15.html" class="image featured"><img src="images/wk15.jpg" alt="" /></a>
+								<h3><a href="wk15.html">Week 15</a></h3>
+								<p>Mechanical Design, Machine Design</p>
+							</article>
+						</div>
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk16.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 16</a></h3>
+								<p>Applications and Implications</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk17.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 17</a></h3>
+								<p>Invention, Intellectual Property, and Income</p>
+							</article>
+						</div>
+						<div class="4u">
+							<article class="box style2">
+								<a href="finalproject.html" class="image featured"><img src="images/wk18.jpg" alt="" /></a>
+								<h3><a href="finalproject.html">Week 18</a></h3>
+								<p>Project Development</p>
+							</article>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="4u">
+							<article class="box style2">
+								<a href="presentation.png" class="image featured"><img src="images/wk19.jpg" alt="" /></a>
+								<h3><a href="presentation.png">Week 19</a></h3>
+								<p>Project Presentation</p>
+							</article>
+						</div>
+						
+						
+					</div>
 					</div>
 					<footer>
 						<a href="#contact" class="button big scrolly">Get in touch with me</a>
