@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Saverio Silli</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+	  
+
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
+            <li><a href="contact.html">contact me</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+<h1>WEEK 16</h1>
+		  <h2>16. Mechanical Design</h2>
+		<h3><li>Make a machine, including the end effector - group assignment</li><br></h3>
+        
+       <p>This week we have to built a machine using the <a href="http://mtm.cba.mit.edu/machines/science/">Gestalt modules</a> provided. Since this is a group assignment and we have four complete axis system with a stepper and a gestal node, we decided to split in two groups of five and make two different 2-axis machines. One will be a lathe and the other a plotter.</p>
+	
+		
+	<h3>Building a Machine That Makes Zen Gardens</h3>
+			<p>My group worked on the plotter idea and we evolved it in a machine that can draw into sand using a wooden tip, creating a zen garden.<br>
+			
+			This is how it works:<br>
+				<li>We feed the machine with an SVG drawing</li>
+				<li>The machine drops a wooden tip using a servo motor</li>
+				<li>The wooden tip goes into the sand (or sugar) layed in a plate</li>
+				<li>The machine moves the wooden tip following SVG directions</li>
+				<li>An "X" is drawn where the stone has to be placed</li>
+				<li>A 3D printed stone is manually placed on every "X's"</li>
+				<li>Take the plate away and enjoy your Zen Garden</li>
+				
+		</p>
+<br>
+		
+		 
+		
+		<h3>My accomplishments</h3>
+		<p><li>I designed the machine's structure in Autocad</li>
+		<li>Lasercut it in 4mm plywood and assembled it</li>
+		<li>Made the wooden tip on a lathe</li>
+		<li>Designed and lasercut the Japanese style plate</li>
+		<li>Tested sand and sugar</li>
+		<li>Designed and 3D printed the Stones</li>
+		</p>
+		
+				<p class="pic">
+			 <a href="image/16/image14.jpg"></a>
+        <img src="image/16/image14.jpg"width="600" >
+				<legend>I used Autocad to design the machine out of 4mm plywood. I used the rhinoceros file provided on the <a href="http://mtm.cba.mit.edu/machines/science/">[m]MTM page</a>. I put great effort in optimyzing the cut path</legend>
+				 </p>
+		
+					<p class="pic">
+			 <a href="image/16/image10.jpg"></a>
+        <img src="image/16/image10.jpg"width="600" >
+				<legend>The machine is basically a 2-axis plotter on four legs so that one can put it over any plate/vase containing sand.</legend>
+				 </p>
+		
+			<p class="pic">
+			 <a href="image/16/image11.jpg"></a>
+        <img src="image/16/image11.jpg"width="600" >
+				<legend>The engraved top is removeable to access the electronics.</legend>
+				 </p>
+	
+		
+		<p class="pic">
+			 <a href="image/16/image13.jpg"></a>
+        <img src="image/16/image13.jpg"width="600" >
+				<legend>The engraved top is removeable to access the electronics.</legend>
+				 </p>
+			<p class="pic">
+			 <a href="image/16/image12.jpg"></a>
+        <img src="image/16/image12.jpg"width="600" >
+				<legend>The machine features four adjustable feet to change elevation.</legend>
+				 </p>
+		
+		
+		
+		
+		
+			<p class="pic">
+			 <a href="image/16/image01.jpg"></a>
+        <img src="image/16/image01.jpg"width="600" >
+				<legend>Production of the wooden tip on the lathe (actually a drill press)</legend>
+				 </p>
+		<p class="pic">
+			 <a href="image/16/image02.jpg"></a>
+        <img src="image/16/image02.jpg"width="600" >
+				<legend>Refining the wooden tip.</legend>
+				 </p>
+		
+		
+			<p class="pic">
+			 <a href="image/16/image03.jpg"></a>
+        <img src="image/16/image03.jpg"width="600" >
+				<legend>Wooden tip attached to a gear controlled by a servo motor.</legend>
+				 </p>
+			<p class="pic">
+			 <a href="image/16/image09.jpg"></a>
+        <img src="image/16/image09.jpg"width="600" >
+				<legend>Wooden tip attached to a gear controlled by a servo motor.</legend>
+				 </p>
+		
+		
+		
+			<p class="pic">
+			 <a href="image/16/image07.jpg"></a>
+        <img src="image/16/image07.jpg"width="600" >
+				<legend>Detail of the wooden plate designed in the fashion of a Japanese Torii Gate</legend>
+				 </p>
+		<p class="pic">
+			 <a href="image/16/image04.jpg"></a>
+        <img src="image/16/image04.jpg"width="600" >
+				<legend>Small rocks designed in Rhino and 3D printed.</legend>
+				 </p>
+		
+		
+				
+		
+		
+					<p class="pic">
+			 <a href="image/16/image05.jpg"></a>
+        <img src="image/16/image05.jpg"width="600" >
+				<legend>A completed Zen Garden drawn in sugar, with rocks put over the "X's"</legend>
+				 </p>
+					<p class="pic">
+			 <a href="image/16/image06.jpg"></a>
+        <img src="image/16/image06.jpg"width="600" >
+				<legend>A completed Zen Garden drawn in sugar, with rocks put over the "X's"</legend>
+				 </p>
+		
+		
+		
+		
+		<p><iframe width="600" height="377" src="https://www.youtube.com/embed/98yL4RRg8uo" frameborder="0" allowfullscreen></iframe><legend class="legend">A complete video showing the features of the Machine that Makes Zen Gardens</legend></p>
+		
+		
+
+
+		<p>Files available here</p>
+		<p>
+		<li><a href="storage/16/mtmzengarden.zip">Lasercut project dxf</a>  </li>
+		<li><a href="storage/16/mtmzgstones.zip">3D stones stl</a>  </li>
+				</p>
+
+		
+
+
+		
+	
+	  
+<!-- End of your content -->
+
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> edited by <a href="http://www.facebook.com/saverio.silli">Saverio Silli</a><br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

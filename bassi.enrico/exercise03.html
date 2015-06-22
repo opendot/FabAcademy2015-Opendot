@@ -15,7 +15,8 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <link href="media/eb.css" rel="stylesheet">
+      
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -92,10 +93,15 @@
         This is not always precise, but it helps to understand better the process.
     <br>
         The atoms are defined by a Grasshopper sketch, that allows to set kerf, thikness of the material, lenght of the joint, and dimension of the chamfer.
-        <img src="images/molecules1.gif" alt="parameters" height="386" width="800">   
+        <img src="images/molecules1.gif" alt="parameters" width="900">   
        <br> 
+        
+        These are the most important parameters, to have and easy to align, resistant and durable snapfit. The chamfer goes from 0.5mm to 2mm, the thickness from 2mm to 7mm, the lenght of the joint from 10mm to 20mm, the kerf from 0.0mm to 0.3 mm. The kerf is actually the most sensitive one in this case, and it's been chosen between these two values because usually no lasercut should burn more than 0.3mm. This make sense if you're using a rigid material, with teh cartboard it's enough to use a smaller thickness then the real one.
+        <br>
         Here the Grasshopper sketch. By default, only Hydrogen, Carbon and Oxygen are defined, but to add extra atoms, it's enough to change the number of valence electrons and the dimension.
-        <img src="images/molecules2.gif" alt="sketch" height="375" width="800">   
+        <br>
+        
+        <img src="images/molecules2.gif" alt="sketch" width="900">   
        <br> 	
 	<a href="media/molecules.gh">
 	<button type="button" class="btn btn-primary btn-lg">Download "Molecules.gh"</button>
@@ -103,19 +109,19 @@
    <br><br> 
         Here some pictures of modules. 
     
-        <img src="images/all_r.jpg" alt="sketch" height="500" width="800">  
-        <img src="images/atoms.jpg" alt="sketch" height="400" width="800">
+        <img src="images/all_r.jpg" alt="sketch" width="900">  
+        <img src="images/atoms.jpg" alt="sketch" width="900">
     <br>     
         
         Here the Metane, if rappresented 2-dimensional
-        <img src="images/met_2d.jpg" alt="sketch" height="500" width="800">
+        <img src="images/met_2d.jpg" alt="sketch"width="800">
         
         <br>
   Here the Metane, if rappresented 3-dimensional
-        <img src="images/met_3d.jpg" alt="sketch" height="500" width="800">
+        <img src="images/met_3d.jpg" alt="sketch"  width="900">
         <br>
         Here a more complex hydrocarbon (the pentane)
-        <img src="images/penta.jpg" alt="sketch" height="400" width="800">
+        <img src="images/penta.jpg" alt="sketch"  width="900">
   <br>       
         
         

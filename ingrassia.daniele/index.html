@@ -4044,7 +4044,7 @@ function drawRoomsTimesChart(){
 
 				<p>As we are 10 students, and we have 4 gestalt machine axis, we decided to make two different, two axis machines: an <span class="redones">XY plotter</span> and a <span class="redones">lathe</span>. In order to build them, and more important, to make sure that everyone do something, we split the work in several pieces.</p>
 
-				<p>Before starting in machine building, <span class="redones">we tried out the machine axis</span>, with the cardboard example structure, <span class="redones">Fabnet</span>, and software shown in the FabAcademy tutorials. This also because we needed to reuse Fabnet and the cable to connect it with Gestalt boards. Here are some pictures of the process. Gianluca Pugliese soldered Fabnet:</p>
+				<p>Before starting in machine building, <span class="redones">we tried out the machine axis</span>, with the cardboard example structure, <span class="redones">Fabnet</span>, and software shown in the FabAcademy tutorials. This also because we needed to reuse Fabnet and the cable to with our machines. Here are some pictures of the process. Gianluca Pugliese soldered Fabnet:</p>
 
 				<img class="images-default" src="img/week17/fabnet_solder.jpg">
 				<img class="images-default" src="img/week17/fabnet.jpg">
@@ -4061,7 +4061,7 @@ function drawRoomsTimesChart(){
 				<p><br>After this first axis, the other students made the others, to see if they was all working.</p>
 
 				<ul class="lists">
-				<li>The part I've done regards the <span class="redones">development of the software</span> in order to use these machines. As we have some remote students, Vincenzo Savarino, Youssef Bouali and Claudio Pecere, they joined me in development as this kind of work can be done remotely. As our instructor, Massimo Menichinelli, taught us <span class="redones">Python</span>, we used this language to develop the software. The work was <span class="redones">structured</span> as follows:</li>
+				<li>The part I've done regards the <span class="redones">development of the software</span> in order to use these machines. As we have some remote students, Vincenzo Savarino, Youssef Bouali and Claudio Pecere, they joined me in development as this kind of work can be done remotely. As our instructor, Massimo Menichinelli, taught us <span class="redones">Python</span>, we used this language to develop the software. Also we want to print SVG files, coming from <span class="redones">Inkscape</span>. The work was <span class="redones">structured</span> as follows:</li>
 				<li>me as the software components integrator, CAM developer, embedded programmer</li>
 				<li>Vincenzo Savarino for SVG understanding and developer of the SVG parsing</li>
 				<li>Youssef Bouali and Claudio Pecere for GUI of the machine commands and SVG preview </li>
@@ -4127,7 +4127,7 @@ def checkSvgDims(elements):
                     pathCommands = parse_path.get_path_commands(path.getAttribute('d'))
                     for command in pathCommands:
                         if command[1][0] != None:
-                            if ((command[1][0][0]/10) &gt 280 or (command[1][0][0]/10) &lt 0) or ((command[1][0][1]/10) &gt 280 and (command[1][0][1]/10) &lt 0):
+                            if ((command[1][0][0]/5) &gt 280 or (command[1][0][0]/5) &lt 0) or ((command[1][0][1]/5) &gt 280 and (command[1][0][1]/5) &lt 0):
                                 return False
     
         return True
@@ -4142,7 +4142,7 @@ def svgDataToMachine(elements):
                         pathCommands = parse_path.get_path_commands(path.getAttribute('d'))
                         for command in pathCommands:
                             if command[0][0] != None and command[1][0] != None:
-                                machine.append([command[0][0],(-command[1][0][0]/10),(command[1][0][1]/10)])
+                                machine.append([command[0][0],(-command[1][0][0]/5),(command[1][0][1]/5)])
              
             machine.append([('M'),(0),(0)])                                  
             return machine
@@ -4252,7 +4252,7 @@ class virtualMachine(machines.virtualMachine):
         pass
     
     def publish(self):
-        #self.publisher.addNodes(self.machineControl)
+        self.publisher.addNodes(self.machineControl)
         pass
     
     def getPosition(self):
@@ -4267,7 +4267,7 @@ class virtualMachine(machines.virtualMachine):
 
 				</pre>
 
-				<p><br>Serial commands sent by the printPath function, are read via serial and used by the satshakit as the following <span class="redones">Arduino sketch</span> shows. When ASCII 48 (the char "0") is received the servo will go up, and vice versa with 49 (the char "1"). Here's the sketch code:</p>
+				<p><br>Serial commands sent by the printPath function, are read via serial and used by the satshakit as the following <span class="redones">Arduino sketch</span> shows. I wrote this sketch together with Simone Boasso. When ASCII 48 (the char "0") is received the servo will go up, and vice versa will happen with 49 (the char "1"). Here's the sketch code:</p>
 
 				<pre pre class="prettyprint lang-c">
 #include &ltServo.h&gt
@@ -4345,14 +4345,30 @@ if __name__ == '__main__':
             print ' ',
             print data[2]
             
-        plotter.printPath(machineData,5)    
+        plotter.printPath(machineData,8)    
                         
     else:
         print 'SVG dimensions exceed the machine area'
 
 				</pre>
 
-				<p><br>In order to print the SVGs with our machines, you can use <span class="redones">Inkscape</span>. You need to transform the SVG with the function <span class="redones">"Extension -> Modifiy Path -> Flatten Beziers"</span>, due olny "M" and "L" SVG path are intepreted by the software.</p>
+				<p><br>In order to print the SVGs with our machines, you can use <span class="redones">Inkscape</span>. You need to transform the items you drawn in paths with the following command <span class="redones">"Path -> Object to path"</span> and then use the function <span class="redones">"Extension -> Modifiy Path -> Flatten Beziers"</span>, due olny "M" and "L" SVG path are intepreted by the software. Here you can see a video about the software while it's controlling the XY plotter (Zen Garden):</p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/z2z3II6Ukg0" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>Here is a picture about the finished drawings of the video:</p>
+				<img class="images-default" src="img/week17/zen_drawings.jpg">
+
+				<p>For the <span class="redones">lathe</span> machine, the software needed some dimensions adjustments. After some tuning we managed to use the same software with the lathe. Here are two videos about:</p>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/qCDA7sPEB0o" frameborder="0" allowfullscreen></iframe>
+
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/kFXGtFw6jkU" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>Finally, here are the pieces made with lathe machine:</p>
+				<img class="images-default" src="img/week17/lathe_results.jpg">
+
+				<p>Here you can download the software we've developed: <a href="other/MTM.rar"><span class="redones-link">MTM</span></a>.</p>
 
 			</div>
 		</section>
