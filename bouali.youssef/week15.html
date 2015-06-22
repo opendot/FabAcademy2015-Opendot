@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Week 15 : Applications and Implications</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+       <h2>Module 15: Applications and Implications</h2><br>
+      
+        <h3>Module assignment:</h3>
+      <p>The assignment of this week is to propose a final project that integrates the range of units covered:<br><br>
+      - what will it do?<br>
+      - who's done what beforehand?<br>
+      - what materials and components will be required?<br>
+      - where will they come from?<br>
+      - how much will it cost?<br>
+      - what parts and systems will be made?<br>
+      - what processes will be used?<br>
+      - what tasks need to be completed?<br>
+      - what questions need to be answered?<br>
+      - what is the schedule?<br>
+      - how will it be evaluated?<br><br>
+      
+            
+      <h3>My work:</h3>
+      
+      <u><b>What will it do?</b></u> <br><br>
+    <p>The final project will be a Modular Home Hydroponic system based on a new kind of user friendly scalable hydroponic systems. It allows people to grow plants in intelligent pots that have nice and modular design, and which health is continuously monitored in order to grow in optimal conditions.<br>
+        For more details, check the project <a href="project-concept.html">page</a><br><br></p>
+        
+        
+        <u><b>Who's done what beforehand?</b></u> <br><br>
+    <p>In the internet, I found many similar projects doing part or all the functionalities that I am planning to develop with my project. Actually I decided to follow inspiration and tutorial from the innovative hydroponic system developed by the Mediterranean FabLab in Salerno (Italy).<br>
+here are two picture of what they have realized:<br></p>
+          <p class="pic"><img src="media/W15_medaarch1.jpg"><legend>Medaarch Fablab project</legend> </p>
+          <p class="pic"><img src="media/W15_medaarch2.jpg"><legend>Medaarch Fablab project</legend> </p>
+        
+<p>For more details, check the project page on the medaarch <a href="http://www.medaarch.com/2015/05/hydroponic-house-system-i-files-di-stampa-e-le-istruzioni-per-realizzare-step-by-step-il-proprio-sistema-idroponico/">here</a><br><br></p>
+        
+        <p>On the other hand, I found many interesting information on this Wikipedia <a href="https://en.wikipedia.org/wiki/Hydroponics">page</a><br><br></p>
+        
+        
+        <u><b>What materials and components will be required?</b></u> <br><br>
+        
+        <p>- PLA for 3D printing<br>
+          - Electronic board – Satshakit  composed of ATMEGA328P-AU microprosessor, cristal 16Mhz/18pF, green and yellow LED, switch, resistors, capacitors and pin headers<br>
+         - <a href="http://www.ebay.it/itm/Modulo-Sensore-Umidita-Terreno-Irrigazione-Elettrovalvola-Soil-Moisture-Arduino-/171805547886?pt=LH_DefaultDomain_101&hash=item2800689d6e">Soil Hygrometer Detection Module Soil Moisture Sensor arduino compatibile</a> <br>
+        - <a href="http://www.ebay.it/itm/DHT11-Sensore-digitale-di-umidita-temperatura-Arduino-Raspberry-PIC-Humidity-/111328337294?pt=LH_DefaultDomain_101&hash=item19ebaf9d8e">Ambient temperature and humidity sensor DHT11</a> <br>
+            - <a href="http://www.ebay.it/itm/Display-lcd-16x2-caratteri-retroilluminato-BLU-HD44780-arduino-pic-ART-Z002-/331490324572?pt=LH_DefaultDomain_101&hash=item4d2e5cf05c">LCD display HD44780 </a><br>
+            - Consumables<br><br></p>
+        
+        <u><b>How much will it cost?</b></u> <br><br>
+      <p>  -	3D printing materials: 10€ of PLA<br>
+-	Electronic board – Satshakit estimate 9.06 €<br>
+-	Soil moisture sensor: 3€<br>
+-	Ambient temperature and humidity sensor: 3,5€<br>
+-	LCD display: 4€<br>
+-	Consumables: 5€<br>
+-	Total: 34,5€<br><br></p>
+
+        
+        <u><b>What parts and systems will be made?</b></u> <br><br>
+        
+        <p>  -	Plant pots will be made via 3D printing<br>
+-	Electronic boards will be printed and assembled<br>
+            -	Application interface will be programmed<br></p>
+        
+        
+        <u><b>What processes will be used, and what tasks need to be completed?</b></u> <br><br>
+        
+        <p>  -	The modular plant pots design will be re-adapted from an existing design <br>
+-	The pots will be then 3D printed using PLA materials<br>
+-	The electronic board that controls the sensors will be printed, assembled, and programmed<br>
+-	All the sensors will be programmed in order to monitor plant health<br>
+-	New application and interface will be developed to display and monitor plant health on PC<br>
+<br></p>
+        
+        <u><b>What questions need to be answered?</b></u> <br><br>
+        
+        <p>  -	Will the pots hold one on each other?<br>
+-	Will the board manage many sensors<br>
+-	How can I program all sensors to give data usable for plant monitoring<br>
+<br></p>
+        
+        <u><b>What is the schedule?</b></u> <br><br>
+        
+        <p>  - Week 1-7 June: Pot design and Pot printing <br></p>
+        <p class="pic"><img src="media/W15_3D.jpg"><legend>Pot 3D printing process</legend> </p>
+<p>- Week 8-14 June: -	Electronic assembly<br></p>
+         <p class="pic"><img src="media/W15_electronics.jpg"><legend>Project Electronic Components</legend> </p>
+- Week 15-21 June:-	Electronic programming<br>
+- Week 22-28 June:-	Application and Interface programming<br>
+<br></p>
+        
+          <u><b>How will it be evaluated?</b></u> <br><br>
+        
+        <p>  -	3D printed pots: obligatory<br>
+-	Electronic board: in case there are problems with electronic components, provide plan B to use arduino boards<br>
+-	Electronic programming of sensors: Obligatory<br>
+-	Application and Interface: optional<br>
+<br></p>
+        
+        
+        
+        
+           
+        
+        
+                    
+      <h3>Download Zone</h3>
+      <p>Project file will be loaded here: </p>
+      <p> <a href="#"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+        
+        
+        
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
