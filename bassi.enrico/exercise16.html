@@ -15,7 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <link href="media/eb.css" rel="stylesheet">
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
 	<script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -81,144 +81,57 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>16. Applications and Implications</h1>
+     <h2>16. Machine That Make</h2>
+        <p>
+        For this assignment we worked in two different groups; one with a machinethat design zen gardens and another on a CNC lathe. I was in the second group. Both the machines has two axis and some extra moving part (a servo for the fist one and a drill for the second). Having a similar structure we kept the software in common.
+            <br>
+            Beside designing and making the cutting tool, i did the main desing of the CNC lathe. Here a description of the method I used. Even if draw like this is  not technically correct, I think it's pretty effective, and easy to learn and to understand.
+            <br>
+            <strong>Find the Main functional units</strong>
+            <br>
+            first step is to sketch a rought idea of the machine to estimate the main dimensions and the functional unit that compose the machine. In this case i divided it into 8 functional unit
+            <img src="images/scan_redux.jpg">
+            <br> I added some note to remember what i considered important and what to keep in mind.
+            <br><br>
+            <strong>Get into details</strong>
+            the step after, is to start with the elements that are directly related to the main constrains of the project. In this case the cutting tool must be aligned with the rotation axis of the spindle. As a consequence the X axis must keep the tool aligned in that position. This means that i could start with that block first. 
+           <img src="images/scan0002_redux.jpg">
+            <img src="images/scan0001_redux.jpg">
+            <br> Developing the project it helped me to start to add some dimensions. Of course it's possible that after a CAD they are going to change, but it's a starting point.
+            <br>
+            The main structure need a little bit more attention and to go in deep on some details. Another important information to keep in mind is the maximum diameter of the piece you want to work, we decided to have something big enough for pieces cut from a commercial foam panel.
+            <img src="images/scan0003_redux.jpg">
+            Having a main view allowed me to focus on the single parts, in particular how to make the moving part doing that without friction.
+            <img src="images/scan0004_redux.jpg">
+            <img src="images/scan0005_redux.jpg">
+            <br>
+            After the assembly is clear I moved to the description of the single elements, in particular about the mandrel and the tailstock.
+            <img src="images/scan0006_redux.jpg">
+            <img src="images/scan0007_redux.jpg">
+            <img src="images/scan0008_redux.jpg">
+            <img src="images/scan0009_redux.jpg">
+            <img src="images/scan0010_redux.jpg">
+                 
+            There is no description of the tool and the tool holder because I designed by myself. 
+            </p>
+            
+            <h3>Tool and Toolholder</h3>
+            <p>
+                I decided to make the tool with a very hard steel, even if the objective was to cut foam, this cause it's easier to make it very sharp and this is reducing the stress on the machine. The entire process was done by hand with the objective  to get a round blade on the to and straight on both sides. 
+                <img src="images/0219_redux.jpg">
+                <img src="images/0241_redux.jpg">
+                <img src="images/0247_redux.jpg">
+
+                <br> The holder is a 3D printed part, done in PETG (because of its machanical properties), that it's attached to the X axis with four M4x20 screws.
+                <img src="images/piece.JPG">
+                 <a href="media/toolholder.stl">
+	<button type="button" class="btn btn-primary btn-lg">Download toolholder.stl</button> </a>
+                
+                
+        </p>
     
         
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
-        
-    <!--    
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-
-    -->
-
+  
     <!-- End of your content -->
 
     </div> <!-- /container -->
