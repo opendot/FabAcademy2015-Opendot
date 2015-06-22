@@ -117,7 +117,8 @@ The board is designed based on the schematic of the CNC board by <a href="https:
         <br>
         Beside be careful in placing the traces in the center of the corner, I did a small modification on the shape of the pad in inkscape, just to have a little bit more room. So here it is the original image:
         <img src="images/details2.jpg">
-        
+      
+          
         And here the small adjustment done in inkscape:
         <img src="images/details3.jpg">
         
@@ -144,9 +145,62 @@ Here the jumper used:
           <img src="images/details24.jpg">
           
           <br>
+          <h3>Debug and V0.2</h3>
+      <p>
+      after the first test i noticed the following problems:
+      <ul>
+      <li>Return of current from the motors power supply</li>
+          <li>Add (and then take away) pull-up resistors</li>
+          <li>Mistakes in pin mapping, because of the way the Grbl is written</li>
+          <li>Wrong stepper drivers wiring</li>
+          <li>TX\RX connection flipped</li>
+      </ul>
+    </p>
+    
+      
+      <strong>Return of current from the motor power supply</strong>
+      <br>
+      <p>
+      the board had two different circuits with a common GND, one at 12V for the motor and one at 5V from the FTDI cable. I tried to power the board with the FTDI and to upload the blink to check clock and the main circuit and everything worked fine. After that I tried to power the motod circuit at 12V. I had no shortcircuit but, because of something I don't know, from the 12V circuit an instable current (approximately from 1.8V to 2.7V), passed to the 5V circuit.  
           
+      /* immagine con tester */
+      
+      I tried to cut some traces without finding the problem, so it's still a mistery.
+      <br><br>
+      
+      <strong>Add (and then take away) pull-up resistors</strong>
+      <br>
+      The endstops have no pull-ups resistors (too complex to wire everything on the board), thinking to use the internal ones in the ATMEGA328p. After I tested (unsucessfully) the board, I thought to avoid any problem by adding external resistors.
+      \*foto resistenze volanti*\
+      checking better the Grbl I actually noticed that the resistors are activated by default so i decided to desolder the external i added and I'm not going to try to modify the board for that.
+      
+      
+      <br><br>
+       <strong>Mistake in pin mapping, because of the way the Grbl is written</strong>
+      <br>
+       I will use a modified version of Grbl, both because of the documentation you can find about it, and because i can fit it in the ATMEGA 328P. Reading the code I noticed that some pins cant be remapped: the information about step and dir of the motors are writtend not pin by pin but writing the Port and the DDR, so it's important to don't change over a certain limit. Here the wrong modification I was doing
+      /*immagine con mapping */
+      This wasn't enough but it's definitely something to integrate on the next one.
+      <br>I noticed that inverting two connections the mapping could be done properly, so I modified the board for the testing
+      /* immagine con i cavetti volanti */
+      
+      
+      <br><br>
+      <strong>Wrong stepper drivers wiring</strong>
+      I followed the wiring of original board, but the stepper driver I'm using (the <a href="http://www.pololu.com/product/2133">DRV8825</a>), has a compatible but not exactly identical wiring. Here the original drivers used on the shapeoko board
+      <br>
+          <img src="https://a.pololu-files.com/picture/0J3360.600.png?d94ef1356fab28463db67ff0619afadf">
+          While the one I used are
+      <img src="https://a.pololu-files.com/picture/0J4232.600.png?f2f6269e0a80c41f0a5147915106aa55">
+          
+          The main mistake was actually another one: I wired microstepping and emable to 5V, while to enable the board it should be grounded.
+      
+      
+      
+      
+       </p>
           <strong>Next steps</strong>
-          </p>
+         
           <p>
           <ul>
       <li>test drivers + motors with a temporary code (Processing + Firmata)</li>
