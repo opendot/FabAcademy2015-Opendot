@@ -114,17 +114,18 @@ src="media/W2-img4.jpg">
       <script type="text/javascript">
 		var canvas = document.getElementById('cv');
 		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','images/Pot_V4.stl');
-		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('SceneUrl','media/W2_Pot_V4.stl');
+		viewer.setParameter('ModelColor','##898484');
 		viewer.setParameter('BackgroundColor1','#E5D7BA');
 		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('RenderMode','texture');
 		viewer.setParameter('MipMapping','on');
 		viewer.setParameter('Definition','high');
 		viewer.setParameter('Renderer','webgl');
 		viewer.init();
 		viewer.update();
-	</script>
+	</script><br> <br>
+        
       <h3>Download Zone</h3>
       <p> All the files are available for downloand here: </p>
       <p> <a href="media/W2-files.rar"> <button type="button" class="btn btn-primary
