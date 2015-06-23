@@ -1,10 +1,23 @@
 <html>
 <head>
 <script>
-function show_image(image_name) {
+function show_image_video(image_name,video_name) {
    //
-   // show an image
+   // show an image and link to an HTML5 video
+   //    assumes MP4
+   //    avconv -i file.mpg -vcodec libx264 -b:v 1000k -vf scale=-1:1080 -acodec mp2 -b:a 256k file.mp4
+   //    avconv -i file.mpg -vcodec libx264 -b:v 1000k -vf scale=-1:1080 -an file.mp4
    //
+   function play(filename) {
+      document.getElementById("play_image").style.display = "none"
+      document.getElementById("play_video").style.display = "inline"
+      document.getElementById("play_video").play()
+      }
+   function endplay() {
+      document.getElementById("play_image").style.display = "inline"
+      document.getElementById("play_video").style.display = "none"
+      document.getElementById("play_video").pause()
+      }
    var div = document.createElement('div')
    div.style.position = "absolute"
    div.style.top = "2.5%"
@@ -14,17 +27,34 @@ function show_image(image_name) {
    div.style.textAlign = "center"
    document.body.appendChild(div)
    var image = document.createElement('img')
-   image.id = "show_play_image"
+   image.id = "play_image"
    image.src = image_name
    image.style.width = "auto"
    image.style.height = "auto"
    image.style.maxWidth = "100%"
    image.style.maxHeight = "100%"
    image.style.display = "inline"
+   image.style.cursor = "pointer"
+   image.addEventListener("click",play,false)
    div.appendChild(image)
+   var video = document.createElement('video')
+   video.addEventListener("click",endplay,false)
+   video.addEventListener("ended",endplay,false)
+   video.id = "play_video"
+   video.src = video_name
+   video.type = "video/mp4"
+   video.controls = false
+   video.autoplay = false 
+   video.style.width = "auto"
+   video.style.height = "auto"
+   video.style.maxWidth = "100%"
+   video.style.maxHeight = "100%"
+   video.style.display = "none"
+   video.style.cursor = "pointer"
+   div.appendChild(video)
    }
 </script>
 <body>
 <script>
-show_image("presentation.png")
+show_image_video("presentation.png","presentation.mp4")
 </script>
