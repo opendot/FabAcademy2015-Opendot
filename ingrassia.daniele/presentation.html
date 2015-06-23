@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+function show_image(image_name) {
+   //
+   // show an image
+   //
+   var div = document.createElement('div')
+   div.style.position = "absolute"
+   div.style.top = "2.5%"
+   div.style.height = "95%"
+   div.style.left = "2.5%"
+   div.style.width = "95%"
+   div.style.textAlign = "center"
+   document.body.appendChild(div)
+   var image = document.createElement('img')
+   image.id = "show_play_image"
+   image.src = image_name
+   image.style.width = "auto"
+   image.style.height = "auto"
+   image.style.maxWidth = "100%"
+   image.style.maxHeight = "100%"
+   image.style.display = "inline"
+   div.appendChild(image)
+   }
+</script>
+<body>
+<script>
+show_image("presentation.png")
+</script>
