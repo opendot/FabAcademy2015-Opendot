@@ -102,11 +102,39 @@ The assignment of this week is to add an output device to a microcontroller boar
         
         <p>Here is the code I wrote in order to read the input data from the sensor and display it on the LCD:<br><br></p>
         
-        <p class="pic"><img src="media/W11_arduino-sketch.jpg"><legend>Code to read from sensor and display on LCD</legend> </p>
+        <div class="notepad"><div class="titlenotepad">Output</div><div class="textnotepad">#include "DHT.h"
+#include &#60;LiquidCrystal.h&#62;
+#define DHTPIN 8   
+#define DHTTYPE DHT11 
+DHT dht(DHTPIN, DHTTYPE);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+void setup() {
+Serial.begin(9600);
+lcd.begin(16, 2);
+dht.begin();
+}
+void loop() {
+float h = dht.readHumidity();
+float t = dht.readTemperature();
+if (isnan(t) || isnan(h)) {
+  Serial.println("Failed to read from DHT");
+  }
+else {
+  lcd.setCursor(0,0);
+  lcd.print("Temp=");
+  lcd.print(t);
+  lcd.print(" *C");
+  lcd.setCursor(0,1);
+  lcd.print("Humidity=");
+  lcd.print(h);
+  lcd.print("% ");
+  delay(500);
+ }
+}</div></div><br>
        
          <p>And this is the video of the result printed on the screen and LCD output device:<br><br></p>
         
-        <center><iframe src="https://player.vimeo.com/video/131068607" width="500" height="889" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></center>
+        <center><iframe src="https://player.vimeo.com/video/131532028" width="600" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></center>
         
         
         
