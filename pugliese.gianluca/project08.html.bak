@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <link rel="icon" href="media/favicon.ico">
+    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
+      rel="stylesheet" type="text/css">
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <!-- FORCED COLOR LINK TBD -->
+    <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese
+            @FabAcademy2k15</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact </a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      <h2>Programming</h2>
+      <br>
+      <ul type="”disc”">
+        <p> </p>
+        <p> </p>
+        <div> </div>
+        <h3>Programming </h3>
+        <p>To pilot the machine I want to use GRB, but to use it I have to
+          change the pin mapping. GRBL is wrote in C, but is similar to Arduino
+          code.</p>
+        <p>I've searched a lot in internet and I discovered that the pin mapping
+          is in cpu_map.h </p>
+        <p>the pins are described as:</p>
+        <p><br>
+        </p>
+        <pre class="prettyprint linenums">	
+
+#ifndef cpu_map_h
+#define cpu_map_h
+
+//----------------------------------------------------------------------------------------
+
+#ifdef CPU_MAP_ATMEGA328P // (Arduino Uno) Officially supported by Grbl.
+
+  // Define serial port pins and interrupt vectors.
+  #define SERIAL_RX     USART_RX_vect
+  #define SERIAL_UDRE   USART_UDRE_vect
+
+  // Define step pulse output pins. NOTE: All step bit pins must be on the same port.
+  #define STEPPING_DDR    DDRD
+  #define STEPPING_PORT   PORTD
+  #define X_STEP_BIT      2  // Uno Digital Pin 2
+  #define Y_STEP_BIT      3  // Uno Digital Pin 3
+  #define Z_STEP_BIT      4  // Uno Digital Pin 4
+  #define STEP_MASK       ((1&lt;&lt;X_STEP_BIT)|(1&lt;&lt;Y_STEP_BIT)|(1&lt;&lt;Z_STEP_BIT)) // All step bits
+
+  // Define step direction output pins. NOTE: All direction pins must be on the same port.
+  #define DIRECTION_DDR     DDRD
+  #define DIRECTION_PORT    PORTD
+  #define X_DIRECTION_BIT   5  // Uno Digital Pin 5
+  #define Y_DIRECTION_BIT   6  // Uno Digital Pin 6
+  #define Z_DIRECTION_BIT   7  // Uno Digital Pin 7
+  #define DIRECTION_MASK    ((1&lt;&lt;X_DIRECTION_BIT)|(1&lt;&lt;Y_DIRECTION_BIT)|(1&lt;&lt;Z_DIRECTION_BIT)) // All direction bits
+
+  // Define stepper driver enable/disable output pin.
+  #define STEPPERS_DISABLE_DDR    DDRB
+  #define STEPPERS_DISABLE_PORT   PORTB
+  #define STEPPERS_DISABLE_BIT    0  // Uno Digital Pin 8
+  #define STEPPERS_DISABLE_MASK   (1&lt;&lt;STEPPERS_DISABLE_BIT)
+
+  // Define homing/hard limit switch input pins and limit interrupt vectors. 
+  // NOTE: All limit bit pins must be on the same port, but not on a port with other input pins (pinout).
+  #define LIMIT_DDR        DDRB
+  #define LIMIT_PIN        PINB
+  #define LIMIT_PORT       PORTB
+  #define X_LIMIT_BIT      1  // Uno Digital Pin 9
+  #define Y_LIMIT_BIT      2  // Uno Digital Pin 10
+  #ifdef VARIABLE_SPINDLE // Z Limit pin and spindle enabled swapped to access hardware PWM on Pin 11.  
+    #define Z_LIMIT_BIT	   4 // Uno Digital Pin 12
+  #else
+    #define Z_LIMIT_BIT    3  // Uno Digital Pin 11
+  #endif
+  #define LIMIT_MASK       ((1&lt;&lt;X_LIMIT_BIT)|(1&lt;&lt;Y_LIMIT_BIT)|(1&lt;&lt;Z_LIMIT_BIT)) // All limit bits
+  #define LIMIT_INT        PCIE0  // Pin change interrupt enable pin
+  #define LIMIT_INT_vect   PCINT0_vect 
+  #define LIMIT_PCMSK      PCMSK0 // Pin change interrupt register
+
+  // Define spindle enable and spindle direction output pins.
+  #define SPINDLE_ENABLE_DDR    DDRB
+  #define SPINDLE_ENABLE_PORT   PORTB
+  #ifdef VARIABLE_SPINDLE // Z Limit pin and spindle enabled swapped to access hardware PWM on Pin 11.  
+    #define SPINDLE_ENABLE_BIT    3  // Uno Digital Pin 11
+  #else
+    #define SPINDLE_ENABLE_BIT    4  // Uno Digital Pin 12
+  #endif  
+  #define SPINDLE_DIRECTION_DDR   DDRB
+  #define SPINDLE_DIRECTION_PORT  PORTB
+  #define SPINDLE_DIRECTION_BIT   5  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
+
+  // Define flood and mist coolant enable output pins.
+  // NOTE: Uno analog pins 4 and 5 are reserved for an i2c interface, and may be installed at
+  // a later date if flash and memory space allows.
+  #define COOLANT_FLOOD_DDR   DDRC
+  #define COOLANT_FLOOD_PORT  PORTC
+  #define COOLANT_FLOOD_BIT   3  // Uno Analog Pin 3
+  #ifdef ENABLE_M7 // Mist coolant disabled by default. See config.h to enable/disable.
+    #define COOLANT_MIST_DDR   DDRC
+    #define COOLANT_MIST_PORT  PORTC
+    #define COOLANT_MIST_BIT   4 // Uno Analog Pin 4
+  #endif  
+
+  // Define user-control pinouts (cycle start, reset, feed hold) input pins.
+  // NOTE: All pinouts pins must be on the same port and not on a port with other input pins (limits).
+  #define PINOUT_DDR       DDRC
+  #define PINOUT_PIN       PINC
+  #define PINOUT_PORT      PORTC
+  #define PIN_RESET        0  // Uno Analog Pin 0
+  #define PIN_FEED_HOLD    1  // Uno Analog Pin 1
+  #define PIN_CYCLE_START  2  // Uno Analog Pin 2
+  #define PINOUT_INT       PCIE1  // Pin change interrupt enable pin
+  #define PINOUT_INT_vect  PCINT1_vect
+  #define PINOUT_PCMSK     PCMSK1 // Pin change interrupt register
+  #define PINOUT_MASK ((1&lt;&lt;PIN_RESET)|(1&lt;&lt;PIN_FEED_HOLD)|(1&lt;&lt;PIN_CYCLE_START))
+  
+  #ifdef VARIABLE_SPINDLE
+    // Advanced Configuration Below You should not need to touch these variables
+    #define TCCRA_REGISTER	 TCCR2A
+    #define TCCRB_REGISTER	 TCCR2B
+    #define OCR_REGISTER     OCR2A
+
+    #define COMB_BIT	     COM2A1
+    #define WAVE0_REGISTER	 WGM20
+    #define WAVE1_REGISTER	 WGM21
+    #define WAVE2_REGISTER	 WGM22
+    #define WAVE3_REGISTER	 WGM23
+
+    // NOTE: On the 328p, these must be the same as the SPINDLE_ENABLE settings.
+    #define SPINDLE_PWM_DDR	  SPINDLE_ENABLE_DDR
+    #define SPINDLE_PWM_PORT  SPINDLE_ENABLE_PORT
+    #define SPINDLE_PWM_BIT	  SPINDLE_ENABLE_BIT // Shared with SPINDLE_ENABLE.
+  #endif // End of VARIABLE_SPINDLE
+
+#endif
+
+//----------------------------------------------------------------------------------------
+
+</pre>
+        <p>Now I have to correct the file matching the port pin of the Atmega328
+          with my board</p>
+        <p>this is the scheme</p>
+      </ul>
+      <img style="width: 594px; height: 501px;" alt="a" src="img/atmega8_pinout.png">&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; <img alt="z" src="img/pinout.jpg"><br>
+      <ul type="”disc”">
+        <p><br>
+        </p>
+        <p><br>
+        </p>
+        <p><br>
+        </p>
+        <p><br>
+        </p>
+        <!-- End of your content -->
+      </ul>
+    </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+          href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
