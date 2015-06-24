@@ -66,142 +66,64 @@
     </nav>
     <div class="container">
       <!-- Insert your content here below! -->
-      <h2>Programming</h2>
-      <br>
+      <h2>Hello World</h2>
+      <div style="text-align: center;"><img style="width: 653px; height: 523px;"
+          alt="presentation" src="presentation.png"><br>
+      </div>
       <ul type="”disc”">
         <p> </p>
         <p> </p>
         <div> </div>
-        <h3>Programming </h3>
-        <p>To pilot the machine I want to use GRB, but to use it I have to
-          change the pin mapping. GRBL is wrote in C, but is similar to Arduino
-          code.</p>
-        <p>I've searched a lot in internet and I discovered that the pin mapping
-          is in cpu_map.h </p>
-        <p>the pins are described as:</p>
-        <p><br>
-        </p>
-        <pre class="prettyprint linenums">	
-
-#ifndef cpu_map_h
-#define cpu_map_h
-
-//----------------------------------------------------------------------------------------
-
-#ifdef CPU_MAP_ATMEGA328P // (Arduino Uno) Officially supported by Grbl.
-
-  // Define serial port pins and interrupt vectors.
-  #define SERIAL_RX     USART_RX_vect
-  #define SERIAL_UDRE   USART_UDRE_vect
-
-  // Define step pulse output pins. NOTE: All step bit pins must be on the same port.
-  #define STEPPING_DDR    DDRD
-  #define STEPPING_PORT   PORTD
-  #define X_STEP_BIT      2  // Uno Digital Pin 2
-  #define Y_STEP_BIT      3  // Uno Digital Pin 3
-  #define Z_STEP_BIT      4  // Uno Digital Pin 4
-  #define STEP_MASK       ((1&lt;&lt;X_STEP_BIT)|(1&lt;&lt;Y_STEP_BIT)|(1&lt;&lt;Z_STEP_BIT)) // All step bits
-
-  // Define step direction output pins. NOTE: All direction pins must be on the same port.
-  #define DIRECTION_DDR     DDRD
-  #define DIRECTION_PORT    PORTD
-  #define X_DIRECTION_BIT   5  // Uno Digital Pin 5
-  #define Y_DIRECTION_BIT   6  // Uno Digital Pin 6
-  #define Z_DIRECTION_BIT   7  // Uno Digital Pin 7
-  #define DIRECTION_MASK    ((1&lt;&lt;X_DIRECTION_BIT)|(1&lt;&lt;Y_DIRECTION_BIT)|(1&lt;&lt;Z_DIRECTION_BIT)) // All direction bits
-
-  // Define stepper driver enable/disable output pin.
-  #define STEPPERS_DISABLE_DDR    DDRB
-  #define STEPPERS_DISABLE_PORT   PORTB
-  #define STEPPERS_DISABLE_BIT    0  // Uno Digital Pin 8
-  #define STEPPERS_DISABLE_MASK   (1&lt;&lt;STEPPERS_DISABLE_BIT)
-
-  // Define homing/hard limit switch input pins and limit interrupt vectors. 
-  // NOTE: All limit bit pins must be on the same port, but not on a port with other input pins (pinout).
-  #define LIMIT_DDR        DDRB
-  #define LIMIT_PIN        PINB
-  #define LIMIT_PORT       PORTB
-  #define X_LIMIT_BIT      1  // Uno Digital Pin 9
-  #define Y_LIMIT_BIT      2  // Uno Digital Pin 10
-  #ifdef VARIABLE_SPINDLE // Z Limit pin and spindle enabled swapped to access hardware PWM on Pin 11.  
-    #define Z_LIMIT_BIT	   4 // Uno Digital Pin 12
-  #else
-    #define Z_LIMIT_BIT    3  // Uno Digital Pin 11
-  #endif
-  #define LIMIT_MASK       ((1&lt;&lt;X_LIMIT_BIT)|(1&lt;&lt;Y_LIMIT_BIT)|(1&lt;&lt;Z_LIMIT_BIT)) // All limit bits
-  #define LIMIT_INT        PCIE0  // Pin change interrupt enable pin
-  #define LIMIT_INT_vect   PCINT0_vect 
-  #define LIMIT_PCMSK      PCMSK0 // Pin change interrupt register
-
-  // Define spindle enable and spindle direction output pins.
-  #define SPINDLE_ENABLE_DDR    DDRB
-  #define SPINDLE_ENABLE_PORT   PORTB
-  #ifdef VARIABLE_SPINDLE // Z Limit pin and spindle enabled swapped to access hardware PWM on Pin 11.  
-    #define SPINDLE_ENABLE_BIT    3  // Uno Digital Pin 11
-  #else
-    #define SPINDLE_ENABLE_BIT    4  // Uno Digital Pin 12
-  #endif  
-  #define SPINDLE_DIRECTION_DDR   DDRB
-  #define SPINDLE_DIRECTION_PORT  PORTB
-  #define SPINDLE_DIRECTION_BIT   5  // Uno Digital Pin 13 (NOTE: D13 can't be pulled-high input due to LED.)
-
-  // Define flood and mist coolant enable output pins.
-  // NOTE: Uno analog pins 4 and 5 are reserved for an i2c interface, and may be installed at
-  // a later date if flash and memory space allows.
-  #define COOLANT_FLOOD_DDR   DDRC
-  #define COOLANT_FLOOD_PORT  PORTC
-  #define COOLANT_FLOOD_BIT   3  // Uno Analog Pin 3
-  #ifdef ENABLE_M7 // Mist coolant disabled by default. See config.h to enable/disable.
-    #define COOLANT_MIST_DDR   DDRC
-    #define COOLANT_MIST_PORT  PORTC
-    #define COOLANT_MIST_BIT   4 // Uno Analog Pin 4
-  #endif  
-
-  // Define user-control pinouts (cycle start, reset, feed hold) input pins.
-  // NOTE: All pinouts pins must be on the same port and not on a port with other input pins (limits).
-  #define PINOUT_DDR       DDRC
-  #define PINOUT_PIN       PINC
-  #define PINOUT_PORT      PORTC
-  #define PIN_RESET        0  // Uno Analog Pin 0
-  #define PIN_FEED_HOLD    1  // Uno Analog Pin 1
-  #define PIN_CYCLE_START  2  // Uno Analog Pin 2
-  #define PINOUT_INT       PCIE1  // Pin change interrupt enable pin
-  #define PINOUT_INT_vect  PCINT1_vect
-  #define PINOUT_PCMSK     PCMSK1 // Pin change interrupt register
-  #define PINOUT_MASK ((1&lt;&lt;PIN_RESET)|(1&lt;&lt;PIN_FEED_HOLD)|(1&lt;&lt;PIN_CYCLE_START))
-  
-  #ifdef VARIABLE_SPINDLE
-    // Advanced Configuration Below You should not need to touch these variables
-    #define TCCRA_REGISTER	 TCCR2A
-    #define TCCRB_REGISTER	 TCCR2B
-    #define OCR_REGISTER     OCR2A
-
-    #define COMB_BIT	     COM2A1
-    #define WAVE0_REGISTER	 WGM20
-    #define WAVE1_REGISTER	 WGM21
-    #define WAVE2_REGISTER	 WGM22
-    #define WAVE3_REGISTER	 WGM23
-
-    // NOTE: On the 328p, these must be the same as the SPINDLE_ENABLE settings.
-    #define SPINDLE_PWM_DDR	  SPINDLE_ENABLE_DDR
-    #define SPINDLE_PWM_PORT  SPINDLE_ENABLE_PORT
-    #define SPINDLE_PWM_BIT	  SPINDLE_ENABLE_BIT // Shared with SPINDLE_ENABLE.
-  #endif // End of VARIABLE_SPINDLE
-
-#endif
-
-//----------------------------------------------------------------------------------------
-
-</pre>
-        <p>Now I have to correct the file matching the port pin of the Atmega328
-          with my board</p>
-        <p>this is the scheme</p>
+        <h3>OpenSTAGE is finally born</h3>
+        At the moment the machine work very well, without backlash because I
+        found&nbsp; a perfect <br>
+        fishline that is quite impossible to extend, I also bought a kevlar
+        fishline for next esperiments.<br>
+        <br>
+        I tried some tools on the machine&nbsp; and this is the result:<br>
+        <br>
       </ul>
-      <img style="width: 594px; height: 501px;" alt="a" src="img/atmega8_pinout.png">&nbsp;
+      <h3>Dual drawing conductive</h3>
+      one lyer with classical pen and the simple with Agic conductive pen<br>
+      <img alt="a" src="img/IMG_20150620_002954.jpg"><br>
+      <br>
+      <h3>Wood&nbsp;&nbsp; </h3>
+      on the wood with a little Proxxton spindle work well just to engrave a
+      soft wood<br>
+      <img alt="c" src="img/IMG_20150621_214611.jpg"><br>
+      <br>
+      <br>
+      <h3>FR1FR4</h3>
+      At the moment the machine don't work well on pcb because I haven't the
+      correct tip<br>
+      <img alt="g" src="img/IMG_20150623_020220.jpg"><br>
+      <br>
+      <h3>Soft metal</h3>
+      Working on alluminium the machine work quite well, during the circle the
+      spindle was stressed much and so the circle is more like an ellipse. <br>
+      The ggod things is that the text was engraved perfecly!<br>
+      <br>
+      <img alt="h" src="img/IMG_9939.jpg"><br>
+      <br>
+      <h3>Fine testing&nbsp; </h3>
+      Drow with a pencil, the file was to big for the print area and at the
+      final the steppers loses some step<br>
+      <img alt="m" src="img/IMG_9941.jpg"><br>
+      <br>
+      Drawing with a Stadleter<span style="color: red;"> 0.05mm&nbsp; </span>is
+      possible to appreciate the quality of the precision<br>
+      <br>
+      <img alt="l" src="img/IMG_9940.jpg"><br>
+      <br>
+      <h3>Z servo axis</h3>
+      The big improvement for this project was the structure and the electronics
+      for the Z servo axis thah you can see below<br>
+      <br>
+      <img style="width: 542px; height: 361px;" alt="h" src="img/IMG_9902.jpg">
+      &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;<img style="width: 490px; height: 327px;" alt="r" src="img/IMG_9899.jpg">
       &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; <img alt="z" src="img/pinout.jpg"><br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
       <ul type="”disc”">
         <p><br>
         </p>
