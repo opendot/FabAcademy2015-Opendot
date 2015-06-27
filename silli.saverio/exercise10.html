@@ -89,17 +89,19 @@
 		  <h2>10. Input Devices</h2>
 		<h3><li>Measure something: add a sensor to a microcontroller board that you've designed and read it.</li><br></h3>
         <br>
-       <p>This week I've had a bad flu that is keeping me in my bed. That's why I only accomplished some work with Arduino. Nevertheless, it was my first time plugging a sensor to Arduino and I finally menaged to get the code I modified to work properly.</p>
+       <p>This week, it was my first time plugging a sensor to a microcontroller and since I actually menaged to get the code I modified to work properly I am quite happy with the results.</p>
 		
-		<h3>Adding a sensor</h3>
-			<p>I plugged a potentiometer and copyed a simple code I found on the Arduino website to have a read on the serial monitor of the potentiometer values over time. I changed the delay time to have a slower read.</p>
+		
+		
+		
+		<h3>The board</h3>
+			<p>The board I produced is a <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html">Satshakit</a> (a Fabduino board made by <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">Daniele Ingrassia</a>). I plugged a potentiometer and copyed a simple code from Arduino IDE to have a read on the serial monitor of the potentiometer values over time. I changed the delay time to have a slower read.</p>
 		
 		
 		
 		
 			<p><pre class="prettyprint linenums">
-	
-		/*
+/*
   AnalogReadSerial
   Reads an analog input on pin 0, prints the result to the serial monitor.
   Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
@@ -107,7 +109,7 @@
  This example code is in the public domain.
  */
 
-// the setup routine runs once when you press reset:
+// the setup routine runs once when you press reset:x
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
@@ -119,7 +121,7 @@ void loop() {
   int sensorValue = analogRead(A0);
   // print out the value you read:
   Serial.println(sensorValue);
-  delay(1);        // delay in between reads for stability
+  delay(200);        // delay in between reads for stability
 }
 </pre></p>		
 		
@@ -127,7 +129,7 @@ void loop() {
 			 <p class="pic">
 			 <a href="image/10/image3.jpg"></a>
         <img src="image/10/image3.jpg"width="600" >
-				<legend>Arduino set-up</legend>
+				<legend>Satshakit and potentiometer set-up on breadboard</legend>
 				 </p>
 		
 	   <p class="pic">
@@ -136,36 +138,30 @@ void loop() {
 				<legend>Serial monitor reading potentiometer values</legend>
 				 </p>
 		
+	 <p><iframe width="600" height="377" src="https://www.youtube.com/embed/LfPUNiYhgF0" frameborder="0" allowfullscreen></iframe><legend class="legend">Satshakit serial read from potentiometer</legend></p>	
 		
-		<h3>Coding</h3>
-			<p>I started with an example I found online, where a Piezo element is plugged to the Arduino and you use it to play a simple tune. I used the Potentiometer to increase and decrease the speed of the music, by assigning to the variable "pauseBetweenNotes" the value coming from the variable "sensorReading" related to the value of the pin Analog A0, where the potentiometer is plugged. I had to write "+1" to prevent a reading of "0" which makes the tune go crazy and I had to divide the value by "5" to have an acceptable range from fast to slow.</p>
-		
-	  	   <p class="pic">
+		<h3>My Code</h3>
+			<p>I started with an example I found online where a Piezo element is used to play a simple tune.<p>
+	  
+	     <p class="pic">
 			 <a href="image/10/image1.jpg"></a>
         <img src="image/10/image1.jpg"width="600" >
-				<legend>Arduino set-up</legend>
+				<legend>Satshakit, potentiometer and piezo speaker set-up on breadboard</legend>
 				 </p>
+	  
+	  		<h3>My Modifications</h3>
+	  </p>I plugged a Potentiometer to the satshakit and use the analog read to increase and decrease the speed of the music, by assigning to the variable "pauseBetweenNotes" the value coming from the variable "sensorReading" related to the value of the pin Analog A0, where the potentiometer is plugged. I had to write "+1" to prevent a reading of "0" which makes the tune go crazy and I had to divide the value by "5" to have an acceptable range from fast to slow.</p>
+		
 		
 	  
-		<p><pre class="prettyprint linenums">
-		/*
-  Melody
- 
- Plays a melody 
- 
- circuit:
- * 8-ohm speaker on digital pin 8
- 
+		<p><pre class="prettyprint linenums">/*
+   Melody Plays a melody 
+  
  created 21 Jan 2010
  modified 30 Aug 2011
  by Tom Igoe 
-
-This example code is in the public domain.
- 
- http://arduino.cc/en/Tutorial/Tone
- 
- modified by Saverio Silli
- 
+ modified 14 Apr 2015
+ by Saverio Silli
  */
  #include "pitches.h"
 
@@ -208,9 +204,9 @@ void loop() {
   }
   delay(500);
   // no need to repeat the melody.
-}
+}</pre></p>
 		
-		</pre></p>
+		
 		
 		<p>To make the tune work, you have to create and include the pitches.h file</p>
 		
@@ -315,13 +311,14 @@ void loop() {
 		<p>And here is the video of how it works</p>
 		
 		
-	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/5-k4dGyM6Ew" frameborder="0" allowfullscreen></iframe>
-		<legend class="legend">By turning the potentiometer the tune speed up or slow down.</legend></p>	
+	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/4ktbeRAP3uU" frameborder="0" allowfullscreen></iframe><legend class="legend">By turning the potentiometer the tune speed goes up or down.</legend></p>	
 
-			<p>Arduino sketches available here</p>
+		
+		
+			<p>Sketches available here</p>
 		<p>
-		<li><a href="http://www.spaghettiprop.it/materiale/potentiometer.zip">Potentiometer sketch</a>  </li>
-		<li><a href="http://www.spaghettiprop.it/materiale/piezo_potentiometer.zip">Piezo + potentiometer sketch</a>  </li>
+		<li><a href="storage/10/potentiometer.zip">Potentiometer sketch</a>  </li>
+		<li><a href="storage/10/piezo_potentiometer.zip">Piezo + potentiometer sketch</a>  </li>
 		</p>
 		
 <!-- End of your content -->

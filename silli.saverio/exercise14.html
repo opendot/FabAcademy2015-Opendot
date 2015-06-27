@@ -89,7 +89,7 @@
 		  <h2>14. Interface and Application Programming</h2>
 		<h3><li>Write an application that interfaces with an input &/or output device</li><br></h3>
         <br>
-       <p>I started from Processing, as I found it pretty simple for a newbie like me. I made a lot of search on the web and found a firmware that you can upload on an Arduino to make it ready to communicate with anything you write in Processing. This firmware comes as a sketch you need to upload to your Arduino and is called <a href="http://playground.arduino.cc/interfacing/processing">Firmata</a>.</p>
+       <p>I started from Processing, as I found it pretty simple for a newbie like me. I made a lot of search on the web and found a firmware that you can upload on an Arduino compatible board like the Satshakit to make it ready to communicate with anything you write in Processing. This firmware comes as a sketch you need to upload to your board and is called <a href="http://playground.arduino.cc/interfacing/processing">Firmata</a>.</p>
 		
 	<h3>Processing</h3>
 			<p>Processing is very similar to Arduino IDE. For my application, I wanted to do something that I could use for my final project, so I searched the internet and I found some useful information I used for my sketch.<br>
@@ -103,8 +103,7 @@
 				 </p>
 		
 		<h4>DC Motor Control</h4>
-		<p><pre class="prettyprint linenums">
-		/*modified by Saverio Silli on may 12th 2015.
+		<p><pre class="prettyprint linenums">/*modified by Saverio Silli on may 12th 2015.
 Week 14 excercise for Fab Academy 2015.*/
 
 
@@ -125,7 +124,7 @@ void setup() {
   size(325,250);
   
 println(Arduino.list());
-arduino = new Arduino(this, "/dev/tty.usbmodemfa141", 57600);
+arduino = new Arduino(this, "/dev/tty.usbserial-FTH052EW", 57600);
 
 for (int i = 0; i <= 13; i++)
 arduino.pinMode(i, Arduino.OUTPUT);
@@ -142,7 +141,7 @@ myTextarea = controlP5.addTextarea("txt1")
                   .setColorBackground(color(204))
                   .setColorForeground(color(204));
                   ;
-  myTextarea.setText("ARDUINO DC_MOTOR CONTROL v1.0"
+  myTextarea.setText("SATSHAKIT DC_MOTOR CONTROL v1.0"
                    );
 
 
@@ -203,8 +202,8 @@ void radio(int theID) {
 } }
 </pre></p>
 		
-	<h3>Setting up Arduino</h3>
-			<p>The set up is the same as my Output device week's assignment. I still use my Motor Shield, but this time the two buttons and the potentiometer are not connected to the Arduino. The input they where providing will come from the desktop application. </p>
+	<h3>Setting up the Satshakit</h3>
+			<p>The set up is the same as my Output device week's assignment. I still use my Motor Shield, but this time the two buttons and the potentiometer are not connected to the Satshakit. The input they where providing will come from the desktop application. </p>
 
 		
 		
@@ -220,19 +219,15 @@ void radio(int theID) {
 				<legend>The setup</legend>
 				 </p>
 		
-			 <p class="pic">
-			 <a href="image/14/image4.jpg"></a>
-        <img src="image/14/image4.jpg"width="600" >
-				<legend>My Motor Control Shield</legend>
-				 </p>
+			
 		<br>
 		<br>
 		
-	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/ek0aMl2iuls" frameborder="0" allowfullscreen></iframe><legend class="legend">DC Motor control with a desktop application</legend></p
+	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/d8vUaQTayM0" frameborder="0" allowfullscreen></iframe><legend class="legend">DC Motor control with a desktop application</legend></p
 	  <br><br>
 			<p>File available here</p>
 		<p>
-		<li><a href="http://www.spaghettiprop.it/materiale/fabacademy/dcmotorprocessing.zip">Processing sketch</a>  </li>
+		<li><a href="storage/14/dc_motor_control.zip">Processing sketch</a>  </li>
 			</p>
 	
 		

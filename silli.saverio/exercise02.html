@@ -87,31 +87,55 @@
 		  <h2>02. Computer-aided Design</h2>
 		<h3>Draw sketches, vector/CAD drawings and 3D models</h3>
         <br>
-       <p>As an Architect, I already knew many of the softwares, so I just kept using those I know better. First of all I drew a sketch freehand, then scanned it and put into photoshop to manage exposure levels and saturation. I saved for web to have a very small size file.</p>
+       <p>I'm an Architect and I always used a software called Vectorworks to draw 2D CAAD. I experimented with other softwares like Autocad, which I knew a little bit, then Illustrator, Inkscape, Photoshop, Sketchup and Rhinoceros, which I knew nothing about and that I found very usefull.</p><br>
+		
+	<h3>2D drawing</h3>
+       
+       <p>At the beginning I used Vectorworks to draw sketches of different mechanism to understand how my machine could work, using the fixed measures I already had, like the diameter of the steel balls I was using.</p>
+		
+			 <p class="pic">
+			 <a href="image/02/image4.jpg"></a>
+        <img src="image/02/image4.jpg"width="800" >
+				<legend>Ball-Bearing cross section sketches</legend>
+				 </p>
+		
+		
+		<p>To draw the CNC's cut plans I moved to Autocad, where I could define the layers. Each layer has its own color that group the cutting traces from the first to the last. Drawing a cut plan is challenging because you need to account the sheet thickness and the kind of tool you are going to use while you draw.</p>
 		
 		 <p class="pic">
-        <img src="image/02rotocast06.jpg">
-			 <legend>freehand sketch</legend>
-		</p>
+			 <a href="image/02/image3.jpg"></a>
+        <img src="image/02/image3.jpg"width="800" >
+				<legend>Ball-Bearing cross section sketches</legend>
+				 </p>
 		
-		<p>I then used an architectural design software I know very well called Vectorworks to make technical drawings with quotes and saved it in SVG.</p>
+		<p>I used Rhinoceros to design all the parts that I 3D printed during the academy. Rhinoceros is a very powerful tool with many conversion functions and an easy but effective rendering motor. These are the parts I draw from scratch for the motor coupling/de-coupling ring of my final project machine.</p>
 		
-		 <p class="pic">
-        <img src="image/02rotocast01.svg">
-			 <legend>SVG file with quotes</legend>
-		</p>
-			
+		<p class="pic">
+			 <a href="image/02/image2.jpg"></a>
+        <img src="image/02/image2.jpg"width="800" >
+				<legend>Rhinoceros decoupling ring model</legend>
+				 </p>
+		
+		<p class="pic">
+			 <a href="image/02/image1.jpg"></a>
+        <img src="image/02/image1.jpg"width="800" >
+				<legend>Rhinoceros decoupling ring rendering</legend>
+				 </p>
+		
 		<p>I used Sketch-up to make a quick 3D model which I animated into a gif. To do so I moved the model by 30degrees every time and exported a jpg for every step, it took 12 jpg to see a complete rotation of the rotocasting machine and at the end I created a gif with an online tool called <a href="http://gifmaker.me/">Gifmaker</a>.</p><br>
 		
-		 <p class="pic">
-        <img src="image/02rotocastanime.gif">
+			<p class="pic">
+			 <a href="image/02/image5.jpg"></a>
+        <img src="image/02/image5.jpg"width="800" >
+				<legend>Sketchup model of the first design of my final project</legend>
+				 </p>
+		
+		<p class="pic">
+        <img src="image/02/02rotocastanime.gif">
 			 <legend>A complete rotation of 360 degrees</legend>
 		</p>
 		
 		 <p> From sketch up I also exported the model in STL using Binary in the saving settings to reduce file size.</p><br>
-		
-			
-		
 			 	
 		<p><canvas id="cv" width=640 height=480>
 	It seems you are using an outdated browser that does not support canvas :-(
@@ -119,7 +143,7 @@
 	<script type="text/javascript">
 		var canvas = document.getElementById('cv');
 		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','image/02rotocast04.stl');
+		viewer.setParameter('SceneUrl','image/02/02rotocast04.stl');
 		viewer.setParameter('ModelColor','#CAA618');
 		viewer.setParameter('BackgroundColor1','#E5D7BA');
 		viewer.setParameter('BackgroundColor2','#383840');
