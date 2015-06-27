@@ -125,6 +125,68 @@ These modules are radio frequency transceiver to 2.4Ghz (the same as WiFi) reall
             <p>The first test we can do is upload the sketch "GettingStarted" library RF24 on both microcontrollers that we want to communicate, defining the roles of each in the same sketch.
            This is a very basic example of how to send data from one node to another.</p>
             <p class="pic"><img src= "Image/Lesson13/define_role.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p>Set role = 0 in one microcontroller</p>
+            <div class="codeArduino">byte addresses[][6] = {"1Node","2Node"};
+
+// Used to control whether this node is sending or receiving
+bool role = 0;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println(F("RF24/examples/GettingStarted"));
+  Serial.println(F("*** PRESS 'T' to begin transmitting to the other node"));
+  
+  radio.begin();
+
+  // Set the PA Level low to prevent power supply related issues since this is a
+ // getting_started sketch, and the likelihood of close proximity of the devices. RF24_PA_MAX is default.
+  radio.setPALevel(RF24_PA_LOW);
+  
+  // Open a writing and reading pipe on each radio, with opposite addresses
+  if(radioNumber){
+    radio.openWritingPipe(addresses[1]);
+    radio.openReadingPipe(1,addresses[0]);
+  }else{
+    radio.openWritingPipe(addresses[0]);
+    radio.openReadingPipe(1,addresses[1]);
+  }
+  
+  // Start the radio listening for data
+  radio.startListening();
+}
+</div><br>
+            <p>and set role = 1 in the other</p>
+            <div class="codeArduino">byte addresses[][6] = {"1Node","2Node"};
+
+// Used to control whether this node is sending or receiving
+bool role = 1;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println(F("RF24/examples/GettingStarted"));
+  Serial.println(F("*** PRESS 'T' to begin transmitting to the other node"));
+  
+  radio.begin();
+
+  // Set the PA Level low to prevent power supply related issues since this is a
+ // getting_started sketch, and the likelihood of close proximity of the devices. RF24_PA_MAX is default.
+  radio.setPALevel(RF24_PA_LOW);
+  
+  // Open a writing and reading pipe on each radio, with opposite addresses
+  if(radioNumber){
+    radio.openWritingPipe(addresses[1]);
+    radio.openReadingPipe(1,addresses[0]);
+  }else{
+    radio.openWritingPipe(addresses[0]);
+    radio.openReadingPipe(1,addresses[1]);
+  }
+  
+  // Start the radio listening for data
+  radio.startListening();
+}
+            </div><br>           
+            
+            
             <p>Once loaded the sketch in two microcontrollers, we start the serial monitor and we should see, depending on which microcontroller is connected to the PC, the bits that are transmitted or received.</p>
             <p>here the two screens (transmitter and receiver) compared</p>
             <p class="pic"><img src= "Image/Lesson13/ping_test.jpg" class="img-responsive" alt="Responsive image"></p>
@@ -133,7 +195,19 @@ These modules are radio frequency transceiver to 2.4Ghz (the same as WiFi) reall
             <p>This is an example of how to use the RF24 class to control a remote
  bank of LED's using buttons on a remote control. On the 'remote', connect any number of buttons or switches from a microcontroller pin to ground.  Update 'button_pins' to reflect the pins used.</p>
             
-               <p> On the 'led' board, connect the same number of LED's from an microcontroller pin to a resistor to ground. Update 'led_pins' to reflect the pins used.  Also connect a separate pin to ground and change the 'role_pin'. This tells the sketch it's running on the LED board.</p>
+            <div class="codeArduino">// Pins on the remote for buttons
+const uint8_t button_pins[] = { 2,3,4};
+const uint8_t num_button_pins = sizeof(button_pins);</div><br>
+            
+               <p> On the 'led' board, connect the same number of LED's from an microcontroller pin to a resistor to ground. Update 'led_pins' to reflect the pins used.</p>
+            <div class="codeArduino">// Pins on the LED board for LED's
+const uint8_t led_pins[] = { 2,3,4};
+const uint8_t num_led_pins = sizeof(led_pins);</div><br>
+                   
+                   <p>Also connect a separate pin to ground and change the 'role_pin'. This tells the sketch it's running on the LED board.</p>
+            <div class="codeArduino">// sets the role of this unit in hardware.  Connect to GND to be the 'led' board receiver
+// Leave open to be the 'remote' transmitter
+const int role_pin = A4;</div><br>
             
  
   <p>Every time the buttons change on the remote, the entire state of

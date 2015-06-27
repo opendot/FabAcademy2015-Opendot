@@ -113,7 +113,7 @@ void setup() {
   
   arduino = new Arduino(this, "/dev/tty.usbserial-FTH04VDZ", 57600);
  
-  for (int i = 0; i <= 2; i++)
+  for (int i = 0; i &lt;= 2; i++)
     arduino.pinMode(i, Arduino.INPUT);
 }
 
@@ -121,14 +121,19 @@ void draw() {
   background(off);
   stroke(on);
 
-  for (int i = 0; i <= 2; i++) {
+  for (int i = 0; i &lt;= 2; i++) {
     ellipse(90 + i * 150, 150, arduino.analogRead(i) / 10, arduino.analogRead(i) / 10);
     
   }
 }
                 
             </div><br>
-            <p>And this is the result:</p>
+            <p>So, if you turn one of the potezionziometer, the corresponding circle will change it radius</p>
+            <p class="pic"><img src= "Image/Lesson14/3potenziometri_test.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p class="pic"><img src= "Image/Lesson14/3potenziometri_test2.jpg" class="img-responsive" alt="Responsive image"></p>
+            <p class="pic"><img src= "Image/Lesson14/3potenziometri_test3.jpg" class="img-responsive" alt="Responsive image"></p>
+            
+            <p>This is a video of the result:</p>
             <iframe width="420" height="315" src="https://www.youtube.com/embed/wZNz1xIEHCM?rel=0" frameborder="0" allowfullscreen></iframe><br>
             <p><a href="media/3_Potenziometri.pde"><button type="button" class="btn btn-primary">Download 3_Potenziometri.pde Processing file</button></a></p>
             <p>To experience a little more I tried another simple exercise: see the sound wave through the use of a sound sensor.</p>
@@ -201,16 +206,17 @@ void loop() {
 </div><br>
         <p>Then i placed the sound sensor near the pc speaker</p>
             <p class="pic"><img src= "Image/Lesson14/SoundSensor2.jpg" class="img-responsive" alt="Responsive image"></p>
-            <p>and after started the program in Processing</p>
+            <p>and after started the program in Processing and the music</p>
+            
+            <p class="pic"><img src= "Image/Lesson14/SoundSensor_test.jpg" class="img-responsive" alt="Responsive image"></p>
+            
+            <p class="pic"><img src= "Image/Lesson14/SoundSensor_test2.jpg" class="img-responsive" alt="Responsive image"></p>
+            
+            <p>Here you can see a video of the result:</p>
+             
             <iframe width="420" height="315" src="https://www.youtube.com/embed/EXoQQEIfVlA?rel=0" frameborder="0" allowfullscreen></iframe><br>
             <p><a href="media/AudioWave.zip"><button type="button" class="btn btn-primary">Download AudioWave.zip file with Processing file and Arduino sketch</button></a></p>
             
-            
-            
-            
-            
-            
-
         </div>
     <!-- End of your content -->
 
