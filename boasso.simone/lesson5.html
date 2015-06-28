@@ -44,7 +44,7 @@ The main problem about 3d printing is that you can not print something that does
 You can play around some detail on the process of 3d printing and by modifying them you can have a nice result but the problem will be never totally solved.
 </h5>
  </p></br></br>
-<img src="images/hoverhang_test.jpg" height="300">
+<img src="images/hoverhang_test.jpg"  class="img-responsive">
 </br></br></br></br>
 <p>
 </br></br>
@@ -52,7 +52,7 @@ You can play around some detail on the process of 3d printing and by modifying t
 (to be honest this experimentation was not made on pupose, because i make the support on cura but i forget to set the right overhang angle).
 </h5>
  </br></br>
-<img src="images/overhang_cura.jpg" height="500">
+<img src="images/overhang_cura.jpg"  class="img-responsive">
 </br></br>
  </p>
 <p>
@@ -61,22 +61,28 @@ You can play around some detail on the process of 3d printing and by modifying t
 The process to check this thing is simple and many guide can be found on the web, the parameter to set is the minimum distance between the wall of the mash the user want and the program run the process and recalculate the location of the mash.</br>
 Is a heavy calculation process so sometimes if the file contain a large number of triangles, the program can crash, so be patient and try it until you get the final file.
 </br>
- </br></br>
-<img src="images/camera_3d.jpg" height="500">
-</br></br>
- </br></br>
-<img src="images/mesh_mixer.jpg" height="500">
-</br></br>
 </h5>
+
+
+
+ </br></br>
+<img src="images/camera_3d.jpg"  class="img-responsive">
+</br></br>
+ </br></br>
+<img src="images/mesh_mixer.jpg"  class="img-responsive">
+</br></br>
+<a  href="http://resources.blogscopia.com/2014/04/27/reflex-camera/" target="_blank">HERE link to reflex file webpage.</a>
+</br></br></br></br>
+ 
 <a href="files/camera.obj"
-   download="Camera.obj">Download the OBJ file of the reflex</a>
+   download="Camera.obj">Download the OBJ file of the reflex modified</a>
 </br></br></br>
  </p> 
 <h5>And here come the error i made, as shown in the picture i set the overhang angle at 85 degree, it means that the support will be generated only for the pieces that are orizzontal to the printing surface, and from 85 to 0 will be not generated.</br>
 So as you can see in the picture the border of the body of the reflex have a curved corner so the angle will be less than 85 ( about 80, for setting see picture above)
 </h5>
  </br></br>
-<img src="images/slice_cura.jpg" height="500">
+<img src="images/slice_cura.jpg"  class="img-responsive">
 </br></br>
 <p>
 </br>
@@ -89,10 +95,10 @@ You can see the result in the picture below, only for information the overhang i
 </p>
 </br>
  </br></br>
-<img src="images/hoverhang.jpg" height="500">
+<img src="images/hoverhang.jpg"  class="img-responsive">
 </br>
 </br>
-<img src="images/reflex_finish.jpg" height="700" >
+<img src="images/reflex_finish.jpg"  class="img-responsive" >
 </br></br></br>
 
 
@@ -108,57 +114,185 @@ some of them are solvable some of them are calculable and repaired after some ex
 I take a screw generator on opescad and made the filed, after i modify the file to be hollow inside and whit a open side for put inside the filament.</br>
 I olso put a watermark whit my company name </h5>
 </br></br>
-<img src="images/openscad_screw.jpg" height="500">
+<img src="images/openscad_screw.jpg"  class="img-responsive">
 </br>
 </br></br>
-<img src="images/Filoalfa.jpg" height="500">
+<img src="images/Filoalfa.jpg"  class="img-responsive">
 </br></br>
+
+<h4>This is the opescand TestWriteCylinder</h4>
+</br></br>
+<pre>
+/* NOTES:
+	writecylinder(text="text",where=[0,0,0],radius=20,height=40);
+	
+	Required Parameters (If supplied in this order, identifier is not required)
+		text="text"	 	: Text to be written
+		where=[x,y,z]	: coordinates of cylinder
+		radius=mm 		: radius of cylinder
+		height=mm 		: height of cylinder
+
+	Optional Parameter:
+		center=boolean :	use this to specify that cylinder is centered on coordinates
+					(default is center=false)
+		face="top" : Top of cylinder
+		face="bottom": bottom of cylinder
+		face="front" :barrel of cylinder (default if not supplied)	
+
+	Optional Parameters: (face is not "top" or "bottom")
+		east=degrees : west= degrees: (moves text east or west around z)
+		up=mm or down=mm : moves text up or down along Z axis
+		rotate=degrees : rotates text around Y axis (spirals around cylinder)
+	
+	Optional Parameters: (face="top" or face="bottom")
+		east=degrees or west=degrees : rotate text east or west around top
+		rotate=degrees : (similar to east west but not dependant on text orientation)
+		ccw=boolean : If true, writes in a counter clockwise direction. (default=false)
+		middle=mm :moves the text ?mm toward center of top or bottom surface 	
+
+*/
+
+
+use < write.scad>
+
+translate([0,0,0])
+%cylinder(r=20,h=40);
+
+writecylinder("rotate=90",[0,0,0],20,40,rotate=90);
+
+writecylinder("rotate = 30,east = 90",[0,0,0],20,40,space=1.2,rotate=30,east=90);
+
+writecylinder("ccw = true",[0,0,0],20,40,face="top",ccw=true);
+
+writecylinder("middle = 8",[0,0,0],20,40,h=3,face="top",middle=8);
+
+writecylinder("face = top",[0,0,0],20,40,face="top");
+
+writecylinder("east=90",[0,0,0],20,40,h=3,face="top",east=90);
+
+writecylinder("west=90",[0,0,0],20,40,h=3,face="top",ccw=true,west=90);
+
+writecylinder("face = bottom",[0,0,0],20,40,face="bottom"); 
+
+
+</pre>
+</br></br>
+<h4>this is the opescand ScrewTrhead</h4>
+</br></br>
+<pre>
+// Metric Screw Thread Library
+// by Maximilian Karl < karlma@in.tum.de> (2012)
+// 
+//
+// only use module thread(P,D,h,step)
+// with the parameters:
+// P    - screw thread pitch
+// D    - screw thread major diameter
+// h    - screw thread height
+// step - step size in degree
+// 
+
+module screwthread_triangle(P) {
+	difference() {
+		translate([-sqrt(3)/3*P+sqrt(3)/2*P/8,0,0])
+		rotate([90,0,0])
+		cylinder(r=sqrt(3)/3*P,h=0.00001,$fn=3,center=true);
+
+		translate([0,-P/2,-P/2])
+		cube([P,P,P]);
+	}
+}
+
+module screwthread_onerotation(P,D_maj,step) {
+	H = sqrt(3)/2*P;
+	D_min = D_maj - 5*sqrt(3)/8*P;
+
+	for(i=[0:step:360-step])
+	hull()
+		for(j = [0,step])
+		rotate([0,0,(i+j)])
+		translate([D_maj/2,0,(i+j)/360*P])
+		screwthread_triangle(P);
+
+	translate([0,0,P/2])
+	cylinder(r=D_min/2,h=2*P,$fn=360/step,center=true);
+}
+
+module thread(P,D,h,step) {
+	for(i=[0:h/P])
+	translate([0,0,i*P])
+	screwthread_onerotation(P,D,step);
+}
+
+
+// example
+thread(1.0,7.0,3,20);
+
+</pre>
+
+</br></br></br></br>
+
 <h5>I try cura and kisslicer to slice the objet, they have different system to make the thing work.</br>
 Cura seems to make the slicing on the outer wall so the part will not match really well because the material will go outside the mesh so i make a different file for cura in there i compensated the dimension ( in the x and y axis because when plastic is deposited the direction in which it can expand are the X and Y, on the Z it will find the hotend as obstacle).</br>
 So i made a total reduction of 0.4mm in both dimension ( 0,4mm is the diameter of the nozzle divided by 2, for compensate the pattern made on the mesh wall, and multiplied by 2 because the side of the error are 2, so ad the end of the day is de dimension of the nozzle to be compensated.)
 </h5>
 </br></br>
-<img src="images/Blender_resize.jpg" height="500">
+<img src="images/Blender_resize.jpg"  class="img-responsive">
 </br></br>
 
 <h5>Printed and it works great, it rotate smooth and whit no resistance since the end of the screw.
 </h5>
 </br></br>
-<img src="images/cura_dust.jpg" height="500">
+<img src="images/cura_dust.jpg"  class="img-responsive">
 </br></br>
 <a href="files/file_Scad.rar"
    download="file_Scad.rar">Download zip file of openscad script</a>
 </br></br>
 <a href="files/dust_cleaner_stl.rar"
-   download="/dust_cleaner_stl.rar">Download zip file of all stl file</a>
+   download="dust_cleaner_stl.rar">Download zip file of all stl file</a>
 </br></br>
 <h5>Different things whit kisslicer thaht have directly a parameter to set there to start to calculare the route of the gcode, called inset surface.</br>
 Setting this to compensate the dimensionof the hotend it will make the slicing inside the wall of the mesh.</br>
 So the number to set is the dimension of the hotend divided by two.</br>
 Printed like this it will work as well.</h5>
 </br></br>
-<img src="images/Kiss_dust.jpg" height="500">
+<img src="images/Kiss_dust.jpg"  class="img-responsive">
 </br></br>
-<img src="images/Kiss_dust_print.jpg" height="500">
+<img src="images/Kiss_dust_print.jpg"  class="img-responsive">
 </br></br>
 
 <h5>
     I olso make some experimentation in printig other material like rubber that is not really user friendly.</br>
 The best solution is go slow speed and have a stable temperature whit no cooling on printer part.</h5></br>
 </br>
-<img src="images/rubber_print.jpg" height="500">
+<img src="images/rubber_print.jpg"  class="img-responsive">
 </br></br>
 </br>
-<img src="images/rubber_finish.jpg" height="500">
+<img src="images/rubber_finish.jpg"  class="img-responsive">
 </br></br>
 </br>
-<img src="images/rubber_flex.jpg" height="500">
+<img src="images/rubber_flex.jpg"  class="img-responsive">
 </br></br>
-
+<h4>3D Scanning</h4>
+</br></br>
 <h5>3d scanning was a little bit orrible this time beacuse of the great product is windows 8.1 that doesn't recognize the kinect on my pc...</br>
 I spend like 6 hours trying to set this whit no result so i give up and use the mac of Mattia Ciurinelli.</br>
 i didnt print this because i have olready made a 3d scanning/printing before.</h5>
 </br></br></br>
+
+<h5> Here you can see some screenshot of the 3d scanning of my head made by the kinect and skanect software</h5>
+</br>
+</br>
+<img src="images/skanect.jpg"  class="img-responsive">
+</br></br>
+</br>
+</br>
+<img src="images/scan.jpg"  class="img-responsive">
+</br></br>
+
+<a href="files/zimo_resize.rar"
+   download="Zimo_resize.rar">Download zip file resized 3d scan</a>
+</br></br>
       <p>
       <ul>
         <li><a href="index.html">Back To Index</a></li>

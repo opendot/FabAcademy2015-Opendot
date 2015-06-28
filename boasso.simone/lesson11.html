@@ -32,32 +32,32 @@
       <img src="fab-academy1.jpg" class="img-responsive" >
     <h1>Output Devices</h1>
        </br></br>
-      <h8>This week lecture is to experiment some output device of the microcontroller and pheripheral</h8>
+      <h5>This week lecture is to experiment some output device of the microcontroller and pheripheral</h5>
     </br></br>
-<h8>I decide to make a confetti cannon (blower) for the marriage of my sister so I use this lecture to make a board to drive an ESC for a brushless, to make the dutched fan.</h8>
+<h5>I decide to make a confetti cannon (blower) for the marriage of my sister so I use this lecture to make a board to drive an ESC for a brushless, to make the dutched fan.</h5>
  </br></br>
-<h8>I design a board using the attiny44 in Eagle, like the hello board but whit different pinout to fit the servo standard.</h8>
+<h5>I design a board using the attiny44 in Eagle, like the hello board but whit different pinout to fit the servo standard.</h5>
 
 </br></br>
  <img src="images/servoboard.jpg" class="img-responsive" >
 </br></br>
-<h8>I put in the circuit a connector to the button (I need to pot outside of the board the activation of the motor) I also adapt an ISP connector to fit 2 standard servo plug.</br>
-I connect the servo control pin to PA2 and PB2 so I have an AUX servo channel.</h8>
+<h5>I put in the circuit a connector to the button (I need to pot outside of the board the activation of the motor) I also adapt an ISP connector to fit 2 standard servo plug.</br>
+I connect the servo control pin to PA2 and PB2 so I have an AUX servo channel.</h5>
 </br></br>
-<h8>After i make a the surface mount PCB and engrave it whit flexx laser.</h8>
+<h5>After i make a the surface mount PCB and engrave it whit flexx laser.</h5>
 </br></br>
 <img src="images/servoboard2.jpg" class="img-responsive" >
 </br></br>
-<h8>To fit all connection in one layer I need to put a jumper near the micro and the top ISP connector.</br>
-It can be seen in the picture below, the purple cable.</h8>
+<h5>To fit all connection in one layer I need to put a jumper near the micro and the top ISP connector.</br>
+It can be seen in the picture below, the purple cable.</h5>
 </br></br>
 <img src="images/servo1.jpg" class="img-responsive" >
 </br></br>
 <a href="files/servo.rar"
    download="servo.rar">Download the ZIP file of  the schematic and board for Eagle cad</a>
 </br></br>
-<h8>I made the programming in Arduino IDE, trying to use servo library.</br>
-This library is based on a 16 bit timer that attiny44 have but for some reason it didn't work whit this device, so i have to switch to another library, very similar to the servo called softwareservo or servo8bit, that use a 8 bit timer. </h8>
+<h5>I made the programming in Arduino IDE, trying to use servo library.</br>
+This library is based on a 16 bit timer that attiny44 have but for some reason it didn't work whit this device, so i have to switch to another library, very similar to the servo called softwareservo or servo8bit, that use a 8 bit timer. </h5>
 </br></br>
 
 
@@ -65,7 +65,7 @@ This library is based on a 16 bit timer that attiny44 have but for some reason i
 
 
 
-<h8>Here is the servo.h file.</h8>
+<h5>Here is the servo.h file.</h5>
 <pre>
 /*
   Servo.h - Interrupt driven Servo library for Arduino using 16 bit timers- Version 2
@@ -185,7 +185,7 @@ private:
 
 
 </br></br>
-<h8>Here is the softwareservo.h file.</h8>
+<h5>Here is the softwareservo.h file.</h5>
 <pre>
 #ifndef SoftwareServo_h
 #define SoftwareServo_h
@@ -223,14 +223,14 @@ class SoftwareServo
    download="SoftwareServo.zip">Download the ZIP file of the software servo library</a>
 
 </br></br>
-<h8>I try to investigate the reason the 16 bit timer baser library didn't work but for now i didn't find the solution. </h8>
+<h5>I try to investigate the reason the 16 bit timer baser library didn't work but for now i didn't find the solution. </h5>
 </br></br>
-<h8>After I compile the sketch whit the sofwareservo library I upload it into the attiny44 using the fabISP and Arduino IDE, and test it whit a simple 9g servo.</h8>
+<h5>After I compile the sketch whit the sofwareservo library I upload it into the attiny44 using the fabISP and Arduino IDE, and test it whit a simple 9g servo.</h5>
 </br></br>
 
 
 
-<h8>Here is my sketch in arduino used to control the ESC</h8>
+<h5>Here is my sketch in arduino used to control the ESC</h5>
 <pre>
 #include <SoftwareServo.h>
  
@@ -323,18 +323,18 @@ buttonState = digitalRead(buttonPin);
 
 
 </br></br>
-<h8>I use a common 9g servo to test the firmware and all goes fine, so the servo make 0 position, 180 position, at the press of the button.</h8>
+<h5>I use a common 9g servo to test the firmware and all goes fine, so the servo make 0 position, 180 position, at the press of the button.</h5>
 </br></br>
 <img src="images/servo3.jpg" class="img-responsive" >
 </br></br>
 
 <div class="rwd-video" style="text-align: center">
-<h8>Video of test</h8></br>
+<h5>Video of test</h5></br>
 <iframe width="560" height="315"src="https://www.youtube.com/embed/rl8mIY1l6ls" frameborder="0" allowfullscreen ></iframe>
 </div>
 </br></br>
 
-<h8>After i try to connect the ESC to the board, and strange things happen.</br>
+<h5>After i try to connect the ESC to the board, and strange things happen.</br>
 The ESC goes in programming mode and the motor will not spin.</br>
 </br>
 This is due to the fact the ESC need to be armed ( process who let the speed controller to know that you have the full control of the motor, and you have the radio controller in hands), this arming process in made by sending a full throttle command and a 0 throttle command at certain refresh rate.</br>
@@ -343,29 +343,29 @@ the servo inside electronics in a little bit more permissive and filter this jit
 </br>
 I try to implement this sketch on an Arduino Uno whit the servo standard library and all works great,
 I will try to make a SatshaKit and try to implement it in that way.
-</h8>
+</h5>
 
 
 </br></br></br>
 <h6>EXTRAS</h6>
 </br></br>
 
-<h8>For make a good confetti-blower i need to make a ducted fan, so I design an adapter for my motor and blade</h8>
+<h5>For make a good confetti-blower i need to make a ducted fan, so I design an adapter for my motor and blade</h5>
 </br></br>
-<h8>I have a 16cm fan blade and i have to reduce the diameter to fir the 9 cm pipe-tube</br>
+<h5>I have a 16cm fan blade and i have to reduce the diameter to fir the 9 cm pipe-tube</br>
 I use rhino to design this adapter adding the place where to attach the motor to the structure.</br>
-I use the embedded calculation of the curves of rhino to make a good Venturi effect.</h8>
+I use the embedded calculation of the curves of rhino to make a good Venturi effect.</h5>
 </br></br>
 <img src="images/ducted.jpg" class="img-responsive" >
 
 </br></br>
-<h8>Sliced in Cura</h8>
+<h5>Sliced in Cura</h5>
 <img src="images/ducted_cura.jpg" class="img-responsive" >
 </br></br>
-<h8>Printed in ABS on my personal printer</h8>
+<h5>Printed in ABS on my personal printer</h5>
 <img src="images/ducthprint1.jpg" class="img-responsive" >
 </br></br>
-<h8>And after "some" times it comes out</h8>
+<h5>And after "some" times it comes out</h5>
 <img src="images/ducthprint2.jpg" class="img-responsive" >
 </br></br>
 <a href="files/fan_dutch.rar"

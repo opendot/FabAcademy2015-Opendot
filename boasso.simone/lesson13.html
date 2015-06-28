@@ -33,19 +33,19 @@
       <img src="fab-academy1.jpg" class="img-responsive" >
     <h1>Networking and Communications</h1>
        </br></br>
-      <h8>This week lecture is to create a wired or wireless network between 2 processor</h8>
+      <h5>This week lecture is to create a wired or wireless network between 2 processor</h5>
     </br></br>
-<h8> I have some nRF24L01 module so I decide to use it whit the Satsha kit and make a wireless communication between them.</h8>
+<h5> I have some nRF24L01 module so I decide to use it whit the Satsha kit and make a wireless communication between them.</h5>
  </br>
  <img src="images/nrf24l01.jpg" class="img-responsive" >
 </br></br>
 <h4>Reported from the web:</h4>
 </br>
-<h8>The nRF24L01 is a single chip 2.4GHz transceiver with an embedded baseband protocol engine (Enhanced ShockBurst™), designed for ultra low power wireless applications. The nRF24L01 is designed for operation in the world wide ISM frequency band at 2.400 - 2.4835GHz. An MCU (microcontroller) and very few external passive components are needed to design a radio system with the nRF24L01.The nRF24L01 is configured and operated through a Serial Peripheral Interface (SPI.) Through this interface the register map is available. The register map contains all configuration registers in the nRF24L01 and is accessible in all operation modes of the chip.The embedded baseband protocol engine (Enhanced ShockBurst™) is based on packet communication and supports various modes from manual operation to advanced autonomous protocol operation. Internal FIFOs ensure a smooth data flow between the radio front end and the system’s MCU. Enhanced Shock-Burst™ reduces system cost by handling all the high-speed link layer operations.The radio front end uses GFSK modulation. It has user configurable parameters like frequency channel,output power and air data rate.The air data rate supported by the nRF24L01 is configurable to 2Mbps. The high air data rate combined with two power saving modes makes the nRF24L01 very suitable for ultra low power designs.Internal voltage regulators ensure a high Power Supply Rejection Ratio (PSRR) and a wide power supply range.</h8>
+<h5>The nRF24L01 is a single chip 2.4GHz transceiver with an embedded baseband protocol engine (Enhanced ShockBurst™), designed for ultra low power wireless applications. The nRF24L01 is designed for operation in the world wide ISM frequency band at 2.400 - 2.4835GHz. An MCU (microcontroller) and very few external passive components are needed to design a radio system with the nRF24L01.The nRF24L01 is configured and operated through a Serial Peripheral Interface (SPI.) Through this interface the register map is available. The register map contains all configuration registers in the nRF24L01 and is accessible in all operation modes of the chip.The embedded baseband protocol engine (Enhanced ShockBurst™) is based on packet communication and supports various modes from manual operation to advanced autonomous protocol operation. Internal FIFOs ensure a smooth data flow between the radio front end and the system’s MCU. Enhanced Shock-Burst™ reduces system cost by handling all the high-speed link layer operations.The radio front end uses GFSK modulation. It has user configurable parameters like frequency channel,output power and air data rate.The air data rate supported by the nRF24L01 is configurable to 2Mbps. The high air data rate combined with two power saving modes makes the nRF24L01 very suitable for ultra low power designs.Internal voltage regulators ensure a high Power Supply Rejection Ratio (PSRR) and a wide power supply range.</h5>
 </br></br>
 <h6>Specification</h6>
 </br>
-<h8>
+<h5>
     Power supply :1.9V~3.6V</br>
     Working current:13.5mA at 2Mbps / 11.3mA at 0dBm output power</br>
     IO counts :8</br>
@@ -55,23 +55,31 @@
     Commuinitcation mode :Enhanced ShockBurst TM / ShockBurst TM</br>
     Working mode :Power Down Mode / Standby Mode / RX Mode / TX Mode</br>
     Temperatures :Operating:-40°C ~ 85°C / Storage:-40°C ~ 125°C </br>
-</h8>
+</h5>
 </br></br>
-<h8>This module use the SPI interface so I have to use the MOSI and MISO channel on the satshakit, here you can find the pin connection schematic.</h8>
+<h5>This module use the SPI interface so I have to use the MOSI and MISO channel on the satshakit, here you can find the pin connection schematic.</h5>
 </br></br>
 <img src="images/nrf24connection.jpg" class="img-responsive" >
 </br></br>
-<h8>Here you can also find a fritzing img for the connection ( i use arduino uno as base for the project in fritzing because the shatshakit is not yet implemented), the file is in the archive of the lecture at the end of the page.</h8>
+<h5>Here you can also find a fritzing img for the connection ( i use arduino uno as base for the project in fritzing because the shatshakit is not yet implemented), the file is in the archive of the lecture at the end of the page.</h5>
+
+</br></br>
+
+<h7>i use the arduino image only for demonstration purpose on the connection schematic!! </br>
+    Below you can see the picture of the Satshakit connected to the NRF module</h7>
+
 </br></br>
 <img src="images/satshakit_connection_nrf.jpg" class="img-responsive" >
 </br></br>
+<img src="images/nrfsatsha1.jpg" class="img-responsive" >
+</br></br>
 <h6>IMPORTANT!!</h6>
 </br>
-<h8> the nRF24L01 module need a 3.3v vcc to work so if you are using the usb to power the arduino connect it to the proper line on the header (arduino board have already a voltage regulator for 3.3v).</br>
+<h5> the nRF24L01 module need a 3.3v vcc to work so if you are using the usb to power the arduino connect it to the proper line on the header (arduino board have already a voltage regulator for 3.3v).</br>
  In my case the Satshakit doesn't have a voltage regulator and the chip works at 5v so I have to put this in my circuit.</br>
-the data pin on the nRF24L01 are 5v tolerant so you don't have to worry about this. </h8>
+the data pin on the nRF24L01 are 5v tolerant so you don't have to worry about this. </h5>
 </br></br>
-<h8>In this test I program a board to be the sender and a board to be the receiver.</h8>
+<h5>In this test I program a board to be the sender and a board to be the receiver.</h5>
 </br></br>
 <h9>here the code of the transmitter</h9>
 </br>
@@ -139,12 +147,12 @@ void loop(){
 </pre>
 </br></br>
 
-<h8>Basically the sketch sent the "message" from the transmitter to the receiver.</br>
+<h5>Basically the sketch sent the "message" from the transmitter to the receiver.</br>
 the message is send via serial interface (usb) at the transmitter, the transmitter send it to the receiver.</br>
 the receiver "listen" the message and send it to the serial(usb).</br>
-</h8>
+</h5>
 </br></br>
-<h8>i use a virtual com (Putty) to send and receive the data from the UART of the satshakit</h8>
+<h5>i use a virtual com (Putty) to send and receive the data from the UART of the satshakit</h5>
 </br></br>
 <a href="http://www.putty.org/" target="_blank">Here homepage putty</a>
 </br></br>
