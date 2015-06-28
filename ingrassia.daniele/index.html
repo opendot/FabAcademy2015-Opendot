@@ -5041,13 +5041,55 @@ if __name__ == '__main__':
 
 		<section id= "project10" class="row">
 			<div class="photo-grid">
-				<p>3 <span class="redones">AAVOID v2</span>.</p>
+				<ul class="lists"><li>Here you will find information about <span class="redones">AAVOID v2 assembly and tests</span>. Assembling AAVOID v2 was quite easy, due the already done experience in <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project6').innerHTML,'project6')"><span class="redones-link">4.3 AAVOID v1: teamwork</span></a>. Basically <span class="redones">I had to use all the new parts</span>, such as board, frame, supports and foots. The <span class="redones">objectives</span> I wanted to reach with this new version were the following:</li>
+
+				<li>obtain a very <span class="redones">stable flight</span></li>
+				<li>fly with <span class="redones">two working microcontrollers onboard</span></li>
+				<li>fly with an <span class="redones">onboard smartphone</span></li>
+				<li>test the <span class="redones">overall robustness</span> of the new frame, foots and supports</li>
+				<li>test the <span class="redones">reliability of the new board</span></li>
+				<li>test <span class="redones">new kinds of propellers</span></li>
+				</ul>
+
+
+				<p>Here you can see a picture about the <span class="redones">assembled AAVOID v2 structure</span>:</p>
+
+				<img class="images-default" src="img/final_project/5.3/structure.jpg">
+
+				<p>Also, here is the structure with the <span class="redones">board mounted</span> on it:</p>
+
+				<img class="images-default" src="img/final_project/5.3/structure_board.jpg">
+
+				<p>Talking about the board, I loaded the previous configured <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii</span></a> used for AAVOID v1, <span class="redones">into one of the microcontrollers</span>. The difference was that this time I used <span class="redones">ANGLE flight mode, instead of the previous ACRO</span>. In fact as stated in <a href="https://flyingeinstein.com/index.php/tutorials/enabling-flight-modes"><span class="redones-link">this website</span></a>, ANGLE is the flight mode "where the copter's control system and sensors keep the copter level with reference to the direction of gravity", while ACRO "is really just flying without any features enabled; this is where you are in the most control of the flight response". The motivation behind the choice to use ANGLE flight mode was related to fact I wanted a very stable flight.  To simply verify that also the <span class="redones">other microcontroller was working</span>, I uploaded the <span class="redones">Blink example</span> of Arduino IDE. This test <span class="redones">was successful</span>. After this test I tried also some <span class="redones">serial communications examples</span>, again from Arduino IDE. This time <span class="redones">the test failed</span>. In fact, serial console was receiving almost unreadable characters. <span class="redones">Powering the board apart</span> I discovered that the board <span class="redones">was ok</span>, and the problem was related to the  <span class="redones">7805 voltage regulator</span>. So I <span class="redones">disabled the second microcontroller</span> during the fly tests.</p>
+
+				<p>Here you can see severeal pictures of an assembled AAVOID v2 prototype. This time I used also <span class="redones">plastic 6030 propellers</span>:</p>
+
+				<img class="images-default" src="img/final_project/5.3/AAVOID_v2_1.jpg">
+				<img class="images-default" src="img/final_project/5.3/AAVOID_v2_2.jpg">
+				<img class="images-default" src="img/final_project/5.3/AAVOID_v2_3.jpg">
+				<img class="images-default" src="img/final_project/5.3/AAVOID_v2_4.jpg">
+				<img class="images-default" src="img/final_project/5.3/AAVOID_v2_5.jpg">
+				<img class="images-default" src="img/final_project/5.3/AAVOID_v2_6.jpg">
+				<img class="images-default" src="img/final_project/5.3/AAVOID_v2_7.jpg">
+
+				<p>To be noted the <span class="redones">plastic ties</span> to block smartphone and battery. To <span class="redones">avoid destroy a smartphone</span>, as these are the first fly tests with it onboard, <span class="redones">I used an old and broken one</span>. However, this smartphone was very similar, in weight and dimensions to the one I wanted to use later.</p>
 					
+				<p>At this was point was the time to do some <span class="redones">real fly tests</span>. These test was very good, as you can see <span class="redones">I stressed several aspect of flying</span> such as: <span class="redones">stability</span> with medium wind and a cup of water on it, <span class="redones">overall performances and electronics reliability</span> with very hard turns and with the load of the smartphone. Here are the videos about:</p>
+
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/H54l0PhV-Hk" frameborder="0" allowfullscreen></iframe>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/FrCRy8Wi_UQ" frameborder="0" allowfullscreen></iframe>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/2PrbweWn0ns" frameborder="0" allowfullscreen></iframe>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/7gvb79VRCpE" frameborder="0" allowfullscreen></iframe>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/mlyDfJ9ZATc" frameborder="0" allowfullscreen></iframe>
+
+				<ul class="lists"><li><br>After these fly tests, these are <span class="redones">considerations about AAVOID v2</span>:</li>
+				<li>the fly <span class="redones">was very stable</span></li>
+				<li>the electronics (with one micontroller) was very <span class="redones">reliable</span></li>
+				<li>I need to try to <span class="redones">power the second microcontroller from one of the ESCs</span></li>
+				<li><span class="redones">plastic propellers give more stability and soft command responses</span> than carbon fiber ones, in contrast they reduce agility and battery life</li>
+				</ul>
+
+				<p>I will try to resolve the second microcontroller problems, and to implement the other scheduled features with the developement of <span class="redones">AAVOID v3</span>.</p>
 
 			</div>
 		</section>
