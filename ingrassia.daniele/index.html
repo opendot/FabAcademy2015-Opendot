@@ -98,15 +98,13 @@
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project11').innerHTML,'project11')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.1 Electronics: dual sathakit board improvements</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project12').innerHTML,'project12')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.2 Embedded programming: design an AutoPilot system</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project12').innerHTML,'project12')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.2 CAD design & laser cutting: sonar supports</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project13').innerHTML,'project13')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.3 CAD design & laser cutting: sonar supports</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project13').innerHTML,'project13')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.3 Input devices: sonars tests</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project14').innerHTML,'project14')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.3 Input devices: sonars tests</span></a>
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project14').innerHTML,'project14')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.4 Embedded programming: AutoPilot development & tests</span></a>
 
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project15').innerHTML,'project15')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.4: Embedded programming: AutoPilot development & tests</span></a>
-
-				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project16').innerHTML,'project16')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.5: Application programming: a "Thing" of an IoT system?</span></a>				
+				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project15').innerHTML,'project15')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">6.5: Application programming: a "Thing" of an IoT system?</span></a>	
 
 				<a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project0').innerHTML,'project0')" rel="lightbox" class="col-2"><span class="redones" style="font-weight: bold;">7 AAVOID v3: final results & thoughts</span></a>
 
@@ -4413,7 +4411,7 @@ if __name__ == '__main__':
 <section id= "project0" class="row">
 			<div class="photo-grid">
 				
-				<p>This a video collection about the final results of AAVOID:</p>
+				<p>This a <span class="redones">video collection</span> about the <span class="redones">final results of AAVOID</span>:</p>
 				<iframe width="700" height="400" src="https://www.youtube.com/embed/d7vyrYP5Dv0" frameborder="0" allowfullscreen></iframe>
 
 				<p><br>A</span>utonomous <span class="redones"> A</span>ssembly a<span class="redones">VOI</span>ding <span class="redones">D</span>rone managed to obtain <span class="redones">almost perfect flights!!!</span> Here are some <span class="redones">videos</span> about:</p>
@@ -5134,8 +5132,33 @@ if __name__ == '__main__':
 
 		<section id= "project12" class="row">
 			<div class="photo-grid">
-				<p>4 <span class="redones">AAVOID v3</span>.</p>
-				<p>.</p>
+				<ul class="lists"><li>Here are <span class="redones">last AAVOID structure updates</span>, the making of <span class="redones">sonar supports</span>. These supports will be useful to <span class="redones">attach 6 sonars sensors to AAVOID</span>. These were the thoughts for designing sonar supports:</li>
+				<li>similar to AAVOID frame and other supports I want to <span class="redones">keep these supports as much simple as possible</span></li>
+				<li>I <span class="redones">don't want</span> to add too <span class="redones">much weight to AAVOID</span></li>
+				<li>these support will be <span class="redones">compatible with the actual version of the frame</span>, ensuring that an <span class="redones">AAVOID v3 could become an AAVOID v2</span> at any time (<span class="redones">modular structure</span>)</li>
+				<li>as the <span class="redones">sonars have a certain area of sensing</span>, they could be placed a <span class="redones">little decentered</span></li>
+				<li>sonar sensors could be attached <span class="redones">directly on the wood with just one screw</span></li>
+				</ul>
+
+				<p>With these constraints in mind, I started in designing sonars supports. For the <span class="redones">front, rear, backwards, right and left sensors</span> here's a screenshot of <span class="redones">what comes out</span>. Again I used <span class="redones">Rhino</span> to design these:</p>
+				<img class="images-default" src="img/final_project/6.2/under_supports.png">
+
+				<p>The support in the bottom part of the picture will be mounted in place of one of the previous <span class="redones">down mounted supports</span>. These new supports are interchangeable with the old one, realizing a modular system, that <span class="redones">can be used as an AAVOID v2 or an AAVOID v3 structure</span>. In a similar way, the support in the top part of the picture, will substitute the previous <span class="redones">down supports conjunction</span>. The shown supports will realize a sort of cross, on which tips attach the aforementioned sensors. For the <span class="redones">upper sonar sensor</span>, I decided to make a simple strucure, that was again interchangeable with the previous <span class="redones">battery holders</span>:</p>				
+				<img class="images-default" src="img/final_project/6.2/upper_supports.png">
+
+				<p>In this case the sonar will be attached at the bar on the upper side. For <span class="redones">bottom sonar sensor</span>, I didn't designed anything, as I was thinking about mounting it directly on one of the <span class="redones">down mounted supports</span>. Mixing new parts with the actual frame, and some of the older parts (to avoid wood waste), here's <span class="redones">all the AAVOID v3 structure parts</span>, ready to be cut with our laser cutter machine:</p>
+				<img class="images-default" src="img/final_project/6.2/all_parts.png">
+				<p>So here are all the <span class="redones">AAVOID v3 parts</span> just after they were cut:</p>
+				<img class="images-default" src="img/final_project/6.2/parts_cut.jpg">
+
+
+				<p>In similar way I did for <span class="redones">AAVOID v2</span> structure, here you can see some pictures about the <span class="redones">AAVOID v3 structure assembled</span>:</p>
+				<img class="images-default" src="img/final_project/6.2/structure_v3_1.jpg">
+				<img class="images-default" src="img/final_project/6.2/structure_v3_2.jpg">
+				<img class="images-default" src="img/final_project/6.2/structure_v3_3.jpg">
+
+
+				<p>Here you can download AAVOID v3 structure: <a href="drawings/final_project/6.2/AAVOID_v3_structure.3dm.rar"><span class="redones-link">download</span></a>.</p>
 
 			</div>
 		</section>
