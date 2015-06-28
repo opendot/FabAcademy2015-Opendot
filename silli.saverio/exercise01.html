@@ -147,7 +147,48 @@ color: #000
 		<li>Send the files to the online repository (gitpush)<br><pre class="prettyprint linenums">git push</pre></li>
 		<li>Run a new interrogation to be sure everything is ok<br><pre class="prettyprint linenums">git status</pre></li></p>
 	
+<pre class="prettyprint linemus">Last login: Sat Jun 27 16:51:56 on ttys000
+MacBook-Pro-di-Save:~ zaverie$ cd FabAcademy2015-Opendot/
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
 
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   silli.saverio/exercise01.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git pull origin master
+From https://github.com/opendot/FabAcademy2015-Opendot
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git add -A
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git commit -m "test"
+[master 819bf22] test
+ 1 file changed, 8 insertions(+), 18 deletions(-)
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git push
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 466 bytes | 0 bytes/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+To https://github.com/opendot/FabAcademy2015-Opendot.git
+   3d93fb6..819bf22  master -> master
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ 
+</pre>
+	  
+	  	 <p class="pic">
+			 <a href="image/01/image02.jpg"></a>
+        <img src="image/01/image02.jpg"width="600" >
+				<legend>Sreenshot of Terminal</legend>
+				 </p>
 	  
     <!-- End of your content -->
 
