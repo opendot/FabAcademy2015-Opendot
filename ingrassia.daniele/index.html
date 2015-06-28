@@ -5002,8 +5002,39 @@ if __name__ == '__main__':
 
 		<section id= "project9" class="row">
 			<div class="photo-grid">
-				<p>2 <span class="redones">AAVOID v2</span>.</p>
-				<p>.</p>
+				<p>Here I will talk about the <span class="redones">new board</span> for <span class="redones">AAVOID v2</span>. As said in previous section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project5').innerHTML,'project5')"><span class="redones-link">4.2 Electronics: flight controller</span></a>, AAVOID board will have <span class="redones">two Atmega328 microcontrollers</span>. This because one of them serves as flight controller with <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii</span></a>, and the other for <span class="redones">AutoPilot, to read data sensors and to communicate with smartphone</span>. So this time the goal was to <span class="redones">fly with two microcontroller</span> onboard, and to <span class="redones">improve the existing AAVOID v1 board</span>. To be noted that, during the design of AAVOID v1 board, <span class="redones">I purposely left space to fit the other microntroller</span>. Microncontrollers will have each <span class="redones">separated components</span>, with the <span class="redones">esclusion of power stabilizers capacitors</span>. Also, microcontrollers will share the same power, coming from the <span class="redones">7805 voltage regulator</span>.</p> 
+
+				
+				<p>So I started to change the <span class="redones">AAVOID v1 eagle schematic</span>:</p>
+
+				<img class="images-default" src="img/final_project/4.2/AAVOID_v1_schematics.png">
+
+				<p>In order to <span class="redones">add the second microcontroller</span>. Here is <span class="redones">AAVOID v2 eagle schematic</span>, with added the new components:</p>
+
+				<img class="images-default" src="img/final_project/5.2/new_schematic.png">
+
+
+				<p>Once I designed new schematic, it was time to <span class="redones">change eagle board accordingly</span>. Again I started from the <span class="redones">AAVOID v1 eagle board</span>:</p>
+				<img class="images-default" src="img/final_project/4.2/AAVOID_v1_board.png">
+
+				<p>To obtain <span class="redones">AAVOID v2 eagle board</span>, containing all of the new componentes I've added to the schematic:</p>
+
+				<img class="images-default" src="img/final_project/5.2/new_board.png">
+
+				<p>To produce the board I followed the usual procedure we used in the past, in which <span class="redones">we engraved FR4 fiber glass boards</span> with a <span class="redones">fiber laser cutter machine</span>. The first thing to do was to export top and pads as a PNG from eagle:</p>
+
+				<img class="images-default" src="img/final_project/5.2/AAVOID_v2.png">
+
+				<p>And then continue editing it with <span class="redones">Inkscape</span>, in order to use new colors for cut boarders, and to make pin headers holes:</p>
+				<img class="images-default" src="img/final_project/5.2/inskscape_board.png">
+
+				<p>So here it's the board, just after it was engraved by fiber laser, and ready to be soldered:</p>
+				<img class="images-default" src="img/final_project/5.2/board.jpg">
+
+				<p>And finally, here's the board with all the <span class="redones">components soldered on it</span>:</p>
+				<img class="images-default" src="img/final_project/5.2/board_soldered.jpg">
+
+				<p>Here you can download eagle project and Inkscape svg of AAVOID v2 board: <a href="drawings/final_project/5.2/AAVOID_v2.rar"><span class="redones-link">download</span></a>.</p>
 
 			</div>
 		</section>
