@@ -26,8 +26,7 @@
     <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
     <!-- Load the menu file -->
     <script>
 	function menu() {
@@ -107,6 +106,158 @@
       <img longdesc="fabISP" title="ISP" alt="isp" src="img/isp.png"><br>
       <br>
       Then I programmed the core with an Arduino<br>
+      <br>
+      To program the FabISP I had to edit the file MAKEFILE<br>
+      <span style="color: rgb(102, 102, 102); font-family: Arial, Helvetica, sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">#AVRDUDE
+        = avrdude -c usbtiny -p $(DEVICE) # edit this line for your programmer</span><br
+        style="color: rgb(102, 102, 102); font-family: Arial, Helvetica, sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+      <span style="color: rgb(102, 102, 102); font-family: Arial, Helvetica, sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">AVRDUDE
+        = avrdude -c avrisp2 -P usb -p $(DEVICE) # edit this line for your
+        programmer</span><br style="color: rgb(102, 102, 102); font-family: Arial, Helvetica, sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+      <br>
+      then to program the bord via terminal<br>
+      <pre style="font-family: 'Courier New', Courier, monospace; font-size: 0.85em; border: 1px dotted rgb(153, 153, 153); padding: 2px; color: rgb(102, 102, 102); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20.7999992370605px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(244, 244, 244);">make clean<br>rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex <br>main.elf *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s</pre>
+      and<br>
+      <pre style="font-family: 'Courier New', Courier, monospace; font-size: 0.85em; border: 1px dotted rgb(153, 153, 153); padding: 2px; color: rgb(102, 102, 102); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20.7999992370605px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(244, 244, 244);">make hex
+avr-gcc -Wall -Os -DF_CPU=20000000	 -Iusbdrv -I. -DDEBUG_LEVEL=0 
+-mmcu=attiny44 -c usbdrv/usbdrv.c -o usbdrv/usbdrv.o
+avr-gcc -Wall -Os -DF_CPU=20000000	 -Iusbdrv -I. -DDEBUG_LEVEL=0 
+-mmcu=attiny44 -x assembler-with-cpp -c usbdrv/usbdrvasm.S -o usbdrv/usbdrvasm.o
+avr-gcc -Wall -Os -DF_CPU=20000000	 -Iusbdrv -I. -DDEBUG_LEVEL=0 
+-mmcu=attiny44 -c usbdrv/oddebug.c -o usbdrv/oddebug.o
+avr-gcc -Wall -Os -DF_CPU=20000000	 -Iusbdrv -I. -DDEBUG_LEVEL=0 
+-mmcu=attiny44 -c main.c -o main.o
+avr-gcc -Wall -Os -DF_CPU=20000000	 -Iusbdrv -I. -DDEBUG_LEVEL=0 
+-mmcu=attiny44 -o main.elf usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o 
+main.o
+rm -f main.hex main.eep.hex
+avr-objcopy -j .text -j .data -O ihex main.elf main.hex
+avr-size main.hex
+   text	   data	    bss	    dec	    hex	filename
+      0	   2020	      0	   2020	    7e4	main.hex </pre>
+      setting fuses<br>
+      <pre style="font-family: 'Courier New', Courier, monospace; font-size: 0.85em; border: 1px dotted rgb(153, 153, 153); padding: 2px; color: rgb(102, 102, 102); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20.7999992370605px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(244, 244, 244);">sudo make fuse
+avrdude -c usbtiny -p attiny44  -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0xDF"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDF:
+avrdude: load data hfuse data from input file 0xDF:
+avrdude: input file 0xDF contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK
+
+avrdude done.  Thank you.</pre>
+      Program to be an ISP<br>
+      <pre style="font-family: 'Courier New', Courier, monospace; font-size: 0.85em; border: 1px dotted rgb(153, 153, 153); padding: 2px; color: rgb(102, 102, 102); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20.7999992370605px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(244, 244, 244);">sudo make program
+
+avrdude -c usbtiny -p attiny44  -U flash:w:main.hex:i
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "main.hex"
+avrdude: writing flash (2020 bytes):
+
+Writing | ################################################## | 100% 5.68s
+
+
+
+avrdude: 2020 bytes of flash written
+avrdude: verifying flash memory against main.hex:
+avrdude: load data flash data from input file main.hex:
+avrdude: input file main.hex contains 2020 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.36s
+
+
+
+avrdude: verifying ...
+avrdude: 2020 bytes of flash verified
+
+avrdude: safemode: Fuses OK
+
+avrdude done.  Thank you.
+
+avrdude -c usbtiny -p attiny44  -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9207
+avrdude: reading input file "0xDF"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDF:
+avrdude: load data hfuse data from input file 0xDF:
+avrdude: input file 0xDF contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+
+avrdude: safemode: Fuses OK
+
+avrdude done.  Thank you.</pre>
+      <br>
+      <br>
       Below some pictures of my FabISP<br>
       <p class="pic"><img src="img/isp.jpg"><legend>In order:engraving with
           laser, cleaning, soldering, programming </legend></p>

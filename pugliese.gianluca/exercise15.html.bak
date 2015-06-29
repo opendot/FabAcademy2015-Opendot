@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <link rel="icon" href="media/favicon.ico">
+    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
+      rel="stylesheet" type="text/css">
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <!-- FORCED COLOR LINK TBD -->
+    <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese
+            @FabAcademy2k15</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact </a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      <h1><strong>Exercise 15</strong></h1>
+      <p>13.05.2015</p>
+      <h2>Applications and Implications</h2>
+      <h3>Assignment</h3>
+      <p> </p>
+      <ul type="â€discâ€">
+      </ul>
+      propose a final project that integrates the range of units covered
+      <ul type="â€discâ€">
+      </ul>
+      <h2>Answering the questions</h2>
+      <p><br>
+      </p>
+      <ul style="orange">
+        <li><span style="color: #d77401;">what will it do? </span></li>
+      </ul>
+      <p>OpenSTAGE is a modular CNC platform basically with 2 axis (X-Y) moved
+        with fishline.</p>
+      <p>The effector is designed with a multitool snapfit that allows to change
+        easly the tools like pen, laser, mill, hotend etc. The main frame is
+        designed like a tray, and it is possible to use OpenSTAGE on any plane
+        surface.</p>
+      <p>The control board is also modular and with the basic gantry is possible
+        to mill the 3rd, 4th... axis control board.</p>
+      <p>It will be possible to control the machine directly from inkscape with
+        a custom plugin, as it will be easy to draw and "print" vector files.<br>
+      </p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">who's done what beforehand?</span></li>
+      </ul>
+      <p>The bigger inspiration comes from <a href="https://handibot.com/">Handybot&nbsp;
+          </a>, also <a href="http://mtm.cba.mit.edu/machines/science/">MTM</a>,
+        <a href="http://reshalaser.org/">Risha Laser</a>, <a href="http://fab.cba.mit.edu/classes/865.15/people/jessica.artiles/0_fabinabox.html">Fab-in-a-box</a>.</p>
+      <p>I will try to make a machine inspired by all the good things coming
+        from them.</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">what materials and components will be
+            required?</span></li>
+      </ul>
+      <p>This is a basically BOM for the the basic stage</p>
+      <p><span style="color: #33cc00;">MECHANICS:</span></p>
+      <p>8mm plywood sheet</p>
+      <p>3D printed carriage and idlers</p>
+      <p>8mm steel rods</p>
+      <p>bearings</p>
+      <p>nuts and bolts</p>
+      <p>Fishing line</p>
+      <p><span style="color: #33cc00;">ELECTRONICS:</span></p>
+      <p>Basic components for a FabKit</p>
+      <p>Stepper driver</p>
+      <p>Stepper motor</p>
+      <p>endstops</p>
+      <p>power supply</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">where will they come from?</span></li>
+      </ul>
+      <p>It is possible to buy all mechanical parts in any Hardware shop, the
+        electronics parts are the same used for various reprap project and the
+        many pieces are completly fabbable</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">how much will it cost?</span></li>
+      </ul>
+      <p>The basic stage costs about 100€ and the other module/axis will cost
+        about 40€ cad.</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">what parts and systems will be made?</span></li>
+      </ul>
+      <p>I made the chassis, carriages parts, idlers and the electronic board</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">what processes will be used?</span></li>
+      </ul>
+      <p>the chassis is made by a lasercut</p>
+      <p>It is possible to made the effector by cnc, 3d printer or molding</p>
+      <p>carriages, idlers and various supports ar made with a 3d printer but is
+        possible to make them also with a laser cutter</p>
+      <p>the electronic board is fabbable with a fiber laser, cnc milling or
+        classical etching</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">what tasks need to be completed?</span></li>
+      </ul>
+      <p>I'm in a electronic testing step, I have also to define and make the
+        inkscape plugin to control the machine</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">what questions need to be answered?</span></li>
+      </ul>
+      <p>Is Fishline better than the belt or not?</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">what is the schedule?</span></li>
+      </ul>
+      <p>- testing the elctronic board</p>
+      <p>- make the inkscape plugin</p>
+      <p>- testing all the project</p>
+      <ul style="orange">
+        <span style="color: #d77401;"> </span>
+        <li><span style="color: #d77401;">how will it be evaluated?</span></li>
+      </ul>
+      <p>The best goal will be if OPENstage will be able to make the 3rd axis
+        board with a little mill or a PCB marker</p>
+      <p>The thinghs that I'm sure that it's able are drawing, engraving,
+        lasering on any plane surface. A possible improvement is to power all
+        the stage with a battery to make it really indipendent from a computer,
+        using also an sd card to read the gcode.</p>
+      <p><br>
+      </p>
+      <ul style="orange">
+      </ul>
+      <p>Gantt diagram of the project managing <a href="project.html">HERE</a><br>
+      </p>
+      <p><br>
+      </p>
+      <p><br>
+      </p>
+    </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+          href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

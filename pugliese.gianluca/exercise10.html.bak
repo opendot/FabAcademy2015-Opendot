@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <link rel="icon" href="media/favicon.ico">
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'>
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      
+     
+    <!-- FORCED COLOR LINK TBD -->   
+      
+      <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
+      
+      
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese  @FabAcademy2k15</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact           </a></li>
+              
+             
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+     <h1><strong>Exercise 10</strong></h1> <p>08.04.2015</p>
+    
+    <h2>Input devices</h2>    
+        
+    <h3>Assignment</h3>
+	<p>
+	<ul type=”disc”>
+        <li>measure something: add a sensor to a microcontroller board that you've designed and read it
+   
+      
+ 
+</ul>
+	</p>
+    
+    <h2>Satshakit and Joystick</h2>
+	<p>
+For this assignment my friend Daniele Ingrassia, that do the Fab Academy with me in OpenDot lab, create a Fabkit derivate board with some improvement that I like so much and so I decided to make this board and use it for this assignment.
+      </p>
+      <p>My intent is to move my final project also with a joupad like the professional CNC router, so I bought a Joypad shield to take components and I made the board with all the controller that I need.
+          Programming the Satshakit is very easy, for the wiring this is the perfecly described <a href="https://github.com/satshas/satshakit">GITHUB</a> of the project.
+          Initially I connected the FabISP by 6pin connector to uplad the bootloader and then with FTDI cable i can to read on the serial all the value pushed by the joypad poard.
+          I don't paste all the serial communication beacuse the sketch send many signal per second
+         but  this is the sketch that I used
+	<pre class="prettyprint linenums">
+	// Store the Arduino pin associated with each input
+const byte PIN_BUTTON_SELECT = 2; // Select button is triggered when joystick is pressed
+
+const byte PIN_BUTTON_RIGHT = 3;
+const byte PIN_BUTTON_UP = 4;
+const byte PIN_BUTTON_DOWN = 5;
+const byte PIN_BUTTON_LEFT = 6;
+
+const byte PIN_ANALOG_X = 0;
+const byte PIN_ANALOG_Y = 1;
+
+
+void setup() {
+  Serial.begin(9600);
+
+  // Specify each pin connected to a pushbutton as an input.
+  // Also enable the Arduino's internal "pull-up" resistors
+  // for each pushbutton we want to read--this means the shield
+  // doesn't need to have resistors on it.
+  // Note that when a pull-up resistor is used on a pin the
+  // meaning of the values read are reversed compared to their
+  // usual meanings:
+  //    * HIGH = the button is not pressed
+  //    * LOW = the button is pressed  
+  pinMode(PIN_BUTTON_RIGHT, INPUT);  
+  digitalWrite(PIN_BUTTON_RIGHT, HIGH);
+  
+  pinMode(PIN_BUTTON_LEFT, INPUT);  
+  digitalWrite(PIN_BUTTON_LEFT, HIGH);
+  
+  pinMode(PIN_BUTTON_UP, INPUT);  
+  digitalWrite(PIN_BUTTON_UP, HIGH);
+  
+  pinMode(PIN_BUTTON_DOWN, INPUT);  
+  digitalWrite(PIN_BUTTON_DOWN, HIGH);
+  
+  pinMode(PIN_BUTTON_SELECT, INPUT);  
+  digitalWrite(PIN_BUTTON_SELECT, HIGH);  
+}
+
+
+void loop() {
+  // Print the current values of the inputs (joystick and
+  // buttons) to the console.
+  Serial.print("l:");
+  Serial.print(digitalRead(PIN_BUTTON_LEFT));
+  Serial.print(" ");
+  
+  Serial.print("r:");
+  Serial.print(digitalRead(PIN_BUTTON_RIGHT));
+  Serial.print(" ");
+  
+  Serial.print("u:");
+  Serial.print(digitalRead(PIN_BUTTON_UP));
+  Serial.print(" ");
+  
+  Serial.print("d:");
+  Serial.print(digitalRead(PIN_BUTTON_DOWN));
+  Serial.print(" ");
+
+  Serial.print("x:");
+  Serial.print(analogRead(PIN_ANALOG_X));
+  Serial.print(" ");
+  
+  Serial.print("y:");
+  Serial.print(analogRead(PIN_ANALOG_Y));
+  Serial.print(" ");  
+  
+  Serial.print("s:");
+  Serial.print(digitalRead(PIN_BUTTON_SELECT));
+  Serial.print(" ");
+  
+  Serial.println();
+}
+
+</pre>
+          
+      </p>
+     
+      
+      
+      <p class="pic"><img src="img/joy.jpg">
+	<legend>FabISP - Satshakit - joypad shield</legend>
+	</p>
+      
+      <p>The next implementation will be to recognize the endstop on the final project.
+ </p>
+      
+	
+      
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+                </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
