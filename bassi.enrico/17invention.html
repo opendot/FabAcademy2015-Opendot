@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Enrico Bassi">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Enrico Bassi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+     <h2>17. Invention, Intellectual Property, and Income</h1>
+    
+        
+<h3>Phases of the dissemination</h3>    
+        <p>
+        I've planned the following steps for my project. Being a very early stage it's hard to plan a realistic schedule, and it could change a lot based on the next period of tests and debugging. <br>
+            Here a synthesis of the plan:
+            <br>
+            <img src="images/syntesis.png">
+            <br>
+            
+        </p>
+        <h3>Second round of development</h3>
+   <p>
+        During the fab academy I could do only two versions of Smill, and it's definitely not enough.<br>
+       Here a list of known problem to solve\test to do:
+       </p>
+       <ul>
+        <li>Find a more rigid movement on Z</li>
+           <li>Use Nema 23 instead of the Nema 17</li>
+           <li>use external driver (<a href="http://www.ebay.it/itm/TB6560-3A-Single-Axis-Regolatore-Stepper-Motor-driver-Controller-Board-T5-/400681017477?pt=LH_DefaultDomain_101&hash=item5d4a732085">like this</a>)</li>
+           <li>use a different spindle(<a href="http://www.ebay.co.uk/itm/251726809229">like this</a>) </li>
+           <li>improve the way it's cabled and connected together</li>
+           <li>redesign the electronic through hole and less dense (to improve the self replicability)</li>
+           <li>Use the system rack+pignon for the Y axis</li>
+           </ul>
+        </p>
+        <p>
+            All the implementations are incremental, there are also a couple of things to test defiitely more radical that involves the structure of the frame and the Z movement, but not so urgent at the moment.<br>
+            To get to this point I estimate a cost of 2-3k € and two full time months of development, this means a total of 6-7k€ at least. The best way to get access to this amount of money is a small local grant, not an investor, an enterprise or a crowdfunding.
+        </p>
+<h3>First public delivery</h3>
+      <p>
+      The project is already public, of course, but I'm not planning to push it until it's not reliable enough. and that means it's stable, rigid, and precise.
+          <br>
+          After that the plan is to work on five different ways:
+          <br><br>
+          <strong>Open source release</strong>
+          <br>The project is gonna be released in open source to allow everyone to develop new ideas and bring on personal, independent experiments. Probably the licence I'm gonna use is a CC BY SA. There is gonna be no limitation on the commerciability of derivates, because my primary objective is to spread the accessibility to big CNC milling machines.
+          <br><br>
+          
+          <strong>Beta testing in fablabs</strong>
+         <br> I'd like to involve fablabs that need to buy a big CNC in building a Smill, as a temporary or permanent solution. I could give free support and get back a great support on documentation efficiency and betatesting. To do so, I hope there is gonna be other opportunities like Fab Replication Grants, to help the labs making experiments on Smill.
+          <br><br>
+          
+          <strong>Find different application</strong>
+  <br>
+      When I talk to people about Smill I usually notice that there is no entusiasm in their eyes, and it stays so, until you start to talk about possible applications. Obviously none of these is ready right now, but it gives a prospective of te goal. At the moment a good plan to work on applications to explain the possible value of Smill could be:
+            <p>
+      <ul>
+      <li>Make something from opendesk. One of the main applications is to bring it where needed like, a new house, to build the furniture directly inside the house</li>
+          <li>If it works to produce some furnitures, ask to opendesk to inserd Smill in their website as a downloadable tabrication tool</li>
+          <li>Design a bigger frame (for 2 meter large panels) and suggest to wikihaouse to use it to make a small studio.</li>
+          <li>Mill a <a href="http://www.rootless.tk">Rootless</a> to test it with a complex shape</li>
+      </ul>
+      
+      <p>
+      
+      <strong>Test different tools</strong>
+         <p>Smill is designed to don't have any support underneath, this gives a lot more freedom in testing different tools, if a sacrificial layer is not used. Even if the most common solution is cilindrical tool that spin, interesting alternatives are not working in that way, and they need to have the possibility to pass through the piece that it's working. 
+      <br>Just a couple of example to have an idea: use a jig saw could cut quicker with less vibration parallel to the piece. Another example could be a hot wire for foams. In general the objective would be to allow all the possible modifications and collect them in a repository that keeps track of the forking and modifications. </p>
+    
+    <strong>Crowdfunding the project</strong>
+      <p>
+       beside the fundings to support the development of the project, this would be a good idea also to collect feedback and have an idea of how many people would be interested in Smill. Have being funded gives you also a little bit more reliability when you talk to enterprises to duscuss partnerships, or with other funders. 
+      </p>
+      
+      <h3>Second release</h3>
+      <p>
+      After all these steps, I think that the Product is ready to get to the market. there are two different way to do that: I can look for partnerships with existing enterprises (like Shopbot or Roland) or go on with a start-up. Evaluate right now what's the best choise is nearly impossible.
+        <br> I will wait to collect feedbacks and inputs.
+      </p>
+      
+      
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

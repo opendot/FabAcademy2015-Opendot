@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -83,9 +84,14 @@
 
      <h2>10. Input Devices</h1>
      
-    
+    <h3>Intro</h3>
+      <p>        I decided to organize the two exercise "input" and "output" together, to make a board we will use in a project.<br>
+        This week I'll make a first version of the board, using a temperature sensor as an input and an LED as an output. the LED is connected to the pin 13, as well as the mosfet that will power the output (an heating pad).<br>
+        Because of this structure the two exercise must be analized together, to find all the material requested.<br>
+        </p>  
     <h3>Project</h3>
 	<p>
+
 In Opendot we have three different user groups, one of there is focused on food (from cooking to events). During the next two weeks I'll try to design the electronic board for a yogurt maker.
         <br> The project we are developing in the user group is the "universal kitchen cabinet", designed to be digitally fabricated and fully customizable. Each drawer has a different funcion based on the interest of the user, for instance it could keep a certain temperature to rise the dough, make yougurt, it could water sprouts or it could dry fruits and vegetables. WE decided to start with the yougurt maker.
         <br> Here a sketch that describe it
@@ -166,144 +172,18 @@ The first board wasn't particularly optimized and I made a lot of mistakes.
         <br>
         <img src="images/debug_v1_7.jpg" alt="MISO">
         While i was plugging the board to try to programm it I realize I connected in the schematic the wrong pin to the MISO. So I had to cut the trace and bridged it to the right pin.
-        <br><br>
+        <br>
+        <h3>Tests</h3>
+      Because of the mistakes with the tension regulator, i burned the microcontroller and I was uncapable to upload any programm. The code uploaded, the sensor's test, the debugging and the calibration are in the <a href="11output.html">next exercise's page</a>.
+        
+        <h3>Conclusion</h3>
+        <br>
         Beside the debugging, when i tryed to connect it and programm it, the arduino IDE gave me the message that it was impossible to upload the code. So i decide to fix all the mistakes in the schematic and make a V2.
-        <br> I also realize it's a bad idea to buy components at 3.40 a.m. and design electronics boards during the night.
-        
-        
-        
-        
-        
-        
-
-        
-	</p>
-     <!--
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
+        <br> I also realize it's a bad idea to buy components at 3.40 a.m. and design electronics boards during the night.   
 	</p>
       
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-
-    -->
+      
+     
 
     <!-- End of your content -->
 

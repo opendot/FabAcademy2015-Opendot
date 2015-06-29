@@ -14,7 +14,8 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -81,18 +82,143 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>14. Mechanical Design, Machine Design</h1>
+     <h2>13. Networking and Communications</h1>
     
         
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
+   
         
-    <!--    
-    
-    <h3>Menu</h3>
+
+    <h3>Project</h3>
 	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
+	I've always been fashinated by the fact that you can simulate complex behaves using simple modules that work like a flock. I remember an experiment done with "shy" robots vs. "friendly" robots. The first ones were moving away, as soon as they detected another machine, while the others were going in the directions of the closer robot to "stay together". To do somethign like this it would be too complex and expensive, but still i want to make boards that influence each others. 
+        <br>
+        The board has a IR led, a red led and a IR receiver. When turned on, they pick a random value in a range and they blink with that frequence. The IR led is transmitting the value of delay between the blinks. If another board is detecting that value, it compares it with it's own, increasing or decreasing it by a fixed amount (let's say 10 milliseconds), to move closer to the value it read. My hope is that all the boards, will get to the same value and blink together.
 	</p>
-    
+        
+        <h3>The board</h3>
+        
+        <p> Design the board took me almost one day of work (considering the optimization, choosing the components and prepare the file for the laser). It's still a lot but at least i had no problem this time.
+        Here the board:
+            <img src="images/sync_1.png" with=900>
+            
+            <a href="media/network.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Sync Board"</button> </a>  
+            
+        </p>
+        
+        
+     <h3>Final Boards (ATMEGA 48 // ATMEGA 328p)</h3>
+	<p>
+At the beginning I planned to use a ATMEGA 48, but I soon realized that the memori was definitely too little.
+        I did the first tests following this <a href="http://www.thinkcreate.org/index.php/arduino-porting-to-atmega48/">tutorial</a>.
+        
+        <br>
+        
+Here the specifications to add to Boards.txt in the arduino IDE
+        </p>
+<pre class="prettyprint linenums">
+#################################################################
+atmega48.name=ATmega48 (8 MHz internal clock)
+atmega48.upload.protocol=stk500
+atmega48.upload.tool=avrdude
+atmega48.upload.maximum_size=4094
+atmega48.upload.speed=38400
+atmega48.bootloader.tool=avrdude
+atmega48.bootloader.low_fuses=0xE2
+atmega48.bootloader.high_fuses=0xDF
+atmega48.bootloader.extended_fuses=0x01
+atmega48.bootloader.path=arduino:atmega8
+atmega48.bootloader.file=ATmegaBOOT.hex
+atmega48.bootloader.unlock_bits=0x3F
+atmega48.bootloader.lock_bits=0x0F
+atmega48.build.mcu=atmega48
+atmega48.build.f_cpu=8000000L
+atmega48.build.core=arduino:arduino
+atmega48.build.variant=arduino:standard
+################################################################	 
+</pre>       
+ <p>
+After the first test I switched back to the ATMEGA 328p. I made four boards (1 ATMEGA 48 and 3 ATMEGA 328p).
+        <br>
+        To test the boards i upload the blink to both the red led and the IR led (visible witht the camera of the cellphone)
+        <br>
+        <img src="images/network1.jpg">
+     <img src="images/network2.jpg">
+        <br>
+     To Test the boards and the possible problems I divided the sketch in two parts. The first half is to make the led blinking to a certain speed (random and different everytime you reset it), compare its speed to another (in the test a fixed value), and step by step adjust the original random speed to the value. 
+     Here the sketch
+     </p>
+     <pre class="prettyprint linenums">
+
+const int ledPin =  13;      
+
+int ledState = LOW;             
+long previousMillis = 0;       
+unsigned long currentMillis = 0;
+
+long interval = 1000;           
+unsigned long ran = 0;
+unsigned long ran1 = 5000;
+
+void setup() {
+
+  Serial.begin (9600);
+  pinMode(ledPin, OUTPUT);
+  randomSeed(analogRead(1));
+}
+
+void loop()
+{
+  ran = random(50, 150);
+  ran=ran*10;
+
+  ran1 = 50;
+
+  while (1)
+  {
+    currentMillis = millis();
+    Serial.println(ran);
+
+    interval = ran;
+
+    if (currentMillis - previousMillis > interval) {
+      previousMillis = currentMillis;
+
+      if (ran > ran1)
+      {
+        ran = ran - 10;
+      }
+      else
+      {
+        ran = ran + 10;
+      }
+
+      if (ledState == LOW)
+        ledState = HIGH;
+      else
+        ledState = LOW;
+
+      digitalWrite(ledPin, ledState);
+      delay (10);
+    }
+  }
+}
+	 
+</pre>
+<p>
+The sketch was working pretty well, but i had some trouble with the boards. It seems that the flux we are using can cause some troubles: the behave of the boards, but one, is not reliable. 
+    <img src="images/network6.jpg">
+        </p>
+      
+<h3>Communication</h3>
+       
+        <p>WIP ...</p>
+        
+      
+        
+        
+        
+        <!--
     <h3>Text</h3>
 	<p>
 	You can set it up with:

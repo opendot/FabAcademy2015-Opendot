@@ -14,7 +14,8 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="media/fabacademy.css" rel="stylesheet">
+     <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -202,8 +203,92 @@ After the make file I moved to "hello.ftdi.44.echo.C"
                   <li>kind of variables</li>
                   <li>how to simulate the serial comunication on MC without and hardware one</li>
     </ul>
-                  <br>
+    
+    I used the standard code for the blink
+    
+    
+    
+     <pre class="prettyprint linenums">
+#include &lt;avr/io.h&gt;
+#include &lt;inttypes.h&gt;
+#include &lt;util/delay.h&gt;
+
+void delay_ms(uint16_t ms);
+void init_io();
+int button_is_pressed();
+void toggle_led();
+
+#define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+
+#define BUTTON_PORT PORTB       /* PORTx - register for button output */
+#define BUTTON_PIN PINB         /* PINx - register for button input */
+#define BUTTON_BIT PB2          /* bit for button input/output */
+
+#define LED_PORT PORTA          /* PORTx - register for LED output */
+#define LED_BIT PA7             /* bit for button input/output */
+#define LED_DDR DDRA            /* LED data direction register */
+
+#define DEBOUNCE_TIME 25        /* time to wait while "de-bouncing" button */
+#define LOCK_INPUT_TIME 250     /* time to wait after a button press */
+
+int 
+main (void)
+{
+        init_io();
+
+        while (1)                       
+        {
+                if (button_is_pressed())
+                {
+                        toggle_led();
+                       
+                }
+        }
+}
+
+void delay_ms(uint16_t ms) {
+        while ( ms )
+        {
+                _delay_ms(1);
+                ms--;
+        }
+}
+
+void 
+init_io() 
+{
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* led is OFF initially (set pin high) */         
+        LED_PORT |= _BV(LED_BIT);
+
+        /* turn on internal pull-up resistor for the switch */
+        BUTTON_PORT |= _BV(BUTTON_BIT);
+}
+
+int 
+button_is_pressed()
+{
+        /* the button is pressed when BUTTON_BIT is clear */
+        if (bit_is_clear(BUTTON_PIN, BUTTON_BIT))
+        {
+                delay_ms(DEBOUNCE_TIME);
+                if (bit_is_clear(BUTTON_PIN, BUTTON_BIT)) return 1;
+        }
+
+        return 0;
+}
+
+void
+toggle_led()
+{
+        LED_PORT ^= _BV(LED_BIT);
+} </pre> 
+                
                   To be honest I think I'm pretty far from coding something in C. I have a little bit of experience in Arduino and i think I'm going to improve that first.
+                
+                  
     
 <br>
     I actually used the blink version of the hello world, to test the other version as well. After I uploaded the code i noticed it wasn't working and checking the board i noticed the LED was connected with inverted polarity. I decided to add a bigger one, and it was working perfectly.

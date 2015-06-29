@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -156,7 +157,7 @@ The board was working, still without the serial monitor, it was complex to debug
 	<p>
 Following a suggestion of <a href="http://fabacademy.org/archives/2015/eu/students/boasso.simone/index.html">Simone Boasso</a>, I tried restarting from the upload of the bootloader, using a project of an Arduino on breadboard, published on <a href="http://www.instructables.com/id/USBASP-Bootloading-a-ATMega328p-with-a-8mhZ-intern/">instructables</a>. This was a project that run with the internal 8 MHz clock. 
         <br>
-        When I first tried to upload this Arduino Ide gave me an error message, because no bootloader.tool parameter were set. After some try and error I got to this configuration
+        When I first tried to upload this, Arduino IDE gave me an error message, because no bootloader.tool parameter were set. After some try and error I got to this configuration
         <br>
         <pre class="prettyprint linenums">
 atmega328bb.name=ATmega328 on a breadboard (8 MHz internal clock)

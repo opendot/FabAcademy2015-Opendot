@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -81,31 +82,107 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>01. Website \\ Final project's concept</h2>
-
-    <h3>Final Concept</h3>
+     <h2>02. 3D model of the final project</h1>
+      </br>
+      
+       <h3>Components and parts</h3>
 	<p>
-	The big CNC is an amazing machine for a fablab, but it's pretty expensive and cumbersome. Mill-O aims to be a cheap alternative, that every fablab could buy or make. In particular, the first version of this project should be self-replicating, following the reprap philosopy.
-    This means to be able to move the machine and assemble it quickly when you get where you need it. 
-<br>
-      Think about be albe to assemble the machine inside your place and build your own furniture.        
-<br>
-    Mill-O is a milling machine with a "O" structure that allows it to move along the panel.
-    <br> <br>
+	This machine is moving in a different way from other CNC routers. in particular the working piece is standing still, supported by two stands on the sides. The <strong>Y axis</strong> is parallel to the ground, the <strong>X axis</strong> is (almost) perpendicular, and <strong>Z axis</strong> is perpendicular to the piece.  
+	</p>           
+      
+<img src="media/components.svg" alt="components" height="600" width="800">   
+  
+      <p>
+	<strong>
+        A - Y movement </br>
+        B - Spindle </br>
+        C - X movement </br>
+        D - Y rail </br>
+        E - Stand </br>
+        F - Working piece </br>
+          
+          </strong>  
+    </br>
+	
+	<a href="media/components.svg">
+	<button type="button" class="btn btn-primary btn-lg">Download "Components.svg"</button>
+	</a>
+	</p>
+      </br>
 
-    <img src="images/millo_concept_r.jpg" alt="work in progress" height="554" width="800">   
+<h3>Details</h3>
+	<p>
+	The most tricky part is probably how to move the machine along Y. I started following <a href="http://www.bg-cnc.com/wordpress/?p=542" target="_blank"> this</a> solution
+  <img src="http://www.bg-cnc.com/wordpress/wp-content/uploads/2009/07/realistic-x-sect.jpg" alt="components" height="600" width="800">
         
-        <br>
-        More about it <a href="project01.html">here</a>
-        
-  <h3>Website</h3>     
-        
-        I started from the layou done by our instructor, Massimo Menichinelli. I worked a bit on CSS and HTML to edit and personalize the page. Unfortunately i made a mess at a certainpoint with the CSS, so i went back temporarely to the original template.
-        
-        <br>
-   
+        </br>
+    The first solution to test is to use a circular belt moved by a stepper that use a secont linear belt glued to the rail as a rack. 
+	</p>
+      
+        <img src="media/detail_y.svg" alt="Detail Y axis" height="600" width="800">   
+  
+      <p>
+	<strong>
+        A - Circular belt </br>
+        B - Pulley </br>
+        C - Y motor </br>
+        D - Linear belt (rack) </br>   
+          </strong>  
+    </br>
+	
+	<a href="media/detail_y.svg">
+	<button type="button" class="btn btn-primary btn-lg">Download "Detail_Y.svg"</button>
+	</a>
 	</p>
         
+        
+<h3>3D Design</h3>
+<p>
+    Being a designer I'm used to different CADs, since the university I've used Solidworks, Rhinoceros, 3D studio max, Autocad, Pro-E, blender, and so on. Lately I decided to focus on Rhinoceros, being cheap enough to be bought even for a semi-professional use. It's also quite flexible, adjustable with different plug-ins (grasshopper and firefly for instance) and It's compatible with python and rhinoscript.
+    <br>
+    The best tool to do the mechanical design of the machine would probably be something like Solidworks, but I decided to use Rhino also to test the possible limitations
+    <br>
+    <img src="images/3D.JPG">
+    </p>
+<br>
+
+
+    <h3>3D overview</h3>
+	<p>
+	In the box below you can see an overview od the project. Everything but the two main rails are attached to the "O" frame. The traslations along Z axis are possible moving the entire structure perpendicular to the panel.
+	</p>
+    
+	
+
+	<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/millo_v1.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+        viewer.setParameter('InitRotationX', 85);
+        viewer.setParameter('InitRotationY', 35);
+        viewer.setParameter('InitRotationZ', 175);
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script> 
+    </p> 
+    
+	<p>
+	<a href="media/millo_v1.stl">
+	<button type="button" class="btn btn-primary btn-lg">Download "3D overview.stl"</button>
+	</a>
+	</p>
+
+   
 
     <!-- End of your content -->
 

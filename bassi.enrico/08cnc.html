@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -81,83 +82,83 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>06. Electronics Design</h2>
-     <p>
-	I followed the tutorial online to edit the Hello_world PCB, done in Eagle. 
-         <br>
-          <a href="media/helloworld.zip"> <button type="button" class="btn btn-primary btn-lg">Download the board files</button> </a>
-             <br><br>
-         To better understand how to design or even simply modify an Eagle file, I suggest this <a href="http://www.jeremyblum.com/category/eagle-tutorials/">three tutorials</a> by Jeremyblum.
-         
-         
-         
-        <br>
-        I saved a PNG file to follow the same process I did for the FabISP. 
-        <br>
-         <a href="images/hello_world1_cut.png">
-             <button type="button" class="btn btn-primary btn-lg">Download "Hello_world.png"</button> </a>
-             <br>
+     <h2>08. Make something big</h1>
+    
+      <h3>Project</h3>
+	<p>
+	The frame of my final project is done this way. So instead of do some random project Idecided to work on this. It's pretty complex and I'm still waiting for the industrial parts (linear guides, screws, motors, etc.) to integrate.
+        <br> this caused a delay, but here the work in progress. I hope to be able to do a test before the 15th of April.
+	</p>  
+        
+        <h3>3D file</h3>
+	<p>
+	Due to the complexity of the frame I can't design it directly in 2D. Here a screenshot of the 3D version. 
+          <img src="images/frame1.JPG" alt="frame"  width="900"> 
         
         </p>
-        
-    <h3>Process the image</h3>    
-      <p>
-    In Inkscape I added the cut lines as described in <a href="exercise04.html">Exercise 04</a>
-          <br>
- <img src="images/img2.jpg" alt="editing with inkscape" width="900"> 
-          <br>
-<img src="images/img1.jpg" alt="editing with inkscape" width="900"> 
-          <br>
-I decided to test some not-square cuts and a couple of holes, to test the machine and to glue the connector.
-          <br>
-          
-          </p>
-          
-     <h3>Direct engrave with Trotec Flexx laser</h3>    
-      <p>
-I followed the same process I did <a href="exercise04.html">here</a> for the exercise 04.
-<br>
-
-        </p>
-  <h3>Here some pictures of the process:</h3> 
-        
+    <h3> How to make a complex file for the CNC machine</h3>
         <p>
-            The engrave process. I think the green color is because of copper's oxides. It took less than 20 minutes, and i'm sure there is still the possibility to optimize it. 
-<img src="images/P1180150-2.jpg" alt="Engrave" width="900"> 
-        
-<img src="images/P1180151-2.jpg" alt="Engrave" width="900"> 
-          <br>
-            The cutting is very fast. It's important to don't take out the piece as soon as it's finished and let the filter works for a while. 
-<img src="images/P1180153-2.jpg" alt="Engrave" width="900"> 
-        <br>
-            the final result before being polished.
-<img src="images/P1180155-2.jpg" alt="cut" width="900"> 
-        
-<img src="images/P1180156-2.jpg" alt="cut" width="900"> 
-         
-<img src="images/P1180157-2.jpg" alt="cut" width="900">
-        <br>
-            The tinning process. It's done just with the soldering tin and pen.
-<img src="images/P1180160-2.jpg" alt="tinning" width="900"> 
-      
-<img src="images/P1180159-2.jpg" alt="tinning" width="900"> 
-          <br>
-            the final board
-<img src="images/P1180161-2.jpg" alt="tinning" width="900"> 
-     
-<img src="images/P1180162-2.jpg" alt="tinning" width="900"> 
-          <br>
-            I used the two hole i cut before to inject some hot glue to keep the connector more stable.
-<img src="images/P1180163-2.jpg" alt="tinning" width="900"> 
-
-<img src="images/P1180164-2.jpg" alt="tinning" width="900"> 
-          <br>
+            I had the problem of designing somethign pretty complex that must consider all the connection with electronic and mechanical componentssome of them, not exhisting yet. I used Rhinoceros 3D, but the technique works pretty well with other software as well. 
+            <br>
+            Here how i did it, hoping to be useful for others in my same situation.
+        <br><br>
+            <strong>Start from a simple 3D file</strong><br>
+            The firs step was to make a simple 3D description of the frame, divided into the functional units
+            <img src="images/18cnc.jpg">
+            <img src="images/1cnc.jpg">
+        <br><br>
+            <strong>Add all the feature to the pieces</strong><br>
+          One by one you take all the profile of the pieces and design the features needed, like holes, pockets and joints.
+            <img src="images/10cnc.jpg">    
+          <br><br>
+            <strong>Extrude and put back the edited profiles</strong><br>
+After the previous step, you should have a more precise idea of the pieces and the features needed. Extrude the curves and place the piece back in position.
+            <img src="images/11cnc.jpg">    
+            <br><br>
+               <strong>Copy the profile and make a boolean difference</strong><br>
+To be sure the joints match, the easier way is to do a boolean difference. This gives you a precise feedback of the position. Here an exemple:
+            <img src="images/12cnc.jpg">    
+            <img src="images/14cnc.jpg">  
+            <img src="images/15cnc.jpg"> 
+            <br><br>
+            <strong>Refine the curves</strong><br>
+To properly fit together it's important to don't forget the round divots to make room for the other piece's corner. To reduce the visibility of the divot without make it too weak i use a diameter 0.5mm bigger that the mill end and i make the corner of the cut touch the circle. I tried to use the exact same diameter, but it' pretty risky in ithis case: if the dxf you export is not very precise, i happens that the software is considering the cut too small to do.
+            <img src="images/16cnc.jpg">  
+            <img src="images/17cnc.jpg">  
+             <br><br>
+            <strong>Repeat the operation for all the pieces</strong><br>
+What's shown for the first profile must be done for all the pieces. Obviously identical pieces and (sometime)simmetrical pieces con be designed just once.
+            <img src="images/2cnc.jpg">    
+            <br><br>
+            <strong>assemble the 3D files</strong><br>
+After you extruded the profiles to make the 3D parts, it's good to assemble the pieces together to check for mistakes, interferences, and improvements. Check first just the connections between the pieces to mill, then add all the other componenets, such as 3D printed parts, elctronic and mechanical parts.
+            <img src="images/3cnc.jpg">    
+            <img src="images/4cnc.jpg">   
+            <img src="images/5cnc.jpg">   
+            <br><br>
+            <strong>Repeat the assembly for other functional part and for the final object</strong><br>
+Just follow the previews steps to assemble and check all the functional units and the final assembly. When you get to a complete 3D version, you can use it to edit the profiles (adding holes, cuts, etc.), measure distances, etc. 
+            <img src="images/7cnc.jpg">  
+            <img src="images/8cnc.jpg"> 
+            <img src="images/9cnc.jpg"> 
             
-This time it was easier to solder everything. My only doubt is about the polarity of the led, cause it's not marked on the package and I'm not sure it's soldered properly. We will see as soon as I start to code.
-          <br>
-My next test is to check if it's possible to do this process with the fab modules.
-          
-          </p>
+            <br>
+            here the cutting file 
+            <br>
+            <a href="media/frame_cut.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
+            
+        <h2>Cut and assemble the file</h2>    
+            
+            
+            
+        </p>
+    <!--    
+    
+    
+    
+   
+
     <!-- End of your content -->
 
     </div> <!-- /container -->
