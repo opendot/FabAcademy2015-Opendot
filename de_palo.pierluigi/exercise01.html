@@ -2,27 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      
-      <style>
-
-body {
-  margin:auto;
-  background: #222;
-  min-width: none;
-}
-
-rect {
-  fill: none;
-  pointer-events: all;
-}
-
-circle {
-  fill: none;
-  stroke-width: 2.5px;
-}
-
-</style>
-      
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -101,46 +80,11 @@ circle {
 
 
 	<!-- Insert your content here below! -->
-            <script>
-
-var width = Math.max(960, innerWidth),
-    height = Math.max(500, innerHeight);
-
-var i = 0;
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-svg.append("rect")
-    .attr("width", width)
-    .attr("height", height)
-    .on("ontouchstart" in document ? "touchmove" : "mousemove", particle);
-
-function particle() {
-  var m = d3.mouse(this);
-
-  svg.insert("circle", "rect")
-      .attr("cx", m[0])
-      .attr("cy", m[1])
-      .attr("r", 1e-6)
-      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
-      .style("stroke-opacity", 1)
-    .transition()
-      .duration(2000)
-      .ease(Math.sqrt)
-      .attr("r", 100)
-      .style("stroke-opacity", 1e-6)
-      .remove();
-
-  d3.event.preventDefault();
-}
-
-</script>
+            
           
       <div class="container">
         
-<p>****************************************************************************************************************</p> 
+          <p><font color=#fff>****************************************************************************************************************</font></p> 
         
         <ul class="pager">
     
@@ -152,42 +96,21 @@ function particle() {
             
             
             
-        <h2>Week 1 - Principles and Practices -</h2>
+            <h2><font color=#fff>PROJECT MANAGEMENT</font></h2>
         </ul>
         
         <br>
         
-        <h4>ASSIGNMENT: PLAN AND SKETCH A POTENTIAL SEMESTER PROJECT</h4>
-          <h4>PROJECT: DO MY WEB SITE // SYNCRO REPOSITORY WITH A HOSTING SERVICE</h4>
+          <h4><font color=#fff>ASSIGNMENT: BUILD A PERSONAL SITE IN THE CLASS ARCHIVE DESCRIBING YOU AND YOUR FINAL PROJECT</font></h4>
+          <h4><font color=#fff>PROJECT: DO MY WEB SITE // SYNCRO REPOSITORY WITH A HOSTING SERVICE</font></h4>
           <br>
-        <h4>SOFT: <a href="http://brackets.io"> Brakets</a> for Html writing // <a href="https://github.com/">Git Hub </a> for Syncro </h4>
-          <h4>NOTE: <a href="project-menu.html">Final Project Page </a> </h4>
+          <h4><font color=#fff>SOFT: <a href="http://brackets.io"> BRACKETS </a> FOR HTML EDITING // <a href="https://github.com/">GIT HUB</a> FOR SYNCRONISATION  </font></h4>
+          
         <br>
-         <p>****************************************************************************************************************</p>
+         <p><font color=#fff>****************************************************************************************************************</font></p>   
+      
+      <br>
         <br>
-        <br>
-        
-        <p> EUREKA WORLD!<br>
-        <p>Today it is not one day as all the others: today it is the first day of school.</p> 
-<p>And today it’s the first time that I write a line of code.</p>
-        
-<p>Our assignment for the week: make my personal Fab Academy web site and sync whit Git Hub.</p>
-
-<p>For the realisation of the web site, we're being advised to use  Brackets an open source text editor.
-Brackets is available for all operating systems. It allows to edit in rapid way the code HTML, CSS and JavaScript. You can use it off line, and visualize your code directly in the browser. Cool!!!</p>
-
-        <p>Whit Git Hub, a kind of social code web-based repository hosting service, is possible to upgrade (pull) or download (push) files, folders or what du you prefer. It’s an easy and powerful way to develop and manage projects alone, whit a group of people or whit the whole world. It is very convenient and useful for maintain the nexus of the development of a project and share it.</p>  
- <p>****************************************************************************************************************</p>
-<p>Anywy, I feel good this first approach to the code: use an Html text editor for coding or Terminal for synchronize in Git Hub, give me for the first time, the sensation to use my computer differently. 
-
-Overcome the barriers of the graphic interface, is very stimulating. I don't hide that the difficulties of “coding” are a lot: I 'm very slow in every operation that I will try to do.</p>
-  <br>      
-<p>Google is my best friend.</p>
-        <br>
-<p>This web site is the demonstration of my small progress :-) </p>
-	<br>
-        <br>
-        
         <div class="row">
           
         <div class="col-lg-6">
@@ -200,63 +123,150 @@ Overcome the barriers of the graphic interface, is very stimulating. I don't hid
 	<legend>GitHub Application</legend>
             </div>
         </div>
-
-
-</script>
           
-      <script>
+          <br>
+          <br>
+          
+          
+        <p> EUREKA WORLD!<br>
+        <p>Today it is not one day as all the others: today it is the first day of school.</p> 
+<p>And today it’s the first time that I write a line of code.</p>
+        
+<p>Our assignment for the week: make my personal Fab Academy web site and sync whit Git Hub.</p>
 
-var width = Math.max(960, innerWidth),
-    height = Math.max(500, innerHeight);
+<p>For the realisation of the web site, we're being advised to use  Brackets an open source text editor.
+Brackets is available for all operating systems. It allows to edit in rapid way the code HTML, CSS and JavaScript. You can use it off line, and visualize your code directly in the browser. Cool!!!</p>
 
-var i = 0;
+        <p>Whit Git Hub, a kind of social code web-based repository hosting service, is possible to upgrade (pull) or download (push) files, folders or what du you prefer. It’s an easy and powerful way to develop and manage projects alone, whit a group of people or whit the whole world. It is very convenient and useful for maintain the nexus of the development of a project and share it.</p>  
+ 
+<p>Anywy, I feel good this first approach to the code: use an Html text editor for coding or Terminal for synchronize in Git Hub, give me for the first time, the sensation to use my computer differently. 
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+Overcome the barriers of the graphic interface, is very stimulating. I don't hide that the difficulties of “coding” are a lot: I 'm very slow in every operation that I will try to do.</p>
+  <br>      
+<p>Google is my best friend.</p>
+        <br>
+<p>This web site is the demonstration of my small progress :-) </p>
+	<br>
+        
+          <br>
+          <p></p>
+          <p><font color=#fff>Git hub command for sincronisation of the repository : use this sequence of command in Terminal when you are in the folder that you wont to syncronise.</font></p>
+          
+          <br>
+          
+<p>git status —> Status of modification of repository</p>
+          <br>
 
-svg.append("rect")
-    .attr("width", width)
-    .attr("height", height)
-    .on("ontouchstart" in document ? "touchmove" : "mousemove", particle);
+<p>git add -A . —> Add all file</p>
+          <br>
 
-function particle() {
-  var m = d3.mouse(this);
 
-  svg.insert("circle", "rect")
-      .attr("cx", m[0])
-      .attr("cy", m[1])
-      .attr("r", 1e-6)
-      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
-      .style("stroke-opacity", 1)
-    .transition()
-      .duration(2000)
-      .ease(Math.sqrt)
-      .attr("r", 100)
-      .style("stroke-opacity", 1e-6)
-      .remove();
+<p>git pull —> To get an updated version of everything</p>
+          <br>
 
-  d3.event.preventDefault();
-}
+          <p>git commit -m "message" —> For saving a commit in the local repository</p>
+    <br>
 
-</script>
+<p>git push —> To send everything you commited to github</p>
+          
+          <br>
+          <br>
+          <br>
+         
+          
+    
+<p><font color=#fff>****************************************************************************************************************</font></p> 
+        
+         
+        <ul class="pager">
+    
+        <li class="next"><a href="exercise02.html"> →</a></li>
+    
+        <li class="previous"><a href="exercises-menu.html">← </a></li> 
+    
+
+            
+            
+            
+            <h2><font color=#fff>PRINCIPLES AND PRACTICES</font></h2>
+        </ul>
+        
+        <br>
+        
+          <h4><font color=#fff>ASSIGNMENT: PLAN AND SKETCH A POTENTIAL SEMESTER PROJECT</font></h4>
+          <h4><font color=#fff>PROJECT: PHOTOGRAMMETRIC FAB SCANNER</font></h4>
+        <br>
+        <h4><font color=#fff>NOTE: <a href="project-menu.html"> FINAL PROJECT HOME PAGE </font></a> </h4>
+        <br>
+         <p><font color=#fff>****************************************************************************************************************</font></p>
+        
+
+
+<br>
+<br>
+          <p class="pic">
+        <img src="Images/Scanner_Draw_Concept_1.jpg">
+	<legend></legend>
+	</p>
+          <br>
+          
+          <p><em>The Photogrammetric 3D Fab Scanner</em> is a closed box witch include:
+              <br>
+              <br>
+          
+          <p> --> A curved rail for the vertical movement of a consumer digital camera  </p>
+          <p> --> A rotary dish, where to put down the object to scan.</p>
+          <p> --> A lighting LED autonomus system </p> 
+          <br>
+          <p> One time that the box closed, the process start: every time that the dish turns by an established angle, the photographic camera will take a picture.</p>
+          <br>
+        <p>A replicable, low cost, photogrammetry light box.</p>
+          
+          <br>
+          
+          <div class="row">
+          
+        <div class="col-lg-6">
+                <img src="Images/Project_Menu_Concept_Web.jpg">
+	<legend></legend>
+            </div>
+          
+        <div class="col-lg-6">  
+	<img src="Images/Scanner_Draw_Concept_2.jpg">
+	<legend></legend>
+            </div>
+        </div>
+          
+
+          <br>
+          <br>
+          <br>
+          <br>
+      
+      
+      
+      
+   
+        
+
+      
+      
     <!-- End of your content -->
 
     </div> <!-- /container -->
 
                 
-	<!-- footer -->
+<!-- footer -->
     
     <footer id="footer">
         <p id="cclicense">
-                </p>
+        </p>
         <p class="license">
         Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
         Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
         </p>
     </footer>
     
-      
 
 	<!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
@@ -281,44 +291,5 @@ function particle() {
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-
-var width = Math.max(960, innerWidth),
-    height = Math.max(500, innerHeight);
-
-var i = 0;
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-svg.append("rect")
-    .attr("width", width)
-    .attr("height", height)
-    .on("ontouchstart" in document ? "touchmove" : "mousemove", particle);
-
-function particle() {
-  var m = d3.mouse(this);
-
-  svg.insert("circle", "rect")
-      .attr("cx", m[0])
-      .attr("cy", m[1])
-      .attr("r", 1e-6)
-      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
-      .style("stroke-opacity", 1)
-    .transition()
-      .duration(2000)
-      .ease(Math.sqrt)
-      .attr("r", 100)
-      .style("stroke-opacity", 1e-6)
-      .remove();
-
-  d3.event.preventDefault();
-}
-
-</script>
-
-    
   </body>
 </html>

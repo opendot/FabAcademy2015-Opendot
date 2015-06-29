@@ -82,42 +82,49 @@
 	<!-- Insert your content here below! -->
       
 <div class="container">
-    <p>****************************************************************************************************************</p> 
-        <ul class="pager statusINC">
+<p><font color=#fff>****************************************************************************************************************</font></p>
+        <ul class="pager status">
     
         <li class="previous"><a href="exercise04.html">← </a></li> 
     
         <li class="next"><a href="exercise06.html"> →</a></li>
     
-        <h2>Week 5 - 3D Scanning And Printing -</h2>
+            <h2><font color=#fff>3D SCANNING AND PRINTING</font></h2>
 
         </ul>
         
         
         <br>
-        <h4>ASSIGNMENT: DESIGN AND AD PRINT AN OBJECT (SMALL FEW CM) // 3D SCAN AN OBJECT // </h4>
-        <h4>PROJECT: CREATE A 3D MESH BY A PHOTOGRAMMETRIC PROCESS // PRINT IT // </h4>
+        <h4><font color=#fff>ASSIGNMENT: DESIGN AND AD PRINT AN OBJECT (SMALL FEW CM) // 3D SCAN AN OBJECT // </font></h4>
+        <h4><font color=#fff>PROJECT: CREATE A 3D MESH BY A PHOTOGRAMMETRIC PROCESS // PRINT IT // </font></h4>
     <br>
-        <h4>Soft :
-<a href="http://ccwu.me/vsfm/"> Visual SFM </a>//
-<a href="http://meshlab.sourceforge.net/"> MeshLab </a>//
-<a href="http://www.blender.org/"> Blender </a>//
-<a href="http://software.ultimaker.com/" >Cura </a>//
-<a href="http://www.agisoft.com/"> Agisoft PhotoScan</a>
-        </h4>
+        <h4><font color=#fff>SOFT:
+<a href="http://ccwu.me/vsfm/"> VISUAL SFM </a> //
+<a href="http://meshlab.sourceforge.net/"> MESHLAB</a> //
+<a href="http://www.blender.org/"> BLENDER</a> //
+<a href="http://software.ultimaker.com/" >CURA</a> //
+<a href="http://www.agisoft.com/"> AGISOFT PHOTOSCAN</a>
+        </font></h4>
         
-        <h4>Machine : <a href="http://reprap.org/wiki/Prusa_i3">Prusa Mendel I3</a></h4>
-        <h4>Material : <a href="http://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene">ABS 3mm</a></h4>
+        <h4><font color=#fff>MACHINE: <a href="http://reprap.org/wiki/Prusa_i3">PRUSA MENDEL I3</a></font></h4>
+        <h4><font color=#fff>MATERIAL: <a href="http://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene">ABS 3mm</a></font></h4>
          <br>
-       <h4>DOWNLOAD: <a href="download/w3_fab_lamp_2d_.3dm.zip"><button type="button" class="btn btn-primary btn-lg">2D.3dm</button></a> <a href="download/w3_fab_lamp_3d_.3dm.zip"><button type="button" class="btn btn-primary btn-lg">3D.3dm</button></a>
-	</h4> <p>****************************************************************************************************************</p>
+       <h4><font color=#fff>DOWNLOAD: <a href="download/w5_Maria_Final_Decimated.stl.zip"><button type="button" class="btn btn-primary btn-lg">Maria STL</button></a> // <a href="download/w5_lapide_pigi.stl.zip"><button type="button" class="btn btn-primary btn-lg">Lapide Pigi STL</button></a></font></h4> <p><font color=#fff>****************************************************************************************************************</font></p>
+           
+           
+           
         <br>
         <br>
-<p>TEXT - Presentation of Maria -</p>
-  
- <br>
-        <br>
-        
+    <p><font color=#fff>PRESENTATION OF MARIA</font></p>
+    <br>
+    <p>From a few days a new presence is a fixed guest to Opendot Fab Lab : Maria 6 months old, is perhaps the youngest maker of Italy : -) </p>
+    <p>So I have thought to choose her as the subject for my project of photogrammetry scan and 3D print. The most difficult of this project is will be certainly to find the moment when Maria is calm and silent :-) </p>
+    <br>
+    <p>I have taken about 70 photos of Maria while she was sleeping stretched on the table. I have used a Canon 5d Mark 3 for take the pictures. I have take same pictures wolking around her, and taking 15/20 photos for every turn. Then using a  photographic technique used for the photogrammetry, I have take photos tourning around with different vertical angle. </p>
+    
+    <br>
+    
+    
  <div class="row">
           
         <div class="col-lg-4">
@@ -140,13 +147,16 @@
         
         <br>
         <br>
+           <br>
         
-        
-<p>TEXT - Agisoft Photoscan comments -</p>
+ <p><font color=#fff>AGISOFT PHOTOSCAN SOFTWARE</font></p>
         
         <br>
-        <br>
-        
+     
+    
+        <p>The first softwere that I have used for creating the final photogrammetric model is Agisoft Photoscan. This softwere closed and expensive, is extremely efficient and stable. The process of creation of the mesh is automated and rather simple to use. The mesh is created "fast" and  the final result, with the texture, is impressive. </p>
+    
+    <br>
         <div class="row">
           
         <div class="col-lg-4">
@@ -169,15 +179,25 @@
             <br>
             <br>
             
-<h4>TEXT - Visual SFM comments -</h4>
+<p><font color=#fff>VISUAL SFM SOFTWARE</font></p>
         
         <br>
-        <p>With Visual SFM I have proceeded to the creation of the point cloud:<br> 
+    
+    <p>    <p>Visual SFM is a open source soft. If you are a Mac Os user the installation is a little bit hard. You need to download the source code and follow the tutorial in the Git Hub repository <a href="https://github.com/luckybulldozer/VisualSFM_OS_X_Installer"> HERE </a> </p>
+</p>
+      
+      <br>
+      
+      
+        <p>The workflor of Visual SFM is not really frendly : this is the list of command to follow for the creation of dence cloud 
+            <br>
+        
             <br> 1 - Open images 
             <br> 2 - Lines up the images --> Compute Missing Matching button 
-            <br>  3 - Create the 3d space --> Computer 3D recostruction button<br>
-            <br> Comment : these two passages have a rapids execution independently from the hardwere configuration of your PC.<br>
-            <br> 4 - Creation of the dense cloud : really problematic. My computer crash and with a more powerful one i need more than 6 hours for have a dense cloud.I don't arrive to have a dense cloud with Visual SFM for the moment </p>
+            <br> 3 - Create the 3d space --> Computer 3D recostruction button
+            <br> 4 - Creation of the points cloud : really problematic. My computer crash and with a more powerful one i need more than 6 hours for have a "light" points cloud.</p>
+      
+      <p>Unfortunally, I don't arrive to have a dense cloud with Visual SFM for the moment </p>
         
       <br>
         <br>
@@ -197,10 +217,15 @@
             <br>
         <br>
         
-      <h4>TEXT - MeshLab comments </h4>
+     <p><font color=#fff>MESHLAB SOFTWARE</font></p>
 
 <br>
-
+        <p>MeshLab is an open source and extensible system for the processing and editing of unstructured 3D triangular meshes. Here too, the interface is not really friendly. I use it for remeshing and close the holes of the file with the command " SURFACE RECONSTRUCTION POISSON ". And for smooth the sourface with the command " LAPLACIAN SMOOTH ( SURFACE PRESERVED ) " </p>
+      <br>
+      <p>Note that UNDO command do not really exist and is really easy that the soft crash if you use filters setting without coherence.</p>
+      
+      
+      
         <div class="row">
             
         <div class="col-lg-4">    
@@ -226,8 +251,12 @@
       <br>
       <br>
 
-<h4>TEXT - Rinhoceros comments </h4>
+<p><font color=#fff>RHINOCEROS SOFTWARE</font></p>
             
+      <br>
+      
+      <p>I have use Rhinocheros for build the support of the Scanner of Maria.</p>
+      <p>It's not easy to work in Rhino with the mesh : it's normal is not do for this. <br>Furthermore my mesh is really dense.</p>
       <div class="row">
         
         <div class="col-lg-6">  
@@ -255,16 +284,41 @@
         </div>
       <br>
     
-    <h4>TEXT - Rinhoceros comments </h4>
-    
+ <p><font color=#fff>BLENDER SOFTWARE</font></p>
     <br>
-    
+      <p>I use Blender for reduce the number of face of the mesh : i used the command : " DECIMATE "</p>
+      
+      <br>
+      
+    <p class="pic">
+        <img src="Images/w5_Blender.jpeg">
+	<legend></legend>
+	</p>
+      <br>
+      <br>
+      
+      <p><font color=#fff>CURA SOFTWARE</font></p> 
+      
+      <br>
+      
+      <p>With Cura I have create the G code for print the stl.</p>
+          <p>I used ABS 3 mm for the material and i set up the parameters whit the follow setting :</p>
+      <br>
+      <br>
     <p class="pic">
         <img src="Images/w5_Cura_Maria_screen.jpg">
 	<legend>Cura </legend>
 	</p>
       <br>
         
+      <p><font color=#fff>FINAL RESULT</font></p> 
+      
+      <p>I'm happy of this little work : I do not just really sure that was a good idea make a white little sculpture of a baby.   </p>
+      <p>Is a little bit grim then the happines that Maria give to us.</p>
+      
+      <br>
+      <br>
+      
       <p class="pic">
         <img src="Images/w5_maria3d_front_coseup.jpeg">
 	<legend>Final 3D Print Front Close Up</legend>
@@ -302,11 +356,27 @@
           
         <br>
         <br>
-        <p>*****************************************************************************************************************</p>
-<p>EXTRA EXERCISE : Scan with Skinnect and Print -</p>
+        <p><font color=#fff>****************************************************************************************************************</font></p>
+    <br>
+    
+        <p><font color=#fff>EXTRA EXERCISE : SCAN MYSELF WITH SKINNECT AND PRINT</font></p> 
+
         <br>
-        <br>
-        
+      
+      <p><font color=#fff>****************************************************************************************************************</font></p>
+      <br>
+      
+        <p>Skinnect is a really easy soft for use Kinnect like a scanner : just plug it and use turning around the subject.</p>
+    
+    <p>The result is funny. It's a 3D Selfy</p>
+    
+    <br>
+        <p class="pic">
+        <img src="Images/w5_Lapide_Pigi.jpg">
+	<legend></legend>
+	</p>
+      <br>
+      <br>
           <p class="pic">
         <iframe width="960" height="540" src="https://www.youtube.com/embed/XqRkAcs0Ew8?div=0" frameborder="2" allowfullscreen></iframe>
 	<legend>The Timelaps Movie of my 3d print model</legend>
