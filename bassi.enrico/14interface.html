@@ -82,144 +82,247 @@
 	<!-- Insert your content here below! -->
 
 
-     <h2>14. Interface and application programming</h1>
+     <h2>14. Interface and application programming</h2>
     
+        <p>
+        Being Smill a CNC machine it would be interesting to design a simple interface to move it to test it before start with the G-code interpreter. To do so I used Processing and Firmata. The main PCB is not ready yet, so, to test the interface I'll use an Arduino and a breadboard. As soon as the board will be ready  I'll test it again with it.
+            <br>
+            The main idea is to take a sketch done by hand and use it as an interface. So I did a very simple interface with the 3 Axis. After that I edited in gimb and resized, to the dimension of the frame in Procesing.
+                 <img src="images/1red.JPG">
+            <br> To understand when the mouse is over the sensitive area and where this area is, i mesured with rhino where to put the sensitive areas (reppresented by the circles).
+            <img src="images/2red.jpg">
+            <br>I used the distance between the sensitive circles and the the upper-left corner. these were the reference for the position in Processing of the corresponding buttons.
+            <img src="images/3red.JPG">
+            <br> The design of the buttons is a simple image that appears over the proper position when the mouse is on, blent in "Multiply".
+            <br>
+            To communicate with the board I used a stendard Firmata, a firmware for arduino and combatible boards. This takes care of the serial communication and all the setting needed, making everything very simple.
+            <br> Here the result when the programm is lauched
+            <img src="images/firmata_red.JPG">
+           </p>
         
-    <img src="images/progress.png" alt="work in progress" height="50" width="650">    
+        <h3>The Code</h3>
+       <p> The code used is attacehd here and the zip file has the processing code, and the two images used.
+              <pre class="prettyprint linenums">
+              import processing.serial.*;
+
+import cc.arduino.*;
+
+Arduino arduino;
+
+
+PImage bg;
+PImage pressed;
+
+
+boolean XuOver = false;
+boolean XdOver = false;
+boolean YuOver = false;
+boolean YdOver = false;
+boolean ZuOver = false;
+boolean ZdOver = false;
+
+void setup() {
+  size (600, 427);
+  pressed = loadImage("pressed.jpg");
+
+  // Prints out the available serial ports.
+  println(Arduino.list());
+
+  // Modify this line, by changing the "0" to the index of the serial
+  // port corresponding to your Arduino board (as it appears in the list
+  // printed by the line above).
+  arduino = new Arduino(this, Arduino.list()[2], 57600);
+
+  // Alternatively, use the name of the serial port corresponding to your
+  // Arduino (in double-quotes), as in the following line.
+  //arduino = new Arduino(this, "/dev/tty.usbmodem621", 57600);
+
+  // Configure digital pins 4 and 7 to control stepper motors.
+  arduino.pinMode(2, Arduino.OUTPUT);
+  arduino.pinMode(3, Arduino.OUTPUT);
+  arduino.pinMode(4, Arduino.OUTPUT);
+  arduino.pinMode(5, Arduino.OUTPUT);
+  arduino.pinMode(6, Arduino.OUTPUT);
+  arduino.pinMode(7, Arduino.OUTPUT);
+  arduino.pinMode(13, Arduino.OUTPUT);
+}
+void draw() {
+  background(loadImage("bg.jpg"));
+  blendMode(MULTIPLY);
+  update(mouseX, mouseY);
+  if (XuOver) {
+    image(pressed, 301, 154);
+    arduino.digitalWrite(2, Arduino.HIGH);
+    if (mousePressed)
+     {
+     arduino.digitalWrite(3, Arduino.HIGH);
+     arduino.digitalWrite(3, Arduino.LOW);
+     }
+  }
+  if (XdOver)
+  { 
+    image(pressed, 54, 159);
+    arduino.digitalWrite(2, Arduino.LOW);
+    if (mousePressed)
+    {
+      arduino.digitalWrite(3, Arduino.HIGH);
+      arduino.digitalWrite(3, Arduino.LOW);
+    }
+  }
+  if (YuOver) {
+    image(pressed, 174, 6);
+    if (mousePressed)
+    {
+      arduino.digitalWrite(5, Arduino.HIGH);
+      arduino.digitalWrite(4, Arduino.HIGH);
+      delay(10);
+      arduino.digitalWrite(4, Arduino.LOW);
+      delay(10);
+    }
+  }
+  if (YdOver) {
+    image(pressed, 179, 288);
+    if (mousePressed)
+    {
+      arduino.digitalWrite(5, Arduino.LOW);
+      arduino.digitalWrite(4, Arduino.HIGH);
+      delay(10);
+      arduino.digitalWrite(4, Arduino.LOW);
+      delay(10);
+    }
+  }
+  if (ZuOver) {
+    image(pressed, 465, 58);
+    if (mousePressed)
+    {
+      arduino.digitalWrite(7, Arduino.HIGH);
+      arduino.digitalWrite(6, Arduino.HIGH);
+      delay(10);
+      arduino.digitalWrite(6, Arduino.LOW);
+      delay(10);
+    }
+  }
+  if (ZdOver) {
+    image(pressed, 470, 289);
+    if (mousePressed)
+    {
+      arduino.digitalWrite(7, Arduino.LOW);
+      arduino.digitalWrite(6, Arduino.HIGH);
+      delay(10);
+      arduino.digitalWrite(6, Arduino.LOW);
+      delay(10);
+    }
+  } else
+  {
+    for (int i=0; i<14; i++)
+    {
+      arduino.digitalWrite(i, Arduino.LOW);
+    }
+  }
+}
+
+
+
+void update(int x, int y) {
+  if ( overXu(301, 154, 115) ) {
+    XuOver = true;
+    XdOver = YuOver = YdOver = ZuOver = ZdOver = false;
+  } else if ( overXd(54, 159, 115) ) {
+    XdOver = true;
+    XuOver = YuOver = YdOver = ZuOver = ZdOver = false;
+  } else if ( overYu(174, 6, 115) ) {
+    YuOver = true;
+    XdOver = XuOver = YdOver = ZuOver = ZdOver = false;
+  } else if ( overYd(179, 288, 115) ) {
+    YdOver = true;
+    XdOver = YuOver = XuOver = ZuOver = ZdOver = false;
+  } else if ( overZu(465, 58, 115) ) {
+    ZuOver = true;
+    XdOver = YuOver = YdOver = XuOver = ZdOver = false;
+  } else if ( overZd(470, 289, 115) ) {
+    ZdOver = true;
+    XdOver = YuOver = YdOver = ZuOver = XuOver = false;
+  } else {
+    XuOver = XdOver = YuOver = YdOver = ZuOver = ZdOver = false;
+  }
+}
+
+boolean overXu(int x, int y, int diameter) {
+  float disX = (x - mouseX)+diameter/2;
+  float disY = (y - mouseY)+diameter/2;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overXd(int x, int y, int diameter) {
+  float disX = (x - mouseX)+diameter/2;
+  float disY = (y - mouseY)+diameter/2;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overYu(int x, int y, int diameter) {
+  float disX = (x - mouseX)+diameter/2;
+  float disY = (y - mouseY)+diameter/2;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overYd(int x, int y, int diameter) {
+  float disX = (x - mouseX)+diameter/2;
+  float disY = (y - mouseY)+diameter/2;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overZu(int x, int y, int diameter) {
+  float disX = (x - mouseX)+diameter/2;
+  float disY = (y - mouseY)+diameter/2;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overZd(int x, int y, int diameter) {
+  float disX = (x - mouseX)+diameter/2;
+  float disY = (y - mouseY)+diameter/2;
+  if (sqrt(sq(disX) + sq(disY)) < diameter/2 ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+              </pre>
+            
+   <br>
+   Here the final result<br>
+   
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/9Row_vFOjpw?ref=0" frameborder="0" allowfullscreen></iframe>
+            
+       <br><br>
+       <a href="media/interface_v0_1.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Processing Interface"</button> </a>
+       
+       <br><br>
+           <strong> P.S. when i had the board ready i decide to skip the implementation of the processing interface to move directly to the GRBL and GRBL controller to optimize the resorces. Because of this I don't have any other videos with different boards </strong>
+            
         
-    <!--    
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-
-    -->
-
+        </p>
+  
     <!-- End of your content -->
 
     </div> <!-- /container -->

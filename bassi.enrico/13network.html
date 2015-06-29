@@ -212,140 +212,187 @@ The sketch was working pretty well, but i had some trouble with the boards. It s
       
 <h3>Communication</h3>
        
-        <p>WIP ...</p>
+        <p>
+     The two boards are communicating via IR, using the same hardware (an IR LED as an emitter and a receiver at 36kHz)
+            <br> At the beginning the idea was to use a ATmega 48 but I didn't consider that the test needs codes larger than the final one, and I had to switch to a ATmega 328.
+            <br>During the first test of communication one board had a code that turn on bothe the led at the same time, while the other was reading the values and send it via serial to my serial monitor.
+            <br> What I noticed is that the receiver was reading the IR at the beginning, but in less that a second, it went back to the previous value. Thinking it was a problem of power I changed the resistor of the IR emiiter, from 499 Ohm, to 0 Ohm.
+            <img src="images/network4.jpg">
+            <br>
+            <img src="images/network5.jpg">
+            
+            <br>
+            This wasn't the problem at all. It increased only the range of communication.
+            The problem was the frequency of communication: i wasn't transmitting at 36kHz and the sensor consider the IR LED light an interference, and it adjusts the sensitivity to compensate it.
+            <br> At this point I used a function to send impulses at that frequency. This <a href="https://www.unitjuggler.com/convert-frequency-from-kHz-to-%C2%B5s%28p%29.html">website</a> has interesting tools and explenation on how to convert the interval between two events to have the events at a specific frequency.
+            </p>
         
-      
-        
-        
-        
-        <!--
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+        <h3>Algorithm</h3>
+            
+       I add the description of the algorithm I used inside the code as a comment.
+        Here the description:
+        <br><br>
+            The algoritm works this way: the board reads the partners value only when the LED and the IR transmitter are off. this reduce the complexity and the possible interferences.
+    During that period it could happen that:
+  <br>  |111111111111111111111111111111111111111111111111111111| FIRST CASE: it's receiving only HIGH values -> interval must slow down
+  <br>  |000000000000000000000000000000000000000000000000000000| SECOND CASE: it's receiving only LOW values -> interval must slow down
+   <br> |111111111111111111111110000000000000000000000000000000| THIRD CASE: it's passing from HIGH to LOW once -> interval must slow down
+   <br> |000000000000000000000000111111111111111111111111111111| FOURTH CASE: it's passing form LOW to HIGH once -> interval must speed up
+   <br> |000000000011111111111100000000000001111111111111000000| FIFTH CASE: it's changing state more than once (it doen't matter in how) ->interval must speed up
 
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
+   <br> to understand in which case we are, it's enough to memorize the first value and count how many time it's changing
+        
+        <br><br>
+        
+        It's not reliable but it create a very unpredictable result.
+            
       </p>
+      <h3>The code</h3>
+            
+      Here the code to upload on the board
+      <br>
+      
+      
+            <pre class="prettyprint linenums">
+/*
+PCB in LOVE
+project by Enrico Bassi
+Networking exercise - Fab Academy 2015
+CC BY SA
+-------------------------------------
+In this project there are two boards communicating over IR in the most simple way possible. No standard protocol or library is used.
+The boards are identical, with the same electronic components and code. There is no master or slave, but two partners.
+When the board is turned on it starts to blink at a random interval, being alone it blinks every time +1% slower than before.
+If another board is detected they try to synchronize just ommunicating that they're off when they're so.
 
-    -->
+The algoritm reduces or increses by 1% per cycle the interval to try to fit the other. But this happens in two different directions,
+so the time taken to get in synch can change a lot (from few minutes to over an hour).
 
-    <!-- End of your content -->
+This unpredictable behave of the boards is, in some way, a descriptiion of a complex system, to me very interesting
+
+
+*/
+const int ledPin =  13; // big rel LED
+const int irOut =  6; // IR led emitter
+const int irIn = 9; // IR receiver at 36kHz
+int ledState = LOW;
+long previousMillis = 0; //to calculate the interval of the blink without using a delay
+unsigned long currentMillis = 0;
+float value = 0;
+float prev = 0;
+int counter = 0; //to count how many times the partner pass from one state to the other
+int firstCounter = 0;
+int first = 0;
+int i = 0;
+
+
+long interval = 0;
+unsigned long ran = 0;
+void setup() {
+
+  pinMode(ledPin, OUTPUT);
+  pinMode(irOut, OUTPUT);
+  pinMode(irIn, INPUT);
+  randomSeed(analogRead(1)); // to generate an almost random interval duration
+}
+
+
+void loop()
+{
+  ran = random(30, 150);
+  ran = ran * 10;  //to get possible values with 10 milliseconds between one and the other
+
+  interval = ran;
+
+  while (1) //always do it
+  {
+    currentMillis = millis();
+    while (currentMillis - previousMillis < interval) // while the led is on
+    {
+      IR(); // IR function that make it blink at 36kHz to be read by the receiver
+      digitalWrite(ledPin, HIGH);
+      currentMillis = millis();
+    }
+    previousMillis = currentMillis;
+    while (currentMillis - previousMillis < interval) // while the led is off
+    {
+      digitalWrite(ledPin, LOW);
+      value = digitalRead(irIn);
+      if (value != prev)
+      {
+        counter++; //to count how many times the partner switch from one state to the other
+        // if zero it means thet the cicle of the partner is longer than this, so it must slow down.
+      }
+      delay(30); //small delay for stability
+      prev = value;
+      if (firstCounter == 0)// to remember if the partner was on or off when this turned off.
+      {
+        first = value;
+        firstCounter ++ ; //it's a way to record the value into "first" only the first time
+      }
+      currentMillis = millis();
+    }
+
+    /*
+    The algoritm works this way: the board reads the partners value only when the LED and the IR transmitter are off. this reduce the complexity and the possible interferences.
+    During that period it could happen that:
+
+    |111111111111111111111111111111111111111111111111111111| FIRST CASE: it's receiving only HIGH values -> interval must slow down
+    |000000000000000000000000000000000000000000000000000000| SECOND CASE: it's receiving only LOW values -> interval must slow down
+    |111111111111111111111110000000000000000000000000000000| THIRD CASE: it's passing from HIGH to LOW once -> interval must slow down
+    |000000000000000000000000111111111111111111111111111111| FOURTH CASE: it's passing form LOW to HIGH once -> interval must speed up
+    |000000000011111111111100000000000001111111111111000000| FIFTH CASE: it's changing state more than once (it doen't matter in how) ->interval must speed up
+
+    to understand in which case we are, it's enough to memorize the first value and count how many time it's changing
+     */
+     
+    if (counter == 0 && interval < 1500) //the algoritm that choose how to sync the partners
+    {
+      interval = interval * 1.01;
+    }
+    else if (counter > 1 && interval > 300)
+    {
+      interval = interval * 0.99;
+    }
+    else if (counter == 1 && first == 0 && interval > 300)
+    {
+      interval = interval * 0.99;
+    }
+    else if (counter == 1 && first == 1 && interval < 1500)
+    {
+      interval = interval * 1.01;
+    }
+    previousMillis = currentMillis;
+    counter = 0;
+
+  }
+
+}
+/*
+Thanks to a bunch of experiments i noticed that the only stable signal is if it's pulsed at 36kHz, otherwise the receiver slowly filters it out. 
+The interval between two peaks at 36khz is 27.77777777777777778 microseconds. So i made a function that turn on and off a led at that frequency, 
+i noticed that how long it's on or off influences a little bit the communication range, but nothing more than that
+*/
+void IR()
+{
+  digitalWrite(6, HIGH);
+  delayMicroseconds(20);
+  digitalWrite(6, LOW);
+  delayMicroseconds(7);
+}
+
+	 
+</pre>
+            
+            Here the final result: <br>
+            
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/vIsm8lSqatw?rel=0" frameborder="0" allowfullscreen></iframe>
+            <br>
+            
+            The two board are not always get to synch, but it really seems like one is following the other, then they get to a sort of harmony, then move quickly out of synch, etc.
+            
+           </p>
+     <!-- End of your content -->
 
     </div> <!-- /container -->
 

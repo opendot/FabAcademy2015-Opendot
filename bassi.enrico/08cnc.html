@@ -130,11 +130,11 @@ To properly fit together it's important to don't forget the round divots to make
 What's shown for the first profile must be done for all the pieces. Obviously identical pieces and (sometime)simmetrical pieces con be designed just once.
             <img src="images/2cnc.jpg">    
             <br><br>
-            <strong>assemble the 3D files</strong><br>
-After you extruded the profiles to make the 3D parts, it's good to assemble the pieces together to check for mistakes, interferences, and improvements. Check first just the connections between the pieces to mill, then add all the other componenets, such as 3D printed parts, elctronic and mechanical parts.
-            <img src="images/3cnc.jpg">    
+            <strong>Assemble the 3D files</strong><br>
+After you extruded the profiles to make the 3D parts, it's good to assemble the pieces together to check for mistakes, interferences, and improvements. Check first just the connections between the pieces to mill, then add all the other componenets, such as 3D printed parts, elctronic and mechanical parts.  
             <img src="images/4cnc.jpg">   
-            <img src="images/5cnc.jpg">   
+            <img src="images/5cnc.jpg">
+            <img src="images/6cnc.jpg">
             <br><br>
             <strong>Repeat the assembly for other functional part and for the final object</strong><br>
 Just follow the previews steps to assemble and check all the functional units and the final assembly. When you get to a complete 3D version, you can use it to edit the profiles (adding holes, cuts, etc.), measure distances, etc. 
@@ -148,11 +148,55 @@ Just follow the previews steps to assemble and check all the functional units an
             <a href="media/frame_cut.zip">
              <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
             
-        <h2>Cut and assemble the file</h2>    
-            
-            
+        <h3>Tutorial</h3>   
+        <p>
+           Here the <a href="http://www.slideshare.net/EnricoBassi1/tutorial-cnc-milling-machine"><strong>tutorial</strong></a> I use during the fablab courses and in University.     
             
         </p>
+        
+        <h3>Setting, cutting and assembling</h3>
+        <p>
+        The frame is cut on a 12 millimeter plywood. The first test was done on poplar, the most common plywood used. 
+            <img src="images/cut12.jpg">
+            It's cheap, tender and light. Because of long and soft wood fibers, it's pretty common to break it, and ruin the borders. There are a couple of solutions, but they take a longer time. In general up-cut keeps a better finishing on the bottom layer, while down-cut doeas the opposite. Because of this, you can cut the first half of the panel with a down-cut and the last part with a up-cut. Of course it takes more to change the end mill. As an alternative, you can set the first layer depth to 1mm and cut just the top layer of the plywood. In this case the stress on the mateial is less intense and the wood usually resists pretty well. Of course it's slower that the normal process but it's faster than the changing the tip.
+            <br>
+            For this tests, I didn't care too much about the finishing. I used two end mill: a 3mm drill for the holes and a 6mm end mill for pockets, profiles, etc.
+            Here the parameters for the holes with 3mm
+            <img src="images/cut13.jpg">
+                The best end mill in this case is a normal drill tip. In this picture both the drill tip and an end mill. The end mill has a flat end, and even if it's possible to use it in some cases, it vibrate much more with a less round hole. In this case i used the black drill tip.
+            <img src="images/cut15.jpg">
+            
+            
+            Here the parameters for the cut with the 6mm
+            <br>
+            <img src="images/cut10.jpg">
+            I edited the parameters, being the end mill I used a single blade. These end mills works very well with wood and plywood cause they have a lot of space to extract the wood dust. This allows higher rpm with less vibrations.
+            Here the end mill used (to be honest, my favourite)
+            <img src="images/cut11.jpg">
+        
+            All the pieces cut are here:
+            <img src="images/cut1.jpg">
+            
+            And the assembled version is here:
+            <img src="images/cut2.jpg">
+             Even if mechanically is not the best solution I used self-tapping screws. I know it's not the best one but it's the quicker for the beta testing.
+            <img src="images/cut7.jpg">
+            Designing the divots the way shown bofore, the gap is barely visible
+            <img src="images/cut9.jpg">
+        </p>
+        
+        <h3>Possible difects</h3>
+        <p>
+        I used two different woods for the two versions of the frame. The first test was done with popler, to work with something easy to fix by hand and to modify. This is one of the most commont problems. The stress generated by the cut is separating the layers.
+            <img src="images/cut3.jpg">
+            
+            For the second version, I used birch plywood. Being a more resistant materialit was good to test the mechanical resistance and the reliability of the frame.
+            <br> Of course it was harder to cut and the vibration on the piece were pretty strong. I noticed this on the border of a piece with not enough tabs
+            <img src="images/cut5.jpg">
+            It is probably a consequence of the vibration generated by the cut process. With more and more resistant tabs it's probably gonna be much better.
+        </p>
+        
+        
     <!--    
     
     
