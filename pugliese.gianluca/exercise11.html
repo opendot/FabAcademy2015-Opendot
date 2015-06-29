@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
     <link rel="icon" href="media/favicon.ico">
     <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
       rel="stylesheet" type="text/css">
@@ -25,8 +26,7 @@
     <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
     <!-- Load the menu file -->
     <script>
 	function menu() {
@@ -75,45 +75,112 @@
         <li>add an output device to a microcontroller board you've designed and
           program it to do something </li>
       </ul>
-      <p></p>
       <h2>Servo motor</h2>
-      <p>
-        This week I tried to connect the Satshakit and the joystick board to
-        control a servo motor. The final purpose will be to control my final
-        project by this joystick, </p>
-      <p>For this moment I tried to uplad the simple servo sketch in the Arduino
-        IDE examples list</p>
-      this is the sketch:
-      <pre class="prettyprint linenums">	#include <servo.h>
+      During this week I tried to make a board that will be useful for my final
+      project.<br>
+      In the final project I need a little board that control a micro servo to
+      up and down the tool (a pen for example) and maybe do a Z position with a
+      potentiometer<br>
+      To make this board I won't to use an atmega328 because is much, so I
+      decided to use an Attiny44. I saw the datasheet and schematic during past
+      week and I think that is perfect for this scope.<br>
+      <br>
+      I started planning what the board will do:<br>
+      <br>
+      - Read a potentiometer<br>
+      - move the servo in the position read from potentiometer<br>
+      - listen a signal in a digital pin<br>
+      - if digital pin is High put servo in 0 position<br>
+      - if digital pin is low put the servo in the position mapped from
+      potentiometer<br>
+      <br>
+      I designed the board in Eagle starting from an Hello Board<br>
+      <img style="width: 667px; height: 497px;" alt="s" src="img/servoSCH.JPG">&nbsp;&nbsp;
+      <img style="width: 224px; height: 503px;" alt="s" src="img/servo%20brd.JPG"><br>
+      <br>
+      As described above I connected <br>
+      PIN 4 -- LED<br>
+      PIN3 -- INPUT<br>
+      PIN2 -- POTENTIOMETER<br>
+      PIN 7 -- SERVO<br>
+      <br>
+      I also wired some power aux to power eventually some tools<br>
+      <br>
+      Here you can download the<a href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/OPENservo.zip">
+        EAGLE FILES</a><br>
+      <br>
+      The sketch is simple and I started using the Servo library example.<br>
+      But I discovered that the standard servo library doesn't work with Attiny
+      and I have to use another library called <a href="http://playground.arduino.cc/ComponentLib/Servo">SoftwareServo</a><br>
+      this is the code to control my board<br>
+      <br>
+      <pre class="prettyprint linenums">	/* Sketch to control the pen position in OPENstage */
 
-Servo myservo;  // create servo object to control a servo
+#include <softwareservo.h>
 
-int potpin = 0;  // analog pin used to connect the potentiometer
+SoftwareServo myservo;  // create servo object to control a servo
+
+int pos = 0;
+int potpin = 2;  // analog pin used to connect the potentiometer
 int val;    // variable to read the value from the analog pin
+int Zup;
+bool Zadj; // if true I can adjust servo position by potentiometer
+int prevVal;
+int zeta;
+
 
 void setup()
 {
-  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+  Zup=10;   //servo at 10 degree for pen in high position
+  
+
+  myservo.attach(7);  // attaches the servo on pin 9 to the servo object
+  myservo.write(Zup);  //Put servo at 10 angle
+  SoftwareServo::refresh();
+  Zadj=true;  //adjust servo position with potentiometer
+  goDown = true;
 }
 
-void loop() 
-{ 
+void loop() {
+  
+ prevVal = val;
+
   val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023) 
-  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180) 
-  myservo.write(val);                  // sets the servo position according to the scaled value 
+  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
+ 
+  if ( digitalRead(3)==LOW){  //pen in high position (maybe M09 from gcode)
+  
+
+  
+  myservo.write(Zup);  //Put servo at 10 angle
+  SoftwareServo::refresh();
+
+    
+
+  }else
+   if ( digitalRead(3)==HIGH){  //</softwareservo.h><softwareservo.h>pen in low position (maybe M08 from gcode)
+
+    
+      myservo.write(val);   //if Pin IN is HIGH servo UP
+      SoftwareServo::refresh(); 
+      
+  }
+               
   delay(15);                           // waits for the servo to get there 
 } 
-</servo.h></pre>
-      The skatch is very simple and permit to move a servo motor by
-      potentiometer, so I connected the A0 pin of the Satshakit to the Joystick
-      board and the servo signal to pin 9. Satshakit have just one connector for
-      the power, so I take 5V to power the servo directly from a power supply.
-      But... the only servo that I have in this moment is on my RC helicopter
-      <p class="pic"><img src="img/eli.jpg"> <legend>Joystick board move
-          helicopter head</legend> </p>
-      <p>
-        Next weeks I will update the page whit other experiment with another
-        board derivate and stepper motor. </p>
+
+</softwareservo.h></pre> <br>
+      To program the board I used Arduino IDE as described in <a href="http://highlowtech.org/?p=1695">THIS
+        LINK</a><br>
+      <br>
+      this is the board that I have soldered<br>
+      <img alt="s" src="img/IMG_20150610_020956.jpg"><br>
+      <p><br>
+      </p>
+      <p>The board have a little noise that I try to cancel with a capacitor,
+        below there is a little video that show how it works</p>
+      <p><iframe src="https://www.youtube.com/embed/YPeCVTo1oqA" allowfullscreen=""
+          frameborder="0" height="315" width="560"></iframe> </p>
       <!-- End of your content --> </div>
     <!-- /container -->
     <!-- footer -->
