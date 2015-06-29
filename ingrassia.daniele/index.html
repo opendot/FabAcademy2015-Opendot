@@ -5000,7 +5000,7 @@ if __name__ == '__main__':
 
 		<section id= "project9" class="row">
 			<div class="photo-grid">
-				<p>Here I will talk about the <span class="redones">new board</span> for <span class="redones">AAVOID v2</span>. As said in previous section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project5').innerHTML,'project5')"><span class="redones-link">4.2 Electronics: flight controller</span></a>, AAVOID board will have <span class="redones">two Atmega328 microcontrollers</span>. This because one of them serves as flight controller with <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii</span></a>, and the other for <span class="redones">AutoPilot, to read data sensors and to communicate with smartphone</span>. So this time the goal was to <span class="redones">fly with two microcontroller</span> onboard, and to <span class="redones">improve the existing AAVOID v1 board</span>. To be noted that, during the design of AAVOID v1 board, <span class="redones">I purposely left space to fit the other microntroller</span>. Microncontrollers will have each <span class="redones">separated components</span>, with the <span class="redones">esclusion of power stabilizers capacitors</span>. Also, microcontrollers will share the same power, coming from the <span class="redones">7805 voltage regulator</span>.</p> 
+				<p>Here I will talk about the <span class="redones">new board</span> for <span class="redones">AAVOID v2</span>. As said in previous section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project5').innerHTML,'project5')"><span class="redones-link">4.2 Electronics: flight controller</span></a>, AAVOID board will have <span class="redones">two Atmega328 microcontrollers</span>. This because one of them serves as flight controller with <a href="http://www.multiwii.com/"><span class="redones-link">MultiWii</span></a>, and the other for <span class="redones">AutoPilot, to read data sensors and to communicate with smartphone</span>. So this time the goal was to <span class="redones">fly with two microcontroller</span> onboard, and to <span class="redones">improve the existing AAVOID v1 board</span>. To be noted that, during the design of AAVOID v1 board, <span class="redones">I purposely left space to fit the other microntroller</span>. Microncontrollers will have each <span class="redones">separated components</span>, with the <span class="redones">esclusion of power stabilizers capacitors</span>. Also, microcontrollers will share the same power, coming from the <span class="redones">7805 voltage regulator</span>. Apart these small modifications, the board <span class="redones">can be considered as a dual satshakit board</span>, as the electronic design of <span class="redones">a single board is equal to the satshakit</span>.</p> 
 
 				
 				<p>So I started to change the <span class="redones">AAVOID v1 Eagle schematic</span>:</p>
@@ -5031,6 +5031,9 @@ if __name__ == '__main__':
 
 				<p>And finally, here's the board with all the <span class="redones">components soldered on it</span>:</p>
 				<img class="images-default" src="img/final_project/5.2/board_soldered.jpg">
+
+				<p>To clear uo a bit, on <span class="redones">which microcontroller will manage what</span>, here is a simple explanation picture:</p>
+				<img class="images-default" src="img/final_project/5.2/board_schema.jpg">
 
 				<p>Here you can download Eagle project and Inkscape svg of AAVOID v2 board: <a href="drawings/final_project/5.2/AAVOID_v2.rar"><span class="redones-link">download</span></a>.</p>
 
@@ -5107,7 +5110,7 @@ if __name__ == '__main__':
 				<p>With this board, and power from ECSs BEC, also <span class="redones">the other microcontroller was fully working</span> with only the power from the battery. However, when I did some <span class="redones">stress tests on full load</span> (smartphone plus new supports and sensors), I had another problem, one of the <span class="redones">power board traces exploded and I had serious crash</span>. In the test I put the throttle at the lowest level, when the quadcopter was at about 10 meters of altitude. When it was falling just at 1 meter from the ground I gave it full throttle. In that moment a <span class="redones">lot of current passed through power board traces</span>, as the <span class="redones">motors passed from idle to maximum power</span>. Here you can see a picture of the exploded trace:</p>
 				<img class="images-default" src="img/final_project/6.1/exploded.jpg">
 
-				<p>To make things worse, <span class="redones">with sonars</span>, I discovered also <span class="redones">another problem</span>. In fact, in order to have a decent read resfresh rate from them, I needed also the <span class="redones">analog pins to be usable from the second microcontroller (upper right one)</span>. So in the final board revision I enlarged the power board traces, <span class="redones">doubling their size</span>, and also <span class="redones">added pin headers for the analog pins</span> of the second microcontroller.</p>
+				<p>To make things worse, <span class="redones">with sonars</span>, I discovered also <span class="redones">another problem</span>. In fact, in order to have a decent read resfresh rate from them, I needed also the <span class="redones">analog pins to be usable from the AutoPilot microcontroller (upper right one)</span>. So in the final board revision I enlarged the power board traces, <span class="redones">doubling their size</span>, and also <span class="redones">added pin headers for the analog pins</span> of the second microcontroller.</p>
 
 				<p>So finally <span class="redones">I made it</span>, these are Eagle schematic and board of the last AAVOID board revision. <span class="redones">This board is exactly what I need to go further with AAVOID developement</span>.</p>
 
@@ -5165,11 +5168,250 @@ if __name__ == '__main__':
 
 		<section id= "project13" class="row">
 			<div class="photo-grid">
-				<p>4 <span class="redones">AAVOID v3</span>.</p>
-				<p>.</p>
+				<p>This part of the final project will cover <span class="redones">choices and tests of sonar sensors to be used on AAVOID v3</span>. After alot of Internet searching and speaking to different people, <a href="http://www.maxbotix.com/"><span class="redones-link">MaxBotix</span></a> seemed the company that could have in its catalog sonars sensors I would need. In fact their sonars are <span class="redones">widely used for many fields</span>, in which is possible to find also <span class="redones">UAV applications</span>. Following their <a href="http://www.maxbotix.com/SelectionGuide/Selection-Guide.htm"><span class="redones-link">sensor selection guide</span></a>, they suggest, for a <span class="redones">protected environment and for UAV use</span>, the <a href="http://www.maxbotix.com/Ultrasonic_Sensors/MB1240.htm"><span class="redones-link">MaxSonar MB1240</span></a>:</p>
 
+				<img class="images-default" src="img/final_project/6.3/ultrasonic_sensor.jpg">
+
+				<p>This sensor is also used by <a href="https://store.3drobotics.com/products/MB1240-XL-MaxSonar-EZ4"><span class="redones-link">3DRobotics</span></a>, and its best feature is <span class="redones">noise tolerance</span>. Reading <a href="http://www.maxbotix.com/documents/XL-MaxSonar-EZ_Datasheet.pdf"><span class="redones-link">MaxBotix MaxSonar MB1240 datasheet</span></a>, these are the main features of XL MaxSonar® EZ™ Series:</p>
+				<img class="images-default" src="img/final_project/6.3/features.png">
+				<p>And, as said before, the MB1240, is one <span class="redones">of the best for noise tolerance</span>:</p>
+
+				<img class="images-default" src="img/final_project/6.3/glance.png">
+
+				<p>As you can read from the previous picture, <span class="redones">noise tolerance is inversely proportional to the beam pattern width</span>. So, I doubted that, if I will use the MB1240, there could be some <span class="redones">blind spots</span> in obstable detection. To solve this doubt, and to try <span class="redones">using the wider beam pattern available, I tried also the MB1260 and MB1200</span> sonar sensors, that are the <span class="redones">opposite in terms of main features</span>, as they offer wider beams and high sensitivity.</p> 
+
+				<ul class="lists"><li>Talking about <span class="redones">how to use these sensors</span>, there are different ways whereby you can read distance data:</li>
+				<li><span class="redones">serial</span> communication</li>
+				<li><span class="redones">analog</span> output</li>
+				<li><span class="redones">PWM</span> output</li>
+				</ul>
+
+				<ul class="lists"><li>Concluding thoughts about choices of sonar sensors, <span class="redones">I will test the following MaxBotix sensors</span>:</li>
+				<li><span class="redones">MB1240</span></li>
+				<li><span class="redones">MB1200</span></li>
+				<li><span class="redones">MB1260</span></li>
+				</ul>
+
+				<p>The first test I did, was to <span class="redones">read sonar data via PWM output</span>. I did this test with a <span class="redones">single sonar sensor</span>, to be able to compare results from the different models I was testing. So I <span class="redones">soldered one sonar at time to pin 8</span> of the AutoPilot satshakit microcontroller of the AAVOID v3 board. Also, I wrote the following <span class="redones">sketch to read via serial the sonar distance data</span>:</p>
+
+				<pre class="prettyprint lang-c">
+//REAR
+const int rearPwPin = 8;
+long rearPulse, rearCm;
+
+const int BAUD_RATE = 9600;
+const int SAMPLE_RATE = 10;
+
+void setup() {
+ 
+  //init serial
+  Serial.begin(BAUD_RATE);
+  
+    //set pin modes
+  pinMode(rearPwPin, INPUT);
+  
+}
+
+void loop() {
+
+  //read sensors values
+  rearPulse = pulseIn(rearPwPin, HIGH);
+  
+  //convert values
+  rearCm = rearPulse/58;
+  
+  //send data to serial
+  Serial.print("RE");
+  Serial.print(rearCm);
+    
+  Serial.println();
+  
+  delay(SAMPLE_RATE);
+ 
+} 
+				</pre>
+
+				<ul class="lists"><li>This test was done <span class="redones">indoor and without propellers</span>. In these conditions, all the sonars give out <span class="redones">very stable and precise values</span>. Main <span class="redones">observed differences between MB1200, 1260 and MB1240 were<span>:</li>
+				<li>MB1260 offers the <span class="redones">farther detection range</span> (1068cm)</li>
+				<li>MB1200 and 1260 aren't capable to <span class="redones">detect an opening in the wall (such as a door)</span>, as their beam is very large</li>
+				<li>MB1240 isn't capable to <span class="redones">detect far small objects</span></li>
+				</ul>
+
+				<p>Here you can see a video about some parts of this test:</p>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/zpFpAeMWSD4" frameborder="0" allowfullscreen></iframe>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/xfCqPxrfgQI" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>The second test I did was related to one of the my <span class="redones">main concern</span> about sonar sensors: <span class="redones">distance values stability and precision while flying</span>. During this test I discovered that <span class="redones">the only sensor that could be usable</span>, with some sort of <span class="redones">data filtering</span>, was the <span class="redones">MB1240</span>. In fact, even if sonar supports position sonar sensors away from propellers, the <span class="redones">2150kv motors</span> I was using was <span class="redones">causing too much acoustic and wind noise</span> for MB1200/MB1260 sensors. Values from these <span class="redones">were completely wrong</span>. Here you can see a video about a <span class="redones">flying sonar successful test</span>, with the MB1240 onboard:</p>
+				
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/xfCqPxrfgQI" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>So, I finally chose to <span class="redones">use only MB1240</span> sensors. <span class="redones">Further tests</span>, was related to the <span class="redones">MB1240 read refresh rate</span>. To do this test I soldered all the sensors on the AAVOID v3 board, and I modified on purpose the previous <span class="redones">sketch</span> to read distances from 6 sensors:</p>
+				
+				<pre class="prettyprint lang-c">
+//FRONT
+const int frontPwPin = 8;
+long frontPulse, frontCm;
+
+//REAR
+const int rearPwPin = 9;
+long rearPulse, rearCm;
+
+//RIGHT
+const int rightPwPin = 10;
+long rightPulse, rightCm;
+
+//LEFT
+const int leftPwPin = 11;
+long leftPulse, leftCm;
+
+//UP
+const int upPwPin = 12;
+long upPulse, upCm;
+
+//DOWN
+const int downPwPin = 13;
+long downPulse, downCm;
+
+const int BAUD_RATE = 9600;
+const int SAMPLE_RATE = 10;
+
+void setup() {
+ 
+  //init serial
+  Serial.begin(BAUD_RATE);
+  
+    //set pin modes
+  pinMode(frontPwPin, INPUT);
+  pinMode(rearPwPin, INPUT);
+  pinMode(rightPwPin, INPUT);
+  pinMode(leftPwPin, INPUT);
+  pinMode(upPwPin, INPUT);
+  pinMode(downPwPin, INPUT);
+  
+}
+
+void loop() {
+
+  //read sensors values
+  frontPulse = pulseIn(frontPwPin, HIGH);
+  rearPulse = pulseIn(rearPwPin, HIGH);
+  rightPulse = pulseIn(rightPwPin, HIGH);
+  leftPulse = pulseIn(leftPwPin, HIGH);
+  downPulse = pulseIn(downPwPin, HIGH);
+  upPulse = pulseIn(upPwPin, HIGH);
+  
+  //convert values
+  frontCm = frontPulse/58;
+  rearCm = rearPulse/58;
+  rightCm = rightPulse/58;
+  leftCm = leftPulse/58;
+  downCm = downPulse/58;
+  upCm = upPulse/58;
+  
+  //send data to serial
+  Serial.print("F");
+  Serial.print(frontCm);
+  Serial.print(",");
+  
+  Serial.print("RE");
+  Serial.print(rearCm);
+  Serial.print(",");
+  
+  Serial.print("RI");
+  Serial.print(rightCm);
+  Serial.print(",");
+  
+  Serial.print("L");
+  Serial.print(leftCm);
+  Serial.print(",");
+  
+  Serial.print("D");
+  Serial.print(downCm);
+  Serial.print(",");
+  
+  Serial.print("U");
+  Serial.print(upCm);
+  
+  Serial.println();
+  
+  delay(SAMPLE_RATE);
+ 
+} 
+				</pre>
+
+			<p>Results from this test were <span class="redones">not too bad</span>, but, due to the objective of <span class="redones">implementing a realtime Autopilot</span> control of AAVOID v3, <span class="redones">too much slow</span>. In fact, each single reading done with <span class="redones">pulseIn function</span> was about <span class="redones">50 milliseconds</span>. Here is the code snippet I wrote to do some <span class="redones">benchmark</span>:</p>
+<pre class="prettyprint lang-c">
+time1 = millis();
+frontPulse = pulseIn(frontPwPin, HIGH);
+time2 = millis()-time1;
+mySerial.print("T");
+mySerial.print(time2);
+</pre>
+			
+
+			<p>So <span class="redones">remaining choices</span> on how to read sensors data were <span class="redones">serial communication and analog output</span>. I already decided to use serial communication of the Autopilot microcontroller to communicate with MultiWii on the other microcontroller, and also, I cannot use 6 serials/software serials to read sensor data. So I was <span class="redones">obliged to test analog output</span>. This test forced me to <span class="redones">redesign again AAVOID v3 board</span>, as you can read in the previous section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project11').innerHTML,'project11')"><span class="redones-link">6.1 Electronics: dual sathakit board improvements</span></a>, in order to read sensor data via analog output. Luckily <span class="redones">analog readings are very fast</span>. Here's the function I wrote to test analog readings speed:</p>
+			<pre class="prettyprint lang-c">
+void readSonarData(){
+
+	time1 = millis();
+
+    //read sensors values
+  frontVoltage =  analogRead(A5); //FRONT
+  rearVoltage =  analogRead(A4); //REAR
+  downVoltage =  analogRead(A2); //DOWN
+  leftVoltage =  analogRead(A1); //LEFT
+  rightVoltage = analogRead(A0); //RIGHT
+
+  //convert values
+  frontCm = (frontVoltage/1024)*1000;
+  frontReadings[readingsCount] = frontCm;
+  
+  rearCm = (rearVoltage/1024)*1000;
+  rearReadings[readingsCount] = rearCm;
+  
+  rightCm = (rightVoltage/1024)*1000;
+  rightReadings[readingsCount] = rightCm;
+  
+  leftCm = (leftVoltage/1024)*1000;
+  leftReadings[readingsCount] = leftCm;
+  
+  downCm = (downVoltage/1024)*1000;
+  downReadings[readingsCount] = downCm;
+  
+    if(DEBUG){
+  
+    //send data to serial
+    mySerial.print("F");
+    mySerial.print(frontCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RE");
+    mySerial.print(rearCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RI");
+    mySerial.print(rightCm);
+    mySerial.print(" ");
+  
+    mySerial.print("L");
+    mySerial.print(leftCm);
+    mySerial.print(" ");
+  
+    mySerial.print("D");
+    mySerial.print(downCm);
+    mySerial.print(" ");
+ 
+  }
+
+  time2 = millis()-time1;
+  mySerial.print("T");
+  mySerial.print(time2);
+
+}			</pre>
+
+<ul class="lists"><li>At this point I was <span class="redones">satisfied enough</span> of these tests. So, <span class="redones">conclusion</span> I've figured out about, were to:</li>
+<li><span class="redones">use MaxBotix MaxSonar MB1240</span> sensors</li>
+<li><span class="redones">use analog</span> output as the way for reading distance data</li>
+</ul>
 
 			</div>
 		</section>
@@ -5192,9 +5434,9 @@ if __name__ == '__main__':
 
 		<section id= "project15" class="row">
 			<div class="photo-grid">
-				<p>4 <span class="redones">AAVOID v3</span>.</p>
+				<p>4 <span class="redones">AAVOID v3</span>.</p>s
 				
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/xfCqPxrfgQI" frameborder="0" allowfullscreen></iframe>
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/xfCqPxrfgQI" frameborder="0" allowfullscreen></iframe>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/dUcz4klzBwY" frameborder="0" allowfullscreen></iframe>
 
 			</div>
