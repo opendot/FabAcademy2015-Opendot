@@ -4414,10 +4414,11 @@ if __name__ == '__main__':
 				<p>This a <span class="redones">video collection</span> about the <span class="redones">final results of AAVOID</span>:</p>
 				<iframe width="700" height="400" src="https://www.youtube.com/embed/d7vyrYP5Dv0" frameborder="0" allowfullscreen></iframe>
 
-				<p><br>Here's more detailed videos, like <span class="redones">Person Avoidance video collection</span>:</p>
+				<p><br>Here's more detailed videos, like <span class="redones">Person Avoidance video collection</span> and <span class="redones">walls avoidance</span>:</p>
 				<iframe width="700" height="400" src="https://www.youtube.com/embed/5KyV0pZupyg" frameborder="0" allowfullscreen></iframe>
+				<iframe width="700" height="400" src="https://www.youtube.com/embed/2-0g-2ahOy4" frameborder="0" allowfullscreen></iframe>
 
-				<p><br>A</span>utonomous <span class="redones"> A</span>ssembly a<span class="redones">VOI</span>ding <span class="redones">D</span>rone managed to obtain <span class="redones">almost perfect flights!!!</span> Here are some <span class="redones">videos</span> about:</p>
+				<p><br>Here following some misc videos about several moments and aspects of <span class="redones">AAVOID developement</span>:</p>
 
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/2PrbweWn0ns" frameborder="0" allowfullscreen></iframe>
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/FrCRy8Wi_UQ" frameborder="0" allowfullscreen></iframe>
@@ -5433,7 +5434,7 @@ void readSonarData(){
 
 				<h3><span class="redones">How to implement the AutoPilot?</span></h3>
 
-				<p><br>The idea behind of the C AutoPilot system was to exploit the possibilities offered by <a href="http://www.multiwii.com/wiki/index.php?title=Multiwii_Serial_Protocol"><span class="redones-link">MultiWii Serial Protocol</span></a> (<span class="redones">MSP</span> from now on). In fact, like <span class="redones">some sort of API</span>, you can use to MSP to get low level drone data, such as stick levels, motor PWMs, but, most important also to <span class="redones">send commands</span>. In the list of the commands you cand send, there are also <span class="redones">remote control commands "MSP_SET_RAW_RC"</span>, that, as stated on MSP page: <span class="redones">"this request is used to inject RC channel via MSP. Each chan overrides legacy RX as long as it is refreshed at least every second"</span>. Specifically, "MSP_SET_RAW_RC" will <span class="redones">overwrite all the human remote controls</span> until there isn't any "MSP_SET_RAW_RC" commands in the last second. Another useful command of MSP is <span class="redones">"MSP_RC"</span> command, that gives back <span class="redones">real-time remote control values</span>. To be noted that if you inject some commands via "MSP_SET_RAW_RC", remote controls values you're reading are the same you're injecting in. Understanding  <span class="redones">"MSP_SET_RAW_RC" and "MSP_RC"</span> commands it's possible to imagine how, using these two, <span class="redones">implement a simple reflexive Autopilot system</span>. For example look at the following <span class="redones">pseudocode</span>:</p>
+				<p><br>The idea behind of the C AutoPilot system was to exploit the possibilities offered by <a href="http://www.multiwii.com/wiki/index.php?title=Multiwii_Serial_Protocol"><span class="redones-link">MultiWii Serial Protocol</span></a> (<span class="redones">MSP</span> from now on). In fact, like <span class="redones">some sort of API</span>, you can use to MSP to get low level drone data, such as stick levels, motor PWMs, but, most important also to <span class="redones">send commands</span>. In the list of the commands you cand send, there are also <span class="redones">remote control commands "MSP_SET_RAW_RC"</span>, that, as stated on MSP page: <span class="redones">"this request is used to inject RC channel via MSP. Each chan overrides legacy RX as long as it is refreshed at least every second"</span>. Specifically, "MSP_SET_RAW_RC" will <span class="redones">overwrite all the human remote controls</span> until there isn't any "MSP_SET_RAW_RC" commands in the last second. Another useful command of MSP is <span class="redones">"MSP_RC"</span> command, that gives back <span class="redones">real-time remote control values</span>. To be noted that if you inject some commands via "MSP_SET_RAW_RC", remote controls values you're reading are the same you're injecting in. By understanding  <span class="redones">"MSP_SET_RAW_RC" and "MSP_RC"</span> commands it's possible to imagine how, using these two, <span class="redones">implement a simple reflexive Autopilot system</span>. For example look at the following <span class="redones">pseudocode</span>:</p>
 
 				<pre class="prettyprint lang-c">
 loop{
@@ -5803,16 +5804,2202 @@ void uint162byte(uint16_t value,byte bytes[]){
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/CFXT9uVOnIE" frameborder="0" 
 				allowfullscreen></iframe>
 
-<p>I was </p>
+<ul class="lists"><li><br>As you can see, there's also another function that converts uint16 to byte, called <span class="redones">uint162byte</span>, in order to send RC data to MultiWii. I was satisfied of these tests, so I tried a <span class="redones">AutoPilot walls implementation</span>. This time there are alot of new functions and features:</li> 
+
+	<li><span class="redones">distance values</span> are read with the exception of the top sonar sensor</li>
+	<li>there's an <span class="redones">altitude check</span>, this because I wanted to activate the AutoPilot only when AAVOID is at <span class="redones">a certain height</span> and not on the ground</li>
+	<li>there's a simple algorithm to <span class="redones">decide directions to take</span> depending on sonar readings</li>
+	<li>there's a check about situation in which <span class="redones">obstacles are detected on more of one side</span>, and what to do accordingly (nothing if the sides are at the opposites, oblique direction otherwise)</li>
+	<li>there are functions to <span class="redones">soft adjust remote control values</span></li>
+	<li>the AutoPilot will not deactivate itself until AAVOID will be in a <span class="redones">safe position</span></li>
+	<li>there's a function to <span class="redones">compensate the throttle</span> while AAVOID is moving</li>
+	<li>the code is <span class="redones">completely configurable</span> to suit different needs (see code comments)</li>
+	<li>there's a function that tries to do some <span class="redones">data filtering</span> on all the sonar readings</li>
+</ul> 
+
+<p>The thing that is <span class="redones">missing</span> is a full automatic <span class="redones">throttle adjustment</span>, by the readings of the bottom sonar. I was thinking to do this after I've reached the objective to show some simple avoidance tests. So the <span class="redones">AutoPilot will try follow the up/down movements</span> that AAVOID was following just before the AutoPilot autonomously switch itself on. Here's the code of the first <span class="redones">AutoPilot walls implementation</span>:</p>
+
+<pre class="prettyprint lang-c">
+#include &ltSoftwareSerial.h&gt
+#define MSP_RC 105
+#define MSP_RAW_RC 200
+
+/////////////MISC VARS///////////////////
+
+bool DEBUG,DEBUG1,DEBUG2;
+
+int readingsCount;
+
+SoftwareSerial mySerial(5,6); // RX, TX
+
+long time1,time2;
+
+bool OBSTACLE_DETECTED;
+
+/////////////AUX1 VARS///////////////
+
+int AUX1_PH; 
+byte AUX1_PIN;
+
+////////////AUTOPILOT VARS////////////
+
+bool AUTOPILOT_JUST_STARTED;
+bool AUTODISABLED;
+bool IMPULSE;
+bool AUTOPILOT;
+long AUTOPILOT_LIFETIME;
+long AUTOPILOT_START_TIME;
+
+int HOVERING;
+int FORWARD;
+int BACKWARDS;
+int LEFT;
+int RIGHT;
 
 
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/ZSJ8vHIQEkM" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/MHj910BLOmQ" frameborder="0" 
-				allowfullscreen></iframe>				
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/Jr37mSANPMQ" frameborder="0" allowfullscreen></iframe>
+/////////////SONARS///////////////
+
+//higher = more stable readings but slower and vice-versa,only par values
+#define NUM_READINGS 6
+
+int HORIZONTAL_TRESHOLD_DISTANCE;
+int MIN_ALTITUDE;
+
+//FRONT
+float frontVoltage, frontCm, frontReadings[NUM_READINGS];
+bool frontDetected;
+
+//REAR
+float rearVoltage, rearCm, rearReadings[NUM_READINGS];
+bool rearDetected;
+
+//RIGHT
+float rightVoltage, rightCm, rightReadings[NUM_READINGS];
+bool rightDetected;
+
+//LEFT
+float leftVoltage, leftCm, leftReadings[NUM_READINGS];
+bool leftDetected;
+
+//DOWN
+float downVoltage, downCm, downReadings[NUM_READINGS];
+
+//////////RC VALUES///////////////////
+
+int ROLL; 
+int PITCH; 
+int YAW; 
+int THROTTLE;
+int AUX1;
+
+int ROLL_POSITION;
+int PITCH_POSITION;
+int YAW_POSITION;
+int THROTTLE_POSITION;
+
+int ROLL_MIDDLE;
+int PITCH_MIDDLE;
+int YAW_MIDDLE;
+int THROTTLE_MIDDLE;
+int AUX1_MIDDLE;
+
+int MAX_HORIZONTAL_ADJUSTED;
+int MIN_HORIZONTAL_ADJUSTED;
+
+bool ADJUST_HORIZONTAL_THROTTLE;
+
+int normalizeStep;
+int adjustStep;
+
+////////////MULTIWII COMMUNICATION VARS///////////////
+byte rc_response[22];
+byte rc_send[8];
+uint16_t rc_values[8];
+
+//////////////TEST VARS/////////////////////
+
+//frontal test channel
+int specificAdjust = 1; //exclude PITCH
+//define specific adjustments for each channel
+int specificAdjusts[4];
+
+int THROTTLE_COMPENSATION;
+int THROTTLE_HORIZONTAL_VALUE;
+
+void setup(){
+  
+  ///DO NOT TOUCH THESE////////////////////
+
+  THROTTLE_HORIZONTAL_VALUE = 1000;
+  
+  OBSTACLE_DETECTED = false;
+  
+  HOVERING = 0;
+  FORWARD = 1;
+  BACKWARDS = 2;
+  LEFT = 3;
+  RIGHT = 4;
+
+  
+  ROLL_POSITION = 0;
+  PITCH_POSITION = 1;
+  YAW_POSITION = 2;
+  THROTTLE_POSITION = 3;
+  
+  AUTOPILOT_JUST_STARTED = true;
+  AUTODISABLED = false;
+  IMPULSE = false;
+  
+  AUTOPILOT = false;
+
+  frontDetected = false;
+  rearDetected = false;
+  rightDetected = false;
+  leftDetected = false;
+ 
+  mySerial.begin(9600);
+  Serial.begin(115200);
+  
+  AUX1_PIN = 10;
+  pinMode(AUX1_PIN, INPUT);
+  
+  //defualt values for rcsend
+  rc_values[0] = 1500;
+  rc_values[1] = 1500;
+  rc_values[2] = 1500;
+  rc_values[3] = 1500;
+  rc_values[4] = 1900;
+  rc_values[5] = 1500;
+  rc_values[6] = 1500;
+  rc_values[7] = 1500;
+  
+  readingsCount = 0;
+
+  //default values for sonars readings
+  for(int C=0;C&ltNUM_READINGS;C++)  
+    frontReadings[C] = 700;
+  
+  //values read from MultiWii
+  ROLL = 1500; 
+  PITCH = 1500; 
+  YAW = 1500; 
+  THROTTLE = 1000;
+  AUX1 = 1000;
+
+  ///WAIT FOR MULTIWII INIT
+  delay(10000);
+  
+  //////////ADJUSTABLE VALUES/////////////
+  
+  //minimum rc step for reach hovering values
+  normalizeStep = 1;
+  //minimum rc step for reach adjusted values
+  adjustStep = 15;
+  
+  //compensate throttle while moving horizontally?
+  ADJUST_HORIZONTAL_THROTTLE = true;
+  
+  //test AUTOPILOT lifetime
+  AUTOPILOT_LIFETIME = 800; //msec
+  
+  //values for hovering (here maybe is needed to read trimmered values)
+  ROLL_MIDDLE = 1500;
+  PITCH_MIDDLE = 1500;
+  YAW_MIDDLE = 1500;
+  THROTTLE_MIDDLE = 1500;
+  AUX1_MIDDLE = 1500;
+  
+  //max/min values for ROLL and PITCH when AUTOPILOT is on
+  MAX_HORIZONTAL_ADJUSTED = 1620;
+  MIN_HORIZONTAL_ADJUSTED = 1380;
+    
+  //distance for detect obstacles
+  HORIZONTAL_TRESHOLD_DISTANCE = 35; 
+  //minimum distance to start obstacle avoidance (problems on the ground!)
+  MIN_ALTITUDE = 40; 
+  
+  //test throttle compensation for horizontal movements
+  THROTTLE_COMPENSATION = 20;
+    
+  DEBUG = false;  
+  DEBUG1 = false;
+  DEBUG2 = false;
+
+}
+
+void loop(){
+  
+  //benchmark for fine tuning
+  if(DEBUG || DEBUG1 || DEBUG2)
+    time1 = millis();
+  
+  //reset adjustments values
+  specificAdjusts[ROLL_POSITION] = 0;
+  specificAdjusts[PITCH_POSITION] = 0;
+  specificAdjusts[YAW_POSITION] = 0;
+  specificAdjusts[THROTTLE_POSITION] = 0;
+  
+  readSonarData();
+  
+  //check if autopilot is enabled/disabled
+  AUX1_PH = pulseIn(AUX1_PIN, HIGH);
+  
+  if(DEBUG){
+
+    mySerial.print("A");
+    mySerial.print(AUX1_PH);
+    mySerial.print(" ");
+  
+  }
+  
+  //check sensors data if min altitude is reached
+  if(minAltitude(downReadings)){
+       
+    frontDetected = horizontalObstacleDetected(frontReadings);
+    rearDetected = horizontalObstacleDetected(rearReadings);
+    rightDetected = horizontalObstacleDetected(rightReadings);
+    leftDetected = horizontalObstacleDetected(leftReadings);
+    
+    if((frontDetected != rearDetected) || (leftDetected != rightDetected)){
+      
+      OBSTACLE_DETECTED = true;
+    
+      if(frontDetected)//go back
+        specificAdjusts[PITCH_POSITION] = BACKWARDS;
+      else
+      if(rearDetected)
+        specificAdjusts[PITCH_POSITION] = FORWARD;
+      
+      if(leftDetected)//go right
+        specificAdjusts[ROLL_POSITION] = RIGHT;
+      else
+      if(rightDetected)//go left
+        specificAdjusts[ROLL_POSITION] = LEFT;
+      
+    }else
+      OBSTACLE_DETECTED = false;
+    
+    
+    if(DEBUG1){
+     
+      mySerial.print("AR ");
+      
+      mySerial.print("FD:");
+      mySerial.print(frontDetected);
+      mySerial.print(" RED:");
+      mySerial.print(rearDetected);
+      mySerial.print(" RID:");
+      mySerial.print(rightDetected);
+      mySerial.print(" LD:");
+      mySerial.print(leftDetected);
+      mySerial.print(" ");
+
+    }
+  
+  }else
+    if(DEBUG1)
+      mySerial.print("ANR ");
+      
+  if(DEBUG1){   
+      
+    mySerial.print("OD:");
+    mySerial.print(OBSTACLE_DETECTED);
+    mySerial.print(" ");
+    
+  }
+   
+  //if(AUX1_PH > 1750 && !IMPULSE && !AUTODISABLED){
+  if(AUX1_PH > 1750 && OBSTACLE_DETECTED){ 
+    
+    AUTOPILOT = true;
+    //IMPULSE = true;
+  
+  }else{
+  //if(AUX1_PH &lt= 1750 || !OBSTACLE_DETECTED){
+    
+    //IMPULSE = false;  
+    //AUTODISABLED = false;    
+    AUTOPILOT = false;
+    AUTOPILOT_JUST_STARTED = true;
+  
+  }
+  
+  if(AUTOPILOT){
+
+    if(DEBUG1){
+         
+      readMultiWiiRCData();
+      mySerial.print("APE ");
+    
+    }
+    
+        //TEST AUTODISABLE AFTER A TIMEOUT, TAKES LAST THROTTLE VALUE
+    if(AUTOPILOT_JUST_STARTED){
+   
+      //THROTTLE COMPENSATION 
+      THROTTLE_HORIZONTAL_VALUE = THROTTLE + THROTTLE_COMPENSATION;
+      
+      AUTOPILOT_JUST_STARTED = false;
+      AUTOPILOT_START_TIME = millis();
+      
+    }else
+    if((millis()-AUTOPILOT_START_TIME) &gt AUTOPILOT_LIFETIME){
+     
+      //AUTOPILOT_JUST_STARTED = true;
+      //AUTOPILOT = false;
+      //AUTODISABLED = true;
+    
+    }
+    //////////////////////////AUTOPILOT START//////////////////  
+  
+    //////////////AUTOMATICALLY ADJUST VALUES//////////////////////
+    
+    //////////////HOVERING ADJUSTMENTS (except throttle)////////////////
+    hoveringAdjustments();
+    
+    //////////////SPECIFIC ADJUSTMENTS    
+    moveHorizontal();
+                
+    //////////////WRITE VALUES//////////////////////
+     writeMultiWiiRCData();
+   
+  //////////////////////////AUTOPILOT END//////////////////
+  
+  }else{
+    
+   if(DEBUG1)
+    mySerial.print("APD ");
+ 
+    readMultiWiiRCData();
+
+  }
+    
+  //delay(10);
+  
+   //benchmark for fine tuning
+ if(DEBUG2 || DEBUG1 || DEBUG){
+   
+  time2 = millis()-time1;
+  mySerial.print("T");
+  mySerial.print(time2);
+  
+  //one return for all
+  mySerial.println(); 
+  
+ }
+ 
+}
+
+void readMWRCRequest(){
+
+    if(Serial.available()){
+    
+    rc_response[0] = Serial.read();
+    rc_response[1] = Serial.read();
+    rc_response[2] = Serial.read();
+    rc_response[3] = Serial.read();
+    rc_response[4] = Serial.read();
+    rc_response[5] = Serial.read();
+    rc_response[6] = Serial.read();
+    rc_response[7] = Serial.read();
+    rc_response[8] = Serial.read();
+    rc_response[9] = Serial.read();
+    rc_response[10] = Serial.read();
+    rc_response[11] = Serial.read();
+    rc_response[12] = Serial.read();
+    rc_response[13] = Serial.read();
+    rc_response[14] = Serial.read();
+    rc_response[15] = Serial.read();
+    rc_response[16] = Serial.read();
+    rc_response[17] = Serial.read();
+    rc_response[18] = Serial.read();
+    rc_response[19] = Serial.read();
+    rc_response[20] = Serial.read();
+    rc_response[21] = Serial.read();
+        
+    ROLL = byte2uint16(rc_response[5],rc_response[6]);
+    PITCH = byte2uint16(rc_response[7],rc_response[8]);
+    YAW = byte2uint16(rc_response[9],rc_response[10]);
+    THROTTLE = byte2uint16(rc_response[11],rc_response[12]);
+    AUX1 = byte2uint16(rc_response[13],rc_response[14]);
+    
+    //update rc values
+    rc_values[0] = ROLL;
+    rc_values[1] = PITCH;
+    rc_values[2] = YAW;
+    rc_values[3] = THROTTLE;
+    rc_values[4] = 1900;
+    rc_values[5] = 1500;
+    rc_values[6] = 1500;
+    rc_values[7] = 1500;
+      
+    if(DEBUG1){
+    
+      mySerial.print(ROLL);
+      mySerial.print(",");
+      mySerial.print(PITCH);
+      mySerial.print(",");
+      mySerial.print(YAW);
+      mySerial.print(",");
+      mySerial.print(THROTTLE);
+      mySerial.print(",");
+      mySerial.print(AUX1);
+      mySerial.print(" ");
+          
+    }       
+          
+   }else
+    if(DEBUG1)
+      mySerial.print("n");  
+    
+}
+
+void mwSerialRequest(int requestMSP){
+  
+  Serial.write('$');
+  Serial.write('M');
+  Serial.write('&lt');
+  Serial.write((byte)0x00);
+  Serial.write(requestMSP);
+  Serial.write(requestMSP);
+
+}
+
+void mwSerialCommand(uint8_t opcode, uint8_t * data, uint8_t n_bytes) {
+  uint8_t checksum = 0;
+   
+  // Send the MSP header and message length
+  Serial.write((byte *)"$M&lt", 3);
+  Serial.write(n_bytes);
+  checksum ^= n_bytes;
+ 
+  // Send the op-code
+  Serial.write(opcode);
+  checksum ^= opcode;
+   
+  // Send the data bytes
+  for(int i = 0; i &lt n_bytes; i++) {
+    Serial.write(data[i]);
+    checksum ^= data[i];
+  }
+   
+  // Send the checksum
+  Serial.write(checksum);
+}
+
+int byte2uint16 (byte one,byte two){
+
+  return (one&0xff) + ((two&0xff)&lt&lt8);
+
+}
+
+void uint162byte(uint16_t value,byte bytes[]){
+    
+  bytes[0] = value & 0xFF; //low
+  bytes[1] = value >> 8; //high
+
+}
+
+bool horizontalObstacleDetected(float readings[]){
+
+    int counter = 0;
+  
+   for(int C=0;C&ltNUM_READINGS;C++)
+     if(readings[C] &lt= HORIZONTAL_TRESHOLD_DISTANCE)
+       ++counter;
+   
+   if(counter &gt (NUM_READINGS/2) )
+   return true;
+
+  return false;
+
+}
+
+bool minAltitude(float readings[]){
+
+   int counter = 0;
+  
+   for(int C=0;C&ltNUM_READINGS;C++)
+     if(readings[C] &gt= MIN_ALTITUDE)
+       ++counter;
+   
+   if(counter &gt (NUM_READINGS/2) )
+     return true;
+
+  return false;
+
+}
+
+void hoveringAdjustments(){
+
+      if(specificAdjusts[ROLL_POSITION] == HOVERING)
+      if((ROLL_MIDDLE-normalizeStep) &lt= rc_values[ROLL_POSITION] &lt= (ROLL_MIDDLE+normalizeStep))
+        rc_values[ROLL_POSITION] = ROLL_MIDDLE;
+      else
+      if(rc_values[ROLL_POSITION] &lt ROLL_MIDDLE)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + normalizeStep;
+      else
+      if(rc_values[ROLL_POSITION] &gt ROLL_MIDDLE)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - normalizeStep;
+
+    if(specificAdjusts[PITCH_POSITION] == HOVERING)
+      if((PITCH_MIDDLE-normalizeStep) &lt= rc_values[PITCH_POSITION] &lt= (PITCH_MIDDLE+normalizeStep))
+        rc_values[PITCH_POSITION] = PITCH_MIDDLE;
+      else
+      if(rc_values[PITCH_POSITION] &lt PITCH_MIDDLE)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + normalizeStep;
+      else
+      if(rc_values[PITCH_POSITION] &gt PITCH_MIDDLE)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - normalizeStep;
+        
+    if(specificAdjusts[YAW_POSITION] == HOVERING)
+      if((YAW_MIDDLE-normalizeStep) &lt= rc_values[YAW_POSITION] &lt= (YAW_MIDDLE+normalizeStep))
+        rc_values[YAW_POSITION] = YAW_MIDDLE;
+      else
+      if(rc_values[YAW_POSITION] &lt YAW_MIDDLE)
+        rc_values[YAW_POSITION] = rc_values[YAW_POSITION] + normalizeStep;
+      else
+      if(rc_values[YAW_POSITION] &gt YAW_MIDDLE)
+        rc_values[YAW_POSITION] = rc_values[YAW_POSITION] - normalizeStep;
+        
+    if(specificAdjusts[THROTTLE_POSITION] == HOVERING)
+      if((THROTTLE_MIDDLE-normalizeStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_MIDDLE+normalizeStep))
+        rc_values[THROTTLE_POSITION] = THROTTLE_MIDDLE;
+      else
+      if(rc_values[THROTTLE_POSITION] &lt THROTTLE_MIDDLE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] + normalizeStep;
+      else
+      if(rc_values[THROTTLE_POSITION] &gt YAW_MIDDLE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] - normalizeStep;
+        
+}
+
+void readMultiWiiRCData(){
+
+    mwSerialRequest(MSP_RC);
+  
+    delay(50);
+
+    readMWRCRequest();
+  
+}
+
+void writeMultiWiiRCData(){
+
+    for(int C=0;C&lt8;C++){
+    
+      byte bytes[2];
+      uint162byte(rc_values[C],bytes);
+  
+      rc_send[C*2] = bytes[0];
+      rc_send[(C*2)+1] = bytes[1];
+  
+    }
+    
+    //write rc values
+    mwSerialCommand(MSP_RAW_RC,rc_send,16);
+
+}
+
+void readSonarData(){
+
+    //read sensors values
+  frontVoltage =  analogRead(A5); //FRONT
+  rearVoltage =  analogRead(A4); //REAR
+  downVoltage =  analogRead(A2); //DOWN
+  leftVoltage =  analogRead(A1); //LEFT
+  rightVoltage = analogRead(A0); //RIGHT
+
+  //convert values
+  frontCm = (frontVoltage/1024)*1000;
+  frontReadings[readingsCount] = frontCm;
+  
+  rearCm = (rearVoltage/1024)*1000;
+  rearReadings[readingsCount] = rearCm;
+  
+  rightCm = (rightVoltage/1024)*1000;
+  rightReadings[readingsCount] = rightCm;
+  
+  leftCm = (leftVoltage/1024)*1000;
+  leftReadings[readingsCount] = leftCm;
+  
+  downCm = (downVoltage/1024)*1000;
+  downReadings[readingsCount] = downCm;
+  
+    ++readingsCount;
+  if(readingsCount &lt= NUM_READINGS)
+    readingsCount = 0;
+  
+    if(DEBUG){
+  
+    //send data to serial
+    mySerial.print("F");
+    mySerial.print(frontCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RE");
+    mySerial.print(rearCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RI");
+    mySerial.print(rightCm);
+    mySerial.print(" ");
+  
+    mySerial.print("L");
+    mySerial.print(leftCm);
+    mySerial.print(" ");
+  
+    mySerial.print("D");
+    mySerial.print(downCm);
+    mySerial.print(" ");
+ 
+  }
+
+}
+
+void moveHorizontal(){
+  
+  //ROLL RIGHT
+  if(specificAdjusts[ROLL_POSITION] == RIGHT){
+    
+      if((MAX_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[ROLL_POSITION] &lt= (MAX_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[ROLL_POSITION] = MAX_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[ROLL_POSITION] &lt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + adjustStep;
+      else
+      if(rc_values[ROLL_POSITION] &gt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - adjustStep;
+      
+  }else//ROLL LEFT
+  if(specificAdjusts[ROLL_POSITION] == LEFT){
+    
+      if((MIN_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[ROLL_POSITION] &lt= (MIN_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[ROLL_POSITION] = MIN_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[ROLL_POSITION] &lt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + adjustStep;
+      
+      if(rc_values[ROLL_POSITION] > MIN_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - adjustStep;     
+    
+  }
+  
+    //PITCH FORWARD
+  if(specificAdjusts[PITCH_POSITION] == FORWARD){
+    
+      if((MAX_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[PITCH_POSITION] &lt= (MAX_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[PITCH_POSITION] = MAX_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[PITCH_POSITION] &lt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + adjustStep;
+      else
+      if(rc_values[PITCH_POSITION] &gt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - adjustStep;
+      
+  }else//PITCH BACKWARDS
+  if(specificAdjusts[PITCH_POSITION] == BACKWARDS){
+    
+      if((MIN_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[PITCH_POSITION] &lt= (MIN_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[PITCH_POSITION] = MIN_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[PITCH_POSITION] &lt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + adjustStep;
+      
+      if(rc_values[PITCH_POSITION] &gt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - adjustStep;     
+    
+  }
+   
+      //YAW CLOCKWISE / COUNTER CLOCKWISE
+      
+      //THROTTLEM COMPENSATION
+      if((THROTTLE_HORIZONTAL_VALUE-adjustStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_HORIZONTAL_VALUE+adjustStep))
+        rc_values[THROTTLE_POSITION] = THROTTLE_HORIZONTAL_VALUE;
+      else
+      if(rc_values[THROTTLE_POSITION] &lt THROTTLE_HORIZONTAL_VALUE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] + adjustStep;
+      
+      if(rc_values[THROTTLE_POSITION] &gt THROTTLE_HORIZONTAL_VALUE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] - adjustStep;   
+  
+}
+</pre>
+
+				<p><br>As you can see from these videos, <span class="redones">on the ground it seemed to work very well</span>:</p>
+
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/rkOAylOlB6Q" frameborder="0" allowfullscreen></iframe>
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/bBcBNvNqBQ8" frameborder="0" allowfullscreen></iframe>
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/Jr37mSANPMQ" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>But this what happened, in a <span class="redones">longer and serious test</span>:</p>
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/ZSJ8vHIQEkM" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>During the night I discovered <span class="redones">what was the problem</span>. Due to <span class="redones">continuous readings errors from sonars</span>, the AutoPilot was <span class="redones">continuously and autonomously switched on and off</span>. This caused that it read as user throttle values, the <span class="redones">values that itself was injecting before</span>. Because of every time the AutoPilot switch on itself, it will compensate throttle by adding a little value, this was causing a continuously throttle increase. So, as you can see in the video, the throttle was slowly but continuously augmented, just before the crash.</p>	
+
+				<ul class="lists"><li>Luckily at that time I <span class="redones">had the backup ready</span> and I was able to continue experimentations <span class="redones">without losing any time</span>. Anyway <span class="redones">time was running out</span>, so I've take the decision to try at my best my last chances. <span class="redones">AAVOID will "avoid" something or will be destroyed on trying doing it!!</span> For the next try I decided to semplify all the above features, until I will reach the best <span class="redones">compromise in showing some avoid behaviours and staying safe as mush as possible</span>. So I <span class="redones">disabled alot</span> of the above functions. These the main differences:</li>
+				<li>avoidance only from <span class="redones">one side</span></li>
+				<li><span class="redones">disabled</span> altitude checking</li>
+				<li>added an <span class="redones">AutoPilot life time</span>, a sort of timeout for auto bisabling the autopilot</li>
+				<li>I <span class="redones">increased values</span> for horizontal movements</li>
+				<li>I need to <span class="redones">re-enable</span> the AutoPilot every time it was autonomously activated one time</li>
+				</ul>
+				<p>So here's the code for the fail safe <span class="redones">kick back AutoPilot implementation:</span></p>
+<pre class="prettyprint lang-c">
+#include &ltSoftwareSerial.h&gt
+#define MSP_RC 105
+#define MSP_RAW_RC 200
+
+/////////////MISC VARS///////////////////
+
+bool DEBUG,DEBUG1,DEBUG2;
+
+int readingsCount;
+
+SoftwareSerial mySerial(5,6); // RX, TX
+
+long time1,time2;
+
+bool OBSTACLE_DETECTED;
+
+/////////////AUX1 VARS///////////////
+
+int AUX1_PH; 
+byte AUX1_PIN;
+
+////////////AUTOPILOT VARS////////////
+
+bool AUTOPILOT_JUST_STARTED;
+bool AUTODISABLED;
+bool IMPULSE;
+bool AUTOPILOT;
+long AUTOPILOT_LIFETIME;
+long AUTOPILOT_START_TIME;
+
+int HOVERING;
+int FORWARD;
+int BACKWARDS;
+int LEFT;
+int RIGHT;
 
 
+/////////////SONARS///////////////
+
+//higher = more stable readings but slower and vice-versa,only par values
+#define NUM_READINGS 4
+
+int HORIZONTAL_TRESHOLD_DISTANCE;
+//int MIN_ALTITUDE;
+
+//FRONT
+float frontVoltage, frontCm, frontReadings[NUM_READINGS];
+bool frontDetected;
+
+//REAR
+float rearVoltage, rearCm, rearReadings[NUM_READINGS];
+bool rearDetected;
+
+//RIGHT
+float rightVoltage, rightCm, rightReadings[NUM_READINGS];
+bool rightDetected;
+
+//LEFT
+float leftVoltage, leftCm, leftReadings[NUM_READINGS];
+bool leftDetected;
+
+//DOWN
+//float downVoltage, downCm, downReadings[NUM_READINGS];
+
+//////////RC VALUES///////////////////
+
+int ROLL; 
+int PITCH; 
+int YAW; 
+int THROTTLE;
+int AUX1;
+
+int ROLL_POSITION;
+int PITCH_POSITION;
+int YAW_POSITION;
+int THROTTLE_POSITION;
+
+int ROLL_MIDDLE;
+int PITCH_MIDDLE;
+int YAW_MIDDLE;
+int THROTTLE_MIDDLE;
+int AUX1_MIDDLE;
+
+int MAX_HORIZONTAL_ADJUSTED;
+int MIN_HORIZONTAL_ADJUSTED;
+
+bool ADJUST_HORIZONTAL_THROTTLE;
+
+int normalizeStep;
+int adjustStep;
+
+////////////MULTIWII COMMUNICATION VARS///////////////
+byte rc_response[22];
+byte rc_send[8];
+uint16_t rc_values[8];
+
+//////////////TEST VARS/////////////////////
+
+//frontal test channel
+int specificAdjust = 1; //exclude PITCH
+//define specific adjustments for each channel
+int specificAdjusts[4];
+
+int THROTTLE_COMPENSATION;
+int THROTTLE_HORIZONTAL_VALUE;
+
+void setup(){
+  
+  ///DO NOT TOUCH THESE////////////////////
+
+  THROTTLE_HORIZONTAL_VALUE = 1000;
+  
+  OBSTACLE_DETECTED = false;
+  
+  HOVERING = 0;
+  FORWARD = 1;
+  BACKWARDS = 2;
+  LEFT = 3;
+  RIGHT = 4;
+
+  
+  ROLL_POSITION = 0;
+  PITCH_POSITION = 1;
+  YAW_POSITION = 2;
+  THROTTLE_POSITION = 3;
+  
+  AUTOPILOT_JUST_STARTED = true;
+  AUTODISABLED = false;
+  IMPULSE = false;
+  
+  AUTOPILOT = false;
+
+  frontDetected = false;
+  rearDetected = false;
+  rightDetected = false;
+  leftDetected = false;
+ 
+  mySerial.begin(9600);
+  Serial.begin(115200);
+  
+  AUX1_PIN = 10;
+  pinMode(AUX1_PIN, INPUT);
+  
+  //defualt values for rcsend
+  rc_values[0] = 1500;
+  rc_values[1] = 1500;
+  rc_values[2] = 1500;
+  rc_values[3] = 1500;
+  rc_values[4] = 1900;
+  rc_values[5] = 1500;
+  rc_values[6] = 1500;
+  rc_values[7] = 1500;
+  
+  readingsCount = 0;
+
+  //default values for sonars readings
+  for(int C=0;C&ltNUM_READINGS;C++)  
+    frontReadings[C] = 700;
+
+  //values read from MultiWii
+  ROLL = 1500; 
+  PITCH = 1500; 
+  YAW = 1500; 
+  THROTTLE = 1000;
+  AUX1 = 1000;
+
+  ///WAIT FOR MULTIWII INIT
+  delay(10000);
+  
+  //////////ADJUSTABLE VALUES/////////////
+  
+  //minimum rc step for reach hovering values
+  normalizeStep = 1;
+  //minimum rc step for reach adjusted values
+  adjustStep = 15;
+  
+  //compensate throttle while moving horizontally?
+  ADJUST_HORIZONTAL_THROTTLE = true;
+  
+  //test AUTOPILOT lifetime
+  AUTOPILOT_LIFETIME = 800; //msec
+  
+  //values for hovering (here maybe is needed to read trimmered values)
+  ROLL_MIDDLE = 1500;
+  PITCH_MIDDLE = 1500;
+  YAW_MIDDLE = 1500;
+  THROTTLE_MIDDLE = 1500;
+  AUX1_MIDDLE = 1500;
+  
+  //max/min values for ROLL and PITCH when AUTOPILOT is on
+  MAX_HORIZONTAL_ADJUSTED = 1650;
+  MIN_HORIZONTAL_ADJUSTED = 1350;
+    
+  //distance for detect obstacles
+  HORIZONTAL_TRESHOLD_DISTANCE = 130; 
+  //minimum distance to start obstacle avoidance (problems on the ground!)
+  //MIN_ALTITUDE = 40; 
+  
+  //test throttle compensation for horizontal movements
+  THROTTLE_COMPENSATION = 10;
+    
+  DEBUG = false;  
+  DEBUG1 = false;
+  DEBUG2 = false;
+
+}
+
+void loop(){
+  
+  //benchmark for fine tuning
+  if(DEBUG || DEBUG1 || DEBUG2)
+    time1 = millis();
+  
+  //reset adjustments values
+  specificAdjusts[ROLL_POSITION] = 0;
+  specificAdjusts[PITCH_POSITION] = 0;
+  specificAdjusts[YAW_POSITION] = 0;
+  specificAdjusts[THROTTLE_POSITION] = 0;
+  
+  readSonarData();
+  
+  //check if autopilot is enabled/disabled
+  AUX1_PH = pulseIn(AUX1_PIN, HIGH);
+  
+  if(DEBUG){
+
+    mySerial.print("A");
+    mySerial.print(AUX1_PH);
+    mySerial.print(" ");
+  
+  }
+  
+  //check sensors data if min altitude is reached
+  //if(minAltitude(downReadings)){
+  /*     
+    frontDetected = horizontalObstacleDetected(frontReadings);
+    rearDetected = horizontalObstacleDetected(rearReadings);
+    rightDetected = horizontalObstacleDetected(rightReadings);
+    leftDetected = horizontalObstacleDetected(leftReadings);
+    
+    if((frontDetected != rearDetected) || (leftDetected != rightDetected)){
+      
+      OBSTACLE_DETECTED = true;
+    
+      if(frontDetected)//go back
+        specificAdjusts[PITCH_POSITION] = BACKWARDS;
+      else
+      if(rearDetected)
+        specificAdjusts[PITCH_POSITION] = FORWARD;
+      else
+      if(leftDetected)//go right
+        specificAdjusts[ROLL_POSITION] = RIGHT;
+      else
+      if(rightDetected)//go left
+        specificAdjusts[ROLL_POSITION] = LEFT;
+      
+    }else
+      OBSTACLE_DETECTED = false;
+    
+    
+    if(DEBUG1){
+     
+      mySerial.print("AR ");
+      
+      mySerial.print("FD:");
+      mySerial.print(frontDetected);
+      mySerial.print(" RED:");
+      mySerial.print(rearDetected);
+      mySerial.print(" RID:");
+      mySerial.print(rightDetected);
+      mySerial.print(" LD:");
+      mySerial.print(leftDetected);
+      mySerial.print(" ");
+
+    }
+  */
+  //}else
+    //if(DEBUG1)
+      //mySerial.print("ANR ");
+      
+   //test kick
+      
+  //if(DEBUG1){   
+      
+   // mySerial.print("OD:");
+   // mySerial.print(OBSTACLE_DETECTED);
+   // mySerial.print(" ");
+    
+ // }
+   
+   leftDetected = horizontalObstacleDetected(leftReadings);
+   specificAdjusts[ROLL_POSITION] = RIGHT;
+   
+  if(leftDetected && AUX1_PH > 1750 && !IMPULSE){
+  //if(AUX1_PH > 1750 && OBSTACLE_DETECTED){ 
+    
+    AUTOPILOT_JUST_STARTED = true;
+    AUTOPILOT = true;
+    IMPULSE = true;
+  
+  }else//{
+  //if(AUX1_PH &lt= 1750 || !OBSTACLE_DETECTED){
+  if(AUX1_PH &lt= 1750){
+    
+    IMPULSE = false;  
+    AUTOPILOT = false;
+    AUTOPILOT_START_TIME = 0;
+  
+  }
+  
+  if(AUTOPILOT){
+
+    if(DEBUG1){
+         
+      readMultiWiiRCData();
+      mySerial.print("APE ");
+    
+    }
+        
+        //TEST AUTODISABLE AFTER A TIMEOUT, TAKES LAST THROTTLE VALUE
+    if(AUTOPILOT_JUST_STARTED){
+   
+      //THROTTLE COMPENSATION 
+      //THROTTLE_HORIZONTAL_VALUE = THROTTLE + THROTTLE_COMPENSATION;
+      THROTTLE_HORIZONTAL_VALUE = THROTTLE;
+      
+      AUTOPILOT_JUST_STARTED = false;
+      AUTOPILOT_START_TIME = millis();
+      
+    }else
+    if((millis()-AUTOPILOT_START_TIME) &gt AUTOPILOT_LIFETIME){
+     
+      AUTOPILOT_JUST_STARTED = true;
+      AUTOPILOT = false;
+    
+    }
+    
+    //////////////////////////AUTOPILOT START//////////////////  
+  
+    //////////////AUTOMATICALLY ADJUST VALUES//////////////////////
+    
+    //////////////HOVERING ADJUSTMENTS (except throttle)////////////////
+    hoveringAdjustments();
+    
+    //////////////SPECIFIC ADJUSTMENTS    
+    moveHorizontal();
+                
+    //////////////WRITE VALUES//////////////////////
+     writeMultiWiiRCData();
+   
+  //////////////////////////AUTOPILOT END//////////////////
+ 
+  
+  }else{
+    
+   if(DEBUG1)
+    mySerial.print("APD ");
+ 
+    readMultiWiiRCData();
+
+  }
+    
+  //delay(10);
+  
+   //benchmark for fine tuning
+ if(DEBUG2 || DEBUG1 || DEBUG){
+   
+  time2 = millis()-time1;
+  mySerial.print("T");
+  mySerial.print(time2);
+  
+  //one return for all
+  mySerial.println(); 
+  
+ }
+ 
+}
+
+void readMWRCRequest(){
+
+    if(Serial.available()){
+    
+    rc_response[0] = Serial.read();
+    rc_response[1] = Serial.read();
+    rc_response[2] = Serial.read();
+    rc_response[3] = Serial.read();
+    rc_response[4] = Serial.read();
+    rc_response[5] = Serial.read();
+    rc_response[6] = Serial.read();
+    rc_response[7] = Serial.read();
+    rc_response[8] = Serial.read();
+    rc_response[9] = Serial.read();
+    rc_response[10] = Serial.read();
+    rc_response[11] = Serial.read();
+    rc_response[12] = Serial.read();
+    rc_response[13] = Serial.read();
+    rc_response[14] = Serial.read();
+    rc_response[15] = Serial.read();
+    rc_response[16] = Serial.read();
+    rc_response[17] = Serial.read();
+    rc_response[18] = Serial.read();
+    rc_response[19] = Serial.read();
+    rc_response[20] = Serial.read();
+    rc_response[21] = Serial.read();
+        
+    ROLL = byte2uint16(rc_response[5],rc_response[6]);
+    PITCH = byte2uint16(rc_response[7],rc_response[8]);
+    YAW = byte2uint16(rc_response[9],rc_response[10]);
+    THROTTLE = byte2uint16(rc_response[11],rc_response[12]);
+    AUX1 = byte2uint16(rc_response[13],rc_response[14]);
+    
+    //update rc values
+    rc_values[0] = ROLL;
+    rc_values[1] = PITCH;
+    rc_values[2] = YAW;
+    rc_values[3] = THROTTLE;
+    rc_values[4] = 1900;
+    rc_values[5] = 1500;
+    rc_values[6] = 1500;
+    rc_values[7] = 1500;
+      
+    if(DEBUG1){
+    
+      mySerial.print(ROLL);
+      mySerial.print(",");
+      mySerial.print(PITCH);
+      mySerial.print(",");
+      mySerial.print(YAW);
+      mySerial.print(",");
+      mySerial.print(THROTTLE);
+      mySerial.print(",");
+      mySerial.print(AUX1);
+      mySerial.print(" ");
+          
+    }       
+          
+   }else
+    if(DEBUG1)
+      mySerial.print("n");  
+    
+}
+
+void mwSerialRequest(int requestMSP){
+  
+  Serial.write('$');
+  Serial.write('M');
+  Serial.write('&lt');
+  Serial.write((byte)0x00);
+  Serial.write(requestMSP);
+  Serial.write(requestMSP);
+
+}
+
+void mwSerialCommand(uint8_t opcode, uint8_t * data, uint8_t n_bytes) {
+  uint8_t checksum = 0;
+   
+  // Send the MSP header and message length
+  Serial.write((byte *)"$M&lt", 3);
+  Serial.write(n_bytes);
+  checksum ^= n_bytes;
+ 
+  // Send the op-code
+  Serial.write(opcode);
+  checksum ^= opcode;
+   
+  // Send the data bytes
+  for(int i = 0; i &lt n_bytes; i++) {
+    Serial.write(data[i]);
+    checksum ^= data[i];
+  }
+   
+  // Send the checksum
+  Serial.write(checksum);
+}
+
+int byte2uint16 (byte one,byte two){
+
+  return (one&0xff) + ((two&0xff)&lt&lt8);
+
+}
+
+void uint162byte(uint16_t value,byte bytes[]){
+    
+  bytes[0] = value & 0xFF; //low
+  bytes[1] = value &gt&gt 8; //high
+
+}
+
+bool horizontalObstacleDetected(float readings[]){
+
+    int counter = 0;
+  
+   for(int C=0;C&ltNUM_READINGS;C++)
+     if(readings[C] &lt= HORIZONTAL_TRESHOLD_DISTANCE)
+       ++counter;
+   
+   if(counter > (NUM_READINGS/2) )
+   return true;
+
+  return false;
+
+}
+
+/*
+bool minAltitude(float readings[]){
+
+   int counter = 0;
+  
+   for(int C=0;C&ltNUM_READINGS;C++)
+     if(readings[C] >= MIN_ALTITUDE)
+       ++counter;
+   
+   if(counter > (NUM_READINGS/2) )
+     return true;
+
+  return false;
+
+}*/
+
+void hoveringAdjustments(){
+
+      if(specificAdjusts[ROLL_POSITION] == HOVERING)
+      if((ROLL_MIDDLE-normalizeStep) &lt= rc_values[ROLL_POSITION] &lt= (ROLL_MIDDLE+normalizeStep))
+        rc_values[ROLL_POSITION] = ROLL_MIDDLE;
+      else
+      if(rc_values[ROLL_POSITION] &lt ROLL_MIDDLE)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + normalizeStep;
+      else
+      if(rc_values[ROLL_POSITION] &gt ROLL_MIDDLE)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - normalizeStep;
+
+    if(specificAdjusts[PITCH_POSITION] == HOVERING)
+      if((PITCH_MIDDLE-normalizeStep) &lt= rc_values[PITCH_POSITION] &lt= (PITCH_MIDDLE+normalizeStep))
+        rc_values[PITCH_POSITION] = PITCH_MIDDLE;
+      else
+      if(rc_values[PITCH_POSITION] &lt PITCH_MIDDLE)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + normalizeStep;
+      else
+      if(rc_values[PITCH_POSITION] &gt PITCH_MIDDLE)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - normalizeStep;
+        
+    if(specificAdjusts[YAW_POSITION] == HOVERING)
+      if((YAW_MIDDLE-normalizeStep) &lt= rc_values[YAW_POSITION] &lt= (YAW_MIDDLE+normalizeStep))
+        rc_values[YAW_POSITION] = YAW_MIDDLE;
+      else
+      if(rc_values[YAW_POSITION] &lt YAW_MIDDLE)
+        rc_values[YAW_POSITION] = rc_values[YAW_POSITION] + normalizeStep;
+      else
+      if(rc_values[YAW_POSITION] &gt YAW_MIDDLE)
+        rc_values[YAW_POSITION] = rc_values[YAW_POSITION] - normalizeStep;
+        
+    if(specificAdjusts[THROTTLE_POSITION] == HOVERING)
+      if((THROTTLE_MIDDLE-normalizeStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_MIDDLE+normalizeStep))
+        rc_values[THROTTLE_POSITION] = THROTTLE_MIDDLE;
+      else
+      if(rc_values[THROTTLE_POSITION] &lt THROTTLE_MIDDLE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] + normalizeStep;
+      else
+      if(rc_values[THROTTLE_POSITION] &gt YAW_MIDDLE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] - normalizeStep;
+        
+}
+
+void readMultiWiiRCData(){
+
+    mwSerialRequest(MSP_RC);
+  
+    delay(50);
+
+    readMWRCRequest();
+  
+}
+
+void writeMultiWiiRCData(){
+
+    for(int C=0;C&lt8;C++){
+    
+      byte bytes[2];
+      uint162byte(rc_values[C],bytes);
+  
+      rc_send[C*2] = bytes[0];
+      rc_send[(C*2)+1] = bytes[1];
+  
+    }
+    
+    //write rc values
+    mwSerialCommand(MSP_RAW_RC,rc_send,16);
+
+}
+
+void readSonarData(){
+
+    //read sensors values
+  frontVoltage =  analogRead(A5); //FRONT
+  rearVoltage =  analogRead(A4); //REAR
+  //downVoltage =  analogRead(A2); //DOWN
+  leftVoltage =  analogRead(A1); //LEFT
+  rightVoltage = analogRead(A0); //RIGHT
+
+  //convert values
+  frontCm = (frontVoltage/1024)*1000;
+  frontReadings[readingsCount] = frontCm;
+  
+  rearCm = (rearVoltage/1024)*1000;
+  rearReadings[readingsCount] = rearCm;
+  
+  rightCm = (rightVoltage/1024)*1000;
+  rightReadings[readingsCount] = rightCm;
+  
+  leftCm = (leftVoltage/1024)*1000;
+  leftReadings[readingsCount] = leftCm;
+  
+  //downCm = (downVoltage/1024)*1000;
+  //downReadings[readingsCount] = downCm;
+  
+    ++readingsCount;
+  if(readingsCount &gt= NUM_READINGS)
+    readingsCount = 0;
+  
+    if(DEBUG){
+  
+    //send data to serial
+    mySerial.print("F");
+    mySerial.print(frontCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RE");
+    mySerial.print(rearCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RI");
+    mySerial.print(rightCm);
+    mySerial.print(" ");
+  
+    mySerial.print("L");
+    mySerial.print(leftCm);
+    mySerial.print(" ");
+  
+    //mySerial.print("D");
+    //mySerial.print(downCm);
+    //mySerial.print(" ");
+ 
+  }
+
+}
+
+void moveHorizontal(){
+  
+  //ROLL RIGHT
+  if(specificAdjusts[ROLL_POSITION] == RIGHT){
+    
+      if((MAX_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[ROLL_POSITION] &lt= (MAX_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[ROLL_POSITION] = MAX_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[ROLL_POSITION] &lt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + adjustStep;
+      else
+      if(rc_values[ROLL_POSITION] &gt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - adjustStep;
+      
+  }else//ROLL LEFT
+  if(specificAdjusts[ROLL_POSITION] == LEFT){
+    
+      if((MIN_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[ROLL_POSITION] &lt= (MIN_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[ROLL_POSITION] = MIN_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[ROLL_POSITION] &lt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + adjustStep;
+      
+      if(rc_values[ROLL_POSITION] &gt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - adjustStep;     
+    
+  }
+  
+    //PITCH FORWARD
+  if(specificAdjusts[PITCH_POSITION] == FORWARD){
+    
+      if((MAX_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[PITCH_POSITION] &lt= (MAX_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[PITCH_POSITION] = MAX_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[PITCH_POSITION] &lt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + adjustStep;
+      else
+      if(rc_values[PITCH_POSITION] &gt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - adjustStep;
+      
+  }else//PITCH BACKWARDS
+  if(specificAdjusts[PITCH_POSITION] == BACKWARDS){
+    
+      if((MIN_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[PITCH_POSITION] &lt= (MIN_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[PITCH_POSITION] = MIN_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[PITCH_POSITION] &lt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + adjustStep;
+      
+      if(rc_values[PITCH_POSITION] &gt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - adjustStep;     
+    
+  }
+   
+      //YAW CLOCKWISE / COUNTER CLOCKWISE
+      
+      //THROTTLEM COMPENSATION
+      if((THROTTLE_HORIZONTAL_VALUE-adjustStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_HORIZONTAL_VALUE+adjustStep))
+        rc_values[THROTTLE_POSITION] = THROTTLE_HORIZONTAL_VALUE;
+      else
+      if(rc_values[THROTTLE_POSITION] &lt THROTTLE_HORIZONTAL_VALUE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] + adjustStep;
+      
+      if(rc_values[THROTTLE_POSITION] &gt THROTTLE_HORIZONTAL_VALUE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] - adjustStep;   
+  
+}
+</pre>
+<p><br>Finally, this fail safe AutoPilot <span class="redones">worked very well</span>, and I was able to show some <span class="redones">good avoidance tests</span> that worked also with a single person as an obstacle. Here you can see some videos about:</p>
+<iframe width="700" height="450" src="https://www.youtube.com/embed/2-0g-2ahOy4" frameborder="0" allowfullscreen></iframe>
+<iframe width="700" height="450" src="https://www.youtube.com/embed/5KyV0pZupyg" frameborder="0" allowfullscreen></iframe>
+<p><br>Even if a hadn't the time to test it, and due to my work schedulation, I had ready also an<span class="redones"> AutoPilot version that could be able to circumnavigate some simple obstacles</span>, instead of going away from them. I want to write here the code for who eventually wants to continue my work in the future. I called this version <span class="redones">pillars AutoPilot</span>:</p>
+<pre class="prettyprint lang-c">
+#include &ltSoftwareSerial.h&gt
+#define MSP_RC 105
+#define MSP_RAW_RC 200
+
+/////////////MISC VARS///////////////////
+
+bool DEBUG,DEBUG1,DEBUG2;
+
+int readingsCount;
+
+SoftwareSerial mySerial(5,6); // RX, TX
+
+long time1,time2;
+
+bool OBSTACLE_DETECTED;
+
+/////////////AUX1 VARS///////////////
+
+int AUX1_PH; 
+byte AUX1_PIN;
+
+////////////AUTOPILOT VARS////////////
+
+bool AUTOPILOT_JUST_STARTED;
+bool AUTODISABLED;
+bool IMPULSE;
+bool AUTOPILOT;
+long AUTOPILOT_LIFETIME;
+long AUTOPILOT_START_TIME;
+
+int HOVERING;
+int FORWARD;
+int BACKWARDS;
+int LEFT;
+int RIGHT;
+
+
+/////////////SONARS///////////////
+
+//higher = more stable readings but slower and vice-versa,only par values
+#define NUM_READINGS 12
+
+int HORIZONTAL_TRESHOLD_DISTANCE;
+int MIN_ALTITUDE;
+
+//FRONT
+float frontVoltage, frontCm, frontReadings[NUM_READINGS];
+bool frontDetected;
+
+//REAR
+float rearVoltage, rearCm, rearReadings[NUM_READINGS];
+bool rearDetected;
+
+//RIGHT
+float rightVoltage, rightCm, rightReadings[NUM_READINGS];
+bool rightDetected;
+
+//LEFT
+float leftVoltage, leftCm, leftReadings[NUM_READINGS];
+bool leftDetected;
+
+//DOWN
+float downVoltage, downCm, downReadings[NUM_READINGS];
+
+//////////RC VALUES///////////////////
+
+int ROLL; 
+int PITCH; 
+int YAW; 
+int THROTTLE;
+int AUX1;
+
+int ROLL_POSITION;
+int PITCH_POSITION;
+int YAW_POSITION;
+int THROTTLE_POSITION;
+
+int ROLL_MIDDLE;
+int PITCH_MIDDLE;
+int YAW_MIDDLE;
+int THROTTLE_MIDDLE;
+int AUX1_MIDDLE;
+
+int MAX_HORIZONTAL_ADJUSTED;
+int MIN_HORIZONTAL_ADJUSTED;
+
+bool ADJUST_HORIZONTAL_THROTTLE;
+
+int normalizeStep;
+int adjustStep;
+
+////////////MULTIWII COMMUNICATION VARS///////////////
+byte rc_response[22];
+byte rc_send[8];
+uint16_t rc_values[8];
+
+//////////////TEST VARS/////////////////////
+
+
+//frontal test channel
+int specificAdjust = 1; //exclude PITCH
+//define specific adjustments for each channel
+int specificAdjusts[4];
+
+int THROTTLE_COMPENSATION;
+int THROTTLE_HORIZONTAL_VALUE;
+
+int rightCounter; 
+int forwardCounter = 5;
+int tempCounter1 = 0;
+int tempCounter2 = 0;
+
+void setup(){
+  
+  ///DO NOT TOUCH THESE////////////////////
+
+  THROTTLE_HORIZONTAL_VALUE = 1000;
+  
+  OBSTACLE_DETECTED = false;
+  
+  HOVERING = 0;
+  FORWARD = 1;
+  BACKWARDS = 2;
+  LEFT = 3;
+  RIGHT = 4;
+
+  
+  ROLL_POSITION = 0;
+  PITCH_POSITION = 1;
+  YAW_POSITION = 2;
+  THROTTLE_POSITION = 3;
+  
+  AUTOPILOT_JUST_STARTED = true;
+  AUTODISABLED = false;
+  IMPULSE = false;
+  
+  AUTOPILOT = false;
+
+  frontDetected = false;
+  rearDetected = false;
+  rightDetected = false;
+  leftDetected = false;
+ 
+  mySerial.begin(9600);
+  Serial.begin(115200);
+  
+  AUX1_PIN = 10;
+  pinMode(AUX1_PIN, INPUT);
+  
+  //defualt values for rcsend
+  rc_values[0] = 1500;
+  rc_values[1] = 1500;
+  rc_values[2] = 1500;
+  rc_values[3] = 1500;
+  rc_values[4] = 1900;
+  rc_values[5] = 1500;
+  rc_values[6] = 1500;
+  rc_values[7] = 1500;
+  
+  readingsCount = 0;
+
+  //default values for sonars readings
+  for(int C=0;C&ltNUM_READINGS;C++)  
+    frontReadings[C] = 700;
+
+    
+  
+  
+  //values read from MultiWii
+  ROLL = 1500; 
+  PITCH = 1500; 
+  YAW = 1500; 
+  THROTTLE = 1000;
+  AUX1 = 1000;
+
+  ///WAIT FOR MULTIWII INIT
+  delay(10000);
+  
+  //////////ADJUSTABLE VALUES/////////////
+  
+  //minimum rc step for reach hovering values
+  normalizeStep = 1;
+  //minimum rc step for reach adjusted values
+  adjustStep = 15;
+  
+  //compensate throttle while moving horizontally?
+  ADJUST_HORIZONTAL_THROTTLE = true;
+  
+  //test AUTOPILOT lifetime
+  AUTOPILOT_LIFETIME = 1000; //msec
+  
+  //values for hovering (here maybe is needed to read trimmered values)
+  ROLL_MIDDLE = 1500;
+  PITCH_MIDDLE = 1500;
+  YAW_MIDDLE = 1500;
+  THROTTLE_MIDDLE = 1500;
+  AUX1_MIDDLE = 1500;
+  
+  //max/min values for ROLL and PITCH when AUTOPILOT is on
+  MAX_HORIZONTAL_ADJUSTED = 1560;
+  MIN_HORIZONTAL_ADJUSTED = 1440;
+    
+  //distance for detect obstacles
+  HORIZONTAL_TRESHOLD_DISTANCE = 35; 
+  //minimum distance to start obstacle avoidance (problems on the ground!)
+  MIN_ALTITUDE = 40; 
+  
+  //test throttle compensation for horizontal movements
+  THROTTLE_COMPENSATION = 20;
+    
+  DEBUG = false;  
+  DEBUG1 = false;
+  DEBUG2 = false;
+
+}
+
+void loop(){
+  
+  //benchmark for fine tuning
+  if(DEBUG || DEBUG1 || DEBUG2)
+    time1 = millis();
+  
+  //reset adjustments values
+  specificAdjusts[ROLL_POSITION] = 0;
+  specificAdjusts[PITCH_POSITION] = 0;
+  specificAdjusts[YAW_POSITION] = 0;
+  specificAdjusts[THROTTLE_POSITION] = 0;
+  
+  readSonarData();
+  
+  //check if autopilot is enabled/disabled
+  AUX1_PH = pulseIn(AUX1_PIN, HIGH);
+  
+  if(DEBUG){
+
+    mySerial.print("A");
+    mySerial.print(AUX1_PH);
+    mySerial.print(" ");
+  
+  }
+  
+  //check sensors data if min altitude is reached
+  if(minAltitude(downReadings)){
+       
+    frontDetected = horizontalObstacleDetected(frontReadings);
+    rearDetected = horizontalObstacleDetected(rearReadings);
+    rightDetected = horizontalObstacleDetected(rightReadings);
+    leftDetected = horizontalObstacleDetected(leftReadings);
+    
+    if(frontDetected && !OBSTACLE_DETECTED){
+    
+      OBSTACLE_DETECTED = true;
+      specificAdjusts[ROLL_POSITION] = RIGHT;
+      ++tempCounter1;
+    
+    }else
+    if(frontDetected && OBSTACLE_DETECTED){
+    
+      specificAdjusts[ROLL_POSITION] = RIGHT;
+      ++tempCounter1;
+    
+    }else
+    if(!frontDetected && OBSTACLE_DETECTED && tempCounter2 &lt10){
+    
+      specificAdjusts[PITCH_POSITION] = FORWARD;
+      ++tempCounter2;
+      
+    }else
+    if(!frontDetected && leftDetected && OBSTACLE_DETECTED){
+    
+      specificAdjusts[PITCH_POSITION] = FORWARD;
+      
+    }else
+    if(!frontDetected && !leftDetected && OBSTACLE_DETECTED){
+    
+      specificAdjusts[ROLL_POSITION] = LEFT;
+      
+      ++rightCounter;
+      
+      if(tempCounter1 == rightCounter)
+        OBSTACLE_DETECTED = false;
+      
+    }
+    
+
+      //OBSTACLE_DETECTED = false;
+    
+    
+    if(DEBUG1){
+     
+      mySerial.print("AR ");
+      
+      mySerial.print("FD:");
+      mySerial.print(frontDetected);
+      mySerial.print(" RED:");
+      mySerial.print(rearDetected);
+      mySerial.print(" RID:");
+      mySerial.print(rightDetected);
+      mySerial.print(" LD:");
+      mySerial.print(leftDetected);
+      mySerial.print(" ");
+
+    }
+  
+  }else
+    if(DEBUG1)
+      mySerial.print("ANR ");
+      
+  if(DEBUG1){   
+      
+    mySerial.print("OD:");
+    mySerial.print(OBSTACLE_DETECTED);
+    mySerial.print(" ");
+    
+  }
+   
+  //if(AUX1_PH &gt 1750 && !IMPULSE && !AUTODISABLED){
+  if(AUX1_PH &gt 1750 && OBSTACLE_DETECTED){ 
+    
+    AUTOPILOT = true;
+    //IMPULSE = true;
+  
+  }else{
+  //if(AUX1_PH &lt= 1750 || !OBSTACLE_DETECTED){
+    
+    //IMPULSE = false;  
+    //AUTODISABLED = false;    
+    AUTOPILOT = false;
+    AUTOPILOT_JUST_STARTED = true;
+  
+  }
+  
+  if(AUTOPILOT){
+
+    if(DEBUG1){
+         
+      readMultiWiiRCData();
+      mySerial.print("APE ");
+    
+    }
+    
+        //TEST AUTODISABLE AFTER A TIMEOUT, TAKES LAST THROTTLE VALUE
+    if(AUTOPILOT_JUST_STARTED){
+   
+      //THROTTLE COMPENSATION 
+      THROTTLE_HORIZONTAL_VALUE = THROTTLE + THROTTLE_COMPENSATION;
+      
+      AUTOPILOT_JUST_STARTED = false;
+      AUTOPILOT_START_TIME = millis();
+      
+    }else
+    if((millis()-AUTOPILOT_START_TIME) &gt AUTOPILOT_LIFETIME){
+     
+      //AUTOPILOT_JUST_STARTED = true;
+      //AUTOPILOT = false;
+      //AUTODISABLED = true;
+    
+    }
+    //////////////////////////AUTOPILOT START//////////////////  
+  
+    //////////////AUTOMATICALLY ADJUST VALUES//////////////////////
+    
+    //////////////HOVERING ADJUSTMENTS (except throttle)////////////////
+    hoveringAdjustments();
+    
+    //////////////SPECIFIC ADJUSTMENTS    
+    moveHorizontal();
+                
+    //////////////WRITE VALUES//////////////////////
+     writeMultiWiiRCData();
+   
+  //////////////////////////AUTOPILOT END//////////////////
+  
+  }else{
+    
+   if(DEBUG1)
+    mySerial.print("APD ");
+ 
+    readMultiWiiRCData();
+
+  }
+    
+  //delay(10);
+  
+   //benchmark for fine tuning
+ if(DEBUG2 || DEBUG1 || DEBUG){
+   
+  time2 = millis()-time1;
+  mySerial.print("T");
+  mySerial.print(time2);
+  
+  //one return for all
+  mySerial.println(); 
+  
+ }
+ 
+}
+
+void readMWRCRequest(){
+
+    if(Serial.available()){
+    
+    rc_response[0] = Serial.read();
+    rc_response[1] = Serial.read();
+    rc_response[2] = Serial.read();
+    rc_response[3] = Serial.read();
+    rc_response[4] = Serial.read();
+    rc_response[5] = Serial.read();
+    rc_response[6] = Serial.read();
+    rc_response[7] = Serial.read();
+    rc_response[8] = Serial.read();
+    rc_response[9] = Serial.read();
+    rc_response[10] = Serial.read();
+    rc_response[11] = Serial.read();
+    rc_response[12] = Serial.read();
+    rc_response[13] = Serial.read();
+    rc_response[14] = Serial.read();
+    rc_response[15] = Serial.read();
+    rc_response[16] = Serial.read();
+    rc_response[17] = Serial.read();
+    rc_response[18] = Serial.read();
+    rc_response[19] = Serial.read();
+    rc_response[20] = Serial.read();
+    rc_response[21] = Serial.read();
+        
+    ROLL = byte2uint16(rc_response[5],rc_response[6]);
+    PITCH = byte2uint16(rc_response[7],rc_response[8]);
+    YAW = byte2uint16(rc_response[9],rc_response[10]);
+    THROTTLE = byte2uint16(rc_response[11],rc_response[12]);
+    AUX1 = byte2uint16(rc_response[13],rc_response[14]);
+    
+    //update rc values
+    rc_values[0] = ROLL;
+    rc_values[1] = PITCH;
+    rc_values[2] = YAW;
+    rc_values[3] = THROTTLE;
+    rc_values[4] = 1900;
+    rc_values[5] = 1500;
+    rc_values[6] = 1500;
+    rc_values[7] = 1500;
+      
+    if(DEBUG1){
+    
+      mySerial.print(ROLL);
+      mySerial.print(",");
+      mySerial.print(PITCH);
+      mySerial.print(",");
+      mySerial.print(YAW);
+      mySerial.print(",");
+      mySerial.print(THROTTLE);
+      mySerial.print(",");
+      mySerial.print(AUX1);
+      mySerial.print(" ");
+          
+    }       
+          
+   }else
+    if(DEBUG1)
+      mySerial.print("n");  
+    
+}
+
+void mwSerialRequest(int requestMSP){
+  
+  Serial.write('$');
+  Serial.write('M');
+  Serial.write('&lt');
+  Serial.write((byte)0x00);
+  Serial.write(requestMSP);
+  Serial.write(requestMSP);
+
+}
+
+void mwSerialCommand(uint8_t opcode, uint8_t * data, uint8_t n_bytes) {
+  uint8_t checksum = 0;
+   
+  // Send the MSP header and message length
+  Serial.write((byte *)"$M&lt", 3);
+  Serial.write(n_bytes);
+  checksum ^= n_bytes;
+ 
+  // Send the op-code
+  Serial.write(opcode);
+  checksum ^= opcode;
+   
+  // Send the data bytes
+  for(int i = 0; i &lt n_bytes; i++) {
+    Serial.write(data[i]);
+    checksum ^= data[i];
+  }
+   
+  // Send the checksum
+  Serial.write(checksum);
+}
+
+int byte2uint16 (byte one,byte two){
+
+  return (one&0xff) + ((two&0xff)&lt&lt8);
+
+}
+
+void uint162byte(uint16_t value,byte bytes[]){
+    
+  bytes[0] = value & 0xFF; //low
+  bytes[1] = value &gt&gt 8; //high
+
+}
+
+bool horizontalObstacleDetected(float readings[]){
+
+    int counter = 0;
+  
+   for(int C=0;C&ltNUM_READINGS;C++)
+     if(readings[C] &lt= HORIZONTAL_TRESHOLD_DISTANCE)
+       ++counter;
+   
+   if(counter &gt (NUM_READINGS/2) )
+   return true;
+
+  return false;
+
+}
+
+bool minAltitude(float readings[]){
+
+   int counter = 0;
+  
+   for(int C=0;C&ltNUM_READINGS;C++)
+     if(readings[C] &gt= MIN_ALTITUDE)
+       ++counter;
+   
+   if(counter &gt (NUM_READINGS/2) )
+     return true;
+
+  return false;
+
+}
+
+void hoveringAdjustments(){
+
+      if(specificAdjusts[ROLL_POSITION] == HOVERING)
+      if((ROLL_MIDDLE-normalizeStep) &lt= rc_values[ROLL_POSITION] &lt= (ROLL_MIDDLE+normalizeStep))
+        rc_values[ROLL_POSITION] = ROLL_MIDDLE;
+      else
+      if(rc_values[ROLL_POSITION] &lt ROLL_MIDDLE)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + normalizeStep;
+      else
+      if(rc_values[ROLL_POSITION] &gt ROLL_MIDDLE)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - normalizeStep;
+
+    if(specificAdjusts[PITCH_POSITION] == HOVERING)
+      if((PITCH_MIDDLE-normalizeStep) &lt= rc_values[PITCH_POSITION] &lt= (PITCH_MIDDLE+normalizeStep))
+        rc_values[PITCH_POSITION] = PITCH_MIDDLE;
+      else
+      if(rc_values[PITCH_POSITION] &lt PITCH_MIDDLE)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + normalizeStep;
+      else
+      if(rc_values[PITCH_POSITION] &gt PITCH_MIDDLE)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - normalizeStep;
+        
+    if(specificAdjusts[YAW_POSITION] == HOVERING)
+      if((YAW_MIDDLE-normalizeStep) &lt= rc_values[YAW_POSITION] &lt= (YAW_MIDDLE+normalizeStep))
+        rc_values[YAW_POSITION] = YAW_MIDDLE;
+      else
+      if(rc_values[YAW_POSITION] &lt YAW_MIDDLE)
+        rc_values[YAW_POSITION] = rc_values[YAW_POSITION] + normalizeStep;
+      else
+      if(rc_values[YAW_POSITION] &gt YAW_MIDDLE)
+        rc_values[YAW_POSITION] = rc_values[YAW_POSITION] - normalizeStep;
+        
+    if(specificAdjusts[THROTTLE_POSITION] == HOVERING)
+      if((THROTTLE_MIDDLE-normalizeStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_MIDDLE+normalizeStep))
+        rc_values[THROTTLE_POSITION] = THROTTLE_MIDDLE;
+      else
+      if(rc_values[THROTTLE_POSITION] &lt THROTTLE_MIDDLE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] + normalizeStep;
+      else
+      if(rc_values[THROTTLE_POSITION] &gt YAW_MIDDLE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] - normalizeStep;
+        
+}
+
+void readMultiWiiRCData(){
+
+    mwSerialRequest(MSP_RC);
+  
+    delay(50);
+
+    readMWRCRequest();
+  
+}
+
+void writeMultiWiiRCData(){
+
+    for(int C=0;C&lt8;C++){
+    
+      byte bytes[2];
+      uint162byte(rc_values[C],bytes);
+  
+      rc_send[C*2] = bytes[0];
+      rc_send[(C*2)+1] = bytes[1];
+  
+    }
+    
+    //write rc values
+    mwSerialCommand(MSP_RAW_RC,rc_send,16);
+
+}
+
+void readSonarData(){
+
+    //read sensors values
+  frontVoltage =  analogRead(A5); //FRONT
+  rearVoltage =  analogRead(A4); //REAR
+  downVoltage =  analogRead(A2); //DOWN
+  leftVoltage =  analogRead(A1); //LEFT
+  rightVoltage = analogRead(A0); //RIGHT
+
+  //convert values
+  frontCm = (frontVoltage/1024)*1000;
+  frontReadings[readingsCount] = frontCm;
+  
+  rearCm = (rearVoltage/1024)*1000;
+  rearReadings[readingsCount] = rearCm;
+  
+  rightCm = (rightVoltage/1024)*1000;
+  rightReadings[readingsCount] = rightCm;
+  
+  leftCm = (leftVoltage/1024)*1000;
+  leftReadings[readingsCount] = leftCm;
+  
+  downCm = (downVoltage/1024)*1000;
+  downReadings[readingsCount] = downCm;
+  
+    ++readingsCount;
+  if(readingsCount &gt= NUM_READINGS)
+    readingsCount = 0;
+  
+    if(DEBUG){
+  
+    //send data to serial
+    mySerial.print("F");
+    mySerial.print(frontCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RE");
+    mySerial.print(rearCm);
+    mySerial.print(" ");
+  
+    mySerial.print("RI");
+    mySerial.print(rightCm);
+    mySerial.print(" ");
+  
+    mySerial.print("L");
+    mySerial.print(leftCm);
+    mySerial.print(" ");
+  
+    mySerial.print("D");
+    mySerial.print(downCm);
+    mySerial.print(" ");
+ 
+  }
+
+}
+
+void moveHorizontal(){
+  
+  //ROLL RIGHT
+  if(specificAdjusts[ROLL_POSITION] == RIGHT){
+    
+      if((MAX_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[ROLL_POSITION] &lt= (MAX_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[ROLL_POSITION] = MAX_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[ROLL_POSITION] &lt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + adjustStep;
+      else
+      if(rc_values[ROLL_POSITION] &gt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - adjustStep;
+      
+  }else//ROLL LEFT
+  if(specificAdjusts[ROLL_POSITION] == LEFT){
+    
+      if((MIN_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[ROLL_POSITION] &lt= (MIN_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[ROLL_POSITION] = MIN_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[ROLL_POSITION] &lt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] + adjustStep;
+      
+      if(rc_values[ROLL_POSITION] &gt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[ROLL_POSITION] = rc_values[ROLL_POSITION] - adjustStep;     
+    
+  }
+  
+    //PITCH FORWARD
+  if(specificAdjusts[PITCH_POSITION] == FORWARD){
+    
+      if((MAX_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[PITCH_POSITION] &lt= (MAX_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[PITCH_POSITION] = MAX_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[PITCH_POSITION] &lt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + adjustStep;
+      else
+      if(rc_values[PITCH_POSITION] &gt MAX_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - adjustStep;
+      
+  }else//PITCH BACKWARDS
+  if(specificAdjusts[PITCH_POSITION] == BACKWARDS){
+    
+      if((MIN_HORIZONTAL_ADJUSTED-adjustStep) &lt= rc_values[PITCH_POSITION] &lt= (MIN_HORIZONTAL_ADJUSTED+adjustStep))
+        rc_values[PITCH_POSITION] = MIN_HORIZONTAL_ADJUSTED;
+      else
+      if(rc_values[PITCH_POSITION] &lt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] + adjustStep;
+      
+      if(rc_values[PITCH_POSITION] &gt MIN_HORIZONTAL_ADJUSTED)
+        rc_values[PITCH_POSITION] = rc_values[PITCH_POSITION] - adjustStep;     
+    
+  }
+   
+      //YAW CLOCKWISE / COUNTER CLOCKWISE
+      
+      //THROTTLEM COMPENSATION
+      if((THROTTLE_HORIZONTAL_VALUE-adjustStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_HORIZONTAL_VALUE+adjustStep))
+        rc_values[THROTTLE_POSITION] = THROTTLE_HORIZONTAL_VALUE;
+      else
+      if(rc_values[THROTTLE_POSITION] &lt THROTTLE_HORIZONTAL_VALUE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] + adjustStep;
+      
+      if(rc_values[THROTTLE_POSITION] &gt THROTTLE_HORIZONTAL_VALUE)
+        rc_values[THROTTLE_POSITION] = rc_values[THROTTLE_POSITION] - adjustStep;   
+  
+}
+</pre>
+
+<p><br>Here you can dowload all the AutoPilot versions I've talked about: <a href="other/autopilots.rar"><span class="redones-link">download</span></a>.</p>
 			</div>
 		</section>
 
