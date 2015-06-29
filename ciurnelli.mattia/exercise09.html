@@ -135,49 +135,69 @@ since the final use of the mold will be with ice, we used Smooth-SIL® 940 that 
             <p class="pic"><img src= "Image/Lesson09/risultato_caffe.jpg" class="img-responsive" alt="Responsive image"></p>
             
             <h3>Milling a Mold</h3>
-            
+            <p>As a task of the week, we had to create a mold, by milling a block of wax. To do this, I chose a 3D model easy to implement, I imported in MeshLab and simplified to make the file more light</p>
             <p class="pic"><img src= "Image/Lesson09/kenny_iniziale.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Once the file is exported from MeshLab, I imported in Rhino, where I started to work to realize the positive mold, which will go then milled into the wax. First I divided the mesh into 2 parts, so you have two molds at the end, and placed them on two surfaces on which I applied on one side 4 cylinder and on the other 4 holes: these elements will then serve, once It made the mold, to match them.</p>
             <p class="pic"><img src= "Image/Lesson09/split_in_part.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Then I created the walls of the block of wax, so as to keep separated the two blocks.</p>
             <p class="pic"><img src= "Image/Lesson09/final_mold_kenny.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Once ready the model, I exported as ".stl" and imported PartWork3D to prepare files for milling. First, we set the orientation and size of the model (which in my case are the dimensions of the material).</p>
             <p class="pic"><img src= "Image/Lesson09/orientation_and_size_model.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Subsequently you have to set the size of the material (which as mentioned above are the same with those of the model), the origin and the eventual tab.</p>
             <p class="pic"><img src= "Image/Lesson09/material_size_and_margin.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Once finished setting measures of model and material, we move to the development of the toolpath, one for roughing and one for finishing.</p>
+            <p>First, it is estimated that of roughing. For this work, I used a 1/8 inch drill bit, with the following parameters:</p>
+            <ul type=square>
+                <li>Pass Depth: 0.1 inches</li>
+                <li>Stepover: 0.05 inches</li>
+                <li>Spindle Speed: 10000 r.p.m.</li>
+                <li>Feed Rate: 15 mm/s</li>
+                <li>Plunge Rate: 8.0 mm/s</li>
+                <li>Rapid Cleareance Gap: 5.0 mm</li>
+                <li>Machining Allowance: 0,5 mm</li>
+                <li>Strategy: Z Level --> Raster X</li>
+            </ul>
             <p class="pic"><img src= "Image/Lesson09/roughing_toolpath.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Once finished with the roughing, I switched to calculating the finishing toolpath, this time using the following parameters and a 3 mm ball nose tip:</p>
+            <ul type=square>
+                <li>Stepover: 0.3 mm</li>
+                <li>Spindle Speed: 10000 r.p.m.</li>
+                <li>Feed Rate: 10.0 mm/s</li>
+                <li>Plunge Rate: 5.0 mm/s</li>
+                <li>Rapid Cleareance Gap: 5.0 mm</li>
+                <li>Raste Angle: 45 degrees</li>
+            </ul>
             <p class="pic"><img src= "Image/Lesson09/finishing_toolpath.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Once processed both toolpath, I've exported and got ready to mill the wax block.
+I set the block to the work plane, using pieces of wood in each side.</p>
+            <p>Once secured to the block plan, I imported the roughing toolpath and I did start</p>
             <p class="pic"><img src= "Image/Lesson09/sgrossatura1.jpg" class="img-responsive" alt="Responsive image"></p>
             
             <p class="pic"><img src= "Image/Lesson09/sgrossatura2.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>This is the result after the roughing</p>
             <p class="pic"><img src= "Image/Lesson09/fine_sgrossatura.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Immediately after finishing the initial processing, I imported and started the finishing toolpath</p>
             <p class="pic"><img src= "Image/Lesson09/finishing1.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>This is the result after the finishing</p>
             <p class="pic"><img src= "Image/Lesson09/final_finishing.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Once finished, I cleaned the block by any remnants of wax and I started to prepare the silicone rubber to obtain the mold.</p>
+            <p>The silicone rubber is obtained by mixing two components: the first or the rubber itself and the second which is a hardener.</p>
+            <p>The two components are mixed according to the following proportions: 100 silicone rubber: 5 hardening.</p>
             <p class="pic"><img src= "Image/Lesson09/gomma_siliconica.jpg" class="img-responsive" alt="Responsive image"></p>
-            
             <p class="pic"><img src= "Image/Lesson09/indurente.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Once prepared the proportions, we must quickly stir and pour into the mold, as more time passes the more rubber hardens.</p>
             <p class="pic"><img src= "Image/Lesson09/colata.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>After ten hours the mold is ready to be removed from the block of wax, this is the obtained result:</p>
             <p class="pic"><img src= "Image/Lesson09/stampi.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>Before pouring the resin into the mold just obtained, I created a small box of plywood with the laser cutter, in order to keep the 2 mold applies the mold united in a uniform manner.</p>
             <p class="pic"><img src= "Image/Lesson09/box_lasercutter.jpg" class="img-responsive" alt="Responsive image"></p>
-            
             <p class="pic"><img src= "Image/Lesson09/box_stampo.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>When the mold and the box to contain it are ready, I mixed the two components of the resin (50% part A - 50% part B) and the I casting in the mold</p>
             <p class="pic"><img src= "Image/Lesson09/colata_resina.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>After half an hour the resin is already cured, and you can proceed to open the mold</p>
             <p class="pic"><img src= "Image/Lesson09/apertura_stampo.jpg" class="img-responsive" alt="Responsive image"></p>
-            
             <p class="pic"><img src= "Image/Lesson09/apertura_stampo2.jpg" class="img-responsive" alt="Responsive image"></p>
-            
+            <p>This is the final result</p>
             <p class="pic"><img src= "Image/Lesson09/final_result_kenny.jpg" class="img-responsive" alt="Responsive image"></p>
             
             <p><a href="media/Kenny_mold.stl.zip"><button type="button" class="btn btn-primary">Download the .stl file of the mold</button></a></p>
