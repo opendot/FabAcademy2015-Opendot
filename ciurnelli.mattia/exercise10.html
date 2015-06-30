@@ -119,7 +119,7 @@
             <li>#define QUADX</li>
             <li>#define DROTEK_10DOF_MPU//</li></ul>
             <p class="pic"><img src= "Image/Lesson10/editconfigfile1.jpg" class="img-responsive" alt="Responsive image"></p>
-            <div class="codeArduino">/**************************    The type of multicopter    ****************************/
+            <div class="codeArduino"><pre class="prettyprint linenums">/**************************    The type of multicopter    ****************************/
     //#define GIMBAL
     //#define BI
     //#define TRI
@@ -140,9 +140,9 @@
     //#define DUALCOPTER
     //#define HELI_120_CCPM
     //#define HELI_90_DEG
-        </div><br>
+        </pre></div><br><br>
             <p class="pic"><img src= "Image/Lesson10/editconfigfile2.jpg" class="img-responsive" alt="Responsive image"></p>
-            <div class="codeArduino">/***************************    Combined IMU Boards    ********************************/
+            <div class="codeArduino"><pre class="prettyprint linenums">/***************************    Combined IMU Boards    ********************************/
       /* if you use a specific sensor board:
          please submit any correction to this list.
            Note from Alex: I only own some boards, for other boards, I'm not sure, the info was gathered via rc forums, be cautious */
@@ -215,7 +215,7 @@
       //#define MultiWii_32U4_SE_no_baro // Hextronik MultiWii_32U4_SE without the MS561101BA to free flash-memory for other functions
       //#define Flyduino9DOF       // Flyduino 9DOF IMU MPU6050+HMC5883l
       //#define Nano_Plane         // Multiwii Plane version with tail-front LSM330 sensor http://www.radiosait.ru/en/page_5324.html
-</div><br>
+</pre></div><br><br>
             <p>After do this the program is ready to be uploaded in the microcontroller (always using the FabISP).</p>
             <p class="pic"><img src= "Image/Lesson10/UploadMultiWII.jpg" class="img-responsive" alt="Responsive image"></p>
             <p>After programming the board you have to disconnect it from the FabISP and connect the IMU 10DOF to it. A useful thing is to keep open the datasheet of the ATmega328 to check the name of the pins.</p>

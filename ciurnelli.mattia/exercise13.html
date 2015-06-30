@@ -126,7 +126,7 @@ These modules are radio frequency transceiver to 2.4Ghz (the same as WiFi) reall
            This is a very basic example of how to send data from one node to another.</p>
             <p class="pic"><img src= "Image/Lesson13/define_role.jpg" class="img-responsive" alt="Responsive image"></p>
             <p>Set role = 0 in one microcontroller</p>
-            <div class="codeArduino">byte addresses[][6] = {"1Node","2Node"};
+            <div class="codeArduino"><pre class="prettyprint linenums">byte addresses[][6] = {"1Node","2Node"};
 
 // Used to control whether this node is sending or receiving
 bool role = 0;
@@ -154,9 +154,9 @@ void setup() {
   // Start the radio listening for data
   radio.startListening();
 }
-</div><br>
+</pre></div><br><br>
             <p>and set role = 1 in the other</p>
-            <div class="codeArduino">byte addresses[][6] = {"1Node","2Node"};
+            <div class="codeArduino"><pre class="prettyprint linenums">byte addresses[][6] = {"1Node","2Node"};
 
 // Used to control whether this node is sending or receiving
 bool role = 1;
@@ -184,7 +184,7 @@ void setup() {
   // Start the radio listening for data
   radio.startListening();
 }
-            </div><br>           
+            </pre></div><br><br>           
             
             
             <p>Once loaded the sketch in two microcontrollers, we start the serial monitor and we should see, depending on which microcontroller is connected to the PC, the bits that are transmitted or received.</p>
@@ -195,19 +195,19 @@ void setup() {
             <p>This is an example of how to use the RF24 class to control a remote
  bank of LED's using buttons on a remote control. On the 'remote', connect any number of buttons or switches from a microcontroller pin to ground.  Update 'button_pins' to reflect the pins used.</p>
             
-            <div class="codeArduino">// Pins on the remote for buttons
+            <div class="codeArduino"><pre class="prettyprint linenums">// Pins on the remote for buttons
 const uint8_t button_pins[] = { 2,3,4};
-const uint8_t num_button_pins = sizeof(button_pins);</div><br>
+const uint8_t num_button_pins = sizeof(button_pins);</pre></div><br><br>
             
                <p> On the 'led' board, connect the same number of LED's from an microcontroller pin to a resistor to ground. Update 'led_pins' to reflect the pins used.</p>
-            <div class="codeArduino">// Pins on the LED board for LED's
+            <div class="codeArduino"><pre class="prettyprint linenums">// Pins on the LED board for LED's
 const uint8_t led_pins[] = { 2,3,4};
-const uint8_t num_led_pins = sizeof(led_pins);</div><br>
+const uint8_t num_led_pins = sizeof(led_pins);</pre></div><br><br>
                    
                    <p>Also connect a separate pin to ground and change the 'role_pin'. This tells the sketch it's running on the LED board.</p>
-            <div class="codeArduino">// sets the role of this unit in hardware.  Connect to GND to be the 'led' board receiver
+           <div class="codeArduino"><pre class="prettyprint linenums">// sets the role of this unit in hardware.  Connect to GND to be the 'led' board receiver
 // Leave open to be the 'remote' transmitter
-const int role_pin = A4;</div><br>
+const int role_pin = A4;</pre></div><br><br>
             
  
   <p>Every time the buttons change on the remote, the entire state of

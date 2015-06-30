@@ -114,7 +114,7 @@
         </ul></p>
       <p>After connecting everything I started looking for how to interface the two components, and shows on the display the data of the accelerometer.</p>
       <p>I consulted the library "LiquidCristal.h" and tried to figure out what features I would come in handy, then I took a sketch used for the MPU6050 (used during <a href="exercise10.html">week 10</a>) and I've adapted.</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
 #include&ltWire.h&gt;
 
 #include &ltLiquidCrystal.h&gt;
@@ -172,7 +172,7 @@ void loop()
 
   delay(300);
   lcd.clear();
-}</div><br>
+}</pre></div><br><br>
       <p class="pic"><img src= "Image/Lesson11/codice_arduino.jpg" class="img-responsive" alt="Responsive image"></p>
       
       
@@ -204,7 +204,7 @@ Using a display bigger maybe, you can show the full range of data produced by MP
       <p>For the code, i've found a good tutorial at <a href src="http://www.nudatech.com/blog/controlling-an-rgb-led-with-arduino/">http://www.nudatech.com</a> whit explain step by step the construction of the sketch.</p>
       
       <p>First the sketch define the cconstants and globals:</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
           const byte NUM_COLORS = 3;
  
 // REQUIRED INTERVAL (IN MS) BETWEEN ANY CHANGE TO A COLOR CHANNEL
@@ -222,10 +222,10 @@ byte VAL_COLORS[]   = { 255, 255, 255 };
 // TIMER USED TO CHANGE A COLOR QUITE SLOWLY
 byte TIMER_COLORS[] = { 0, 0, 0 };
           
-      </div><br>
+      </pre></div><br><br>
       
       <p>Then, in the setup, the sketch initialize the pins of the led to to turn them off</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
       void setup() 
 {
   // cycle through the 3 channels  
@@ -238,10 +238,10 @@ byte TIMER_COLORS[] = { 0, 0, 0 };
   }
 }
           
-      </div><br>
+      </pre></div><br><br>
       
       <p>Finally in the loop we can find how the sketch work: While a button is pushed (value is HIGH)  the brightness of corresponding colour is increased up to its maximum value, whereas the brightness of a colour is decreased until it’s off when a button is not pushed (value is LOW).</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
           void loop() 
 {   
   // cycle through the 3 buttons/channels
@@ -286,7 +286,7 @@ byte TIMER_COLORS[] = { 0, 0, 0 };
   delay(DELAY_TIME);
 }
           
-      </div><br>
+      </pre></div><br><br>
       
       <p>This is the circuit while is working:</p>
       <iframe width="420" height="315" src="https://www.youtube.com/embed/RFVmyhQ4sdo?rel=0" frameborder="0" allowfullscreen></iframe><br>
@@ -321,7 +321,7 @@ byte TIMER_COLORS[] = { 0, 0, 0 };
       </ul>
       
       <p>So, for example, if in the loop you write this</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
           void loop() {
    cntr++;   
    vClear();
@@ -343,14 +343,14 @@ byte TIMER_COLORS[] = { 0, 0, 0 };
    drawLine(1,8,8,8);
    Transfer();
 }
-      </div><br>
+      </pre></div><br><br>
       <p>you will ottain this</p>
       
       <p class="pic"><img src= "Image/Lesson11/testcoloriMatrix.jpg" class="img-responsive" alt="Responsive image"></p>
       <p>so it easy to understand the codes 0 to 7 in which colors match.</p>
       
       <p>The same way it is very easy to launch forms:</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
           void loop() {
    cntr++;   
    vClear();
@@ -364,10 +364,10 @@ byte TIMER_COLORS[] = { 0, 0, 0 };
    drawRectangle(4,4,5,5);
    Transfer();
 }
-      </div>
+      </pre></div><br>
       <p class="pic"><img src= "Image/Lesson11/testformeMatrix.jpg" class="img-responsive" alt="Responsive image"></p>
       <p>As for the management of the text, it is also very simple if you use the library functions. Besides library "lcd8x8rgb.h" in this case we also need the "font.h": this library defines the "design" rules of the alphanumeric characters and punctuation marks.Write a sentence is quite easy, this is an example:</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
 #include "SPI.h"
 #include "font.h"
 #include "lcd8x8rgb.h"
@@ -395,12 +395,12 @@ void loop() {
   vClear();
 }
           
-      </div><br>
+      </pre></div><br><br>
       
       <iframe width="420" height="315" src="https://www.youtube.com/embed/zIuTUFps1bE?rel=0" frameborder="0" allowfullscreen></iframe><br>
       
       <p>By default the "scrollingString" function change the color for each character in the sentence written at the beginning. If you want to have only one color for all the sentence you have to modify the function in the library.</p>
-      <div class="codeArduino">
+      <div class="codeArduino"><pre class="prettyprint linenums">
           void scrollString(unsigned char c[], boolean directions) { //draw a scrolling string
 
   int len;
@@ -420,7 +420,7 @@ void loop() {
   }
   theEnder(directions);
 }
-      </div><br>
+      </pre></div><br><br>
       
       <p>Just comment the lines "color ++; ....." and then define the color chosen in the loop for the program.</p>
       <iframe width="420" height="315" src="https://www.youtube.com/embed/IJw7CKIKRcQ?rel=0" frameborder="0" allowfullscreen></iframe><br>
