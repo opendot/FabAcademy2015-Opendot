@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Project I3P - Step 4 : Application and Interface programming </title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      
+         <h2>Project I3P - Step 4 : Application and Interface programming</h2><br>
+      
+        
+        <p>Now that all the hardware part is installed and functioning, along with the electronic programs loaded to the board and sending data over serial port, I will move to develop a GUI that displays information on the computers about the plant health and display alert when the plant requires water.<br><br>
+As I have mentioned in module Module 14: Interface and Application Programming, I have already developed an initial application that would be used as starting point for my project application.<br><br>
+I used the C++ programming language and the Qt Creator application in order to develop the application. The major parts of the development had to deal with: <br><br>
+        •	User interface<br>
+•	Establishing communication with the board and reading data<br>
+•	Parsing of data to correct format<br>
+•	Display of data on the application user interface<br><br>
+Therefore, for the graphical part I used the QT visual design tool:<br><br></p>
+        <p class="pic"><img src="media/project-GUI.jpg"><legend>QT visual design</legend> </p> 
+        <p>Then I moved to the coding part where I had to work on three parts: dialog.h, dialog.cpp, and main.cpp <br><br>
+            This is the code I developed:<br><br></p>
+        
+        <div class="notepad"><div class="titlenotepad">dialog.h</div><div class="textnotepad">
+#ifndef DIALOG_H
+#define DIALOG_H
+
+#include <QDialog>
+#include <QSerialPort>
+#include <QByteArray>
+
+
+namespace Ui {
+class Dialog;
+}
+
+class Dialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit Dialog(QWidget *parent = 0);
+    ~Dialog();
+
+private slots:
+    void getSerial();
+    void updateTemp(QString);
+    void updateMoist(QString);
+    void updateHumid(QString);
+    void updateMessage();
+
+private:
+    Ui::Dialog *ui;
+
+    QSerialPort *arduino;
+
+    static const quint16 arduino_uno_vendor_id = 9025;
+    static const quint16 arduino_uno_product_id = 67;
+
+    QByteArray serialData;
+    QString serialBuffer;
+    QString parsed_dt1;
+    QString parsed_dt2;
+    QString parsed_dt3;
+
+    double temp_value;
+    double moist_value;
+    double humid_value;
+
+};
+
+#endif // DIALOG_H
+</div></div><br>
+        
+           
+            <p>This is the content of the dialog.cpp</p><br><br>
+            <div class="notepad"><div class="titlenotepad">dialog.cpp</div><div class="textnotepad">
+#include "dialog.h"
+#include "ui_dialog.h"
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <string>
+#include <QDebug>
+#include <QMessageBox>
+
+Dialog::Dialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Dialog)
+{
+    ui->setupUi(this);
+    ui->moisture_lcd->display("-------");
+    ui->temperature_lcd->display("-------");
+    ui->humidity_lcd->display("-------");
+    ui->water_label->hide();
+
+    arduino = new QSerialPort(this);
+    serialBuffer = "";
+    parsed_dt1 = "";
+    parsed_dt2 = "";
+    parsed_dt3 = "";
+    moist_value = 0.0;
+    temp_value = 0.0;
+    humid_value = 0.0;
+
+    /*
+     *  Use this code lines to get the vendor ID and Product ID of Arduino conncected to serial port.
+     *
+     *
+    qDebug() << "Number of ports: " << QSerialPortInfo::availablePorts().length() << "\n";
+    foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
+        qDebug() << "Description: " << serialPortInfo.description() << "\n";
+        qDebug() << "Has vendor id?: " << serialPortInfo.hasVendorIdentifier() << "\n";
+        qDebug() << "Vendor ID: " << serialPortInfo.vendorIdentifier() << "\n";
+        qDebug() << "Has product id?: " << serialPortInfo.hasProductIdentifier() << "\n";
+        qDebug() << "Product ID: " << serialPortInfo.productIdentifier() << "\n";
+    }
+    */
+     //   Identify the port the arduino uno is on.
+    bool arduino_is_available = false;
+    QString arduino_uno_port_name;
+
+    //  For each available serial port
+    foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
+        //  check if the serialport has both a product identifier and a vendor identifier
+        if(serialPortInfo.hasProductIdentifier() && serialPortInfo.hasVendorIdentifier()){
+            //  check if the product ID and the vendor ID match those of the arduino uno
+            if((serialPortInfo.productIdentifier() == arduino_uno_product_id)
+                    && (serialPortInfo.vendorIdentifier() == arduino_uno_vendor_id)){
+                arduino_is_available = true; //    arduino uno is available on this port
+                arduino_uno_port_name = serialPortInfo.portName();
+            }
+        }
+    }
+     //  Open and configure the arduino port if available
+
+    if(arduino_is_available){
+        qDebug() << "Arduino port FOUND...\n";
+        arduino->setPortName(arduino_uno_port_name);
+        arduino->open(QSerialPort::ReadOnly);
+        arduino->setBaudRate(QSerialPort::Baud9600);
+        arduino->setDataBits(QSerialPort::Data8);
+        arduino->setFlowControl(QSerialPort::NoFlowControl);
+        arduino->setParity(QSerialPort::NoParity);
+        arduino->setStopBits(QSerialPort::OneStop);
+        QObject::connect(arduino, SIGNAL(readyRead()), this, SLOT(readSerial()));
+
+    }else{
+        qDebug() << " CANNOT find the correct port for Arduino.\n";
+        QMessageBox::information(this, "Serial Port Error", "Couldn't open serial port to arduino.");
+    }
+}
+
+Dialog::~Dialog()
+{
+    if(arduino->isOpen()){
+        arduino->close(); //    Close the serial port if it's open.
+    }
+    delete ui;
+}
+
+void Dialog::getSerial()
+{
+    /*
+     * readyRead() doesn't guarantee that the entire message will be received all at once.
+     * The message can arrive split into parts. Therefore we need to buffer the serial data and then parse for the temperature value.
+     *
+     */
+
+    QStringList buffer_split = serialBuffer.split(","); //  split the serialBuffer string, parsing with ',' as the separator
+
+    //  Check to see if there less than 7 tokens in buffer_split.
+
+    if(buffer_split.length() < 7){
+        // no parsed value yet so continue accumulating bytes from serial in the buffer.
+        serialData = arduino->readAll();
+        serialBuffer = serialBuffer + QString::fromStdString(serialData.toStdString());
+        serialData.clear();
+    }else {
+
+        //new section
+        serialBuffer = "";
+
+        qDebug() << buffer_split << "\n";
+
+        parsed_dt1 = buffer_split[0];
+        parsed_dt2 = buffer_split[1];
+        parsed_dt3 = buffer_split[2];
+        moist_value = parsed_dt1.toDouble();
+        temp_value = parsed_dt2.toDouble();
+        humid_value = parsed_dt3.toDouble();
+
+        qDebug() << "Moisture: " << moist_value << "\n";
+        qDebug() << "Temperature: " << temp_value << "\n";
+        qDebug() << "Humidity: " << humid_value << "\n";
+        parsed_dt1 = QString::number(moist_value, 'g', 4); // format precision of value to 4 digits or fewer
+        parsed_dt2 = QString::number(temp_value, 'g', 4);
+        parsed_dt3 = QString::number(humid_value, 'g', 4);
+
+        /*
+         * Dialog::updateMoisture(moisture_value);
+         * Dialog::updateTemperature(temperature_value);
+         * Dialog::updateHumidity(humidity_value);
+         *
+        */
+
+        Dialog::updateMoist(parsed_dt1);
+        Dialog::updateTemp(parsed_dt2);
+        Dialog::updateHumid(parsed_dt3);
+        if(moist_value < 33.00){
+            Dialog::updateMessage();
+        }
+    }
+}
+
+void Dialog::updateTemp(QString sensor_reading)
+{
+    //  update the value displayed on the lcdNumber
+    ui->temperature_lcd->display(sensor_reading);
+}
+
+void Dialog::updateMoist(QString sensor_reading)
+{
+    //  update the value displayed on the lcdNumber
+    ui->moisture_lcd->display(sensor_reading);
+}
+
+void Dialog::updateHumid(QString sensor_reading)
+{
+    //  update the value displayed on the lcdNumber
+    ui->humidity_lcd->display(sensor_reading);
+
+}
+
+void Dialog::updateMessage()
+{
+    //  Show message of urgent need to water plant
+    ui->water_label->show();
+
+}
+</div></div><br> 
+            
+         <p>This is the content of the main.cpp</p><br><br>   
+           <div class="notepad"><div class="titlenotepad">main.cpp</div><div class="textnotepad">
+#include "dialog.h"
+#include &#60;QApplication&#62; 
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    Dialog w;
+    w.setWindowTitle("Temperature Sensor Reading");
+    w.setFixedSize(660,550);
+    w.show();
+
+    return a.exec();
+}
+
+</div></div><br>  
+            
+            <p>This is the video of well functioning of the User Graphical application</p>
+            
+            <center><iframe src="https://player.vimeo.com/video/131555735" width="550" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </center>
+            
+            
+        
+                    
+      <h3>Download Zone</h3>
+      <p>The GUI project files are available for download here: </p>
+      <p> <a href="media/I3P-Project.rar"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+      
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

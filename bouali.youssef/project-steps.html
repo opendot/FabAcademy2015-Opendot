@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Project Steps</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+       <h2>The Intelligent Plant's Pot Project (I3P)</h2><br>
+      
+                    
+     
+      <u><b>What will it do?</b></u> <br><br>
+    <p>The final project will be a Modular and Intelligent Home Plant's Pot based on a new kind of user friendly scalable farming systems. It allows people to grow plants in intelligent pots that have nice and modular design, and which health is continuously monitored in order to grow in optimal conditions.<br>
+        For more details, check the project <a href="project-concept.html">page</a><br><br></p>
+        
+        
+        <u><b>Who's done what beforehand?</b></u> <br><br>
+    <p>In the internet, I found many similar and interesting projects doing part or all the functionalities that I am planning to develop with my project. Actually I decided to follow inspiration and tutorial from the innovative farming system developed by the Mediterranean FabLab in Salerno (Italy).<br>
+here are two picture of what they have realized:<br></p>
+          <p class="pic"><img src="media/W15_medaarch1.jpg"><legend>Medaarch Fablab project</legend> </p>
+          <p class="pic"><img src="media/W15_medaarch2.jpg"><legend>Medaarch Fablab project</legend> </p>
+        
+<p>For more details, check the project page on the medaarch <a href="http://www.medaarch.com/2015/05/hydroponic-house-system-i-files-di-stampa-e-le-istruzioni-per-realizzare-step-by-step-il-proprio-sistema-idroponico/">here</a><br><br></p>
+        
+        <p>On the other hand, I found many interesting information on this Wikipedia <a href="https://en.wikipedia.org/wiki/Hydroponics">page</a><br><br></p>
+        
+        
+        <u><b>My project</b></u> <br><br>
+        
+        <p> Therefore, after analyzing what it has been done before and studying what techniques and plant data to monitor, I started designing how my future system will look like and which functionalities to include. So I said that I would like that my project to have:<br><br>
+            •	Nice and functional design of the POT<br>
+•	Monitor plant humidity, both on soil and on the environment, and also the temperature of the ambient where the plant grows<br>
+•	Easy display of sensed information both in the proximity of the plant without the need of computer to be connected, and on the computer via GUI.<br><br>
+            
+            From these three objectives, I have thought about the major steps I need to follow in order to develop my project. Therefore, I have identified the following 4 steps:<br><br>
+            •	<b>Modular Pot design and production:</b> design the pot on the computer, and decide which technique to use in order to build the pot<br>
+•	<b>Electronic design and assembly:</b> design and build the electronic board that will control the sensors, algorithms that monitor plant health parameters, and sends data to computer<br>
+•	<b>Sensor installation and programming: </b>design and structure all the wiring schemes of the sensors to the electronic board, then program each sensor to read, display and send data<br>
+•	<b>GUI: </b>develop a user interface that establishes communication with the electronic hardware, and read data and display it.<br><br></p>
+        
+        
+    
+        <u><b>What is the schedule?</b></u> <br><br>
+        
+        <p>- Step 1-> Week 1-7 June: Pot design and Pot printing <br></p>
+        <p>- Step 2-> Week 8-14 June: -	Electronic assembly<br></p>
+        <p>- Step 3-> Week 15-21 June:-	Electronic programming<br></p>
+       <p> - Step 4-> Week 22-28 June:-	Application and Interface programming<br><br></p>
+        
+    
+        
+        
+        
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

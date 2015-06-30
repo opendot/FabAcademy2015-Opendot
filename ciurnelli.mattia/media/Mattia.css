@@ -291,7 +291,7 @@ div.codeArduino {
     background-color: #000000;
     max-width: 100%;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: #ffffff;  
     border: 2px solid #facd11 !important;
     border-radius: 14px;
     overflow: hidden !important;
@@ -299,6 +299,18 @@ div.codeArduino {
     font-weight: bold;
     width: 800px;
     margin:auto;
+    display: block;
+    line-height: 18px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 /* navbar */
@@ -414,6 +426,8 @@ iframe.Gantt {
     display: inline-block;
     padding: 5px;
 }
+
+
 
 
 

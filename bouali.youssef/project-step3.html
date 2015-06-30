@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Project I3P - Step 3 : Electronic programming </title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      
+         <h2>Project I3P - Step 3 : Electronic programming</h2><br>
+      
+        
+        <p>During this step, I have programmed all the sensors and hardware connected to my board to make them functioning, communicate with the board and computer, then do exactly what I needed on my project.<br><br></p>
+        
+        <h3>Activity 1: programming and testing components</h3>
+      <p>I started programming and testing each component aside in order to see if it works properly and which type of data it returns. Therefore, I started with the DHT11 humidity and temperature sensor. I followed this connection scheme:<br><br></p>
+        <p class="pic"><img src="media/DHT11-scheme.jpg"><legend>DHT11 connection scheme</legend> </p> 
+        <p>Then, I uploaded the following sketch that shall read the ambient temperature and humidity levels, and print them on the serial port:<br><br></p>
+                
+        <div class="notepad"><div class="titlenotepad">DHT11-test</div><div class="textnotepad">
+#include <dht11.h>
+#include <SoftwareSerial.h>
+
+dht11 DHT11;
+
+#define DHT11PIN 2
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Sketch di test per sensore di umidita' e temperatura tipo DHT11");
+  delay(1000); // wait for sensor initialization
+}
+
+void loop()
+{
+  uint8_t chk = DHT11.read(DHT11PIN);
+
+  Serial.print("Stato Sensore: ");
+  switch (chk)
+  {
+  case 0:  
+    Serial.println("OK"); 
+    break;
+  case -1: 
+    Serial.println("Checksum error"); 
+    break;
+  case -2: 
+    Serial.println("Time out error"); 
+    break;
+  case -3: 
+    Serial.println("The sensor is busy"); 
+    break;
+  default: 
+    Serial.println("Unknown error"); 
+    break;
+  }
+
+  Serial.print("Umidita'    (%): ");
+  Serial.println(DHT11.humidity, DEC);
+
+  Serial.print("Temperatura (C): ");
+  Serial.println(DHT11.temperature, DEC);
+  Serial.println(" ");
+
+  delay(2000);
+}</div></div><br>
+        
+        <p class="pic"><img src="media/DHT11-sketch.jpg"><legend>DHT Sketch serial output</legend> </p>
+            
+    <p>Second, I moved to the Soil Moisture sensor. The basic connection scheme is as follow:<br><br></p>
+    <p class="pic"><img src="media/moisture-sensor-scheme.jpg"><legend>Moisture sensor connection scheme</legend> </p>
+    <p>Then, I uploaded the following sketch that shall read the soil moisture levels, and print them on the serial port:<br><br></p>
+      <div class="notepad"><div class="titlenotepad">Moisture-sensor-test</div><div class="textnotepad">
+int soil=0;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(9600);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  // read the input on analog pin 0:
+  int sensorValue = analogRead(A0);
+  sensorValue = constrain(sensorValue, 485, 1023);
+  // print out the value you read:
+  //Serial.println(sensorValue);
+
+  //map the value to a percentage
+  soil = map(sensorValue, 485, 1023, 100, 0);
+ 
+  // print out the soil water percentage you calculated:
+  Serial.print(soil);
+  Serial.println("%");
+
+
+  delay(1000);        // delay in between reads for stability
+} </div></div><br>      
+            <p class="pic"><img src="media/project-moisture.jpg"><legend>Moisture sensor serial output</legend> </p>
+            
+            <p>Third, I moved to the LCD display component. The basic connection scheme is the following:<br><br></p>
+            <p class="pic"><img src="media/HD44780-scheme.jpg"><legend>LCD Display connection scheme</legend> </p>
+            <p>Therefore, I uploaded the following basic Hello-World sketch:<br><br></p>
+            <div class="notepad"><div class="titlenotepad">LCD-sketch</div><div class="textnotepad">
+#include &#60;LiquidCrystal.h&#62; 
+  
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);  
+  
+void setup() {  
+   //number of columns and rows on the LCD 
+  lcd.begin(16, 2);  
+  // display hello word  
+  lcd.print("hello, world!");  
+}  
+  
+void loop() {  
+  // position cursor in column 0 row 1   
+ 
+  lcd.setCursor(0, 1);  
+  // print number of seconds from last rest 
+  lcd.print(millis()/1000);  
+}  
+</div></div><br>
+                
+<p>And this is the video of the test result:<br><br></p>
+            <center><iframe src="https://player.vimeo.com/video/131530723" width="600" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </center>
+            
+            
+            <h3>Activity 2: programming all components</h3>
+            <p>I connected all the components to the board, I prepared the following sketch that shall implement all the sensors together, print data on the LCD and send data to serial port.<br><br>
+In programming the sensors, I had to do the following tasks:<br><br>
+                <b>•	Read data from both sensors</b>
+<b>•	Check if the soil moisture level</b><br>
+<b>•	Display data on LCD</b><br>
+<b>•	If soil is too dry display alert on the LCD in order to provide water</b><br>
+<b>•	Control display mode: in case of alert display blinks, otherwise auto scroll text</b><br>
+<b>•	Convert moisture value to percentage</b><br>
+<b>•	Send read data (moisture, air humidity and temperature) to serial port</b><br><br>
+The following is the sketch I prepared:<br><br></p>
+            
+            <div class="notepad"><div class="titlenotepad">I3P Sketch</div><div class="textnotepad">
+#include "DHT.h"
+#include &#60;LiquidCrystal.h&#62;
+#define DHTPIN 8   
+#define DHTTYPE DHT11 
+DHT dht(DHTPIN, DHTTYPE);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+Serial.begin(9600);
+lcd.begin(16, 2);
+dht.begin();
+}
+
+void loop() {
+double h = dht.readHumidity(); //read humidity
+double t = dht.readTemperature(); //read temperature
+double temper = analogRead(A0); //read moisture sensor
+double m = ((1023.00-temper)/1023.00)*100.00; //convert soil moisture to %
+
+if (isnan(t) || isnan(h)) {
+  Serial.println("Failed to read from DHT");
+  }
+else {
+  if (temper>700){
+  
+  lcd.clear(); //Clear display to avoid strange old characters
+  
+  lcd.noDisplay(); //LCD Blinking code
+  delay(500);
+  lcd.display();
+  
+  lcd.setCursor(0,0);  //Display message on LCD
+  lcd.print("Soil = VERY DRY");
+  lcd.setCursor(0,1);
+  lcd.print("Urgently Water");
+   
+  } else if (temper>350){
+  lcd.clear(); //Clear display to avoid strange old characters
+  
+  lcd.setCursor(0,0); //Display sensor data
+  lcd.print("Temperature = ");
+  lcd.print(t);
+  lcd.print(" C");
+  lcd.setCursor(0,1);
+  lcd.print("Status = MOIST");
+  
+      
+  } else {
+  lcd.clear(); //Clear display to avoid strange old characters
+  
+  lcd.setCursor(0,0);//Display sensor data
+  lcd.print("Temp = ");
+  lcd.print(t);
+  lcd.print(" *C");
+  lcd.setCursor(0,1);
+  lcd.print("Soil = SOAKED");
+  
+  
+  }
+  
+  //Serial print sensors data 
+  Serial.print(m);
+  Serial.print(",");
+  Serial.print(t);
+  Serial.print(",");
+  Serial.print(h);
+  Serial.print(",");
+  Serial.flush();
+ 
+  delay(500);
+  
+ }
+}</div></div><br> 
+            
+            <p>And this is the video of the sketch functioning with all sensors and LCd conncected:</p>
+            
+            <center><iframe src="https://player.vimeo.com/video/131555420" width="550" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></center>
+            
+            
+                    
+      
+        
+        
+                    
+      <h3>Download Zone</h3>
+      <p>The eagle design files are available for downloand here: </p>
+      <p> <a href="media/Hardware-sketches.rar"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+      
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
