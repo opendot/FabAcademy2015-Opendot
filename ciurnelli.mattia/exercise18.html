@@ -86,15 +86,41 @@
     <div class="page-header">
   <h1><u> Lesson n. 18:</u><h2>Project Development</h2></h1>
 </div>
+            <p>Complete your final project, tracking your progress.</p>
 
+            <h3>Progress:</h3>
 	<p>You can follow the project development in the page in the Final Project menu, especially:</p>
             <ul type=square>
                 <li><a href="project09.html">04.1 Final Project: The Frame and Support Parts <span class="statusok">OK</span></a></li>
                 <li><a href="project10.html">04.2 Final Project: The Flight Controller Board <span class="statusok">OK</span></a></li>
                 <li><a href="project11.html">04.3 Final Project: The Protection Structure <span class="statusok">OK</span></a></li>
-                <li><a href="project12.html">04.4 Final Project: The Final Result <span class="statuswip">WIP</span></a></li>
+                <li><a href="project12.html">04.4 Final Project: The Final Result <span class="statusok">ok</span></a></li>
             </ul>
-    
+            
+            <h3>What tasks have been completed, and what tasks remain?</h3>
+            <p>Currently the project, as it was conceived, is over. The next step would be to implement the Bluetooth module in order to include among the arguments used in the project also the networking &amp; communication module (week13).</p>
+            
+            <h3>What has worked? what hasn't?</h3>
+            <p>Initially, as also explained in the documentation of the project, I had problems with vibrations: being the frame light and hollow inside, turned out to be a great propagator of vibrations created by the engine. The vibrations made the read data from the IMU fully unpacked, and then made it impossible for a stable flight.</p>
+            <p>Fortunately, isolating the engine and the electronics from the frame using the rubber spacers, it has meant that I could fix it.</p>
+            <h3>What questions need to be resolved?</h3>
+            <p>The question that remains concerns, as explained in the first question, the integration of the bluetooth module.
+In fact, to be integrated, the module needs to be powered at 3.3V, while currently my board is powered at 5V.</p> 
+            <p>To integrate it so I 2 possibilities:</p>
+                <ul type=square>
+                    <li>integrate into the board a voltage regulator to give me a 3.3V output;</li>
+                    <li>realize a separete board with the incoming 5V coming from the ESC and which has two outputs, one direct at 5V and the other to 3.3V by the regulator.</li>
+                </ul>
+                
+            <p>Between the two possibilities, I think the best is the second since taking separate the two things, I could to have a modular solution and for adherence to the flight controller board, without loading of tracks and other components.</p>
+            
+            <h3>What will happen when?</h3>
+            <p>Once you have decided which of the two roads to take, I want to add this feature in the project, thus also adding the part of data visualization on a smartphone.</p>
+            
+            <h3>What have you learned?</h3>
+            <p>For me, the Fab Academy was the first real approach to digital fabrication: in fact, coming from a small reality like that of Perugia, I've never had it way it spaces to experiment on all that I have faced in recent months.</p>
+            <p>These months have been for me a time of continuous learning, addressing issues that were totally new to me.</p>
+            <p>The spirit of my final project, in fact, is just to show people how many possibilities and many different ways to accomplish something can give digital fabrication: that's why I tried to put into the project how many more possible aspects of this fantastic world.</p>
 
         </div>
     <!-- End of your content -->
