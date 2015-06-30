@@ -4411,8 +4411,22 @@ if __name__ == '__main__':
 <section id= "project0" class="row">
 			<div class="photo-grid">
 				
+
+
+				<img class="images-default" src="img/final_project/7/AAVOID_up.jpg">
+				<img class="images-default" src="img/final_project/7/AAVOID_hand.jpg">
+				<img class="images-default" src="img/final_project/7/AAVOID_smarthpone.jpg">
+
+				<img class="images-default" src="img/final_project/7/AAVOID_smarthpone.jpg">
+				<img class="images-default" src="img/final_project/7/AAVOID_balance.jpg"
+
 				<p>This a <span class="redones">video collection</span> about the <span class="redones">final results of AAVOID</span>:</p>
 				<iframe width="700" height="400" src="https://www.youtube.com/embed/d7vyrYP5Dv0" frameborder="0" allowfullscreen></iframe>
+
+				<p><br>If you want to build an <span class="redones">AAVOID</span> by yourself you can do it. On this purpose I did the following <span class="redones">Bill Of Materials</span>:</p>
+				<iframe width="1200" height="400" src="https://docs.google.com/spreadsheets/d/1BSloIivfbE2i2i6q-gaaQD0LK4O9zXnzNUXTOeDzLtE/pubhtml?widget=true&amp;headers=false"></iframe>
+
+				<p>Also, here is an <span class="redones">all-in-one package</span>, where you can find all the project files of AAVOID v2 and v3: <a href=""><span class="reodnes-link">download</span></a></p>
 
 				<p><br>Here's more detailed videos, like <span class="redones">Person Avoidance video collection</span> and <span class="redones">walls avoidance</span>:</p>
 				<iframe width="700" height="400" src="https://www.youtube.com/embed/5KyV0pZupyg" frameborder="0" allowfullscreen></iframe>
@@ -5417,6 +5431,8 @@ void readSonarData(){
 <li><span class="redones">use analog</span> output as the way for reading distance data</li>
 </ul>
 
+<p>Here you can download all the code I've made for this section: <a href="other/sonar_tests.rar"><span class="redones-link">sonar_tests</span></a>.</p>
+
 			</div>
 		</section>
 
@@ -5426,7 +5442,7 @@ void readSonarData(){
 
 				<h3><span class="redones">AutoPilot, initial considerations</span></h3>
 
-				<p><br>Coming back from some experience with <span class="redones">Android development</span> and, furthermore, with <span class="redones">serial communication between an Android smartphone and a microcontroller</span>, I know that a <span class="redones">near-real-time, quickly reflexive</span>, AutoPilot system could <span class="redones">not be easily implemented as a mobile application</span>. This because of the non real-time nature of Android OS, but due also the delay I often observed using several Android to serial libraries, such as <a href="https://github.com/mik3y/usb-serial-for-android"><span class="redones-link">usb-serial-for-android</span></a> or <a href="https://github.com/ksksue/PhysicaloidLibrary"><span class="redones-link">PhysicaloidLibrary</span></a>. So I thought about a system that can count on a <span class="redones">low-level & fast C AutoPilot system</span>, for emergency and <span class="redones">quickly-response-needed</span> situations, and eventually, also on a <span class="redones">high level, deliberative AutoPilot system</span>, implemented as an Android app. I had clear from the beginning that <span class="redones">the dream to implement a deliberative AutPilot system</span> will not come true due to the <span class="redones">time limits and purpose of the FabAcademy</span>. So I concentrate myself on implementing a C, reflexive AutoPilot system on the second microcontroller of AAVOID v3 board. However <span class="redones">I didn't miss the objective of proof mixing of such technologies</span>, as you can read in the next section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project15').innerHTML,'project15')"><span class="redones-link">6.5: Application programming: AAVOID as a "Thing" of an IoT system?</span></a>. All the code of the AutoPilot is written for and is <span class="redones">compatible with Arduino</span>.</p>
+				<p><br>Coming back from some experience with <span class="redones">Android development</span> and, furthermore, with <span class="redones">serial communication between an Android smartphone and a microcontroller</span>, I know that a <span class="redones">near-real-time, quickly reflexive</span>, AutoPilot system could <span class="redones">not be easily implemented as a mobile app</span>. This because of the non real-time nature of Android OS, but due also the delay I often observed using several Android to serial libraries, such as <a href="https://github.com/mik3y/usb-serial-for-android"><span class="redones-link">usb-serial-for-android</span></a> or <a href="https://github.com/ksksue/PhysicaloidLibrary"><span class="redones-link">PhysicaloidLibrary</span></a>. So I thought about a system that can count on a <span class="redones">low-level & fast C AutoPilot system</span>, for emergency and <span class="redones">quickly-response-needed</span> situations, and eventually, also on a <span class="redones">high level, deliberative AutoPilot system</span>, implemented as an Android app. I had clear from the beginning that <span class="redones">the dream to implement a deliberative AutPilot system</span> will not come true due to the <span class="redones">time limits and purpose of the FabAcademy</span>. So I concentrate myself on implementing a C, reflexive AutoPilot system on the second microcontroller of AAVOID v3 board. However <span class="redones">I didn't miss the objective of proof mixing of such technologies</span>, as you can read in the next section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project15').innerHTML,'project15')"><span class="redones-link">6.5: Application programming: AAVOID as a "Thing" of an IoT system?</span></a>. All the code of the AutoPilot is written for and is <span class="redones">compatible with Arduino</span>.</p>
 
 				<h3><span class="redones">AutoPilot, behavioral considerations</span></h3>
 
@@ -6513,7 +6529,7 @@ void moveHorizontal(){
    
       //YAW CLOCKWISE / COUNTER CLOCKWISE
       
-      //THROTTLEM COMPENSATION
+      //THROTTLE COMPENSATION
       if((THROTTLE_HORIZONTAL_VALUE-adjustStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_HORIZONTAL_VALUE+adjustStep))
         rc_values[THROTTLE_POSITION] = THROTTLE_HORIZONTAL_VALUE;
       else
@@ -6537,10 +6553,10 @@ void moveHorizontal(){
 
 				<p><br>During the night I discovered <span class="redones">what was the problem</span>. Due to <span class="redones">continuous readings errors from sonars</span>, the AutoPilot was <span class="redones">continuously and autonomously switched on and off</span>. This caused that it read as user throttle values, the <span class="redones">values that itself was injecting before</span>. Because of every time the AutoPilot switch on itself, it will compensate throttle by adding a little value, this was causing a continuously throttle increase. So, as you can see in the video, the throttle was slowly but continuously augmented, just before the crash.</p>	
 
-				<ul class="lists"><li>Luckily at that time I <span class="redones">had the backup ready</span> and I was able to continue experimentations <span class="redones">without losing any time</span>. Anyway <span class="redones">time was running out</span>, so I've take the decision to try at my best my last chances. <span class="redones">AAVOID will "avoid" something or will be destroyed on trying doing it!!</span> For the next try I decided to semplify all the above features, until I will reach the best <span class="redones">compromise in showing some avoid behaviours and staying safe as mush as possible</span>. So I <span class="redones">disabled alot</span> of the above functions. These the main differences:</li>
+				<ul class="lists"><li>Luckily at that time I <span class="redones">had the backup ready</span> and I was able to continue experimentations <span class="redones">without losing any time</span>. Anyway <span class="redones">time was running out</span>, so I've taken the decision to try at my best my last chances. <span class="redones">AAVOID will "avoid" something or will be destroyed on trying doing it!!</span> For the next try I decided to semplify all the above features, until I will reach the best <span class="redones">compromise in showing some avoid behaviours and staying safe as mush as possible</span>. So I <span class="redones">disabled alot</span> of the above functions. These the main differences:</li>
 				<li>avoidance only from <span class="redones">one side</span></li>
 				<li><span class="redones">disabled</span> altitude checking</li>
-				<li>added an <span class="redones">AutoPilot life time</span>, a sort of timeout for auto bisabling the autopilot</li>
+				<li>added an <span class="redones">AutoPilot life time</span>, a sort of timeout for auto disabling the autopilot</li>
 				<li>I <span class="redones">increased values</span> for horizontal movements</li>
 				<li>I need to <span class="redones">re-enable</span> the AutoPilot every time it was autonomously activated one time</li>
 				</ul>
@@ -7248,7 +7264,7 @@ void moveHorizontal(){
    
       //YAW CLOCKWISE / COUNTER CLOCKWISE
       
-      //THROTTLEM COMPENSATION
+      //THROTTLE COMPENSATION
       if((THROTTLE_HORIZONTAL_VALUE-adjustStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_HORIZONTAL_VALUE+adjustStep))
         rc_values[THROTTLE_POSITION] = THROTTLE_HORIZONTAL_VALUE;
       else
@@ -7986,7 +8002,7 @@ void moveHorizontal(){
    
       //YAW CLOCKWISE / COUNTER CLOCKWISE
       
-      //THROTTLEM COMPENSATION
+      //THROTTLE COMPENSATION
       if((THROTTLE_HORIZONTAL_VALUE-adjustStep) &lt= rc_values[THROTTLE_POSITION] &lt= (THROTTLE_HORIZONTAL_VALUE+adjustStep))
         rc_values[THROTTLE_POSITION] = THROTTLE_HORIZONTAL_VALUE;
       else
@@ -8005,12 +8021,658 @@ void moveHorizontal(){
 
 		<section id= "project15" class="row">
 			<div class="photo-grid">
-				<p>In this final project section we'll see how AAVOID v3 could be considered as a <span class="redones">"Thing" of an IoT system</span>.</p>
+				<p>In this final project section we'll see how AAVOID v3 could be considered as a <span class="redones">"Thing" of an IoT system</span>. With the objective of giving to AAVOID v3 <span class="redones">an high level, deliberative AutoPilot system</span>, one of its scheduled and to be implemented features was to be able to get an <span class="redones">Android smartphone onboard</span>. Smartphone onboard means that non only the smartphone is physically onboard of the quadcopter, but also, that is connected and it <span class="redones">interacts with AAVOID v3 board</span>. To clear things a bit, here's <span class="redones">AAVOID hardware architecture</span>, in which you can see how the smartphone will communicate with the AutoPilot board:</p>
 
+				<img class="images-default" style="width: 65%" src="img/final_project/AAVOID_CU.png">
+
+				<p>Due to the need of the <span class="redones">hardware serial</span> in order to quickly communicate with MultiWii, the only chance to communicate with the smartphone was <span class="redones">software serial</span> through an hardware brigde made with an <span class="redones">FTDI usb cable followed by an OTG usb cable</span>. With this bridge, the use of <a href="https://github.com/ksksue/PhysicaloidLibrary"><span class="redones-link">PhysicaloidLibrary</span></a>, and a <span class="redones">maximum baud rate of 9600</span>, I was able to establish the communication <span class="redones">between the AAVOID Autopilot microcontroller and the Android smartphone</span>. Obviously the Android smartphone must support <span class="redones">hardware OTG</span>. USB power from OTG is welcome, but not strictly required, as the Autopilot microcontroller was powered from one of the ESCs BEC.</p> 
+
+				<p>Having onboard an <span class="redones">internet connected</span>, Android smartphone, that can also communicate with the <span class="redones">AutoPilot microcontroller</span>, which in turn can <span class="redones">direct control AAVOID movements</span>, it's clear how <span class="redones">AAVOID can be low level controlled directly from internet</span>. Also, with the use of a in-the-middle server, it can <span class="redones">communicate with other "Things"</span>, or even with <span class="redones">other AAVOID quadcopters</span>, no matter where they are in the world. Let's get details of <span class="redones">AAVOID IoT system</span>. Here's <span class="redones">AAVOID software architecture</span>:</p>
+				
 				<img class="images-default" style="width: 65%" src="img/final_project/6.5/AAVOID_SA.jpg">
 				
+				<p>As you can see, onboard and starting from the lowest level, you can find <span class="redones">MultiWii software followed by the AutoPilot</span>. These two softwares are implemented to run directly on the two microcontrollers of AAVOID v3 board. On the Android smartphone runs an Android app with <span class="redones">PRACTIONISTDroid</span>. PRACTIONISTDroid is my <span class="redones">Android port</span> of <a href="http://practionist.eng.it/"><span class="redones-link">PRACTIcal resONIng sySTem</span></a>. PRACTIONIST is our company's <a href="https://en.wikipedia.org/wiki/Belief%E2%80%93desire%E2%80%93intention_software_model"><span class="redones-link">Michael Bratman BDI theory<span></a> inspired <span class="redones">Multiple Agent System</span> we've developed in order to implement high level, complex and cooperation capable agent behaviours. To avoid bandwidth waste and try to use something that will be as much near as possbile to a real-time protocol, I chose to use <span class="redones">Websocket</span>. So I implemented a simple <span class="redones">Websocket Java server</span>, that continuously receives data from an <span class="redones">Websocket client</span>, embedded in PRACTIONISTDroid app. Websocket java server, other than receiving data from AAVOID, expose it to internet for any client that wants to retrieve it, such as the <span class="redones">PC</span> in the schema (but could be also another smartphone). PC serves also as <span class="redones">serial console</span> for debugging purposes.</p>
+				
+				<p>It's time to read some code. I will talk here of the <span class="redones">main parts</span>, if you want it all, you can download it at bottom of the page. As already said, as Android serial library I used <a href="https://github.com/ksksue/PhysicaloidLibrary"><span class="redones-link">PhysicaloidLibrary</span></a>. Due to the name of AAVOID, I called the PRACTIONISTDroid app <span class="redones">PRACTIONISTVoid</span>. The smartphone used is an Asus ZenFone 4, one of the cheaper and smaller smartphone with built-in OTG hardware support. Here you can read the <span class="redones">Android activity</span> of PRACTIONISTVoid:</p>				
+				<pre class="prettyprint lang-c">
+package org.practionist.aavoid;
+
+import java.util.concurrent.ArrayBlockingQueue;
+
+import org.practionist.Constants;
+import org.practionist.container.message.RemoteManagementReceiverMessage;
+import org.practionist.container.message.ThreadMessage;
+import org.practionist.container.utility.StartContainer;
+import org.practionist.container.utility.SyncBoolean;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import com.physicaloid.lib.Physicaloid;
+
+
+public class AAVOID_Activity extends Activity {
+    
+    private  TextView tvRead;
+    private SyncBoolean remoteOk = new SyncBoolean(false);
+    private RemoteManagementReceiverMessage remoteManagementReceiverMessage;
+    private ArrayBlockingQueue&ltThreadMessage&gt commands = new ArrayBlockingQueue&ltThreadMessage&gt(100, true);
+    private StartContainer startContainer = new StartContainer(commands, remoteOk);
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tutorial1);
+
+        
+        tvRead  = (TextView) findViewById(R.id.tvRead);
+
+        PRACTIONISTVoidConstants.SERIAL = new Physicaloid(this);
+        PRACTIONISTVoidConstants.SERIAL.open();
+        
+        
+    	try{
+        	
+    		startContainer.start();
+    	
+    		remoteManagementReceiverMessage = new RemoteManagementReceiverMessage();
+        	remoteManagementReceiverMessage.setTextMessage("c1");
+    		commands.put(remoteManagementReceiverMessage);
+    		
+			remoteManagementReceiverMessage = new RemoteManagementReceiverMessage();
+			remoteManagementReceiverMessage.setTextMessage
+			("addAgent org.practionist.aavoid.agent.AAVOIDAgent AAVOIDAgent");
+			commands.put(remoteManagementReceiverMessage);
+			
+			remoteManagementReceiverMessage = new RemoteManagementReceiverMessage();
+			remoteManagementReceiverMessage.setTextMessage("setStandAlone true");
+			commands.put(remoteManagementReceiverMessage);
+			
+			remoteManagementReceiverMessage = new RemoteManagementReceiverMessage();
+			remoteManagementReceiverMessage.setTextMessage("startContainer");
+			commands.put(remoteManagementReceiverMessage);
+			
+			remoteManagementReceiverMessage = new RemoteManagementReceiverMessage();
+			remoteManagementReceiverMessage.setTextMessage("getContainerStatus");
+			commands.put(remoteManagementReceiverMessage);
+    		    		
+    	}catch (InterruptedException e){
+    		
+    		e.printStackTrace();
+    	
+    	}	
+        
+        new UpdateLog().execute();
+        
+    }
+
+    
+    private class UpdateLog extends AsyncTask&ltObject, String, Object&gt {
+
+		 private String log;
+		 private boolean exit;
+		 private int lineCounter = 0;
+		 
+		 
+		 protected Long doInBackground(Object... urls) {
+
+			 while(!exit){
+				 
+				 try {
+						
+					 log = Constants.ANDROID_LOGS.take();
+					 publishProgress(log);
+					
+				} catch (InterruptedException e) {
+					
+					e.printStackTrace();
+				
+				} 
+				 
+			 }
+			 
+	         return null;
+	         
+		 }
+		 
+	     protected void onProgressUpdate(String... logs) {
+	    	 
+	    	 tvRead.append(logs[0]);
+	    	 
+	    	 ++lineCounter;
+	    	 
+	    	 if(lineCounter > 8){
+	    		 tvRead.setText("");
+	    		 lineCounter = 0;
+	    	 }
+	    	 	    	 
+	     }
+
+	     protected void onPostExecute(Object result) {
+	         
+	     }
+	 }
+
+}				</pre>
+				
+				<p><br> And here's the <span class="redones">start plan of the PRACTIONISTDroid agent</span>, that in turn uses a shared utility method, in order to read data from serial:</p>
+				
+				<pre class="prettyprint lang-c">
+package org.practionist.aavoid.agent.plan;
+
+import org.practionist.Constants;
+import org.practionist.aavoid.PRACTIONISTVoidConstants;
+import org.practionist.aavoid.PRACTIONISTVoidUtils;
+import org.practionist.container.utility.Logger;
+import org.practionist.plan.PlanExecutionException;
+import org.practionist.plan.library.StartPlan;
+
+public class ReadSensorsData extends StartPlan{
+
+	private boolean exit = false;
+	
+	@Override
+	protected void body() throws PlanExecutionException {
+		
+		Logger.putLog(getClass().getName()+" PRACTICAL");
+		String read;
+		
+		while(!exit){
+			
+			read = PRACTIONISTVoidUtils.readSerial();
+			
+			if(read!=null)
+			try {
+				
+				Constants.ANDROID_LOGS.put(read);
+				
+				try{
+					
+					PRACTIONISTVoidConstants.REALTIME_DATA_QUEUE.add(read);
+
+				}catch(IllegalStateException e){
+					
+					Constants.ANDROID_LOGS.put("WARNING: REALTIME_DATA_QUEUE is full");
+					
+				}
+							
+			} catch (InterruptedException e1) {
+				
+				e1.printStackTrace();
+			
+			}
+			
+            try {
+                
+            	Thread.sleep(50);
+            
+            } catch (InterruptedException e) {
+                
+            	e.printStackTrace();
+            
+            }
+			
+		}
+		
+	}
+
+}				</pre>
+<pre class="prettyprint lang-c">
+package org.practionist.aavoid;
+
+import java.io.UnsupportedEncodingException;
+
+public class PRACTIONISTVoidUtils {
+	
+	public static String readSerial(){
+		
+        byte[] buf = new byte[256];
+        int readSize=0;
+		
+        readSize = PRACTIONISTVoidConstants.SERIAL.read(buf);
+        
+        if(readSize>0) {
+            String str;
+            try {
+            	
+                str = new String(buf, "UTF-8");
+                
+                return str;
+                
+            } catch (UnsupportedEncodingException e) {}
+        
+            
+            
+        }
+		
+        return null;
+        
+	}
+	
+}
+</pre>
+		<p><br>In the first test I've made, I used one of the sketches from <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project13').innerHTML,'project13')"><span class="redones-link">6.3 Input devices: sonars tests</span></a>. From this sketch, uploaded onto AutoPilot microcontroller, is coming data read from the above start plan, to be sent to the Java Websocket server:</p>
+	<pre class="prettyprint lang-c">
+//REAR
+const int rearPwPin = 8;
+long rearPulse, rearCm;
+
+const int BAUD_RATE = 9600;
+const int SAMPLE_RATE = 10;
+
+void setup() {
+ 
+  //init serial
+  Serial.begin(BAUD_RATE);
+  
+    //set pin modes
+  pinMode(rearPwPin, INPUT);
+  
+}
+
+void loop() {
+
+  //read sensors values
+  rearPulse = pulseIn(rearPwPin, HIGH);
+  
+  //convert values
+  rearCm = rearPulse/58;
+  
+  //send data to serial
+  Serial.print("RE");
+  Serial.print(rearCm);
+    
+  Serial.println();
+  
+  delay(SAMPLE_RATE);
+ 
+} 	</pre>	
+
+	<p><br>As Websocket library on Android and on the server I used <a href="https://tyrus.java.net/"><span class="redones-link">tyrus</span></a>. You can use tyrus on Android as stated on this <a href="https://blogs.oracle.com/PavelBucek/entry/websocket_client_on_android_tyrus"><span class="redones-link">blog</span></a>. So, to send data from the Android app, I used the following, very simple, <span class="redones">Websocket client</span>:</p>
+	<pre class="prettyprint lang-c">
+package org.practionist.aavoid.websocket;
+
+
+import java.io.IOException;
+
+import javax.websocket.ClientEndpoint;
+import javax.websocket.CloseReason;
+import javax.websocket.OnClose;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+ 
+@ClientEndpoint
+public class WebSocketClient {
+ 
+    @OnOpen
+    public void onOpen(Session session) {
+        
+        try {
+        
+        	session.getBasicRemote().sendText("PRACTIONISTVoid connected");
+        
+        } catch (IOException e) {
+        	
+            throw new RuntimeException(e);
+        
+        }
+        
+    }
+ 
+    @OnMessage
+    public void onMessage(String message, Session session) {
+    	
+    }
+ 
+    @OnClose
+    public void onClose(Session session, CloseReason closeReason) {
+        
+    }
+ 
+ 
+}
+	</pre>
+	<p><br>This client is used by a <span class="redones">separate thread</span>, which is in charge of send the data. This thread communicates with the agent start plan, via an <span class="redones">ArrayBlockingQueue</span>, a thread safe FIFO, buffer:</p>
+<pre class="prettyprint lang-c">
+package org.practionist.aavoid.thread;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import javax.websocket.DeploymentException;
+import javax.websocket.Session;
+
+import org.glassfish.tyrus.client.ClientManager;
+import org.practionist.Constants;
+import org.practionist.aavoid.PRACTIONISTVoidConstants;
+import org.practionist.container.utility.Logger;
+
+import org.practionist.aavoid.websocket.WebSocketClient;
+
+public class SendRealTimeData extends Thread{
+	private boolean exit = false;
+	
+	@Override
+	public void run(){
+		
+		Logger.putLog(getClass().getName()+" STARTED");
+		
+		Object bufferObject;
+		
+		while(!exit){//try to reconnect to websocket
+		
+		//connect via websocket
+		try {
+		
+			Session session = new ClientManager()
+			.connectToServer(WebSocketClient.class,
+			 new URI(PRACTIONISTVoidConstants.WEBSOCKET_URI));
+		
+			try {
+				Constants.ANDROID_LOGS.put("Connected to remote websocket");
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			while(!exit){
+				
+				 try {
+						
+					 bufferObject = PRACTIONISTVoidConstants.REALTIME_DATA_QUEUE.take();
+					 
+					 //identify object
+					 if(bufferObject instanceof java.lang.String){
+						 
+						 session.getBasicRemote()
+						 .sendText("i "+(String)bufferObject); 
+						 
+					 }
+					 
+					 
+				} catch (InterruptedException e) {
+					
+					e.printStackTrace();
+				
+				} 
+				
+	            try {
+	                
+	            	Thread.sleep(50);
+	            
+	            } catch (InterruptedException e) {
+	                
+	            	e.printStackTrace();
+	            
+	            }
+				
+			}
+		
+		} catch (DeploymentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+        try {
+            
+        	Thread.sleep(500);
+        
+        } catch (InterruptedException e) {
+            
+        	e.printStackTrace();
+        
+        }
+		
+	}
+		
+	}
+
+}
+</pre>
+
+				<p><br>Talking about the <span class="redones">Websocket Java server</span>, same as PRACTIONISTVoid app, it uses tyrus as Java Websocket implementation. The server is a Linux Mint machine, that runs in my personal room inside my home. So, here's the server class:</p>
+<pre class="prettyprint lang-c">
+package practionist.aavoid.server.endpoints;
+
+import javax.websocket.CloseReason;
+import javax.websocket.OnClose;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
+
+import practionist.aavoid.server.ServerConstants;
+import practionist.aavoid.server.uitl.ClientDataSender;
+
+@ServerEndpoint(value = "/data")
+public class DataEndpoint {
+
+	
+	
+    @OnOpen
+    public void onOpen(Session session) {
+    	
+        ServerConstants.LOGGER.info("connected " + session.getId());
+    
+    }
+
+    @OnMessage
+    public String onMessage(String message, Session session) {
+    	
+    	ServerConstants.LOGGER.info("string received: " + message);
+    	
+    	//check is an input, or a request
+    	
+    	String data[] = message.split(" ");
+    	
+    	if(data.length >0){
+    		
+    		if(data[0].equals(ServerConstants.INPUT_REQUEST)){
+    			
+    	    	try{
+    	        	
+    	        	ServerConstants.DATA_BUFFER.add(data[1]);
+    	        	
+    	        	return "OK";
+    	        	
+    	        	}catch(IllegalStateException e){
+    	        		
+    	        		ServerConstants.LOGGER.info("WARNING: DATA BUFFER is full");
+    	        		
+    	        		try {
+    	    				
+    	        			ServerConstants.DATA_BUFFER.take();
+    	    				
+    	    			} catch (InterruptedException e1) {
+    	    				// TODO Auto-generated catch block
+    	    				e1.printStackTrace();
+    	    			}
+    	        		
+    	        		ServerConstants.DATA_BUFFER.add(data[1]);
+    	        		return "OK";
+    	        	}
+    			
+    		}else
+    		if(data[0].equals(ServerConstants.OUTPUT_REQUEST)){
+    		
+    			//send data to front end client
+    			new ClientDataSender(session).start();
+    		
+    		}
+    		
+    	}
+    	
+    	return "";
+    	
+    }
+    
+    @OnClose
+    public void onClose(Session session, CloseReason closeReason) {
+    	
+    	ServerConstants.LOGGER.info(String.format("session %s closed because of %s", session.getId(), closeReason));
+
+    }
+    
+}
+</pre>
+<p><br>As you can see, again I used Java ArrayBlockingQueue, and the server is able to distinguish two different kind of messages: <span class="redones">INPUT_REQUEST</span> and <span class="redones">OUTPUT_REQUEST</span>. INPUT_REQUEST is used from the PRACTIONISTVoid client to send data to the server, while  OUTPUT_REQUEST is used by external clients that want to retrieve data. Also the server has its own thread to send data to external clients:</p>
+<pre class="prettyprint lang-c">
+package practionist.aavoid.server.uitl;
+
+import java.io.IOException;
+
+import javax.websocket.Session;
+
+import practionist.aavoid.server.ServerConstants;
+
+public class ClientDataSender extends Thread{
+	
+	private Session session;
+	private boolean exit = false;
+	
+	public ClientDataSender(Session s){
+		
+		session = s;
+		
+	}
+	
+	public void run(){
+		
+		
+		while(!exit){
+		
+			try {
+				
+				session.getBasicRemote().sendText((String)ServerConstants.DATA_BUFFER.take()+"");
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+		}
+				
+		
+	}
+
+}
+</pre>
+
+<p><br>To show all this system working <span class="redones">I did two tests</span>. <span class="redones">The first test</span> is using the above sketch, and as PC Websocket client I used <a href="https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo"><span class="redones-link">Simple Web Socket for Chrome</span></a>. Here's a video about:</p>
+
 				<iframe width="700" height="450" src="https://www.youtube.com/embed/xfCqPxrfgQI" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/dUcz4klzBwY" frameborder="0" allowfullscreen></iframe>
+
+<p><br>The second test I did, is using another sketch from <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project13').innerHTML,'project13')"><span class="redones-link">6.3 Input devices: sonars tests</span></a>:</p>
+<pre class="prettyprint lang-c">
+//FRONT
+const int frontPwPin = 8;
+long frontPulse, frontCm;
+
+//REAR
+const int rearPwPin = 9;
+long rearPulse, rearCm;
+
+//RIGHT
+const int rightPwPin = 10;
+long rightPulse, rightCm;
+
+//LEFT
+const int leftPwPin = 11;
+long leftPulse, leftCm;
+
+//UP
+const int upPwPin = 12;
+long upPulse, upCm;
+
+//DOWN
+const int downPwPin = 13;
+long downPulse, downCm;
+
+const int BAUD_RATE = 9600;
+const int SAMPLE_RATE = 10;
+
+void setup() {
+ 
+  //init serial
+  Serial.begin(BAUD_RATE);
+  
+    //set pin modes
+  pinMode(frontPwPin, INPUT);
+  pinMode(rearPwPin, INPUT);
+  pinMode(rightPwPin, INPUT);
+  pinMode(leftPwPin, INPUT);
+  pinMode(upPwPin, INPUT);
+  pinMode(downPwPin, INPUT);
+  
+}
+
+void loop() {
+
+  //read sensors values
+  frontPulse = pulseIn(frontPwPin, HIGH);
+  rearPulse = pulseIn(rearPwPin, HIGH);
+  rightPulse = pulseIn(rightPwPin, HIGH);
+  leftPulse = pulseIn(leftPwPin, HIGH);
+  downPulse = pulseIn(downPwPin, HIGH);
+  upPulse = pulseIn(upPwPin, HIGH);
+  
+  //convert values
+  frontCm = frontPulse/58;
+  rearCm = rearPulse/58;
+  rightCm = rightPulse/58;
+  leftCm = leftPulse/58;
+  downCm = downPulse/58;
+  upCm = upPulse/58;
+  
+  //send data to serial
+  Serial.print("F");
+  Serial.print(frontCm);
+  Serial.print(",");
+  
+  Serial.print("RE");
+  Serial.print(rearCm);
+  Serial.print(",");
+  
+  Serial.print("RI");
+  Serial.print(rightCm);
+  Serial.print(",");
+  
+  Serial.print("L");
+  Serial.print(leftCm);
+  Serial.print(",");
+  
+  Serial.print("D");
+  Serial.print(downCm);
+  Serial.print(",");
+  
+  Serial.print("U");
+  Serial.print(upCm);
+  
+  Serial.println();
+  
+  delay(SAMPLE_RATE);
+ 
+} 
+</pre>
+<p><br>And also I used another kind of Websocket client, because of I wanted to do the test outside. So this time there was an Android Websocket client: <a href="https://play.google.com/store/apps/details?id=com.quaksire.websocket&hl=it"><span class="redones-link">WebSockets app</span></a>. In this case another smarthone is retrieving the data. So finally, is the final video of all the system while is working while flying:</p>
+<iframe width="700" height="450" src="https://www.youtube.com/embed/dUcz4klzBwY" frameborder="0" allowfullscreen></iframe>
+
+	<p><br>Here you can download all the code I've made for this section: <a href="other/AAVOID_IOT.rar"><span class="redones-link">AAVOID_IOT</span></a>.</p>
 
 			</div>
 		</section>
