@@ -93,7 +93,19 @@
 		
 		
 		<p><pre class="prettyprint linenums">		
-		const int controlPin1 = 2;
+/*
+MOTORBOARD
+
+modified 13 May 2015
+by Saverio Silli
+
+Read data from the potentiometer
+turn a DC motor on and off with a button
+switch DC motor direction with a button
+using an H-Bridge L293D
+*/
+
+const int controlPin1 = 2;
 const int controlPin2 = 3;
 const int enablePin = 9;
 const int directionSwitchPin = 4;
@@ -164,8 +176,7 @@ void loop()
   
   previousDirectionSwitchState = directionSwitchState;
   previousOnOffSwitchState = onOffSwitchState;
-}
-		</pre></p>
+}</pre></p>
 		
 		
 		
@@ -214,18 +225,24 @@ void loop()
 		
 		
 		
-		<h3>Video</h3>
+		<h3>Set-up and Video</h3>
 			<p>You can see in the video the motor starting on as the left button is pushed, changing direction at the right button, and going faster/slower as I turn the potentiometer. Pushing the left button again stops it.</p>
 
+	   <p class="pic">
+			 <a href="image/11/image10.jpg"></a>
+        <img src="image/11/image10.jpg"width="600" >
+				<legend>Motor, battery, motorboard and satshakit setup</legend>
+				 </p>
 		
 	<p><iframe width="600" height="377" src="https://www.youtube.com/embed/5g9LXsZJ50g" frameborder="0" allowfullscreen></iframe>
 		<legend class="legend">Satshakit (Fabduino) controlled DC Motor with a custom shield featuring two button, a potentiometer and a H-Bridge (L293D)</legend></p>	
 
 	  
+		
 			<p>Files available here</p>
 		<p>
-		<li><a href="http://www.spaghettiprop.it/materiale/fabacademy/dcmotor.zip">Arduino sketch</a>  </li>
-			<li><a href="http://www.spaghettiprop.it/materiale/fabacademy/eaglefiles.zip">Eagle project</a>  </li></p>
+		<li><a href="storage/11/motorboard.zip">Program sketch</a>  </li>
+			<li><a href="storage/11/eaglefiles.zip">Eagle project</a>  </li></p>
 	
 		
 <!-- End of your content -->

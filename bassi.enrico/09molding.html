@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Enrico Bassi">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Enrico Bassi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+     <h2>09. Molding and Casting</h1>
+    
+        <h3>Project</h3>
+	<p>
+	The idea is to cast chocolate diretly in a plexiglass mold. Professional chocolatier use both vacuum formed molds and rigid polycarbonate milled molds. obviously the seconds are more expensive, but more reliable. They also help the tempering process, very important to get a high quality, glossy chocolate.
+     </p>   
+        
+        <h3>3D design</h3>
+        <p>
+    I decide to design (small) chocolate mountains. Like real mountains, they are all different from each others, so i make a small sketch in grasshopper. Here a screenshot of the file:
+    <img src="images/m3.JPG" alt="grasshopper" width="900"> 
+        
+The definition is basically deciding the number of peaks, the shape and the complexity. Each shape can have different parameters or a different random seed to get virtually infinite possible shapes. I choose three mountains with different features to see the result after casting, not cause they're easy to demold. I actually had a lot of trouble with one of these. <br>
+        Here the three random shapes i used:
+    <img src="images/m1.JPG" alt="three mountains" width="900"> 
+        To design the mold I did a Boolean subtraction between a box with the same dimension on the plexiglass block and the three mountains.
+         <img src="images/m2.JPG" alt="three mountains" width="900"> 
+        Here the final Stl for the CNC machine
+        <img src="images/m4.JPG" alt="three mountains" width="900">
+            <a href="media/chocolate%20mountains.gh">
+                <button type="button" class="btn btn-primary btn-lg">Download chocolate mountains.gh</button> </a>
+                
+            <a href="media/mold.zip">
+	<button type="button" class="btn btn-primary btn-lg">Download mold.stl</button> </a>
+      </p> 
+        
+      <h3>CNC Milling</h3>
+        <p>
+   I did the mold with our Shopbot and Part Works 3D. Based on my previous experience with CNC machines it's a very simple tools with just basic milling strategies, but almost impossible to misunderstand. 
+            <br>
+To fix the piece I used an extra layer of plexiglass clamped to the sacrificial layer with screws and washers. this allows me to attach the piece with double side tape and see through the extra layer and align the piece using some old milling trace in the bed.  
+    <img src="images/P1180256.JPG" alt="extra layer" width="900">  
+    <img src="images/P1180257.JPG" alt="screw+washer" width="900"> 
+I did the roughting with a 6mm cilindrical downcut end mill and the finishing with a 3 mm round tapered end mill. I don't suggest to do so, it's deinitely better to use a 3mm for the roughting as well, if the mold is not too deep.
+            <br> I did a double finishing (along X and along Y) to get a more homogeneus result. Even if I did so, the result was not smooth enought. 
+      <img src="images/mou1.JPG" alt="before smoothing" width="900">   
+            <img src="images/mou2.JPG" alt="before smoothing" width="900">  
+            <img src="images/mou3.JPG" alt="before smoothing" width="900">  
+            
+            The geometry was to complex to smooth it with abrasives, I used a small butane pencil torch. It's not so easy to get a precise result, but with a little bit of experience it's very effective and quick. That's actually not my case... I smoothed the mold but in some points I have overheated the material and that's leaving small bubbles inside the plasic and on the surface.
+        <img src="images/mou4.JPG" alt="smoothed" width="900">   
+            <img src="images/mou5.JPG" alt="smoothed" width="900">  
+            <img src="images/mou6.JPG" alt="smoothed" width="900">  
+            
+        </p>
+        
+   <h3>Casting</h3>
+        <p>
+  Chocolate is a complex material to cast. To get a nice glossy finishing and to demold it easyly it must be temperded properly. To have an idea of what that means you can have a look at this instructable (<a href="http://www.instructables.com/id/How-to-Temper-Chocolate/">How to temper chocolate</a>)   
+        I haven't a thermometer for food, and the firts experiment wasnt's a success: i had bubbles, sticky surfeces and cracks
+    <img src="images/mou8.JPG" alt="first experiment" width="900">   
+    <img src="images/mou9.JPG" alt="bubbles+cracked" width="900">  
+    <img src="images/mou10.JPG" alt="bubbles+cracked" width="900"> 
+            It's interesting how the chocolate is copying the mold perfectly, even the traces the smoothing didn't erase
+        <img src="images/mou11.JPG" alt="bubbles+cracked" width="900">     
+            The second experiment was definitely better, even if the most "extreme mountain" (the one with a pretty flat hill next to it) was basically impossible to demond without breaking it.
+    <img src="images/mou12.JPG" alt="final results" width="900">   
+    <img src="images/mou13.JPG" alt="final results" width="900">  
+    <img src="images/mou14.JPG" alt="final results" width="900"> 
+    <img src="images/mou15.JPG" alt="final results" width="900">   
+    <img src="images/mou16.JPG" alt="final results" width="900">  
+    <img src="images/mou17.JPG" alt="final results" width="900">       
+        </p>
+  
+        <h3>Extra content 1: Lost PLA process</h3>
+        <p>
+Few months ago in Opendot we tested the "pla lost process", using a reprep Prusa I3 and plaster to make the mold, and Zama (or Zamak) as the metal alloy to cast. the results were very interesting: zama melts at 400°C and it's a pretty resistant material. Being the mold destroyed every time you don't have to worry about undercuts. <br>
+            Here some pictures of the process 
+    <img src="images/za1.JPG" alt="lost pla" width="900">  
+    <img src="images/za2.JPG" alt="lost pla" width="900"> 
+    <img src="images/za3.JPG" alt="lost pla" width="900">   
+    <img src="images/za4.JPG" alt="lost pla" width="900">  
+    <img src="images/za5.JPG" alt="lost pla" width="900"> 
+        </p>
+        
+        
+        <h3>Extra content 2: cuttlebone casting </h3>
+        <p>
+After the first wokshop done with zama, we made a second, more artistic appointment with melted metal. We used a very ancient technique in which the molds are made with a cuttlebone. <a href="http://ganoksin.com/blog/primitive/2010/02/22/cuttlefish-casting/">Here</a> some extra info on the process. There are two interesting aspects about this method: to make the mold it's enough to press the object agains the cuttlebone and the melat part copies the natural texture of the mold. We used both zama and silver, with different results. Here some piclures
+    <img src="images/ag2.JPG" alt="cuttlebone" width="900">  
+    <img src="images/ag3.JPG" alt="cuttlebone" width="900"> 
+    <img src="images/ag4.JPG" alt="cuttlebone" width="900">   
+    <img src="images/ag5.jpg" alt="cuttlebone" width="900">  
+    <img src="images/ag6.jpg" alt="cuttlebone" width="900">  
+    <img src="images/ag7.jpg" alt="cuttlebone" width="900">  
+        </p>
+        
+        
+        <h3>Extra content 3: DIY machinable wax (WIP)</h3>
+        <p>
+  We tried to make the machinable wax starting from paraffine wax and polyethylene. the first experiment was a failure: the plastic did't melt properly. The second time it improved a little bit: we didn't use a direct flame to melt the wax, but hot a metal plate. this reduce the risk to burn the plastic and the smokes made by the wax. to have a more homogeneous result we used a blender. it get better but it's still far away from the wanted result. Next step is to use a wax for jewels (the one used to be injected in molds to do replicas. It's less than half the price of the machinable wax) and polyethylane in pellet.
+            <br> So far this is the result, far from being good. I tryed to cut it and the wax get stuck to the blades, so I guess it's not ok for being machined.
+            <img src="images/diywax.JPG" alt="diy wax">
+        </p>
+        
+        
+        
+        
+        
+
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Name Surname">
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
     <link rel="icon" href="media/favicon.ico">
-
-    <title>Fab Academy 2015 - Name Surname</title>
-
+    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
+      rel="stylesheet" type="text/css">
+    <title>Fab Academy 2015 - Gianluca Pugliese</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-    
+    <!-- FORCED COLOR LINK TBD -->
+    <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
-	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
     <script type="text/javascript" src="media/jsc3d.touch.js"></script>
-
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
     <!-- Load the menu file -->
     <script>
 	function menu() {
@@ -40,216 +35,164 @@
 					  $('#cclicense').load("license.html");
 					  }
 	</script>
-
   </head>
-
   <body onload="menu()">
-
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Name Surname</a>
-        </div>
+        <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Gianluca Pugliese
+            @FabAcademy2k15</a> </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
               <ul id="exercises" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+            <li><a href="contact.html">Contact </a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
     </nav>
-
     <div class="container">
+      <!-- Insert your content here below! -->
+      <h1><strong>Exercise 13</strong></h1>
+      <p>29.04.2015</p>
+      <h2>Networking and Communications</h2>
+      <h3>Assignment</h3>
+      <p> </p>
+      <ul type="â€discâ€">
+      </ul>
+      design and build a wired &amp;/or wireless network connecting at least two
+      processors<br>
+      <br>
+      <br>
+      <ul type="â€discâ€">
+      </ul>
+      <h1><a id="skate" name="skate"></a>FabChat</h1>
+      With my friend Pierluigi we decided to make a serial chat in order to chat
+      via Serial with two satshakit.<br>
+      the project is very simple but we learned how to use software and hardware
+      serial between 2 microcontrollers.<br>
+      <br>
+      this is the schematic to link 2 microcontroller<br>
+      <img style="width: 697px; height: 292px;" alt="s" src="img/networking.png"><br>
+      And this is the simple sketch that we write to adapt the SoftwareSerial
+      example to our project<br>
+      <br>
+      <pre class="prettyprint linenums"><servo.h>/*
+Fab Academy 2015
+Networking communication
+Gianluca Pugliese
+Pierluigi De Palo
 
-	<!-- Insert your content here below! -->
+Chat Program between 2 satshakit
+ 
+
+The circuit:
+* RX is digital pin 10 (connect to TX of other device)
+* TX is digital pin 11 (connect to RX of other device)
+ 
+
+based on SoftwareSerial 
+*/
 
 
-     <h2>Exercise...</h1>
-    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
-
-		# Add edges...
-		print "Building the graph..."
-
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
-    
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-    <!-- End of your content -->
-
-    </div> <!-- /container -->
-
-	<!-- footer -->
-    
+#include &lt;SoftwareSerial.h&gt;
+ 
+SoftwareSerial chat(10, 11); // RX, TX
+ 
+int text;
+ 
+void setup()
+{
+     // open hardware serial, TX = 1, RX = 0
+     Serial.begin(9600);
+     Serial.println("Fab chat is starting...");
+     // set the baudrate
+     chat.begin(9600);
+     delay(1000); // delay 1s to stabilize serial ports
+     chat.println("connected! start to chat");
+}
+ 
+void loop()
+{
+     if (chat.available())
+          Serial.write(chat.read());
+ 
+     if (Serial.available())
+     {
+          Serial.print("Gianlu: ");
+           chat.write("Gianlu: ");
+          while (Serial.available())
+          {
+               text = Serial.read();
+              
+               chat.write(text);
+               Serial.write(text);
+          }
+          chat.println();
+          Serial.println();
+     }
+}
+</servo.h></pre> The skatch start the serial monitor and wait until the other
+      MCU is connected, than is possible to write text like a chat.<br>
+      using Serial.print and Chat.write we can see our names during the chat<br>
+      When the chat start the only things that we need to do is to reset the
+      board in order to start the signal on the serial monitor.<br>
+      <br>
+      <span style="font-weight: bold;">Here a video of the FabChat between me
+        and Pierluigi<br>
+        <iframe src="https://www.youtube.com/embed/WE1DBDmPmJ0" allowfullscreen=""
+          frameborder="0" height="315" width="560"></iframe> <br>
+      </span> <br>
+      <br>
+      <br>
+      <p> </p>
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
     <footer id="footer">
-        <p id="cclicense">
-                </p>
-        <p class="license">
-        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
-        </p>
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+          href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
     </footer>
-    
-
-	<!-- Do not touch this! -->
+    <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="media/jquery-1.9.1.min.js"></script>
-    
     <!-- Syntax Highlighter -->
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
     </script>
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript">
+    <script type="text/javascript">
 	  !function ($) {
 		$(function(){
 		  window.prettyPrint && prettyPrint()   
 		})
 	  }(window.jQuery)
 	</script>
-	
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-
   </body>
 </html>

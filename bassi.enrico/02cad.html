@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Enrico Bassi">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Enrico Bassi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+     <h2>02. 3D model of the final project</h1>
+      </br>
+      
+       <h3>Components and parts</h3>
+	<p>
+	This machine is moving in a different way from other CNC routers. in particular the working piece is standing still, supported by two stands on the sides. The <strong>Y axis</strong> is parallel to the ground, the <strong>X axis</strong> is (almost) perpendicular, and <strong>Z axis</strong> is perpendicular to the piece.  
+	</p>           
+      
+<img src="media/components.svg" alt="components" height="600" width="800">   
+  
+      <p>
+	<strong>
+        A - Y movement </br>
+        B - Spindle </br>
+        C - X movement </br>
+        D - Y rail </br>
+        E - Stand </br>
+        F - Working piece </br>
+          
+          </strong>  
+    </br>
+	
+	<a href="media/components.svg">
+	<button type="button" class="btn btn-primary btn-lg">Download "Components.svg"</button>
+	</a>
+	</p>
+      </br>
+
+<h3>Details</h3>
+	<p>
+	The most tricky part is probably how to move the machine along Y. I started following <a href="http://www.bg-cnc.com/wordpress/?p=542" target="_blank"> this</a> solution
+  <img src="http://www.bg-cnc.com/wordpress/wp-content/uploads/2009/07/realistic-x-sect.jpg" alt="components" height="600" width="800">
+        
+        </br>
+    The first solution to test is to use a circular belt moved by a stepper that use a secont linear belt glued to the rail as a rack. 
+	</p>
+      
+        <img src="media/detail_y.svg" alt="Detail Y axis" height="600" width="800">   
+  
+      <p>
+	<strong>
+        A - Circular belt </br>
+        B - Pulley </br>
+        C - Y motor </br>
+        D - Linear belt (rack) </br>   
+          </strong>  
+    </br>
+	
+	<a href="media/detail_y.svg">
+	<button type="button" class="btn btn-primary btn-lg">Download "Detail_Y.svg"</button>
+	</a>
+	</p>
+        
+        
+<h3>3D Design</h3>
+<p>
+    Being a designer I'm used to different CADs, since the university I've used Solidworks, Rhinoceros, 3D studio max, Autocad, Pro-E, blender, and so on. Lately I decided to focus on Rhinoceros, being cheap enough to be bought even for a semi-professional use. It's also quite flexible, adjustable with different plug-ins (grasshopper and firefly for instance) and It's compatible with python and rhinoscript.
+    <br>
+    The best tool to do the mechanical design of the machine would probably be something like Solidworks, but I decided to use Rhino also to test the possible limitations
+    <br>
+    <img src="images/3D.JPG">
+    </p>
+<br>
+
+
+    <h3>3D overview</h3>
+	<p>
+	In the box below you can see an overview od the project. Everything but the two main rails are attached to the "O" frame. The traslations along Z axis are possible moving the entire structure perpendicular to the panel.
+	</p>
+    
+	
+
+	<canvas id="cv" width=640 height=480>
+	It seems you are using an outdated browser that does not support canvas :-(
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('cv');
+		var viewer = new JSC3D.Viewer(canvas);
+		viewer.setParameter('SceneUrl','media/millo_v1.stl');
+		viewer.setParameter('ModelColor','#CAA618');
+		viewer.setParameter('BackgroundColor1','#E5D7BA');
+		viewer.setParameter('BackgroundColor2','#383840');
+        viewer.setParameter('InitRotationX', 85);
+        viewer.setParameter('InitRotationY', 35);
+        viewer.setParameter('InitRotationZ', 175);
+		viewer.setParameter('RenderMode','flat');
+		viewer.setParameter('MipMapping','on');
+		viewer.setParameter('Definition','high');
+		viewer.setParameter('Renderer','webgl');
+		viewer.init();
+		viewer.update();
+	</script> 
+    </p> 
+    
+	<p>
+	<a href="media/millo_v1.stl">
+	<button type="button" class="btn btn-primary btn-lg">Download "3D overview.stl"</button>
+	</a>
+	</p>
+
+<h3> Software used</h3>
+<p>
+I decide to use open source or low cost softwares. Every image manipulation is based on <a href="http://www.gimp.org">Gimp</a>. To scale all the pictures in a folder I used a plug-in for Gimp called <a href="http://registry.gimp.org/node/26259">Bimp</a>: it manages all the batch processes and it's completely opensource.
+  <br>  2D editing and vector design is done in <a href="https://inkscape.org">inkscape</a>, an amazing opensource vector editor that hase some pretty cool plug-ins for a fablab. For instance there is a simple way to design decent gears and make simple g-codes.
+    <br> Everything done in 3D and 2D (when it's too techncal for inkscape) is done in <a href="https://www.rhino3d.com">Rhinoceros</a>. Even if it's not opensource it supports scripts and it has some avazion plug-ins like <a href="http://www.grasshopper3d.com/">Grasshopper</a>. The main weak point of Rhino, is how it handles meshes. To decimate, solidify, close and edit meshes I suggest eather <a href="http://www.meshmixer.com/">meshmixer</a> (for simple editing, quick and fast) or <a href="https://www.blender.org/">blender</a>.
+</p>
+   
+
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

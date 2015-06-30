@@ -80,32 +80,30 @@
 
 	<!-- Insert your content here below! -->
 
-<p>****************************************************************************************************************</p>
-          
+ <p><font color=#fff>****************************************************************************************************************</font></p>
         <ul class="pager statusINC">
     
         <li class="previous"><a href="exercise06.html">← </a></li> 
     
         <li class="next"><a href="exercise08.html"> →</a></li>
     
-        <h2>Week 7 - Embedded Programming -</h2>
+        <h2><font color=#fff>EMBEDDED PROGRAMMING</font></h2>
 
         </ul>
         
 
 <br>
-        <h4>ASSIGNMENT: READ A MICROCONTROLLER DATA SHEET // PROGRAM YOUR BOARD TO DO SOMETHING, WITH AS MANY DIFFERENT PROGRAMMING LANGUAGES AND PROGRAMMING ENVIRONMENTS AS POSSIBLE</h4>
-        <h4>PROJECT: PROGRAM THE HELLO WORLD BOARD AND EMBEDDED PROGRAM WITH FAB ISP
-        </h4>
+        <h4><font color=#fff>ASSIGNMENT: READ A MICROCONTROLLER DATA SHEET // PROGRAM YOUR BOARD TO DO SOMETHING</font></h4>
+        <h4><font color=#fff>PROJECT: PROGRAM THE HELLO WORLD BOARD AND EMBEDDED PROGRAM WITH FAB ISP
+        </font></h4>
         <br>
-        <h4>Soft: Mac Os Terminal</h4>
-        <h4>Tutorial: <a href="http://fabacademy.org/archives/2012/students/menichinelli.massimo/index.html#"> Massimo Menichinelli Fab Academy 2012 Exercise: Embedded Erogramming</a> // <a href=" http://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192"> Terminal </a></h4>
-       <h4>Datasheet: <a href="http://www.atmel.com/Images/doc8183.pdf"> Attiny 44</a></h4>
-        <h4>DOWNLOAD: <a href="download/w7_steadyled.zip"><button type="button" class="btn btn-primary btn-lg">Steadyled.zip</button></a> 
+        <h4><font color=#fff>SOFT: MAC OS TERMINAL</font></h4>
+        <h4><font color=#fff>TUTORIAL: <a href="http://fabacademy.org/archives/2012/students/menichinelli.massimo/index.html#"> MASSIMO MENICHINELLI FAB ACADEMY 2012 EXERCISE: EMBEDDED PROGRAMMING</a> // <a href=" http://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192"> TERMINAL </a></font></h4>
+       <h4><font color=#fff>DATASHEET: <a href="http://www.atmel.com/Images/doc8183.pdf"> ATTINY 44</a></font></h4>
+        <h4><font color=#fff>DOWNLOAD: <a href="download/w7_steadyled.zip"><button type="button" class="btn btn-primary btn-lg">Steadyled.zip</button></font></a> 
 	</h4>
         
-         <p>****************************************************************************************************************</p>
-     <br>
+          <p><font color=#fff>****************************************************************************************************************</font></p>
  
         <p class="pic">
                 <img src="Images/w7_Embedded_logo.jpg">
@@ -113,7 +111,6 @@
             </p>
         <br>
          
-         <h4>-----</h4>
         <br>
         
         <p class="pic">
@@ -123,9 +120,10 @@
         
         <br>
         
-        <p> The Makefile is used to automate the programming</p>
+        <p> --- </p>
+        <br>
         
-        <div class="code">
+      <pre style="background-color: black;color: white">
             PROJECT=steadyled
 SOURCES=$(PROJECT).c
 MMCU=attiny44
@@ -160,18 +158,18 @@ program-usbtiny-fuses: $(PROJECT).hex
 
 program-dragon: $(PROJECT).hex
   avrdude -p t44 -P usb -c dragon_isp -U flash:w:$(PROJECT).c.hex
-        </div>
+        </pre>
         
 	<legend>The Makefile Report</legend>
  
         
         
         
-<p>The file steadyled.c which is the program</p>
+<p>---</p>
 
-        
+        <br>
           
-         <div class="code">
+        <pre style="background-color: black;color: white">
              
 #include <avr/io.h>
 #include <inttypes.h>
@@ -251,19 +249,13 @@ toggle_led()
         LED_PORT ^= _BV(LED_BIT);
                 }
         
-           </div> 
+           </pre> 
              
 <legend>The file steadyled.c</legend>
         
        <br>
              
-        <p>Once downloaded file, I changed the number of pins where are connected the button and the LED (in the file above, pins are already modified) using the button for PA3 and PA7 for Led.
-
-After that, I connected the FabISP and the board to the PC, and connected each other with the rainbow cable.</p>
-             
-       <br>
-         
-  <p>After connecting the two boards, open the terminal and enter the directory of the program "steadyled":</p><
+        <p> ----- </p>
              
  
 <br>             
@@ -273,18 +265,20 @@ After that, I connected the FabISP and the board to the PC, and connected each o
         <h4>COMMAND : MAKE </h4>
         <br>
              
-        <p>After This modification, i can use "Make command" for compile the code </p>
         
         <br>
              
-        <div class="code">
+        <pre style="background-color: black;color: white">
             MacBook-Pro-de-Luigi-3:~ Pierluigi$ cd Downloads/steadyled 
             MacBook-Pro-de-Luigi-3:steadyled Pierluigi$
-             </div>
+             </pre>
+        <br>
         
-             <p>After that, we have to type the command "make" in order to create the excecute the Makefile. The Makefile create by default the hexadecimal file (steadyled.c.hex).</p>
+             <p>"make"</p>
              
-         <div class="code">   
+             <br>
+             
+         <pre style="background-color: black;color: white"> 
             MacBook-Pro-de-Luigi-3:embedding PierluigiS make
 avr-objcopy -0 ihex hello_world_blinking_by_massimo.out hello_world_blinking_by_massimo.c.hex:\ 
      avr-size --mcu=attiny44 --format=avr hello_world_blinking_by_massimo.out
@@ -298,7 +292,7 @@ Program: 140 bytes (3.4% Full)
 Data:     0 bytes (0.0% Full)
 (.data + .bss + .noinit)
 
-             </div> 
+             </pre> 
              
              <legend>Make Command</legend>
             
@@ -306,21 +300,19 @@ Data:     0 bytes (0.0% Full)
           
         <br>
         
-         <h4>COMMAND : MAKE PROGRAM USBTINY FUSE</h4>
+         <h4><font color=#fff>COMMAND : MAKE PROGRAM USBTINY FUSE</font></h4>
              
         <br> 
              
-        <p>Whith "Make program usbtiny command" we reset the microcontroller and prepare it to recive the "Hello Led Board" code</p>
+        <p>---</p>
              
         <br>
         
-    
-        
-        <p>Finally we have to do the "make program-usbtiny" to program the board:</p>
+        <p>"make program-usbtiny" to program the board</p>
              
         <br>
         
-        <div class="code">
+      <pre style="background-color: black;color: white">
         MacBook Pro de Luigi 3:embedding PierluigiS make program usbtiny.fuses
 avr-objcopy -0 ihex helloworld_bl inking_ by mass Imo .out helloyorldblinking_bymassimo.c.hex:,
          avr size  mcu attiny44 -format avr hello world blinking by mass)mo.out
@@ -362,7 +354,7 @@ avrdude: safemode: Fuses OK (H:FF. E:DF. L:SE)
 
 avrdude done. Thank you.
 
-        </div>
+        </pre>
         
         
 	<legend>Make program usbtiny fuses</legend>
@@ -370,15 +362,15 @@ avrdude done. Thank you.
         
         <br>
              
-         <h4>COMMAND : MAKE PROGRAM USBTINY</h4>
+         <h4><font color=#fff>COMMAND : MAKE PROGRAM USBTINY</font></h4>
              
         <br>
              
-        <p>Whith "Make Program Usbitiny" we upload the code </p>
+        <p>With "Make Program Usbitiny" we upload the code </p>
              
         <br>
         
-        <div class="code">
+        <pre style="background-color: black;color: white">
              MacBook-Pro-de-Lutgl-3:embedding PierluigiS make program-usbtfny
 avr-objcopy -0 thex helloworld_blinking_by_massimo.out hello_world_blinking_by_massimo.c.hex:\ 
           avr-size --mcu=attiny44 --format=avr hello_world_blinking_by_massimo.out
@@ -425,7 +417,7 @@ avrdude: salemode: Fuses OK (H:FF. E:OF. L:SE)
 
 avrdude done. Thank you.
 
-             </div>
+             </pre>
 
 	<legend>Report of well done process :Make Program Usbitiny </legend>
         
@@ -454,20 +446,15 @@ avrdude done. Thank you.
 
 	<!-- footer -->
     
-    <footer id="footer">
-        <p id="cclicense">
-                </p>
+  <footer id="footer">
+       
         <p class="license">
-        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+            Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>
     
       
-      <div class="container">
-      <!-- Static navbar -->
-    
-      </div>
       
 	<!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript

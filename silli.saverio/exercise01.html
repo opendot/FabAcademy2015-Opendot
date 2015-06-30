@@ -92,7 +92,7 @@
 		<p>First I downloaded a very powerful editor called <a href="http://brackets.io/">Brackets</a>  and I used it to compile the website. One thing I did to edit the template was to change the color of the navbar and the footer. <br>
 			Since I didn't know exactly which class I had to modify in the main css file, I first opened the index.html page on Safari, where I had installed the developer tools (similar tools are available for Firefox); when you move your mouse cursor over the page with the developer tools active, Safari enlight on another window the corespondent line in the html file.</p>
 			 <p class="pic">
-        <img src="image/01screenshot01.jpg">
+        <img src="image/01/01screenshot01.jpg">
 		</p>
 			<br>
 			<p>This way I could see that in order to change the navbar background color I had to add the following code to the template's specific css: </p><br>
@@ -118,7 +118,7 @@ color: #000
 		<p>A very helpful instrument when dealing with color codes is a little freeware application for Mac called <a href="https://itunes.apple.com/us/app/huego-lite/id468963923?mt=12">HueGo Lite</a>.</P> 
 	  
 	  <p class="pic">
-        <img src="image/01huegolite02.jpg">
+        <img src="image/01/01huegolite02.jpg">
 		  <legend>HueGo's visor</legend>
 		</p>
 	  
@@ -127,7 +127,69 @@ color: #000
         </p>
 		<p>At first I had some problems making the menu work with multiple selection, so at the beginning I disabled the functionality and opted for a single choice menu with static pages with a list of links. After that our Instructor warned us that the template he designed had the javascript for the multiple choiche menu disabled when you were not connected to the internet, but you could see it working when connected and using Firefox as a browser; so I followed his instruction and see that the menu was working well and put it back on my site because it really is a good feature, especially thinking at the next months when there will be many more pages on the website.</p>
       
+    <h3>GitHub</h3>
     
+<p><a href="https://github.com/">GitHub</a> is a version control software. Our instructor created the online repository of our lab, with a folder for each student, where all the files I create and modify are saved with their previous versions as well.</p>
+
+	  	 <p class="pic">
+			 <a href="image/01/image01.jpg"></a>
+        <img src="image/01/image01.jpg"width="600" >
+				<legend>Sreenshot of Opendot repository on GitHub.com</legend>
+				 </p>
+	  <h3>Github Commands</h3>
+		<p>These are the steps you need to do on a terminal window to correctly upload and download files from the repository:</p> 
+		
+		<li>Open the directory where the repository is located.<br><pre class="prettyprint linenums">cd FabAcademy2015-Opendot/</pre></li>
+		<li>Interrogate the system (gitstatus)<br><pre class="prettyprint linenums">git status</pre></li>
+		<li>Get all the files the oher contributors might have uploaded (gitpull)<br><pre class="prettyprint linenums">git pull origin master</pre></li>
+		<li>Define the files you want to upload (gitadd)<br><pre class="prettyprint linenums">git add -A</pre></li>
+		<li>Define the reason for the upload (commit)<br><pre class="prettyprint linenums"> git commit -m "your comment"</pre></li>
+		<li>Send the files to the online repository (gitpush)<br><pre class="prettyprint linenums">git push</pre></li>
+		<li>Run a new interrogation to be sure everything is ok<br><pre class="prettyprint linenums">git status</pre></li></p>
+	
+<pre class="prettyprint linemus">Last login: Sat Jun 27 16:51:56 on ttys000
+MacBook-Pro-di-Save:~ zaverie$ cd FabAcademy2015-Opendot/
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   silli.saverio/exercise01.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git pull origin master
+From https://github.com/opendot/FabAcademy2015-Opendot
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git add -A
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git commit -m "test"
+[master 819bf22] test
+ 1 file changed, 8 insertions(+), 18 deletions(-)
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git push
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 466 bytes | 0 bytes/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+To https://github.com/opendot/FabAcademy2015-Opendot.git
+   3d93fb6..819bf22  master -> master
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+MacBook-Pro-di-Save:FabAcademy2015-Opendot zaverie$ 
+</pre>
+	  
+	  	 <p class="pic">
+			 <a href="image/01/image02.jpg"></a>
+        <img src="image/01/image02.jpg"width="600" >
+				<legend>Sreenshot of Terminal</legend>
+				 </p>
+	  
     <!-- End of your content -->
 
     </div> <!-- /container -->

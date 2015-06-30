@@ -80,7 +80,7 @@
 
 	<!-- Insert your content here below! -->
 
-<p>****************************************************************************************************************</p>
+ <p><font color=#fff>****************************************************************************************************************</font></p>
           
         <ul class="pager status">
     
@@ -88,43 +88,150 @@
     
         <li class="next"><a href="exercise15.html"> →</a></li>
     
-        <h2>WEEK 14 - INTERFACE AND APPLICATION PROGRAMMING -</h2>
+        <h2><font color=#fff>INTERFACE AND APPLICATION PROGRAMMING</font></h2>
 
         </ul>
         
 
 <br>
-        <h4>Goal: WRITE A DESKTOP APPLICATION THAT INTERFACES WITH AN INPUT AND OUTPUT DEVICE</h4>
-        <h4>Project : A Laser distance measurement mounted with two servo motors. Making a dence cloud and visualise it with Processing</h4>
+        <h4><font color=#fff>ASSIGNMENT: WRITE A DESKTOP APPLICATION THAT INTERFACES WITH AN INPUT AND OUTPUT DEVICE</font></h4>
+            <h4><font color=#fff>PROJECT: </font></h4>
         <br>
-        <h4>Input: 
-            <a href="http://pulsedlight3d.com/"> Lidar Lite - Laser distance measurement - </a> 
-        </h4>
-            <h4>Output: Desktop Application --> Mac Os 10.10.2 </h4>
-        <h4>Soft:
-            <a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a> # <a href="https://processing.org/"> PROCESSING </a>
-        </h4>
-        <h4>Board: <a href="http://www.arduino.cc/">ARDUINO</a>
-        <h4>Datasheet: 
-            <a href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/5007466446/original/LIDAR-Lite-Laser-Datasheet.pdf?AWSAccessKeyId=AKIAJ2JSYZ7O3I4JO6DA&Expires=1429631642&Signature=4i%2FJCFif41I3O8U3%2FFxnoDnHMQw%3D&response-content-type=application%2Fpdf"> Lidar Lite </a> # <a href="http://datasheet.sparkgo.com.br/SG90Servo.pdf">SG90 Servo</a></h4>
-            <h4>Tutorial: <a href="http://myrobotlab.org/content/lidar-lite-distance-measurement-and-creating-point-cloud#comment-form">Lidar Lite distance measurement and creating a point cloud</a></h4>
-        <h4>Note: I will realize the exercise with the original arduino board before and subsequently, with the satshakit realized in the week 10.</h4>
+            <h4><font color=#fff>INPUT:  </font></h4>
+            <h4><font color=#fff>OUTPUT: </font></h4>
+        <h4><font color=#fff>SOFT:
+            <a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a> // <a href="https://processing.org/"> PROCESSING </a></font></h4>
+            <h4><font color=#fff>BOARD: SATSHAKIT BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
+        <h4><font color=#fff>LIBRARY: <a href="http://playground.arduino.cc/uploads/Interfacing/processing2-arduino.zip">  PROCESSING 2 - ARDUINO</a> </font></h4>
+            <h4><font color=#fff>TUTORIAL:</font><a href="http://playground.arduino.cc/Interfacing/Processing"> ARDUINO AND PROCESSING</a></h4>
+        <h4><font color=#fff>DOWNLOAD: <a href="download/w15_processing_intarface_an_application_programming_pierluigi_de_palo.pde.zip"><button type="button" class="btn btn-primary btn-lg">processing.pde</button></a></font></h4>
 
-        <br>
-               <p>*****************************************************************************************************************</p>
+                <p><font color=#fff>****************************************************************************************************************</font></p>
+            
+            <p>For first I follow the Arduino and Processing turorial and i installed the processing2-arduino file in the .</p>
+            <p> </p>
     
+            <br>
+    <p class="pic">
+        <img src="Images/w14_1.jpg">
+	<legend></legend></p>    
+<br>
+            <br>
+    <p class="pic">
+        <img src="Images/w14_2.jpeg">
+	<legend></legend></p>    
+<br>
+            <br>
+    <p class="pic">
+        <img src="Images/w14_3.jpeg">
+	<legend></legend></p>    
+<br>
+            <br>
+    <p class="pic">
+        <img src="Images/w14_4.jpg">
+	<legend></legend></p>    
+<br>
+            
+            
+             <pre style="background-color: black; color: white">
+            /*
+
+Modified Sketch By Pierluigi De Palo -Opendot Fab Lab Milano- 
+Fab Academy 2015 - INTERFACE AND APPLICATION PROGRAMMING -
+
+
+arduino_input
+
+Demonstrates the reading of digital and analog pins of an Arduino board
+running the StandardFirmata firmware.
+
+To use:
+* Using the Arduino software, upload the StandardFirmata example (located
+  in Examples > Firmata > StandardFirmata) to your Arduino board.
+* Run this sketch and look at the list of serial ports printed in the
+  message area below. Note the index of the port corresponding to your
+  Arduino board (the numbering starts at 0).  (Unless your Arduino board
+  happens to be at index 0 in the list, the sketch probably won't work.
+  Stop it and proceed with the instructions.)
+* Modify the "arduino = new Arduino(...)" line below, changing the number
+  in Arduino.list()[0] to the number corresponding to the serial port of
+  your Arduino board.  Alternatively, you can replace Arduino.list()[0]
+  with the name of the serial port, in double quotes, e.g. "COM5" on Windows
+  or "/dev/tty.usbmodem621" on Mac.
+* Run this sketch. The squares show the values of the digital inputs (HIGH
+  pins are filled, LOW pins are not). The circles show the values of the
+  analog inputs (the bigger the circle, the higher the reading on the
+  corresponding analog input pin). The pins are laid out as if the Arduino
+  were held with the logo upright (i.e. pin 13 is at the upper left). Note
+  that the readings from unconnected pins will fluctuate randomly. 
+  
+For more information, see: http://playground.arduino.cc/Interfacing/Processing
+*/
+
+import processing.serial.*;
+
+import cc.arduino.*;
+
+Arduino arduino;
+
+//color off = color(4, 79, 111);
+//color on = color(84, 145, 158);
+color ballc= color(255, 255, 255);  // set initial color of the ball to white
+
+void setup() {
+  size(600,400);
+
+  // Prints out the available serial ports.
+  println(Arduino.list());
+  
+  // Modify this line, by changing the "0" to the index of the serial
+  // port corresponding to your Arduino board (as it appears in the list
+  // printed by the line above).
+  arduino = new Arduino(this, Arduino.list()[5], 57600);
+  
+  // Alternatively, use the name of the serial port corresponding to your
+  // Arduino (in double-quotes), as in the following line.
+  //arduino = new Arduino(this, "/dev/tty.usbmodem621", 57600);
+  
+  for (int i = 0; i <= 13; i++)
+    arduino.pinMode(i, Arduino.INPUT);   // Set the Arduino digital pins as inputs.
+}
+  
+  
+  
+void draw() {
+  if (arduino.digitalRead(4) == arduino.HIGH) {  // read the value of the digital pin 4 and check if is HIGH
+    background(205);  //create the background to erase the draw
+    ballc = color(random(0, 255), random(0, 255), random(0, 255));  // create a new random color for the ball
+    
+  }
+  //background(205);
+    fill(ballc);  // set the color to the ball
+    noStroke();  // delete the stroke
+    // create a ball according to the value of the potentiometer
+    ellipse(map(arduino.analogRead(0),0,1024,0, width), map(arduino.analogRead(1),0,1024,0, height), 10, 10);  
+}
+</pre>
+
+<div> 
+          <p class="pic">
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/25t4J2eVw8o?rel=0" frameborder="2" allowfullscreen></iframe>
+	<legend></legend>
+            </div>
+
+
+
     <!-- End of your content -->
 
     </div> <!-- /container -->
 
 	<!-- footer -->
     
-    <footer id="footer">
-        <p id="cclicense">
-                </p>
+  <footer id="footer">
+       
         <p class="license">
-        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+            Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>
     

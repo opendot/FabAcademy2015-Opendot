@@ -87,7 +87,7 @@
     <h3>What will it do?</h3>
         
         <p>
-        S-mill is a CNC milling machine with the following goals:
+        Smill is a CNC milling machine with the following goals:
             <br>
             <ul>
                 <li> make pieces bigger than it</li>
@@ -150,17 +150,23 @@ Here some exhisting projects that I considered inspiring:
      <h3> What materials and components will be required? \\ Where will they come from? </h3>
       
       <p>
-          The project is divided in different parts:<br>
+          The project is divided in different parts:
+          </p>
            <ul>
       <li>Structure</li>
                <li>Electronic</li>
                <li>Firmware</li>
                <li>Software</li>
+               <li>standard parts</li>
       </ul>
-
-      I started from the work done by <a href="www.shapeoko.com">Shapeoko</a>
-      studying the board to implement mine. <br>
+      <p>
+The structure, the pcb, and the smaller funcional parts are made with CNC milling machine, lasercutter, and 3D printer.
+      <br>
+      I started from the work done by <a href="www.shapeoko.com">Shapeoko</a>, for the electronic, studying the board to implement mine. <br>
       The formware is a standard g-code interpreter (<a href="https://github.com/grbl/grbl">grbl</a>) edited to match the pitch of the pulleys i'm gonna use and the pins of the microcontroller that will give step+dir to the motors.
+      I tried different CAM and in the end the tests I did were done using the fab modules online.
+      <br>
+      Beside specific componenets bought online from china or european suppliers like Reprap World, everyting else is easily available in a local hardware store. 
     </p>
     
       
@@ -175,20 +181,51 @@ Here some exhisting projects that I considered inspiring:
     </a>
 </p>
         
-     <h3> What processes will be used?</h3>
+     <h3>What parts and systems will be made? What processes will be used?</h3>
             <p>
-               The frame of the machine is designed to be made with another CNC, some minor components are 3D printed and the electronic is made with the fiber laser. 
-The firmware is an simple editing of the grbl.
+               Here a simplified part list and if it's made or bought, as well as how it's made if it is.
+        
+<img src="images/componenti.JPG">
+        <br>
+    	<a href="media/components.ods">
+	<button type="button" class="btn btn-primary btn-lg">Download "costs.odt"</button>
+    </a>
                 </p>
+     <h3>What task need to be completed?</h3>
+    <p>I have to assemble everything together and test the result.</p>
+    
+    
+        <h3>what question need to be answered</h3>
+    <p>The main questions right now are about the way i choose to move the axis, I'm not sure about the rigidity and the behave of the machine, but the only way to get to an answer is testing a working prototype. So I decide I will not go on implementing new solutions or ideas until I'll get to a fully working version of the machine.</p>
+    
+    
+        <h3>What is the schedule?</h3>
+    <p> I usually calculate the timing starting from the delivery, back to today. Between the 13th of May and the and the 24th of JUne I have 15 half-days and 14 full days, working just on this during the week and week-end if but the time needed for meetings, workshops, speeches, university lessons and exams. <br>
+    I can't calculate these as 100% efficient working time and i need a backup in case of emergency. So I considered 20 half-days, defined from now on "hD" (more or less the 50% of the total time available), divided in this way:
+    </p>
+    <ul>
+    <li>1hD to test the assembled PCB and check if it read a standard g-code</li>
+        <li>2hD to read, understand, and edit the GRBL</li>
+        <li>1hD to assemble the second version of the frame</li>
+        <li>1hD to check the 3D printed parts and eventually edit them</li>
+        <li>1hD to check all the movements by hand</li>
+        <li>3hD to assemble everything together</li>
+        <li>1hD to connect everything, prepare the cables, etc.</li>
+        <li>2hD to test connection, electronic, movement, and fix it as much as possible</li>
+        <li>1hD to implement the microstepping and recalibrate the machine</li>
+        <li>1hD find the most efficient way to generate g-codes to test the machine</li>
+        <li>2hD to cut the pieces and test the entire process</li>
+        <li>4hD to implement and refine the documentation, including the material for the final presentation</li>
+    </ul>
     
 
       <h3>How will it be evaluated?</h3>
-   
+   <p>
     <br>
     This is going to be my evaluation grid for the project:
     <br>
     <ul>
-    <li></li>
+
         <li><strong>Sufficient:</strong> get to a smooth mechanical design, where all the axis move properly without the motors </li>
         <li><strong>Decent:</strong> be able to move all the axis using a debugging application done in Processing + firmata on the board </li>
         <li><strong>Good: </strong>be able to move all the axis using a modified version of grbl + grbl controller</li>

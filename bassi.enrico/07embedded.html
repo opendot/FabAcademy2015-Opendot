@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Enrico Bassi">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Enrico Bassi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+     <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+     <h2>07. Embedded Programming</h2>   
+        
+   
+        <h3>Reading the Datasheet</h3>
+	<p>
+	Considering how complex is the ATtiny44 datasheet i decided to make a syntesis here to speed up the comprehence and memorize better some features. <br><br>
+        
+     <strong>ATtiny 44</strong>   
+<ul style="list-style-type:disc
+           ">
+  <li>One 8-Bit and One 16-Bit Timer/Counter with Two PWM Channels, Each</li>
+  <li>10 bit Analog to Digital (ADC): 8 are single-ended and 12 a differential. Here a breaf note about this two different signal:<br><br>
+   <q> <font color= "gray"> WHEN TO USE SINGLE-ENDED OR DIFFERENTIAL INPUTS<br>
+Differential inputs provide a more stable reading when EMI or RFI is present, and therefore, it is recommended to use them whenever noise is generally a problem. This is especially true when measuring <strong> thermocouple, strain gage and Bridge type pressure sensor </strong>inputs, since they produce very small signals that are very succeptible to noise.<br>
+
+Single-ended inputs are lower in cost, and provide twice the number of inputs for the same size wiring connector, since they require only one analog HIGH (+) input per channel and one LLGND (-) shared by all inputs. Differential inputs require signal HIGH and LOW inputs for each channel and one common shared LLGND. Single-ended inputs save connector space, cost, and are easier to install.</font> <a href="http://bit.ly/1C1XR7q">(Original link)</a></q> <br><br>
+    </li>
+  <li>analog comparator (not sure if with internal hysteresis or not)</li>
+    <li>Internal calibrated oscillator (how relaiable?)</li>
+  <li>working with 2.7V to 5.5V</li>
+    <li>up to 20 MHz(5.5V)</li>
+  <li>Low power consumtion</li>
+</ul>
+    <br>
+       <strong> Here the Pinout:</strong><br>
+        <img src="images/pinout.GIF" alt="Pinout" width="800">
+         <img src="images/porta.GIF" alt="Port A" width="800">
+         <img src="images/portb.GIF" alt="Port B" width="800">
+	</p>
+
+    <br>
+    <strong>To be remembered</strong>   
+<ul style="list-style-type:disc
+           ">
+  <li>Port B is a 4bit bidirectional I\O port, with internal pull-up resistor (to "keep clean and stable" the voltage to the pin) with the reset pin (PB3)</li>
+      <li>Port A is a 8bit bidirectional I\O port, with internal pull-up resistor. Port A has alternate functions as analog inputs for the ADC, analog comparator, timer/counter,
+SPI and pin change interrupt</li>
+    <li>A watchdog timer (A watchdog timer or WDT is a hardware timer that automatically generates a system reset if the main program neglects to periodically service it. It is often used to automatically reset an embedded device that hangs because of a software or hardware fault) </li>
+    <li>There are two types of interrupts, one is recording what's happening while the interrupt is on, the other is not. In the second case, if another interrupt accurs while the first one is on, and it goes off before the end of the first, it's not going to be triggered</li>
+    <li>if an external clock is used, the CKSEL fuses is programmed to 0000</li>
+    <li>Internal clock is approximately 8 MHz (to be calibrated)</li>
+    <li>There is a low power clock (CKSEL fuses to 0100) at 128kHz (to be calibrated)</li>
+    <li>The default clock source setting is therefore the Internal Oscillator running at 8.0 MHz </li>
+    <li>The ports are bi-directional I/O ports with optional internal pull-ups resistors</li>
+    <li>The DDxn bit in the DDRx Register selects the direction of this pin. If DDxn is written logic one,
+Pxn is configured as an output pin. If DDxn is written logic zero, Pxn is configured as an input
+pin. </li>
+    <li>If PORTxn is written logic one when the pin is configured as an input pin, the pull-up resistor is
+activated. </li>
+    <li>If PORTxn is written logic one when the pin is configured as an output pin, the port pin is driven
+high (one). If PORTxn is written logic zero when the pin is configured as an output pin, the port
+pin is driven low (zero) </li>
+    
+      
+        
+    
+    <h3>Programming the "hello world"</h3>
+	<p>
+The first step to do is to write the make file. It contains all the information to programm the board. In particular: 
+        <ul style="list-style-type:disc
+           ">
+            <li>how to send the programm to the board</li>
+            <li>the configuration of the board (clock, processor, etc.)</li>
+                </ul>
+            <br>
+            
+            Therefor it should be different for aech board, or at least edited.
+            Here the code used (taken for the fabacademy archive)
+            <br><br>
+
+            <pre class="prettyprint linenums">
+PROJECT=hello.ftdi.44.echo
+SOURCES=$(PROJECT).c
+MMCU=attiny44
+F_CPU = 20000000
+
+CFLAGS=-mmcu=$(MMCU) -Wall -Os -DF_CPU=$(F_CPU)
+
+$(PROJECT).hex: $(PROJECT).out
+	avr-objcopy -O ihex $(PROJECT).out $(PROJECT).c.hex;\
+	avr-size --mcu=$(MMCU) --format=avr $(PROJECT).out
+ 
+$(PROJECT).out: $(SOURCES)
+	avr-gcc $(CFLAGS) -I./ -o $(PROJECT).out $(SOURCES)
+ 
+program-bsd: $(PROJECT).hex
+	avrdude -p t44 -c bsd -U flash:w:$(PROJECT).c.hex
+
+program-dasa: $(PROJECT).hex
+	avrdude -p t44 -P /dev/ttyUSB0 -c dasa -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U flash:w:$(PROJECT).c.hex
+
+program-avrisp2-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c avrisp2 -U lfuse:w:0x5E:m
+
+program-usbtiny: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U flash:w:$(PROJECT).c.hex
+
+program-usbtiny-fuses: $(PROJECT).hex
+	avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
+
+program-dragon: $(PROJECT).hex
+	avrdude -p t44 -P usb -c dragon_isp -U flash:w:$(PROJECT).c.hex
+    </pre>
+	
+ <br>         
+After the make file I moved to "hello.ftdi.44.echo.C"
+            <br> Helped by <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html"> Daniele Ingrassia </a>, I checked the code line by line, trying to understand as much as possible. It took him almost two hours to explain me everything. We went through all the funcions and i particular:
+            <br>
+              <ul style="list-style-type:disc
+           ">
+            <li>the use of "*" to have a pointer instead of a variable</li>
+                  <li>how to use arrays</li>
+                  <li>always true conditions</li>
+                  <li>functions and void functions</li>
+                  <li>kind of memories usable</li>
+                  <li>kind of variables</li>
+                  <li>how to simulate the serial comunication on MC without and hardware one</li>
+    </ul>
+    
+    I used the standard code for the blink
+    
+    
+    
+     <pre class="prettyprint linenums">
+#include &lt;avr/io.h&gt;
+#include &lt;inttypes.h&gt;
+#include &lt;util/delay.h&gt;
+
+void delay_ms(uint16_t ms);
+void init_io();
+int button_is_pressed();
+void toggle_led();
+
+#define F_CPU 20000000UL         /* 20MHz crystal oscillator */
+
+#define BUTTON_PORT PORTB       /* PORTx - register for button output */
+#define BUTTON_PIN PINB         /* PINx - register for button input */
+#define BUTTON_BIT PB2          /* bit for button input/output */
+
+#define LED_PORT PORTA          /* PORTx - register for LED output */
+#define LED_BIT PA7             /* bit for button input/output */
+#define LED_DDR DDRA            /* LED data direction register */
+
+#define DEBOUNCE_TIME 25        /* time to wait while "de-bouncing" button */
+#define LOCK_INPUT_TIME 250     /* time to wait after a button press */
+
+int 
+main (void)
+{
+        init_io();
+
+        while (1)                       
+        {
+                if (button_is_pressed())
+                {
+                        toggle_led();
+                       
+                }
+        }
+}
+
+void delay_ms(uint16_t ms) {
+        while ( ms )
+        {
+                _delay_ms(1);
+                ms--;
+        }
+}
+
+void 
+init_io() 
+{
+        /* set LED pin as digital output */
+        LED_DDR = _BV (LED_BIT); 
+
+        /* led is OFF initially (set pin high) */         
+        LED_PORT |= _BV(LED_BIT);
+
+        /* turn on internal pull-up resistor for the switch */
+        BUTTON_PORT |= _BV(BUTTON_BIT);
+}
+
+int 
+button_is_pressed()
+{
+        /* the button is pressed when BUTTON_BIT is clear */
+        if (bit_is_clear(BUTTON_PIN, BUTTON_BIT))
+        {
+                delay_ms(DEBOUNCE_TIME);
+                if (bit_is_clear(BUTTON_PIN, BUTTON_BIT)) return 1;
+        }
+
+        return 0;
+}
+
+void
+toggle_led()
+{
+        LED_PORT ^= _BV(LED_BIT);
+} </pre> 
+                
+                  To be honest I think I'm pretty far from coding something in C. I have a little bit of experience in Arduino and i think I'm going to improve that first.
+                
+                  
+    
+<br>
+    I actually used the blink version of the hello world, to test the other version as well. After I uploaded the code i noticed it wasn't working and checking the board i noticed the LED was connected with inverted polarity. I decided to add a bigger one, and it was working perfectly.
+    <br><br>
+    <img src= "images/blink.jpg" alt="blink attiny 44"> 
+                  
+      </p>
+
+   
+
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

@@ -67,7 +67,7 @@
     <div class="container">
       <!-- Insert your content here below! -->
       <h2>Hello World</h2>
-      <div style="text-align: center;"><img style="width: 653px; height: 523px;"
+      <div style="text-align: center;"><img style="width: 1029px; height: 823px;"
           alt="presentation" src="presentation.png"><br>
       </div>
       <ul type="”disc”">
@@ -80,13 +80,73 @@
         fishline that is quite impossible to extend, I also bought a kevlar
         fishline for next esperiments.<br>
         <br>
-        I tried some tools on the machine&nbsp; and this is the result:<br>
         <br>
+        All the parts of the project are described well in the various page that
+        you can find in Final Project menu<br>
+        <br>
+        <br>
+        The final files are here:
       </ul>
-      <h3>Dual drawing conductive</h3>
-      one lyer with classical pen and the simple with Agic conductive pen<br>
-      <img alt="a" src="img/IMG_20150620_002954.jpg"><br>
+      <a href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/OpenStageFrame.zip">DOWNLOAD</a><a
+        href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/project.zip"><span
+          style="color: #333333;"></span></a> : dxf files to lasercut the frame,
+      my version is in 8mm plywood<br>
+      <a href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/Final%20Project.zip">CARRIAGE</a>
+      : stl file to 3D print the carriage<br>
+      <a href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/OpenXYboard.zip">MAINBOARD</a>
+      : eagle file to make the main pcb<br>
+      <a href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/OPENservo.zip">Z
+        SERVO</a>: eagle file to make te servo board<br>
+      <a href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/grblOpenStage.zip">GRBL</a>:
+      GRBL library to copy in Arduino library directory<br>
+      <a href="file:///C:/Users/Samsung/Documents/GitHub/FabAcademy/FabAcademy2015-Opendot/pugliese.gianluca/files/PluginInkscapeOpenStage.zip">INKSCAPE
+        PLUGIN</a>: this is the modified Unicorn plugin to work with OpenStage,
+      Just unzip and copy the folder in the Inkscape extension folder<br>
       <br>
+      The rest of the BOM are<br>
+      2&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; STEPPER MOTOR NEMA17<br>
+      2 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; POLOLU DRIVER<br>
+      8&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 624 BEARING<br>
+      10&nbsp;&nbsp;&nbsp; METER KEVLAR FISHLINE<br>
+      1&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 9g MICRO SERVO<br>
+      <br>
+      Here some close up picture of the final version<br>
+      <img alt="t" src="img/IMG_20150610_021553.jpg"><br>
+      Y and X carriage with z Servo board<br>
+      <br>
+      <img alt="h" src="img/IMG_20150621_154927.jpg"><br>
+      X carriage with complete Z stage<br>
+      <br>
+      <h1 style="background-color: #ff6600;"><span style="color: black;">GOAL</span></h1>
+      <br>
+      The best goal of my project is that is possible to draw something in
+      Inkscape and exporting the gcode via modified Unicorn Plugin<br>
+      then you can open the gcode with a gcode sender like GRBL CONTROLLER and
+      send via serial to the machine<br>
+      here an example:<br>
+      Draw OpenStage in Inkscape and I saved the gcode with modified Unicorn
+      Plugin<br>
+      <img alt="f" src="img/selfie.jpg"><br>
+      <br>
+      Import the gcode in GRBL CONTROLLER<br>
+      <img alt="h" src="img/selfie_path.jpg"><br>
+      <br>
+      Open the serial communication with the right COM port and the correct
+      Baudrate (115200 in my case)<br>
+      and push "begin" button<br>
+      <br>
+      <iframe src="https://www.youtube.com/embed/-WVkDovPSvQ" allowfullscreen=""
+        frameborder="0" height="315" width="560"></iframe><br>
+      <br>
+      <br>
+      I tried some tools on the machine&nbsp; and this is the result:<br>
+      <br>
+      <h3>Dual layer drawing: pen and conductive ink</h3>
+      one lyer with classical pen and the simple with Agic conductive pen<br>
+      <img alt="a" src="img/IMG_20150620_002954.jpg">&nbsp; <br>
+      This is the result:<br>
+      <iframe src="https://www.youtube.com/embed/eqc1zVkNYI8" allowfullscreen=""
+        frameborder="0" height="315" width="560"></iframe><br>
       <h3>Wood&nbsp;&nbsp; </h3>
       on the wood with a little Proxxton spindle work well just to engrave a
       soft wood<br>
@@ -98,18 +158,26 @@
       correct tip<br>
       <img alt="g" src="img/IMG_20150623_020220.jpg"><br>
       <br>
+      <iframe src="https://www.youtube.com/embed/G1OVZnN_rEo" allowfullscreen=""
+        frameborder="0" height="315" width="560"></iframe><br>
       <h3>Soft metal</h3>
       Working on alluminium the machine work quite well, during the circle the
       spindle was stressed much and so the circle is more like an ellipse. <br>
-      The ggod things is that the text was engraved perfecly!<br>
+      The good things is that the text was engraved perfecly!<br>
       <br>
       <img alt="h" src="img/IMG_9939.jpg"><br>
       <br>
+      <iframe src="https://www.youtube.com/embed/GUjyBZYlL_o" allowfullscreen=""
+        frameborder="0" height="315" width="560"></iframe><br>
       <h3>Fine testing&nbsp; </h3>
       Drow with a pencil, the file was to big for the print area and at the
       final the steppers loses some step<br>
       <img alt="m" src="img/IMG_9941.jpg"><br>
       <br>
+      OpenStage beta 1 version draw with a pen a circuit<br>
+      <br>
+      <iframe src="https://www.youtube.com/embed/ef28J_cChB8" allowfullscreen=""
+        frameborder="0" height="315" width="560"></iframe> <br>
       Drawing with a Stadleter<span style="color: red;"> 0.05mm&nbsp; </span>is
       possible to appreciate the quality of the precision<br>
       <br>
@@ -125,7 +193,9 @@
       &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
       <ul type="”disc”">
-        <p><br>
+        <p>Below a video that show the change tool system and the Z adjustment</p>
+        <p><iframe src="https://www.youtube.com/embed/WOQlEIalPZY" allowfullscreen=""
+            frameborder="0" height="315" width="560"></iframe><br>
         </p>
         <p><br>
         </p>

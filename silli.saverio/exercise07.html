@@ -237,13 +237,31 @@ avrdude done.  Thank you.</pre></p>
 		
 	  <p><iframe width="600" height="337" src="https://www.youtube.com/embed/QlrFf2AOdrs" frameborder="0" allowfullscreen></iframe><legend>LED is steady, button turn it off and on at every click.</legend></p><br><br><br><br>
 		
+	  
+	  <h3>Write a program and load it on the board</h3>
 		<p>After that I tried to modify the C program, but it was really too difficult to do it in a week without knowing anything about C. I tried instead working with Arduino IDE. To do so, I first installed an AVR set of information for the Arduino IDE to make it recognize my ATTiny, then tried different setup with LED blinking at different speed and button doing different operations.</p>
 		
-	<p class="pic">
-			 <a href="image/07/image4.jpg"></a>
-        <img src="image/07/image4.jpg"width="600" >
-			<legend>Arduino IDE: LED blinks, button has no use.</legend>
-				 </p>
+<pre class="prettyprint linenums">/*modified 8 May 2014
+  by Scott Fitzgerald
+  
+  modified 17 March 2015
+  by Saverio Silli for Fab Academy 2015 week 7 excercise
+ */
+
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 7 as an output.
+  pinMode(7, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(100);              // wait for a second
+  digitalWrite(7, LOW);    // turn the LED off by making the voltage LOW
+  delay(100);              // wait for a second
+}</pre>
 
 		
 	<p> <iframe width="600" height="337" src="https://www.youtube.com/embed/0bVhXI_mJPI" frameborder="0" allowfullscreen></iframe><legend>Video: LED blinks, button has no use.</legend></p> <br><br><br><br>
@@ -252,11 +270,54 @@ avrdude done.  Thank you.</pre></p>
 	  
 	  
 	  
-	  <p class="pic">
-			 <a href="image/07/image5.jpg"></a>
-        <img src="image/07/image5.jpg"width="600" >
-			<legend>Arduino IDE: LED is steady, button turn it off when kept pressed.</legend>
-				 </p>
+	  <pre class="prettyprint linenums">/*
+  Button
+
+ Turns off a light emitting diode(LED) connected to digital
+ pin 7, when pressing a pushbutton attached to pin 3.
+
+
+ 
+ created 2005
+ by DojoDave <http://www.0j0.org>
+ modified 30 Aug 2011
+ by Tom Igoe
+ 
+ modified 17 March 2015
+ by Saverio Silli for Fab Academy 2015 week 7 excercise
+ 
+ */
+
+// constants won't change. They're used here to
+// set pin numbers:
+const int buttonPin = 3;     // the number of the pushbutton pin
+const int ledPin =  7;      // the number of the LED pin
+
+// variables will change:
+int buttonState = 0;         // variable for reading the pushbutton status
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+  // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed.
+  // if it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    // turn LED on:
+    digitalWrite(ledPin, HIGH);
+  }
+  else {
+    // turn LED off:
+    digitalWrite(ledPin, LOW);
+  }
+}</pre>
 		
 		<p><iframe width="600" height="337" src="https://www.youtube.com/embed/jaQdx1XqqyA" frameborder="0" allowfullscreen></iframe><legend>Video: LED is steady, button turn it off when kept pressed.</legend></p> <br><br><br><br>
 	  
@@ -265,13 +326,36 @@ avrdude done.  Thank you.</pre></p>
 	  
 	  
 	  
-	  <p class="pic">
-			 <a href="image/07/image7.jpg"></a>
-        <img src="image/07/image7.jpg"width="600" >
-			<legend>Arduino IDE: LED blinks, button alternates blinking (faster/slower)</legend>
-				 </p>
+	<pre class="prettyprint linenums"> /*This sketch modify the frequency of an LED when the button is pressed.
+ 
+Created 17 March 2015
+by Saverio Silli for Fab Academy 2015 week 7 excercise
+ */
+
+int delay_value = 100;
+int led_pin = 7;
+int button_pin = 3;
+void setup() { 
+  pinMode(led_pin, OUTPUT); pinMode(button_pin, INPUT); 
+}
+void loop() { 
+  digitalWrite(led_pin, HIGH);
+  delay(delay_value);
+  digitalWrite(led_pin, LOW);
+  delay(delay_value);
+  int button_state = digitalRead(button_pin);
+  if (button_state == HIGH) { 
+    delay_value = 10; 
+  } else { 
+    delay_value = 100; 
+  } 
+}</pre>
 		
-		<p><iframe width="600" height="337" src="https://www.youtube.com/embed/YXjgRvbqQ_0" frameborder="0" allowfullscreen></iframe> <legend>Video: LED blinks, button alternates blinking (faster/slower).</legend></p> 
+		<p><iframe width="600" height="337" src="https://www.youtube.com/embed/YXjgRvbqQ_0" frameborder="0" allowfullscreen></iframe> <legend>Video: LED blinks, button alternates blinking (faster/slower).</legend></p> <br>
+
+	  
+	  <p>Program files are available here:</p>
+		<p><li><a href="storage/07/programs.zip">Program Files</a></li></p>
 
 
 <!-- End of your content -->

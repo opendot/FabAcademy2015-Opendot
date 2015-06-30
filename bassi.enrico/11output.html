@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Enrico Bassi">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Enrico Bassi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+     <h2>11. Output Devices</h2>
+    
+ <h3>Second version</h3>
+	<p>
+I fixed all the bugs I found on the previous version and made a more dense board.
+        <br> 
+        <img src= "images/output21.jpg" alt="board compared" >
+      
+<br> Here the eagle file:
+  <br>      
+<a href="media/yogurt_V2.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Yogurt maker V2"</button> </a> 
+        
+        <br><br>
+        The idea was to keep the temporary connections just to programm and debug the board and then remove them
+        </p>
+        
+  <h3>Debugging V2</h3>
+	<p>
+Before trying to power it I checked for short circuits and I there was one between Vin and GND. The most likely place would have been under the microcontroller, but being the harder to fix i decided to test everything else before desolder it and change it.
+        <br> I took pics of the connection and marked between one and the other with a cutter. From the picture, everyting seems fine
+        <br>
+        <img src= "images/output4.jpg" alt="checking the connections">
+        
+        <br>
+        After that I cut the Vin that get to the microcontroller, to see where actually was the problem.
+        <br>
+        <img src="images/output2.jpg" alt="cutting the Vin">
+        <br>
+        This helped me to realize that the problem wasn't the microcontroller, but something else. Luckly I had not so many connection to check and I found that a small copper wire form the desoldering braid, got stuck between two connections. I cleaned everything with a cutter and bridged the Vin with a 0 Ohm resistor.
+        <br>
+        <img src="images/output5.jpg" alt="cleaning the pads">
+        <img src="images/output6.jpg" alt="bridge the Vin">
+      
+        <br>
+        Everything else went smoothly until I tried to programm it. I have been able to upload the sketch, but the timing was completely wrong and hard to predict (a 1000 millisecond loop could take from 6 to 14 seconds). Considering the position of the cristal capacitors wasn't exacly simmetrical, I thought that could be the problem, so I removed the capacitor and tested using the inner 8MHz cristal. 
+        <br>
+        <img src="images/output7.jpg">
+        <br>
+        
+        Still no good results... Next test was to use a ceramic oscillator. I had a 16 MHz smd oscillator and I soldered temporarely to check if it helped.
+        <br>
+        <img src="images/output9.jpg">
+        <br>
+        Even if it's not good looking I tested it and it was properly conneced with no short circuits.
+        Still nothing. 
+        </p>
+        
+  <h3>File Board.txt</h3>
+	<p>
+Obviously everytime I tried a new configuration I edited the file Board.txt in the Arduino folder, and I had no problem to upload the sketch. The board was actually working the way it has to do, readint the sensor and the trigger, and turning on a led and the mosfet when the temperature was lower that the trigger's value. 
+        </p>
+        
+          <h3>Debugging the code</h3>
+	<p>
+The board was working, still without the serial monitor, it was complex to debugging and remapping the values from the trigger to match the sensitivity of the temperature sensor. I sterted from the <a href="http://www.farnell.com/datasheets/488304.pdf">datasheet</a> to understand the values readed. It said there is a typical variation of 10mV per °C, starting form 500mV at 0 °C.
+        I also checked the values and the variation directly from the sensor, using a multimeter. 
+        <br>
+        <img src="images/output14.jpg">
+        <br>
+        In the end the calibration was approximative but effective. I tested it turning on and off a light pointing to the sensor (to warm it up). It behaved as expected: at room temperature the sensor turned on the mosfet, and therefor, the lamp. After a while this incresed the temperature and the sensor turn it off as a consequence. 
+        <br>
+        <img src="images/output18.jpg">
+        <br>
+        
+        Being something I needed, I decided to keep it like this and desolder the connectors to be programmed. Here the result
+        <br>
+       <img src= "images/output17.jpg">          
+    
+ </p>
+        
+<h3>Fixing the serial comunication</h3>
+	<p>
+Following a suggestion of <a href="http://fabacademy.org/archives/2015/eu/students/boasso.simone/index.html">Simone Boasso</a>, I tried restarting from the upload of the bootloader, using a project of an Arduino on breadboard, published on <a href="http://www.instructables.com/id/USBASP-Bootloading-a-ATMega328p-with-a-8mhZ-intern/">instructables</a>. This was a project that run with the internal 8 MHz clock. 
+        <br>
+        When I first tried to upload this, Arduino IDE gave me an error message, because no bootloader.tool parameter were set. After some try and error I got to this configuration
+        <br>
+        <pre class="prettyprint linenums">
+atmega328bb.name=ATmega328 on a breadboard (8 MHz internal clock)
+atmega328bb.upload.protocol=stk500
+atmega328bb.upload.tool=avrdude
+atmega328bb.upload.maximum_size=30720
+atmega328bb.upload.speed=57600
+atmega328bb.bootloader.tool=avrdude
+atmega328bb.bootloader.low_fuses=0xE2
+atmega328bb.bootloader.high_fuses=0xDA
+atmega328bb.bootloader.extended_fuses=0x03
+atmega328bb.bootloader.path=arduino:atmega
+atmega328bb.bootloader.file=ATmegaBOOT_168_atmega328_pro_8MHz.hex
+atmega328bb.bootloader.unlock_bits=0x3F
+atmega328bb.bootloader.lock_bits=0x0F
+atmega328bb.build.mcu=atmega328p
+atmega328bb.build.f_cpu=8000000L
+atmega328bb.build.core=arduino:arduino
+atmega328bb.build.variant=arduino:standard</pre>
+        
+        <br>
+        In particular I had to modify the extended_fuses following the request in the error messages of Arduino IDE. 
+        <br>
+        After that i reupladed the sketch and the serial monitor was working perfectly. 
+        <br><br>
+        
+        <img src="images/output1.jpg">
+        
+        <br> <br>
+        This allowed me to fix minor issues and calibrate the sensor better. The final Arduino sketch is here: 
+        
+<pre class="prettyprint linenums">
+void setup() {
+pinMode (13, OUTPUT);
+Serial.begin (9600);
+}
+
+void loop() {
+  int v1 = analogRead(A0);
+  int v2 = analogRead(A2);
+  float mv1 = ( v1/1024.0)*5000; //value in millivolt
+  mv1 = mv1-500; //value in millivolt after °C
+  float cel = mv1/10; //°C degrees considering +10mV = +1°C
+
+  Serial.print(cel);
+  Serial.print(" C");
+
+  v2 = map(v2, 0, 1024, 20, 45);
+  
+  Serial.print(" - trig");
+  Serial.print(v2);
+  Serial.println(); 
+if (v2 > cel)
+{
+digitalWrite (13, HIGH);
+}
+else
+{
+digitalWrite (13, LOW);
+}
+delay(5000);        
+}
+</pre>
+        </p>
+  <h3>Final result</h3>
+	<p>
+Few days after I received the heating pads I bought, it's just a resistor wire around a paper support, but it works.
+        <img src="images/output20.jpg">
+        
+        I did a final test with the pads connected and it works perfectly: if the sensr reads a temperature lower that the trigger's value, it turns on the mosfet and, consequently, the pads. <br>
+        <img src="images/output31.jpg">
+        <br>
+        
+        These are warming up the sensor that will turn off the mosfet over a certain temperature. There is a delay of 5 seconds, just to don't turn on and off the pads too quickly.
+        <img src="images/output32.jpg">
+        <br>
+      </p>
+        
+        
+         
+ 
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
