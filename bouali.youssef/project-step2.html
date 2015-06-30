@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+    <title>Fab Academy 2015 - Youssef BOUALI - Project I3P - Step 2 : Electronic design and assembly </title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="css/style2.css" rel="stylesheet">
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+  </head>
+  <body onload="menu()">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown" role="button"
+                aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <div class="container">
+      <!-- Insert your content here below! -->
+      
+         <h2>Project I3P - Step 2 : Electronic design and assembly</h2><br>
+      
+        <h3>Activity 1: electronic components</h3>
+      <p>Starting from the final features and task my future project will need to perform, I will decide on with electronic board I will require in order to link all sensors, program them to make them sense data, and communicate data.<br><br>
+Therefore, the starting point is to define the list of hardware/sensors I will use. After some research on the internet and specifically some realized projects that I could check on the internet like:<br><br>
+        •	<a href="http://makezine.com/projects/make-18/garduino-geek-gardening/">Garduino</a><br>
+        •	<a href="http://www.popularmechanics.com/technology/gadgets/how-to/a10501/build-this-diy-moisture-monitor-and-never-kill-another-house-plant-16774799/">DIY Moisture Monitor</a> <br>
+        •	<a href="http://www.instructables.com/id/Garduino-Gardening-Arduino/?ALLSTEPS">Garduino: Gardening + Arduino</a>  <br>
+        •	<a href="https://www.cooking-hacks.com/documentation/tutorials/open-garden-hydroponics-irrigation-system-sensors-plant-monitoring">Open Garden</a><br><br></p>
+        
+        
+                
+<p>I decided to use the following hardware:<br><br></p>
+       
+        <p><b>DHT11 temperature-humidity sensor:</b> The DHT11 is a basic, ultra low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, and spits out a digital signal on the data pin (no analog input pins needed). You can check the sensor data sheet <a href="https://dl.dropboxusercontent.com/u/80530549/FabAcademy/dht11.pdf">here</a><br><br></p>
+        <p class="pic"><img src="media/DHT11.jpg"><legend>Temperature and Humidity sensor DHT11</legend> </p> 
+        
+        <p><b>Soil Hygrometer Detection Module:</b> A soil moisture sensor that can read the amount of moisture present in the soil surrounding it. It's a low tech sensor, but ideal for monitoring an urban garden, or pet plant's water level. This sensor uses the two probes to pass current through the soil, and then it reads that resistance to get the moisture level. More water makes the soil conduct electricity more easily (less resistance), while dry soil conducts electricity poorly (more resistance). You can check the sensor data sheet <a href="https://dl.dropboxusercontent.com/u/80530549/FabAcademy/moisture-sensor-arduino.pdf">here</a><br><br></p>
+        <p class="pic"><img src="media/moisture-sensor.jpg"><legend>Soil Hygrometer Detection Sensor</legend> </p> 
+        
+        <p><b>LCD Display HD44780:</b> The Hitachi HD44780 LCD controller is a commonly used alphanumeric dot matrix liquid crystal display (LCD) controller developed by Hitachi. The control interface and protocol is a de-facto standard for this type of display. The character set of the controller includes ASCII characters, Japanese Kana characters, and some symbols in two 28 character lines. Using an extension driver, the device can display up to 80 characters. You can check the sensor data sheet<a href="https://dl.dropboxusercontent.com/u/80530549/FabAcademy/hd44780.pdf">here</a><br><br></p>
+        <p class="pic"><img src="media/project-HD44780.jpg"><legend>LCD Display HD44780</legend> </p> 
+        
+        <p>Finally I analyzed each sensor technical data and connection schemes in order to understand how to design my board.<br><br></p>
+        
+        <h3>Activity 2: electronic production</h3>
+        <p>At the beginning I have developed the entire project based on the <a href="https://github.com/satshas/satshakit">satshakit</a> electronic board desgin. Therefore, I followed these steps in to assemble and program the board:<br><br>
+        I started from the following boad design:<br><br></p>
+        <p class="pic"><img src="media/satshakit.jpg"><legend>Satshakit board</legend> </p>
+        <p>Then as inside the Opendot FabLab we have experimented the new technique of printing the board. I have managed to use the laser cutter machine to engrave and cut the board more precisely using a FR-1 sheet. Therefore, I applied fiber laser to engrave and completely remove copper from the FR-1 surface, and then the C02 laser beams to cut the board. <br><br>
+        After that, I soldered on it the following components:<br><br>
+•	ATMEGA328P-AU<br>
+•	16Mhz/18pF Crystal<br>
+•	2 LEDs (Yellow and Green)<br>
+•	A Switch<br>
+•	Resistors and capacitors<br>
+•	Connection pins<br><br>
+Once I finished soldering, I connected the board to the Arduino board in order to program it and upload the Arduino Bootloader. I followed this connection scheme:<br><br></p>
+        
+         <p class="pic"><img src="media/bootloader-sheme.jpg"><legend>Arduino Bootloader scheme.</legend> </p> 
+         <p>Therefore, I followed these steps to upload Arduino bootloader:<br><br>
+1.	open Arduino IDE<br>
+2.	select proper programmer by clicking on Tools->Programmer<br>
+3.	select Arduino UNO as Tools->Board<br>
+4.	click on Tools->Burn Bootloader<br></p>
+        <p class="pic"><img src="media/Project-programmingboard.jpg"><legend>Arduino Bootloader.</legend> </p> 
+<p>From now on I will use the FTDI USB cable to upload and use sketch through the Arduino IDE. <br><br>
+After presenting the project to Neil, I followed his advice in order to redesign / modify a new board for my project using eagle, then share here the new board.<br><br>
+So I decided to use the stashkit as the starting point, and using eagle I re-created a new board with major differences related that my project requires 3 VCC and 3 GND extra pins. Therefore, I added all the components to the schematic view of eagle:<br><br></p>
+        <p class="pic"><img src="media/project-newboard.jpg"><legend>Board schematic on eagle</legend> </p> 
+        <p class="pic"><img src="media/project-newbrd.jpg"><legend>Board board on eagle</legend> </p> 
+         <p>Once I finished and looked nice and without connections between traces, I left only the layer related to traces and pins and I exported the PNG image for final production<br><br></p>
+        <p class="pic"><img src="media/project-board-traces.jpg"><legend>Board traces</legend> </p>
+        <p>Then, I personalized as follow:<br><br></p>
+        <p class="pic"><img src="media/project-board-final.jpg"><legend>Final board</legend> </p>
+        
+        
+        <h3>Activity 3: Sensor connection</h3>
+        
+        <p>Earlier I have analyzed each sensor technical data and connection schemes in order to understand how to design my board. These are the connection schemes of the three hardware:<br><br></p>
+        <p class="pic"><img src="media/DHT11-scheme.jpg"><legend>DHT11 connection scheme</legend> </p> 
+        <p class="pic"><img src="media/moisture-sensor-scheme.jpg"><legend>Soil moisture sensor scheme</legend> </p> 
+        <p class="pic"><img src="media/HD44780-scheme.jpg"><legend>Display HD44780 connection scheme</legend> </p> 
+        
+        
+      
+        
+        
+                    
+      <h3>Download Zone</h3>
+      <p>The eagle design files are available for downloand here: </p>
+      <p> <a href="media/Project-Board-design.rar"> <button type="button" class="btn btn-primary
+            btn-lg">Download files</button> </a> </p>
+      
+      <!-- End of your content --> </div>
+    <!-- /container -->
+    <!-- footer -->
+    <footer id="footer">
+      <p id="cclicense"> </p>
+      <p class="license"> Theme: <a
+          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+
+
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+
+
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
+          href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+
+
+          theme for google-code-prettify</a>+<a
+          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
+    </footer>
+    <!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

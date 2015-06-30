@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Name Surname">
     <link rel="icon" href="media/favicon.ico">
-    <title>Fab Academy 2015 - Youssef BOUALI - Week 3: Computer-Controlled Cutting</title>
+    <title>Fab Academy 2015 - Youssef BOUALI - Project Steps</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -69,72 +69,52 @@
     </nav>
     <div class="container">
       <!-- Insert your content here below! -->
-      <h2>Module 3: Computer-Controlled Cutting</h2>
+       <h2>The Intelligent Plant's Pot Project (I3P)</h2><br>
       
-        <h3>Module contents:</h3>
-      <p> The assignment for this week was to build a model composed of parts that could be cut in a laser-cut machine or vinyl cutter. As usual, the requirements are to document all the process of the design, preparation and cutting of the whole model.</p><br>
-      
-      
-        <h3>My work:</h3>
-      
-      <p> In my case, I started with looking in internet for inspiration but also to find something that is not difficult but at the same time makes me learn all the aspects of computer-controlled cutting. After several research and ideas, I decided to design and build a small tool box for homemade tooling for my wife. Here at this moment, I designed by hand then on the computer the toolbox, I developed it on Inkskape taking in consideration all the aspects of the laser cutter available in Opendot Fablab (Kerf, power, etc). This week because of some urgent deadlines for my company, I couldn’t got to the Fablab and laser cut my model, but I’m planning to do it this coming week. <br><br>
-<u><b>Step 1:</b></u> Here is the initial hand sketch of the idea I had in mind that I produced:
-    </p>
-      
-      <p class="pic"><img
-src="media/W3_hand_sketch.jpg">
-        <legend>First hand sketch of the toolbox to be designed.</legend> </p>
+                    
+     
+      <u><b>What will it do?</b></u> <br><br>
+    <p>The final project will be a Modular and Intelligent Home Plant's Pot based on a new kind of user friendly scalable farming systems. It allows people to grow plants in intelligent pots that have nice and modular design, and which health is continuously monitored in order to grow in optimal conditions.<br>
+        For more details, check the project <a href="project-concept.html">page</a><br><br></p>
         
         
-        <p><br><br><u><b>Step 2:</b></u> After that, before going to the computer and start designing, I did some calculation work in order to have all the dimensions of the building blocks of my tool box (all the dimensions are in millimeters):<br><br>
+        <u><b>Who's done what beforehand?</b></u> <br><br>
+    <p>In the internet, I found many similar and interesting projects doing part or all the functionalities that I am planning to develop with my project. Actually I decided to follow inspiration and tutorial from the innovative farming system developed by the Mediterranean FabLab in Salerno (Italy).<br>
+here are two picture of what they have realized:<br></p>
+          <p class="pic"><img src="media/W15_medaarch1.jpg"><legend>Medaarch Fablab project</legend> </p>
+          <p class="pic"><img src="media/W15_medaarch2.jpg"><legend>Medaarch Fablab project</legend> </p>
+        
+<p>For more details, check the project page on the medaarch <a href="http://www.medaarch.com/2015/05/hydroponic-house-system-i-files-di-stampa-e-le-istruzioni-per-realizzare-step-by-step-il-proprio-sistema-idroponico/">here</a><br><br></p>
+        
+        <p>On the other hand, I found many interesting information on this Wikipedia <a href="https://en.wikipedia.org/wiki/Hydroponics">page</a><br><br></p>
+        
+        
+        <u><b>My project</b></u> <br><br>
+        
+        <p> Therefore, after analyzing what it has been done before and studying what techniques and plant data to monitor, I started designing how my future system will look like and which functionalities to include. So I said that I would like that my project to have:<br><br>
+            •	Nice and functional design of the POT<br>
+•	Monitor plant humidity, both on soil and on the environment, and also the temperature of the ambient where the plant grows<br>
+•	Easy display of sensed information both in the proximity of the plant without the need of computer to be connected, and on the computer via GUI.<br><br>
             
-Material width 4 mm<br>
-Kerf: 0,18<br>            
-Base Box external dimensions: 200 X 100 X 60<br>
- - Base: 200,36 * 100,36<br>
- - Long lateral: 200,36 * 60,36<br>
- - Short lateral: 100,36 * 60,36<br>            
-Box middle external measures: 100 X 100 X 60<br>
- - Base: 100,36 * 100,36<br>
- - Lateral side: 100,36 * 60,36<br>            
-Box Top external measures: 100 X 100 X 60<br>
- - Base: 100,36 * 100,36<br>
- - Lateral side: 100,36 * 60,36<br>
- - Top side: 100,36 * 100,36 (No NOTCHES)<br>
-Holes positions<br>
-- Vertical position: Middle from top and down borders<br>
-- Horizontal position: 15 mm from side border and equal distance between horizontal holes<br>
-
-    </p>
+            From these three objectives, I have thought about the major steps I need to follow in order to develop my project. Therefore, I have identified the following 4 steps:<br><br>
+            •	<b>Modular Pot design and production:</b> design the pot on the computer, and decide which technique to use in order to build the pot<br>
+•	<b>Electronic design and assembly:</b> design and build the electronic board that will control the sensors, algorithms that monitor plant health parameters, and sends data to computer<br>
+•	<b>Sensor installation and programming: </b>design and structure all the wiring schemes of the sensors to the electronic board, then program each sensor to read, display and send data<br>
+•	<b>GUI: </b>develop a user interface that establishes communication with the electronic hardware, and read data and display it.<br><br></p>
         
-        <p> <u><b>Step 3:</b></u> I tried to translate and design my toolbox idea on the computer using Inkscape. This work took me a lot as it is the first time for me to design parts to be laser cut. I learnt a lot dealing with and taking in considerations everytime the Kerf and the size of notches. But I think it is a learning by doing and for sure I will make other mistakes in order to learn it very well. Here are what I designed:
-    </p>
         
-    <p class="pic"><img
-src="media/W3_My_toolbox_part1.jpg">
-        <legend>Design of base box and connecting objects - Part 1</legend> </p>
     
-        <p class="pic"><img
-src="media/W3_My_toolbox_part2.jpg">
-        <legend>Design of middle and upper boxes - Part 2</legend> </p>
+        <u><b>What is the schedule?</b></u> <br><br>
+        
+        <p>- Step 1-> Week 1-7 June: Pot design and Pot printing <br></p>
+        <p>- Step 2-> Week 8-14 June: -	Electronic assembly<br></p>
+        <p>- Step 3-> Week 15-21 June:-	Electronic programming<br></p>
+       <p> - Step 4-> Week 22-28 June:-	Application and Interface programming<br><br></p>
+        
     
-        <p> <u><b>Step 4:</b></u> Toolbox lasercutting process:</p>
-    <p class="pic"><img src="media/W3_toolbox_cutting_process.JPG"><legend>Toolbox Lasercutting Process</legend> </p>
         
-        <p> <u><b>Step 5:</b></u> Mounting Process:</p>
-    <p class="pic"><img src="media/W3_My_toolbox_mounting1.jpg"><legend>Mounting my toolbox</legend> </p>
         
-        <p> While mounting the toolbox, I realized that I made some errors related to measuring wood width and Kerf size (see picture bellow). I went back to the original file and made the necessary changes and then  lasercut again the toolbox.</p>
         
-        <p class="pic"><img src="media/W3_My_toolbox_mounting3.jpg"><legend>Problems with measures and kerf</legend> </p>
-        
-        <p class="pic"><img src="media/W3_finaltoolbox.jpg"><legend>Final Toolbox will be like this</legend> </p>
-        
-      <h3>Download Zone</h3>
-      <p> The Inkscape file is available for downloand here: </p>
-      <p> <a href="media/W3_work.rar"> <button type="button" class="btn btn-primary
-            btn-lg">Download files</button> </a> </p>
-      
       <!-- End of your content --> </div>
     <!-- /container -->
     <!-- footer -->
