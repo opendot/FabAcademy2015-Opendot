@@ -4395,7 +4395,13 @@ if __name__ == '__main__':
 		</section>
 		<section id= "week17" class="row">
 			<div class="photo-grid">
-				<p>week17 invention, intellectual property, and income</p>
+				<p>Along this week we've talked about <span class="redones">invention, intellectual property, and income</span>. Starting from the assumption that I've tried to develope an <span class="redones">autonomous drone</span>, that's a really <span class="redones">difficult project</span> but also a very <span class="redones">marketable one</span>, I will start to talk of my personal intention before any license and legal question.</p>
+				<p>Personally, I loved these FabAcademy's months of <span class="redones">hard and high motivated work</span>. I face alot of difficulties, but in the end I was <span class="redones">really satisfied of my results</span>. In few words, I will really  <span class="redones">like to see more about of my final project </span> developement, made by me or maybe from anyone else. But for sure, I will not like the fact that someone  <span class="redones">will close my project in a commercial one </span> and no one will be able to continue it, or understand how it works. So what I want is to <span class="redones">keep AAVOID as an open hardware and software platform</span> so to became a <span class="redones">reference point</span> for who wants to <span class="redones">freely</span> start the <span class="redones">developement of a fabbable & open smart quadcopter</span>. Also, I trust the  <span class="redones">power of the community </span>, which, as one of one million existing examples, was fundamental during the FabAcademy.</p>
+
+				<p>Accordingly to these considerations, I chose to use the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><span class="redones-link">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</span></a> for projects, drawings, images, videos, and <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"><span class="redones-link">GNU Lesser General Public License, version 2.1</span></a> for source code.</p>
+
+				<p>In my opinion AAVOID <span class="redones">is not able to break the market</span>, or even effectively stimulate a crowdfounding campaign. Also, due to the above considerations I will like the fact <span class="redones">it will remain open</span>. As diffusion ways I was thinking about talking about AAVOID in <span class="redones">specialized media, social networks, workshops a maybe some conferences</span>.</p>
+
 			</div>
 		</section>
 		<section id= "week18" class="row">
@@ -4405,7 +4411,7 @@ if __name__ == '__main__':
 		</section>
 		<section id= "week19" class="row">
 			<div class="photo-grid">
-				<p>week19 project presentation</p>
+				<img src="presentation.png">
 			</div>
 		</section>
 <section id= "project0" class="row">
@@ -4432,12 +4438,7 @@ if __name__ == '__main__':
 
 				<p>This a <span class="redones">video collection</span> about the <span class="redones">final results of AAVOID</span>:</p>
 				<iframe width="700" height="400" src="https://www.youtube.com/embed/d7vyrYP5Dv0" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="400" src="https://www.youtube.com/embed/5KyV0pZupyg" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="400" src="https://www.youtube.com/embed/2-0g-2ahOy4" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/2PrbweWn0ns" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/FrCRy8Wi_UQ" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/7gvb79VRCpE" frameborder="0" allowfullscreen></iframe>
-				<iframe width="700" height="450" src="https://www.youtube.com/embed/mlyDfJ9ZATc" frameborder="0" allowfullscreen></iframe>
+				<iframe width="700" height="450" src="https://www.youtube.com/embed/videoseries?list=PLqZoQW5WAkMd1l3yD5R0X7uHbD_H_N9HI" frameborder="0" allowfullscreen></iframe>
 
 				<p><br>And here's a <span class="redones">image gallery</span> about AAVOID last version:</p>
 
@@ -5257,7 +5258,7 @@ void loop() {
 } 
 				</pre>
 
-				<ul class="lists"><li>This test was done <span class="redones">indoor and without propellers</span>. In these conditions, all the sonars give out <span class="redones">very stable and precise values</span>. Main <span class="redones">observed differences between MB1200, 1260 and MB1240 were<span>:</li>
+				<ul class="lists"><li><br>This test was done <span class="redones">indoor and without propellers</span>. In these conditions, all the sonars give out <span class="redones">very stable and precise values</span>. Main <span class="redones">observed differences between MB1200, 1260 and MB1240 were<span>:</li>
 				<li>MB1260 offers the <span class="redones">farther detection range</span> (1068cm)</li>
 				<li>MB1200 and 1260 aren't capable to <span class="redones">detect an opening in the wall (such as a door)</span>, as their beam is very large</li>
 				<li>MB1240 isn't capable to <span class="redones">detect far small objects</span></li>
@@ -5364,7 +5365,7 @@ void loop() {
 } 
 				</pre>
 
-			<p>Results from this test were <span class="redones">not too bad</span>, but, due to the objective of <span class="redones">implementing a realtime AutoPilot</span> control of AAVOID v3, <span class="redones">too much slow</span>. In fact, each single reading done with <span class="redones">pulseIn function</span> was about <span class="redones">50 milliseconds</span>. Here is the code snippet I wrote to do some <span class="redones">benchmark</span>:</p>
+			<p><br>Results from this test were <span class="redones">not too bad</span>, but, due to the objective of <span class="redones">implementing a realtime AutoPilot</span> control of AAVOID v3, <span class="redones">too much slow</span>. In fact, each single reading done with <span class="redones">pulseIn function</span> was about <span class="redones">50 milliseconds</span>. Here is the code snippet I wrote to do some <span class="redones">benchmark</span>:</p>
 <pre class="prettyprint lang-c">
 time1 = millis();
 frontPulse = pulseIn(frontPwPin, HIGH);
@@ -5374,7 +5375,7 @@ mySerial.print(time2);
 </pre>
 			
 
-			<p>So <span class="redones">remaining choices</span> on how to read sensors data were <span class="redones">serial communication and analog output</span>. I already decided to use serial communication of the AutoPilot microcontroller to communicate with MultiWii on the other microcontroller, and also, I cannot use 6 serials/software serials to read sensor data. So I was <span class="redones">obliged to test analog output</span>. This test forced me to <span class="redones">redesign again AAVOID v3 board</span>, as you can read in the previous section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project11').innerHTML,'project11')"><span class="redones-link">6.1 Electronics: dual sathakit board improvements</span></a>, in order to read sensor data via analog output. Luckily <span class="redones">analog readings are very fast</span>. Here's the function I wrote to test analog readings speed:</p>
+			<p><br>So <span class="redones">remaining choices</span> on how to read sensors data were <span class="redones">serial communication and analog output</span>. I already decided to use serial communication of the AutoPilot microcontroller to communicate with MultiWii on the other microcontroller, and also, I cannot use 6 serials/software serials to read sensor data. So I was <span class="redones">obliged to test analog output</span>. This test forced me to <span class="redones">redesign again AAVOID v3 board</span>, as you can read in the previous section <a href="javascript:ReplaceContentInContainer('middle',document.getElementById('project11').innerHTML,'project11')"><span class="redones-link">6.1 Electronics: dual sathakit board improvements</span></a>, in order to read sensor data via analog output. Luckily <span class="redones">analog readings are very fast</span>. Here's the function I wrote to test analog readings speed:</p>
 			<pre class="prettyprint lang-c">
 void readSonarData(){
 
@@ -5434,7 +5435,7 @@ void readSonarData(){
 
 }			</pre>
 
-<ul class="lists"><li>At this point I was <span class="redones">satisfied enough</span> of these tests. So, <span class="redones">the conclusions</span> were:</li>
+<ul class="lists"><li><br>At this point I was <span class="redones">satisfied enough</span> of these tests. So, <span class="redones">the conclusions</span> were:</li>
 <li><span class="redones">use MaxBotix MaxSonar MB1240</span> sensors</li>
 <li><span class="redones">use analog</span> output as the way for reading distance data</li>
 </ul>
@@ -8041,7 +8042,7 @@ void moveHorizontal(){
 				
 				<p>As you can see, onboard and starting from the lowest level, you can find <span class="redones">MultiWii software followed by the AutoPilot</span>. These two softwares are implemented to run directly on the two microcontrollers of AAVOID v3 board. On the Android smartphone runs an Android app with <span class="redones">PRACTIONISTDroid</span>. PRACTIONISTDroid is my <span class="redones">Android port</span> of <a href="http://practionist.eng.it/"><span class="redones-link">PRACTIcal resONIng sySTem</span></a>. PRACTIONIST is our company's <a href="https://en.wikipedia.org/wiki/Belief%E2%80%93desire%E2%80%93intention_software_model"><span class="redones-link">Michael Bratman BDI theory<span></a> inspired <span class="redones">Multiple Agent System</span> we've developed in order to implement high level, complex and cooperation capable agent behaviours. To avoid bandwidth waste and try to use something that will be as much near as possbile to a real-time protocol, I chose to use <span class="redones">Websocket</span>. So I implemented a simple <span class="redones">Websocket Java server</span>, that continuously receives data from an <span class="redones">Websocket client</span>, embedded in PRACTIONISTDroid app. Websocket java server, other than receiving data from AAVOID, expose it to internet for any client that wants to retrieve it, such as the <span class="redones">PC</span> in the schema (but could be also another smartphone). PC serves also as <span class="redones">serial console</span> for debugging purposes.</p>
 				
-				<p>It's time to read some code. To develop I used<a href=""><span class="redones-link">Eclipse IDE</span></a> (Kepler version), with Android plugin installed. I will talk here of the <span class="redones">main parts</span>, if you want it all, you can download it at bottom of the page. As already said, as Android serial library I used <a href="https://github.com/ksksue/PhysicaloidLibrary"><span class="redones-link">PhysicaloidLibrary</span></a>. Due to the name of AAVOID, I called the PRACTIONISTDroid app <span class="redones">PRACTIONISTVoid</span>. The smartphone used is an Asus ZenFone 4, one of the cheaper and smaller smartphone with built-in OTG hardware support. Here you can read the <span class="redones">Android activity</span> of PRACTIONISTVoid:</p>				
+				<p>It's time to read some code. To develop I used <a href=""><span class="redones-link">Eclipse IDE</span></a> (Kepler version), with Android plugin installed. I will talk here of the <span class="redones">main parts</span>, if you want it all, you can download it at bottom of the page. As already said, as Android serial library I used <a href="https://github.com/ksksue/PhysicaloidLibrary"><span class="redones-link">PhysicaloidLibrary</span></a>. Due to the name of AAVOID, I called the PRACTIONISTDroid app <span class="redones">PRACTIONISTVoid</span>. The smartphone used is an Asus ZenFone 4, one of the cheaper and smaller smartphone with built-in OTG hardware support. Here you can read the <span class="redones">Android activity</span> of PRACTIONISTVoid:</p>				
 				<pre class="prettyprint lang-c">
 package org.practionist.aavoid;
 
@@ -8766,7 +8767,7 @@ void loop() {
 			<p></p>
 			<div class="col-full">
 				<p>
-					Source code and projects are licensed under the terms of the GNU Lesser General Public License v2.1 (<a  class="redones-link" href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">LGPL</a>). Images and videos are licensed under Attribution-NonCommercial-ShareAlike 4.0 International (<a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" class="redones-link">CC BY-NC-SA 4.0</a>)
+					Source code is licensed under the terms of the GNU Lesser General Public License v2.1 (<a  class="redones-link" href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">LGPL</a>). Projects, drawings, images and videos are licensed under Attribution-NonCommercial-ShareAlike 4.0 International (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="redones-link">CC BY-NC-SA 4.0</a>). <span class="redones">Daniele Ingrassia 2015</span>.
 				</p>
 			</div>
 		</section>
