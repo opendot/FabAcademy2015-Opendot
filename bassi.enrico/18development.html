@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Enrico Bassi">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Enrico Bassi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+
+     <h2>18. Project Development</h1>
+   
+<h3>         What tasks have been completed, and what tasks remain? </h3>
+     <p> I get to a point of the project in which I checked almost all the parts. Now I should rething the project to implement what i learned from my work.</p>  
+   <h3>   What has worked? </h3>
+        <p>
+            <ul>
+        <li>The idea to mode the entire machien up and down could be interesting and it gives a pretty stable and cheap Z-axis alternative</li>
+        <li>When the machine is disassembled it's actually pretty small and easy to keep in a corner of the lab</li>
+                <li>This version is pretty light and easy to trasport</li>
+                <li>It's actually possible to replicate the frame with another machine</li>
+                
+                
+        </ul>  </p>
+      <h3>What hasn't worked?</h3>
+      <p>
+            <ul>
+        <li>The linear guides were probably not right for the purpose, in particular for the Z axis, that' the one transfering the stresses from the spindle to the working bed.</li>
+                <li>The motors are too small, as well as the drivers</li>
+                
+        <li>Slide a board in the machien and cut it without a working bed is not so easy, right now</li>
+                <li>The timing belt is not exactly the best solution, or at least not that small (it's a T2.5, it should be at least a T5)</li>
+               <li> In this version the machine is not particularely efficient.</li>
+                
+                
+        </ul>  </p>
+      <h3>What questions need to be resolved?</h3>
+    <p>I would say that the main question is if this machine has any application and if it fits some lab's needs. It would be very nice to find a way to replicate it in collaboration with some other fablabs</p>
+    <h3>  What will happen when?</h3>
+    <p> It's hard to schedule a timetable of the development, cause it's strongly influenced by the the access to some funds or facilitation. The first deadline is gonna be the European Makerfaire Rome, in October, where we will show the final projects of the fab academy students. Before October i want to improve some of the problems and mainly work on the Y-axis. Considering the time a can allocate to this project it would probably take another 9-12 months to get to a package that can be made by someone else, with no problem</p>
+    
+<h3>      What have you learned?</h3>
+    <p> The main knowledge I'm going to bring with me after the fab academy, beside technical skills, is to get used to fail. Everybody says they know that failure is unevitable and useful, that you learn from your mistakes, etc. but nobody want to fail. It seems that everybody knows everybody fails but them. To fail is ok if it's not about you, otherwise it becomes something to avoid. 
+    <br>
+    I didn't realize it was like that before, I always thought that failure it's not a problem, and that's ok to fail and that you learned by your mistakes, but that doesn't apply to me. <br>
+    During these months I got used to have to redo things more than onece to get to a decent result and sometimes to have to admit I wasn't able to go over a certain level with the time i had. Now I'm thinking how to bring this lesson into my university courses with designers.</p>
+   <h3>Documentation during development</h3>
+    <p> Make the documentation during the project is incredibly hard: partially because to document everything is pretty confusing and uneffective (all the test to understand if a boars works or not. Over a certain limit it's just try everything, even things already done or obviously wrong), and mainly cause writing it down in the web page is not a smooth process. It would be cool to have a simple app where you can add the project phases and when you take a picture it's asking you in which phase to put it, it allows you to add a comment, it keeps track of the time when you did that to allow you to organize it in different ways. The output it's not something already finished, but something easier to reorganize in a second moment.
+    <br> I'm sure that something like that probably already exists, but I wasn't able to find it.
+    </p>
+   <h3>Demand- vs supply-side time management</h3>
+    
+    <p> 
+    What I noticed is that the best way to switch from demand-side to supply-side is to count the time and resources backwords from the delivery, adding intermidiate milestones. Even if it's not always working, it helps to understand the importance to change the way we use to schedule projects.
+    </p>
+   <h3>Spiral development</h3>
+    <p> I've never heard about it before, but it was an increadibly useful suggestion. I changed the schedule of the development, dividing it into three "spirals". the first one was to test frame and electronics separately, to check connections, assemble process, mechanical problems, dimensional mistakes, etc. After I spot all the possible mistakes (or at least as many as possible) I moved to a second version after i took note of all the problems on the frame and i decide to redo the PCB. Still the goal of the first step was reached: test the assemble, move the components by hand, separately, test the movement of the electronic, connect temporarely electronic and mechanic together and move the axis separately. 
+        <br> The second spiral is the actual state of the development: I connected and assembled everything together, tested G-code sender and interpreter, moved the axis, regulate the drivers, tested the y-movement and found an alternative to the original solution. I also milled two samples: a scaled version of the frame, and simple text\grafic test. 
+        <br> The third version would have been a frame with the proper cut fot the bolds, with a more reliable way to connect the cables and implemented the endstops. Different linear guide on Z, different motors, a more powerful spindle, different drivers, etc.
+        <br> I had no time to do so, that's why i stopped at the second round of implementation.
+    </p>
+  
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
