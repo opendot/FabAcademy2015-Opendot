@@ -2,13 +2,20 @@
 <html lang="en">
   <head>
     <meta content="text/html; charset=windows-1252" http-equiv="content-type">
-    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
+    <link rel="icon" href="media/favicon.ico">
+    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
       rel="stylesheet" type="text/css">
     <title>Fab Academy 2015 - Gianluca Pugliese</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+    <!-- FORCED COLOR LINK TBD -->
+    <style>
+         a{
+              color:#ff6200;
+          }
+      </style>
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -26,7 +33,6 @@
 					  $('#exercises').load("exercises-menu.html");
 					  $('#project').load("project-menu.html");
 					  $('#cclicense').load("license.html");
-					  $('#cclicense').load("license.html");
 					  }
 	</script>
   </head>
@@ -34,7 +40,7 @@
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
+        <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
             data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
             <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -43,12 +49,12 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="about.html">About</a></li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                 role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
               <ul id="exercises" class="dropdown-menu" role="menu">
               </ul>
             </li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                 role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
               <ul id="project" class="dropdown-menu" role="menu">
               </ul>
@@ -60,66 +66,52 @@
     </nav>
     <div class="container">
       <!-- Insert your content here below! -->
-      <h1><strong>OPEN</strong><span><strong><mark>STAGE</mark></strong></span></h1>
-      <h3>Project management</h3>
-      <hr>
-      <p>Concept</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          <span class="sr-only">100% Complete (success)</span> </div>
-      </div>
-      <p>Design</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          <span class="sr-only">100% Complete</span> </div>
-      </div>
-      <p>Structure</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
-          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          <span class="sr-only">100% Complete (warning)</span> </div>
-      </div>
-      <p>Mechanics</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
-          aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          <span class="sr-only">100% Complete (danger)</span> </div>
-      </div>
-      <p>Electronics</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
-          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          <span class="sr-only">100% Complete (danger)</span> </div>
-      </div>
-      <p>Software</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
-          aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-          <span class="sr-only">90% Complete (danger)</span> </div>
-      </div>
-      <p>Testing</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
-          aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          <span class="sr-only">100% Complete (danger)</span> </div>
-      </div>
-      <p>Global</p>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0"
-          aria-valuemax="100" style="min-width: 2em; width:98%;"> 98% </div>
-      </div>
-      <hr>
-      <p> This is the page that I will use like a project manager for <strong>OPEN</strong><span><strong><mark>STAGE</mark></strong></span>
-        , I will update the progress bar during the Academy, related to my Final
-        Project. </p>
-      <!-- End of your content --> </div>
+      <h2>Mechanical Design</h2>
+      <br>
+      <ul type="”disc”">
+        <div> </div>
+        <h3>Mechanics </h3>
+        The basic kinematics is CoreXY, in the first attempt I used a wooden
+        frame and 3 carriages 3d printed<br>
+        In the final kit I have to decide if use all laser cut parts or a mix
+        between lasercut and 3d printed parts<br>
+        The big improvement is to use a fishing line instead the classical belt
+        to reduce the cost of the machine
+      </ul>
+      <div style="text-align: center;"><img alt="x" src="img/open01.jpg"></div>
+      <ul type="”disc”">
+        <br>
+        <div> </div>
+        <p> Fishing line work quite well , but I had to change the normal
+          bearing (used as idler) with a V groove bearing and I had to add more
+          line turns on the idlers over the motors to obtain more grip</p>
+      </ul>
+      <div style="text-align: center;"><img style="width: 411px; height: 308px;"
+          alt="x" src="img/open02.jpg">&nbsp;&nbsp;&nbsp; <img style="width: 411px; height: 308px;"
+          alt="c" src="img/open04.jpg"><br>
+        <br>
+        <img alt="c" src="img/open03.jpg"></div>
+      <ul type="”disc”">
+        <p><br>
+        </p>
+        <p>The mechanical work well, but i have to design a tensioner for the
+          fishing line </p>
+        <div> </div>
+      </ul>
+    </div>
     <!-- /container -->
     <!-- footer -->
     <footer id="footer">
       <p id="cclicense"> </p>
-      <p class="license"> </p>
+      <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+          Menichinelli</a> <br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a
+          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
+          href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
+          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+      </p>
     </footer>
     <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
