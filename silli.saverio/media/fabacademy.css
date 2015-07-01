@@ -198,6 +198,11 @@ h3 {
 	font-family:  menlo, monospace;
 	font-weight: 700
 }
+
+h4 {
+	font-family:  menlo, monospace;
+	font-weight: 700
+}
 #footer {
   position: absolute;
   bottom: 0;
