@@ -83,93 +83,95 @@
 
       
      
-    <h1>PROTOTYPING</h1>
+    <h1>Electronics</h1>
 	
 		
-        <br><p>Building the main bearing's assembly was the first task I wanted to complete to understand if the "bearing system" would actually work. Therefore I took the bearing I already made and "built over it", just to see if my idea worked, already knowing that in the end I'll have to redesign the whole structure, but, at the moment, and given the short amount of time, that was the best way to follow.</p>
+        <br><p>To operate the machine, I designed a board that control the DC Motor with a desktop application. I started on a breadboard connected with a <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html">Satshakit</a> running <a href="http://playground.arduino.cc/interfacing/processing">Firmata</a> as in my week 14 exercise. On the breadboard I connected a 12Volts power source, a DC Motor and tryed different setups with different MOSFETs, diodes and capacitor. This process took me two days in which I understood what every component does and why.</p>
 		
 
-		  <h2>Designing a Bevel Gear</h2>
-		
-        <br><p>I designed the bevel gear in Rhino. At the beginning I had no idea how to do it, but I understood that to draw a bevel gear, the only thing you need is a cross section. The bevel gear I designed has a very large 77 theet gear and a small 11 theet pinion. The ratio is 1:7. Using an even number of theet is better because the same theets never touch twice in a row, reducing stressing and tearing.</p>
-		
-		<p class="pic">
-			 <a href="image/p3/image02.jpg"></a>
-        <img src="image/p3/image02.jpg"width="600" >
-				<legend>Cross section of the bevel gear.</legend>
+		 <p class="pic">
+			 <a href="image/p5/image03.jpg"></a>
+        <img src="image/p5/image03.jpg"width="800" >
+				<legend>Breadboard experimentation</legend>
 				 </p>
 		
-		<p class="pic">
-			 <a href="image/p3/image03.jpg"></a>
-        <img src="image/p3/image03.jpg"width="600" >
-				<legend>Bevel Gear detail in rhino.</legend>
+		<p>After my experiments I came out with a setup including:<br>
+		<li>A Satshakit, which will be modified</li>
+		<li>An STP14NF10 MOSFET, suitable for high amperage, including a protection diode.</li>
+		<li>An high torque low rpm 12V DC motor, the kind used for automotive windshields, 3A unloaded, 7A loaded, 20A in stall</li>
+		<li>A small 1uF capacitor to suppress the motor interference</li>
+		<li>Large copper area around MOSFET to dissipate heat and a dissipator attached to the MOSFET</li>
+		</p>
+		
+	 		 <p class="pic">
+			 <a href="image/p5/image12.jpg"></a>
+        <img src="image/p5/image12.jpg"width="800" >
+				<legend>STP14NF10 MOSFET</legend>
 				 </p>
 		
-		  <br><p>After designing the bevel gear I 3D printed it in four separate quarters to fit in the 3D printing bed. I also designed a support for the shaft upon which the outer ring would rotate. This support is of course a temporary solution, as in the final design they will be integrated in the body of the outer ring.</p>
-		
-		
-			<p class="pic">
-			 <a href="image/p3/image01.jpg"></a>
-        <img src="image/p3/image01.jpg"width="600" >
-				<legend>Shaft support.</legend>
+				 <p class="pic">
+			 <a href="image/p5/image05.jpg"></a>
+        <img src="image/p5/image05.jpg"width="800" >
+				<legend>Automotive 12V DC motor</legend>
 				 </p>
 		
+				
 		
-			  <br><p>Mounting the 3D printed bevel gear and pinion onto the ball-bearing structure already gave me some hope it would work, so i rushed the construction of a base support. I just used some scrap wood, and two metal 608zz ball-bearings I had laying around. The following pics show a "Ghetto ball-bearing support" anyone can made in no time taking good advantage of plywood's features.</p>
 		
+		<p>On Eagle I designed the board starting from the Satshakit file, I removed all the pin I didn't need and added the mosfet, the connectors for the 12volts power source and the motor, the capacitor of the motor and the transistor between the Atmega and the MOSFET.<br><br>On Eagle I couldn't find the same MOSFET I wanted to use, so I used a TP120 which has the same package of the STP14NF10 (TO220 package).<br><br>
+		Then I imported the png image in Inkscape and added the graphics to remember the pin number, the name and I draw a large area that will work as heat dissipation.</p>
 		
-			<p class="pic">
-			 <a href="image/p3/image05.jpg"></a>
-        <img src="image/p3/image05.jpg"width="600" >
-				<legend>Cup saw the same diameter of the ball-bearing mounted on a drill press.</legend>
+		 <p class="pic">
+			 <a href="image/p5/image11.jpg"></a>
+        <img src="image/p5/image11.jpg"width="800" >
+				<legend>Eagle schematics</legend>
 				 </p>
 		
-		<p class="pic">
-			 <a href="image/p3/image06.jpg"></a>
-        <img src="image/p3/image06.jpg"width="600" >
-				<legend>press drilling the plywood.</legend>
+			 <p class="pic">
+			 <a href="image/p5/image07.jpg"></a>
+        <img src="image/p5/image07.jpg"width="800" >
+				<legend>Eagle Board</legend>
 				 </p>
 		
-		<p class="pic">
-			 <a href="image/p3/image04.jpg"></a>
-        <img src="image/p3/image04.jpg"width="600" >
-				<legend>Using a chisel to take off layers of plywood: ghetto ball-bearing support!</legend>
+			 <p class="pic">
+			 <a href="image/p5/image04.jpg"></a>
+        <img src="image/p5/image04.jpg"width="800" >
+				<legend>Engraving image with graphics</legend>
 				 </p>
 		
-				  <h2>Prototype Assembly</h2>
-		
-        <br><p>The 3D printed shaft holders were strong enough to hold the ball-bearing structure in place without major disallignment, so I installed the four 3D printed bevel gear's quarters on the inner ring, the pinion to the shaft and mounted the ball-bearing structure with M8 shafts onto the base supports.</p><br>
-		</h2>Success! Everything worked fine!</h2>
-	
-	<p class="pic">
-			 <a href="image/p3/image08.jpg"></a>
-        <img src="image/p3/image08.jpg"width="600" >
-				<legend>Assembled machine.</legend>
+			 <p class="pic">
+			 <a href="image/p5/image08.jpg"></a>
+        <img src="image/p5/image08.jpg"width="800" >
+				<legend>Completed board (without dissipator)</legend>
 				 </p>
-	
-	<p class="pic">
-			 <a href="image/p3/image07.jpg"></a>
-        <img src="image/p3/image07.jpg"width="600" >
-				<legend>Trying to move it with a motorized screwdriver.</legend>
+		
+				<p>While soldering the pins 11-13, I made a mistake and the copper plate plied away, so I had to reverse the connectors which now emerge from the backside of the pcb.</p>
+		
+		 <p class="pic">
+			 <a href="image/p5/image09.jpg"></a>
+        <img src="image/p5/image09.jpg"width="800" >
+				<legend>Completed board (without dissipator)</legend>
 				 </p>
-	
-	<p class="pic">
-			 <a href="image/p3/image09.jpg"></a>
-        <img src="image/p3/image09.jpg"width="600" >
-				<legend>detail of the bevel gear and pinion.</legend>
+		
+			 <p class="pic">
+			 <a href="image/p5/image10.jpg"></a>
+        <img src="image/p5/image10.jpg"width="800" >
+				<legend>Completed board (without dissipator)</legend>
 				 </p>
-	
-	<br>
-	<p>The machine moves pretty smooth, given the unreliable and temporary design of the structure. The skull I put in the machine goes back to its original position after 7 full turns of the outer ring, respecting the 1:7 ratio of the gear's design.</p><br>
 		
-		<p>I'm satysfied with this result, the next step is to design everything to be easily fabbable and to improve electronics and controllable dc motor.</p>
+		<p>In the spare time I also built a bench power supply from a reclaimed computer ATX power supply with 12, 5 and 3,3 Volts connectors, GND and USB connector and an On/Off switch with LED. Making it is very easy, you only have to short circuit the green cable with one GND in the main socket, lasercut a simple box and the rest is just embellishment. I will use to power up the machine connecting my board to the 12 Volts and GND output of the power supply box.</p>
 		
+		 <p class="pic">
+			 <a href="image/p5/image01.jpg"></a>
+        <img src="image/p5/image01.jpg"width="800" >
+				<legend>Internal connections</legend>
+				 </p>
 		
-		<br>
-		
-		
-		<p><iframe width="600" height="377" src="https://www.youtube.com/embed/yDJlpxrGLC8" frameborder="0" allowfullscreen></iframe><legend>Ball-Bearing Rotocasting machine prototype.</legend></p>
-    
+			 <p class="pic">
+			 <a href="image/p5/image02.jpg"></a>
+        <img src="image/p5/image02.jpg"width="800" >
+				<legend>Connector's panel</legend>
+				 </p>
     <!-- End of your content -->
 
     </div> <!-- /container -->

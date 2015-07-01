@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Name Surname">
+    <link rel="icon" href="media/favicon.ico">
+
+    <title>Fab Academy 2015 - Saverio Silli</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Load the menu file -->
+    <script>
+	function menu() {
+					  $('#exercises').load("exercises-menu.html");
+					  $('#project').load("project-menu.html");
+					  $('#cclicense').load("license.html");
+					  }
+	</script>
+
+  </head>
+
+  <body onload="menu()">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+             <li class="dropdown">
+              <a href="exercises-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">classes<span class="caret"></span></a>
+              <ul id="exercises" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			  <li class="dropdown">
+              <a href="project-menu.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">project<span class="caret"></span></a>
+              <ul id="project" class="dropdown-menu" role="menu">
+              </ul>
+            </li>
+			 <li><a href="about.html">about me</a></li>
+            <li><a href="contact.html">contact me</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+	<!-- Insert your content here below! -->
+
+      
+     
+    <h1>Final Structure</h1>
+	
+		
+        <br><p>After completing the first working prototype, I redesigned everything in Autocad and Rhinoceros and came up with the final structure that takes account of all the problems and issues emerged in the prototyping:<br>
+		<li>Rings should be larger</li>
+		<li>Rotation staffs should be integrated in the outer ring</li>
+		<li>Larger rings mean larger pinion, means bevel gear must be further from the ring.</li>
+		<li>12mm MDF instead of 16mm for lightness, cost and speed of production</li>
+		<li>Motor must have high torque at slow speed</li>
+		</p>
+		
+
+		  <h3>CNC milled structure</h3>
+		
+        <br><p>The design lays on a single 930x720mm sheet of 12mm MDF. I painted one side of the board with white chalk primer paint the day before milling. This part can be avoided by using a laminate board or skipped completely, but the machine won't be as sexy in the end!</p>
+		
+		<p class="pic">
+			 <a href="image/p4/image22.jpg"></a>
+        <img src="image/p4/image22.jpg"width="800" >
+				<legend>DXF cut project</legend>
+				 </p>
+		
+		<p>The toolpath list is very complex and opimized to assure a fast and safe job. It starts with the 3mm drilling with a simple drill tip, then you change the tip and load the 12,7 ball tip to engrave the steel balls canal, then the last change using the 6mm single blade upcut tip that makes the pockets first, then the inner cuts and moves to the outer toolpaths.</p>
+		
+		<h4>Toolpaths list</h4>
+		<p></p>
+
+		
+<li>01 drill (drill 3mm) (depth 14mm)</li>
+<li>02 canal (ball 12,7mm) (depth 7.5mm)</li>
+<li>03 pocket (upcut 6mm) (depth 3mm)</li>
+<li>04 pocket (upcut 6mm) (depth 8mm)</li>
+<li>05 pocket (upcut 6mm) (depth 6mm)</li>
+<li>06 pocket (upcut 6mm) (depth 7mm)</li>
+<li>07 drill (upcut 6mm)  (depth 13mm)</li>
+<li>08 cut outside (upcut 6mm)  (depth 12,5mm)</li>
+<li>09 cut outside (upcut 6mm)  (depth 12,5mm)</li>
+<li>10 cut on path (upcut 6mm)  (depth 12,5mm)</li>
+<li>11 cut outside (upcut 6mm)  (depth 12,5mm)</li>
+<li>12 cut outside (upcut 6mm)  (depth 12,5mm)</li></p>
+		
+	  <p class="pic">
+			 <a href="image/p4/image19.jpg"></a>
+        <img src="image/p4/image19.jpg"width="800" >
+				<legend>Shopbot 3mm drill preferences</legend>
+				 </p>
+		
+<p class="pic">
+			 <a href="image/p4/image20.jpg"></a>
+        <img src="image/p4/image20.jpg"width="800" >
+				<legend>Shopbot 12,7mm ball preferences</legend>
+				 </p>
+	  
+	  <p class="pic">
+			 <a href="image/p4/image21.jpg"></a>
+        <img src="image/p4/image21.jpg"width="800" >
+				<legend>Shopbot 6mm upcut preferences</legend>
+				 </p>
+		
+		
+		<p>The design lays on a single 930x720mm sheet of 12mm MDF. I painted one side of the board with white chalk primer paint the day before milling. This part can be avoided by using a laminate board or skipped completely, but the machine won't be as sexy in the end!</p>
+		
+		<p class="pic">
+			 <a href="image/p4/image03.jpg"></a>
+        <img src="image/p4/image03.jpg"width="800" >
+				<legend>Finished milling job</legend>
+				 </p>
+	
+	  <h3>Assembly</h3>
+	  <p>The first step in the assembly is to close the outer ring and both M8 shaft supports together. The support is 3D printed to perfectly fit the pocket in the MDF and the M8 bolt is first heated, then placed in the support so that the hot bolt can melt the PLA a little bit and be secured in the support. Both supports are placed in the outer ring sandwich and secured with M3 screws.</p>
+		
+	<p class="pic">
+			 <a href="image/p4/image23.jpg"></a>
+        <img src="image/p4/image23.jpg"width="800" >
+				<legend>3D model's rendering of the M8 shaft supports</legend>
+				 </p>
+	  
+	  <p class="pic">
+			 <a href="image/p4/image05.jpg"></a>
+        <img src="image/p4/image05.jpg"width="800" >
+				<legend>Pocket CNC'ed in the MDF</legend>
+				 </p>
+	  
+	  <p class="pic">
+			 <a href="image/p4/image04.jpg"></a>
+        <img src="image/p4/image04.jpg"width="800" >
+				<legend>3D printed M8 shaft support</legend>
+				 </p>
+	  
+	   <p class="pic">
+			 <a href="image/p4/image06.jpg"></a>
+        <img src="image/p4/image06.jpg"width="800" >
+				<legend>Closed outer ring sandwich, support are secured with four M3 bolts</legend>
+				 </p>
+	  
+	  
+	  <p>The canal in the two rings is first cleaned with sandpaper, then vaseline grease is applyed to lubricate it. The outer ring is assembled with bolts and the steel balls are placed between the completed outer ring and half inner ring. When the balls are all in place, the other half of the inner ring is closed with bolts (those bolts are longer as they have to hold the bevel ring).</p>
+		
+	
+		
+	  <p class="pic">
+			 <a href="image/p4/image07.jpg"></a>
+        <img src="image/p4/image07.jpg"width="800" >
+				<legend>Greasing the steel balls' canal</legend>
+				 </p>
+	
+	   <p class="pic">
+			 <a href="image/p4/image08.jpg"></a>
+        <img src="image/p4/image08.jpg"width="800" >
+				<legend>Spreading the vaseline grease</legend>
+				 </p>
+	  
+	   <p class="pic">
+			 <a href="image/p4/image10.jpg"></a>
+        <img src="image/p4/image10.jpg"width="800" >
+				<legend>Canal greased</legend>
+				 </p>
+	  
+	  	<p class="pic">
+			 <a href="image/p4/image02.jpg"></a>
+        <img src="image/p4/image02.jpg"width="800" >
+				<legend>Placing the steel balls (the structure pictured is not the final one, but an intermediate prototype made from 12mm cheap plywood)</legend>
+				 </p>
+	  		
+	 <p>The structure features cnc'ed finger tenons, pockets to hold metal ball-bearings that supports the rotating ring, inner ring and outer ring connected by 66 steel balls, a lateral "turret" that holds the motor and electronics, covered with a kerf bent 4mm plywood panel.</p>
+		
+	  <p class="pic">
+			 <a href="image/p4/image17.jpg"></a>
+        <img src="image/p4/image17.jpg"width="800" >
+				<legend>Detail of the finger's tenon joints</legend>
+				 </p>
+	 
+	  <p class="pic">
+			 <a href="image/p4/image12.jpg"></a>
+        <img src="image/p4/image12.jpg"width="600" >
+				<legend>Detail of the steel balls</legend>
+				 </p>
+	 
+	  <p class="pic">
+			 <a href="image/p4/image15.jpg"></a>
+        <img src="image/p4/image15.jpg"width="600" >
+				<legend>"Control Turret", with a kerf bent cover panel, with engraved name, signs for the speed and on/off button.</legend>
+				 </p>
+	  
+	  <p class="pic">
+			 <a href="image/p4/image24.jpg"></a>
+        <img src="image/p4/image24.jpg"width="333" >
+				<legend>Kerf bent cover panel cut plan</legend>
+	  </p>
+
+    <!-- End of your content -->
+
+    </div> <!-- /container -->
+
+	<!-- footer -->
+    
+    <footer id="footer">
+        <p id="cclicense">
+        </p>
+        <p class="license">
+        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> edited by <a href="http://www.facebook.com/saverio.silli">Saverio Silli</a><br>
+        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+    </footer>
+    
+
+	<!-- Do not touch this! -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="media/jquery-1.9.1.min.js"></script>
+    
+    <!-- Syntax Highlighter -->
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
+    </script>
+    <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
+    <link href="media/github.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+	  !function ($) {
+		$(function(){
+		  window.prettyPrint && prettyPrint()   
+		})
+	  }(window.jQuery)
+	</script>
+	
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
+
