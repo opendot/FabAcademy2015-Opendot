@@ -94,9 +94,9 @@
         
 
 <br>
-        <h4><font color=#fff>ASSIGNMENT: ADD A OUTPUT DEVICE TO A MICROCONTROLLER YOU'VE DESIGNED AND PROGRAM IT TO DO SOMETHING</font></h4>
-        <h4><font color=#fff>PROJECT 1: EX N°11 OF ARDUINO PROJECT BOOK --> CRISTAL BALL</font></h4>
-        <h4><font color=#fff>PROJECT 2: USE A SATSHA KIT MICROCONTROLLER FOR READING A LASER DISTANCE MESUREMENT IN A LCD : MARGE 2 DIFFEREN SKETCH</font></h4>
+        <h4><font color=#fff>ASSIGNMENT: ADD AN OUTPUT DEVICE TO A MICROCONTROLLER YOU'VE DESIGNED AND PROGRAM IT TO DO SOMETHING</font></h4>
+        <h4><font color=#fff>PROJECT 1: EX N°11 OF ARDUINO PROJECT BOOK --> CRYSTAL BALL</font></h4>
+        <h4><font color=#fff>PROJECT 2: USE A SATSHA KIT MICROCONTROLLER FOR READING A LASER DISTANCE MEASUREMENT IN A LCD : MERGE 2 DIFFERENT SKETCHES</font></h4>
         <br>
         <h4><font color=#fff>INPUT: 
             <a href="http://pulsedlight3d.com/"> LIDAR LITE --> LASER DISTANCE MESUREMENT</a> // <a href="https://en.wikipedia.org/wiki/Potentiometer"> POTENTIOMETER </a>
@@ -126,13 +126,13 @@
         
         <br>
         
-        <p><font color=#fff>1ST PART --> CREATE A CRYSTALL BALL TO TELL YOUR FUTURE</font></p>
+        <p><font color=#fff>1ST PART --> CREATE A CRYSTAL BALL TO TELL YOUR FUTURE</font></p>
 
             <br>
         
         
-            <p> I had followed the simple procedure of realization in the Arduino Project Book Exercise 11</p>
-        <p>I try this exercise for understand the use and the pin output of a LCD screen</p>
+            <p> I had followed the simple production procedure in the Arduino Project Book, Exercise 11</p>
+        <p>I used this exercise to understand the use and the pin output of a LCD screen</p>
             <br>
         
         
@@ -147,11 +147,11 @@
           <br>
         
         
-        <p><font color=#fff>2ND PART--> IMPORT I2C LIBRARY AND CONNECT THE LIDAR LASER DISTANCE MESUREMEN TO A SATSHAKIT</font></p>
+        <p><font color=#fff>2ND PART--> IMPORT I2C LIBRARY AND CONNECT THE LIDAR LASER DISTANCE MEASUREMENT TO A SATSHAKIT</font></p>
 <br>
-<p>After having downloaded  and installed the<a href="http://www.dsscircuits.com/images/code/I2C_Rev5.zip"> Library I2C </a>  is possible to connect the LIDAR LASER DISTANCE MESUREMENT to the SATSHAKIT</p>
-        <p>Differents sketchs are available in the <a href="https://github.com/PulsedLight3D">Git Hub Repository</a> of the Lidar Retailer.</p>
-         <br> That one that i used is the following  <a href="https://github.com/PulsedLight3D/LIDARLite_Basics"> LIDAR LITE_BASIC</a></p>
+<p>After having downloaded and installed the<a href="http://www.dsscircuits.com/images/code/I2C_Rev5.zip"> Library I2C </a>  it is possible to connect the LIDAR LASER DISTANCE MESUREMENT to the SATSHAKIT</p>
+        <p>Differents sketchess are available in the  <a href="https://github.com/PulsedLight3D">Git Hub Repository</a> of the Lidar Retailer.</p>
+         <br> The one I used was the   <a href="https://github.com/PulsedLight3D/LIDARLite_Basics"> LIDAR LITE_BASIC</a></p>
       
       
         
@@ -164,7 +164,7 @@
             </p> 
             <br>
       <p>For connecting the LASER to the SATSHAKIT we need to connect the SDA and SCL pins to the board</p>
-      <p>Lake as possible to look in the follow images the SDA corresponding to PIN A4  and the SCL corresponding to PIN A5 in Arduino and in consequence in the SATSHAKIT </p>
+      <p>Lake as possible to look in the follow images the SDA corresponding to PIN A4 and the SCL corresponding to PIN A5 in Arduino and in consequence in the SATSHAKIT </p>
             
          <br>
        <p class="pic">
@@ -180,7 +180,7 @@
       <br>
      
     
-      <p>After do this, I have download the <a href="https://github.com/PulsedLight3D/LIDARLite_Basics/blob/master/Arduino/LIDARLite_I2C_Library_GetDistance_ContinuousRead/LIDARLite_I2C_Library_GetDistance_ContinuousRead.ino">SKETCH</a> from Pulsed Light 3D Git Hub repository, that use the Arduino I2C Master Library</p>
+      <p>After  I did this, I download the <a href="https://github.com/PulsedLight3D/LIDARLite_Basics/blob/master/Arduino/LIDARLite_I2C_Library_GetDistance_ContinuousRead/LIDARLite_I2C_Library_GetDistance_ContinuousRead.ino">SKETCH</a> from the Pulsed Light 3D Git Hub repository, that uses the Arduino I2C Master Library</p>
       
       
       <br>
@@ -245,9 +245,9 @@ void loop(){
         
         <br>
         <br>
-            <p><font color=#fff>3RD PART --> MODIFY AND USE THE ARDUINO SKETCH "LIQUIDCRYSTAL HELLO WORLD" WITH A SATSHAKIT </font></p>
+            <p><font color=#fff>3RD PART --> MODIFY AND USE THE ARDUINO SKETCH "LIQUID CRYSTAL HELLO WORLD" WITH A SATSHAKIT </font></p>
             <br>
-            <p>I have opened the sketch : Exemple ---> LiquidCrystal --> Helloworld from the example section of IDE ARDUINO </p>
+            <p>I opened the sketch : Example ---> LiquidCrystal --> Helloworld from the example section of IDE ARDUINO </p>
             <br>
      <p class="pic">
                 <img src="Images/w11_arduino_crystal_ball8.jpg">
@@ -256,9 +256,9 @@ void loop(){
             <br>
             <br>
 
-<p>This sketch originnaly use the pin A4 and A5 for connecting the LCD. The same one that I need for connect the Lidar Lite Laser.</p>
+<p>This sketch originally used the pin A4 and A5 to connect the LCD. The same one that I need to connect the Lidar Lite Laser.</p>
 <br>
-<p>So I change the original sketch addrees of the LCD </p>
+<p>So I changed the original sketch address of the LCD </p>
 
 <pre style="background-color: black; color: white">
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2); 
@@ -266,7 +266,7 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 <br>
 
-<p>and change it to:</p>
+<p>and changed it to:</p>
 
 <br>
 
@@ -276,7 +276,7 @@ LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 
 <br>
 
-<p>The new and modify "LIQUIDCRYSTAL HELLO WORLD" sketch is : </p>
+<p>The new and modify "LIQUIDCRYSTAL HELLO WORLD" sketch is :  </p>
 
 <br>
 
@@ -309,14 +309,14 @@ void loop() {
 
 
 <br>
-<p><font color=#fff> 4TH PART --> MERGE 2 SKETCHES :  "LIQUIDCRYSTAL HELLO WORLD" + "LIDAR LITE BASIC" </font><p>
+<p><font color=#fff> 4TH PART --> MERGE 2 SKETCHES : "LIQUIDCRYSTAL HELLO WORLD" + "LIDAR LITE BASIC"  </font><p>
 <br>
 
-<p>Now it'is the moment to marge 2 sketchs: <br>I have respected the respective fields "void setup ()" and "void loop ()" for creating one only sketch.</p>
+<p>Now it is the moment to merge 2 sketches:  <br>I respected the fields "void setup ()" and "void loop ()" to create only one sketch.</p>
 <br>
-<p> I have modified :</p>
+<p> I modified :</p>
 <br>
-<p> Removed </p> 
+<p> Removed  </p> 
 
 <pre style="background-color: black; color: white">
 lcd.print ("hello, world!")
@@ -324,7 +324,7 @@ lcd.print ("hello, world!")
 
 <br>
 
-<p> Removed </p>
+<p> Removed  </p>
 
 <pre style="background-color: black; color: white">
 Serial.begin(9600); 
@@ -332,7 +332,7 @@ Serial.begin(9600);
 
 <br>
 
-<p>Add "lcd.clear" line for the refresh of LCD data</p>
+<p>Add "lcd.clear" line to refresh the LCD data</p>
 
 <pre style="background-color: black; color: white">
 lcd.clear();
@@ -340,7 +340,7 @@ lcd.clear();
 
                  <br>
                  
-<p>Add "lcd.print" For print the 1st text</p>
+<p>Add "lcd.print" to print the 1st text</p>
 
  
 <pre style="background-color: black; color: white">
@@ -349,7 +349,7 @@ lcd.print("DISTANCE Cm:");
 
 <br>
 
-<p> Add "lcd.print" For print the 2st text Lidar Information</p>
+<p> Add "lcd.print" to print the 2nd text Lidar Information</p>
  
 <pre style="background-color: black; color: white">
 lcd.print(distance);
@@ -357,7 +357,7 @@ lcd.print(distance);
 
 <br>
 
-<p>Add "delay" line to reduce the time of dispatch of the data and to allow LCD to visualize proprely the data</p>
+<p>Add "delay" line to reduce the data dispatch time and allow the LCD to visualize the data properly</p>
 
 <pre style="background-color: black; color: white">
 delay(500);
@@ -366,7 +366,7 @@ delay(500);
 
 <br>
 
-<p>The result is the following sketch : -)</p>
+<p>The result is the following sketch : -) </p>
 <br>
 
 
