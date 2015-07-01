@@ -1,4 +1,9 @@
 /* GitHub Theme */
+pre.prettyprint {
+    padding:2px;
+    border: 0;
+}
+
 .prettyprint {
   background: white;
   font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
