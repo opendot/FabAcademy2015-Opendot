@@ -99,11 +99,12 @@
             <br>
         <h4><font color=#fff>INPUT SENSOR: <a href="http://en.wikipedia.org/wiki/Photoresistor"> PHOTORESISTOR </a></font></h4
         <h4><font color=#fff>SOFT:<a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a></font></h4>
-        <h4><font color=#fff>BOARD: SATSHA KIT  BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
+        <h4><font color=#fff>BOARD: SATSHAKIT  BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
         <h4><font color=#fff>DATASHEET: <a href="http://atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf">MICROCONTROLLER ATMEGA 328P DATASHEET</a></font></h4>
-        <br>
+        
         <h4><font color=#fff>NOTE: MY FIRST ARDUINO PROJECT EVER :-)</font></h4>
-
+        <br>
+        <h4><font color=#fff>DOWNLOAD: <a href="download/w10_LightTheremin_Input_Devoice.ino.zip"><button type="button" class="btn btn-primary btn-lg">Light Theremin .ino</button></a></font></h4>
                <br>
          <p><font color=#fff>****************************************************************************************************************</font></p>
 <br>
@@ -139,7 +140,7 @@
           <br>
               
             <br>
-      <h4><font color=#fff>2ND PART --> CONNECT FAB ISP TO THE BOARD FOR PROGRAMMING</font></h4>
+      <h4><font color=#fff>2ND PART --> CONNECT FAB ISP TO THE SATSHAKIT MICROCONTROLLER FOR PROGRAMMING ITs</font></h4>
         <br>
       <p>When the board was ready I have followed this process for programming it : </p>
       <br>
@@ -217,6 +218,7 @@
         <br>
     <h4><font color=#fff>3RD PART--> LOAD BOOTLOADER WITH IDE ARDUINO 1.6.3</font></h4>
         <br>
+    <p>Follow the next images setting :</p>
         
         
         
@@ -250,8 +252,11 @@
         <br>
     <h4><font color=#fff>4TH PART -->BUILD THE CIRCUIT FOR A LIGHT THEREMIN</font></h4>
         <br>
-<p>Elements : 1 Piezo # 10 Kilohm Resistor # 1 Photoresistor</p>
-
+<p>Elements : 1 Piezo // 10 Kilohm Resistor // 1 Photoresistor</p>
+<br>
+    
+    <p>I connect the pin A0 of SATSHAKIT to the ground of Photoresistor with the 10k Resistor </p>
+    <p>I connect the pin 8 of  SATSHAKIT to the Piezo </p>
       <br><br>
       
       <br>
@@ -279,10 +284,13 @@
     
       
     <h4><font color=#fff>5TH PART --> THE CODE</font></h4>
+      
       <br>
+    <p>I do not change nothing of this skech on reality. Have just read it and understand that :  </p>
       <br>
-      <br>
-          
+          <p>-------------</p>
+    
+    <br>
         <p class="pic">
     <img src="Images/w10_the_code_1.jpg">
 	<legend></legend>
@@ -291,8 +299,10 @@
       <pre style="background-color: black; color: white">
 	
 	/*
-  Arduino Starter Kit example
+  Arduino Starter Kit example 
  Project 6  - Light Theremin
+ 
+ - Read and Studied by Pierluigi De Palo - For the Fab Academy 2015 Exercise "INPUT DEVOICE"
 
  This sketch is written to accompany Project 6 in the
  Arduino Starter Kit
@@ -352,7 +362,10 @@ void loop() {
 
   // wait for a moment
   delay(10);
-}</pre>
+}
+
+</pre>
+
       <br>
           
         <p class="pic">

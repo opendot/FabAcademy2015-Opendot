@@ -74,12 +74,9 @@ div.code { border-color: yellow ! important; border: 1px solid; border-radius: 5
 
 .statusNO {
     color: red;
-    border-color: red;
+    border-color: red;}
     
-}
 
-pre class="prettyprint linenums"
-
-<pre style="background-color: black;" ">
+    
 
 
