@@ -206,9 +206,7 @@ Obviously with a single board is not possible drive several servo/RgB Led. A sol
 <p>
 The TLC5940 is a 16 channel PWM unit with 12 bit duty cycle control (0 - 4095), 6 bit current limit control (0 - 63), and a daisy chainable serial interface. It is handy for expanding the number of PWM outputs available. 
 </p>
-<p>
-I started to study this interesting chip form my final project in order to command a lot of leds and servos, and I started from this tutorial: <a href="http://playground.arduino.cc/learning/TLC5940" target="_blank">http://playground.arduino.cc/learning/TLC5940</a>
-</p>
+
 <p><img align="center"  hspace="12" src="images/tlc5940.jpg	"/></p>
 <p><img align="center"  hspace="12" src="images/tlc5940_scheme.jpg	"/></p>
 <p>
@@ -234,7 +232,7 @@ For a 16 Channel circuit I need:
 <p><img align="center" height="400" hspace="12" src="images/wk11_tlc5940_all.jpg	"/></p>
 <p><img align="center" height="400" hspace="12" src="images/wk11_9.jpg"/></p>
 <p>
-In order to daisy chain two or more TLC5940, connect the SOUT of TLC 1 to the SIN of TLC 2, and the SCLK, XLAT, BLANK and GSCLK and proceed in that manner for every additional TLC5940.
+In order to chain two or more TLC5940, it is necessary to connect the SOUT of TLC 1 to the SIN of TLC 2, and the SCLK, XLAT, BLANK and GSCLK and proceed in that manner for every additional TLC5940.
 </p>
 <p><span>An important thing to do in order to use multiple TLC5940s, is to set the number of registries in the file &rdquo;tlc_config.h&ldquo; in the library's folder by replacing the value of the constant NUM_TLCS with the amount of TLCs (in my case 4). After saving it is necessary to &nbsp;restart the Arduino IDE.</span></p>
 

@@ -15,6 +15,23 @@
 		<script src="js/jquery.scrolly.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+     
+<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="media/fabacademy.css" rel="stylesheet">
+    
+    <!-- 3D files viewer -->
+    <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
+	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
+    <script type="text/javascript" src="media/jsc3d.touch.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+		
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -31,11 +48,11 @@
 			<nav id="nav">
 				<ul class="container">
 					<li><a href="./index.html#top">Home</a></li>
-					<li><a href="./index.html#work">Concept</a></li>
-					<li><a href="./finalproject.html">Application and Implications</a></li>
-					<li><a href="./index.html#class-schedule">Intellectual Property, and Income</a></li>
-					<li><a href="./index.html#contact">Project Development</a></li>
-					<li><a href="./index.html#contact">Project Presentation</a></li>
+					<li><a href="./finalproject.html#concept">Concept</a></li>
+					<li><a href="./finalproject.html#applications">Applications and Implications</a></li>
+					<li><a href="./finalproject.html#income">Intellectual Property and Income</a></li>
+					<li><a href="./finalproject.html#development">Project Development</a></li>
+					<li><a href="./finalproject.html#presentation">Project Presentation</a></li>
 				</ul>
 			</nav>
 
@@ -48,11 +65,11 @@
 						
 					</header>
 					
-							
-							<div class="12u">
+						<div class="container">	
+							<div class="12u" id="concept">
 								<section class="box style1">
 									<span class="icon featured fa-thumbs-o-up"></span>
-									<h3 align="center">3D Table</h3>
+									<h3 align="center">3D Table:Concept</h3>
 									<p align="center"><img align="center" height="226" hspace="12" src="images/clip_image002.jpg" width="188" /></p>
 
 <p><Strong>Multimodal interaction with phisical and virtual world.</Strong> 3D technology since its first appearance on the market has been able to amaze and attract attention in various fields , from leisure , research and industry . Just like in the movies , futuristic virtual reality is mixed with the real world scenarios opening ever wider interconnection man - machine . Kinect , Leap Motion , Oculus Rift are making this a reality. 
@@ -97,9 +114,16 @@
 
 <p align="center"><img height="286" src="images/solidthinkingall.jpg" width="675" /></p>
 
-<p><Strong>...in summary</Strong></p>
+  </section>
+</div>
 
-<p></p>
+<div class="12u" id="applications">
+	<section class="box style1">
+		<span class="icon featured fa-thumbs-o-up"></span>
+		<h3 align="center">3D Table: Applications and Implications</h3>
+<p><Strong>3D Table...in summary</Strong></p>
+
+
 
       <p align="center"><Strong>What will it do?</Strong></p>
 	  <p>Start in small. A platform of motorized blocks that can render 3D physical content, so that users can interact with digital information in a tangible way.
@@ -113,17 +137,18 @@
 	      <ul>
 		    <li>Table structure: wood planes, plastic pin, steel wires, servo motors, metal skeleton...  </li>
 		    <li>Electronic equipment: At beginning the idea was to use arduino, finally I will use the new fabkit -sashakit- designed by my colleague Daniele. Leds and other electronics components to control servos. A deph sensor, maybe a Asus Xtion Pro Live.</li>
-	        <li>Softwre components for imagine acquisition, elaboration and for controlling servos</li> 
+	        <li>Software components for image acquisition, elaboration and for controlling servos</li> 
 		</ul>
 	    
 	  </p>
 	  <p align="center"><Strong><em>Where will they come from?</em></Strong></p>
       <p>Table structure components will come from local providers</p>
 	  <p align="center"><Strong><em>How much will it cost?</em></Strong></p>
-      <p>The system is composed of a set of servors so is modular and extensible. The cost will depend of the matrix dimensions plus a fixed cost for single equipment (for example deph sensor). At beginning in my R&D lab the idea was to make a table with a matrix of 64 pixels/motors. For the final project I scheduled a smaller version. In summary: 
+      <p>The system is composed of a set of servors+rgb leds so is modular and extensible. The cost will depend of the matrix dimensions plus a fixed cost for single equipment (for example deph sensor). At beginning in my R&D lab the idea was to make a table with a matrix of 64 pixels/motors. For the final project I scheduled  to test a minimun set, that is a line composed by 8 pin/motors. In summary: 
 	       <ul>
-		    <li>Table structure: 40 euros plus 6 euros per pin (all included accessories) </li>
-		    <li>Electronic equipment: at least 4 sashakit + other electronics accessories +deph sensor = 180 euros</li>
+		    <li>Table structure:metal frames, plywood sheets, nuts and bolts and plexiglass sheet: 60 euros</li>
+			<li>Pin system: servo + rgb led+ wires+square aluminum tube+ plexiglass tube and bar +armonic wire:16 euros per pin</li>
+		    <li>Electronic equipment: at least 4 sashakit (servo, red, green, blue) + other electronics accessories (TLC5940 board: minimum for 16 pins) +deph sensor = 180 euros</li>
 		</ul>
 	  </p>
 	  <p align="center"><Strong><em>What parts and systems will be made?</em></Strong></p>
@@ -146,6 +171,7 @@
       <p>The main tasks:
 	   <ul>
 	        <li>1.Pin movement system</li>
+			<li>2.RGB LEd system</li>
 			<li>2.Depth and image acquisition</li>
 		    <li>3.Information transmission </li>
 			<li>4.Servo and Led Controlling</li>
@@ -154,69 +180,520 @@
 	  <p align="center"><Strong><em>What questions need to be answered?</em></Strong></p>
       <p>
 	   <ul>
-	        <li>1.Translation of deph information in a pin movement</li>
-			<li>2.best approach to command servos</li>
+	        <li>1.Translation of deph and image information in a pin movement</li>
+			<li>2. best approach to command servos and leds</li>
 		</ul>	
 	  </p>
 	  <p align="center"><Strong><em>What is the schedule?</em></Strong></p>
-      <p> not available yet </p>
+      <p>
+       Cause the final goal is hard to complete by the final presentation deadline I decided to proceed with a  cyclic process  in order to achieve incremental results. 	  
+	  <li align="justify">Design and build the table </li>
+	  <li align="justify">Design and build first pin prototype</li>
+	  <li align="justify">Design and build Electronic board for servos</li>
+	  <li align="justify">Design and build Electronic boards for leds</li>
+	  <li align="justify">Design and implements boards software</li>
+	  <li align="justify">Design and implement test software</li>
+	  <li align="justify">Test and validation</li>
+	  <li align="justify">Bug fix, Update requirements and design</li>
+	  
+	  
+	  </p>
 	  <p align="center"><Strong><em>How will it be evaluated?</em></Strong></p>
 	  
 	  <p>
-	  Fist evaluation step will be the controlling of table system by means of a simulation application interfaced with the step motors/leds control system. The second step the entire process from 3d acquisition to 3d table reproduction.
+	  A Fist evaluation step will be controlling pin system by sending data to control boards and move servos and control leds. Once reached this results the next goal is to implement the entire process from 3d acquisition to 3d table reproduction.
 	  </p>
 
 
 								
 								</section>
 							</div>
+        <div class="12u" id="income">
+	        <section class="box style1">
+		<span class="icon featured fa-thumbs-o-up"></span>
+		<h3 align="center">3D Table: Intellectual Property and Income</h3>
+        
+		<p>As just described my final project is a small part of a bigger project that involves several ideas about sensor networks, human interaction, virtual 3D imersion and smart cities. Once finisched the 3D table will be used by other collegues in order to integrate other R&amp;D results mainly related to software systems. As regards dissemination activities in the last month I presented the idea to visiting students and presented to a my project kick-off in order to exploit the system as possible media to reproduce 3D data.&nbsp;</p>
+        <p>Another exploitation may be, as discussed with my collegue <a href="" target="_blank"> Daniele Ingrassia</a>, to reproduce surface data belonging from sensors mounted on his AAVOID drone system (thermal sensors, deph sensor etc..)</p>
+        <p>About the licence,&nbsp;I specified a <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank"> Creative Commons CCA license</a>  for all my Fab Academy work and software source code and projects are licensed under the terms of the GNU Lesser General Public License v2.1. For my final project presentation only table boards software is released, cause the other software is under development in other r&d projects. </p>
+
+            </section>
+		</div>		
 							
-							<div class="12u">
-								<section class="box style1">
+							
+							
+							
+							<div class="12u" id="development">
+	                                <section class="box style1">
+		<span class="icon featured fa-thumbs-o-up"></span>
+		<h3 align="center">3D Table: Project Development</h3>
+
 									
 									
  <p>The first step was to think about a single pixel in order to define a first version of the table and its structure.</p>
- <p><img align="center"  hspace="12" src="images/onepixelstructure.jpg"  /></p>
  <p>On the top we have a transparent pin moved by a servo motor connected by an armonic steel wire.
 on the bottom of the pin a rgb led is connected </p>
+
+ <p align="center"><img align="center"  hspace="12" src="images/onepixelstructure1.jpg"  /></p>
+ <p align="center"><img align="center"  hspace="12" src="images/onepixelstructure2.jpg"  /></p>
+
+
 <p>My final project as described is and will focused mainly on table structure and driving starting from a deph and colour information from a sensor.The following 
-video shows by means of a web application written that by means of webgl to simulate the table ( in simulation the pins and motors are free ;-)
+video shows by means of a web application written with web3d libraries in order to simulate the table ( in simulation the pins and motors are many more: are free ;-)
 </p>
 <div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/lsqNa107_6E" frameborder="0" allowfullscreen></iframe></div>
-<p>Starting from this early prototype I think about the overall structure, nd taking into account the total transmitted torque a metal structure solution has been adopted.</p>
-<p><img align="center"  hspace="12" src="images/tablestructure.jpg"  /></p> 
+<p>Starting from this early prototype I think about the overall structure, and taking into account the total transmitted torque a metal structure solution has been adopted.</p>
+<p align="center"><img align="center"  hspace="12" src="images/tablestructure.jpg"  /></p> 
+
+<p align="center"><img align="center"  hspace="12" src="images/tablesystem_design1.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/tablesystem_design2.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/tablesystem_design2_1.jpg"  /></p>
+
+<p>
+	<a href="media/tablelayers.zip">
+		<button type="button" class="btn btn-primary btn-lg">Download the eagle file of table layers</button>
+	</a>
+</p>
 <p>Each table layer contains a component of system
 table layer ( electronics->servo motors-> transmission->pin-push-> pins and leds.
 The introduction of a pin-push facilitates the stability of the edge transparent pin during its linear movement.
-In the last months a first try has been performed by adopting a dual layer disposal of motors in order to reduce the distance of neighbour motors respect to the vertical axis of the pi. Obviously the dimension of the motors and their arms are greater than the dimension of each pixel/pin.
+</p>
+
+<div>
+<h3>Electronics</h3>
+<p>
+As regards electronics, for each information, servo position, red, green and blue a dedicated board is provided composed by a tlc5940 shift register board driven by a sashakit. 
+</p>
+<p>
+The TLC5940 is a 16 channel PWM unit with 12 bit duty cycle control (0 - 4095), 6 bit current limit control (0 - 63), and a daisy chainable serial interface.  
+</p>
+
+<p><img align="center"  hspace="12" src="images/tlc5940.jpg	"/></p>
+<p><img align="center"  hspace="12" src="images/tlc5940_scheme.jpg	"/></p>
+
+<p>
+For a 16 Channel circuit to drive servos I needed:
+</p>
+<ul>
+<li>1)A satshakit board</a></li>
+<li>2)a 2,2 kΩ resistor </li>
+<li>3)a 0.1uF ceramic and a 4.7uF electrolytic capacitor</li>
+<li>4)16 3.3 kΩ resistors</li>
+<li>5)A 10kΩ pull up resistor</li>
+</ul>
+
+<p><img align="center" height="500" hspace="12" src="images/finalservoboard_schematic.jpg"  /></p>
+<p><img align="center" height="500" hspace="12" src="images/finalservoboard_board1.jpg"  /></p>
+<p><img align="center" height="500"  hspace="12" src="images/finalservoboard_board2.jpg"  /></p>
+
+<p>
+In order to drive rgb led, by driving separately each channel (r, g,b) a quite similar board is needed
+</p>
+<ul>
+<li>1)A satshakit board</a></li>
+<li>2)a 2,2 kΩ resistor </li>
+<li>3)a 0.1uF ceramic and a 4.7uF electrolytic capacitor</li>
+<li>5)A 10kΩ pull up resistor</li>
+</ul>
+
+<p><img align="center" height="500" hspace="12" src="images/finalledboard_schematic.jpg"  /></p>
+<p><img align="center" height="500" hspace="12" src="images/finalledboard_board1.jpg"  /></p>
+<p><img align="center" height="500" hspace="12" src="images/finalledboard_board2.jpg"  /></p>
+
+<p>
+In order to chain two or more TLC5940, it is necessary to connect the SOUT of TLC 1 to the SIN of TLC 2, and the SCLK, XLAT, BLANK and GSCLK and proceed in that manner for every additional TLC5940.
+</p>
+
+<p>
+	<a href="media/tlc5940_tableboards.zip">
+		<button type="button" class="btn btn-primary btn-lg">Download the eagle files</button>
+	</a>
+</p>
+
+
+</div>
+
+<div>
+<h3>Software</h3>
+<p>
+For each board (servo, red, green, blue) a sketch is loaded that receives through serial a set of string commands <String,parameters*>. The code uses
+the Arduino Library for the TLC5940: <a href="https://code.google.com/p/tlc5940arduino/" target="_blank">https://code.google.com/p/tlc5940arduino/</a> 
+</p>
+<Strong>HandleServo_sketch</Strong>
+<pre>
+#define FASTADC 1
+#ifndef cbi
+#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
+#endif
+#ifndef sbi
+#define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+#endif
+
+#include <Wire.h>
+#include "Leds.h"
+#include "Utils.h"
+#include "Tlc5940.h"
+#include "tlc_servos.h"
+
+
+	
+#define VREF     5.0  // analog reference
+#define SERVO    64   // led number
+#define DELTA    61   //  TLC in ms
+
+Leds morse(7);
+Utils util;
+
+boolean update            = false;
+boolean contact           = false;
+
+char buffer[5] ;
+int  p             = 0;
+int  delayTime     = 2;
+int  debug         = 1; // debug = 0 disabled - debug = 1 enabled
+long oldTime       = 0;
+
+void setup()
+{ 
+  tlc_initServos(); 
+
+  Serial.begin(9600);
+  morse.led();
+ 
+  establishContact();
+}
+
+void establishContact() {
+  while (contact==false) {
+    Serial.println('S');
+    delay(200);
+    
+    if (Serial.read()=='K'){//K
+      contact=true; 
+      morse.off(); // offLed();
+      if(debug!=0) Serial.println('K');
+     
+    }      
+  }
+}
+ 
+void loop()
+{
+  if (Serial.available() >0)
+  {
+    
+    morse.led();
+    
+    char inByte = Serial.read();
+    
+    if (inByte =='#') // # PP RR servo number and value 
+    {
+     
+      while (p<4)
+      {
+        buffer[p] = Serial.read();
+        Serial.println(buffer[p]);
+        p++;
+      }
+      byte pp    = util.hex2Decimal(buffer[1])+util.hex2Decimal(buffer[0])*16;
+      byte angle = util.hex2Decimal(buffer[3])+util.hex2Decimal(buffer[2])*16;
+      if(debug!=0){
+        Serial.print("# ");
+        Serial.print(pp);
+        Serial.print(" ");
+        Serial.println(angle);
+      }
+      if (angle>4 && angle<176){ 
+        handleServo(pp, angle);
+        update=true;
+      }
+    }
+
+    else if (inByte =='T') // T XX delay time
+    {
+      while (p<2)
+      {
+        buffer[p] = Serial.read();
+        p++;        
+      }
+      delayTime = util.hex2Decimal(buffer[1])+util.hex2Decimal(buffer[0])*16;
+      if(debug!=0){
+        Serial.print("T ");
+        Serial.println(delayTime);
+      }
+    }
+    else if (inByte =='S') // S reset servo position
+    {
+      for(int i=0; i<SERVO; i++)
+      {
+        handleServo(i, 0);
+      }
+      Tlc.update();
+      if(debug!=0){
+        Serial.println("S ");
+      }
+    } 
+    else if (inByte =='X') // X XX activate (1) - not active (0) debug 
+    {
+      while (p<2)
+      {
+        buffer[p] = Serial.read();
+        p++;        
+      }
+      debug = util.hex2Decimal(buffer[1])+util.hex2Decimal(buffer[0])*16;      
+      Serial.print("X ");
+      Serial.println(debug);
+      
+    } 
+    morse.off(); 
+  }
+  p=0;
+  
+  if(update & millis()-oldTime>DELTA){
+    Tlc.update(); 
+    update=false;
+    oldTime=millis();
+  }
+  delay(delayTime); 
+}
+
+/****************************************************** TLC SERVOS */
+void handleServo(int pin, int angle)
+{
+  if(debug!=0){
+        Serial.println("moving servo ");
+        Serial.print(pin);
+        Serial.print(" ");
+        Serial.print(angle);
+      } 
+  tlc_setServo(pin+0, angle);
+}
+</pre>
+<Strong>HandleLed_sketch</Strong>
+<pre>
+#define FASTADC 1
+#ifndef cbi
+#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
+#endif
+#ifndef sbi
+
+#define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+#endif
+
+#include <Wire.h>
+#include "Leds.h"
+#include "Utils.h"
+#include "Tlc5940.h"
+
+	
+#define VREF     5.0  // analog reference
+#define LED      64   // led number
+#define MAX      2     
+#define DELTA    21   
+
+Leds morse(7);
+Utils util;
+
+boolean update            = false;
+boolean contact           = false;
+
+byte buffer[5] ;
+int  p             = 0;
+int  delayTime     = 2;
+int  lum           = MAX;
+int  debug         = 1; // debug = 0 disabled - debug = 1 enabled
+long oldTime       = 0;
+
+void setup()
+{ 
+  Tlc.init();
+
+  Serial.begin(115200);
+  morse.led();
+  
+  establishContact();
+}
+
+void establishContact() {
+  while (contact==false) {
+    Serial.println('R');
+    delay(200);
+    
+    if (Serial.read()=='K'){//K
+      contact=true; 
+      morse.off(); // offLed();
+      if(debug!=0) Serial.println('K');
+     
+    }      
+  }
+}
+ 
+void loop()
+{
+  if (Serial.available() >0)
+  {
+    
+    morse.led();
+    
+    byte inByte = Serial.read();
+    
+    if (inByte == '#') // # PP RR led number and value 
+    {
+      while (p<4)
+      {
+        buffer[p] = Serial.read();
+        p++;
+      }
+      byte pp    = util.hex2Decimal(buffer[1])+util.hex2Decimal(buffer[0])*16;
+      byte led   = util.hex2Decimal(buffer[3])+util.hex2Decimal(buffer[2])*16;
+      if(debug!=0){
+        Serial.print("# ");
+        Serial.print(pp);
+        Serial.print(" ");
+        Serial.println(led);
+      }
+        
+      handleLed(pp, led);
+      update=true;
+    }
+
+    else if (inByte == 'L') // L XX intensity
+    {
+      while (p<2)
+      {
+        buffer[p] = Serial.read();
+        p++;        
+      }
+      lum = util.hex2Decimal(buffer[1])+util.hex2Decimal(buffer[0])*16;
+      if(debug!=0){
+        Serial.print("L ");
+        Serial.println(lum);
+      }
+    }
+
+    else if (inByte == 'T') // T XX delay time
+    {
+      while (p<2)
+      {
+        buffer[p] = Serial.read();
+        p++;        
+      }
+      delayTime = util.hex2Decimal(buffer[1])+util.hex2Decimal(buffer[0])*16;
+      if(debug!=0){
+        Serial.print("T ");
+        Serial.println(delayTime);
+      }
+    }
+    else if (inByte == 'S') // switch off all leds
+    {
+      Tlc.clear(); Tlc.update();
+      if(debug!=0){
+        Serial.println("S ");
+      }
+    } 
+    else if (inByte =='X') // X XX active (1) - no active (0) debug 
+    {
+      while (p<2)
+      {
+        buffer[p] = Serial.read();
+        p++;        
+      }
+      debug = util.hex2Decimal(buffer[1])+util.hex2Decimal(buffer[0])*16;
+      if(debug!=0){
+        Serial.print("X ");
+        Serial.println(debug);
+      }
+    } 
+    morse.off(); 
+  }
+  p=0;
+
+  if(update & millis()-oldTime>DELTA){
+    Tlc.update(); 
+    update=false;
+    oldTime=millis();
+  }
+  delay(delayTime); 
+}
+
+/****************************************************** TLC LED RGB */
+void handleLed(int pin, int led)
+{
+  Tlc.set(pin+0, led*lum);
+}
+</pre>
+<p>
+	<a href="media/tlc5940tablelibrary.zip">
+		<button type="button" class="btn btn-primary btn-lg">Download the code</button>
+	</a>
+</p>
+</div>
+
+<p>
+A first try has been performed by adopting a dual layer disposal of motors in order to reduce the distance of neighbour motors respect to the vertical axis of the pi. Obviously the dimension of the motors and their arms are greater than the dimension of each pixel/pin.
 This first try was useful to test a first release of motor and led drive.
 </p>
-<p><img align="center"  hspace="12" src="images/firsttabletry.jpg"  /></p> 
+<p align="center"><img align="center"  hspace="12" src="images/firsttabletry.jpg"  /></p> 
 
 <div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/B_RldbHvDA8" frameborder="0" allowfullscreen></iframe></div>
 <div align="center"><iframe width="420" height="315" src="https://www.youtube.com/embed/mYHI423AHnA" frameborder="0" allowfullscreen></iframe></div>
 
 <p>but this solution provide complexity and space reduction on the composition of the entire motor system and transmission (wires are too near). So the approach is to return on a single linear disposal of motors with the support of  a rubber tube inside which  steel wire flows.
 </p>
-<p><img align="center"  hspace="12" src="images/newpinsystem.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/newpinsystem.jpg"  /></p>
 <p>
-At this moment in order to test the entire system software an arduino pool system is adopted by using a shift register system. After this test the second phase I plan to replace the arduino boards with satsha ones.
-At this moment  I'm going to enhance the table by using the results of Fab Academy assignments.
+After this test in  the second phase I enhanced the table by adding other components, the final part of pin system:
 </p>
-<p><img align="center"  hspace="12" src="images/newtoppinsystem.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/holebox.jpg"  /></p>
+
+<p align="center"><img align="center"  hspace="12" src="images/newtoppinsystem.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/newtoppinsystem2.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/newtoppinsystem3.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/newtoppinsystem4.jpg"  /></p>
+
+<p>
+	<a href="media/holes.zip">
+		<button type="button" class="btn btn-primary btn-lg">Download box rhino model</button>
+	</a>
+</p>
+
+<p>
+And new arm  for servors. I modelled and print the arm according to the specification that length of plexiglass is 7 cm and the max excursion has to be of 6cm.
+</p>
+<p align="center"><img align="center"  hspace="12" src="images/arm.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/arm2.jpg"  /></p>
+<p align="center"><img align="center"  hspace="12" src="images/arm3.jpg"  /></p>
+<p>
+	<a href="media/c1spline4table.zip">
+		<button type="button" class="btn btn-primary btn-lg">Download the arm rhino model</button>
+	</a>
+</p>
+
 
 
  
  
 								</section>
 							</div>
-							
+	
+     <div class="12u" id="presentation">
+	    <section class="box style1">
+		    <span class="icon featured fa-thumbs-o-up"></span>
+		    <h3 align="center">3D Table: Project Presentation</h3>
+		
+		<p align="center"><img align="center"  hspace="12" src="presentation.png" height="100%" width="100%"  /></p>
+		
+		
+		</section>
+	</div>	
+
+	
 						</div>
 					</div>
 					
 					
 					
-					
+				</div>	
 					
 				</article>
 			</div>
