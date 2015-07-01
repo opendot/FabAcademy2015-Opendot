@@ -91,7 +91,7 @@ The board is designed based on the schematic of the CNC board by <a href="https:
         <img src="images/original_board.JPG" width="900">
         
         <br> 
-        His schematic was mainly useful as a reference for the capacitors used and the solution used. 
+        His schematic was mainly useful as a reference for the capacitors used. 
         <br>
         Here the schematic I made, based on his:
         <img src="images/board1.jpg">
@@ -110,13 +110,13 @@ The board is designed based on the schematic of the CNC board by <a href="https:
         <p>
         <ul>
         <li>One of the traces must pass on the corner of ATMEGA 328P</li>
-        <li>The endstops hve no external pull-up resistors (i hope to fix this using the internal ones)</li>
+        <li>The endstops have no external pull-up resistors (i hope to fix this using the internal ones)</li>
         <li>The enable of the stepper drivers and one of the endstop must be connected with jumpers</li>
         </ul>
         </p>
       <p>
         <br>
-        Beside be careful in placing the traces in the center of the corner, I did a small modification on the shape of the pad in inkscape, just to have a little bit more room. So here it is the original image:
+        Beside being carefull in placing the traces in the center of the corner, I did a small modification on the shape of the pad in inkscape, just to have a little bit more room. So here it is the original image:
         <img src="images/details2.jpg">
       
           
@@ -129,12 +129,12 @@ To make the board a little bit easier to read, I add some simple "silks" (like "
           <br>
           <img src="images/details10.jpg">
           
-Here the jumper used:
+Here the jumpers used:
           <img src="images/details13.jpg">
           <img src="images/details15.jpg">
           
           <br>
-          The driver used are the DRV8825 Stepper Motor Driver, that can get to 1,5 A without cooling. I'll probably need more current, but it coul work for the tests. To improve the performances I added a passive cooler
+          The drivers are the DRV8825 Stepper Motor Driver, that can get to 1,5 A without cooling. I'll probably need more current, but it could work for the tests. To improve the performances I added a passive cooler
           <img src="images/details16.jpg">
           
           <br>
@@ -162,10 +162,8 @@ Here the jumper used:
       <strong>Return of current from the motor power supply</strong>
       <br>
       <p>
-      the board had two different circuits with a common GND, one at 12V for the motor and one at 5V from the FTDI cable. I tried to power the board with the FTDI and to upload the blink to check clock and the main circuit and everything worked fine. After that I tried to power the motod circuit at 12V. I had no shortcircuit but, because of something I don't know, from the 12V circuit an instable current (approximately from 1.8V to 2.7V), passed to the 5V circuit.  
-          
-      /* immagine con tester */
-      
+      the board had two different circuits with a common GND, one at 12V for the motor and one at 5V from the FTDI cable. I tried to power the board with the FTDI and to upload the blink to check clock, as well as the main circuit and everything worked fine. After that I tried to power the motor's circuit at 12V. I had no shortcircuit but, because of something I don't know, from the 12V circuit an instable current (approximately from 1.8V to 2.7V), passed to the 5V circuit.  
+                
       I tried to cut some traces without finding the problem, so it's still a mistery.
       <br><br>
       
