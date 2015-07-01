@@ -95,44 +95,82 @@
 
 <br>
         <h4><font color=#fff>ASSIGNMENT: WRITE A DESKTOP APPLICATION THAT INTERFACES WITH AN INPUT AND OUTPUT DEVICE</font></h4>
-            <h4><font color=#fff>PROJECT: </font></h4>
+            <h4><font color=#fff>PROJECT: DROW WHIT 2 POTENTIOMETER </font></h4>
         <br>
-            <h4><font color=#fff>INPUT:  </font></h4>
-            <h4><font color=#fff>OUTPUT: </font></h4>
+            <h4><font color=#fff>INPUT: <a href="https://en.wikipedia.org/wiki/Potentiometer"> POTENTIOMETER </a> // <a href="https://en.wikipedia.org/wiki/Push-button"> PUSH BUTTON </a> </font></h4>
+        
         <h4><font color=#fff>SOFT:
             <a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a> // <a href="https://processing.org/"> PROCESSING </a></font></h4>
             <h4><font color=#fff>BOARD: SATSHAKIT BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
-        <h4><font color=#fff>LIBRARY: <a href="http://playground.arduino.cc/uploads/Interfacing/processing2-arduino.zip">  PROCESSING 2 - ARDUINO</a> </font></h4>
+        <h4><font color=#fff>LIBRARY: <a href="http://playground.arduino.cc/uploads/Interfacing/processing2-arduino.zip">  PROCESSING 2 - ARDUINO</a> // ARDUINO FIRMATA </font></h4>
             <h4><font color=#fff>TUTORIAL:</font><a href="http://playground.arduino.cc/Interfacing/Processing"> ARDUINO AND PROCESSING</a></h4>
         <h4><font color=#fff>DOWNLOAD: <a href="download/w15_processing_intarface_an_application_programming_pierluigi_de_palo.pde.zip"><button type="button" class="btn btn-primary btn-lg">processing.pde</button></a></font></h4>
 
                 <p><font color=#fff>****************************************************************************************************************</font></p>
-            
-            <p>For first I follow the Arduino and Processing turorial and i installed the processing2-arduino file in the .</p>
-            <p> </p>
+        <br>
+        
+        <p><font color=#fff>COMPONENT USED FOR THE EXERCISE : 2X POTENTIOMETERS - 1 PUSH BUTTON - 1 RESISTOR 10k</font></p>
+            <br>
+            <p>I follow the Arduino and Processing turorial linked on the tutorial section in this page</p>
+            <br>
+            <p>Download the PROCESSING 2 - ARDUINO library</p>
+            <p>Unzip the library and copy the "arduino" folder into the "libraries" sub-folder of my Processing Sketchbook. </p>
     
             <br>
     <p class="pic">
         <img src="Images/w14_1.jpg">
 	<legend></legend></p>    
 <br>
-            <br>
+       <p>Run Arduino, open the Examples > Firmata > StandardFirmata sketch, and upload it to the Arduino board.</p>
+        
+        <br>
     <p class="pic">
         <img src="Images/w14_2.jpeg">
 	<legend></legend></p>    
 <br>
+        <p>In Processing, open one of the examples that comes with the Arduino library.
+ </p>
             <br>
     <p class="pic">
         <img src="Images/w14_3.jpeg">
 	<legend></legend></p>    
 <br>
-            <br>
+        
+        <p>Connect the SATSHAKIT whit a FTDI cable following the image below  </p>
+        <br>
     <p class="pic">
         <img src="Images/w14_4.jpg">
 	<legend></legend></p>    
 <br>
+             <br>
+    <p class="pic">
+        <img src="Images/w14_satshakit_%20with_output.jpg">
+	<legend></legend></p>    
+<br>
+        <br>
+    <p class="pic">
+        <img src="Images/w14_connection_1.jpeg">
+	<legend></legend></p>    
+<br>
+        <br>
+    <p class="pic">
+        <img src="Images/w14_connection_2.jpg">
+	<legend></legend></p>    
+<br>
             
-            
+        
+        
+        <p> List of the changement done in the sketch : </p>
+        
+        <br>
+        
+        <p>Added a color variable colled : color ballc</p>
+        <p>Change the size of the renderer</p>
+        <p>I add an "IF" statement that check the status of the push button connected to the pin number 4 </p>
+        <p>Then delete the previous draw and change the color of the ball. </p>
+        <p>I created an Ellipse function that is moving according to the values collected from the microcontroller analogs input</p>
+        
+        <br>
              <pre style="background-color: black; color: white">
             /*
 
@@ -213,24 +251,30 @@ void draw() {
 }
 </pre>
 
+
+<br>
+<br>
+
 <div> 
           <p class="pic">
-        <iframe width="960" height="540" src="https://www.youtube.com/embed/25t4J2eVw8o?rel=0" frameborder="2" allowfullscreen></iframe>
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/fob1ZQ4tHR0?rel=0" frameborder="2" allowfullscreen></iframe>
 	<legend></legend>
             </div>
 
 
 
+
+ 
     <!-- End of your content -->
 
     </div> <!-- /container -->
 
 	<!-- footer -->
     
-  <footer id="footer">
+   <footer id="footer">
        
         <p class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <br><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br>
             Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>

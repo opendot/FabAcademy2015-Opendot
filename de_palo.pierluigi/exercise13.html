@@ -98,17 +98,21 @@
         <h4><font color=#fff>PROJECT: SATSHAKIT CHAT // CHAT PROGRAM BETWEEN 2 MICRO CONTROLLERS</font></h4>
         <br>
         <h4><font color=#fff>INPUT:</font></h4>
-        <h4><font color=#fff>OUTPUT:</font></h4>
-        <h4><font color=#fff>SOFT:</font></h4>
-        <h4><font color=#fff>DATASHEET:</font></h4>
-        <h4><font color=#fff>TUTORIAL:</font></h4>
-        <h4><font color=#fff>NOTE:</font></h4>
+        <h4><font color=#fff>SOFT:<a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a></font></h4>
+        <h4><font color=#fff>BOARD:</font></h4>
+        <h4><font color=#fff>NOTE: EXERCISE DO IN NETWORKING WITH MY CLASSMATE <a href="http://fabacademy.org/archives/2015/eu/students/pugliese.gianluca/exercise13"> GIANLUCA PUGLIESE  </a></font></h4></font></h4>
         <h4><font color=#fff>DOWNLOAD: <a href="download/w13_Satshakit_Chat.ino"><button type="button" class="btn btn-primary btn-lg">Satshakit Chat.ino</button></a></font></h4>
         
         <br>
                 <p><font color=#fff>****************************************************************************************************************</font></p>
     
-        
+        <p>Thank to this exercise i was able to understand how to create a communication between 2 microcontroller using the softwareSerial libreries.
+this libraries already include a class called “ CHAT “ 	
+
+As Tx (tranfer) an Rx (reciver) i used 10 and 11 pins
+As a chat monitor i used the serial monitor integrate to the IDE Arduino.
+
+i saw that in order to make the communication working the connection between the 2 GND of the micro controller il mandatory.</p>
         <br>
         
         <br>
@@ -120,7 +124,7 @@
         
         
         <br>
-        <div class="code">
+        <pre style="background-color: black; color: white">
             
             /*
 Fab Academy 2015
@@ -179,7 +183,7 @@ void loop()
           Serial.println();
      }
 }
-            </div>
+            </pre>
         
             <div> 
           <p class="pic">
@@ -196,7 +200,7 @@ void loop()
     <footer id="footer">
        
         <p class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <br><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br>
             Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>

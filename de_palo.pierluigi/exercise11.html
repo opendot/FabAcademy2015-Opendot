@@ -94,11 +94,12 @@
         
 
 <br>
-        <h4><font color=#fff>ASSIGNMENT: ADD AN OUTPUT DEVICE TO A MICROCONTROLLER BOARD YOU'VE DESIGNED AND PROGRAM IT TO DO SOMETHING</font></h4>
-        <h4><font color=#fff>PROJECT : Ex n°11 of Arduino Project Book + Change the input devoice with one of my choise</font></h4>
+        <h4><font color=#fff>ASSIGNMENT: ADD A OUTPUT DEVICE TO A MICROCONTROLLER YOU'VE DESIGNED AND PROGRAM IT TO DO SOMETHING</font></h4>
+        <h4><font color=#fff>PROJECT 1: EX N°11 OF ARDUINO PROJECT BOOK --> CRISTAL BALL</font></h4>
+        <h4><font color=#fff>PROJECT 2: USE A SATSHA KIT MICROCONTROLLER FOR READING A LASER DISTANCE MESUREMENT IN A LCD : MARGE 2 DIFFEREN SKETCH</font></h4>
         <br>
         <h4><font color=#fff>INPUT: 
-            <a href="http://pulsedlight3d.com/"> Lidar Lite - Laser distance measurement</a>
+            <a href="http://pulsedlight3d.com/"> LIDAR LITE --> LASER DISTANCE MESUREMENT</a> // <a href="https://en.wikipedia.org/wiki/Potentiometer"> POTENTIOMETER </a>
         </font></h4>
             <h4><font color=#fff>OUTPUT:
                 <a href="http://www.wvshare.com/product/LCD1602-blue.html"> LCD  LCM1602C</a>
@@ -106,205 +107,65 @@
         <h4><font color=#fff>SOFT:
             <a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a>
         </font></h4>
-        <h4><font color=#fff>Board: Satsha Kit --> by <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">Daniele Ingrassia</a> # <a href="https://github.com/satshas/satshakit"> Git Hub repository of the project</a></font></h4>
+        <h4><font color=#fff>LIBRARY:<a href="http://www.dsscircuits.com/images/code/I2C_Rev5.zip">I2C </a></font></h4>
+         <h4><font color=#fff>BOARD: SATSHA KIT  BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
         <h4><font color=#fff>DATASHEET:
-            <a href="http://www.wvshare.com/product/LCD1602-blue.html">LCD  LCM1602C</a> - 
-            <a href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/5007466446/original/LIDAR-Lite-Laser-Datasheet.pdf?AWSAccessKeyId=AKIAJ2JSYZ7O3I4JO6DA&Expires=1429631642&Signature=4i%2FJCFif41I3O8U3%2FFxnoDnHMQw%3D&response-content-type=application%2Fpdf"> Lidar Lite </a></font></h4>
-            <h4><font color=#fff>TUTORIAL: <a href="https://learn.adafruit.com/character-lcds/overview">Wiring up a character LCD to an Arduino</a></font></h4>
-        <h4><font color=#fff>NOTE: I will realize the exercise with the original arduino board before and subsequently, with the satshakit realized in the week 10.</font></h4>
-
+            <a href="http://www.wvshare.com/product/LCD1602-blue.html">LCD  LCM1602C</a> // 
+            <a href="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/5007466446/original/LIDAR-Lite-Laser-Datasheet.pdf?AWSAccessKeyId=AKIAJ2JSYZ7O3I4JO6DA&Expires=1429631642&Signature=4i%2FJCFif41I3O8U3%2FFxnoDnHMQw%3D&response-content-type=application%2Fpdf"> LIDAR LITE </a></font></h4>
+            <h4><font color=#fff>TUTORIAL: <a href="https://learn.adafruit.com/character-lcds/overview"> WRITING UP A CHARACTER LCD TO AN ARDUINO</a></font></h4>
+        
         <br>
                <p><font color=#fff>****************************************************************************************************************</font></p>
 <br>
-        <p><u>1ST PART --> CREATE A CRYSTALL BALL TO TELL YOUR FUTURE</u></p>
+        <p><font color=#fff>1ST PART --> CREATE A CRYSTALL BALL TO TELL YOUR FUTURE</font></p>
 
             <br>
-            <p>List of elements for this part of exercise: Potentiometer # 220 ohm Resistor # 10 Kilohm Resistor # Switch # Tilt Sensor # Lcd Screen</p>
-            <br>
-            <p> I have followed the simple procedure of realization in the Arduino Project Book.</p>
-            <br>
-            <br>
-                <p class="pic">
-                <img src="Images/w11_arduino_crystal_ball7.jpg">
-	<legend></legend>
-            </p>
-        <br>
- 
-              <div class="row">
-              <div class="col-lg-6">
-                <img src="Images/w11_arduino_crystal_ball3.jpg">
-	<legend></legend>
-            </div>
-              
-              
-            <div class="col-lg-6">
-                <img src="Images/w11_arduino_crystal_ball_0.jpg">
-	<legend></legend>
-             </div>
-        
-        </div>
-              <br>
+        <p><font color=#fff>COMPONENT USED FOR THE EXERCISE : 1X POTENTIOMETERS // 1X PUSH BUTTON // 1X RESISTOR 220 ohm // 1X 10 Kilohm RESISTOR // SWITC // TILT SENSOR // LCD SCREEN</font></p>
             
-              
-              
-            <p class="pic">
-                <img src="Images/w11_arduino_crystal_ball5.jpg">
-	<legend></legend>
-            </p> 
-            
-            <p class="pic">
-                <img src="Images/w11_arduino_crystal_ball8.jpg">
-	<legend></legend>
-            </p> 
             <br>
-           
-             <div class="code">
-        /*
-  Arduino Starter Kit example
- Project 11  - Crystal Ball
-
- This sketch is written to accompany Project 11 in the
- Arduino Starter Kit
-
- Parts required:
- 220 ohm resistor
- 10 kilohm resistor
- 10 kilohm potentiometer
- 16x2 LCD screen
- tilt switch
-
-
- Created 13 September 2012
- by Scott Fitzgerald
-
- http://arduino.cc/starterKit
-
- This example code is part of the public domain
- */
-
-// include the library code:
-#include <LiquidCrystal.h>
-
-// initialize the library with the numbers of the interface pins
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
-
-// set up a constant for the tilt switchPin
-const int switchPin = 6;
-
-// variable to hold the value of the switchPin
-int switchState = 0;
-
-// variable to hold previous value of the switchpin
-int prevSwitchState = 0;
-
-// a variable to choose which reply from the crystal ball
-int reply;
-
-void setup() {
-  // set up the number of columns and rows on the LCD
-  lcd.begin(16, 2);
-
-  // set up the switch pin as an input
-  pinMode(switchPin, INPUT);
-
-  // Print a message to the LCD.
-  lcd.print("Ask the");
-  // set the cursor to column 0, line 1
-  // line 1 is the second row, since counting begins with 0
-  lcd.setCursor(0, 1);
-  // print to the second line
-  lcd.print("Crystal Ball!");
-}
-
-void loop() {
-  // check the status of the switch
-  switchState = digitalRead(switchPin);
-
-  // compare the switchState to its previous state
-  if (switchState != prevSwitchState) {
-    // if the state has changed from HIGH to LOW
-    // you know that the ball has been tilted from
-    // one direction to the other
-    if (switchState == LOW) {
-      // randomly chose a reply
-      reply = random(8);
-      // clean up the screen before printing a new reply
-      lcd.clear();
-      // set the cursor to column 0, line 0
-      lcd.setCursor(0, 0);
-      // print some text
-      lcd.print("the ball says:");
-      // move the cursor to the second line
-      lcd.setCursor(0, 1);
-
-      // choose a saying to print baed on the value in reply
-      switch (reply) {
-        case 0:
-          lcd.print("Yes");
-          break;
-
-        case 1:
-          lcd.print("Most likely");
-          break;
-
-        case 2:
-          lcd.print("Certainly");
-          break;
-
-        case 3:
-          lcd.print("Outlook good");
-          break;
-
-        case 4:
-          lcd.print("Unsure");
-          break;
-
-        case 5:
-          lcd.print("Ask again");
-          break;
-
-        case 6:
-          lcd.print("Doubtful");
-          break;
-
-        case 7:
-          lcd.print("No");
-          break;
-      }
-    }
-  }
-  // save the current switch state as the last state
-  prevSwitchState = switchState;
-}
-</div>  
+            <p> I had followed the simple procedure of realization in the Arduino Project Book Exercise 11</p>
+        <p>I try this exercise for understand the use and the pin output of a LCD screen</p>
             <br>
       
         <p class="pic">
                 <iframe width="960" height="540" src="https://www.youtube.com/embed/DYcvCKlGlvY?rel=0" frameborder="2" allowfullscreen></iframe>
 	</p>
           <br>
-          
-            <p><u>2ST PART --> ARDUINO "Hello World" TUTORIAL: ASSIGN NEW DIGITAL PIN ADDRSS BETWEENTHE BOARD AND LCD</u></p>
+          <br>
+        
+            <p><font color=#fff>2ST PART --> </font></p>
             <br>
-            <p>After having followed  <a href="https://learn.adafruit.com/character-lcds/overview">this tutorial</a> I have modified the native code of the exercise, assigning the corresponding pins.</p>
+            <p>I have opened the sketch LiquidCrystal-->Helloworld from the example of </p>
             <br>
-            <p>LCD pin name	--> RS	EN	DB4	DB5	DB6	DB7</p>
-            <p>Arduino pin  --> 7	8	9	10	11	12</p>
+     <p class="pic">
+                <img src="Images/w11_arduino_crystal_ball8.jpg">
+	<legend></legend>
+            </p> 
             <br>
-<p>Open up the File→Examples→LiquidCrystal→HelloWorld example sketch</p>
+            <br>
+
+
+<pre style="background-color: black; color: white">
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); 
+</pre>
+
 <br>
- <div class="code">
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);</div>
-<br>
+
 <p>And change it to:</p>
+
 <br>
- <div class="code">
-LiquidCrystal lcd(7, 8, 9, 10, 11, 12);</div>
+
+<pre style="background-color: black; color: white">
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
+</pre>
+
 <br>
 
 <p>The modify sketch is :</p>
+
 <br>
- <div class="code">
+
+ <pre style="background-color: black; color: white">
  */
 
 // include the library code:
@@ -327,22 +188,24 @@ void loop() {
   // print the number of seconds since reset:
   lcd.print(millis()/1000);
 }
-</div>
+</pre>
+
 <br>
 
-<p><u>3D PART-->IMPORT LIDAR LITE LIBRARIES AND CONNECT TO ARDUINO</u></p>
+<p><font color=#fff>3D PART-->IMPORT LIDAR LITE LIBRARY AND CONNECT TO ARDUINO</font>></p>
 <br>
-<p>After having downloaded  and imported the<a href="http://www.dsscircuits.com/images/code/I2C_Rev5.zip"> Library I2C </a>it is possible to connect the sensor Lidar to the board.</p>
+<p>After having downloaded  and installed the<a href="http://www.dsscircuits.com/images/code/I2C_Rev5.zip"> Library I2C </a>  is possible to connect the sensor Lidar to the board.</p>
 <br>
 <p class="pic">
                 <img src="Images/w11_Lidar%20Lite_Arduino%20connection%20.jpg">
 	<legend></legend>
             </p> 
             <br>
-            <p>Differents sketchs are available in the <a href="https://github.com/PulsedLight3D">Git Hub Repository</a> of the Lidar Retailer.<br> That one that i used is the following  <a href="https://github.com/PulsedLight3D/LIDARLite_Basics">LIDARLite_Basics</a></p>
+            <p>Differents sketchs are available in the <a href="https://github.com/PulsedLight3D">Git Hub Repository</a> of the Lidar Retailer.
+            <br> That one that i used is the following  <a href="https://github.com/PulsedLight3D/LIDARLite_Basics"> LIDAR LITE_BASIC</a></p>
             <br>
             
-             <div class="code">
+             <pre style="background-color: black; color: white">
             /* 
 
 http://pulsedlight3d.com
@@ -395,45 +258,75 @@ void loop(){
   delay(500);
 }
 
-</div>
+</pre>
+
 <br>
 
-<p><u>4TH PART --> MERGE 2 ARDUINO SKETCHES : ARDUINO "Hello World" + LIDAR Lite_Basics</u></p>
+<p><font color=#fff> 4TH PART --> MERGE 2 ARDUINO SKETCHES : ARDUINO "Hello World" + LIDAR Lite_Basics</font><p>
 <br>
 
-<p>Now it'is the moment to marge 2 sketchs: <br>I have respected the respective fields "void setup ()" and "void loop ()" for creating one only sketch.
+<p>Now it'is the moment to marge 2 sketchs: <br>I have respected the respective fields "void setup ()" and "void loop ()" for creating one only sketch.</p>
 <br>
-<br> I have modified :
+<p> I have modified :</p>
 <br>
-<br> Removed  <div class="code">lcd.print ("hello, world!")</div>
+<p> Removed </p> 
+
+<pre style="background-color: black; color: white">
+lcd.print ("hello, world!")
+</pre>
+
 <br>
-Removed  <div class="code"> Serial.begin(9600); </div>
+
+<p> Removed </p>
+
+<pre style="background-color: black; color: white">
+Serial.begin(9600); 
+</pre>
+
 <br>
-Add "lcd.clear" line for the refresh of LCD data.
-<br> <div class="code"> lcd.clear();</div> 
+
+<p>Add "lcd.clear" line for the refresh of LCD data</p>
+
+<pre style="background-color: black; color: white">
+lcd.clear();
+</pre> 
+
                  <br>
-Add "lcd.print" For print the 1st text
-<br> 
-                 <div class="code"> lcd.print("DISTANCE Cm:");</div>
-                 <br>
-Add "lcd.print" For print the 2st text Lidar Information
-<br> 
-                 <div class="code">lcd.print(distance);</div> 
+                 
+<p>Add "lcd.print" For print the 1st text</p>
+
+ 
+<pre style="background-color: black; color: white">
+lcd.print("DISTANCE Cm:");
+</pre>
 
 <br>
-Add "delay" line to reduce the time of dispatch of the data and to allow LCD to visualize proprely the data.
-<br>
- <div class="code"> delay(300);</div> 
+
+<p> Add "lcd.print" For print the 2st text Lidar Information</p>
+ 
+<pre style="background-color: black; color: white">
+lcd.print(distance);
+</pre> 
+
 <br>
 
-The result is the following sketch : -)</p>
+<p>Add "delay" line to reduce the time of dispatch of the data and to allow LCD to visualize proprely the data</p>
+
+<pre style="background-color: black; color: white">
+delay(300);
+</pre>
+
+
+<br>
+
+<p>The result is the following sketch : -)</p>
 <br>
 
 
- <div class="code">
+ <pre style="background-color: black; color: white">
 
 /*
-  LiquidCrystal +  LIDAR Lite Sensor By Pierluigi De Palo // Fab Academy "=!%
+  LiquidCrystal +  LIDAR Lite Sensor By Pierluigi De Palo // Fab Academy 2015
 
  Demonstrates the use a 16x2 LCD display.  The LiquidCrystal
  library works with all LCD displays that are compatible with the
@@ -484,7 +377,8 @@ The result is the following sketch : -)</p>
 #define    RegisterHighLowB    0x8f          // Register to get both High and Low bytes in 1 call.
 
 
-LiquidCrystal lcd(7, 8, 9, 10, 11, 12); // initialize the library with the numbers of the interface pins
+ // initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 
 void setup() {
   
@@ -521,12 +415,24 @@ void loop() {
   lcd.print(distance); // Print Distance
   
   
-  delay(300);
+  delay(2000);
   
   
 }
 
-</div>
+
+</pre>
+
+<br>
+
+
+<br>
+      
+        <p class="pic">
+                <iframe width="960" height="540" src="https://www.youtube.com/embed/2rEiHCYe5DA?rel=0" frameborder="2" allowfullscreen></iframe>
+	</p>
+          <br>
+
 
     <!-- End of your content -->
 
@@ -534,10 +440,10 @@ void loop() {
 
 	<!-- footer -->
     
-  <footer id="footer">
+   <footer id="footer">
        
         <p class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <br><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br>
             Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>
