@@ -100,7 +100,7 @@
         <h4><font color=#fff>SOFT: MAC OS TERMINAL</font></h4>
         <h4><font color=#fff>TUTORIAL: <a href="http://fabacademy.org/archives/2012/students/menichinelli.massimo/index.html#"> MASSIMO MENICHINELLI FAB ACADEMY 2012 EXERCISE: EMBEDDED PROGRAMMING</a> // <a href=" http://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192"> TERMINAL </a></font></h4>
        <h4><font color=#fff>DATASHEET: <a href="http://www.atmel.com/Images/doc8183.pdf"> ATTINY 44</a></font></h4>
-        <h4><font color=#fff>DOWNLOAD: <a href="download/w7_steadyled.zip"><button type="button" class="btn btn-primary btn-lg">Steadyled.zip</button></font></a> 
+        <h4><font color=#fff>DOWNLOAD: <a href="download/w7_embedding.zip"><button type="button" class="btn btn-primary btn-lg">Makefile.zip</button></font></a> 
 	</h4>
         
           <p><font color=#fff>****************************************************************************************************************</font></p>
@@ -114,10 +114,10 @@
          <p>This week we have certanly the more difficult assignments that we have since the biginning of Fab Academy.</p>
         
         <p>We need read the DATASHEET of ATTINY 44 microcontroller at first and give ours comment about it.</p>
-        <p>It's the first time that i look the specification of a electronic componet. And is not really easy to understand :on reallity is complitly crazy and i start to think that i'm in the bad place.'m not electronics engenier and i have a old brain :-)  </p>
+        <p>It's the first time that i look the specification of a electronic componet. And is not really easy to understand :on reallity is complitly crazy and i start to think that i'm in the bad place. I'm not electronics engenier and i have a old brain :-)  </p>
         <p>After a little time of pause, and after try to reading same general information about the "nature and History of micocontroller" in wikipedia, i try  to do a comparison between the pin out find in the datashee of ATTINY 44 micro and the schematics of my Hello Boardboard.</p>
         
-        <p>The Attiny 44 is the microrocontroller of the "Hello Board" that we do in last week</p>
+        <p>The Attiny 44 is the microcontroller of the "Hello Board" that we do in last week</p>
         
         <br>
         
@@ -135,10 +135,32 @@
         
         
         <p>I understand that of course, the same pins that i find in the DataSheet of Attiny will be used for comunicate with auther part of elecrtonics component in the bord.</p>
-        <p>Each pin of microcontroller is a kaind of door: the comunication of informations , will pass by elecrtical signal, running longer the road traces of the pcb board. On reality electronis is just one history of electricity. Inside of a microcontroller we have a lot of transistor.The transistor is a sort of elecrtcal swich: on or off. Better, 0 or 1 : is the binary lenguage. In each microcontroller we have thousen and thousen of transistor. I think that in the recent one maybe millions of transistor. Theyn open and close the swichs for doing inside same     Each pin recive informations   </p>
+        <p>Each pin of microcontroller is a kaind of door: the comunication of informations , will pass by elecrtical signal, running longer the road traces of the pcb board. On reality electronis is just one history of electricity. Inside of a microcontroller we have a lot of transistor.The transistor is a sort of elecrtcal swich: on or off. Better, 0 or 1 : is the binary lenguage. In each microcontroller we have thousen and thousen of transistor. I think that in the recent one maybe millions of transistor.</p>
+        
+        <p>After understand  what the base of binary languige i'm a little bit more happy.</p>
+        <p>Other intresting information is about : the analog pin input or output pin configuration. Where is the  VCC(+) pin or Ground(-) or information about the speed of clock.</p>
+        
+        <p>After understand a little bit more, is time to program the "hallo board" for doing blinking the green led that it have inside. We need to use th programmer board Fab ISP that we do in <a href="exercise04.html"> WEEK 4</a>.
+            
+            <br>
+            
+            <p>And this is the bighinning of the problems</p>
+        <p>For doing this we need some competence in c lenguage . We need to use Terminal for give same command and modify same file until to burn the the firmewer in the "hello bord" </p>
+        <p>After connecting the Fab ISP with the "Hallo Board" by a cool rainbow cable, i followed the instruction that the tutor give to us. </p>
+        <p>I d'ont really understand what i do but I know that it's magically work</p>>
+        
+        <p>I was reaaaly happy when i look the little green led blinking</p>
+       <p> I know i need to revise the process ; is my first approch with the code and is not realy frendly. However, i need to note my interest about the code: i think it's like lern a new difficult language</p>
+        
+        
+        <br>
+        <br>
         
         
         
+        
+        <P>THE MAKE FILE</P>
+        <br>
       <pre style="background-color: black;color: white">
             PROJECT=steadyled
 SOURCES=$(PROJECT).c
@@ -177,11 +199,11 @@ program-dragon: $(PROJECT).hex
         </pre>
         
 	<legend>The Makefile Report</legend>
- 
+ <br>
         
+        <br>
         
-        
-<p>---</p>
+<p>THE STEADY LED.C FILE </p>
 
         <br>
           
@@ -271,17 +293,14 @@ toggle_led()
         
        <br>
              
-        <p> ----- </p>
-             
- 
-<br>             
+       
              
              
-             
-        <h4>COMMAND : MAKE </h4>
-        <br>
              
         
+        <br>
+             
+        <h4>GO USEING TERMINAL IN THE DIRECTORY OF DOWLOADED STEADYLED FILE</h4>
         <br>
              
         <pre style="background-color: black;color: white">
@@ -290,8 +309,8 @@ toggle_led()
              </pre>
         <br>
         
-             <p>"make"</p>
-             
+          
+             <h4>COMMAND : MAKE  </h4>
              <br>
              
          <pre style="background-color: black;color: white"> 
@@ -316,15 +335,11 @@ Data:     0 bytes (0.0% Full)
           
         <br>
         
-         <h4><font color=#fff>COMMAND : MAKE PROGRAM USBTINY FUSE</font></h4>
+         <h4>COMMAND : MAKE PROGRAM USBTINY FUSE --> FOR PROGRAMMING THE BOARD</h4>
              
         <br> 
              
-        <p>---</p>
-             
-        <br>
-        
-        <p>"make program-usbtiny" to program the board</p>
+
              
         <br>
         
@@ -378,11 +393,9 @@ avrdude done. Thank you.
         
         <br>
              
-         <h4><font color=#fff>COMMAND : MAKE PROGRAM USBTINY</font></h4>
+         <h4>COMMAND : MAKE PROGRAM USBTINY --> FOR UPLOAD THE BOARD</h4>
              
-        <br>
-             
-        <p>With "Make Program Usbitiny" we upload the code </p>
+        
              
         <br>
         
