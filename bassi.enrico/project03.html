@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -251,95 +252,235 @@ Here the jumper used:
 
 <h2>Second (and last) round of development</h2>
 
-<p>Following the suggestion of a Spiral development of the project, I decided to restart to implement all the problem I found during the first round of development</p>
+<p>Following the suggestion to Spiral Develop the project, I decided to restart to implement all the problem I found during the first round. It was planned a third round as well, but because both time and costs, I stopped at the second.</p>
 
     <h3>Things to implement</h3>
-
-<p>
-    <strong>belt tensioner</strong>
+    <p>
+        Here a quick overview of the implementations. Some are very simple, while some other took me a long time.
+        <br><br>
+    <strong>Belt tensioner</strong>
+        <br>this is a pretty crucial piece in the project, and it gave me a lot of troubles. the main problem was to keep the closed belt properly tensioned and prevent to have a slipping belt.
+        To guarantee a good power transmission between the belt attached to the linear rail and the one touching the motor the tensioner is kept pressed with two springs. When you slide the guide, the tensioner slide back a bit and the springs keep the proper pressure
     <img src="images/final017.jpg">
     <img src="images/final018.jpg">
+        The back side is that the closed belt completely lost the tension. 
     <img src="images/final021.jpg">
-    
-    
-    <strong>bearing rings position</strong>
-    
-    <img src="images/final06.jpg">
-    
-    
-    <strong>alining the linear sleeves</strong>
-    <img src="images/final036.jpg">
-    </p>
-
-    <h3>How to assemble some complex parts</h3>
-    <p>
-    <strong>Y movement</strong>
-          <img src="images/final08.jpg">
-    <img src="images/final010.jpg">
-            <img src="images/final012.jpg">
-    <img src="images/final011.jpg">
-  
-    <img src="images/final014.jpg">
-          <img src="images/final015.jpg">
-        
-          <img src="images/final031.jpg">
-          <img src="images/final032.jpg">
-        
+        It's possible to notice that there is another problem: the screws used to keep the stepper are touching the border of the piece. I temporarely solved it cutting and drilling in the plastic to go on doing tests. But it's definitely not a permanent solution.
+        Here a test on the movement. Without stress it's working, but it need to be implemented a lot to actually work reliably while the machine si milling
         <br>
+        <p class="pic">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/i5RSwoCDelQ" frameborder="0" allowfullscreen></iframe></p>
         
-        <strong>Belt tensioner on Y</strong>
-    <p>
-    <img src="images/structure13.jpg">
+        
+        <p>
+        <br>
+        The best way to keep the two bearings was to make a sort of screw as a pin.
+        <br> First of all it's to check how logn you need it. 
+            <img src="images/structure13.jpg">
+        <br> The second step is to cut the head to easily screw it inside.
     <img src="images/structure14.jpg">
+        <br> ater that it's enough to cut it. I used a angular grinder, but it's possible to cut it with a hand tool as well.
             <img src="images/structure15.jpg">
             <img src="images/structure16.jpg">
+        <br><br>
+        
+        I decided to go on with a different solution, with no closed belt, but following the original suggestion. This made much more complex to place and remove the working plane, but at least ti was working. To test it and avoid the "spring problem" I add two stops temporarely kept in position by a couple of screws.
                 <img src="images/final046.jpg">
+            <br>
+            Here the way it behaved without
+            <p class="pic">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/SZOjDv_ZsuQ" frameborder="0" allowfullscreen></iframe>
+    </p>
+    <p>
+        <br>
+        The second version has no springs but it's regulated with two M4 screws.
         <img src="images/final32.jpg">
+        <br> 
+    In this case place and remove the linear guide is more complex and it takes a specific process.
+        the easier way to keep the belt in tension was to use two washers and a screw.
         <img src="images/final045.jpg">
         
         
+    <br><br>
     
+    <strong>Bearing rings position</strong>
+        <br>
+    To understand where to place the bearing ring to keep the tension i drawn the arch the central hole was doing while movinf around the pulley. Opening it a little bit the tension was increasing moving it closer to the pulley.
+    <img src="images/final06.jpg">
     
+    <br><br>
+    <strong>Alining the linear sleeves</strong>
+        <br> When you tight the bolds of the linear sleeves, they slightly rotate, this mean that the two holes are not aligned anymore. This increase the friction a lot, so, before sliding the linear guide inside, I used a shorter version to straight them back.
+    <img src="images/final036.jpg">
     </p>
-        +video
+<br>
+    <h3>How to assemble some complex parts</h3>
+    <p>
+        <br><br>
+    <strong>Y linear guide</strong>
+        <br>
+        The linear guide is composed by three different elements: the linear guide itself, an aluminium profile (L shape, 40x20x1.5 mm) and a belt glued to the surface that works like a rack.
+        <br>
+        First of all you have to drill holes in the aluminium profile. This will be used to screw everything to the working bed. A 3mm hole every 25cm should be enough.
+          <img src="images/final08.jpg">
+        <br> 
+        Even if there are holes in the linear guide for the screws, we will not use them. This cause they're gonna be covered by the belt, needed for the "Caterpillar movement". At the moment it's not working, but it's something I'm going to improve asap.
+    <img src="images/final010.jpg">
+        <br>
+        To glue them togheter I used a bicomponent glue that resist up to 180kg\cm2. This should be more than enough.
+            <img src="images/final012.jpg">
+        <br>
+        After 20 minutes it seems to be very solid.
+    <img src="images/final011.jpg">
+        
+  <br> To Glue the belt I used a superglue (cyanoacrylic glue) because of the thickness of the layer and the time needed to react.
+    <img src="images/final014.jpg">
+        <br>
+        Being somethign you have to slide in and take out, pretty often, I glued the border as well, to avoid to peel it by mistake.
+          <img src="images/final015.jpg">
+        <br> I tested both the movements by themself an then togheter with the panel.
+          <img src="images/final031.jpg">
+        
+        <br>
+        <p class="pic">
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rAp0X-s2MNA" frameborder="0" allowfullscreen></iframe>
+    </p>
+    <p>    
+        Here the final result.
+        
+          <img src="images/final032.jpg">
+        
+    </p>
+        <br>
         
         
-        <strong>electronic</strong>
+       <p> 
+           
+        <strong>Electronic</strong>
+           <br>
+           I had to fix a lot of thigns on the board. First of all in the other  one i changed the pin map of the atmega inside the GRBL, the way it was ore comfortable for the board, but there are actually some limitation on the possible connections, mainly because of the way the firmware controls the pins (we will talk abut it later). Here the V0.2. I had to change a lot of thing and to be sure about how to make it, so I tested the drivers with the GRBL before on a normal Arduino UNO.
           <img src="images/final47.jpg">
+           <br>
+           Something that could be useful:it's important to notice that TX-RX on the board should be inverted on the FTDI cable. This means that if you follof the names written it' pretty easy to make mistakes. That's why I decided to label them already inverted in the schematic.
+        <img src="images/final4132.jpg">
+
+           <br> Here a picture of the test.
           <img src="images/final016.jpg">
+           <br> After the first round of tests, I noticed that the driver and the motors were not powerful enought to move Smill (in particular on Y). To go on testing and debugging the project, I increased the current to the motors, this warms up a lot the driver, so i decided to use two heat sinks: one over the chip (bigger) and one underneath, where the PCB has the heat sink pad. 
           <img src="images/final034.jpg">
+           <br>
+           To increase the air flow and to protect the pcb i made a small lasercut box with two fans, blowing in opposite directions
+                     <img src="images/final039.jpg">
+           <br>
+I used the first frame to understand how to orient the board
           <img src="images/final07.jpg">
-          <img src="images/final039.jpg">
+           <br>
+           To have the maximum flexibility in this phase, I added a rubber profile along the borders to keep the cable standing still. This is not a very elegnat solution, but it allows me to open and close the box quickly and to move a bit the board without problems. When closed the friction between the two layers keeps the cables from moving.
           <img src="images/final038.jpg">
+           <br>
+           To prevent any loose  of data the TX, RX and GND that goes to the FTDI cable, has been soldered to the board.
           <img src="images/final041.jpg">
+           <br>
+           And here how to connect it with the FTDI itself.
           <img src="images/final044.jpg">
+           <br>
+           The connectors were pointing up, but it was very uncomfortable with the box.
+           
           <img src="images/final040.jpg">
+           <br>
+           So I had to change them with the flat ones.
           <img src="images/final042.jpg">
+           <br>
+           And that helped a lot 
           <img src="images/final043.jpg">
+           <br>
+           I designed also small lasercut supperts for the endstops, I cabled them, attached and connected, but I had no time to test them.
                   <img src="images/final037.jpg">
-        
+    </p>  
+    <br>
         <h3>Assembling the frame</h3>
         <p>
+            I temporarely used glue and screws to assemble the parts. the frame is basically divided into two, connected along the Z axis movement.
+            Here the first half
             <img src="images/final024.jpg">
+            <br>
+            Here how to attach the X axis motor
             <img src="images/final026.jpg">
+            <br>
+            
+            The anti backlash system is divided in two parts: one attached to the frame with four screws, while the second can slide on the first and it's kept pushed by a spring.
             <img src="images/final022.jpg">
             <img src="images/final023.jpg">
+            <br>
+            The two parts looks like this before being assembled together.
+            
             <img src="images/final027.jpg">
+            <br>
+            It's enough to screw the Z axis linear guide attached to the smaller piece, to the main surface of the bigger one and connect the threaded bar to the motors.
             <img src="images/final030.jpg">
+            
 
     </p>
             
-    <h3>cables and connections</h3>
+    <h3>Cables and connections</h3>
     <p>
-    
+    As you can see, to connect all the parts and keep them together, I had to use a bunch of different solutions, pretty effective, but definitely not elegant.
             <img src="images/final34.jpg">
             <img src="images/final35.jpg">
             <img src="images/final37.jpg">
          <img src="images/final33.jpg">
     </p>
     
+     <h3>Firmware, how to edit GRBL</h3>
+    <p>
+        When I first edit the GRBL, I changed the pins to make it easier to route the connections on the board. That was a big mistake: because of the way it's written all the pins used for the stepper, must be under the same port. Being writte in C and being a pretty complex code, I wasn't able to fully understand it, but the comments are very helpful and very descriptive. This helped me a lot. This was the first version I did and it was wrong. 
+    <img src="images/final416.jpg">
+        <br>
+        And here the wrong connections, based on the mistake in the code.
+     <img src="images/final496.jpg"> 
+        <br>
+        So I changed the connections on the schematic
+        <img src="images/final4127.jpg"> 
+        <br>
+        And the pins in the GRBL. These are the correct parameters that i used, paying attention to all the notes and comments written in the code.
+        You have to add this modifications in "cpu_maps.h"
+        <img src="images/final411.jpg">
+        <br>
+        Almost all the configurations are in the file "config.h", In my case the most important one was to disable the endstop and the homing routine at the beginning. With that active, debugging the machine and go on with the test would have been much more complex.
+        <img src="images/final417.jpg">
+<br>
+        All the setting of working area, step per mm, accelleration, etc. are in che config file, but they are memorized in the EEPROM.
+        <img src="images/final4128.jpg">
+   This means that you can edit them to bring on the fine tuning, directly from the GRBL controller, using some command lines
+        <img src="images/final4129.jpg">
+        If you send wrong commands, or unexisting ones, you get back a negative feedback.
+        <br> On <a href="https://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.9">this page</a> of the GRBL github, you have a list of all the commands. The most importan are Accellerations, Max feed speed and Step per mm. There allows you to properly calibrate the machine, test the limits, and compensate if you switch from one microstep value to another, without uploading the GRBL anymore.
+    </p>
+  
+    
+    <h3>Generate g-code // Tests</h3>
+    
+    <p>
+        
+        I tried a lot of possible CAM to generate a g-code, but i had some trouble on the supported commands or the exporting postprocessor.
+        The easier way has been to use the Fabmodules. Here the test exporting the electronic board
+    <img src="images/final414.jpg"> 
+        <img src="images/final49.jpg"> 
+        <br>
+        This is the GRBL controller while the machine is working
+            <img src="images/final415.jpg"> 
+        <br> And this is with the scaled frame.
+            <img src="images/final497.jpg"> 
+        I didn't get how to add tabs on the cutting, but beside that it worked perfectly.
+
+    </p>
+    
 <h3>Extra: test for the back support</h3>
         <p>
+            To increase the stability and keeping in mind that smill should be able to cut pieces out of the working bed as well, i tried to make a support for the back of the panel to reduce the stresso on the guides. 
+            The idea was to have two elements with two bearing mounted at 50mm one from the other, that keep pressed two pipes against the back of the panel. the end mill could fit between the pipes without touching them, but this should reduce the vibrations. being a very heavy duty work, I preferred to use traditional welding systems with steel components.
+            The processo hasn't been implemented and it makes no sense to explain it in detail, but here it's possible to have an idea on how it worked.
             <img src="images/structure6.jpg">
             <img src="images/structure3.jpg">
             <img src="images/structure2.jpg">
@@ -356,65 +497,45 @@ Here the jumper used:
     </p>
     
     
-    <h3>Firmware, how to edit GRBL</h3>
-    <p>
-    <img src="images/final416.jpg">
-             <img src="images/final4132.jpg">
-     <img src="images/final496.jpg">  
-        <img src="images/final4127.jpg"> 
-        <img src="images/final411.jpg">
-        <img src="images/final417.jpg">
-        diable homing per tests
-        
-        <img src="images/final4128.jpg">
    
-        <img src="images/final4129.jpg">
-    </p>
-  
-    
-    <h3>Generate g-code // Tests</h3>
-    
-    <p>
-    <img src="images/final414.jpg"> 
-        <img src="images/final49.jpg"> 
-            <img src="images/final415.jpg"> 
-            <img src="images/final497.jpg"> 
-
-    </p>
     <h3>Download</h3>
     <p>
     
+    Here you can find all the files needed to make Smill
+        <br><br>
     
-    
-    Board
+    <strong>Board</strong><br>
+    <a href="media/board_V2.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Board V0.2"</button> </a>
+    <br><br><br>
+    <strong>Electronic Box</strong><br>
+    <a href="media/electronic_box.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Box for electronic"</button> </a>
+    <br><br><br>
+    <strong>Anti-backlash Z</strong><br>
+    <a href="media/backslash.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Anti backlash Z axis"</button> </a>
+    <br><br><br>
+    <strong>Y belt tensioner</strong><br>
+    <a href="media/belt_tensioner.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Belt tensioner.stl"</button> </a><br>
+        <a href="media/pulley_608zz.stl">
+             <button type="button" class="btn btn-primary btn-lg">Download "Pulley.stl"</button> </a>
+    <br><br><br>
+   <strong> Spindel Support (3D+laser)</strong><br>
+    <a href="media/mill_support_v1.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "spindle holder 3D printed part"</button> </a><br>
+        
+    <a href="media/mill_plate.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "Spindle holder Lasercut part"</button> </a>
+    <br><br><br>
+   <strong> Frame</strong><br>
     <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
-    <br>
-    Electronic Box
-    <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
-    <br>
-    Anti-backlash Z
-    <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
-    <br>
-    Y belt tensioner
-    <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
-    <br>
-    Spindel Support (3D+laser)
-    <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
-    <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
-    <br>
-    Frame
-    <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
-    <br>
-    Endstop support
-    <a href="media/frame_cut.zip">
-             <button type="button" class="btn btn-primary btn-lg">Download "frame for the cut.dxf"</button> </a>
+             <button type="button" class="btn btn-primary btn-lg">Download "Frame for the cut.dxf"</button> </a>
+    <br><br><br>
+    <strong>GRBL for Smill</strong><br>
+    <a href="media/grblUpload_for%20Smill.zip">
+             <button type="button" class="btn btn-primary btn-lg">Download "GRBL for Smill"</button> </a>
     
     <br>
 </p>
