@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-      <link href="css/style2.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -29,126 +30,196 @@
     <![endif]-->
     <!-- Load the menu file -->
     <script>
-	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
-					  $('#cclicense').load("license.html");
-					  }
-	</script>
-  </head>
-  <body onload="menu()">
+        function menu() {
+            $('#exercises').load("exercises-menu.html");
+            $('#project').load("project-menu.html");
+            $('#cclicense').load("license.html");
+        }
+    </script>
+</head>
+
+<body onload="menu()">
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"> <button type="button"
-            class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#navbar" aria-expanded="false"
-            aria-controls="navbar"> <span class="sr-only">Toggle
-              navigation</span> <span class="icon-bar"></span> <span
-              class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown" role="button"
-                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown" role="button"
-                aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+                        <ul id="exercises" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+                        <ul id="project" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <!--/.nav-collapse --> </div>
     </nav>
     <div class="container">
-      <!-- Insert your content here below! -->
-      <h2>Module 14: Interface and Application Programming</h2><br>
-      
+        <!-- Insert your content here below! -->
+        <h2>Module 14: Interface and Application Programming</h2>
+        <br>
+
         <h3>Module contents:</h3>
-      <p>During this week we've learned about how to deal with applications that interface with input and/or output devices.br><br>
-In fact, the assignment of this week is write an application that interfaces with an input &/or output device.<br><br></p>
-      
-      <h3>My work:</h3>
-      
-      <u><b>Step 1: Selecting Electronic components and programming tools:</b></u> <br><br>
-    <p>For this assignment, I decided to think about the final project and therefore I wanted to work on something that I can reuse for the final project.<br><br>
-        I will use a soil moisture sensor in order to measure soil humidity. The sensor will be connected to the electronic board, and a computer interface will read input data and display it on the PC screen.<br><br></p>
-        
-          <p class="pic"><img src="media/W14_QT-coding.jpg"><legend>Coding with QT Creator</legend> </p>
-        
- <p>As for the graphical user interface, I used the QT visual design tool:<br><br></p>
-        
-          <p class="pic"><img src="media/W14_QT-GUI.jpg"><legend>QT Visual Design</legend> </p>
-        
-        
-        
-         <u><b>Step 2: Programing</b></u> <br><br>
-          <p>In the programming I dealt with the following parts:<br><br>
-        - Establishing and testing connection with external electronic board<br>
-        - Reading data of input component attached to electronic board<br>
-        - Parsing read data in order to get right values<br>
-        - Display read values on GUI<br><br>
-        Once I finished coding, and after several try&errors, I got the following error free code that I executed without connecting electronic board:<br><br></p>
-        
-        
-        <p class="pic"><img src="media/W14_program-executed.jpg"><legend>First program run</legend> </p>
-        
-        <p>On the other hand, I had to program the soil moisture sensor in order to read soil humidity and send data to serial port. Here is the code for soil moisture sensor:<br><br></p>
-        
-        <p class="pic"><img src="media/W14_sensor_code.jpg"><legend>Code to read from Soil Moisture Sensor</legend> </p>
-       
-         <u><b>Executing and Testing</b></u> <br><br>
-          <p>At this level, I loaded the sensor sketch on the board and I tested it in order to check if the sensor is working well. Everything was ok.<br><br>Then I executed the program I made in order to test if connection will be established with the board, and if it will read data from it. After some try&error, especially related to serial connection with the board, the program started working properly as follow.<br>First read of moisture sensor, it should return the highest value as it was dry:<br><br></p>
-        
-        <p class="pic"><img src="media/W14_read-sensor.jpg"><legend>Sensor reading</legend> </p>
-        
-        
-        <p>Now the value has dropped as I put the sensor in a cup of water, here are the value:<br><br></p>
-        <p class="pic"><img src="media/W14_read-sensor2.jpg"><legend>Sensor reading wet value</legend> </p>
-        
-        <p>The following is a short video of changing values as the sensor senses moisture:<br><br></p>
-        <center><iframe src="https://player.vimeo.com/video/131081442" width="600" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></center>
-        
-        
-        
-                    
-      <h3>Download Zone</h3>
-      <p>The Program and sensor sketch files are available for downloand here: </p>
-      <p> <a href="media/W14_source-material.rar"> <button type="button" class="btn btn-primary
-            btn-lg">Download files</button> </a> </p>
-        
-        
-        
-      <!-- End of your content --> </div>
+        <p>During this week we've learned about how to deal with applications that interface with input and/or output devices.br>
+            <br> In fact, the assignment of this week is write an application that interfaces with an input &/or output device.
+            <br>
+            <br>
+        </p>
+
+        <h3>My work:</h3>
+
+        <u><b>Step 1: Selecting Electronic components and programming tools:</b></u>
+        <br>
+        <br>
+        <p>For this assignment, I decided to think about the final project and therefore I wanted to work on something that I can reuse for the final project.
+            <br>
+            <br> I will use a soil moisture sensor in order to measure soil humidity. The sensor will be connected to the electronic board, and a computer interface will read input data and display it on the PC screen.
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/W14_QT-coding.jpg">
+            <legend>Coding with QT Creator</legend>
+        </p>
+
+        <p>As for the graphical user interface, I used the QT visual design tool:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/W14_QT-GUI.jpg">
+            <legend>QT Visual Design</legend>
+        </p>
+
+
+
+        <u><b>Step 2: Programing</b></u>
+        <br>
+        <br>
+        <p>In the programming I dealt with the following parts:
+            <br>
+            <br> - Establishing and testing connection with external electronic board
+            <br> - Reading data of input component attached to electronic board
+            <br> - Parsing read data in order to get right values
+            <br> - Display read values on GUI
+            <br>
+            <br> Once I finished coding, and after several try&errors, I got the following error free code that I executed without connecting electronic board:
+            <br>
+            <br>
+        </p>
+
+
+        <p class="pic"><img src="media/W14_program-executed.jpg">
+            <legend>First program run</legend>
+        </p>
+
+        <p>On the other hand, I had to program the soil moisture sensor in order to read soil humidity and send data to serial port. Here is the code for soil moisture sensor:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/W14_sensor_code.jpg">
+            <legend>Code to read from Soil Moisture Sensor</legend>
+        </p>
+
+        <pre><code>void setup(){
+Serial.begin(9600);
+}
+
+void loop() {
+//int sensorReading= analogRead(A0); //reads the sensor value
+double sensorReading = analogRead(A0);
+
+ Serial.print(sensorReading);
+ Serial.print(",");
+ Serial.flush();
+
+//Serial.print("sensor = " ); 
+//Serial.println (sensorReading); //prints out the sensor reading
+
+//if (sensorReading > 800){//if reading is above 800, LED blinks on and off
+//digitalWrite(LED,HIGH); //turns the LED on
+//delay(1000); //waits for a second
+//digitalWrite(LED,LOW); //turns the LED off
+delay(1000); //waits for a second
+
+}</code></pre>
+
+        <u><b>Executing and Testing</b></u>
+        <br>
+        <br>
+        <p>At this level, I loaded the sensor sketch on the board and I tested it in order to check if the sensor is working well. Everything was ok.
+            <br>
+            <br>Then I executed the program I made in order to test if connection will be established with the board, and if it will read data from it. After some try&error, especially related to serial connection with the board, the program started working properly as follow.
+            <br>First read of moisture sensor, it should return the highest value as it was dry:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/W14_read-sensor.jpg">
+            <legend>Sensor reading</legend>
+        </p>
+
+
+        <p>Now the value has dropped as I put the sensor in a cup of water, here are the value:
+            <br>
+            <br>
+        </p>
+        <p class="pic"><img src="media/W14_read-sensor2.jpg">
+            <legend>Sensor reading wet value</legend>
+        </p>
+
+        <p>The following is a short video of changing values as the sensor senses moisture:
+            <br>
+            <br>
+        </p>
+        <center>
+            <iframe src="https://player.vimeo.com/video/131081442" width="600" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </center>
+
+
+
+
+        <h3>Download Zone</h3>
+        <p>The Program and sensor sketch files are available for downloand here: </p>
+        <p>
+            <a href="media/W14_source-material.rar">
+                <button type="button" class="btn btn-primary
+            btn-lg">Download files</button>
+            </a>
+        </p>
+
+
+
+        <!-- End of your content -->
+    </div>
     <!-- /container -->
     <!-- footer -->
     <footer id="footer">
-      <p id="cclicense"> </p>
-      <p class="license"> Theme: <a
-          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+        <p id="cclicense"> </p>
+        <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
 
 
           Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
 
 
-          Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
-          href="http://jquery.com/">JQuery</a>+<a
-          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
-href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          Menichinelli</a>
+            <br> Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
 
 
-          theme for google-code-prettify</a>+<a
-          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
-          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
-      </p>
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
     </footer>
     <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
@@ -161,14 +232,15 @@ href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">Git
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
-	  !function ($) {
-		$(function(){
-		  window.prettyPrint && prettyPrint()   
-		})
-	  }(window.jQuery)
-	</script>
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+    </script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
+
 </html>

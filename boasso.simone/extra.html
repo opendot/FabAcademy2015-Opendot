@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Rationale|Megrim|Maven+Pro' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fab Academy 2015 Simone Boasso</title>
+    
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+      
+<!-- Leaflet -->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<!-- Local style -->    
+<link rel="stylesheet" href="style.css" !IMPORTANT>
+
+  </head>
+  <body style="padding: 15px;">
+      <img src="fab-academy1.jpg" class="img-responsive" >
+    <h1>Extra - Confetti Cannon</h1>
+
+</br></br>
+
+<h5>
+My sister get married during the fabaccademy course so i decide to build something special and extrange for her(and especially noisy, really noisy).</br></br>
+
+the main idea is to make a wind blower who will fire some confetti right in the face of married couple...this a method to pull out all the stress that the couple give me in the past yeas because of the marriage preparation....</br></br>
+
+in my career i do a lot of aircraft radio controlled modelling, for this reason i have a good knowledge on brushless motor, fan blade and wind "rules".
+</br></br>
+My idea is to build a venturi tube that reduce the di9ameter of blowing fan and increase the speed of air , so it will create a depression in the secondary inclined tubes that will blow out the confetti.
+I design and print the "conveyor" in Rhino using the feature of aerodynamic tool.
+file are available at bottom of the page.</br></br>
+
+The electronic part is made of :</br></br>
+
+Brushless motor 40 A 1.2 kg of trust</br>
+2200 mAh lipo battery 30c</br>
+Arduino nano ( control side)</br>
+Arcade push-button</br>
+</br></br>
+The code charge in the arduino nano is this:</br>
+I have to use the microsecond function instead of the set speed in the servo library for a question of the precision of the command,( the ESC i used is really powerful and for that reason have a high level protection and if it detects a "noisy" signal it goes in protection mode)
+</br>
+</h5>
+
+<pre>
+// this uses the Arduino servo library included with version 0012
+
+// caution!!!
+// make sure the motor is mounted securily before running.
+
+#include < Servo.h>
+
+Servo motor;
+const int buttonPin = 9;     // the number of the pushbutton pin
+const int ledPin = 13;
+int buttonState = LOW; // variable for reading the pushbutton status
+int prevstate= HIGH; //prevoius state of button
+int repeat = 0;
+int pos = 0;
+
+void arm(){
+motor.writeMicroseconds(1000);
+delay(4000);
+}
+
+void setup()
+{
+pinMode (buttonPin, INPUT);
+pinMode(ledPin, OUTPUT);
+motor.attach(10);
+motor.writeMicroseconds(1000);
+delay(2000);
+arm(); 
+ 
+}
+
+
+
+void loop()
+{
+  
+  
+ buttonState = digitalRead(buttonPin);
+ if (buttonState == LOW){
+      digitalWrite(ledPin, LOW);
+      motor.writeMicroseconds(1000);
+   }
+else{
+       digitalWrite(ledPin, HIGH);
+       motor.writeMicroseconds(1750);
+
+       }
+ 
+       delay(200); 
+} 
+</pre>
+
+
+<h5>
+</br>
+The batter is connected to the ESC that gives the 5v to Arduino nano and control the motor.</br>
+The arduino nano arm the ESC at the start up (needed because is heavy protected for not voluntary start up of the fan DANGER!!!!!).</br>
+After the arming process(announced by some sound) the arduino check forever the button and when it is pressed it will send a command to the esc and set the motor a 80 % of speed ( I didn't use 100% because the motor is too Strong for the structure.)</br>
+At the button release the arduino set the speed to 0.</br></br>
+
+
+i connect the ESC signal to pin 10 and the button to pin 9 on the Arduino nano.</br></br>
+
+for the structure i use 9 cm diameter hydraulic plastic tube cut at the desired size, and a 45 degree junction. </br>
+the "loader" for he confetti is a tube with a cork on the final part.</br></br>
+
+
+After i check all I built also a protection grid to make the fan more protected from external object.</br>
+the file are at the bottom of this page.</br></br>
+
+follow the picture.</h5>
+</br></br>
+ <img src="images/confetti_cannon01.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon02.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon03.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon04.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon06.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon07.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon08.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon09.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon10.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon11.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon13.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon14.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon15.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon16.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/confetti_cannon17.jpg" class="img-responsive" >
+</br></br>
+<a href="files/confetti_cannon.rar"
+   download="confetti_cannon.svg">Download the 3d file of the confetti cannon</a>
+ </br></br>
+
+
+<h5>And here some picture of me SHOOTING confetti at the marriage.... LOUD AND PROUD</h5>
+
+</br></br>
+ <img src="images/me_cannon1.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/me_cannon2.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/me_cannon3.jpg" class="img-responsive" >
+</br></br>
+ <img src="images/me_cannon4.jpg" class="img-responsive" >
+</br></br>
+
+      <p>
+      <ul>
+        <li><a href="index.html">Back To Index</a></li>
+        </ul>
+      </p>
+  </body>
+</html>

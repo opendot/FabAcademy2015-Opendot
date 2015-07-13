@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,14 +18,14 @@
     <link href="media/fabacademy.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Rationale|Megrim|Maven+Pro' rel='stylesheet' type='text/css'>
     <link href="media/Mattia.css" rel="stylesheet">
-    
-      <!-- dhtmlxGantt -->
-      <script src="../ingrassia.daniele/dhtmlxGantt/codebase/dhtmlxgantt.js"></script>
-      <link href="../ingrassia.daniele/dhtmlxGantt/codebase/dhtmlxgantt.css" rel="stylesheet">
-      
+
+    <!-- dhtmlxGantt -->
+    <script src="../ingrassia.daniele/dhtmlxGantt/codebase/dhtmlxgantt.js"></script>
+    <link href="../ingrassia.daniele/dhtmlxGantt/codebase/dhtmlxgantt.css" rel="stylesheet">
+
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
-	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
     <script type="text/javascript" src="media/jsc3d.touch.js"></script>
 
@@ -37,117 +38,122 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <!-- Load the menu file -->
     <script>
-	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
-					  $('#cclicense').load("license.html");
-					  $('#cclicense').load("license.html");
-					  }
-	</script>
+        function menu() {
+            $('#exercises').load("exercises-menu.html");
+            $('#project').load("project-menu.html");
+            $('#cclicense').load("license.html");
+            $('#cclicense').load("license.html");
+        }
+    </script>
 
-  </head>
+</head>
 
-  <body onload="menu()">
+<body onload="menu()">
 
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <strong><a class="navbar-brand" href="index.html">Mattia Ciurnelli</a></strong>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <strong><a class="navbar-brand" href="index.html">Mattia Ciurnelli</a></strong>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+                        <ul id="exercises" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+                        <ul id="project" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
 
     <div class="container">
 
-	<!-- Insert your content here below! -->
-     
-    <div class="jumbotron">
-          <div class="page-header">
-  <h1><u>Concept (new)</u><h2>change of final project</h2></h1>
-</div>
-        <h3>A more ambitious project</h3>
-        <p>During my journey in this Fab Academy, i have often working with Daniele Ingrassia: Daniele is a smart guy, extremely well versed in programming and very ambitious.
-The project of Daniele (ambitious like him) provides a fairly high amount of work and, as suggested both by Neil during revisions that Massimo (our local instructor), to facilitate the realization could be a good idea to share it with someone.</p>
-        <p>I immediately proposed as partners for his project, since I have always enjoyed working with Daniele and because I find the Daniele's project complex and ambitious and a great way to test myself and what I have learned during my path in this Fab Academy.</p>
-        <p>The coupling between the drone and digital fabrication is something that is constantly changing and widely treated and developed, even in previous years of the Fab Academy.</p>
-        <p>Our final project, not pointing in particular to the realization of a drone, but the development of a drone equipped with an artificial intelligence that allows to develop two characteristics that are the real goal of the project: <ul type="square">
-        <li>Obstacle avoidance</li>
-        <li>Cooperation capabilities</li>
-        </ul>
-        </p>
-        
-        <p>This is the Daniele's Concept page, where he explains the goals we want to reach</p>
-        <iframe src="../ingrassia.daniele/fp_mattia.html" class="extpage" ></iframe>
-        
-        
-        
-        
+        <!-- Insert your content here below! -->
 
-     </div>
-    <!-- End of your content -->
+        <div class="jumbotron">
+            <div class="page-header">
+                <h1><u>Concept (new)</u><h2>change of final project</h2></h1>
+            </div>
+            <h3>A more ambitious project</h3>
+            <p>During my journey in this Fab Academy, i have often working with Daniele Ingrassia: Daniele is a smart guy, extremely well versed in programming and very ambitious. The project of Daniele (ambitious like him) provides a fairly high amount of work and, as suggested both by Neil during revisions that Massimo (our local instructor), to facilitate the realization could be a good idea to share it with someone.</p>
+            <p>I immediately proposed as partners for his project, since I have always enjoyed working with Daniele and because I find the Daniele's project complex and ambitious and a great way to test myself and what I have learned during my path in this Fab Academy.</p>
+            <p>The coupling between the drone and digital fabrication is something that is constantly changing and widely treated and developed, even in previous years of the Fab Academy.</p>
+            <p>Our final project, not pointing in particular to the realization of a drone, but the development of a drone equipped with an artificial intelligence that allows to develop two characteristics that are the real goal of the project:
+                <ul type="square">
+                    <li>Obstacle avoidance</li>
+                    <li>Cooperation capabilities</li>
+                </ul>
+            </p>
 
-    </div> <!-- /container -->
+            <p>This is the Daniele's Concept page, where he explains the goals we want to reach</p>
+            <iframe src="../ingrassia.daniele/index.html" class="extpage"></iframe>
 
-	<!-- footer -->
-    
+
+
+
+
+        </div>
+        <!-- End of your content -->
+
+    </div>
+    <!-- /container -->
+
+    <!-- footer -->
+
     <footer id="footer">
         <p id="cclicense">
-                </p>
+        </p>
         <p class="license">
-        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+            Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
+            <br> Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
         </p>
     </footer>
-    
 
-	<!-- Do not touch this! -->
+
+    <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="media/jquery-1.9.1.min.js"></script>
-    
+
     <!-- Syntax Highlighter -->
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
     </script>
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript">
-	  !function ($) {
-		$(function(){
-		  window.prettyPrint && prettyPrint()   
-		})
-	  }(window.jQuery)
-	</script>
-	
+    <script type="text/javascript">
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+    </script>
+
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 
-  </body>
+</body>
+
 </html>

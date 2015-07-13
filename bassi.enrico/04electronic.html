@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,12 +16,12 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-      <link href="media/eb.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
 
-    
+
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
-	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
     <script type="text/javascript" src="media/jsc3d.touch.js"></script>
 
@@ -33,120 +34,115 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <!-- Load the menu file -->
     <script>
-	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
-					  $('#cclicense').load("license.html");
-					  }
-	</script>
+        function menu() {
+            $('#exercises').load("exercises-menu.html");
+            $('#project').load("project-menu.html");
+            $('#cclicense').load("license.html");
+        }
+    </script>
 
-  </head>
+</head>
 
-  <body onload="menu()">
+<body onload="menu()">
 
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+                        <ul id="exercises" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+                        <ul id="project" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
 
     <div class="container">
 
-	<!-- Insert your content here below! -->
+        <!-- Insert your content here below! -->
 
 
-     <h2>04. Electronics Production</h2>
-    <p>
-	The objective here is to produce a PCB of the FAB ISP. I want to try with different approaches and compare the results. 
-        <br>
-        In particular:
-        <br><strong>
+        <h2>04. Electronics Production</h2>
+        <p>
+            The objective here is to produce a PCB of the FAB ISP. I want to try with different approaches and compare the results.
+            <br> In particular:
+            <br><strong>
         - Fab ISP done with WIN PC-NC, milled with the a 0,5mm tip <br>
         - FabISP done directly engraving the metal with a flexx laser from Trotec
-	</strong><br><br>
-        
-       Unfortunately we are waiting for the assistence of the milling machine to come and fix it, so I started with the direct engraving method.
-        <br>
-        
-        </p><br>
-        
-    <h3>Direct Engraving with Trotec Flexx technology</h3>    
-      <p>
+	</strong>
+            <br>
+            <br> Unfortunately we are waiting for the assistence of the milling machine to come and fix it, so I started with the direct engraving method.
+            <br>
 
-The Flexx technology combines two laser sources:
-          <br><strong>
+        </p>
+        <br>
+
+        <h3>Direct Engraving with Trotec Flexx technology</h3>
+        <p>
+
+            The Flexx technology combines two laser sources:
+            <br><strong>
         - <a href="http://en.wikipedia.org/wiki/Carbon_dioxide_laser">CO2 Laser</a> <br>
         - <a href="http://en.wikipedia.org/wiki/Fiber_laser">Fiber Laser</a>
-	</strong><br>
-          
-       The fiber laser can engrave metals as well, because of a different lenghtwave, even if the power is only 20 W.
-          <br>
-We are trying together with Trotec Italia how to use this laser to make electronic boards.
-<br>
-          
-     <h3>First expriment on the FabISP</h3>    
-      <p>
+	</strong>
+            <br> The fiber laser can engrave metals as well, because of a different lenghtwave, even if the power is only 20 W.
+            <br> We are trying together with Trotec Italia how to use this laser to make electronic boards.
+            <br>
 
-I started with the <a href="http://www.fabacademy.org/archives/2014/tutorials/providence/FabISPWIthResPartsLayout.svg">FabISP with the resonator</a>
-<br>
-The first step was to modify the .png file of the board: the traces and the cutout should be in the same image. I blent them with GIMP and then imported in inkscape to add a cutout vector. To be able to cut the resin (with the CO2 source) the vector should be where the fiber laser has already removed the copper layer.
-          <br>
-<img src="images/fabisp_vecto.jpg" alt="FabISP modified in inkscape" width="900"> 
-          <br>
-The red line is the only vector and it's going to be cut at the end of the process.
-          <br>
- <h3>First Test: FAIL!</h3>    
-      <p>
+            <h3>First expriment on the FabISP</h3>
+            <p>
 
-In the fablab, we already understood because of previous experiments, that the copper layer can't be removed by a single engrave: the energy needed was too much and the resin underneed just get burned. We decided to set the number of "light engraves" to five, it takes longer but it's definitely more precise and clean.
-          <br>
-The first Fab ISP had not clean borders. It seems that the laser didn't remove entirely the copper, but it cut it in small stripes, here some pictures done with an amatorial microscope at 50x first and 500x after.
-          <br>
- <img src="images/fib445.JPG" alt="hairy copper" width="640"> 
-          <br>
-<img src="images/fib657.JPG" alt="hairy copper" width="640"> 
-          <br>
-<img src="images/fib754.JPG" alt="hairy copper" width="640"> 
-          <br>
-<img src="images/fib818.JPG" alt="500x" width="640"> 
-          <br>
-In the last picture you can see that onw of this stripes of copper was actually shortcircuiting two pads. After some tests we realised it was a matter of <strong>resolution</strong>: we used the standard resolution of 500DPI, while it shouldn't be less than 1000DPI.
-          <br>
-I tried again and the result was definitely better.
-          <br>
- <img src="images/fib026.JPG" alt="clean cut" width="640"> 
-          <br>
-<img src="images/fib957.JPG" alt="clean cut" width="640"> 
-          <br>
-It helps also to brush gently the surface with a slightly abrasive sponge, like the <a href="http://solutions.3m.com/wps/portal/3M/en_US/3MIndustrial/Abrasives/Products/~/Abrasives-Product-Catalog/Hand-Pads-Rolls-Abrasive-Sheets-and-Sponges/Hand-Pads?N=7581709&rt=r3">scotch-brite</a
+                I started with the <a href="http://www.fabacademy.org/archives/2014/tutorials/providence/FabISPWIthResPartsLayout.svg">FabISP with the resonator</a>
+                <br> The first step was to modify the .png file of the board: the traces and the cutout should be in the same image. I blent them with GIMP and then imported in inkscape to add a cutout vector. To be able to cut the resin (with the CO2 source) the vector should be where the fiber laser has already removed the copper layer.
+                <br>
+                <img src="images/fabisp_vecto.jpg" alt="FabISP modified in inkscape" width="900">
+                <br> The red line is the only vector and it's going to be cut at the end of the process.
+                <br>
+                <h3>First Test: FAIL!</h3>
+                <p>
+
+                    In the fablab, we already understood because of previous experiments, that the copper layer can't be removed by a single engrave: the energy needed was too much and the resin underneed just get burned. We decided to set the number of "light engraves" to five, it takes longer but it's definitely more precise and clean.
+                    <br> The first Fab ISP had not clean borders. It seems that the laser didn't remove entirely the copper, but it cut it in small stripes, here some pictures done with an amatorial microscope at 50x first and 500x after.
+                    <br>
+                    <img src="images/fib445.JPG" alt="hairy copper" width="640">
+                    <br>
+                    <img src="images/fib657.JPG" alt="hairy copper" width="640">
+                    <br>
+                    <img src="images/fib754.JPG" alt="hairy copper" width="640">
+                    <br>
+                    <img src="images/fib818.JPG" alt="500x" width="640">
+                    <br> In the last picture you can see that onw of this stripes of copper was actually shortcircuiting two pads. After some tests we realised it was a matter of <strong>resolution</strong>: we used the standard resolution of 500DPI, while it shouldn't be less than 1000DPI.
+                    <br> I tried again and the result was definitely better.
+                    <br>
+                    <img src="images/fib026.JPG" alt="clean cut" width="640">
+                    <br>
+                    <img src="images/fib957.jpg" alt="clean cut" width="640">
+                    <br> It helps also to brush gently the surface with a slightly abrasive sponge, like the <a href="http://solutions.3m.com/wps/portal/3M/en_US/3MIndustrial/Abrasives/Products/~/Abrasives-Product-Catalog/Hand-Pads-Rolls-Abrasive-Sheets-and-Sponges/Hand-Pads?N=7581709&rt=r3">scotch-brite</a
           
           <br>
 
@@ -173,7 +169,7 @@ I noticed that sometimes it was hard to solder properly the tiny components, so 
           <br>
 in this picture you can see a part with and a part without extra flux.
            <br>
- <img src="images/P1180147.jpg" alt="extra flux"> 
+ <img src="images/P1180147.JPG"> 
           <br>
 After this i had no particular problems, but a resistor plased in the wrong place. I had to remove it and doing so i destroyed it. It also left some small pieces embedded in the tin. Fix this took just few minutes.
           <br>
@@ -197,57 +193,58 @@ Here some pictures of the final board
           
           <p>
           The programming has been done following the instruction in the <a href="http://academy.cba.mit.edu/content/tutorials/akf/programming_FabISP.html"> tutorial</a>, done at AS220.
-              <br>
-              There was no particular problem and after programming the FabISP I checked and found the FabISP in the devices list of my pc. 
-              <img src="images/fabisp.jpg">
-                      
-              
-          </p>
+                    <br> There was no particular problem and after programming the FabISP I checked and found the FabISP in the devices list of my pc.
+                    <img src="images/fabisp.jpg">
 
 
-          
+                </p>
 
-          
-          
 
-    <!-- End of your content -->
 
-    </div> <!-- /container -->
 
-	<!-- footer -->
-    
+
+
+
+                <!-- End of your content -->
+
+    </div>
+    <!-- /container -->
+
+    <!-- footer -->
+
     <footer id="footer">
         <p id="cclicense">
         </p>
         <p class="license">
-        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+            Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
+            <br> Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
         </p>
     </footer>
-    
 
-	<!-- Do not touch this! -->
+
+    <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="media/jquery-1.9.1.min.js"></script>
-    
+
     <!-- Syntax Highlighter -->
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
     </script>
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript">
-	  !function ($) {
-		$(function(){
-		  window.prettyPrint && prettyPrint()   
-		})
-	  }(window.jQuery)
-	</script>
-	
+    <script type="text/javascript">
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+    </script>
+
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 
-  </body>
+</body>
+
 </html>

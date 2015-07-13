@@ -492,7 +492,68 @@ board.on("ready", function() {
 });
 </pre>
 
-						
+<h3>
+	Python and wxPython
+</h3>
+<p>
+After my exercises with Processing and Node.js I continued my experience with <Strong>Python</Strong>, in particular with <a href="http://www.wxpython.org/" target="_blank"><Strong>wxPython</Strong></a>
+</p>
+<p>
+First of all decided to integrate in my development environment  <a href="http://pydev.org/" target="_blank"><Strong>PyDev</Strong></a>Python IDE plugin for Eclipse.
+</p>	
+<p>
+<p> The easy way to install PyDev is by means Eclipse Update Manager(Help &gt; Install New Software) and add and add the following package server url:
+    <br>
+    <br>
+    <a href="http://pydev.org/updates">http://pydev.org/updates</a> &nbsp;&nbsp;&nbsp;or
+    <br>
+    <br>
+    <a href="http://pydev.org/nightly">http://pydev.org/nightly</a>
+    <br>
+    <br>
+    and then it is necessary to follow the Eclipse steps wizard.</p>
+	
+</p><p><img align="center" height="500" hspace="12" src="images/wk14_pydev.jpg"  /></p>
+
+<p>
+After this I starter to install and configure wxPython. 
+</p>
+<p> wxPython is a <b>GUI toolkit</b> for the Python programming language.  It
+allows  to create applications with a rich and intuitive
+functional graphical user interface.  It is
+implemented as a Python extension module (native code) that wraps the
+popular <a href="http://wxwidgets.org/">wxWidgets</a> cross platform
+GUI library, which is written in C++.
+</p>
+<p>
+After a first tour on its features and studied several examples provided by <a href="http://www.wxpython.org/" target="_blank"><Strong>wxPython demo suite</Strong></a> I completed my environment with <a href="" target>wxFormBuilder</a> a rapid  application development (RAD) software for wxPython GUI.
+</p>
+<p>
+By Using Eclipse, wxPython and wxFormBuilder let me to implement a complete Python GUI application by separating layout, skeleton code and application logic.
+</p>
+<p>
+Once created a Python project in eclipse I followed the following process to create my application, a first release of a desktop application in order to test my final project Table, in particular to control servos and rgb leds:
+</p>
+
+<p><img align="center" height="500" hspace="12" src="images/wk14_wxpython.jpg"  /></p>
+
+
+<p>
+The wxControlTable.py module implements and then overrides the handlers of the module/class generated automatically by the wxFormBuilder that is the TableControlWindow.py module.
+</p>
+<pre>
+# The class for the main app
+class wxTableControl(TableControlWindow.ControlTable):
+</pre>
+<p>
+In order to monitor several ports concurrently,  I implemented a multithread serial monitor.
+</p>
+<p><img align="center" height="500" hspace="12" src="images/wk14_wxpython_2.jpg"  /></p>
+<p>
+									<a href="media/wxtablecontrol.zip">
+										<button type="button" class="btn btn-primary btn-lg">Download the wxPython project zip file</button>
+									</a>
+								</p>						
 							<p>&nbsp;</p>
 						
 								</section>

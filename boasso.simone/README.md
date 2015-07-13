@@ -8,4 +8,4 @@ MIT
 * <a href="https://www.google.com/fonts">Google Font</a>
 
 ## Notes
-this is the first basic version of the site i will update this whit more structured template as soon as possible
+this is the first basic version of the site i will update this with more structured template as soon as possible

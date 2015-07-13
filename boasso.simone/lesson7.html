@@ -35,7 +35,7 @@
 
 
 <h3>Week 7 assignment is to program the hello board we build in the previous week of electronic design.</br>
-We have also to try to program this board whit different method.
+We have also to try to program this board with different method. 
 </h3>
 
 </br></br></br>
@@ -43,15 +43,15 @@ We have also to try to program this board whit different method.
 But different compiler have different instruction set, semantics, and peripheral control.</h5>
 </br></br>
 
-<h5>For this reason first I search a tutorial on AVR-GCC programming language and programming technique.</br>
-i found a useful tutorial that you can find below, in it there are all the thing I need to use makefile and learn a little about c programming for Atmel compiler.</h5>
+<h5>For this reason, first of all I search a tutorial on AVR-GCC programming language and programming technique.</br>
+I found a useful tutorial that you can find below: in it there are all the thing I need to use makefile and learn a little about C programming for Atmel compiler.</h5>
 </br></br>
 <a href="files/avr_tutorial.rar"
    download="/avr_tutorial.rar">Download the PDF tutorial AVR-GCC</a>
 </br></br>
 <h5>Searching in the tutorial PDF I found a way to make a simple program who light up and turn of the led in toggle when the button is pressed, and it make a denounce on the button press event.</h5>
 </br></br>
-<h5>Firs I take a look at the make file (copied from the tutorial and the FabAccademy tutorial) I have modified in the file the name of the c file to build it whit makefile.</h5>
+<h5>Firs of all I take a look at the make file (copied from the tutorial and the FabAcademy tutorial) I have modified in the file the name of the C file to build it with makefile.</h5>
 </br></br></br>
 <pre>
 PROJECT=debounceled
@@ -91,7 +91,7 @@ avrdude -p t44 -P usb -c dragon_isp -U flash:w:$(PROJECT).c.hex
 </pre>
 
 </br></br>
-<h5>And here is the file c of my simple project.</h5>
+<h5>And here is the file C of my simple project.</h5>
 </br></br>
 
 <!--div class="code"-->
@@ -131,9 +131,9 @@ int main (void)
 </pre>
 </br></br></br></br>
 <a href="files/debounceled.rar"
-   download="/debounceled.rar">Download folder whit the project</a>
+   download="/debounceled.rar">Download folder with the project</a>
 </br></br></br></br>
-<h5>Here the terminal output of the programmation via Fabisp of the fuses and after of the flash program</h5>
+<h5>Here the terminal output of the programming via Fabisp of the fuses and after of the flash program.</h5>
 </br>
 <pre>Simone@ZIMOX:debounceled Simone$ sudo make program-usbtiny-fuses
 Password:
@@ -224,12 +224,12 @@ avrdude: safemode: Fuses OK (E:FF, H:DF, L:5E)
 
 avrdude done.  Thank you.</pre>
 </br>
-<h5>all works fine and properly</h5>
+<h5>All works fine and properly</h5>
 </br></br>
 
-<h5>after that i try to program the hello board whit the arduino IDE, for this reason i found a useful link whit a tutorial to set all things in the IDE</h5>
+<h5>After that I try to program the hello board with the Arduino IDE, for this reason I found a useful link with a tutorial to set all things in the IDE.</h5>
 
-<a  href="http://highlowtech.org/?p=1695" target="_blank">Here the tutorial to use FabISP as a programmer in the arduino IDE and tho set all the data for the attiny44</a>
+<a  href="http://highlowtech.org/?p=1695" target="_blank">Here the tutorial to use FabISP as a programmer in the Arduino IDE and to set all the data for the attiny44 </a>
 
 </br>
 <h5>Afther following all the step to set the IDE to work properly i try to upload some example sketch and i make some of mine.</br>
@@ -307,9 +307,9 @@ void loop() {
 }</pre>
 </br></br></br>
 <a href="files/arduinoFabISP.rar"
-   download="/arduinoFabISP.rar">Download folder whit the project for arduino IDE</a>
+   download="/arduinoFabISP.rar">Download folder with the project for arduino IDE</a>
 </br></br>
-<h5>After some text i found the delay time is not properly settend, it means thaht i put one second of delay and it will take like 20 second to change, i try to debug this and i found thaht it can be maybe a wrong calculation in the delay time whit the attiny liubrary so i have to set the file of the clock speed og the attyny44 to 1Mhz instead of 20Mhz in the C:\Program Files\Arduino\hardware\attiny\avr\board.txt</h5>
+<h5>After some text i found the delay time is not properly settend, it means thaht i put one second of delay and it will take like 20 second to change, i try to debug this and i found thaht it can be maybe a wrong calculation in the delay time with the attiny liubrary so i have to set the file of the clock speed og the attyny44 to 1Mhz instead of 20Mhz in the C:\Program Files\Arduino\hardware\attiny\avr\board.txt</h5>
 </br></br>
 <pre>
 attiny.menu.clock.external20=20 MHz (external)

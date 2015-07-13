@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
+      <link href="media/eb.css" rel="stylesheet">
     
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
@@ -81,142 +82,58 @@
 	<!-- Insert your content here below! -->
 
 
-    <h2>Final Project - Result</h2>
-    
-     <img src="images/progress.png" alt="work in progress" height="50" width="650">      
-        
-    <!--    
-    <h3>Menu</h3>
-	<p>
-	You can edit it by changing the <em>exercises-menu.html</em> and <em>project-menu.html</em>. Do <strong>not</strong> add any &ltol&gt; or &ltul&gt;, leave the structure as it is.
-	</p>
-    
-    
-    <h3>Text</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp&gt;
-	Your text here
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p>
-	Your text here
-	</p>
-	
-	<h3>Images</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltp class="pic&gt;>&ltimg src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg"&gt;
-	&ltlegend&gt;Here's the legend of the picture.&lt/legend&gt;
-	&lt/p&gt;</pre>
-	</p>
-	Result:
-	<p class="pic"><img src="http://academy.cba.mit.edu/2012/students/menichinelli.massimo/exercise07/exercise07_02.jpg">
-	<legend>Here's the legend of the picture.</legend>
-	</p>
-     
-	<h3>Code</h3>
-	<p>
-	You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltpre class="prettyprint linenums"&gt;
-	Your code here
-	&lt/pre&gt;</pre>
-	
-	Result:
-	<pre class="prettyprint linenums">
-	for i in members:
-		print ""
-		print "USER:",members[i]
-		print "Loading connections..."
-		followers = load_connections([i], "followers")
-		friends = load_connections([i], "friends")
+    <h2>Final Project: Result</h2>
+        <h3>Presentation of the result</h3>
+        <p>
+        Here the presentation of my final project:
+            <img src="presentation.png">
+            
+            <br>
+            A short video of the machine working is here:<br><br>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/N1a9HH3zlMc?rel=0" frameborder="0" allowfullscreen></iframe>
+            
+            <br><br>
+            I also did a test to replicate the PCB. Being designed for the laser, it was almost impossible to get a nice result, but it was an interesting test to do anyway
+            <br><br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/QbOKg1r7wFY" frameborder="0" allowfullscreen></iframe>
+          <br><br>  The frame itself is self replicant. Here a video of the first test of milling a Smill. The result is good, even if it was just a 1:3 prototype.
+            <br><br>
+         
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xcGg-PVWWxU" frameborder="0" allowfullscreen></iframe>
+            <h3>Some Pictures</h3>
+            <p>
+                Here some pictures of Smill.
+                <br>
+                Some views of the mounted machine:
+                <img src="images/final130.jpg">
+                <img src="images/final133.jpg">
+                <img src="images/final134.jpg">
+                <img src="images/final149.jpg">
+                <br>
+                Here dismounted an put together with the plywood panels:
+                                <img src="images/final033.jpg">
+                Here the partial result about replicability. First with the frame (here in the 1:3 scaled version)
+<img src="images/final147.jpg">
+                <br>
+                and a detail of the board. To get to mill properly a PCB, I have to improve a lot the reliability and the precision
+                <img src="images/final125.jpg">
+                
+                <br>
+                here the pictures of the other two tests done on plywood
+                <img src="images/final31.jpg">
+<img src="images/final119.jpg">
+                <img src="images/final147.jpg">
+                 <img src="images/final410.jpg">
+                It's important to me to point out that I haven't ever done anything like this. Even if I worked in fablabs during the last four years I never buint a machine this complex. Beside the big amount of work done by our local instructor, Massimo, I really want to thank both the group of students I worked with and the fablab Opendot. I always had the feeling that even if everybody was always busy doing their job, nobody has been left behind, or left alone. 
+                <br> And that was just great!
 
-		# Add edges...
-		print "Building the graph..."
 
-		for f in followers:
-			for k in followers[f]:
-				graph.add_edge(k,f)
-	
-		for f in friends:
-			for k in friends[f]:
-				graph.add_edge(f,k)</pre>
-	</p>
-	
-	<h3>3D Model</h3>
-	<p>	
-	The model can be rotated and zoomed with the mouse/trackpad. You can set it up with:
-	<pre class="prettyprint linenums">
-	&ltcanvas id="cv" width=640 height=480&gt;
-	It seems you are using an outdated browser that does not support canvas :-(
-	&lt/canvas&gt;
-	&ltscript type="text/javascript"&gt;
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	&lt/script&gt;</pre>
-	
-	You can set up the path to the 3D model (.stl/.obj) within this line:
-	<pre class="prettyprint linenums">
-	viewer.setParameter('SceneUrl','media/monkey.stl');</pre>
-	
-	Result:
-	<canvas id="cv" width=640 height=480>
-	It seems you are using an outdated browser that does not support canvas :-(
-	</canvas>
-	<script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/monkey.stl');
-		viewer.setParameter('ModelColor','#CAA618');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','flat');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script> 
-    </p> 
+                
+            
+            
+            
+        </p>
     
-    <h3>Download</h3>
-	<p>
-	You can set up a button for files to be downloaded with:
-	<pre class="prettyprint linenums">
-	&lta href="#"&gt;
-	&ltbutton type="button" class="btn btn-primary btn-lg">Download the file&lt/button&gt;
-	&lt/a&gt;</pre>
-	</p>
-	
-	<p>
-	Result:
-	</p>
-	<p>
-	<a href="#">
-	<button type="button" class="btn btn-primary btn-lg">Download the file</button>
-	</a>
-	</p>
-      
-    <h3>Would you like to insert more style/elements?</h3>
-      <p>
-      Check the documentation of Bootstrap <a href="">here</a>.
-      </p>
-
-    -->
 
     <!-- End of your content -->
 

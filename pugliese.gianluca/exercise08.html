@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta content="text/html; charset=windows-1252" http-equiv="content-type">
     <link rel="icon" href="media/favicon.ico">
+<<<<<<< HEAD
     <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700"
       rel="stylesheet" type="text/css">
+=======
+    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700" rel="stylesheet" type="text/css">
+>>>>>>> 581ff298991767474d95765a0273602ab42de236
     <title>Fab Academy 2015 - Gianluca Pugliese</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -12,10 +17,10 @@
     <link href="media/fabacademy.css" rel="stylesheet">
     <!-- FORCED COLOR LINK TBD -->
     <style>
-         a{
-              color:#ff6200;
-          }
-      </style>
+        a {
+            color: #ff6200;
+        }
+    </style>
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -29,16 +34,18 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
     <!-- Load the menu file -->
     <script>
-	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
-					  $('#cclicense').load("license.html");
-					  }
-	</script>
-  </head>
-  <body onload="menu()">
+        function menu() {
+            $('#exercises').load("exercises-menu.html");
+            $('#project').load("project-menu.html");
+            $('#cclicense').load("license.html");
+        }
+    </script>
+</head>
+
+<body onload="menu()">
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
+<<<<<<< HEAD
       <div class="container">
         <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
             data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -61,10 +68,36 @@
             </li>
             <li><a href="contact.html">Contact </a></li>
           </ul>
+=======
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="index.html">Gianluca Pugliese
+            @FabAcademy2k15</a> </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+                        <ul id="exercises" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+                        <ul id="project" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact </a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+>>>>>>> 581ff298991767474d95765a0273602ab42de236
         </div>
-        <!--/.nav-collapse --> </div>
     </nav>
     <div class="container">
+<<<<<<< HEAD
       <!-- Insert your content here below! -->
       <h1><strong>Exercise 8</strong></h1>
       <p>18.03.2015</p>
@@ -151,22 +184,108 @@
           as shown in the <a target="_blank" href="exercise12.html">Week 12</a></div>
       </div>
       <h2><br>
+=======
+        <!-- Insert your content here below! -->
+        <h1><strong>Exercise 8</strong></h1>
+        <p>18.03.2015</p>
+        <h2>Computer-Controlled Machining</h2>
+        <h3>Assignment</h3>
+        <p> </p>
+        <ul type="”disc”">
+            <li>make something big </li>
+        </ul>
+        <p></p>
+        <h2>Let's SURF!</h2> For this assignment I want to made also useful for the next composite lesson, so I decided to make a thing that I want since when I was young: a Surf board!
+        <br> Online I've discovered a good free software that allow to create a surf board starting from a simple 2D outline.
+        <br>
+        <a target="_blank" href="http://www.boardcad.com/news.php">BOARD CAD</a>
+        <br>
+        <br>
+        <h2>Step 1</h2> Design with Inkscape or another vector software the outline of the shape
+        <br>
+        <br>
+        <img alt="z" src="img/surf.PNG">
+        <br>
+        <br> DOWNLOAD: <a href="files/surf.svg">shape
+        SVG</a>
+        <br>
+        <h2>Step 2</h2> Import the&nbsp; vector fine into BoardCAD
+        <br>
+        <img alt="outline" src="img/surf1.jpg">
+        <br>
+        <br>
+        <h2>Step 3</h2> Modify the board&nbsp; like thickness, nose rocker, tail rocker etc using the button in the top panel
+        <br>
+        <span style="font-weight: bold;"></span><img alt="modify" src="img/surf2.jpg">
+        <br>
+        <br>
+        <h2>Step 4</h2> Export a STL 3D file from File Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br>
+        <h2>Step 5</h2> Open 123D Make and import the 3D Model.
+        <br> In the option you have to customize first the dimension of the wood panel, than the size of the object and the kind of slicing that you want.
+        <br> For this project I choose the Stacked slice that made cross section of the slice and permit to have the best shape to put composite materials next time
+        <br>
+        <br>
+        <img alt="123D make" src="img/long_fab64.jpg">
+        <br>
+        <br>
+        <h2>Step 6</h2> In the export menu, I selected the size of the mill (in my case 6mm) and I've exported the DXF to be opened in Rhino
+        <br> I used Rhino to add the&nbsp; rounded angle, check the path and nesting.
+        <br>
+        <img style="width: 468px; height: 352px;" alt="round" src="img/long_fab65.jpg">&nbsp;
+        <img style="width: 470px; height: 350px;" alt="dia" src="img/long_fab66.jpg">
+        <br>
+        <br> 123D Make also put a very useful layer with the number of the slices, but I removed it to be faster during the machinig
+        <br> RHINO FILE:
+        <a target="_blank" href="https://github.com/owenlab/Fabexercise/blob/master/surf.3dm"></a><a target="_blank" href="https://github.com/owenlab/Fabexercise/blob/master/surf.3dm">FabSURF</a>
+        <br>
+        <br>
+        <h2>Step 7</h2> Export the file in DXF format and open it in V-Carve, set the parameter for the Shopbot CNC and add some tab to hold the pieces during the cut
+        <br>
+        <br>
+        <img style="width: 366px; height: 488px;" alt="nest" src="img/long_fab68.jpg">&nbsp;
+        <img style="width: 653px; height: 488px;" alt="aaa" src="img/long_fab69.jpg">
+        <br>
+        <br>
+        <h2>Step 8</h2> Create the g-code, check the dimension of the wood, make the zero of X Y Z axis and...
+        <br>
+        <span style="font-weight: bold;">Let's mill</span> !!!
+        <br>
+        <img style="width: 546px; height: 409px;" alt="mill1" src="img/long_fab70.jpg">&nbsp;&nbsp;
+        <img style="width: 541px; height: 404px;" alt="mill2" src="img/long_fab72.jpg">
+        <br>
+        <br>
+        <h2>Step 9</h2> Assembly all the slice just by the joints and MAKE SOMETHING SUMMER
+        <br>
+        <br>
+        <div style="text-align: center;"><img alt="surf1" src="img/long_fab74.jpg">
+            <br>
+        </div>
+        <br>
+        <div style="text-align: center;"><img alt="surf2" src="img/long_fab85.jpg">
+            <br>
+            <br>
+            <div style="text-align: left;">
+                <h2>Step 10</h2> Make composite material with fiber and epoxy resin to cover the board as shown in the <a target="_blank" href="exercise12.html">Week 12</a>
+            </div>
+        </div>
+        <h2><br>
+>>>>>>> 581ff298991767474d95765a0273602ab42de236
       </h2>
-      <h2><br>
+        <h2><br>
       </h2>
-      <h2>Bending workbench</h2>
-      <p> For this assignment I asked to some guys of Fablab Torino which tool
-        may need our fablab and the best suggest was a workbench to blend
-        plexiglass or thin metal sheet, so I started to design this tool with
-        Rhinoceros. I also added some mechanical thing and I will make also this
-        project next time! </p>
-      <p class="pic"><img src="img/blend.jpg"> <legend>the design of the
-          blending table</legend> </p>
-      <p> </p>
-      <!-- End of your content --> </div>
+        <h2>Bending workbench</h2>
+        <p> For this assignment I asked to some guys of Fablab Torino which tool may need our fablab and the best suggest was a workbench to blend plexiglass or thin metal sheet, so I started to design this tool with Rhinoceros. I also added some mechanical thing and I will make also this project next time! </p>
+        <p class="pic"><img src="img/blend.jpg">
+            <legend>the design of the blending table</legend>
+        </p>
+        <p> </p>
+        <!-- End of your content -->
+    </div>
     <!-- /container -->
     <!-- footer -->
     <footer id="footer">
+<<<<<<< HEAD
       <p id="cclicense"> </p>
       <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
           Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
@@ -177,6 +296,15 @@
           theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
           href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
       </p>
+=======
+        <p id="cclicense"> </p>
+        <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+          Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
+          Menichinelli</a>
+            <br> Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
+>>>>>>> 581ff298991767474d95765a0273602ab42de236
     </footer>
     <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
@@ -189,14 +317,15 @@
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
-	  !function ($) {
-		$(function(){
-		  window.prettyPrint && prettyPrint()   
-		})
-	  }(window.jQuery)
-	</script>
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+    </script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
+
 </html>

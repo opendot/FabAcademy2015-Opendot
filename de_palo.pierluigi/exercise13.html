@@ -88,29 +88,44 @@
     
         <li class="next"><a href="exercise14.html"> →</a></li>
     
-        <h2><font color=#fff>NETWORKING AND COMUNICATION</font></h2>
+        <h2><font color=#fff>NETWORKING AND COMMUNICATION</font></h2>
 
         </ul>
         
 
 <br>
-        <h4><font color=#fff>ASSIGNMENT: DESIG AND BUILD A WIRED OR WIRELESS NETWORK CONNECTING AT LEAST TWO PROCESSOR</font></h4>
+        <h4><font color=#fff>ASSIGNMENT: DESIGN AND BUILD A WIRED OR WIRELESS NETWORK CONNECTING AT LEAST TWO PROCESSORS</font></h4>
         <h4><font color=#fff>PROJECT: SATSHAKIT CHAT // CHAT PROGRAM BETWEEN 2 MICRO CONTROLLERS</font></h4>
         <br>
-        <h4><font color=#fff>INPUT:</font></h4>
-        <h4><font color=#fff>OUTPUT:</font></h4>
-        <h4><font color=#fff>SOFT:</font></h4>
-        <h4><font color=#fff>DATASHEET:</font></h4>
-        <h4><font color=#fff>TUTORIAL:</font></h4>
-        <h4><font color=#fff>NOTE:</font></h4>
+        <h4><font color=#fff>COMUNICATION: <a href="https://www.arduino.cc/en/reference/serial"> SERIAL COMUNICATION  </a></font></h4>
+        <h4><font color=#fff>SOFT: <a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a></font></h4>
+        <h4><font color=#fff>BOARD: SATSHAKIT  BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
+        <h4><font color=#fff>LIBRARIES: <a href="https://www.arduino.cc/en/Reference/SoftwareSerial"> SoftwareSerial </a></font></h4>
         <h4><font color=#fff>DOWNLOAD: <a href="download/w13_Satshakit_Chat.ino"><button type="button" class="btn btn-primary btn-lg">Satshakit Chat.ino</button></a></font></h4>
         
         <br>
                 <p><font color=#fff>****************************************************************************************************************</font></p>
+    <br>
     
+    
+    <p>In this simple exercise of "networking ad communication" I worked with my classmate  <a href="http://fabacademy.org/archives/2015/eu/students/pugliese.gianluca/exercise13"> GIANLUCA PUGLIESE  </a> </p> 
+    <br>
+    
+        <p>Thanks to this easy exercise. I understood how to create communication between 2 microcontrollers using the "softwareSerial" Libraries. This libraries already include a class called " CHAT "</p>
+        <br>	
+
+<p>--> We used TX (Tranfer) pin 10 and RX (Reciver) pin 11 to connect the 2 microcontrollers</p>
         
+<p>--> We used the serial monitor integrate to the IDE Arduino to visualize the Chat</p>
+
+<p>--> We saw that for the communication to work, a connection between the 2 GND of the micro controller is obligatory.</p>
         <br>
         
+        <p class="pic">
+        <img src="Images/w13_schematic_networking_SatshaChat.jpg">
+	<legend></legend></p>  
+        
+<br>
         <br>
     <p class="pic">
         <img src="Images/w13_satshakit_chat.jpg">
@@ -120,7 +135,7 @@
         
         
         <br>
-        <div class="code">
+        <pre style="background-color: black; color: white">
             
             /*
 Fab Academy 2015
@@ -179,7 +194,7 @@ void loop()
           Serial.println();
      }
 }
-            </div>
+            </pre>
         
             <div> 
           <p class="pic">
@@ -196,7 +211,7 @@ void loop()
     <footer id="footer">
        
         <p class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <br><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br>
             Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>

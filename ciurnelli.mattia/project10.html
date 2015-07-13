@@ -115,7 +115,7 @@
         <p class="pic"><img src= "Image/Project04/board_IMU2.jpg" class="img-responsive" alt="Responsive image"></p>
         <p>Once finished solder all, I burn the bootloader on the board using the FabISP, using the pin MISO-MOSI-SCK-RESET. After that before upload the multiwii sketch on it, i have uncommented the pieces of code in the file "config.h" for configure the quadcopter.</p>
         <p>First you have to define the kind of quadcopter</p>
-        <div class="codeArduino">/**************************    The type of multicopter    ****************************/
+        <div class="codeArduino"><pre class="prettyprint linenums">/**************************    The type of multicopter    ****************************/
     //#define GIMBAL
     //#define BI
     //#define TRI
@@ -136,9 +136,9 @@
     //#define DUALCOPTER
     //#define HELI_120_CCPM
     //#define HELI_90_DEG
-        </div>
+        </pre></div><br>
         <p>after you have to define the minimum throttle value</p>
-        <div class="codeArduino">/****************************    Motor minthrottle    *******************************/
+        <div class="codeArduino"><pre class="prettyprint linenums">/****************************    Motor minthrottle    *******************************/
     /* Set the minimum throttle command sent to the ESC (Electronic Speed Controller)
        This is the minimum value that allow motors to run at a idle speed  */
     //#define MINTHROTTLE 1300 // for Turnigy Plush ESCs 10A
@@ -146,9 +146,9 @@
     //#define MINTHROTTLE 1064 // special ESC (simonk)
     //#define MINTHROTTLE 1050 // for brushed ESCs like ladybird
     #define MINTHROTTLE 1050 // (*) (**)
-        </div>
+        </pre></div><br>
         <p>and at last you have to define what kind of IMU you are using</p>
-        <div class="codeArduino">/***************************    Combined IMU Boards    ********************************/
+        <div class="codeArduino"><pre class="prettyprint linenums">/***************************    Combined IMU Boards    ********************************/
       /* if you use a specific sensor board:
          please submit any correction to this list.
            Note from Alex: I only own some boards, for other boards, I'm not sure, the info was gathered via rc forums, be cautious */
@@ -221,7 +221,7 @@
       //#define MultiWii_32U4_SE_no_baro // Hextronik MultiWii_32U4_SE without the MS561101BA to free flash-memory for other functions
       //#define Flyduino9DOF       // Flyduino 9DOF IMU MPU6050+HMC5883l
       //#define Nano_Plane         // Multiwii Plane version with tail-front LSM330 sensor http://www.radiosait.ru/en/page_5324.html
-</div>
+</pre></div><br>
      <p>After defining these parameters, we can upload the MultiWii on our board always using the ISP connection. Once programmed the board,
          i have connected to the PC via cable FTDI, using TX-RX-GND, and I checked if the IMU data was displayed in the GUI of the MultiWii.</p>
         <p class="pic"><img src= "Image/Lesson10/MultiWIItest2.jpg" class="img-responsive" alt="Responsive image"></p>

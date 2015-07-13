@@ -1,4 +1,9 @@
 /* GitHub Theme */
+pre.prettyprint {
+    padding:2px;
+    border: 0;
+}
+
 .prettyprint {
   background: white;
   font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
@@ -7,13 +12,14 @@
   color: #333;
   display: block;
   padding: 10px;
-  margin: 0 0 30px 0 !important;
+  margin: 0 0 0 0 !important;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
+   
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
@@ -108,6 +114,7 @@ li.L9 {
 .prettyprint.linenums {
 	-webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
 	        box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+     border: 0;
 }
 
 ol.linenums {

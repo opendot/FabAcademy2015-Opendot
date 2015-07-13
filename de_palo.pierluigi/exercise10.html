@@ -99,21 +99,24 @@
             <br>
         <h4><font color=#fff>INPUT SENSOR: <a href="http://en.wikipedia.org/wiki/Photoresistor"> PHOTORESISTOR </a></font></h4
         <h4><font color=#fff>SOFT:<a href="http://arduino.cc/en/Main/Software"> IDE ARDUINO 1.6.3 </a></font></h4>
-        <h4><font color=#fff>BOARD: SATSHA KIT  BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
+        <h4><font color=#fff>BOARD: SATSHAKIT  BY -->  <a href="http://fabacademy.org/archives/2015/eu/students/ingrassia.daniele/index.html">DANIELE INGRASSIA</a> // <a href="https://github.com/satshas/satshakit"> GIT HUB REPOSITORY OF THE PROJECT</a></font></h4>
         <h4><font color=#fff>DATASHEET: <a href="http://atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf">MICROCONTROLLER ATMEGA 328P DATASHEET</a></font></h4>
+        
         <h4><font color=#fff>NOTE: MY FIRST ARDUINO PROJECT EVER :-)</font></h4>
-
+        <br>
+        <h4><font color=#fff>DOWNLOAD: <a href="download/w10_LightTheremin_Input_Devoice.ino.zip"><button type="button" class="btn btn-primary btn-lg">Light Theremin .ino</button></a></font></h4>
                <br>
          <p><font color=#fff>****************************************************************************************************************</font></p>
 <br>
-         <h4><u>1ST PART --> MAKE A HOME MADE ARDUINO  </u></h4>
+        <h4><font color=#fff>1ST PART --> MAKE A HOMEMADE ARDUINO</font></h4>
         <br>
-        <p>For the realizzaione of the Design of my bord, I have use the project of Daniel Ingrassia of my Fab Academy Class. </p>
+        <p>To produce my board design, I used the project by Daniel Ingrassia of my Fab Academy Class. </p>
         <br>
-        <p>What I have done : </p>
-        <p>1--> I have lasered and engraved the board following the experience did in <a href="exercise04.html"> week 4 </a> et <a href="exercise06.html"> week 6 </a> </p>
-            
-        <p>2--> Sold the components following skematic</p>
+        <p>What I did :  </p>
+        <br>
+        <p>1--> I lasered and engraved the board according to my experiences in <a href="exercise04.html"> WEEK 4 </a> et <a href="exercise06.html"> WEEK 6 </a> </p>
+        <br>    
+        <p>2--> I soldered the components according to the scheme</p>
         
         <br>
         
@@ -137,16 +140,17 @@
           <br>
               
             <br>
-         <h4><u>2ND PART --> CONNECT FAB ISP TO THE BOARD FOR PROGRAMMING</u></h4>
+      <h4><font color=#fff>2ND PART --> CONNECT FAB ISP TO THE SATSHAKIT MICROCONTROLLER FOR PROGRAMMING IT</font></h4>
         <br>
-      <p>When board ready I have followed this process for programming it : </p>
+      <p>When the board was ready I followed this process to program it : </p>
       <br>
       
-        <p>Connected this pin list, looking FabISP Labeled Board reference and Satsha Kit Pin Mapping : </p>
+        <p>I connected this pin list, I kooked at the FabISP Labeled Board reference and the Satsha Kit Pin </p>
         <br>
-        <p>MOSI (Master Output Slave Input) in Fab ISP to  --> board pin 11</p>
+        <p>Mapping : </p>
+        <p>MOSI (Master Output Slave Input) in Fab ISP to --> board pin 11</p>
         <p>MISO (Master Input Slave Output) in Fab ISP to --> board pin 12</p>
-        <p>SCK (Serial Clock) in Fab ISP to --> board pin  13</p>
+        <p>SCK (Serial Clock) in Fab ISP to --> board pin 13</p>
         <p>RST (Reset ) in Fab ISP to --> board pin RST</p>
       <br>
                 <p class="pic">
@@ -201,8 +205,8 @@
 
     <br>
     
-        <p>Connect the FTDI (Future Technology Devices International) cable with red (+) and black (-) pins, to the Fab Kit following the map</p>
-        <p>(Connect FIRST the USB cable between the Fab ISP and computer and  for SECOND the Fab Kit with the FTDI cable to computer)</p>
+        <p>Connect the FTDI (Future Technology Devices International) cable with red (+) and black (-) pins, to the Fab Kit according to the map</p>
+        <p>(FIRST connect the USB cable between the Fab ISP and computer;  SECOND connect the Fab Kit with the FTDI cable to the computer)</p>
       <br>
         <p>Now the 2 boards are powered and we are ready to upload Bootloader. </p>
         <br>
@@ -213,8 +217,9 @@
            
         
         <br>
-         <h4><u>3RD PART--> LOAD BOOTLOADER WITH IDE ARDUINO 1.6.3</u></h4>
+    <h4><font color=#fff>3RD PART--> LOAD BOOTLOADER WITH IDE ARDUINO 1.6.3</font></h4>
         <br>
+    <p>Follow the subsequent images settings:</p>
         
         
         
@@ -239,17 +244,20 @@
         </p>
 	<legend></legend>
       <br>
-      <p>DONE BURNING !!! Now the board has the Bootloader :-) </p>
+      <p>DONE BURNING !!! Now the board has the Bootloader :-)  </p>
             
         
             
           <br>
     
         <br>
-         <h4><u>4TH PART -->BUILD THE CIRCUIT FOR A LIGHT THEREMIN</u></h4>
+    <h4><font color=#fff>4TH PART -->BUILD THE CIRCUIT FOR A LIGHT THEREMIN</font></h4>
         <br>
-<p>Elements : 1 Piezo # 10 Kilohm Resistor # 1 Photoresistor</p>
-
+<p>Elements : 1 Piezo // 10 Kilohm Resistor // 1 Photoresistor</p>
+<br>
+    
+    <p>I connected the pin A0 of SATSHAKIT to the ground of Photoresistor with the 10k Resistor  </p>
+    <p>I connected the pin 8 of SATSHAKIT to the Piezo  </p>
       <br><br>
       
       <br>
@@ -276,21 +284,40 @@
         <br>
     
       
-      <h4><u>5TH PART --> THE CODE</u></h4>
+    <h4><font color=#fff>5TH PART --> THE CODE</font></h4>
+      
       <br>
+    
+    <p>In reality, I did not change anything of this sketch. I just read it and understand that:  </p>
       <br>
-      <br>
-          
+    <p>I understand how to connect a Photoresistor and the importance of 10k resistor for make it work properly</p>
+          <p>How to menage the analog input of the microcontroller</p>
+            <p>How to use it into the code, for genereting sound by converting that into pwm value</p>
+    <p>I also understand the function "TONE" for generate different frequences</p>
+    <p></p>
+    
+    <br>
         <p class="pic">
     <img src="Images/w10_the_code_1.jpg">
 	<legend></legend>
             </p>
       <br>
-     <div class="code">
+      
+
+      <br>
+          
+        <p class="pic">
+    <img src="Images/w10_the_code_2.jpg">
+	<legend></legend>
+            </p>
+      
+      <pre style="background-color: black; color: white">
 	
 	/*
-  Arduino Starter Kit example
+  Arduino Starter Kit example 
  Project 6  - Light Theremin
+ 
+ - Read and Studied by Pierluigi De Palo - For the Fab Academy 2015 Exercise "INPUT DEVOICE"
 
  This sketch is written to accompany Project 6 in the
  Arduino Starter Kit
@@ -350,15 +377,9 @@ void loop() {
 
   // wait for a moment
   delay(10);
-}</div>
-      <br>
-          
-        <p class="pic">
-    <img src="Images/w10_the_code_2.jpg">
-	<legend></legend>
-            </p>
-      
-      
+}
+
+</pre>
       
       <div> 
           <br>
@@ -373,10 +394,10 @@ void loop() {
     </div> <!-- /container -->
 
 	<!-- footer -->
-   <footer id="footer">
+    <footer id="footer">
        
         <p class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <br><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br>
             Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>

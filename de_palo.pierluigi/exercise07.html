@@ -100,29 +100,66 @@
         <h4><font color=#fff>SOFT: MAC OS TERMINAL</font></h4>
         <h4><font color=#fff>TUTORIAL: <a href="http://fabacademy.org/archives/2012/students/menichinelli.massimo/index.html#"> MASSIMO MENICHINELLI FAB ACADEMY 2012 EXERCISE: EMBEDDED PROGRAMMING</a> // <a href=" http://computers.tutsplus.com/tutorials/40-terminal-tips-and-tricks-you-never-thought-you-needed--mac-51192"> TERMINAL </a></font></h4>
        <h4><font color=#fff>DATASHEET: <a href="http://www.atmel.com/Images/doc8183.pdf"> ATTINY 44</a></font></h4>
-        <h4><font color=#fff>DOWNLOAD: <a href="download/w7_steadyled.zip"><button type="button" class="btn btn-primary btn-lg">Steadyled.zip</button></font></a> 
+        <h4><font color=#fff>DOWNLOAD: <a href="download/w7_embedding.zip"><button type="button" class="btn btn-primary btn-lg">Makefile.zip</button></font></a> 
 	</h4>
         
           <p><font color=#fff>****************************************************************************************************************</font></p>
  
+        
         <p class="pic">
                 <img src="Images/w7_Embedded_logo.jpg">
 	
             </p>
         <br>
-         
+         <p>This week we undoubtedly had the most difficult assignments since the beginning of Fab Academy.</p>
+        
+        <p>We needed to read the DATASHEET of ATTINY 44 microcontroller at first and give our comments on it..</p>
+        <p>IIt's the first time that I looked at the specifications of ans electronic component. And it is not really easy to understand: in reality is completely crazy and I began to feel I was in a bad place. I'm not electronic engineer and I have a old man’s brain :-)  </p>
+        <p>After a short pause, and after trying to read some general information about the "nature and History of microcontrollers" in Wikipedia, I tried to compare the pin out found on the  datasheet of ATTINY 44 micro and the schematics of my Hello Boardboard.</p>
+        
+        <p>The Attiny 44 is the microcontroller of the "Hello Board" that we worked on last week</p>
+        
         <br>
         
         <p class="pic">
-        <img src="Images/w7_pin_config_attiny44.jpg">
+        <img src="Images/w7_attiny44_piout.jpg">
             <legend>Attiny Pin Out</legend>
         </p>
         
         <br>
         
-        <p> --- </p>
+        <p class="pic">
+        <img src="Images/w6_w6_eagle_3.jpg">
+            <legend>The schematic for "Hello Board"</legend>
+        </p>
+        
+        
+        <p>I understand that the same pins I found  in the DataSheet of Attiny are  used to communicate with other parts of electronic components on the board.</p>
+        <p>Each pin of the microcontroller is a kind of door: to communicate information it will transmit an electrical signal, running along the tracks of the pcb board. In reality electronics is just one part of the history of electricity. Inside a microcontroller there are a lot of transistors. The transistor is a sort of electrical switch: for on or off. Bette still r, 0 or 1 in the binary language. In each microcontroller we have thousands and thousands of transistors; and  in recent ones there may even be millions of them</p>
+        
+        <p>Once I understood the basic binary language, I was a lot happier.</p>
+        <p>Other interesting information was about the analog pin input or output pin configuration. This is where there is the VCC(+) pin or Ground(-) or information about the clock speed..</p>
+        
+        <p>After understanding a little bit more, it was time to program the "hello board" to blink with the green Led light incorporated inside. We needed to use the Fab ISP programmer board that we made in  <a href="exercise04.html"> WEEK 4</a>.
+            
+            <br>
+            
+            <p>And this is when the problems began.</p>
+        <p>To do this we needed to know the language. We needed to use Terminal for give the same command and modify the same file until it was burned on the  in the "hello bord"  </p>
+        <p>After connecting the Fab ISP with the "Hello Board" with a cool rainbow cable, I followed the instructions that the tutor give us. I didn’t really understand what I was doing but it worked like magic </p>
+        
+        <p>I was really happy when I saw the little green led blinking</p>
+       <p> I know I need to revise the process; this was my first approach to the code and is not really friendly. However, I noticed my interest in the code;  I think it's like learning a new and very difficult  language</p>
+        
+        
+        <br>
         <br>
         
+        
+        
+        
+        <P>THE MAKE FILE</P>
+        <br>
       <pre style="background-color: black;color: white">
             PROJECT=steadyled
 SOURCES=$(PROJECT).c
@@ -161,11 +198,11 @@ program-dragon: $(PROJECT).hex
         </pre>
         
 	<legend>The Makefile Report</legend>
- 
+ <br>
         
+        <br>
         
-        
-<p>---</p>
+<p>THE STEADY LED.C FILE </p>
 
         <br>
           
@@ -255,17 +292,14 @@ toggle_led()
         
        <br>
              
-        <p> ----- </p>
-             
- 
-<br>             
+       
              
              
-             
-        <h4>COMMAND : MAKE </h4>
-        <br>
              
         
+        <br>
+             
+        <h4>GO USING TERMINAL IN THE DIRECTORY OF DOWNLOADED STEADYLED FILE</h4>
         <br>
              
         <pre style="background-color: black;color: white">
@@ -274,8 +308,8 @@ toggle_led()
              </pre>
         <br>
         
-             <p>"make"</p>
-             
+          
+             <h4>COMMAND : MAKE  </h4>
              <br>
              
          <pre style="background-color: black;color: white"> 
@@ -300,15 +334,11 @@ Data:     0 bytes (0.0% Full)
           
         <br>
         
-         <h4><font color=#fff>COMMAND : MAKE PROGRAM USBTINY FUSE</font></h4>
+         <h4>COMMAND : MAKE PROGRAM USBTINY FUSE --> FOR PROGRAMMING THE BOARD</h4>
              
         <br> 
              
-        <p>---</p>
-             
-        <br>
-        
-        <p>"make program-usbtiny" to program the board</p>
+
              
         <br>
         
@@ -362,11 +392,9 @@ avrdude done. Thank you.
         
         <br>
              
-         <h4><font color=#fff>COMMAND : MAKE PROGRAM USBTINY</font></h4>
+         <h4>COMMAND : MAKE PROGRAM USBTINY --> FOR UPLOAD THE BOARD</h4>
              
-        <br>
-             
-        <p>With "Make Program Usbitiny" we upload the code </p>
+        
              
         <br>
         
@@ -446,10 +474,10 @@ avrdude done. Thank you.
 
 	<!-- footer -->
     
-  <footer id="footer">
+   <footer id="footer">
        
         <p class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a> <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <br><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Photogrammetric Fab Scanner</span> <br> by <br> <a xmlns:cc="http://creativecommons.org/ns#" href="www.pierluigidepalo.com" property="cc:attributionName" rel="cc:attributionURL"> Pierluigi De Palo </a> <br> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br>
             Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
         </p>
     </footer>

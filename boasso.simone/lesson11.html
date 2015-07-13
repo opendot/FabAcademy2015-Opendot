@@ -36,7 +36,7 @@
     </br></br>
 <h5>I decide to make a confetti cannon (blower) for the marriage of my sister so I use this lecture to make a board to drive an ESC for a brushless, to make the dutched fan.</h5>
  </br></br>
-<h5>I design a board using the attiny44 in Eagle, like the hello board but whit different pinout to fit the servo standard.</h5>
+<h5>I design a board using the attiny44 in Eagle, like the hello board but with different pinout to fit the servo standard.</h5>
 
 </br></br>
  <img src="images/servoboard.jpg" class="img-responsive" >
@@ -44,7 +44,7 @@
 <h5>I put in the circuit a connector to the button (I need to pot outside of the board the activation of the motor) I also adapt an ISP connector to fit 2 standard servo plug.</br>
 I connect the servo control pin to PA2 and PB2 so I have an AUX servo channel.</h5>
 </br></br>
-<h5>After i make a the surface mount PCB and engrave it whit flexx laser.</h5>
+<h5>After i make a the surface mount PCB and engrave it with flexx laser.</h5>
 </br></br>
 <img src="images/servoboard2.jpg" class="img-responsive" >
 </br></br>
@@ -57,7 +57,7 @@ It can be seen in the picture below, the purple cable.</h5>
    download="servo.rar">Download the ZIP file of  the schematic and board for Eagle cad</a>
 </br></br>
 <h5>I made the programming in Arduino IDE, trying to use servo library.</br>
-This library is based on a 16 bit timer that attiny44 have but for some reason it didn't work whit this device, so i have to switch to another library, very similar to the servo called softwareservo or servo8bit, that use a 8 bit timer. </h5>
+This library is based on a 16 bit timer that attiny44 have but for some reason it didn't work with this device, so i have to switch to another library, very similar to the servo called softwareservo or servo8bit, that use a 8 bit timer. </h5>
 </br></br>
 
 
@@ -225,7 +225,7 @@ class SoftwareServo
 </br></br>
 <h5>I try to investigate the reason the 16 bit timer baser library didn't work but for now i didn't find the solution. </h5>
 </br></br>
-<h5>After I compile the sketch whit the sofwareservo library I upload it into the attiny44 using the fabISP and Arduino IDE, and test it whit a simple 9g servo.</h5>
+<h5>After I compile the sketch with the sofwareservo library I upload it into the attiny44 using the fabISP and Arduino IDE, and test it with a simple 9g servo.</h5>
 </br></br>
 
 
@@ -341,7 +341,7 @@ This is due to the fact the ESC need to be armed ( process who let the speed con
 the 8 bit library for the servo have a lot of jitter that make this arming process not working properly.</br>
 the servo inside electronics in a little bit more permissive and filter this jitter the ESC is really complex to drive so it didn't work.</br>
 </br>
-I try to implement this sketch on an Arduino Uno whit the servo standard library and all works great,
+I try to implement this sketch on an Arduino Uno with the servo standard library and all works great,
 I will try to make a SatshaKit and try to implement it in that way.
 </h5>
 
