@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-      <link href="css/style2.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -29,142 +30,170 @@
     <![endif]-->
     <!-- Load the menu file -->
     <script>
-	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
-					  $('#cclicense').load("license.html");
-					  }
-	</script>
-  </head>
-  <body onload="menu()">
+        function menu() {
+            $('#exercises').load("exercises-menu.html");
+            $('#project').load("project-menu.html");
+            $('#cclicense').load("license.html");
+        }
+    </script>
+</head>
+
+<body onload="menu()">
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"> <button type="button"
-            class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#navbar" aria-expanded="false"
-            aria-controls="navbar"> <span class="sr-only">Toggle
-              navigation</span> <span class="icon-bar"></span> <span
-              class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown" role="button"
-                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown" role="button"
-                aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+                        <ul id="exercises" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+                        <ul id="project" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <!--/.nav-collapse --> </div>
     </nav>
     <div class="container">
-      <!-- Insert your content here below! -->
-      
-      
+        <!-- Insert your content here below! -->
+
+
         <h3>Activity 1: Pot Design</h3>
-      <p>Starting from the following inspirational design of pots that I have found on the internet:<br><br></p>
-      <p class="pic"><img src="media/Modular_pots.jpg"><legend>Modular plant pots.</legend> </p>  
-          
-<p>I started designing my pot since the beginning of the Fab Academy where I had developed the following initial design (see more details in <a href="week2.html">week 2 work</a>):<br><br></p>
-       
-        <p>I started designing the shape of the pot and save it as SVG file. Using FreeCAD I import the SVG as geometry. I extrude the imported sketch in order to have the 3D model.<br><br>
-In order to create the empty space (the potting soil space), I draw another object that I extruded, then using a Boolean function helped me create the difference between the two solid 3D objects. I exported the 3D shape into STL file for further work and modifying with Blender.<br><br></p>
-        <p class="pic"><img src="media/W2-img3.jpg"><legend>From Inkscape drawing to FreeCAD 3D shape.</legend> </p> 
-        <p class="pic"><img src="media/W2-img4.jpg"><legend>Blender 3D Model.</legend> </p> 
-        
-        <p>After that, I tried to make many changes to this design shape using Rhino as I became more comfortable and expert using it.  The objective is to make it nice, functional and modular where pots can be composed with each other in order to build a pot structure:<br><br></p>
-        <p class="pic"><img src="media/project-potdesign.jpg"><legend>Further design and work with Rhino.</legend> </p> 
-        
-         <p>This is the 3D model of the pot:<br><br></p>
-         <canvas id="cv" width="640" height="480"> It seems you
-        are using an outdated browser that does not support canvas :-( </canvas>
-      <script type="text/javascript">
-		var canvas = document.getElementById('cv');
-		var viewer = new JSC3D.Viewer(canvas);
-		viewer.setParameter('SceneUrl','media/project-potSTL.stl');
-		viewer.setParameter('ModelColor','##898484');
-		viewer.setParameter('BackgroundColor1','#E5D7BA');
-		viewer.setParameter('BackgroundColor2','#383840');
-		viewer.setParameter('RenderMode','texture');
-		viewer.setParameter('MipMapping','on');
-		viewer.setParameter('Definition','high');
-		viewer.setParameter('Renderer','webgl');
-		viewer.init();
-		viewer.update();
-	</script><br> <br>
-        
-    
+        <p>Starting from the following inspirational design of pots that I have found on the internet:
+            <br>
+            <br>
+        </p>
+        <p class="pic"><img src="media/Modular_pots.jpg">
+            <legend>Modular plant pots.</legend>
+        </p>
+
+        <p>I started designing my pot since the beginning of the Fab Academy where I had developed the following initial design (see more details in <a href="week2.html">week 2 work</a>):
+            <br>
+            <br>
+        </p>
+
+        <p>I started designing the shape of the pot and save it as SVG file. Using FreeCAD I import the SVG as geometry. I extrude the imported sketch in order to have the 3D model.
+            <br>
+            <br> In order to create the empty space (the potting soil space), I draw another object that I extruded, then using a Boolean function helped me create the difference between the two solid 3D objects. I exported the 3D shape into STL file for further work and modifying with Blender.
+            <br>
+            <br>
+        </p>
+        <p class="pic"><img src="media/W2-img3.jpg">
+            <legend>From Inkscape drawing to FreeCAD 3D shape.</legend>
+        </p>
+        <p class="pic"><img src="media/W2-img4.jpg">
+            <legend>Blender 3D Model.</legend>
+        </p>
+
+        <p>After that, I tried to make many changes to this design shape using Rhino as I became more comfortable and expert using it. The objective is to make it nice, functional and modular where pots can be composed with each other in order to build a pot structure:
+            <br>
+            <br>
+        </p>
+        <p class="pic"><img src="media/project-potdesign.jpg">
+            <legend>Further design and work with Rhino.</legend>
+        </p>
+
+        <a href="media/project-potSTL.stl.zip">Download the stl file.</a>
+
+
         <h3>Activity 2: Pot Realization</h3>
-        
-              
-    <p>In this point, I thought about which technique I can use in order to realize the pot. I evaluated the following ways:<br>
-        In this work, I decided to proceed on this way:<br><br>
-        •	Obtain it from a piece of wood via the milling process and using CNC machine<br>
-•	Molding and casting: prepare the mold using was or other material, then cast it using liquid ceramic materials and leave drying, then on the oven<br>
-•	Divide it in many building blocks, design junctions between the blocks, and use the laser cutter in order to obtain the blocks<br>
-•	3D printing.<br><br>
-        
-        I was convinced to do it using the molding and casting technique, but I couldn’t find easily the ceramic materials as well as the high temperature furnace. Then I moved my choice to 3D printing as I’m convinced that it is the other techniques that will conserve the original design and respect dimensions for the modular features of the pot. <br><br>
-The following are the steps of 3D printing of the pots. I used the Sharebot 3D printer kindly provided by the University of Salento. 
-<br><br></p>
-          
-        <p class="pic"><img src="media/project-sharebot.jpg"><legend>3D printer for the project</legend> </p>
-        
-        <p>I printed a very small scale of the pot in order to check if it is as I have imagined, and if it respects the features.<br><br></p>
-        
-        <p class="pic"><img src="media/project-small-scale.jpg"><legend>Small scale 3D printed pot</legend> </p>
-        
-        <p>Then I moved to 3D printing my pots for the project. I decided to make 3 objects in order to show the modular feature of the pots:<br><br></p>
-        
-        <p class="pic"><img src="media/project-3Dwork.jpg"><legend>Preparing work to sen to the Sharebot</legend> </p>
-        <p class="pic"><img src="media/project-3D-printing.jpg"><legend>1st Pot printing</legend> </p>
-        <p class="pic"><img src="media/project-3D-firstpot.jpg"><legend>1st Pot in real dimensions</legend> </p>
-        <p class="pic"><img src="media/project-3DPot-printing.jpg"><legend>printing other 2 Pots</legend> </p>
-        
-        <p>Finally I managed to print all the pot:<br><br></p>
-        
-        <p class="pic"><img src="media/project-all-pots.jpg"><legend>All pots printed</legend> </p>
-        
-        
-                    
-      <h3>Download Zone</h3>
-      <p>The design files are available for downloand here: </p>
-      <p> <a href="media/W12_design-files.rar"> <button type="button" class="btn btn-primary
-            btn-lg">Download files</button> </a> </p>
-      
-      <!-- End of your content --> </div>
+
+
+        <p>In this point, I thought about which technique I can use in order to realize the pot. I evaluated the following ways:
+            <br> In this work, I decided to proceed on this way:
+            <br>
+            <br> • Obtain it from a piece of wood via the milling process and using CNC machine
+            <br> • Molding and casting: prepare the mold using was or other material, then cast it using liquid ceramic materials and leave drying, then on the oven
+            <br> • Divide it in many building blocks, design junctions between the blocks, and use the laser cutter in order to obtain the blocks
+            <br> • 3D printing.
+            <br>
+            <br> I was convinced to do it using the molding and casting technique, but I couldn’t find easily the ceramic materials as well as the high temperature furnace. Then I moved my choice to 3D printing as I’m convinced that it is the other techniques that will conserve the original design and respect dimensions for the modular features of the pot.
+            <br>
+            <br> The following are the steps of 3D printing of the pots. I used the Sharebot 3D printer kindly provided by the University of Salento.
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/project-sharebot.jpg">
+            <legend>3D printer for the project</legend>
+        </p>
+
+        <p>I printed a very small scale of the pot in order to check if it is as I have imagined, and if it respects the features.
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/project-small-scale.jpg">
+            <legend>Small scale 3D printed pot</legend>
+        </p>
+
+        <p>Then I moved to 3D printing my pots for the project. I decided to make 3 objects in order to show the modular feature of the pots:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/project-3Dwork.jpg">
+            <legend>Preparing work to sen to the Sharebot</legend>
+        </p>
+        <p class="pic"><img src="media/project-3D-printing.jpg">
+            <legend>1st Pot printing</legend>
+        </p>
+        <p class="pic"><img src="media/project-3D-firstpot.jpg">
+            <legend>1st Pot in real dimensions</legend>
+        </p>
+        <p class="pic"><img src="media/project-3DPot-printing.jpg">
+            <legend>printing other 2 Pots</legend>
+        </p>
+
+        <p>Finally I managed to print all the pot:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/project-all-pots.jpg">
+            <legend>All pots printed</legend>
+        </p>
+
+
+
+        <h3>Download Zone</h3>
+        <p>The design files are available for downloand here: </p>
+        <p>
+            <a href="media/W12_design-files.rar">
+                <button type="button" class="btn btn-primary
+            btn-lg">Download files</button>
+            </a>
+        </p>
+
+        <!-- End of your content -->
+    </div>
     <!-- /container -->
     <!-- footer -->
     <footer id="footer">
-      <p id="cclicense"> </p>
-      <p class="license"> Theme: <a
-          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+        <p id="cclicense"> </p>
+        <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
 
 
           Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
 
 
-          Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
-          href="http://jquery.com/">JQuery</a>+<a
-          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
-href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          Menichinelli</a>
+            <br> Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
 
 
-          theme for google-code-prettify</a>+<a
-          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
-          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
-      </p>
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
     </footer>
     <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
@@ -177,14 +206,15 @@ href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">Git
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
-	  !function ($) {
-		$(function(){
-		  window.prettyPrint && prettyPrint()   
-		})
-	  }(window.jQuery)
-	</script>
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+    </script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
+
 </html>
