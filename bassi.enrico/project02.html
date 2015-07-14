@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,12 +16,12 @@
 
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-          <link href="media/eb.css" rel="stylesheet">
+    <link href="media/eb.css" rel="stylesheet">
 
-    
+
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
-	<script type="text/javascript" src="media/jsc3d.min.js"></script>
+    <script type="text/javascript" src="media/jsc3d.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.webgl.js"></script>
     <script type="text/javascript" src="media/jsc3d.touch.js"></script>
 
@@ -33,63 +34,66 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <!-- Load the menu file -->
     <script>
-	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
-					  $('#cclicense').load("license.html");
-					  }
-	</script>
+        function menu() {
+            $('#exercises').load("exercises-menu.html");
+            $('#project').load("project-menu.html");
+            $('#cclicense').load("license.html");
+        }
+    </script>
 
-  </head>
+</head>
 
-  <body onload="menu()">
+<body onload="menu()">
 
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Enrico Bassi</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
+                        <ul id="exercises" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+                        <ul id="project" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exercises <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
 
     <div class="container">
 
-	<!-- Insert your content here below! -->
+        <!-- Insert your content here below! -->
 
 
-    <h2>15. Application and Implication // Final Project: Analysis and Research</h2>
-    
-        
-    <h3>What will it do?</h3>
-        
+        <h2>15. Application and Implication // Final Project: Analysis and Research</h2>
+
+
+        <h3>What will it do?</h3>
+
         <p>
-        Smill is a CNC milling machine with the following goals:
+            Smill is a CNC milling machine with the following goals:
             <br>
             <ul>
                 <li> make pieces bigger than it</li>
@@ -97,185 +101,188 @@
                 <li>be self-replicable</li>
                 <li>be as affordable as possible</li>
                 <li>be as precise as possible</li>
-                </ul>
-        <br>
-        To do so, it has a round frame and a particular Z-axis movement to reduce the forceloop. It's made with CNC milling and standard, cheap components.
-        
+            </ul>
+            <br> To do so, it has a round frame and a particular Z-axis movement to reduce the forceloop. It's made with CNC milling and standard, cheap components.
+
         </p>
-      
-     <h3> Who's done what beforehand? </h3>
-      
-      <p>
-Here some exhisting projects that I considered inspiring:
-      <br><br>
-      <a href="http://www.michaelwarrendesign.com/grow/Grow_CNC/Home.html"><strong>Grow CNC</strong></a>
-      <br><br>
-      <img src="http://www.michaelwarrendesign.com/grow/Grow_CNC/Home_files/shapeimage_6.png" width = "900">
-      <br>
-      interesting concept of alternative CNC, definitely able to cut pieces bigger that it.
-          
-          
-      <br><br>
-      <a href="http://christianfiebig.de/impulsive-furnishing-unit/" ><strong>Impulsive Furnishing unit</strong></a>
-            <br><br>
-    <img src="https://lh4.googleusercontent.com/-PeD4axVicEU/UJRtk8hEuLI/AAAAAAAAK2Y/EXFQEG31zSE/s2048/DSC_5140.jpg" width="900">
-      <br>
-      Very nice project, based on the idea to bring the machine where you need it to make stuff. No working bed, it cuts directly the panel it lays on. <br>
-          Still pretty bulky.
-      
-          
-          
-      <br><br>
-      <a href="https://www.buildyourcnc.com/item/cnc-machine-greenLean-v1" ><strong>Green Lean</strong></a>
-            <br><br>
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/58KpXx7hNOE" frameborder="0" allowfullscreen></iframe>
-      <br>
-      Entirely made in wood it gave ma a lot of suggestion and it's vertical
-      
-      <br><br>
-      <a href="http://www.openbuilds.com/builds/original-phlatprinter.95/" ><strong>Phlat Printer</strong></a>
-            <br><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/4QCnsag23k4" frameborder="0" allowfullscreen></iframe>
-      <br>
-      Very similar to what i had in my mind, still too big and the it moves the panel works for foams but probably not with more rigid materials.
-          
-      
-          
-      <br><br>
-      <a href="http://kimlyis.me/otherlab-otherfab/" ><strong>Othercutter</strong></a>
-            <br><br>
-<iframe src="https://player.vimeo.com/video/62182723" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      <br>
-      Beautiful project, very clever idea, it works with soft material but probably not with plywood or similar (even if the blade would be changed with a spindle)
-          <br> 
-      
-     <h3> What materials and components will be required? \\ Where will they come from? </h3>
-      
-      <p>
-          The project is divided in different parts:
-          </p>
-           <ul>
-      <li>Structure</li>
-               <li>Electronic</li>
-               <li>Firmware</li>
-               <li>Software</li>
-               <li>standard parts</li>
-      </ul>
-      <p>
-The structure, the pcb, and the smaller funcional parts are made with CNC milling machine, lasercutter, and 3D printer.
-      <br>
-      I started from the work done by <a href="http://www.shapeoko.com">Shapeoko</a>, for the electronic, studying the board to implement mine. <br>
-      The formware is a standard g-code interpreter (<a href="https://github.com/grbl/grbl">grbl</a>) edited to match the pitch of the pulleys i'm gonna use and the pins of the microcontroller that will give step+dir to the motors.
-      I tried different CAM and in the end the tests I did were done using the fab modules online.
-      <br>
-      Beside specific componenets bought online from china or european suppliers like Reprap World, everyting else is easily available in a local hardware store. 
-    </p>
-    
-      
-    <h3> How much will it cost? </h3>
-    <p>
-    An approx estimation of the price is:
-        
-<img src="images/Costs.JPG">
-        <br>
-    	<a href="media/costs.ods">
-	<button type="button" class="btn btn-primary btn-lg">Download "costs.odt"</button>
-    </a>
-</p>
-        
-     <h3>What parts and systems will be made? What processes will be used?</h3>
+
+        <h3> Who's done what beforehand? </h3>
+
+        <p>
+            Here some exhisting projects that I considered inspiring:
+            <br>
+            <br>
+            <a href="http://www.michaelwarrendesign.com/grow/Grow_CNC/Home.html"><strong>Grow CNC</strong></a>
+            <br>
+            <br>
+            <img src="http://www.michaelwarrendesign.com/grow/Grow_CNC/Home_files/shapeimage_6.png" width="900">
+            <br> interesting concept of alternative CNC, definitely able to cut pieces bigger that it.
+
+
+            <br>
+            <br>
+            <a href="http://christianfiebig.de/impulsive-furnishing-unit/"><strong>Impulsive Furnishing unit</strong></a>
+            <br>
+            <br>
+            <img src="https://lh4.googleusercontent.com/-PeD4axVicEU/UJRtk8hEuLI/AAAAAAAAK2Y/EXFQEG31zSE/s2048/DSC_5140.jpg" width="900">
+            <br> Very nice project, based on the idea to bring the machine where you need it to make stuff. No working bed, it cuts directly the panel it lays on.
+            <br> Still pretty bulky.
+
+
+
+            <br>
+            <br>
+            <a href="https://www.buildyourcnc.com/item/cnc-machine-greenLean-v1"><strong>Green Lean</strong></a>
+            <br>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/58KpXx7hNOE" frameborder="0" allowfullscreen></iframe>
+            <br> Entirely made in wood it gave ma a lot of suggestion and it's vertical
+
+            <br>
+            <br>
+            <a href="http://www.openbuilds.com/builds/original-phlatprinter.95/"><strong>Phlat Printer</strong></a>
+            <br>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4QCnsag23k4" frameborder="0" allowfullscreen></iframe>
+            <br> Very similar to what i had in my mind, still too big and the it moves the panel works for foams but probably not with more rigid materials.
+
+
+
+            <br>
+            <br>
+            <a href="http://kimlyis.me/otherlab-otherfab/"><strong>Othercutter</strong></a>
+            <br>
+            <br>
+            <iframe src="https://player.vimeo.com/video/62182723" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <br> Beautiful project, very clever idea, it works with soft material but probably not with plywood or similar (even if the blade would be changed with a spindle)
+            <br>
+
+            <h3> What materials and components will be required? \\ Where will they come from? </h3>
+
             <p>
-               Here a simplified part list and if it's made or bought, as well as how it's made if it is.
-        
-<img src="images/componenti.JPG">
-        <br>
-    	<a href="media/components.ods">
-	<button type="button" class="btn btn-primary btn-lg">Download "costs.odt"</button>
-    </a>
-                </p>
-     <h3>What task need to be completed?</h3>
-    <p>I have to assemble everything together and test the result.</p>
-    
-    
-        <h3>what question need to be answered</h3>
-    <p>The main questions right now are about the way i choose to move the axis, I'm not sure about the rigidity and the behave of the machine, but the only way to get to an answer is testing a working prototype. So I decide I will not go on implementing new solutions or ideas until I'll get to a fully working version of the machine.</p>
-    
-    
-        <h3>What is the schedule?</h3>
-    <p> I usually calculate the timing starting from the delivery, back to today. Between the 13th of May and the and the 24th of JUne I have 15 half-days and 14 full days, working just on this during the week and week-end if but the time needed for meetings, workshops, speeches, university lessons and exams. <br>
-    I can't calculate these as 100% efficient working time and i need a backup in case of emergency. So I considered 20 half-days, defined from now on "hD" (more or less the 50% of the total time available), divided in this way:
-    </p>
-    <ul>
-    <li>1hD to test the assembled PCB and check if it read a standard g-code</li>
-        <li>2hD to read, understand, and edit the GRBL</li>
-        <li>1hD to assemble the second version of the frame</li>
-        <li>1hD to check the 3D printed parts and eventually edit them</li>
-        <li>1hD to check all the movements by hand</li>
-        <li>3hD to assemble everything together</li>
-        <li>1hD to connect everything, prepare the cables, etc.</li>
-        <li>2hD to test connection, electronic, movement, and fix it as much as possible</li>
-        <li>1hD to implement the microstepping and recalibrate the machine</li>
-        <li>1hD find the most efficient way to generate g-codes to test the machine</li>
-        <li>2hD to cut the pieces and test the entire process</li>
-        <li>4hD to implement and refine the documentation, including the material for the final presentation</li>
-    </ul>
-    
+                The project is divided in different parts:
+            </p>
+            <ul>
+                <li>Structure</li>
+                <li>Electronic</li>
+                <li>Firmware</li>
+                <li>Software</li>
+                <li>standard parts</li>
+            </ul>
+            <p>
+                The structure, the pcb, and the smaller funcional parts are made with CNC milling machine, lasercutter, and 3D printer.
+                <br> I started from the work done by <a href="http://www.shapeoko.com">Shapeoko</a>, for the electronic, studying the board to implement mine.
+                <br> The formware is a standard g-code interpreter (<a href="https://github.com/grbl/grbl">grbl</a>) edited to match the pitch of the pulleys i'm gonna use and the pins of the microcontroller that will give step+dir to the motors. I tried different CAM and in the end the tests I did were done using the fab modules online.
+                <br> Beside specific componenets bought online from china or european suppliers like Reprap World, everyting else is easily available in a local hardware store.
+            </p>
 
-      <h3>How will it be evaluated?</h3>
-   <p>
-    This is going to be my evaluation grid for the project:
-    <br>
-    <ul>
 
-        <li><strong>Sufficient:</strong> get to a smooth mechanical design, where all the axis move properly without the motors </li>
-        <li><strong>Decent:</strong> be able to move all the axis using a debugging application done in Processing + firmata on the board </li>
-        <li><strong>Good: </strong>be able to move all the axis using a modified version of grbl + grbl controller</li>
-        <li><strong>Ninja: </strong>send a standard g-code to the CNC</li>
-        <li><strong>Jedi: </strong>cut the frame for another Smill with the Smill</li>
-        <li><strong>Yoda: </strong>cut with Smill an object bigger that Smill itself</li>
-    </ul>
-    
-	</p>
-        
-   
-    <!-- End of your content -->
+            <h3> How much will it cost? </h3>
+            <p>
+                An approx estimation of the price is:
 
-    </div> <!-- /container -->
+                <img src="images/Costs.JPG">
+                <br>
+                <a href="media/costs.ods">
+                    <button type="button" class="btn btn-primary btn-lg">Download "costs.ods"</button>
+                </a>
+            </p>
 
-	<!-- footer -->
-    
+            <h3>What parts and systems will be made? What processes will be used?</h3>
+            <p>
+                Here a simplified part list and if it's made or bought, as well as how it's made if it is.
+
+                <img src="images/componenti.JPG">
+                <br>
+                <a href="media/components.ods">
+                    <button type="button" class="btn btn-primary btn-lg">Download "components.ods"</button>
+                </a>
+            </p>
+            <h3>What task need to be completed?</h3>
+            <p>I have to assemble everything together and test the result.</p>
+
+
+            <h3>what question need to be answered</h3>
+            <p>The main questions right now are about the way i choose to move the axis, I'm not sure about the rigidity and the behave of the machine, but the only way to get to an answer is testing a working prototype. So I decide I will not go on implementing new solutions or ideas until I'll get to a fully working version of the machine.</p>
+
+
+            <h3>What is the schedule?</h3>
+            <p> I usually calculate the timing starting from the delivery, back to today. Between the 13th of May and the and the 24th of JUne I have 15 half-days and 14 full days, working just on this during the week and week-end if but the time needed for meetings, workshops, speeches, university lessons and exams.
+                <br> I can't calculate these as 100% efficient working time and i need a backup in case of emergency. So I considered 20 half-days, defined from now on "hD" (more or less the 50% of the total time available), divided in this way:
+            </p>
+            <ul>
+                <li>1hD to test the assembled PCB and check if it read a standard g-code</li>
+                <li>2hD to read, understand, and edit the GRBL</li>
+                <li>1hD to assemble the second version of the frame</li>
+                <li>1hD to check the 3D printed parts and eventually edit them</li>
+                <li>1hD to check all the movements by hand</li>
+                <li>3hD to assemble everything together</li>
+                <li>1hD to connect everything, prepare the cables, etc.</li>
+                <li>2hD to test connection, electronic, movement, and fix it as much as possible</li>
+                <li>1hD to implement the microstepping and recalibrate the machine</li>
+                <li>1hD find the most efficient way to generate g-codes to test the machine</li>
+                <li>2hD to cut the pieces and test the entire process</li>
+                <li>4hD to implement and refine the documentation, including the material for the final presentation</li>
+            </ul>
+
+
+            <h3>How will it be evaluated?</h3>
+            <p>
+                This is going to be my evaluation grid for the project:
+                <br>
+                <ul>
+
+                    <li><strong>Sufficient:</strong> get to a smooth mechanical design, where all the axis move properly without the motors </li>
+                    <li><strong>Decent:</strong> be able to move all the axis using a debugging application done in Processing + firmata on the board </li>
+                    <li><strong>Good: </strong>be able to move all the axis using a modified version of grbl + grbl controller</li>
+                    <li><strong>Ninja: </strong>send a standard g-code to the CNC</li>
+                    <li><strong>Jedi: </strong>cut the frame for another Smill with the Smill</li>
+                    <li><strong>Yoda: </strong>cut with Smill an object bigger that Smill itself</li>
+                </ul>
+
+            </p>
+
+
+            <!-- End of your content -->
+
+    </div>
+    <!-- /container -->
+
+    <!-- footer -->
+
     <footer id="footer">
         <p id="cclicense">
-                </p>
+        </p>
         <p class="license">
-        Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+            Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab Academy Template</a> by <a href="http://openp2pdesign.org">Massimo Menichinelli</a>
+            <br> Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
         </p>
     </footer>
-    
 
-	<!-- Do not touch this! -->
+
+    <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="media/jquery-1.9.1.min.js"></script>
-    
+
     <!-- Syntax Highlighter -->
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">
     </script>
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript">
-	  !function ($) {
-		$(function(){
-		  window.prettyPrint && prettyPrint()   
-		})
-	  }(window.jQuery)
-	</script>
-	
+    <script type="text/javascript">
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+    </script>
+
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 
-  </body>
+</body>
+
 </html>

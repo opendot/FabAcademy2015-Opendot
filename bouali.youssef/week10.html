@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="media/fabacademy.css" rel="stylesheet">
-      <link href="css/style2.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
     <!-- 3D files viewer -->
     <script type="text/javascript" src="media/jsc3d_ie.min.js"></script>
     <script type="text/javascript" src="media/jsc3d.min.js"></script>
@@ -29,110 +30,158 @@
     <![endif]-->
     <!-- Load the menu file -->
     <script>
-	function menu() {
-					  $('#exercises').load("exercises-menu.html");
-					  $('#project').load("project-menu.html");
-					  $('#cclicense').load("license.html");
-					  }
-	</script>
-  </head>
-  <body onload="menu()">
+        function menu() {
+            $('#exercises').load("exercises-menu.html");
+            $('#project').load("project-menu.html");
+            $('#cclicense').load("license.html");
+        }
+    </script>
+</head>
+
+<body onload="menu()">
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header"> <button type="button"
-            class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#navbar" aria-expanded="false"
-            aria-controls="navbar"> <span class="sr-only">Toggle
-              navigation</span> <span class="icon-bar"></span> <span
-              class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown" role="button"
-                aria-expanded="false">Weekly Modules <span class="caret"></span></a>
-              <ul id="exercises" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown" role="button"
-                aria-expanded="false">Final Project <span class="caret"></span></a>
-              <ul id="project" class="dropdown-menu" role="menu">
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle
+              navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="index.html">Youssef BOUALI</a> </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Weekly Modules <span class="caret"></span></a>
+                        <ul id="exercises" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Final Project <span class="caret"></span></a>
+                        <ul id="project" class="dropdown-menu" role="menu">
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <!--/.nav-collapse --> </div>
     </nav>
     <div class="container">
-      <!-- Insert your content here below! -->
-      <h2>Module 10: Input Devices</h2><br>
-      
+        <!-- Insert your content here below! -->
+        <h2>Module 10: Input Devices</h2>
+        <br>
+
         <h3>Module contents:</h3>
-      <p>During this week we've learned about how to use electronic input components, add them to the board and then read input data.<br><br>
-The assignement of this week is to measure something: add a sensor to a microcontroller board and read it.
-<br><br></p>
-      
-      <h3>My work:</h3>
-      
-      <u><b>Step 1: Selecting Board and Electronic components:</b></u> <br><br>
-    <p>I used the <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html">satshakit</a> scheme of my colleague Daniele Ingrassia, then I made it and soldered components and program it:<br><br></p>
-          <p class="pic"><img src="media/W10_board.jpg"><legend>Connecting and programming my Board</legend> </p>
-        
- <p>Then I decided to use a potentiometer as input device and read its input data from the computer. I followed the following connection scheme of the potentiometer connection with arduino in order to connect it to my board:<br><br></p>
-        
-          <p class="pic"><img src="media/W10_arduino-potentiometer-scheme.jpg"><legend>Arduino Potentiometer Scheme</legend> </p>
-        
-        
-        
-         <u><b>Step 2: Programing Input Device</b></u> <br><br>
-         <p>In order to read data from input device, in my case potentiometer, it is pretty easy as we need to inizialize the serial port, then write a loop that continue reading the analog signal coming from the board and print the result on the screen. I decided to add a delay of half a second between each read operation as I don’t need my board to continue reading value each mille-second. <br><br></p>
-        <p>Here is the potentiometer connected to my board:<br><br></p>
-        
-        <p class="pic"><img src="media/W10_potentiomer-connection.jpg"><legend>Potentiometer connection</legend> </p>
-        
-        <p>Here is the code I wrote in order to read the input data from the potentiometer:<br><br></p>
-        
-        <p class="pic"><img src="media/W10_sketch-potentiometer.jpg"><legend>Code to read from Potentiometer</legend> </p>
-       
-         <p>And this is the video of the result printed on the screen. Obviously, the value changed each time I acted on the potentiometer:<br><br></p>
-        
-        <center><iframe src="https://player.vimeo.com/video/131068607" width="500" height="889" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></center>
-        
-        
-        
-                    
-      <h3>Download Zone</h3>
-      <p>The Potentiometer program file is available for downloand here: </p>
-      <p> <a href="media/W10_Potentiometer-sketch.rar"> <button type="button" class="btn btn-primary
-            btn-lg">Download files</button> </a> </p>
-      
-      <!-- End of your content --> </div>
+        <p>During this week we've learned about how to use electronic input components, add them to the board and then read input data.
+            <br>
+            <br> The assignement of this week is to measure something: add a sensor to a microcontroller board and read it.
+            <br>
+            <br>
+        </p>
+
+        <h3>My work:</h3>
+
+        <u><b>Step 1: Selecting Board and Electronic components:</b></u>
+        <br>
+        <br>
+        <p>I used the <a href="http://fabacademy.org/archives/2015/doc/projects/satshakit/satshakit.html">satshakit</a> scheme of my colleague Daniele Ingrassia, then I made it and soldered components and program it:
+            <br>
+            <br>
+        </p>
+        <p class="pic"><img src="media/W10_board.jpg">
+            <legend>Connecting and programming my Board</legend>
+        </p>
+
+        <p>Then I decided to use a potentiometer as input device and read its input data from the computer. I followed the following connection scheme of the potentiometer connection with arduino in order to connect it to my board:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/W10_arduino-potentiometer-scheme.jpg">
+            <legend>Arduino Potentiometer Scheme</legend>
+        </p>
+
+
+
+        <u><b>Step 2: Programing Input Device</b></u>
+        <br>
+        <br>
+        <p>In order to read data from input device, in my case potentiometer, it is pretty easy as we need to inizialize the serial port, then write a loop that continue reading the analog signal coming from the board and print the result on the screen. I decided to add a delay of half a second between each read operation as I don’t need my board to continue reading value each mille-second.
+            <br>
+            <br>
+        </p>
+        <p>Here is the potentiometer connected to my board:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/W10_potentiomer-connection.jpg">
+            <legend>Potentiometer connection</legend>
+        </p>
+
+        <p>Here is the code I wrote in order to read the input data from the potentiometer:
+            <br>
+            <br>
+        </p>
+
+        <p class="pic"><img src="media/W10_sketch-potentiometer.jpg">
+            <legend>Code to read from Potentiometer</legend>
+        </p>
+
+        <pre><code>int potentiometerPin = 0;
+int value = 0;
+ 
+void setup()
+{
+    Serial.begin(9600); // Serial port initialization
+}
+ 
+void loop()
+{
+    value = analogRead(potentiometerPin); // Read potentiometer value on analog port
+    Serial.println(value); // Write value on serial debug 
+    delay(500); // Delay half second
+}
+</code></pre>
+
+        <p>And this is the video of the result printed on the screen. Obviously, the value changed each time I acted on the potentiometer:
+            <br>
+            <br>
+        </p>
+
+        <center>
+            <iframe src="https://player.vimeo.com/video/131068607" width="500" height="889" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </center>
+
+
+
+
+        <h3>Download Zone</h3>
+        <p>The Potentiometer program file is available for downloand here: </p>
+        <p>
+            <a href="media/W10_Potentiometer-sketch.rar">
+                <button type="button" class="btn btn-primary
+            btn-lg">Download files</button>
+            </a>
+        </p>
+
+        <!-- End of your content -->
+    </div>
     <!-- /container -->
     <!-- footer -->
     <footer id="footer">
-      <p id="cclicense"> </p>
-      <p class="license"> Theme: <a
-          href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
+        <p id="cclicense"> </p>
+        <p class="license"> Theme: <a href="https://github.com/openp2pdesign/FabAcademy_Template">Fab
 
 
           Academy Template</a> by <a href="http://openp2pdesign.org">Massimo
 
 
-          Menichinelli</a> <br>
-        Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a
-          href="http://jquery.com/">JQuery</a>+<a
-          href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a
-href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
+          Menichinelli</a>
+            <br> Based on <a href="http://getbootstrap.com/">Twitter Bootstrap</a>+<a href="http://jquery.com/">JQuery</a>+<a href="https://code.google.com/p/google-code-prettify/">google-code-prettify</a>+<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">GitHub
 
 
-          theme for google-code-prettify</a>+<a
-          href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a
-          href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
-      </p>
+          theme for google-code-prettify</a>+<a href="https://code.google.com/p/jsc3d/">JSC3D</a>+<a href="https://github.com/thegrubbsian/jquery.ganttView">jquery.ganttView</a>.
+        </p>
     </footer>
     <!-- Do not touch this! -->
     <!-- Bootstrap core JavaScript
@@ -145,14 +194,15 @@ href="http://jmblog.github.io/color-themes-for-google-code-prettify/github/">Git
     <!-- From https://github.com/jmblog/color-themes-for-google-code-prettify -->
     <link href="media/github.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
-	  !function ($) {
-		$(function(){
-		  window.prettyPrint && prettyPrint()   
-		})
-	  }(window.jQuery)
-	</script>
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+    </script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
+
 </html>
